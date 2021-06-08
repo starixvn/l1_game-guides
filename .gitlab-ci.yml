@@ -1,0 +1,4 @@
+include:
+    - project: "ci/repos-ci/pentagon_l1_game_guides"
+      ref: Develop
+      file: "gitlab-ci.yml"
