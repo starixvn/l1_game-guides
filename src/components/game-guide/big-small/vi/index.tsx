@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 const BigSmallGuideVI: React.FC<GameGuide> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel.maxBet, maxbet));
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel.maxBet ? userStakeLevel.maxBet : 0, maxbet));
     return (
         <div>
             <ul className="game-guide">

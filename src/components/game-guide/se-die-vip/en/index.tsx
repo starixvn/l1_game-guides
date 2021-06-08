@@ -6,7 +6,7 @@ import { SedDieName } from "../index";
 const SeDieGuideEN: React.FC<GameGuide> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, choices_maxbet, minbet, maxbet } = gameConfigs;
-    const maxBetStake = userStakeLevel.maxBet;
+    const maxBetStake = userStakeLevel.maxBet ? userStakeLevel.maxBet : 0;
     const maxBetMain = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.even));
     const maxBetRed4 = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.red4));
     const maxBetRed3 = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.red3));

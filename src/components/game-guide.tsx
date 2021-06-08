@@ -1,20 +1,14 @@
 import React from "react";
 import appSettings from "../common/app-settings";
 
-
 import BigSmallGuide from "./game-guide/big-small";
 import BigSmallTurboGuide from "./game-guide/big-small-turbo";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
 import SeDieGuide from "./game-guide/se-die";
 import SeDieVIPGuide from "./game-guide/se-die-vip";
-
+import { UserStakeLevel } from "../pages";
 import Styles from "./game-guide.module.scss";
-
-export interface UserStakeLevel {
-    minBet: number;
-    maxBet: number;
-}
 
 type Props = {
     gameId: number;
@@ -45,16 +39,14 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 4:
                 return <BigSmallTurboGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
-                return null;
+                return <></>;
         }
     };
 
     return (
-       
-            <div className="game-container game-wrapper">
-                <div className={`game-list ${Styles["game-list"]}`}>{renderGuide()}</div>
-            </div>
-    
+        <div className="game-container game-wrapper">
+            <div className={`game-list ${Styles["game-list"]}`}>{renderGuide()}</div>
+        </div>
     );
 };
 

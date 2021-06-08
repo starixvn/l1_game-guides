@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 const DragonTigerGuideVI: React.FC<GameGuide> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel.maxBet, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel.maxBet ? userStakeLevel.maxBet : 0, maxbet) : maxbet);
     return (
         <div>
             <ul className="game-guide">
