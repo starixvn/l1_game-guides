@@ -17,18 +17,7 @@ const Home = () => {
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({
     props: {
-        ...(await serverSideTranslations(locale, [
-            "common",
-            "xocxoc",
-            "taixiu",
-            "baucua",
-            "register",
-            "bethistory",
-            "dragontiger",
-            "vipsedie",
-            "txturbo",
-            "messages",
-        ])),
+        ...(await serverSideTranslations(locale, ["common", "messages"])),
     },
 });
 

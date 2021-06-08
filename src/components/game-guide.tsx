@@ -3,6 +3,7 @@ import BigSmallGuide from "./game-guide/big-small";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
 import SeDieGuide from "./game-guide/se-die";
+import appSettings from "../common/app-settings";
 import Styles from "./game-guide.module.scss";
 
 export interface UserStakeLevel {
@@ -18,18 +19,23 @@ type Props = {
 
 export const GameGuide: React.FC<Props> = (props) => {
     const { gameId } = props;
+    const { gameSettings } = appSettings;
+    const gameGuideProps = {
+        ...props,
+        ...gameSettings[gameId],
+    };
     const renderGuide = () => {
         switch (gameId) {
             case 2:
             case 22:
-                return <SeDieGuide key={`game-${gameId}`} {...props} />;
+                return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 3:
-                return <FishPrawnCrabGuide key={`game-${gameId}`} {...props} />;
+                return <FishPrawnCrabGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 7:
-                return <DragonTigerGuide key={`game-${gameId}`} {...props} />;
+                return <DragonTigerGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 1:
             case 4:
-                return <BigSmallGuide key={`game-${gameId}`} {...props} />;
+                return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return null;
         }
