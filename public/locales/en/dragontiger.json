@@ -1,0 +1,11 @@
+{
+    "gameName": "Dragon Tiger",
+    "tiger": "Tiger",
+    "dragon": "Dragon",
+    "tie": "Tie",
+    "tigerWin": "Tiger win",
+    "dragonWin": "Dragon win",
+    "tigerTextDot":"T",
+    "dragonTextDot":"D",
+    "tieTextDot":"/"
+}
