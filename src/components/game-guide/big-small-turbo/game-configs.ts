@@ -5,7 +5,7 @@ const odds = {
 };
 
 const GameConfigs = {
-    hoices_maxbet: {},
+    choices_maxbet: {},
     enableFreeBet: false,
     maxbet: 2000,
     minbet: 1,

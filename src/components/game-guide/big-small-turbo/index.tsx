@@ -1,13 +1,16 @@
 import React from "react";
 import BigSmallGuideEN from "./en";
 import BigSmallGuideVI from "./vi";
+import GameConfigs from "./game-configs";
+import { GameGuideBase } from "../type";
+import { locales } from "../../../common/constants";
 
-const BigSmallTurboGuide = (props: any) => {
-    const { gameName, locale, gameConfigs, userStakeLevel } = props;
-    const components = {
-        en: <BigSmallGuideEN gameConfigs={gameConfigs} userStakeLevel={userStakeLevel} gameName={gameName} />,
-        vi: <BigSmallGuideVI gameConfigs={gameConfigs} userStakeLevel={userStakeLevel} gameName={gameName} />,
-    };
-    return components["vi"];
+const BigSmallTurboGuide = (props: GameGuideBase) => {
+    const { gameName, locale, userStakeLevel } = props;
+    if (locale === locales.en) {
+        return <BigSmallGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={gameName} />;
+    }
+
+    return <BigSmallGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={gameName} />;
 };
 export default BigSmallTurboGuide;

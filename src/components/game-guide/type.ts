@@ -4,6 +4,13 @@ export type GameGuide = {
     userStakeLevel: UserStakeLevel;
     gameName: string;
     gameId?: number;
+    locale?: string;
+};
+
+export type GameGuideBase = {
+    userStakeLevel: UserStakeLevel;
+    gameName: string;
+    locale?: string;
 };
 
 export interface GameConfigs {
