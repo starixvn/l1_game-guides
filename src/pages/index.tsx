@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import GameGuide from "../components/game-guide";
-import { locales, Themes } from "../common/constants";
+import { locales, Themes, language, languageMapper } from "../common/constants";
 import { GetStaticProps } from "next";
 
 export interface UserStakeLevel {
@@ -14,14 +14,15 @@ export interface UserStakeLevel {
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
-    const [locale, setLocale] = useState<string>("vi");
+    const [locale, setLocale] = useState<string>("vi-VN");
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevel>({ minBet: 0, maxBet: 0 });
     const router = useRouter();
     const queryParams: any = router.query;
+    const asPathCurrent = router.asPath;
     useEffect(() => {
         setUserStakeLevel(queryParams.userStakeLevel && JSON.parse(queryParams.userStakeLevel.toString()));
         setGameId(queryParams?.gameId ? +queryParams.gameId : 0);
-        if (queryParams.locale && locales.hasOwnProperty(queryParams.locale.toString())) {
+        if (queryParams.locale && language.includes(queryParams.locale.toString())) {
             setLocale(queryParams.locale.toString());
         }
 
@@ -30,12 +31,16 @@ const Home = () => {
         }
     }, [queryParams]);
 
-    return <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>;
+    useEffect(() => {
+        router.push(asPathCurrent, asPathCurrent, { locale: languageMapper[locale] });
+    }, [locale]);
+
+    return <GameGuide gameId={gameId} locale={languageMapper[locale]} userStakeLevel={userStakeLevel}></GameGuide>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({
     props: {
-        ...(await serverSideTranslations(locale, ["common", "messages"])),
+        ...(await serverSideTranslations(locale, ["common"])),
     },
 });
 

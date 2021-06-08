@@ -1,4 +1,4 @@
-import { UserStakeLevel } from "../game-guide";
+import { UserStakeLevel } from "../../pages";
 export type GameGuide = {
     gameConfigs: GameConfigs;
     userStakeLevel: UserStakeLevel;

@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 const FishPrawnCrabGuideVI: React.FC<GameGuide> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(userStakeLevel.maxBet ? Math.min(userStakeLevel.maxBet, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(userStakeLevel?.maxBet ? Math.min(userStakeLevel?.maxBet, maxbet) : maxbet);
     const maxChoiceRound = numberWithCommas(choices_maxbet.crab);
     return (
         <div>

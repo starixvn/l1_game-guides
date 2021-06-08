@@ -5,7 +5,7 @@ import { GetStaticProps } from "next";
 import { locales } from "../common/constants";
 
 const Custom404 = () => {
-    const { t } = useTranslation("messages");
+    const { t } = useTranslation("common");
     const { theme } = useTheme();
 
     return (
@@ -22,7 +22,7 @@ const Custom404 = () => {
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({
     props: {
-        ...(await serverSideTranslations(locale, ["messages"])),
+        ...(await serverSideTranslations(locale, ["common"])),
     },
 });
 

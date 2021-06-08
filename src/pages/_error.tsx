@@ -8,7 +8,7 @@ import { locales } from "../common/constants";
 
 const Error = (props: any) => {
     const { err, res } = props;
-    const { t } = useTranslation("messages");
+    const { t } = useTranslation("common");
     const router = useRouter();
     const { theme } = useTheme();
     const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +36,7 @@ const Error = (props: any) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({
     props: {
-        ...(await serverSideTranslations(locale, ["messages"])),
+        ...(await serverSideTranslations(locale, ["common"])),
     },
 });
 
