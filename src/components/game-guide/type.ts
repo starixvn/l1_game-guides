@@ -12,6 +12,7 @@ export type GameGuideBase = {
     userStakeLevel: UserStakeLevel;
     gameName: string;
     locale?: string;
+    id?: number;
 };
 
 export interface GameConfigs {
