@@ -49,11 +49,15 @@ export const GameGuide: React.FC<Props> = (props) => {
     return (
         <div className="game-container">
             <div className={`game-list ${Styles["game-list"]}`}>
-                <div className={Styles["guide-header"]}>
-                    <h1 className={Styles["guide-title"]}>{gameSettings[gameId] && t("titleGuide")}</h1>
-                    <p className={Styles["guide-game-name"]}>{gameId && `(${t(gameSettings[gameId]?.gameName.toLowerCase())})`}</p>
-                </div>
-                {gameSettings[gameId] && renderGuide()}
+                {gameSettings[gameId] && (
+                    <>
+                        <div className={Styles["guide-header"]}>
+                            <h1 className={Styles["guide-title"]}>{t("titleGuide")}</h1>
+                            <p className={Styles["guide-game-name"]}>{`(${t(gameSettings[gameId]?.gameName.toLowerCase())})`}</p>
+                        </div>
+                        {renderGuide()}
+                    </>
+                )}
             </div>
         </div>
     );
