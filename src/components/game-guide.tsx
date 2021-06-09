@@ -1,6 +1,6 @@
 import React from "react";
 import appSettings from "../common/app-settings";
-
+import { useTranslation } from "next-i18next";
 import BigSmallGuide from "./game-guide/big-small";
 import BigSmallTurboGuide from "./game-guide/big-small-turbo";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
@@ -9,16 +9,19 @@ import SeDieGuide from "./game-guide/se-die";
 import SeDieVIPGuide from "./game-guide/se-die-vip";
 import { UserStakeLevel } from "../pages";
 import Styles from "./game-guide.module.scss";
+import { useRouter } from "next/router";
 
 type Props = {
     gameId: number;
-    locale: string;
     userStakeLevel: UserStakeLevel;
 };
 
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, locale, userStakeLevel } = props;
+    const { gameId, userStakeLevel } = props;
     const { gameSettings } = appSettings;
+    const { t } = useTranslation("common");
+    const router = useRouter();
+    const { locale } = router;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
@@ -44,8 +47,14 @@ export const GameGuide: React.FC<Props> = (props) => {
     };
 
     return (
-        <div className="game-container game-wrapper">
-            <div className={`game-list ${Styles["game-list"]}`}>{renderGuide()}</div>
+        <div className="game-container">
+            <div className={`game-list ${Styles["game-list"]}`}>
+                <div className={Styles["guide-header"]}>
+                    <h1 className={Styles["guide-title"]}>{gameSettings[gameId] && t("titleGuide")}</h1>
+                    <p className={Styles["guide-game-name"]}>{gameId && `(${t(gameSettings[gameId]?.gameName.toLowerCase())})`}</p>
+                </div>
+                {gameSettings[gameId] && renderGuide()}
+            </div>
         </div>
     );
 };

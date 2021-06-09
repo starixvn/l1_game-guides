@@ -27,17 +27,7 @@ html {
 
     // z-index
     --header-index: 1071;
-    --bet-setting-index: 200;
-    --popup-index: 250;
     --popup-guide-history-index: 100;
-    --amount-index: 91;
-    --result-animation-index: 90;
-    --balance-betting-pool-index: 80;
-    --waiting-time-index: 80;
-    --overlay-index: 70;
-    --chip-index: 10;
-    --modal-index: 300;
-    --loader-layer-index: 250;
 
     // dots
     --dot-even-border: #c4c4c4;
@@ -66,37 +56,9 @@ html {
 }
 
 [data-theme="light"] {
-    --page-background: #dce2f3;
+    --page-background: #fff;
     --text-color: #2c2f3e;
-
-    --tooltip-background: rgba(255, 172, 43, 0.6);
-    --tooltip-color: #2c2f3e;
-
     --border-color: #dce2f3;
-
-    --opacity-background: rgba(12, 12, 12, 0.36);
-    --opacity-background-grey: rgba(221, 221, 221, 0.6);
-
-    // messsage info
-    --waiting-color: #ffb335;
-
-    --success-background: #e3ffda;
-    --success-color: #5bb379;
-
-    --error-background: #ffdede;
-    --error-color: #ff0000;
-
-    // dropdown
-    --dropdown-background: #fff;
-    --dropdown-border: #d7d7d7;
-    --dropdown-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
-    --dropdown-item-color: var(-text-color);
-    --dropdown-item-background: #fff;
-    --dropdown-item-background-hover: #ffd487;
-    --dropdown-item-color-hover: var(-text-color);
-
-    --icon-close-background: #eaebf0;
-    --icon-close-color: #4f4f54;
 
     --sedie-even-color: #a6a6a6;
     --sedie-odd-color: #de4b56;
@@ -104,40 +66,15 @@ html {
     // scrollbar
     --scrollbar-background: #f5f5f5;
     --scrollbar-thumb-background: #828282;
+
+    --guide-title-color: #2c2f3e;
+    --guide-game-name-color: #ff9a00;
 }
 
 [data-theme="dark"] {
     --page-background: #101821;
     --text-color: #fff;
-
-    --tooltip-background: rgba(79, 112, 143, 0.8);
-    --tooltip-color: #ffffff;
-
     --border-color: #364252;
-
-    --opacity-background: rgba(0, 0, 0, 0.6);
-    --opacity-background-grey: rgba(0, 0, 0, 0.6);
-
-    // messsage info
-    --waiting-color: #ffb335;
-
-    --success-background: #121f2c;
-    --success-color: #5bb379;
-
-    --error-background: #121f2c;
-    --error-color: #ff0000;
-
-    // dropdown
-    --dropdown-background: #203040;
-    --dropdown-border: #3b526c;
-    --dropdown-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
-    --dropdown-item-color: #8dadce;
-    --dropdown-item-background: #203040;
-    --dropdown-item-background-hover: #2c4055;
-    --dropdown-item-color-hover: #ffab2b;
-
-    --icon-close-background: #7d8a98;
-    --icon-close-color: #1a2430;
 
     --sedie-even-color: #e0e4e7;
     --sedie-odd-color: #de4b56;
@@ -145,6 +82,9 @@ html {
     // scrollbar
     --scrollbar-background: #16202d;
     --scrollbar-thumb-background: #294057;
+
+    --guide-title-color: #fff;
+    --guide-game-name-color: #ff9a00;
 }
 
 body {
@@ -162,45 +102,13 @@ body {
     width: 100%;
     margin: 0 auto;
 
-    &.game-wrapper {
-        margin-top: 6.1rem;
-    }
-
     @media (min-width: 1280px) {
         width: 123.2rem;
     }
 }
 
-.overlay-mask-no-bg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: var(--overlay-index);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay-mask {
-    @extend .overlay-mask-no-bg;
-    background: var(--opacity-background);
-}
-
-.overlay-mask-white {
-    @extend .overlay-mask-no-bg;
-    background: var(--opacity-background-grey);
-    opacity: 0.9;
-}
-
 label {
     margin-bottom: 0;
-}
-
-.img-fluid {
-    max-width: 100%;
-    height: auto;
 }
 
 ::-webkit-scrollbar-track {
@@ -220,23 +128,4 @@ label {
 
 .font-weight-medium {
     font-weight: 500;
-}
-
-.icon-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    background: var(--icon-close-background);
-
-    &:before {
-        font-size: 1.2rem;
-        color: var(--icon-close-color);
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
 }

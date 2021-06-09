@@ -1,6 +1,6 @@
 import React from "react";
-import BigSmallGuideEN from "./en";
-import BigSmallGuideVI from "./vi";
+import BigSmallGuideEN from "../big-small/en";
+import BigSmallGuideVI from "../big-small/vi";
 import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
