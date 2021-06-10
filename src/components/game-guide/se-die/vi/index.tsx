@@ -1,18 +1,13 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameGuide } from "../../type";
 import { SedDieName, SedDieNameMapping } from "..";
 
 const SeDieGuideVI: React.FC<GameGuide> = (props) => {
-    const { gameConfigs, userStakeLevel, gameName } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const gameId = props?.gameId ? props?.gameId : SedDieName.XocXoc;
-    const { odds, choices_maxbet, minbet, maxbet } = gameConfigs;
-    const maxBetStake = userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0;
-    const maxBetMain = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.even));
-    const maxBetRed4 = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.red4));
-    const maxBetRed3 = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.red3));
-    const maxBetRed2 = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.red2));
-    const maxBetRound = numberWithCommas(Math.min(maxBetStake, maxbet, maxbet));
+    const { odds, minbet } = gameConfigs;
+    const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
+
     return (
         <div>
             <ul className="game-guide">

@@ -11,6 +11,10 @@ export interface UserStakeLevel {
     maxBet: number;
 }
 
+const CheckIsInteger = (number: string | number | object) => {
+    return Number.isInteger(+number) ? +number : 0;
+};
+
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
@@ -24,15 +28,18 @@ const Home = () => {
 
     useEffect(() => {
         setIsChangeLocale(false);
-        setUserStakeLevel(queryParams.userStakeLevel && JSON.parse(queryParams.userStakeLevel.toString()));
-        setGameId(queryParams?.gameId ? +queryParams.gameId : 0);
-        if (queryParams.locale && language.includes(queryParams.locale.toString())) {
-            setLocaleParam(queryParams.locale.toString());
+        if (queryParams?.minBet || queryParams?.maxBet) {
+            setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
+        }
+
+        setGameId(CheckIsInteger(queryParams?.gId));
+        if (queryParams?.lang && language.includes(queryParams.lang.toString())) {
+            setLocaleParam(queryParams.lang.toString());
             setIsChangeLocale(true);
         }
 
-        if (queryParams.displayMode && Themes.hasOwnProperty(queryParams.displayMode.toString())) {
-            setTheme(queryParams.displayMode.toString());
+        if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
+            setTheme(queryParams.t.toString());
         }
 
         const timeOut = setTimeout(() => setIsLoading(false), 1000);
