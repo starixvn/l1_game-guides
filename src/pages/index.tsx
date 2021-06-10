@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import GameGuide from "../components/game-guide";
 import { locales, Themes, language, languageMapper } from "../common/constants";
 import { GetStaticProps } from "next";
+import appSettings from "../common/app-settings";
 
 export interface UserStakeLevel {
     minBet: number;
@@ -17,6 +18,7 @@ const CheckIsInteger = (number: string | number | object) => {
 
 const Home = () => {
     const { setTheme } = useTheme();
+    const { gameSettings } = appSettings;
     const [gameId, setGameId] = useState<number>(0);
     const [localeParam, setLocaleParam] = useState<string>("");
     const [isChangeLocale, setIsChangeLocale] = useState<boolean>(false);
@@ -54,7 +56,7 @@ const Home = () => {
         }
     }, [localeParam]);
 
-    return !isLoading ? <GameGuide gameId={gameId} userStakeLevel={userStakeLevel}></GameGuide> : <></>;
+    return !isLoading && gameSettings[gameId] ? <GameGuide gameId={gameId} userStakeLevel={userStakeLevel}></GameGuide> : <></>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({

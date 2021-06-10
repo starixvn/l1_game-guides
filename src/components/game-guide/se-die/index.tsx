@@ -2,13 +2,13 @@ import React from "react";
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
 import GameConfigs from "./game-configs";
+import GameConfigsVIP from "../se-die-vip/game-configs";
 import { GameGuideBase, GameConfigsProps } from "../type";
 import { locales, IObjectKeys } from "../../../common/constants";
 import { useTranslation } from "next-i18next";
 import { UserStakeLevel } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 
-export const SedDieNameMapping: IObjectKeys = { "2": "XocXoc", "22": "VipSeDie" };
 export const SedDieName: IObjectKeys = { XocXoc: "XocXoc", VipSeDie: "VipSeDie" };
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: GameConfigsProps) => {
@@ -23,14 +23,15 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: 
     return { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound };
 };
 const SeDieGuide = (props: GameGuideBase) => {
-    const { gameName, id, locale, userStakeLevel } = props;
     const { t } = useTranslation("common");
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, GameConfigs);
+    const { gameName, id, locale, userStakeLevel } = props;
+    const gameConfigs = gameName === SedDieName.VipSeDie ? GameConfigsVIP : GameConfigs;
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
 
     if (locale === locales.en) {
         return (
             <SeDieGuideEN
-                gameConfigs={GameConfigs}
+                gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
                 gameName={t(gameName.toLowerCase())}
                 gameId={id}
@@ -40,7 +41,7 @@ const SeDieGuide = (props: GameGuideBase) => {
     }
     return (
         <SeDieGuideVI
-            gameConfigs={GameConfigs}
+            gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
             gameName={t(gameName.toLowerCase())}
             gameId={id}
