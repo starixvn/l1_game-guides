@@ -44,7 +44,7 @@ const Home = () => {
             setTheme(queryParams.t.toString());
         }
 
-        const timeOut = setTimeout(() => setIsLoading(false), 1000);
+        const timeOut = setTimeout(() => setIsLoading(false), 500);
         return () => {
             clearTimeout(timeOut);
         };
