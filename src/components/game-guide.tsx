@@ -49,7 +49,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                     <h1 className={Styles["guide-title"]}>{t("titleGuide")}</h1>
                     <p className={Styles["guide-game-name"]}>{`(${t(gameSettings[gameId]?.gameName.toLowerCase())})`}</p>
                 </div>
-                {renderGuide()}
+                <div className={Styles["guide-content"]}>{renderGuide()}</div>
+                
             </div>
         </div>
     );
