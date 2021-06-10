@@ -8,7 +8,6 @@ import SeDieGuide from "./game-guide/se-die";
 import { UserStakeLevel } from "../pages";
 import Styles from "./game-guide.module.scss";
 import { useRouter } from "next/router";
-import { v4 as uuidv4 } from "uuid";
 
 type Props = {
     gameId: number;
@@ -44,7 +43,7 @@ export const GameGuide: React.FC<Props> = (props) => {
     };
 
     return (
-        <div key={uuidv4} className="game-container">
+        <div className="game-container">
             <div className={`game-list ${Styles["game-list"]}`}>
                 <div className={Styles["guide-header"]}>
                     <h1 className={Styles["guide-title"]}>{t("titleGuide")}</h1>
