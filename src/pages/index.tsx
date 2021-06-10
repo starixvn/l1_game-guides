@@ -20,41 +20,36 @@ const Home = () => {
     const { setTheme } = useTheme();
     const { gameSettings } = appSettings;
     const [gameId, setGameId] = useState<number>(0);
-    const [localeParam, setLocaleParam] = useState<string>("");
-    const [isChangeLocale, setIsChangeLocale] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevel>({ minBet: 0, maxBet: 0 });
     const router = useRouter();
-    const asPathCurrent = router.asPath;
-    const queryParams: any = router.query;
 
+    const handleChangeLocale = async (locate: string, currentURL: string) => {
+        return await router.push(currentURL, currentURL, { locale: languageMapper[locate] });
+    };
     useEffect(() => {
-        setIsChangeLocale(false);
-        if (queryParams?.minBet || queryParams?.maxBet) {
-            setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
-        }
+        if (router.isReady) {
+            const currentURL = router.asPath;
+            const queryParams: any = router.query;
 
-        setGameId(CheckIsInteger(queryParams?.gId));
-        if (queryParams?.lang && language.includes(queryParams.lang.toString())) {
-            setLocaleParam(queryParams.lang.toString());
-            setIsChangeLocale(true);
-        }
+            setGameId(CheckIsInteger(queryParams?.gId));
+            if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
+                setTheme(queryParams.t.toString());
+            }
 
-        if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
-            setTheme(queryParams.t.toString());
+            if (queryParams?.lang && language.includes(queryParams.lang.toString())) {
+                handleChangeLocale(queryParams.lang.toString(), currentURL).then(() => {
+                    setIsLoading(false);
+                });
+            }
+            if (queryParams?.minBet || queryParams?.maxBet) {
+                setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
+            }
+            return () => {
+                setIsLoading(false);
+            };
         }
-
-        const timeOut = setTimeout(() => setIsLoading(false), 500);
-        return () => {
-            clearTimeout(timeOut);
-        };
-    }, [queryParams]);
-
-    useEffect(() => {
-        if (isChangeLocale) {
-            router.push(asPathCurrent, asPathCurrent, { locale: languageMapper[localeParam] });
-        }
-    }, [localeParam]);
+    }, [router.isReady]);
 
     return !isLoading && gameSettings[gameId] ? <GameGuide gameId={gameId} userStakeLevel={userStakeLevel}></GameGuide> : <></>;
 };
