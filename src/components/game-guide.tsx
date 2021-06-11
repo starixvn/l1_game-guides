@@ -44,14 +44,7 @@ export const GameGuide: React.FC<Props> = (props) => {
 
     return (
         <div className="game-container">
-            <div className={`game-list ${Styles["game-list"]}`}>
-                <div className={Styles["guide-header"]}>
-                    <h1 className={Styles["guide-title"]}>{t("titleGuide")}</h1>
-                    <p className={Styles["guide-game-name"]}>{`(${t(gameSettings[gameId]?.gameName.toLowerCase())})`}</p>
-                </div>
-                <div className={Styles["guide-content"]}>{renderGuide()}</div>
-                
-            </div>
+            <div className={`game-list ${Styles["game-list"]}`}>{renderGuide()}</div>
         </div>
     );
 };
