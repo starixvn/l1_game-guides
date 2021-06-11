@@ -25,12 +25,19 @@ const Home = () => {
     const router = useRouter();
 
     const handleChangeLocale = async (locate: string, currentURL: string) => {
-        return await router.push(currentURL, currentURL, { locale: languageMapper[locate] });
+        return router.push(currentURL, currentURL, { locale: languageMapper[locate] });
     };
+
+    const handleStakeLevel = (queryParams: object | any) => {
+        if (queryParams?.minBet || queryParams?.maxBet) {
+            setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
+        }
+    };
+
     useEffect(() => {
         if (router.isReady) {
             const currentURL = router.asPath;
-            const queryParams: any = router.query;
+            const queryParams: object | any = router.query;
 
             setGameId(CheckIsInteger(queryParams?.gId));
             if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
@@ -42,14 +49,15 @@ const Home = () => {
                     setIsLoading(false);
                 });
             }
-            if (queryParams?.minBet || queryParams?.maxBet) {
-                setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
-            }
-            return () => {
-                setIsLoading(false);
-            };
+            handleStakeLevel(queryParams);
         }
     }, [router.isReady]);
+
+    useEffect(() => {
+        return () => {
+            setIsLoading(false);
+        };
+    }, []);
 
     return !isLoading && gameSettings[gameId] ? <GameGuide gameId={gameId} userStakeLevel={userStakeLevel}></GameGuide> : <></>;
 };

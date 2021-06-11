@@ -110,6 +110,81 @@ const renderGameTermsAndConditions = () => {
     );
 };
 
+const renderPointCalculationRules = (gameName: string) => {
+    return (
+        <>
+            <h2>Point Calculation Rules</h2>
+            <p>
+                All cards from 2 to 9 are counted at face value and an Ace is counted as one. Picture cards (Jack, Queen, King) and Tens are
+                counted as zero.
+            </p>
+            <ul className="desc">
+                <li>
+                    Card’s point values:
+                    <ul className="detail">
+                        <li>The cards (2 to 9) are counted at face value.</li>
+                        <li>10 or face cards (Jack, Queen, King) have a value of 0, and Aces have a value of 1</li>
+                    </ul>
+                </li>
+                <li>
+                    When the total points exceed nine, the first digit of the total is dropped, and the second digit is the value of the
+                    hand.
+                </li>
+                <table className="table text-center">
+                    <thead>
+                        <tr>
+                            <th>First Two Cards</th>
+                            <th>Third Card</th>
+                            <th>Totals</th>
+                            <th>Total Points Based On {gameName} Rules</th>
+                        </tr>
+                    </thead>
+                    {renderTBodyPointCalculationRules()}
+                </table>
+            </ul>
+        </>
+    );
+};
+
+export const renderTBodyPointCalculationRules = () => {
+    return (
+        <>
+            <tbody>
+                <tr>
+                    <td>4, 5</td>
+                    <td></td>
+                    <td>4 + 5 = 9</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>8, 8</td>
+                    <td></td>
+                    <td>8 + 8 = 16</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7, 3</td>
+                    <td></td>
+                    <td>7 + 3 = 10</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>9, 4</td>
+                    <td>8</td>
+                    <td>9 + 4 + 8 = 21</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>A, K</td>
+                    <td>10</td>
+                    <td>1 + 0 + 0 = 1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </>
+    );
+};
+
 const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
     const { gameConfigs, gameName, userStakeLevel, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
@@ -131,68 +206,7 @@ const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                <li className="guide-item">
-                    <h2>Point Calculation Rules</h2>
-                    <p>
-                        All cards from 2 to 9 are counted at face value and an Ace is counted as one. Picture cards (Jack, Queen, King) and
-                        Tens are counted as zero.
-                    </p>
-                    <ul className="desc">
-                        <li>
-                            Card’s point values:
-                            <ul className="detail">
-                                <li>The cards (2 to 9) are counted at face value.</li>
-                                <li>10 or face cards (Jack, Queen, King) have a value of 0, and Aces have a value of 1</li>
-                            </ul>
-                        </li>
-                        <li>
-                            When the total points exceed nine, the first digit of the total is dropped, and the second digit is the value of
-                            the hand.
-                        </li>
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>First Two Cards</th>
-                                    <th>Third Card</th>
-                                    <th>Totals</th>
-                                    <th>Total Points Based On {gameName} Rules</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>4, 5</td>
-                                    <td></td>
-                                    <td>4 + 5 = 9</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <td>8, 8</td>
-                                    <td></td>
-                                    <td>8 + 8 = 16</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>7, 3</td>
-                                    <td></td>
-                                    <td>7 + 3 = 10</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>9, 4</td>
-                                    <td>8</td>
-                                    <td>9 + 4 + 8 = 21</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>A, K</td>
-                                    <td>10</td>
-                                    <td>1 + 0 + 0 = 1</td>
-                                    <td>1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
-                </li>
+                <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Third Card Rules</h2>
                     <ul className="desc">

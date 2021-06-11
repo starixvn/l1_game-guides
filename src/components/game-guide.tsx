@@ -1,6 +1,5 @@
 import React from "react";
 import appSettings from "../common/app-settings";
-import { useTranslation } from "next-i18next";
 import BigSmallGuide from "./game-guide/big-small";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
@@ -18,7 +17,6 @@ type Props = {
 export const GameGuide: React.FC<Props> = (props) => {
     const { gameId, userStakeLevel } = props;
     const { gameSettings } = appSettings;
-    const { t } = useTranslation("common");
     const router = useRouter();
     const { locale } = router;
     const gameGuideProps = {

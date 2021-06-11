@@ -2,6 +2,7 @@ import React from "react";
 import { GameGuide } from "../../type";
 import { BaccaratVip } from "..";
 import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderTBodyPointCalculationRules } from "../en";
 
 const renderGameRule = (maxBetRound: number | string, minbet: number) => {
     return (
@@ -67,7 +68,7 @@ const renderGameRule = (maxBetRound: number | string, minbet: number) => {
                                 </tr>
                                 <tr>
                                     <td>Xỉu</td>
-                                    <td className="text-start">PPhiên kết thúc với tổng số lá bài của Nhà Con và Nhà Cái là 4 lá.</td>
+                                    <td className="text-start">Phiên kết thúc với tổng số lá bài của Nhà Con và Nhà Cái là 4 lá.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -103,6 +104,36 @@ const renderGameTermsAndConditions = () => {
     );
 };
 
+const renderPointCalculationRules = (gameName: string) => {
+    return (
+        <>
+            <h2>Quy tắc tính điểm</h2>
+            <ul className="desc">
+                <li>
+                    Điểm số các lá bài trong Rồng Hổ sẽ được tính như sau:
+                    <ul className="detail">
+                        <li>Các lá bài từ 2 đến 9 có giá trị tùy theo số trên mỗi lá bài; lá A được tính là 1 điểm.</li>
+                        <li>Các lá 10, J, Q, K được tính là 0 điểm.</li>
+                    </ul>
+                </li>
+                <li>Tổng điểm các lá bài sẽ được tính dựa trên con số ở hàng đơn vị. </li>
+                <strong>Ví dụ:</strong>
+                <table className="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Hai lá bài đầu</th>
+                            <th>Lá thứ ba</th>
+                            <th>Điểm số</th>
+                            <th>Tổng điểm tính theo {gameName} </th>
+                        </tr>
+                    </thead>
+                    {renderTBodyPointCalculationRules()}
+                </table>
+            </ul>
+        </>
+    );
+};
+
 const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
@@ -126,62 +157,7 @@ const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetRound, minbet)}</li>
-                <li className="guide-item">
-                    <h2>Quy tắc tính điểm</h2>
-                    <ul className="desc">
-                        <li>
-                            Điểm số các lá bài trong Rồng Hổ sẽ được tính như sau:
-                            <ul className="detail">
-                                <li>Các lá bài từ 2 đến 9 có giá trị tùy theo số trên mỗi lá bài; lá A được tính là 1 điểm.</li>
-                                <li>Các lá 10, J, Q, K được tính là 0 điểm.</li>
-                            </ul>
-                        </li>
-                        <li>Tổng điểm các lá bài sẽ được tính dựa trên con số ở hàng đơn vị. </li>
-                        <strong>Ví dụ:</strong>
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Hai lá bài đầu</th>
-                                    <th>Lá thứ ba</th>
-                                    <th>Điểm số</th>
-                                    <th>Tổng điểm tính theo {gameName} </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>4, 5</td>
-                                    <td></td>
-                                    <td>4 + 5 = 9</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <td>8, 8</td>
-                                    <td></td>
-                                    <td>8 + 8 = 16</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>7, 3</td>
-                                    <td></td>
-                                    <td>7 + 3 = 10</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>9, 4</td>
-                                    <td>8</td>
-                                    <td>9 + 4 + 8 = 21</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td>A, K</td>
-                                    <td>10</td>
-                                    <td>1 + 0 + 0 = 1</td>
-                                    <td>1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
-                </li>
+                <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
                     <ul className="desc">

@@ -4,7 +4,7 @@ import BaccaratGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../baccarat-vip/game-configs";
 import { GameGuideBase, GameConfigsProps } from "../type";
-import { locales, IObjectKeys } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 import { useTranslation } from "next-i18next";
 import { UserStakeLevel } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
