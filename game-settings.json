@@ -19,8 +19,16 @@
         "id": 7,
         "gameName": "DragonTiger"
     },
+    "10": {
+        "id": 10,
+        "gameName": "Baccarat"
+    },
     "22": {
         "id": 22,
         "gameName": "VipSeDie"
+    },
+    "27": {
+        "id": 27,
+        "gameName": "VipBaccarat"
     }
 }

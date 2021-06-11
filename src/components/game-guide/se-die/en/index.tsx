@@ -1,6 +1,6 @@
 import React from "react";
 import { GameGuide } from "../../type";
-import { SedDieName } from "..";
+import { SeDieVip } from "..";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -181,7 +181,7 @@ const renderGameTermsAndConditions = () => {
 };
 
 const SeDieGuideEN: React.FC<GameGuide> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
 
@@ -192,7 +192,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                     <h2>Introduction</h2>
                     <p className="content">
                         {gameName}{" "}
-                        {gameName === SedDieName.VipSeDie
+                        {SeDieVip.includes(gameId ? gameId : SeDieVip[0])
                             ? " is another version of the Se Die game with higher betting limits. "
                             : "is a popular game in Asian countries. "}
                         The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this

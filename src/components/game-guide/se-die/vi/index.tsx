@@ -1,6 +1,6 @@
 import React from "react";
 import { GameGuide } from "../../type";
-import { SedDieName } from "..";
+import { SeDieVip } from "..";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -182,7 +182,7 @@ const renderGameTermsAndConditions = () => {
 };
 
 const SeDieGuideVI: React.FC<GameGuide> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
 
@@ -193,7 +193,7 @@ const SeDieGuideVI: React.FC<GameGuide> = (props) => {
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName}{" "}
-                        {gameName === SedDieName.VipSeDie
+                        {SeDieVip.includes(gameId ? gameId : SeDieVip[0])
                             ? "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. "
                             : "là trò chơi có nguồn gốc dân gian từ lâu đời. "}
                         Trò chơi có luật và cách chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế

@@ -98,7 +98,7 @@ const DragonTigerGuideVI: React.FC<GameGuide> = (props) => {
                                         <tr>
                                             <td>Rồng</td>
                                             <td rowSpan={2}>
-                                                {minbet} - {numberWithCommas(choices_maxbet.dragon)}
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.dragon)}
                                             </td>
                                             <td rowSpan={2}>1:{odds.dragon}</td>
                                         </tr>
@@ -108,7 +108,7 @@ const DragonTigerGuideVI: React.FC<GameGuide> = (props) => {
                                         <tr>
                                             <td>Hòa</td>
                                             <td>
-                                                {minbet} - {numberWithCommas(choices_maxbet.tie)}
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.tie)}
                                             </td>
                                             <td>1:{odds.tie}</td>
                                         </tr>

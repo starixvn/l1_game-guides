@@ -9,8 +9,7 @@ import { useTranslation } from "next-i18next";
 import { UserStakeLevel } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 
-export const SedDieName: IObjectKeys = { XocXoc: "XocXoc", VipSeDie: "VipSeDie" };
-
+export const SeDieVip = [22];
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: GameConfigsProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
     const maxBetStake = userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0;
@@ -25,7 +24,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: 
 const SeDieGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
     const { gameName, id, locale, userStakeLevel } = props;
-    const gameConfigs = gameName === SedDieName.VipSeDie ? GameConfigsVIP : GameConfigs;
+    const gameConfigs = SeDieVip.includes(id ? id : SeDieVip[0]) ? GameConfigsVIP : GameConfigs;
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
 
     if (locale === locales.en) {

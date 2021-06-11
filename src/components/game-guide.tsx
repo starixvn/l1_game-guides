@@ -5,6 +5,7 @@ import BigSmallGuide from "./game-guide/big-small";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
 import SeDieGuide from "./game-guide/se-die";
+import BaccaratGuide from "./game-guide/baccarat";
 import { UserStakeLevel } from "../pages";
 import Styles from "./game-guide.module.scss";
 import { useRouter } from "next/router";
@@ -27,6 +28,9 @@ export const GameGuide: React.FC<Props> = (props) => {
     };
     const renderGuide = () => {
         switch (gameId) {
+            case 1:
+            case 4:
+                return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 2:
             case 22:
                 return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
@@ -34,9 +38,9 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <FishPrawnCrabGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 7:
                 return <DragonTigerGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 1:
-            case 4:
-                return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 10:
+            case 27:
+                return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
