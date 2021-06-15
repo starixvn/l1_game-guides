@@ -3,6 +3,7 @@ import appSettings from "../common/app-settings";
 import BigSmallGuide from "./game-guide/big-small";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
+import FishPrawnCrabVIPGuide from "./game-guide/fish-prawn-crab-vip";
 import SeDieGuide from "./game-guide/se-die";
 import BaccaratGuide from "./game-guide/baccarat";
 import { UserStakeLevel } from "../pages";
@@ -32,6 +33,7 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 2:
             case 22:
                 return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
+
             case 3:
                 return <FishPrawnCrabGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 7:
@@ -39,6 +41,8 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 10:
             case 27:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 26:
+                return <FishPrawnCrabVIPGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
