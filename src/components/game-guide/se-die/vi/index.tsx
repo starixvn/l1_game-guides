@@ -1,6 +1,7 @@
 import React from "react";
 import { GameGuide } from "../../type";
 import { SeDieVip } from "..";
+import { renderTermsAndConditionsVI } from "../../../shared";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -150,31 +151,6 @@ const renderGameRule = (maxBetRound: number | string) => {
                 <li>
                     Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ
                     được hiển thị đếm ngược trên bàn chơi.
-                </li>
-            </ul>
-        </>
-    );
-};
-const renderGameTermsAndConditions = () => {
-    return (
-        <>
-            <h2>Các quy định trong game</h2>
-            <ul className="game-rules">
-                <li className="rule">
-                    Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ thuật
-                    nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.
-                </li>
-                <li className="rule">
-                    Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược khi nghi ngờ khách hàng có những hoạt động gian lận,
-                    tham gia lừa đảo, câu kết, rửa tiền hay các hoạt động bất hợp pháp khác.
-                </li>
-                <li className="rule">
-                    Công ty có quyền hủy hoặc làm mất hiệu lực mọi lượt cược khi có lỗi (thuộc về con người hay yếu tố khác) hoặc sự cố hệ
-                    thống dẫn đến việc sử dụng sai tỷ lệ trả thưởng.
-                </li>
-                <li className="rule">
-                    Tất cả các lượt cược vào các phiên cược đã được chấp nhận vẫn sẽ có hiệu lực ngay cả khi sau đó thành viên đăng xuất
-                    hoặc bị ngắt kết nối khỏi hệ thống game vì bất kỳ lý do gì.
                 </li>
             </ul>
         </>
@@ -360,7 +336,7 @@ const SeDieGuideVI: React.FC<GameGuide> = (props) => {
                         </table>
                     </div>
                 </li>
-                <li className="guide-item">{renderGameTermsAndConditions()}</li>
+                {renderTermsAndConditionsVI()}
             </ul>
         </div>
     );

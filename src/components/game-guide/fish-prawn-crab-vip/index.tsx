@@ -2,10 +2,9 @@ import React from "react";
 import FishPrawnCrabGuideEN from "./en";
 import FishPrawnCrabGuideVI from "./vi";
 import GameConfigs from "./game-configs";
-import { GameGuideBase } from "../type";
+import { GameGuideBase, GameConfigsProps } from "../type";
 import { locales } from "../../../common/constants";
 import { useTranslation } from "next-i18next";
-import { GameConfigsProps } from "../type";
 import { UserStakeLevel } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 

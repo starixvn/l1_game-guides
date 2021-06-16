@@ -1,6 +1,7 @@
 import React from "react";
 import { GameGuide } from "../../type";
 import { SeDieVip } from "..";
+import { renderTermsAndConditionsEN } from "../../../shared";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -150,31 +151,6 @@ const renderGameRule = (maxBetRound: number | string) => {
                     expires. Note, placed bets cannot be canceled.
                 </li>
                 <li>The maximum total stake per round is {maxBetRound}</li>
-            </ul>
-        </>
-    );
-};
-const renderGameTermsAndConditions = () => {
-    return (
-        <>
-            <h2>Terms and Conditions</h2>
-            <ul className="game-rules">
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets because of a force majeure event including but not limited to
-                    any technical errors, network service failures, power failures.
-                </li>
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets of players we believe to be involved in fraud, money
-                    laundering, or any other form of illegal or suspicious activities.
-                </li>
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets when there is an error (caused by human or any other factors),
-                    or a system failure resulting in an incorrect payout ratio.
-                </li>
-                <li className="rule">
-                    All accepted bets will still be effective even if the member subsequently logs out or is disconnected from the site for
-                    any reason.
-                </li>
             </ul>
         </>
     );
@@ -344,15 +320,15 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                     <td>1 red, 3 white</td>
                                     <td>
                                         <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
+                                            <span className="dot-odd en"></span>
+                                            <span className="dot-even en"></span>
+                                            <span className="dot-even en"></span>
+                                            <span className="dot-even en"></span>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="d-flex justify-content-center">
-                                            <span className="dot-odd">1</span>
+                                            <span className="dot-odd en">1</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -360,7 +336,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                         </table>
                     </div>
                 </li>
-                <li className="guide-item">{renderGameTermsAndConditions()}</li>
+                {renderTermsAndConditionsEN()}
             </ul>
         </div>
     );

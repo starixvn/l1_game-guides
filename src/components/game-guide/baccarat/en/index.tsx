@@ -2,6 +2,7 @@ import React from "react";
 import { GameGuide } from "../../type";
 import { BaccaratVip } from "..";
 import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderTermsAndConditionsEN } from "../../../shared";
 
 const renderGameRule = () => {
     return (
@@ -79,31 +80,6 @@ const renderGameRule = () => {
                             </tbody>
                         </table>
                     </div>
-                </li>
-            </ul>
-        </>
-    );
-};
-const renderGameTermsAndConditions = () => {
-    return (
-        <>
-            <h2>Các quy định trong game</h2>
-            <ul className="game-rules">
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets because of a force majeure event including but not limited to
-                    any technical errors, network service failures, power failures.
-                </li>
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets of players we believe to be involved in fraud, money
-                    laundering, or any other form of illegal or suspicious activities.
-                </li>
-                <li className="rule">
-                    The Company reserves the right to cancel or void any bets when there is an error (caused by human or any other factors),
-                    or a system failure resulting in an incorrect payout ratio.
-                </li>
-                <li className="rule">
-                    All accepted bets will still be effective even if the member subsequently logs out or is disconnected from the site for
-                    any reason.
                 </li>
             </ul>
         </>
@@ -368,7 +344,7 @@ const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>
                 </li>
-                <li className="guide-item">{renderGameTermsAndConditions()}</li>
+                {renderTermsAndConditionsEN()}
             </ul>
         </div>
     );
