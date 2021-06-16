@@ -1,9 +1,12 @@
 import React from "react";
 import { GameGuide } from "../../type";
-import { SeDieVip } from "..";
 import { renderTermsAndConditionsVI } from "../../../shared";
+import { SeDieMini } from "../index";
+import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../";
 
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, minbet: string) => {
+    const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
     return (
         <>
             <h2>Cách chơi</h2>
@@ -16,134 +19,59 @@ const renderGameRule = (maxBetRound: number | string) => {
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
                     phiên là {maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
-                <li className="contentBeforeEmpty">
+                <li>
+                    Giới hạn cược:
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Lựa Chọn</th>
-                                    <th>Điều Kiện Thắng</th>
-                                    <th>Mô Tả</th>
+                                    <th>Giới Hạn Cược (Min - Max)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Lẻ</td>
-                                    <td>3 đỏ, 1 trắng </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
+                                    <td rowSpan={2}>
+                                        <strong>2 cửa chính</strong>
+                                    </td>
+                                    <td>Chẵn</td>
+                                    <td rowSpan={2}>
+                                        {minbet} - {maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
+                                    <td>Lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3}>Chẵn</td>
+                                    <td rowSpan={5}>
+                                        <strong>{!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) ? 5 : 4} cửa phụ</strong>
+                                    </td>
                                     <td>4 đỏ</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
+                                    <td rowSpan={2}>
+                                        {minbet} - {maxBetRed4}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>4 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 đỏ</td>
-                                    <td>4 đỏ</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    <td>4 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>3 đỏ, 1 trắng</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
+                                    <td rowSpan={2}>
+                                        {minbet} - {maxBetRed3}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>1 đỏ, 3 trắng</td>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
+                                {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                                    <tr>
+                                        <td>2 đỏ, 2 trắng</td>
+                                        <td>
+                                            {minbet} - {maxBetRed2}
+                                        </td>
+                                    </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -157,10 +85,87 @@ const renderGameRule = (maxBetRound: number | string) => {
     );
 };
 
+const renderStatistical = () => {
+    return (
+        <li className="guide-item">
+            <h2>Bảng thống kê kết quả</h2>
+            <div className="table-container">
+                <table className="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Kết Quả</th>
+                            <th>Mô Tả</th>
+                            <th>Ký Hiệu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4 đỏ</td>
+                            {renderFourRed()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">4</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4 trắng</td>
+                            {renderFourWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">0</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2 đỏ, 2 trắng</td>
+                            {renderTwoRedTwoWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">2</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3 đỏ, 1 trắng</td>
+                            {renderThreeRedOneWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-odd">3</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1 đỏ, 3 trắng</td>
+                            {renderOneRedThreeWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-odd">1</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    );
+};
+
 const SeDieGuideVI: React.FC<GameGuide> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
-    const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
+    const gameDescription = () => {
+        switch (gameId) {
+            case 9:
+                const description1 = "là bản rút gọn - mini game của trò Xóc Đĩa, với giao diện đơn giản, ";
+                const description2 = "nhẹ nhàng nhưng không kém phần lôi cuốn - hấp dẫn.";
+                return `${description1}${description2} `;
+            case 22:
+                return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
+            default:
+                return "là trò chơi có nguồn gốc dân gian từ lâu đời. ";
+        }
+    };
 
     return (
         <div>
@@ -168,16 +173,13 @@ const SeDieGuideVI: React.FC<GameGuide> = (props) => {
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {SeDieVip.includes(gameId ? gameId : SeDieVip[0])
-                            ? "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. "
-                            : "là trò chơi có nguồn gốc dân gian từ lâu đời. "}
+                        {gameName} {gameDescription()}
                         Trò chơi có luật và cách chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế
                         2 mặt đỏ và trắng. Người chơi sẽ đặt cược vào các lựa chọn (cửa) có sẵn. Kết quả thắng thua sẽ phụ thuộc vào số mặt
                         đỏ hoặc trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetRound)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice, gameId, numberWithCommas(minbet))}</li>
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
@@ -189,153 +191,72 @@ const SeDieGuideVI: React.FC<GameGuide> = (props) => {
                                     <thead>
                                         <tr>
                                             <th>Lựa Chọn</th>
-                                            <th>Trả Thưởng</th>
-                                            <th>
-                                                Giới Hạn Cược <br /> (Min - Max)
-                                            </th>
+                                            <th>Điều Kiện Thắng</th>
+                                            <th>Mô Tả</th>
+                                            <th>Tỷ Lệ Trả Thưởng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Lẻ</td>
-                                            <td rowSpan={2}>1:{odds.even}</td>
-                                            <td rowSpan={2}>
-                                                {minbet} - {maxBetMain}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chẵn</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4 đỏ</td>
-                                            <td rowSpan={2}>1:{odds.red4}</td>
-
-                                            <td rowSpan={2}>
-                                                {minbet} - {maxBetRed4}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4 trắng</td>
-                                        </tr>
-                                        <tr>
+                                            <td rowSpan={2}>Lẻ</td>
                                             <td>3 đỏ, 1 trắng</td>
-                                            <td rowSpan={2}>1:{odds.red3}</td>
-                                            <td rowSpan={2}>
-                                                {minbet} - {maxBetRed3}
-                                            </td>
+                                            {renderThreeRedOneWhite()}
+                                            <td rowSpan={5}>1:{odds.even}</td>
                                         </tr>
                                         <tr>
                                             <td>1 đỏ, 3 trắng</td>
+                                            {renderOneRedThreeWhite()}
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={3}>Chẵn</td>
+                                            <td>4 đỏ</td>
+                                            {renderFourRed()}
+                                        </tr>
+                                        <tr>
+                                            <td>4 trắng</td>
+                                            {renderFourWhite()}
                                         </tr>
                                         <tr>
                                             <td>2 đỏ, 2 trắng</td>
-                                            <td>1:{odds.red2}</td>
-                                            <td>
-                                                {minbet} - {maxBetRed2}
-                                            </td>
+                                            {renderTwoRedTwoWhite()}
                                         </tr>
+                                        <tr>
+                                            <td>4 đỏ</td>
+                                            <td>4 đỏ</td>
+                                            {renderFourRed()}
+                                            <td rowSpan={2}>1:{odds.red4}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4 trắng</td>
+                                            <td>4 trắng</td>
+                                            {renderFourWhite()}
+                                        </tr>
+                                        <tr>
+                                            <td>3 đỏ, 1 trắng</td>
+                                            <td>3 đỏ, 1 trắng</td>
+                                            {renderThreeRedOneWhite()}
+                                            <td rowSpan={2}>1:{odds.red3}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1 đỏ, 3 trắng</td>
+                                            <td>1 đỏ, 3 trắng</td>
+                                            {renderOneRedThreeWhite()}
+                                        </tr>
+                                        {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                                            <tr>
+                                                <td>2 đỏ, 2 trắng</td>
+                                                <td>2 đỏ, 2 trắng</td>
+                                                {renderTwoRedTwoWhite()}
+                                                <td>1:{odds.red2}</td>
+                                            </tr>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li className="guide-item">
-                    <h2>Bảng thống kê kết quả</h2>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Kết Quả</th>
-                                    <th>Mô Tả</th>
-                                    <th>Ký Hiệu</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>4 đỏ</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">4</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">0</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">2</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd">3</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd">1</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
+                {renderStatistical()}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

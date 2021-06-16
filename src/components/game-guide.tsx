@@ -31,6 +31,7 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 4:
                 return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 2:
+            case 9:
             case 22:
                 return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
 

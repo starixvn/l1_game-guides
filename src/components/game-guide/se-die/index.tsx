@@ -3,6 +3,7 @@ import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../se-die-vip/game-configs";
+import GameConfigsMini from "../se-die-mini/game-configs";
 import { GameGuideBase, GameConfigsProps } from "../type";
 import { locales } from "../../../common/constants";
 import { useTranslation } from "next-i18next";
@@ -10,6 +11,7 @@ import { UserStakeLevel } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 
 export const SeDieVip = [22];
+export const SeDieMini = [9];
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: GameConfigsProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
     const maxBetStake = userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0;
@@ -24,13 +26,23 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: 
 const SeDieGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
     const { gameName, id, locale, userStakeLevel } = props;
-    const gameConfigs = SeDieVip.includes(id ? id : SeDieVip[0]) ? GameConfigsVIP : GameConfigs;
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
+    const gameConfigs = () => {
+        switch (id) {
+            case 7:
+                return GameConfigsMini;
+            case 22:
+                return GameConfigsVIP;
+
+            default:
+                return GameConfigs;
+        }
+    };
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs());
 
     if (locale === locales.en) {
         return (
             <SeDieGuideEN
-                gameConfigs={gameConfigs}
+                gameConfigs={gameConfigs()}
                 userStakeLevel={userStakeLevel}
                 gameName={t(gameName.toLowerCase())}
                 gameId={id}
@@ -40,12 +52,57 @@ const SeDieGuide = (props: GameGuideBase) => {
     }
     return (
         <SeDieGuideVI
-            gameConfigs={gameConfigs}
+            gameConfigs={gameConfigs()}
             userStakeLevel={userStakeLevel}
             gameName={t(gameName.toLowerCase())}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />
+    );
+};
+const renderDot = (data: boolean[]) => {
+    return data.map((isRed, index) => {
+        if (isRed) {
+            return <span className="dot-odd"></span>;
+        } else {
+            return <span className="dot-even"></span>;
+        }
+    });
+};
+
+export const renderFourRed = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, true, true, true])}</div>
+        </td>
+    );
+};
+export const renderFourWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([false, false, false, false])}</div>
+        </td>
+    );
+};
+export const renderOneRedThreeWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, false, false, false])}</div>
+        </td>
+    );
+};
+export const renderTwoRedTwoWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, true, false, false])}</div>
+        </td>
+    );
+};
+export const renderThreeRedOneWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, true, true, false])}</div>
+        </td>
     );
 };
 export default SeDieGuide;

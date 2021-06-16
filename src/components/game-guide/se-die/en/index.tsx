@@ -1,9 +1,11 @@
 import React from "react";
 import { GameGuide } from "../../type";
-import { SeDieVip } from "..";
 import { renderTermsAndConditionsEN } from "../../../shared";
+import { SeDieMini } from "../index";
+import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../";
 
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRuleBase = (maxBetRound: number | string, gameId: number | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -13,138 +15,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                     is still covered with the bowl. The players place their bets and the betting options are:
                 </li>
 
-                <li className="contentBeforeEmpty">
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Options</th>
-                                    <th>Winning Conditions</th>
-                                    <th>Descriptions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={2}>ODD</td>
-                                    <td>3 red, 1 white </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>EVEN</td>
-                                    <td>4 red</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 red</td>
-                                    <td>4 red</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    <td>4 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3 red, 1 white</td>
-                                    <td>3 red, 1 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    <td>1 red, 3 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    <td>2 red, 2 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
+                <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
                 <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
                 <li>
                     Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
@@ -156,26 +27,196 @@ const renderGameRule = (maxBetRound: number | string) => {
     );
 };
 
+const renderGameRuleMini = (maxBetRound: number | string, gameId: number | undefined) => {
+    return (
+        <>
+            <h2>Game Rules</h2>
+            <ul className="desc">
+                <li>
+                    Select the desired chip with the value that suits you best, and place your chip on preferred betting options. Note,
+                    placed bets cannot be canceled.
+                </li>
+                <li>Players can bet on one or more betting options shown on the table.</li>
+                <li>Once the betting time has expired, the bowl is opened and the result will be shown.</li>
+                <li>The maximum total stake per round is {maxBetRound} </li>
+
+                <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
+                <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
+                <li>
+                    Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
+                    expires. Note, placed bets cannot be canceled.
+                </li>
+                <li>The maximum total stake per round is {maxBetRound}</li>
+            </ul>
+        </>
+    );
+};
+
+const renderGameRuleTable = (gameId: number | undefined) => {
+    return (
+        <div className="table-container">
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Options</th>
+                        <th>Winning Conditions</th>
+                        <th>Descriptions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowSpan={2}>ODD</td>
+                        <td>3 red, 1 white </td>
+                        {renderThreeRedOneWhite()}
+                    </tr>
+                    <tr>
+                        <td>1 red, 3 white</td>
+                        {renderOneRedThreeWhite()}
+                    </tr>
+                    <tr>
+                        <td rowSpan={3}>EVEN</td>
+                        <td>4 red</td>
+                        {renderFourRed()}
+                    </tr>
+                    <tr>
+                        <td>4 white</td>
+                        {renderFourWhite()}
+                    </tr>
+                    <tr>
+                        <td>2 red, 2 white</td>
+                        {renderTwoRedTwoWhite()}
+                    </tr>
+                    <tr>
+                        <td>4 red</td>
+                        <td>4 red</td>
+                        {renderFourRed()}
+                    </tr>
+                    <tr>
+                        <td>4 white</td>
+                        <td>4 white</td>
+                        {renderFourWhite()}
+                    </tr>
+                    <tr>
+                        <td>3 red, 1 white</td>
+                        <td>3 red, 1 white</td>
+                        {renderThreeRedOneWhite()}
+                    </tr>
+                    <tr>
+                        <td>1 red, 3 white</td>
+                        <td>1 red, 3 white</td>
+                        {renderOneRedThreeWhite()}
+                    </tr>
+                    {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                        <tr>
+                            <td>2 red, 2 white</td>
+                            <td>2 red, 2 white</td>
+                            {renderTwoRedTwoWhite()}
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const renderStatistical = () => {
+    return (
+        <li className="guide-item">
+            <h2>Statistical Table</h2>
+            <div className="table-container">
+                <table className="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Results</th>
+                            <th>Descriptions</th>
+                            <th>Symbols</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4 red</td>
+                            {renderFourRed()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">4</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4 white</td>
+                            {renderFourWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">0</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2 red, 2 white</td>
+                            {renderTwoRedTwoWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-even">2</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3 red, 1 white</td>
+                            {renderThreeRedOneWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-odd">3</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1 red, 3 white</td>
+                            {renderOneRedThreeWhite()}
+                            <td>
+                                <div className="d-flex justify-content-center">
+                                    <span className="dot-odd en">1</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    );
+};
+
 const SeDieGuideEN: React.FC<GameGuide> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
-
+    const gameDescription = () => {
+        switch (gameId) {
+            case 9:
+                const description1 = "game is a compact version of Se Die game with fewer betting options. ";
+                const description2 = "Players can open up the game and place bets anytime, anywhere, even in the game room. ";
+                return `${description1}${description2} `;
+            case 22:
+                return "is another version of the Se Die game with higher betting limits. ";
+            default:
+                return "is a popular game in Asian countries. ";
+        }
+    };
     return (
         <div>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {SeDieVip.includes(gameId ? gameId : SeDieVip[0])
-                            ? " is another version of the Se Die game with higher betting limits. "
-                            : "is a popular game in Asian countries. "}
+                        {gameName} {gameDescription()}
                         The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this
                         game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetRound)}</li>
+                <li className="guide-item">
+                    {SeDieMini.includes(gameId ? gameId : SeDieMini[0])
+                        ? renderGameRuleMini(maxBetRound, gameId)
+                        : renderGameRuleBase(maxBetRound, gameId)}
+                </li>
                 <li className="guide-item">
                     <h2>Payout</h2>
                     <ul className="desc">
@@ -200,7 +241,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td>ODD</td>
                                             <td rowSpan={2}>1:{odds.even}</td>
                                             <td rowSpan={2}>
-                                                {minbet} - {maxBetMain}
+                                                {numberWithCommas(minbet)} - {maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -211,7 +252,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td rowSpan={2}>1:{odds.red4}</td>
 
                                             <td rowSpan={2}>
-                                                {minbet} - {maxBetRed4}
+                                                {numberWithCommas(minbet)} - {maxBetRed4}
                                             </td>
                                         </tr>
                                         <tr>
@@ -221,121 +262,28 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td>3 red, 1 white</td>
                                             <td rowSpan={2}>1:{odds.red3}</td>
                                             <td rowSpan={2}>
-                                                {minbet} - {maxBetRed3}
+                                                {numberWithCommas(minbet)} - {maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>1 red, 3 white</td>
                                         </tr>
-                                        <tr>
-                                            <td>2 red, 2 white</td>
-                                            <td>1:{odds.red2}</td>
-                                            <td>
-                                                {minbet} - {maxBetRed2}
-                                            </td>
-                                        </tr>
+                                        {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                                            <tr>
+                                                <td>2 red, 2 white</td>
+                                                <td>1:{odds.red2}</td>
+                                                <td>
+                                                    {numberWithCommas(minbet)} - {maxBetRed2}
+                                                </td>
+                                            </tr>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li className="guide-item">
-                    <h2>Statistical Table</h2>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Results</th>
-                                    <th>Descriptions</th>
-                                    <th>Symbols</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>4 red</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">4</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">0</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-even">2</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3 red, 1 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-odd"></span>
-                                            <span className="dot-even"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd">3</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd en"></span>
-                                            <span className="dot-even en"></span>
-                                            <span className="dot-even en"></span>
-                                            <span className="dot-even en"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="d-flex justify-content-center">
-                                            <span className="dot-odd en">1</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
+                {renderStatistical()}
                 {renderTermsAndConditionsEN()}
             </ul>
         </div>
