@@ -5,6 +5,7 @@ import DragonTigerGuide from "./game-guide/dragon-tiger";
 import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
 import FishPrawnCrabVIPGuide from "./game-guide/fish-prawn-crab-vip";
 import SeDieGuide from "./game-guide/se-die";
+import SeDieSpecialGuide from "./game-guide/se-die-special";
 import BaccaratGuide from "./game-guide/baccarat";
 import { UserStakeLevel } from "../pages";
 import Styles from "./game-guide.module.scss";
@@ -42,6 +43,8 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 10:
             case 27:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 24:
+                return <SeDieSpecialGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 26:
                 return <FishPrawnCrabVIPGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:

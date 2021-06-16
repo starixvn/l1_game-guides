@@ -3,7 +3,7 @@ import { GameGuide } from "../../type";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 
 const renderGameRuleBase = (maxBetRound: number | string, gameId: number | undefined) => {
     return (

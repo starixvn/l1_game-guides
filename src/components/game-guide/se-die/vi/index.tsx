@@ -3,7 +3,7 @@ import { GameGuide } from "../../type";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 
 const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, minbet: string) => {
     const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
