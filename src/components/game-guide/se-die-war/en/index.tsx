@@ -5,6 +5,7 @@ import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwo
 import { renderStatisticalTable } from "../../se-die/en";
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../se-die-war.module.scss";
 
 const renderGameRule = (maxbet: string) => {
     return (
@@ -361,7 +362,11 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         <li className="rule">
                             <strong>Statistical Round result</strong>
                             <p>
-                                <img className="img" src="./static/images/se-die/guide-stats-en.png" alt="guide-stats-en"></img>
+                                <img
+                                    className={Styles["wrapper-img"]}
+                                    src="./static/images/se-die/guide-stats-en.png"
+                                    alt="guide-stats-en"
+                                ></img>
                             </p>
 
                             <p>

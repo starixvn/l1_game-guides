@@ -326,13 +326,17 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <h2>Bảng thống kê kết quả</h2>
                     <ul className="game-rules">
                         <li className="rule">
-                            <strong>Chẵn Lẻ</strong>
+                            <span className="font-weight-medium">Chẵn Lẻ</span>
                             {renderStatisticalTable()}
                         </li>
                         <li className="rule">
-                            <strong>Dãy Số Thống Kê</strong>
+                            <span className="font-weight-medium">Dãy Số Thống Kê</span>
                             <p>
-                                <img className="img" src="./static/images/se-die/guide-stats-vi.png" alt="guide-stats-vi"></img>
+                                <img
+                                    className={Styles["wrapper-img"]}
+                                    src="./static/images/se-die/guide-stats-vi.png"
+                                    alt="guide-stats-vi"
+                                ></img>
                             </p>
 
                             <p>

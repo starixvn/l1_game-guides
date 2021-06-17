@@ -82,7 +82,7 @@ const renderPayouts = (odds: object | any) => {
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
 
@@ -106,4 +106,4 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
         </div>
     );
 };
-export default SeDieGuideVI;
+export default SeDieGuideEN;

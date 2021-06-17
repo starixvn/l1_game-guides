@@ -111,7 +111,7 @@ const renderPointCalculationRules = (gameName: string) => {
     );
 };
 
-const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { player, banker, big, small, tie, playerPair } = odds;
@@ -303,4 +303,4 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
         </div>
     );
 };
-export default BaccaratGuideEN;
+export default BaccaratGuideVI;

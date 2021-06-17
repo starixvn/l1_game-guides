@@ -1,0 +1,294 @@
+import React from "react";
+import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import { GameConfigProps } from "../type";
+import { GameGuideProps } from "../../type";
+
+const renderGameRule = (maxBetRound: number | string) => {
+    return (
+        <>
+            <h2>Cách chơi</h2>
+            <ul className="desc">
+                <li>
+                    Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi hệ thống chọn ngẫu nhiên 20 quả bóng. Nếu tổng
+                    điểm của 20 quả bóng được chọn có kết quả trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ
+                    tiền cược nếu lựa chọn sai.
+                </li>
+                <li>
+                    Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
+                    phiên là {maxBetRound}. Lưu ý, không thể hủy cược sau khi đặt.
+                </li>
+                <li>
+                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, hệ thống sẽ chọn
+                    ngẫu nhiên 20 quả bóng và kết quả sẽ được hiển thị.
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const bettingOptions = (gameName: string) => {
+    return (
+        <>
+            <h2>Quy tắc tính điểm</h2>
+            <ul className="game-rules">
+                <li className="rule">
+                    <span className="font-weight-medium">Cược Tài/Xỉu</span>
+                    <ul className="desc">
+                        <li>
+                            <strong>Tài:</strong> tổng điểm của 20 quả bóng được rút {`>=`} 811
+                        </li>
+                        <li>
+                            <strong>Xỉu:</strong> tổng điểm của 20 quả bóng được rút {`<=`} 810
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <div className="table-container">
+                            <table className="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>4</th>
+                                        <th>14</th>
+                                        <th>16</th>
+                                        <th>29</th>
+                                        <th>34</th>
+                                        <th>40</th>
+                                        <th>51</th>
+                                        <th>55</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>56</td>
+                                        <td>59</td>
+                                        <td>60</td>
+                                        <td>67</td>
+                                        <td>70</td>
+                                        <td>72</td>
+                                        <td>75</td>
+                                        <td>77</td>
+                                        <td>78</td>
+                                        <td>79</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={10}>Tổng điểm = 939. Cược vào "TÀI" thắng.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </p>
+                </li>
+                <li className="rule">
+                    <span className="font-weight-medium">Cược Chẵn/Lẻ</span>
+                    <ul className="desc">
+                        <li>
+                            <strong>Lẻ:</strong> tổng điểm của 20 trái bóng được rút là một số lẻ.
+                        </li>
+                        <li>
+                            <strong>Chẵn:</strong> tổng điểm của 20 trái bóng được rút là một số chẵn.
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <div className="table-container">
+                            <table className="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>4</th>
+                                        <th>15</th>
+                                        <th>20</th>
+                                        <th>25</th>
+                                        <th>26</th>
+                                        <th>27</th>
+                                        <th>30</th>
+                                        <th>35</th>
+                                        <th>36</th>
+                                        <th>45</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>49</td>
+                                        <td>54</td>
+                                        <td>56</td>
+                                        <td>58</td>
+                                        <td>61</td>
+                                        <td>62</td>
+                                        <td>74</td>
+                                        <td>76</td>
+                                        <td>78</td>
+                                        <td>80</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={10}>Tổng điểm = 911. Cược vào “LẺ” thắng.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </p>
+                </li>
+                <li className="rule">
+                    <span className="font-weight-medium">Cược Tài/Xỉu</span>
+                    <ul className="desc">
+                        <li>
+                            <strong>Kim:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 210 đến 695
+                        </li>
+                        <li>
+                            <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 696 đến 763
+                        </li>
+                        <li>
+                            <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
+                        </li>
+                        <li>
+                            <strong>Hỏa:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 856 đến 923
+                        </li>
+                        <li>
+                            <strong>Thổ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 924 đến 1410
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <div className="table-container">
+                            <table className="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>1</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>17</th>
+                                        <th>27</th>
+                                        <th>36</th>
+                                        <th>44</th>
+                                        <th>46</th>
+                                        <th>47</th>
+                                        <th>49</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>52</td>
+                                        <td>56</td>
+                                        <td>59</td>
+                                        <td>60</td>
+                                        <td>62</td>
+                                        <td>63</td>
+                                        <td>65</td>
+                                        <td>72</td>
+                                        <td>74</td>
+                                        <td>79</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={10}>Tổng điểm = 922. Cược vào “HỎA” thắng.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </p>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const KenoProGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+    const { gameConfigs, gameName } = props;
+    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { big, earth, fire, water, gold, wood } = odds;
+
+    return (
+        <div>
+            <ul className="game-guide">
+                <li className="guide-item">
+                    <h2>Giới thiệu</h2>
+                    <p className="content">
+                        {gameName} là trò cá cược trực tuyến rất được yêu thích. Trò chơi bao gồm 80 quả bóng được đánh số từ 1 đến 80, hệ
+                        thống sẽ lấy ngẫu nhiên 20 quả bóng trong số 80 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 20 quả
+                        bóng này.
+                    </p>
+                </li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">{bettingOptions(gameName)}</li>
+                <li className="guide-item">
+                    <h2>Cách chơi</h2>
+                    <ul className="desc">
+                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
+                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        <li>
+                            Giới hạn cược và tỷ lệ trả thưởng trong Keno Pro Max như sau:
+                            <div className="table-container">
+                                <table className="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Lựa Chọn</th>
+                                            <th>Tỷ Lệ Trả Thưởng</th>
+                                            <th>Giới Hạn Cược (Min - Max)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tài</td>
+                                            <td rowSpan={4}> 1: {big}</td>
+                                            <td rowSpan={4}>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.big)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Xỉu</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lẻ</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chẳn</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kim</td>
+                                            <td>1: {gold}</td>
+                                            <td>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.gold)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mộc</td>
+                                            <td>1: {wood}</td>
+                                            <td>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.wood)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thuỷ</td>
+                                            <td>1: {water}</td>
+                                            <td>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hoả</td>
+                                            <td>1: {fire}</td>
+                                            <td>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thổ</td>
+                                            <td>1: {earth}</td>
+                                            <td>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.earth)}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                {renderTermsAndConditionsVI()}
+            </ul>
+        </div>
+    );
+};
+export default KenoProGuideVI;
