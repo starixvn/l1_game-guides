@@ -1,9 +1,10 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const DragonTigerGuideEN: React.FC<GameGuide> = (props) => {
+const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet) : maxbet);

@@ -1,11 +1,11 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const FishPrawnCrabGuideVI: React.FC<GameGuide> = (props) => {
+const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { maxBetMain, maxBetAnyTriple, maxBetRound } = maxBetFollowChoice;
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
     return (
@@ -34,7 +34,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuide> = (props) => {
                             Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số
                             lần đặt cược. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                         </li>
-                        <li>Tổng tiền cược tối đa cho một phiên là {maxBetRound}</li>
+                        <li>Tổng tiền cược tối đa cho một phiên là {maxBetFollowChoice?.maxBetRound}</li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Xúc xắc sẽ được lắc khi bắt đầu
                             phiên, kết quả sẽ được hiển thị khi hết thời gian đặt cược.
@@ -63,7 +63,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuide> = (props) => {
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả một lần.</td>
                                             <td>1: {single}</td>
                                             <td rowSpan={5}>
-                                                {numberWithCommas(minbet)} - {maxBetMain}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -95,7 +95,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuide> = (props) => {
                                             <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
                                             <td>1: {anyTriple}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {maxBetAnyTriple}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

@@ -1,11 +1,12 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { BaccaratVip } from "..";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const renderGameRule = (maxBetRound: number | string, minbet: number) => {
+const renderGameRule = (maxBetRound: number | string, minbet = 0) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -110,11 +111,10 @@ const renderPointCalculationRules = (gameName: string) => {
     );
 };
 
-const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
+const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { player, banker, big, small, tie, playerPair } = odds;
-    const { maxBetMainChoice, maxBetSubChoice, maxBetRound } = maxBetFollowChoice;
 
     return (
         <div>
@@ -132,7 +132,7 @@ const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
                         muốn.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetRound, minbet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0, minbet)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
@@ -263,7 +263,7 @@ const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
                                             <td>Nhà Con</td>
                                             <td>1: {player}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minbet)} - {maxBetMainChoice}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -281,7 +281,7 @@ const BaccaratGuideEN: React.FC<GameGuide> = (props) => {
                                         <tr>
                                             <td>Hoà</td>
                                             <td>1: {tie}</td>
-                                            <td rowSpan={3}>1 - {maxBetSubChoice}</td>
+                                            <td rowSpan={3}>1 - {maxBetFollowChoice?.maxBetSubChoice}</td>
                                         </tr>
                                         <tr>
                                             <td>Con Đôi</td>

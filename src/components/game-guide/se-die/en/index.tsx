@@ -1,11 +1,12 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const renderGameRuleBase = (maxBetRound: number | string, gameId: number | undefined) => {
+const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -27,7 +28,7 @@ const renderGameRuleBase = (maxBetRound: number | string, gameId: number | undef
     );
 };
 
-const renderGameRuleMini = (maxBetRound: number | string, gameId: number | undefined) => {
+const renderGameRuleMini = (maxBetRound: number | string, gameId = 0) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -52,7 +53,7 @@ const renderGameRuleMini = (maxBetRound: number | string, gameId: number | undef
     );
 };
 
-const renderGameRuleTable = (gameId: number | undefined) => {
+const renderGameRuleTable = (gameId: number) => {
     return (
         <div className="table-container">
             <table className="table text-center">
@@ -106,7 +107,7 @@ const renderGameRuleTable = (gameId: number | undefined) => {
                         <td>1 red, 3 white</td>
                         {renderOneRedThreeWhite()}
                     </tr>
-                    {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                    {!SeDieMini.includes(gameId) && (
                         <tr>
                             <td>2 red, 2 white</td>
                             <td>2 red, 2 white</td>
@@ -123,72 +124,77 @@ const renderStatistical = () => {
     return (
         <li className="guide-item">
             <h2>Statistical Table</h2>
-            <div className="table-container">
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Results</th>
-                            <th>Descriptions</th>
-                            <th>Symbols</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>4 red</td>
-                            {renderFourRed()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">4</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4 white</td>
-                            {renderFourWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">0</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2 red, 2 white</td>
-                            {renderTwoRedTwoWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">2</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3 red, 1 white</td>
-                            {renderThreeRedOneWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-odd">3</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1 red, 3 white</td>
-                            {renderOneRedThreeWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-odd en">1</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {renderStatisticalTable()}
         </li>
     );
 };
 
-const SeDieGuideEN: React.FC<GameGuide> = (props) => {
+export const renderStatisticalTable = () => {
+    return (
+        <div className="table-container">
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Results</th>
+                        <th>Descriptions</th>
+                        <th>Symbols</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4 red</td>
+                        {renderFourRed()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">4</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4 white</td>
+                        {renderFourWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">0</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2 red, 2 white</td>
+                        {renderTwoRedTwoWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">2</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3 red, 1 white</td>
+                        {renderThreeRedOneWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd">3</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1 red, 3 white</td>
+                        {renderOneRedThreeWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd en">1</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
-    const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -214,8 +220,8 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                 </li>
                 <li className="guide-item">
                     {SeDieMini.includes(gameId ? gameId : SeDieMini[0])
-                        ? renderGameRuleMini(maxBetRound, gameId)
-                        : renderGameRuleBase(maxBetRound, gameId)}
+                        ? renderGameRuleMini(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)
+                        : renderGameRuleBase(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)}
                 </li>
                 <li className="guide-item">
                     <h2>Payout</h2>
@@ -241,7 +247,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td>ODD</td>
                                             <td rowSpan={2}>1:{odds.even}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetMain}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -252,7 +258,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td rowSpan={2}>1:{odds.red4}</td>
 
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetRed4}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed4}
                                             </td>
                                         </tr>
                                         <tr>
@@ -262,7 +268,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                             <td>3 red, 1 white</td>
                                             <td rowSpan={2}>1:{odds.red3}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetRed3}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
@@ -273,7 +279,7 @@ const SeDieGuideEN: React.FC<GameGuide> = (props) => {
                                                 <td>2 red, 2 white</td>
                                                 <td>1:{odds.red2}</td>
                                                 <td>
-                                                    {numberWithCommas(minbet)} - {maxBetRed2}
+                                                    {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
                                             </tr>
                                         )}

@@ -1,8 +1,9 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { BaccaratVip } from "..";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
 const renderGameRule = () => {
     return (
@@ -161,11 +162,10 @@ export const renderTBodyPointCalculationRules = () => {
     );
 };
 
-const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
+const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
     const { player, banker, big, small, tie, playerPair } = odds;
-    const { maxBetMainChoice, maxBetSubChoice } = maxBetFollowChoice;
 
     return (
         <div>
@@ -304,7 +304,7 @@ const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
                                             <td>1: {player}</td>
                                             <td rowSpan={4}>
                                                 {" "}
-                                                {numberWithCommas(minbet)} - {maxBetMainChoice}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                             <td rowSpan={7}>{numberWithCommas(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0)}</td>
                                             <td rowSpan={7}>The Player and the Banker bets will be refunded if the result is a draw.</td>
@@ -324,7 +324,7 @@ const BaccaratGuideVI: React.FC<GameGuide> = (props) => {
                                         <tr>
                                             <td>Tie</td>
                                             <td>1: {tie}</td>
-                                            <td rowSpan={3}>1 - {maxBetSubChoice}</td>
+                                            <td rowSpan={3}>1 - {maxBetFollowChoice?.maxBetSubChoice}</td>
                                         </tr>
                                         <tr>
                                             <td>Player pair</td>

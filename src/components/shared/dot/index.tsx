@@ -1,9 +1,9 @@
 const renderDot = (data: boolean[]) => {
     return data.map((isRed, index) => {
         if (isRed) {
-            return <span className="dot-odd"></span>;
+            return <span key={index} className="dot-odd"></span>;
         } else {
-            return <span className="dot-even"></span>;
+            return <span key={index} className="dot-even"></span>;
         }
     });
 };

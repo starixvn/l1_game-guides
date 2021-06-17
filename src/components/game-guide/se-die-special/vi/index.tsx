@@ -1,10 +1,11 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const renderGameRule = (maxbet: string, minbet: string, odds: object | any) => {
+const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -139,7 +140,7 @@ const renderStatistical = () => {
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuide> = (props) => {
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
 

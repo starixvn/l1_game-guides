@@ -3,13 +3,14 @@ import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../baccarat-vip/game-configs";
-import { GameGuideBase, GameConfigsProps } from "../type";
 import { locales } from "../../../common/constants";
 import { useTranslation } from "next-i18next";
-import { UserStakeLevel } from "../../../pages";
+import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
+import { GameConfigProps } from "./type";
+import { GameGuideBase } from "../type";
 
-export const handleMaxBetChoice = (userStakeLevel: UserStakeLevel, gameConfigs: GameConfigsProps) => {
+export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConfigs: GameConfigProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
     const maxBetMainChoice = numberWithCommas(
         userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet, choices_maxbet.player) : maxbet

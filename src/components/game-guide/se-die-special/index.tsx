@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 
 const SeDieSpecialGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
-    const { gameName, id, locale, userStakeLevel } = props;
+    const { gameName, locale, userStakeLevel } = props;
 
     if (locale === locales.en) {
         return <SeDieGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;

@@ -66,6 +66,7 @@ ul {
 
         > li {
             margin: 0.5rem 0;
+            font-weight: normal;
 
             &:before {
                 content: "- ";
@@ -151,4 +152,21 @@ ul {
             }
         }
     }
+    .game-guide-alpha {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+        .guide-item {
+            margin: 0.5rem 0;
+            margin-left: 1rem;
+            list-style-type: lower-alpha;
+            font-weight: 700;
+            &:before {
+                content: "";
+            }
+        }
+    }
+}
+
+.img{
+    width: 100%;
 }

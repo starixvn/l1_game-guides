@@ -1,0 +1,20 @@
+import { GameConfigsProps } from "../type";
+
+export interface OddsProps {
+    dragon: number;
+    tiger: number;
+    tie: number;
+}
+
+export interface ChoicesMaxBetProps {
+    dragon: number;
+    tiger: number;
+    tie: number;
+}
+
+export interface GameConfigProps extends GameConfigsProps {
+    odds: OddsProps;
+    choices_maxbet: ChoicesMaxBetProps;
+}
+
+export interface MaxBetChoicesProps {}

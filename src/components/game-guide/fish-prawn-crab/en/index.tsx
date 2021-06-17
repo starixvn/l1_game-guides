@@ -1,9 +1,10 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const FishPrawnCrabGuideEN: React.FC<GameGuide> = (props) => {
+const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     const maxBetRound = numberWithCommas(userStakeLevel?.maxBet ? Math.min(userStakeLevel?.maxBet, maxbet) : maxbet);

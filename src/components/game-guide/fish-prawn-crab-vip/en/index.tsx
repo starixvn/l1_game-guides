@@ -1,11 +1,11 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const FishPrawnCrabGuideEN: React.FC<GameGuide> = (props) => {
+const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { maxBetMain, maxBetAnyTriple, maxBetRound } = maxBetFollowChoice;
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
     return (
@@ -36,7 +36,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuide> = (props) => {
                         </li>
                         <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                         <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
-                        <li>The maximum total stake per round is {maxBetRound}</li>
+                        <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetRound}</li>
                     </ul>
                 </li>
                 <li className="guide-item">
@@ -64,7 +64,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuide> = (props) => {
                                             <td className="text-start">If the chosen symbol appears once. </td>
                                             <td>1: {single}</td>
                                             <td rowSpan={5}>
-                                                {numberWithCommas(minbet)} - {maxBetMain}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -96,7 +96,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuide> = (props) => {
                                             <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
                                             <td>1: {anyTriple}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {maxBetAnyTriple}
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

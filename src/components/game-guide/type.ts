@@ -1,25 +1,23 @@
-import { UserStakeLevel } from "../../pages";
+import { UserStakeLevelProps } from "../../pages";
 
-export type GameGuide = {
-    gameConfigs: GameConfigsProps;
-    userStakeLevel: UserStakeLevel;
+export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
+    gameConfigs: GameConfigs;
+    userStakeLevel: UserStakeLevelProps;
     gameName: string;
     gameId?: number;
     locale?: string;
-    maxBetFollowChoice?: any;
+    maxBetFollowChoice?: MaxBetChoicesProps;
 };
 
 export type GameGuideBase = {
-    userStakeLevel: UserStakeLevel;
+    userStakeLevel: UserStakeLevelProps;
     gameName: string;
     locale?: string;
     id?: number;
 };
 
 export interface GameConfigsProps {
-    odds: { [key: string]: number };
     minbet: number;
     maxbet: number;
-    choices_maxbet: any;
     enableFreeBet: boolean;
 }

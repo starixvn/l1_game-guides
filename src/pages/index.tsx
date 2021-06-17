@@ -7,7 +7,7 @@ import { locales, Themes, language, languageMapper } from "../common/constants";
 import { GetStaticProps } from "next";
 import appSettings from "../common/app-settings";
 
-export interface UserStakeLevel {
+export interface UserStakeLevelProps {
     minBet: number;
     maxBet: number;
 }
@@ -21,7 +21,7 @@ const Home = () => {
     const { gameSettings } = appSettings;
     const [gameId, setGameId] = useState<number>(0);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevel>({ minBet: 0, maxBet: 0 });
+    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
     const router = useRouter();
 
     const handleChangeLocale = async (locate: string, currentURL: string) => {

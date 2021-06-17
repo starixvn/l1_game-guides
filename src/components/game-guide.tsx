@@ -6,14 +6,15 @@ import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
 import FishPrawnCrabVIPGuide from "./game-guide/fish-prawn-crab-vip";
 import SeDieGuide from "./game-guide/se-die";
 import SeDieSpecialGuide from "./game-guide/se-die-special";
+import SeDieWarGuide from "./game-guide/se-die-war";
 import BaccaratGuide from "./game-guide/baccarat";
-import { UserStakeLevel } from "../pages";
+import { UserStakeLevelProps } from "../pages";
 import Styles from "./game-guide.module.scss";
 import { useRouter } from "next/router";
 
 type Props = {
     gameId: number;
-    userStakeLevel: UserStakeLevel;
+    userStakeLevel: UserStakeLevelProps;
 };
 
 export const GameGuide: React.FC<Props> = (props) => {
@@ -47,6 +48,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <SeDieSpecialGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 26:
                 return <FishPrawnCrabVIPGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 28:
+                return <SeDieWarGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }

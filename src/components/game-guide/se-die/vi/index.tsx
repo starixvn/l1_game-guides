@@ -1,12 +1,12 @@
 import React from "react";
-import { GameGuide } from "../../type";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameGuideProps } from "../../type";
 
-const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, minbet: string) => {
-    const { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound } = maxBetFollowChoice;
+const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0, minbet: string) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -17,7 +17,7 @@ const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, 
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                    phiên là {maxBetFollowChoice?.maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Giới hạn cược:
@@ -37,7 +37,7 @@ const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, 
                                     </td>
                                     <td>Chẵn</td>
                                     <td rowSpan={2}>
-                                        {minbet} - {maxBetMain}
+                                        {minbet} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
@@ -45,11 +45,11 @@ const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, 
                                 </tr>
                                 <tr>
                                     <td rowSpan={5}>
-                                        <strong>{!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) ? 5 : 4} cửa phụ</strong>
+                                        <strong>{!SeDieMini.includes(gameId) ? 5 : 4} cửa phụ</strong>
                                     </td>
                                     <td>4 đỏ</td>
                                     <td rowSpan={2}>
-                                        {minbet} - {maxBetRed4}
+                                        {minbet} - {maxBetFollowChoice?.maxBetRed4}
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,17 +58,17 @@ const renderGameRule = (maxBetFollowChoice: any, gameId: number | string | any, 
                                 <tr>
                                     <td>3 đỏ, 1 trắng</td>
                                     <td rowSpan={2}>
-                                        {minbet} - {maxBetRed3}
+                                        {minbet} - {maxBetFollowChoice?.maxBetRed3}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>1 đỏ, 3 trắng</td>
                                 </tr>
-                                {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                                {!SeDieMini.includes(gameId) && (
                                     <tr>
                                         <td>2 đỏ, 2 trắng</td>
                                         <td>
-                                            {minbet} - {maxBetRed2}
+                                            {minbet} - {maxBetFollowChoice?.maxBetRed2}
                                         </td>
                                     </tr>
                                 )}
@@ -89,70 +89,76 @@ const renderStatistical = () => {
     return (
         <li className="guide-item">
             <h2>Bảng thống kê kết quả</h2>
-            <div className="table-container">
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Kết Quả</th>
-                            <th>Mô Tả</th>
-                            <th>Ký Hiệu</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>4 đỏ</td>
-                            {renderFourRed()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">4</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4 trắng</td>
-                            {renderFourWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">0</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2 đỏ, 2 trắng</td>
-                            {renderTwoRedTwoWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-even">2</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3 đỏ, 1 trắng</td>
-                            {renderThreeRedOneWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-odd">3</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1 đỏ, 3 trắng</td>
-                            {renderOneRedThreeWhite()}
-                            <td>
-                                <div className="d-flex justify-content-center">
-                                    <span className="dot-odd">1</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {renderStatisticalTable()}
         </li>
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuide> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+export const renderStatisticalTable = () => {
+    return (
+        <div className="table-container">
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Kết Quả</th>
+                        <th>Mô Tả</th>
+                        <th>Ký Hiệu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4 đỏ</td>
+                        {renderFourRed()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">4</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4 trắng</td>
+                        {renderFourWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">0</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2 đỏ, 2 trắng</td>
+                        {renderTwoRedTwoWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">2</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3 đỏ, 1 trắng</td>
+                        {renderThreeRedOneWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd">3</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1 đỏ, 3 trắng</td>
+                        {renderOneRedThreeWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd">1</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
     const { odds, minbet } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
@@ -179,7 +185,7 @@ const SeDieGuideVI: React.FC<GameGuide> = (props) => {
                         đỏ hoặc trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice, gameId, numberWithCommas(minbet))}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice, props?.gameId ?? 0, numberWithCommas(minbet))}</li>
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
