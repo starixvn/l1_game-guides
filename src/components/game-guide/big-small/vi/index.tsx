@@ -1,10 +1,10 @@
 import React from "react";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 
-const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet));

@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
@@ -82,7 +82,7 @@ const renderPayouts = (odds: object | any) => {
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
 

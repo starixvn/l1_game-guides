@@ -16,5 +16,3 @@ export interface GameConfigProps extends GameConfigsProps {
     odds: OddsProps;
     choices_maxbet: ChoicesMaxBetProps;
 }
-
-export interface MaxBetChoicesProps {}

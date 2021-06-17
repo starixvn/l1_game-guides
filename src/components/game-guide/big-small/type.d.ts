@@ -5,11 +5,7 @@ export interface OddsProps {
     small: number;
 }
 
-export interface ChoicesMaxBetProps {}
-
 export interface GameConfigProps extends GameConfigsProps {
     odds: OddsProps;
-    choices_maxbet: ChoicesMaxBetProps;
+    choices_maxbet: {};
 }
-
-export interface MaxBetChoicesProps {}

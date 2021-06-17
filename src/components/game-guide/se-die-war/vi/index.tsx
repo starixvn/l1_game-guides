@@ -3,11 +3,12 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { renderStatisticalTable } from "../../se-die/vi";
-import { GameConfigProps, MaxBetChoicesProps, ChoicesMaxBetProps } from "../type";
+import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 
 const renderGameRule = (maxbet: string) => {
+    const classChoiceMargin = "player-margin";
     return (
         <>
             <h2>Cách chơi</h2>
@@ -158,7 +159,7 @@ const renderGameRule = (maxbet: string) => {
                         <ul className="desc">
                             <li>
                                 Kết Quả Nhà Con: 3 đỏ, 1 trắng<br></br>{" "}
-                                <span className={Styles["player-margin"]}>Nhà Cái: 1 đỏ, 3 trắng</span>
+                                <span className={Styles[classChoiceMargin]}>Nhà Cái: 1 đỏ, 3 trắng</span>
                                 <br></br> Cược vào Nhà Con thắng do có nhiều số xu đỏ hơn Nhà Cái.
                             </li>
                         </ul>
@@ -168,12 +169,12 @@ const renderGameRule = (maxbet: string) => {
                         <ul className="desc">
                             <li>
                                 Kết Quả Nhà Con: 3 đỏ, 1 trắng<br></br>
-                                <span className={Styles["player-margin"]}> Nhà Cái: 1 đỏ, 3 trắng </span>
+                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 1 đỏ, 3 trắng </span>
                                 <br></br> Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (4 đỏ).
                             </li>
                             <li>
                                 Kết Quả Nhà Con: 4 trắng<br></br>
-                                <span className={Styles["player-margin"]}> Nhà Cái: 4 trắng </span>
+                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 4 trắng </span>
                                 <br></br> Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (0 đỏ).
                             </li>
                         </ul>
@@ -183,7 +184,7 @@ const renderGameRule = (maxbet: string) => {
                         <ul className="desc">
                             <li>
                                 Kết Quả Nhà Con: 2 đỏ, 2 trắng<br></br>
-                                <span className={Styles["player-margin"]}> Nhà Cái: 1 đỏ, 3 trắng </span>
+                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 1 đỏ, 3 trắng </span>
                                 <br></br> Cược vào Tổng Lẻ thắng do tổng xu đỏ có trong kết quả là số Lẻ (3 đỏ).
                             </li>
                         </ul>
@@ -302,7 +303,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 

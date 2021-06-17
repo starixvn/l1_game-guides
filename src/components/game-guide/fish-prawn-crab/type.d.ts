@@ -19,5 +19,3 @@ export interface GameConfigProps extends GameConfigsProps {
     odds: OddsFPCProps;
     choices_maxbet: ChoicesMaxBetFPCProps;
 }
-
-export interface MaxBetChoicesProps {}
