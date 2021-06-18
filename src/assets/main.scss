@@ -70,7 +70,7 @@ html {
 
 [data-theme="dark"] {
     --primary-color: #ff9a00;
-    --page-background: #203040;
+    --page-background: #0c0c0c;
     --text-color: #fff;
 
     // scrollbar
@@ -92,7 +92,7 @@ html {
     --scrollbar-thumb-background: #294057;
 
     // font-size
-    --font-size: 1.8rem;
+    --font-size: 1.6rem;
     --font-size-table: 1.6rem;
 }
 
@@ -103,6 +103,7 @@ body {
     font-family: var(--font-family);
     font-size: 1.4rem;
     color: var(--text-color);
+    font-weight: 400;
     overscroll-behavior: contain;
 }
 
