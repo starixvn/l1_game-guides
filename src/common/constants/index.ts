@@ -8,4 +8,5 @@ export const language = ["en-US", "vi-VN"];
 export const Themes = {
     light: "light",
     dark: "dark",
+    blue: "blue",
 };

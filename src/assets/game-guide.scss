@@ -6,6 +6,10 @@
     --table-color: var(--text-color);
     --table-header-background: #ffd487;
     --table-header-color: #2c2f3e;
+
+    // text-size
+    --title-font-size: 1.6rem;
+    --sub-title-font-size: 1.4rem;
 }
 
 [data-theme="dark"] .game-guide {
@@ -14,6 +18,22 @@
     --table-color: var(--text-color);
     --table-header-background: #ffd487;
     --table-header-color: #2c2f3e;
+
+    // text-size
+    --title-font-size: 1.6rem;
+    --sub-title-font-size: 1.4rem;
+}
+
+[data-theme="blue"] {
+    --table-background: #e5e5e5;
+    --table-border: #949494;
+    --table-color: #000;
+    --table-header-background: #abaaaa;
+    --table-header-color: #000;
+
+    // text-size
+    --title-font-size: 2rem;
+    --sub-title-font-size: 1.8rem;
 }
 
 ul {
@@ -35,8 +55,7 @@ ul {
 .game-guide {
     padding: 0 1.6rem;
     counter-reset: guide-list;
-    color: var(--popup-color);
-    font-size: 1.4rem;
+    font-size: var(--font-size);
 
     .guide-item {
         counter-increment: guide-list;
@@ -45,12 +64,12 @@ ul {
             content: counter(guide-list) ". ";
             color: var(--primary-color);
             font-weight: 500;
-            font-size: 1.6rem;
+            font-size: var(--title-font-size);
         }
 
         h2 {
             display: inline-block;
-            font-size: 1.6rem;
+            font-size: var(--title-font-size);
             font-weight: 500;
             color: var(--primary-color);
         }
@@ -86,6 +105,7 @@ ul {
         margin: 0 -0.6rem;
         padding: 0.2rem;
         overflow: auto;
+        font-size: var(--font-size-table);
     }
 
     .table {
@@ -131,7 +151,7 @@ ul {
 
             &:before {
                 content: counter(guide-list) "." counter(rule-list) ". ";
-                font-size: 1.4rem;
+                font-size: var(--sub-title-font-size);
                 font-weight: 500;
             }
         }
@@ -167,6 +187,6 @@ ul {
     }
 }
 
-.img{
+.img {
     width: 100%;
 }
