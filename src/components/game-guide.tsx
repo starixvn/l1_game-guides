@@ -10,6 +10,7 @@ import SeDieWarGuide from "./game-guide/se-die-war";
 import BaccaratGuide from "./game-guide/baccarat";
 import KenoProGuide from "./game-guide/keno-pro-max";
 import OddEvenTurboGuide from "./game-guide/odd-even-turbo";
+import BlackjackGuide from "./game-guide/blackjack";
 import { UserStakeLevelProps } from "../pages";
 import Styles from "./game-guide.module.scss";
 import { useRouter } from "next/router";
@@ -49,6 +50,8 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 10:
             case 27:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 23:
+                return <BlackjackGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 24:
                 return <SeDieSpecialGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 26:
