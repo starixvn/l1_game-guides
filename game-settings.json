@@ -74,5 +74,9 @@
     "31": {
         "id": 31,
         "gameName": "Lottery"
+    },
+    "35": {
+        "id": 35,
+        "gameName": "ThreeCards"
     }
 }
