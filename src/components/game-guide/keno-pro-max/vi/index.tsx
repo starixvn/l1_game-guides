@@ -42,7 +42,7 @@ const bettingOptions = (gameName: string) => {
                             <strong>Xỉu:</strong> tổng điểm của 20 quả bóng được rút {`<=`} 810
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
@@ -79,7 +79,7 @@ const bettingOptions = (gameName: string) => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
                 <li className="rule">
                     <span className="font-weight-medium">Cược Chẵn/Lẻ</span>
@@ -91,7 +91,7 @@ const bettingOptions = (gameName: string) => {
                             <strong>Chẵn:</strong> tổng điểm của 20 trái bóng được rút là một số chẵn.
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
@@ -128,7 +128,7 @@ const bettingOptions = (gameName: string) => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
                 <li className="rule">
                     <span className="font-weight-medium">Cược Tài/Xỉu</span>
@@ -149,7 +149,7 @@ const bettingOptions = (gameName: string) => {
                             <strong>Thổ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 924 đến 1410
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
@@ -186,14 +186,14 @@ const bettingOptions = (gameName: string) => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
             </ul>
         </>
     );
 };
 
-const KenoProGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     const { big, earth, fire, water, gold, wood } = odds;
@@ -291,4 +291,4 @@ const KenoProGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
         </div>
     );
 };
-export default KenoProGuideVI;
+export default KenoProMaxGuideVI;

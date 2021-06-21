@@ -35,6 +35,38 @@
         "id": 10,
         "gameName": "Baccarat"
     },
+    "12": {
+        "id": 12,
+        "gameName": "KenoMax"
+    },
+    "13": {
+        "id": 13,
+        "gameName": "KenoMax2"
+    },
+    "14": {
+        "id": 14,
+        "gameName": "KenoMini"
+    },
+    "15": {
+        "id": 15,
+        "gameName": "KenoMini2"
+    },
+    "16": {
+        "id": 16,
+        "gameName": "KenoEast"
+    },
+    "17": {
+        "id": 17,
+        "gameName": "KenoWest"
+    },
+    "18": {
+        "id": 18,
+        "gameName": "KenoSouth"
+    },
+    "19": {
+        "id": 19,
+        "gameName": "KenoNorth"
+    },
     "21": {
         "id": 21,
         "gameName": "Roulette"

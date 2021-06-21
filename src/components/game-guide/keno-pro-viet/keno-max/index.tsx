@@ -1,0 +1,39 @@
+import React from "react";
+import KenoMaxGuideEN from "./en";
+import KenoMaxGuideVI from "./vi";
+import GameConfigsMax from "./game-configs";
+import GameConfigsMax2 from "../keno-max2/game-configs";
+import GameConfigsNorth from "../keno-north/game-configs";
+import GameConfigsSouth from "../keno-south/game-configs";
+import GameConfigsWest from "../keno-west/game-configs";
+import GameConfigsEast from "../keno-east/game-configs";
+import { GameGuideBase } from "../../type";
+import { locales } from "../../../../common/constants";
+import { useTranslation } from "next-i18next";
+
+const KenoMaxGuide = (props: GameGuideBase) => {
+    const { t } = useTranslation("common");
+    const { gameName, locale, userStakeLevel, id } = props;
+    const gameConfigs = () => {
+        switch (id) {
+            case 13:
+                return GameConfigsMax2;
+            case 16:
+                return GameConfigsEast;
+            case 17:
+                return GameConfigsWest;
+            case 18:
+                return GameConfigsSouth;
+            case 19:
+                return GameConfigsNorth;
+
+            default:
+                return GameConfigsMax;
+        }
+    };
+    if (locale === locales.en) {
+        return <KenoMaxGuideEN gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+    }
+    return <KenoMaxGuideVI gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+};
+export default KenoMaxGuide;

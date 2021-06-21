@@ -36,7 +36,7 @@ const bettingOptions = () => {
                             <strong>Small:</strong> The sum of the 20 numbered balls drawn is{`<=`} 810
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
                             <table className="table text-center">
@@ -76,7 +76,7 @@ const bettingOptions = () => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
                 <li className="rule">
                     <span className="font-weight-medium">Odd/Even</span>
@@ -88,7 +88,7 @@ const bettingOptions = () => {
                             <strong>Even:</strong> the sum of the 20 numbered balls drawn is an even number.
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
                             <table className="table text-center">
@@ -128,7 +128,7 @@ const bettingOptions = () => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
                 <li className="rule">
                     <span className="font-weight-medium">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
@@ -149,7 +149,7 @@ const bettingOptions = () => {
                             <strong>Earth:</strong> The sum of the 20 numbered balls drawn, ranges from 924 to 1410.
                         </li>
                     </ul>
-                    <p>
+                    <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
                             <table className="table text-center">
@@ -189,14 +189,14 @@ const bettingOptions = () => {
                                 </tbody>
                             </table>
                         </div>
-                    </p>
+                    </div>
                 </li>
             </ul>
         </>
     );
 };
 
-const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     const { big, earth, fire, water, gold, wood } = odds;
@@ -299,4 +299,4 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
         </div>
     );
 };
-export default KenoProGuideEN;
+export default KenoProMaxGuideEN;

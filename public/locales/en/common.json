@@ -19,5 +19,13 @@
     "sicbo": "Sic Bo",
     "fourguardians": "Four Guardians",
     "lottery": "RNG Lottery",
-    "threecards": "Three Cards"
+    "threecards": "Three Cards",
+    "kenomax": "Keno Max",
+    "kenomax2": "Keno Max 2",
+    "kenomini": "Keno Mini",
+    "kenomini2": "Keno Mini 2",
+    "kenoeast": "Keno East",
+    "kenwest": "Keno West",
+    "kenosouth": "Keno South",
+    "kenonorth": "Keno North"
 }

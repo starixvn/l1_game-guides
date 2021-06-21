@@ -19,5 +19,5 @@ export type GameGuideBase = {
 export interface GameConfigsBaseProps {
     minbet: number;
     maxbet: number;
-    enableFreeBet: boolean;
+    enableFreeBet?: boolean;
 }

@@ -8,13 +8,15 @@ import SeDieGuide from "./game-guide/se-die";
 import SeDieSpecialGuide from "./game-guide/se-die-special";
 import SeDieWarGuide from "./game-guide/se-die-war";
 import BaccaratGuide from "./game-guide/baccarat";
-import KenoProGuide from "./game-guide/keno-pro-max";
+import KenoProMaxGuide from "./game-guide/keno-pro-max";
 import OddEvenTurboGuide from "./game-guide/odd-even-turbo";
 import BlackjackGuide from "./game-guide/blackjack";
 import SicBoGuide from "./game-guide/sic-bo";
 import FourGuardiansGuide from "./game-guide/four-guardians";
 import LotteryGuide from "./game-guide/lottery";
 import ThreeCardsGuide from "./game-guide/lottery";
+import KenoMaxGuide from "./game-guide/keno-pro-viet/keno-max";
+import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
 import { UserStakeLevelProps } from "../pages";
 import { useRouter } from "next/router";
 
@@ -49,10 +51,20 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 7:
                 return <DragonTigerGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 8:
-                return <KenoProGuide key={`game-${gameId}`} {...gameGuideProps} />;
+                return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 10:
             case 27:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 12:
+            case 13:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+                return <KenoMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 14:
+            case 15:
+                return <KenoMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 23:
                 return <BlackjackGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 24:
