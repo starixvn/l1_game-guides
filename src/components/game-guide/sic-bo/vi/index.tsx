@@ -1,18 +1,17 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxbet: number, minbet: number) => {
+const renderGameRule = (maxbet: number) => {
     return (
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>
                     Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
-                    cược. Lưu ý, không thể hủy cược sau khi đặt.
+                    cược. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>Tổng tiền cược tối đa cho một phiên là {numberWithCommas(maxbet)}</li>
                 <li>
@@ -28,7 +27,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps) => {
+const renderPayouts = (odds: OddsProps, minBet: number, choices_maxbet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
             <h2>Tỷ lệ trả thưởng và Giới hạn cược</h2>
@@ -51,7 +50,89 @@ const renderPayouts = (odds: OddsProps) => {
                                     <td rowSpan={2}>Tài/Xỉu</td>
                                     <td>Tài</td>
                                     <td rowSpan={2}>1:{odds.big}</td>
-                                    <td rowSpan={2}>1 - 2,000</td>
+                                    <td rowSpan={2}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.big)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Xỉu</td>
+                                </tr>
+                                <tr>
+                                    <td>Bộ Ba Bất Kỳ</td>
+                                    <td>Bộ Ba Bất Kỳ</td>
+                                    <td>1:{odds.anyTriple}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.anyTriple)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3}>Cược số</td>
+                                    <td rowSpan={3}>Xúc xắc 1 đến 6</td>
+                                    <td>Xuất hiện một lần 1:{odds.single}</td>
+                                    <td rowSpan={3}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.specific1)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Xuất hiện hai lần 1:{odds.double}</td>
+                                </tr>
+                                <tr>
+                                    <td>Xuất hiện ba lần 1:{odds.triple}</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={14}>Tổng điểm</td>
+                                    <td>4</td>
+                                    <td rowSpan={2}>1:{odds.total4}</td>
+                                    <td rowSpan={8}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.total4)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td rowSpan={2}>1:{odds.total5}</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td rowSpan={2}>1:{odds.total6}</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td rowSpan={2}>1:{odds.total7}</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td rowSpan={2}>1:{odds.total8}</td>
+                                    <td rowSpan={6}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.total8)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td rowSpan={4}>1:{odds.total9}</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -64,7 +145,7 @@ const renderPayouts = (odds: OddsProps) => {
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
         <div>
@@ -76,7 +157,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         dụng ba viên xúc xắc (xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet, minbet)}</li>
+                <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">
                     <h2>Điều kiện thắng</h2>
                     <div className="table-container">
@@ -92,8 +173,8 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                 <tr>
                                     <td rowSpan={2}>Tài/Xỉu</td>
                                     <td>Tài</td>
-                                    <td>
-                                        <ul className="desc">
+                                    <td className="text-start">
+                                        <ul className="plus">
                                             <li> Thắng nếu tổng điểm của ba xúc xắc từ 11 đến 17.</li>
                                             <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
                                         </ul>
@@ -101,8 +182,8 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                 </tr>
                                 <tr>
                                     <td>Xỉu</td>
-                                    <td>
-                                        <ul className="desc">
+                                    <td className="text-start">
+                                        <ul className="plus">
                                             <li> Thắng nếu tổng điểm của ba xúc xắc từ 4 đến 10.</li>
                                             <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
                                         </ul>
@@ -111,23 +192,23 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                 <tr>
                                     <td>Bộ Ba Bất Kỳ</td>
                                     <td>Bộ Ba Bất Kỳ</td>
-                                    <td>Thắng nếu kết quả là một bộ ba xúc xắc bất kỳ.</td>
+                                    <td className="text-start">Thắng nếu kết quả là một bộ ba xúc xắc bất kỳ.</td>
                                 </tr>
                                 <tr>
                                     <td>Cược số</td>
                                     <td>Xúc xắc 1 đến 6</td>
-                                    <td>Thắng nếu xúc xắc người chơi chọn xuất hiện trong kết quả.</td>
+                                    <td className="text-start">Thắng nếu xúc xắc người chơi chọn xuất hiện trong kết quả.</td>
                                 </tr>
                                 <tr>
                                     <td>Tổng điểm</td>
                                     <td>Từ 4 đến 17</td>
-                                    <td>Thắng nếu lựa chọn của người chơi bằng với tổng điểm của ba xúc xắc.</td>
+                                    <td className="text-start">Thắng nếu lựa chọn của người chơi bằng với tổng điểm của ba xúc xắc.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </li>
-                {renderPayouts(odds)}
+                {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

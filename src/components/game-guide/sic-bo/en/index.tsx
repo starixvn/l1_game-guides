@@ -1,57 +1,136 @@
 import React from "react";
-import { renderTermsAndConditionsVI } from "../../../shared";
+import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxbet: number, minbet: number) => {
+const renderGameRule = (maxbet: number) => {
     return (
         <>
-            <h2>Cách chơi</h2>
+            <h2>Game rules</h2>
             <ul className="desc">
+                <li>Select the chip value you wish to play. Players can bet on one or more betting options shown on the game table.</li>
+                <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
+                <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
+                <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
                 <li>
-                    Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
-                    cược. Lưu ý, không thể hủy cược sau khi đặt.
-                </li>
-                <li>Tổng tiền cược tối đa cho một phiên là {numberWithCommas(maxbet)}</li>
-                <li>
-                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Xúc xắc sẽ được lắc khi bắt đầu phiên, kết
-                    quả sẽ được hiển thị khi hết thời gian đặt cược.
-                </li>
-                <li>
-                    Tổng tiền cược của tất cả người chơi trên từng cửa cược là thông tin mang tính tham khảo. Đối với các thị trường và tiền
-                    tệ khác nhau, số tổng hiển thị được quy đổi dựa theo tỉ giá nội bộ do công ty quy định.
+                    The total stake amount of all players shown on each bet option is only for reference. For different markets and
+                    currencies, the totals are converted based on the internal rates set by the company.
                 </li>
             </ul>
         </>
     );
 };
 
-const renderPayouts = (odds: OddsProps) => {
+const renderPayouts = (odds: OddsProps, minBet: number, choices_maxbet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
-            <h2>Tỷ lệ trả thưởng và Giới hạn cược</h2>
+            <h2>Payout</h2>
             <ul className="desc">
-                <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                 <li>
-                    Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
+                    stake.
+                </li>
+                <li>
+                    All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Loại cược</th>
-                                    <th>Lựa chọn</th>
-                                    <th>Tỷ lệ trả thưởng</th>
-                                    <th>Giới hạn cược (Min - Max)</th>
+                                    <th>Options</th>
+                                    <th>Choices</th>
+                                    <th>Payouts</th>
+                                    <th>Bet Limit (Min-Max)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Tài/Xỉu</td>
-                                    <td>Tài</td>
+                                    <td rowSpan={2}>Big Small</td>
+                                    <td>Big</td>
                                     <td rowSpan={2}>1:{odds.big}</td>
-                                    <td rowSpan={2}>1 - 2,000</td>
+                                    <td rowSpan={2}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.big)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Small</td>
+                                </tr>
+                                <tr>
+                                    <td>Any Triple</td>
+                                    <td>Any Triple</td>
+                                    <td>1:{odds.anyTriple}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.anyTriple)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3}>Specific Number</td>
+                                    <td rowSpan={3}>Bet on any number from 1 to 6</td>
+                                    <td className="text-start">1:{odds.single} if the chosen number appears once.</td>
+                                    <td rowSpan={3}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.specific1)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">1:{odds.double} if the chosen number appears twice.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">1:{odds.triple} if the chosen number appears on all three dice.</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={14}>Total Points</td>
+                                    <td>4</td>
+                                    <td rowSpan={2}>1:{odds.total4}</td>
+                                    <td rowSpan={8}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.total4)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td rowSpan={2}>1:{odds.total5}</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td rowSpan={2}>1:{odds.total6}</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td rowSpan={2}>1:{odds.total7}</td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td rowSpan={2}>1:{odds.total8}</td>
+                                    <td rowSpan={6}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choices_maxbet.total8)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td rowSpan={4}>1:{odds.total9}</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -64,71 +143,77 @@ const renderPayouts = (odds: OddsProps) => {
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
         <div>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Giới thiệu</h2>
+                    <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} là trò chơi đổ xúc xắc, rất được yêu thích tại các casino. Trò chơi có luật và cách chơi đơn giản, sử
-                        dụng ba viên xúc xắc (xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm.
+                        {gameName} is a casino dice game that is widely popular in Asia. The game is played with three standard dice. The
+                        objective of this game is to predict the outcome of the dice roll. The player can bet on specific dice outcomes and
+                        the total value of the dice.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet, minbet)}</li>
+                <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">
-                    <h2>Điều kiện thắng</h2>
+                    <h2>Betting options</h2>
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Loại cược</th>
-                                    <th>Lựa chọn</th>
-                                    <th>Điều kiện thắng</th>
+                                    <th>Options</th>
+                                    <th>Choices</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Tài/Xỉu</td>
-                                    <td>Tài</td>
-                                    <td>
-                                        <ul className="desc">
-                                            <li> Thắng nếu tổng điểm của ba xúc xắc từ 11 đến 17.</li>
-                                            <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
+                                    <td rowSpan={2}>Big Small</td>
+                                    <td>Big</td>
+                                    <td className="text-start">
+                                        <ul className="plus">
+                                            <li> Bet on the total score of the three dice is between 11 and 17 points. </li>
+                                            <li> If the three dice are of equal value, you lose this bet</li>
                                         </ul>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Xỉu</td>
-                                    <td>
-                                        <ul className="desc">
-                                            <li> Thắng nếu tổng điểm của ba xúc xắc từ 4 đến 10.</li>
-                                            <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
+                                    <td>Small</td>
+                                    <td className="text-start">
+                                        <ul className="plus">
+                                            <li> Bet on the total score of the three dice is between 4 and 10 points.</li>
+                                            <li> If the three dice are of equal value, you lose this bet</li>
                                         </ul>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Bộ Ba Bất Kỳ</td>
-                                    <td>Bộ Ba Bất Kỳ</td>
-                                    <td>Thắng nếu kết quả là một bộ ba xúc xắc bất kỳ.</td>
+                                    <td>Any Triple</td>
+                                    <td>Any Triple</td>
+                                    <td className="text-start">To win this bet, all three dice must show the same number. </td>
                                 </tr>
                                 <tr>
-                                    <td>Cược số</td>
-                                    <td>Xúc xắc 1 đến 6</td>
-                                    <td>Thắng nếu xúc xắc người chơi chọn xuất hiện trong kết quả.</td>
+                                    <td>Specific Number</td>
+                                    <td>Bet on any number from 1 to 6</td>
+                                    <td className="text-start">
+                                        TBet on a specific number from 1 to 6. If the chosen number has appeared among three dice, you win{" "}
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Tổng điểm</td>
-                                    <td>Từ 4 đến 17</td>
-                                    <td>Thắng nếu lựa chọn của người chơi bằng với tổng điểm của ba xúc xắc.</td>
+                                    <td>Total Points</td>
+                                    <td>Bet on any number from 4 to 17</td>
+                                    <td className="text-start">
+                                        Bet on the total score of three dice. The player predicts whether the total score of three dice is
+                                        equal to a chosen number.
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </li>
-                {renderPayouts(odds)}
-                {renderTermsAndConditionsVI()}
+                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderTermsAndConditionsEN()}
             </ul>
         </div>
     );
