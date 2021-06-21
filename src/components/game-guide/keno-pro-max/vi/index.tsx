@@ -43,7 +43,7 @@ const bettingOptions = (gameName: string) => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
                                 <thead>
@@ -92,7 +92,7 @@ const bettingOptions = (gameName: string) => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
                                 <thead>
@@ -131,7 +131,7 @@ const bettingOptions = (gameName: string) => {
                     </div>
                 </li>
                 <li className="rule">
-                    <span className="font-weight-medium">Cược Tài/Xỉu</span>
+                    <span className="font-weight-medium">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>
                     <ul className="desc">
                         <li>
                             <strong>Kim:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 210 đến 695
@@ -140,7 +140,7 @@ const bettingOptions = (gameName: string) => {
                             <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 696 đến 763
                         </li>
                         <li>
-                            <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
+                            <strong>Thuỷ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
                         </li>
                         <li>
                             <strong>Hỏa:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 856 đến 923
@@ -150,7 +150,7 @@ const bettingOptions = (gameName: string) => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center">
                                 <thead>
