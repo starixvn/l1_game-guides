@@ -1,5 +1,3 @@
-@import "./components/dot-module.scss";
-
 [data-theme="light"] .game-guide {
     --table-background: transparent;
     --table-border: #dce2f3;
@@ -198,4 +196,37 @@ ul {
 
 .img {
     width: 100%;
+}
+
+%dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 0.15rem;
+    border-radius: 50%;
+    font-family: var(--font-number);
+    font-size: 1.1rem;
+    pointer-events: none;
+    border-width: 0.1rem;
+    border-style: solid;
+    color: #fff;
+}
+
+// sedie
+.dot-even {
+    @extend %dot;
+    background-color: #fff;
+    border-color: var(--dot-even-border);
+    box-shadow: var(--dot-even-shadow);
+    color: var(--dot-even-text-color);
+}
+
+.dot-odd {
+    @extend %dot;
+    background-color: var(--dot-odd-background);
+    border-color: var(--dot-odd-border);
+    box-shadow: var(--dot-odd-shadow);
+    color: var(--dot-odd-text-color);
 }

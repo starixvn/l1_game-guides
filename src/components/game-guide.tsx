@@ -15,7 +15,6 @@ import SicBoGuide from "./game-guide/sic-bo";
 import FourGuardiansGuide from "./game-guide/four-guardians";
 import LotteryGuide from "./game-guide/lottery";
 import { UserStakeLevelProps } from "../pages";
-import Styles from "./game-guide.module.scss";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -72,11 +71,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         }
     };
 
-    return (
-        <div className="game-container">
-            <div className={`game-list ${Styles["game-list"]}`}>{renderGuide()}</div>
-        </div>
-    );
+    return <div className="game-container">{renderGuide()}</div>;
 };
 
 export default GameGuide;

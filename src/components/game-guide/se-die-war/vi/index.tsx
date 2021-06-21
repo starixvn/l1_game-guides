@@ -334,7 +334,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                             <p>
                                 <img
                                     className={Styles["wrapper-img"]}
-                                    src="./static/images/se-die/guide-stats-vi.png"
+                                    src="./static/images/sedie-war/guide-stats-vi.png"
                                     alt="guide-stats-vi"
                                 ></img>
                             </p>

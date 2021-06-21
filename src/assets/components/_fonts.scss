@@ -1,33 +1,13 @@
 @font-face {
-    font-family: "SabaClub";
-    src: url("/static/fonts/icons/saba-club.eot?uarmrv");
-    src: url("/static/fonts/icons/saba-club.eot?uarmrv#iefix") format("embedded-opentype"),
-        url("/static/fonts/icons/saba-club.ttf?uarmrv") format("truetype"), url("/static/fonts/icons/saba-club.woff?uarmrv") format("woff"),
-        url("/static/fonts/icons/saba-club.svg?uarmrv#sabasclb") format("svg");
+    font-family: "game-guide";
+    src: url("/static/fonts/icons/game-guide.eot?uarmrv");
+    src: url("/static/fonts/icons/game-guide.eot?uarmrv#iefix") format("embedded-opentype"),
+        url("/static/fonts/icons/game-guide.ttf?uarmrv") format("truetype"),
+        url("/static/fonts/icons/game-guide.woff?uarmrv") format("woff"),
+        url("/static/fonts/icons/game-guide.svg?uarmrv#sabasclb") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
-}
-
-@font-face {
-    font-family: "BinanceFlex";
-    src: url("/static/fonts/Number-Regular.woff2") format("woff2"), url("/static/fonts/Number-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "BinanceFlex";
-    src: url("/static/fonts/Number-Medium.woff2") format("woff2"), url("/static/fonts/Number-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "BebasNeue";
-    src: url("/static/fonts/BebasNeue-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-display: swap;
 }
 
 @font-face {
