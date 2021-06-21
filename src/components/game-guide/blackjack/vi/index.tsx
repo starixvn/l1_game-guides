@@ -43,7 +43,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
+                                                <td className={Styles["options-width"]}>
                                                     Rút
                                                     <img
                                                         className={Styles["wrapper-img"]}
@@ -63,7 +63,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td className={Styles["options-width"]}>
                                                     Dừng
                                                     <img
                                                         className={Styles["wrapper-img"]}
@@ -73,7 +73,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 <td className="text-start">Người Chơi quyết định dừng không rút bài.</td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td className={Styles["options-width"]}>
                                                     Tách
                                                     <img
                                                         className={Styles["wrapper-img"]}
@@ -98,7 +98,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td className={Styles["options-width"]}>
                                                     Gấp Đôi
                                                     <img
                                                         className={Styles["wrapper-img"]}

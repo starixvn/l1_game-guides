@@ -1,4 +1,4 @@
-import { GameConfigsProps } from "../type";
+import { GameConfigsBaseProps } from "../type";
 import { OddsFPCProps, ChoicesMaxBetFPCProps } from "../fish-prawn-crab/type";
 
 export interface OddsProps extends OddsFPCProps {
@@ -13,7 +13,7 @@ export interface ChoicesMaxBetProps extends ChoicesMaxBetFPCProps {
     ocean: number;
 }
 
-export interface GameConfigProps extends GameConfigsProps {
+export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsProps;
     choices_maxbet: ChoicesMaxBetProps;
 }

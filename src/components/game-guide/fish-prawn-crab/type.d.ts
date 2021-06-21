@@ -1,4 +1,4 @@
-import { GameConfigsProps } from "../type";
+import { GameConfigsBaseProps } from "../type";
 
 export interface OddsFPCProps  {
     single: number;
@@ -15,7 +15,7 @@ export interface ChoicesMaxBetFPCProps {
     rooster: number;
 }
 
-export interface GameConfigProps extends GameConfigsProps {
+export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsFPCProps;
     choices_maxbet: ChoicesMaxBetFPCProps;
 }
