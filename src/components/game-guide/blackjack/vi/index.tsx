@@ -2,6 +2,8 @@ import React from "react";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { CardPointValuesTable } from "..";
+import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxbet: number, minbet: number) => {
@@ -47,10 +49,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                             <tr>
                                                 <td className={Styles[optionsWidthImg]}>
                                                     Rút
-                                                    <img
-                                                        className={Styles[wrapperImg]}
-                                                        src="./static/images/blackjack/guide_hit.png"
-                                                    ></img>
+                                                    <img className={Styles[wrapperImg]} src="./static/images/blackjack/guide_hit.png"></img>
                                                 </td>
                                                 <td className="text-start">
                                                     Rút thêm 1 lá bài và không giới hạn số lần rút, miễn là tổng điểm các lá bài không quá
@@ -199,48 +198,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                     <ul className="desc">
                         <li>
                             Điểm số các lá bài trong Blackjack sẽ được tính như sau:
-                            <div className="table-container">
-                                <table className="table text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Bài</th>
-                                            <th> A</th>
-                                            <th> 2</th>
-                                            <th> 3</th>
-                                            <th> 4</th>
-                                            <th> 5</th>
-                                            <th> 6</th>
-                                            <th> 7</th>
-                                            <th> 8</th>
-                                            <th> 9</th>
-                                            <th> 10</th>
-                                            <th> J</th>
-                                            <th> Q</th>
-                                            <th> K</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span className="font-weight-medium">Điểm</span>
-                                            </td>
-                                            <td>1 hoặc 11</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            {CardPointValuesTable(locales.vi)}
                         </li>
                         <li>
                             Nếu tổng các lá bài (không bao gồm lá A) lớn hơn hoặc bằng 11 thì A sẽ tính 1 điểm.

@@ -2,6 +2,8 @@ import React from "react";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { CardPointValuesTable } from "..";
+import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxbet: number, minbet: number) => {
@@ -54,10 +56,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                             <tr>
                                                 <td className={Styles[optionsWidthImg]}>
                                                     Hit
-                                                    <img
-                                                        className={Styles[wrapperImg]}
-                                                        src="./static/images/blackjack/guide_hit.png"
-                                                    ></img>
+                                                    <img className={Styles[wrapperImg]} src="./static/images/blackjack/guide_hit.png"></img>
                                                 </td>
                                                 <td className="text-start">
                                                     <ul className="desc">
@@ -228,51 +227,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         <li>
                             The hand with Blackjack (21 points on the first two cards) will win over a 21 achieved with 3 or more cards.
                         </li>
-                        <li>
-                            Card’s point values:
-                            <div className="table-container">
-                                <table className="table text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Card</th>
-                                            <th> A</th>
-                                            <th> 2</th>
-                                            <th> 3</th>
-                                            <th> 4</th>
-                                            <th> 5</th>
-                                            <th> 6</th>
-                                            <th> 7</th>
-                                            <th> 8</th>
-                                            <th> 9</th>
-                                            <th> 10</th>
-                                            <th> J</th>
-                                            <th> Q</th>
-                                            <th> K</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span className="font-weight-medium">Point</span>
-                                            </td>
-                                            <td>1 or 11</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                            <td>10</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
+                        <li>Card’s point values:{CardPointValuesTable(locales.en)}</li>
                     </ul>
                     <strong>Example: </strong>
                     <ul className="detail">

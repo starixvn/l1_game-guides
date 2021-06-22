@@ -1,0 +1,42 @@
+.container-img {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(6, auto);
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 10px;
+    p {
+        display: block;
+    }
+}
+.wrapper-img {
+    text-align: center;
+}
+.img-customize {
+    width: 100%;
+    height: auto;
+    max-width: 6.9rem;
+    max-height: 6.6rem;
+    transform: scale(0.8);
+    &.red {
+        max-width: 9.6rem;
+        max-height: 6.2rem;
+    }
+    &.black {
+        max-width: 12rem;
+        max-height: 5rem;
+        margin-top: 1rem;
+    }
+    &.heart {
+        max-width: 7.3rem;
+        max-height: 6.7rem;
+    }
+    &.diamond {
+        max-width: 6rem;
+        max-height: 7.4rem;
+    }
+}
+
+.img-red {
+    color: red;
+}
