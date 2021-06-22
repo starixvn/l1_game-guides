@@ -14,7 +14,7 @@ import BlackjackGuide from "./game-guide/blackjack";
 import SicBoGuide from "./game-guide/sic-bo";
 import FourGuardiansGuide from "./game-guide/four-guardians";
 import LotteryGuide from "./game-guide/lottery";
-import ThreeCardsGuide from "./game-guide/lottery";
+import ThreeCardsGuide from "./game-guide/three-cards";
 import KenoMaxGuide from "./game-guide/keno-pro-viet/keno-max";
 import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
 import RouletteGuide from "./game-guide/roulette";

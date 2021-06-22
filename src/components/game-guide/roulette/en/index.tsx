@@ -1,9 +1,7 @@
 import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../roulette.module.scss";
 
 const renderGameRule = () => {
     return (

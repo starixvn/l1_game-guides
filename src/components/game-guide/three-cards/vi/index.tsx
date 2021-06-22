@@ -1,9 +1,7 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../three-cards.module.scss";
 
 const renderGameRule = () => {
     return (

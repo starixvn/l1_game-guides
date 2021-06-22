@@ -1,7 +1,7 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../../shared";
 import { numberWithCommas } from "../../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../../type";
+import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 
 const renderGameRule = (maxBet: number) => {
@@ -15,7 +15,7 @@ const renderGameRule = (maxBet: number) => {
                     người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
                 </li>
                 <li>
-                    Người chơi có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là
+                    Người chơi có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là{" "}
                     {numberWithCommas(maxBet)}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
@@ -177,10 +177,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                 <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">{bettingOptions()}</li>
                 <li className="guide-item">
-                    <h2>Điều kiện thắng</h2>
-                </li>
-                <li className="guide-item">
-                    <h2>Tỷ lệ trả thưởng và Giới hạn cược</h2>
+                    <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>

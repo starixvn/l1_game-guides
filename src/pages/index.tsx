@@ -56,6 +56,8 @@ const Home = () => {
     useEffect(() => {
         return () => {
             setIsLoading(false);
+            setUserStakeLevel({ minBet: 0, maxBet: 0 });
+            setGameId(0);
         };
     }, []);
 

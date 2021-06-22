@@ -49,7 +49,3 @@ export const renderTermsAndConditionsVI = () => {
         </li>
     );
 };
-
-export const testUnit = () => {
-    return <div>Hello</div>;
-};

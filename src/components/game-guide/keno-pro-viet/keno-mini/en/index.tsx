@@ -48,7 +48,7 @@ const renderGameRule = (
                                     <td>Odd</td>
                                 </tr>
                                 <tr>
-                                    <td>Enve</td>
+                                    <td>Even</td>
                                 </tr>
                                 <tr>
                                     <td>Gold</td>
@@ -105,7 +105,7 @@ const bettingOptions = () => {
                     <span className="font-weight-medium"> Big/Small</span>
                     <ul className="desc">
                         <li>
-                            <strong>Big:</strong> tThe sum of the 10 numbered balls drawn is {`>=`} 206
+                            <strong>Big:</strong> The sum of the 10 numbered balls drawn is {`>=`} 206
                         </li>
                         <li>
                             <strong>Small:</strong> The sum of the 10 numbered balls drawn is {`<=`} 205
