@@ -92,6 +92,10 @@ label {
     margin-bottom: 0;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: var(--scrollbar-background);

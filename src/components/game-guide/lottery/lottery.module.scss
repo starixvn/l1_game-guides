@@ -1,11 +1,131 @@
-.wrapper-img {
-    width: 100%;
-    height: auto;
-    max-width: 3.9rem;
-    max-height: 3.9rem;
-    margin: 0.5rem;
+// lottery
+.many-example {
+    list-style: none;
+    padding-left: 1.2rem;
+
+    .example-title {
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
+        font-weight: bold;
+    }
 }
 
-.options-width {
-    min-width: 12rem;
+.table-medium,
+.table-small {
+    width: 100%;
+
+    @media (min-width: 768px) {
+        width: 80%;
+    }
+}
+
+.table-small {
+    @media (min-width: 768px) {
+        width: 60%;
+    }
+
+    .prize {
+        width: 15rem;
+    }
+
+    .number {
+        display: inline-block;
+        margin: 0 1rem;
+    }
+
+    .text-red-light {
+        color: #df7676;
+    }
+
+    .text-grey {
+        color: #9b9797;
+    }
+}
+
+.text-red {
+    color: #d60707;
+}
+
+.text-blue {
+    color: #057feb;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.stats-list {
+    padding-left: 4rem;
+    list-style: disc;
+
+    li {
+        margin: 0.2rem 0;
+    }
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stats-result {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    height: 6rem;
+    margin-right: 1rem;
+    background: url(/static/images/lottery/number_item_bg.png) no-repeat center;
+    background-size: 12rem 6rem;
+
+    .number {
+        font-size: 3.5rem;
+        font-weight: bold;
+    }
+
+    .sub-number {
+        position: absolute;
+        font-size: 1.8rem;
+
+        &.left {
+            left: 1.5rem;
+        }
+
+        &.right {
+            right: 1.5rem;
+        }
+    }
+}
+
+.others {
+    display: grid;
+    grid-template-columns: repeat(2, 20rem);
+    justify-content: flex-start;
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
+
+    .result {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20rem;
+        height: 6rem;
+        margin-right: 1rem;
+        background: url(/static/images/lottery/others_item_bg.png) no-repeat center;
+        background-size: 20rem 6rem;
+
+        .choice {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        .sub-number {
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.8rem;
+        }
+    }
 }
