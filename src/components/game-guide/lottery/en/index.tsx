@@ -1,5 +1,5 @@
 import React from "react";
-import { renderTermsAndConditionsVI } from "../../../shared";
+import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -709,7 +709,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                 {renderBettingOptions()}
                 {renderPayouts(odds, choices_maxbet, minbet, maxbet)}
                 {renderViewStatistic()}
-                {renderTermsAndConditionsVI()}
+                {renderTermsAndConditionsEN()}
             </ul>
         </div>
     );

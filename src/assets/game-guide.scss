@@ -175,6 +175,21 @@ ul {
                 font-size: var(--sub-title-font-size);
                 font-weight: 500;
             }
+            .game-rules-child {
+                padding-left: 1rem;
+                counter-reset: rule-list-child;
+                margin-bottom: 1rem;
+                .rule-child {
+                    margin: 0.5rem 0;
+                    counter-increment: rule-list-child;
+
+                    &:before {
+                        content: counter(guide-list) "." counter(rule-list) "." counter(rule-list-child) ". ";
+                        font-size: var(--sub-title-font-size);
+                        font-weight: 500;
+                    }
+                }
+            }
         }
     }
 
