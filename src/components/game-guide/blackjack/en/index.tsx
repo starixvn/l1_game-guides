@@ -28,8 +28,8 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                     dealt face up while Dealer - the first card face up, the other face down.
                 </li>
                 <li>Cards are shuffled after each round.</li>
-                <ul className="game-rules">
-                    <li className="rule">
+                <ul className="style-number-dot">
+                    <li className="number-dot">
                         <span className="font-weight-medium"> Rules for the Player’s hand</span>
                         <ul className="desc">
                             <li>
@@ -146,7 +146,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                             </li>
                         </ul>
                     </li>
-                    <li className="rule">
+                    <li className="number-dot">
                         <span className="font-weight-medium">Rules for the Dealer’s hand</span>
                         <ul className="desc">
                             <li>
@@ -239,20 +239,20 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
 
                 <li className="guide-item">
                     <h2>Terms and Conditions</h2>
-                    <ul className="game-rules">
-                        <li className="rule">
+                    <ul className="style-number-dot">
+                        <li className="number-dot">
                             The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
                             the "Deal" button.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
                             the system will calculate win-loss based on the cards that were on the table at the point of interruption.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             The Company reserves the right to cancel or void any bets because of a force majeure event including but not
                             limited to any technical errors, network service failures, power failures.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             The Company reserves the right to cancel or void any bets of players we believe to be involved in fraud, money
                             laundering, or any other form of illegal or suspicious activities.
                         </li>

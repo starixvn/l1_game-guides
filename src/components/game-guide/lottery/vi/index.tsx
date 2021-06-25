@@ -26,6 +26,9 @@ const renderHowToPLay = (maxbet: number) => {
 };
 
 const renderGameRule = () => {
+    const exampleTitle = "example-title";
+    const tableSmall = "table-small";
+    const textRedLight = "text-red-light";
     return (
         <li className="guide-item">
             <h2>Luật Chơi</h2>
@@ -107,18 +110,18 @@ const renderGameRule = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>
+            <div>
                 <strong>Ví dụ:</strong>
                 <ul className={Styles["many-example"]}>
                     <li>
-                        <div className={Styles["example-title"]}>a) Cược Đề Đầu</div>
+                        <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
                         <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:24</p>
                         <ul className="desc">
                             <li>Tiền cược: 10</li>
                             <li>Tổng cược: 20</li>
                             <li>
                                 Kết quả:
-                                <table className={`table text-center ${Styles["table-small"]}`}>
+                                <table className={`table text-center ${Styles[tableSmall]}`}>
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -142,14 +145,14 @@ const renderGameRule = () => {
                         </ul>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>b) Cược Đề Đặc Biệt</div>
+                        <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
                         <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:90</p>
                         <ul className="desc">
                             <li>Tiền cược: 10</li>
                             <li>Tổng cược: 30</li>
                             <li>
                                 Kết quả:
-                                <table className={`table text-center ${Styles["table-small"]}`}>
+                                <table className={`table text-center ${Styles[tableSmall]}`}>
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -161,7 +164,7 @@ const renderGameRule = () => {
                                             <td className={Styles["prize"]}>Giải Đặc Biệt</td>
                                             <td>
                                                 <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles["text-red-light"]}>090</span>
+                                                    <span className={Styles[textRedLight]}>090</span>
                                                     <span className={Styles["text-red"]}>62</span>
                                                 </div>
                                             </td>
@@ -173,14 +176,14 @@ const renderGameRule = () => {
                         </ul>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>c) Cược Số Đầu</div>
+                        <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
                         <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:9</p>
                         <ul className="desc">
                             <li>Tiền cược: 10</li>
                             <li>Tổng cược: 30</li>
                             <li>
                                 Kết quả:
-                                <table className={`table text-center ${Styles["table-small"]}`}>
+                                <table className={`table text-center ${Styles[tableSmall]}`}>
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -192,9 +195,9 @@ const renderGameRule = () => {
                                             <td className={Styles["prize"]}>Giải Đặc Biệt</td>
                                             <td>
                                                 <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles["text-red-light"]}>090</span>
+                                                    <span className={Styles[textRedLight]}>090</span>
                                                     <span className={Styles["text-red"]}>6</span>
-                                                    <span className={Styles["text-red-light"]}>2</span>
+                                                    <span className={Styles[textRedLight]}>2</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -205,14 +208,14 @@ const renderGameRule = () => {
                         </ul>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>d) Cược Số Đuôi</div>
+                        <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
                         <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:9</p>
                         <ul className="desc">
                             <li>Tiền cược: 10</li>
                             <li>Tổng cược: 20</li>
                             <li>
                                 Kết quả:
-                                <table className={`table text-center ${Styles["table-small"]}`}>
+                                <table className={`table text-center ${Styles[tableSmall]}`}>
                                     <thead>
                                         <tr>
                                             <th></th>
@@ -224,7 +227,7 @@ const renderGameRule = () => {
                                             <td className={Styles["prize"]}>Giải Đặc Biệt</td>
                                             <td>
                                                 <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles["text-red-light"]}>0906</span>
+                                                    <span className={Styles[textRedLight]}>0906</span>
                                                     <span className={Styles["text-red"]}>2</span>
                                                 </div>
                                             </td>
@@ -236,14 +239,14 @@ const renderGameRule = () => {
                         </ul>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>e) Cược Lô</div>
+                        <div className={Styles[exampleTitle]}>e) Cược Lô</div>
                         <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:3.6</p>
                         <ul className="desc">
                             <li>Tiền cược: 10</li>
                             <li>Tổng cược: 40</li>
                             <li>
                                 Kết quả:
-                                <table className={`table text-center ${Styles["table-small"]}`}>
+                                <table className={`table text-center ${Styles[tableSmall]}`}>
                                     <thead>
                                         <tr>
                                             <th>Giải Thưởng</th>
@@ -254,7 +257,7 @@ const renderGameRule = () => {
                                         <tr>
                                             <td>Đặc Biệt</td>
                                             <td colSpan={12} className="bold">
-                                                <span className={Styles["text-red-light"]}>763</span>
+                                                <span className={Styles[textRedLight]}>763</span>
                                                 <span className={Styles["text-red"]}>49</span>
                                             </td>
                                         </tr>
@@ -369,7 +372,7 @@ const renderGameRule = () => {
                         </ul>
                     </li>
                 </ul>
-            </p>
+            </div>
         </li>
     );
 };
@@ -455,6 +458,11 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
 };
 
 const renderViewStatistic = () => {
+    const exampleTitle = "example-title";
+    const statsList = "stats-list";
+    const resultRow = "result-row";
+    const statsResult = "stats-result";
+    const subNumber = "sub-number";
     return (
         <li className="guide-item">
             <h2>Soi Cầu</h2>
@@ -465,7 +473,7 @@ const renderViewStatistic = () => {
                 </li>
                 <li>
                     Dữ liệu được thống kê theo từng loại cược trên 100 phiên gần nhất:
-                    <ul className={Styles["stats-list"]}>
+                    <ul className={Styles[statsList]}>
                         <li>
                             <strong>Đề Đầu</strong>: thống kê kết quả giải Bảy.
                         </li>
@@ -487,9 +495,9 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles["example-title"]}>a) Đề Đầu, Đề Đặc Biệt, Lô </div>
+                            <div className={Styles[exampleTitle]}>a) Đề Đầu, Đề Đặc Biệt, Lô </div>
                             <p>Hiển thị:</p>
-                            <ul className={Styles["stats-list"]}>
+                            <ul className={Styles[statsList]}>
                                 <li>
                                     10 số xuất hiện nhiều nhất (ký hiệu màu <span className={Styles["text-red"]}>đỏ</span>)
                                 </li>
@@ -499,10 +507,10 @@ const renderViewStatistic = () => {
                             </ul>
                             <p className="bold">Ví dụ:</p>
                             <p>Kết quả soi cầu số 44 cho cược “Đề Đầu”</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>44</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["right"]} ${Styles["text-red"]}`}>24</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["right"]} ${Styles["text-red"]}`}>24</span>
                                 </div>
                                 <p>
                                     Số 44 có tổng số lần xuất hiện trong kết quả giải Bảy là 24 lần và thuộc nhóm 10 số xuất hiện nhiều
@@ -510,18 +518,18 @@ const renderViewStatistic = () => {
                                 </p>
                             </div>
                             <p>Kết quả soi cầu số 00 cho cược “Lô”</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>00</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["left"]} ${Styles["text-blue"]}`}>0</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>0</span>
                                 </div>
                                 <p>Số 00 chưa xuất hiện trong hai số cuối của 27 kết quả và thuộc nhóm 10 số ít xuất hiện.</p>
                             </div>
                         </li>
                         <li>
-                            <div className={Styles["example-title"]}>b) Số Đầu, Số Đuôi</div>
+                            <div className={Styles[exampleTitle]}>b) Số Đầu, Số Đuôi</div>
                             <p>Hiển thị số lần xuất hiện của tất cả 10 số trong dãy số từ 0 - 9.</p>
-                            <ul className={Styles["stats-list"]}>
+                            <ul className={Styles[statsList]}>
                                 <li>
                                     Nếu số lần xuất hiện &#62; 10 lần, được ký hiệu màu <span className={Styles["text-red"]}>đỏ</span>
                                 </li>
@@ -531,34 +539,34 @@ const renderViewStatistic = () => {
                             </ul>
                             <p className="bold">Ví dụ:</p>
                             <p>Kết quả soi cầu số 1 cho cược “Số Đầu”</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>1</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["right"]} ${Styles["text-red"]}`}>32</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["right"]} ${Styles["text-red"]}`}>32</span>
                                 </div>
                                 <p>Số 1 có tổng số lần xuất hiện trong kết quả số hàng Chục của giải Đặc Biệt là 32 lần.</p>
                             </div>
                             <p>Kết quả soi cầu số 7 cho cược “Số Đuôi”</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>4</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
                                 </div>
                                 <p>Số 7 có tổng số lần xuất hiện trong kết quả số hàng Đơn vị của giải Đặc Biệt là 4 lần.</p>
                             </div>
                         </li>
                         <li>
-                            <div className={Styles["example-title"]}>c) Hai Cửa (Tài/Xỉu, Chẵn/Lẻ)</div>
+                            <div className={Styles[exampleTitle]}>c) Hai Cửa (Tài/Xỉu, Chẵn/Lẻ)</div>
                             <p>Thống kê tỷ lệ thắng trên từng cửa Tài/Xỉu, Chẵn/Lẻ.</p>
                             <p className="bold">Ví dụ:</p>
                             <div className={Styles["others"]}>
                                 <div className={Styles["result"]}>
                                     <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>CHẴN</span>
-                                    <span className={`${Styles["sub-number"]}`}>52%</span>
+                                    <span className={`${Styles[subNumber]}`}>52%</span>
                                 </div>
                                 <div className={Styles["result"]}>
                                     <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>LẺ</span>
-                                    <span className={`${Styles["sub-number"]}`}>48%</span>
+                                    <span className={`${Styles[subNumber]}`}>48%</span>
                                 </div>
                             </div>
                             <p>Cửa “Chẵn” có tỷ lệ thắng là 52% và “Lẻ” là 48%.</p>

@@ -31,8 +31,8 @@ const bettingOptions = (gameName: string) => {
     return (
         <>
             <h2>Quy tắc tính điểm</h2>
-            <ul className="game-rules">
-                <li className="rule">
+            <ul className="style-number-dot">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Tài/Xỉu</span>
                     <ul className="desc">
                         <li>
@@ -81,7 +81,7 @@ const bettingOptions = (gameName: string) => {
                         </div>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Chẵn/Lẻ</span>
                     <ul className="desc">
                         <li>
@@ -130,7 +130,7 @@ const bettingOptions = (gameName: string) => {
                         </div>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>
                     <ul className="desc">
                         <li>

@@ -25,8 +25,8 @@ const bettingOptions = () => {
     return (
         <>
             <h2>Betting Options</h2>
-            <ul className="game-rules">
-                <li className="rule">
+            <ul className="style-number-dot">
+                <li className="number-dot">
                     <span className="font-weight-medium">Big/Small</span>
                     <ul className="desc">
                         <li>
@@ -78,7 +78,7 @@ const bettingOptions = () => {
                         </div>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Odd/Even</span>
                     <ul className="desc">
                         <li>
@@ -130,7 +130,7 @@ const bettingOptions = () => {
                         </div>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
                     <ul className="desc">
                         <li>

@@ -161,30 +161,30 @@ ul {
         }
     }
 
-    .game-rules {
+    .style-number-dot {
         padding-left: 1rem;
-        counter-reset: rule-list;
+        counter-reset: number-dot-list;
         margin-bottom: 1rem;
 
-        .rule {
+        .number-dot {
             margin: 0.5rem 0;
-            counter-increment: rule-list;
+            counter-increment: number-dot-list;
 
             &:before {
-                content: counter(guide-list) "." counter(rule-list) ". ";
+                content: counter(guide-list) "." counter(number-dot-list) ". ";
                 font-size: var(--sub-title-font-size);
                 font-weight: 500;
             }
-            .game-rules-child {
+            .style-number-dot-number {
                 padding-left: 1rem;
-                counter-reset: rule-list-child;
+                counter-reset: number-dot-list-child;
                 margin-bottom: 1rem;
-                .rule-child {
+                .number-dot-number {
                     margin: 0.5rem 0;
-                    counter-increment: rule-list-child;
+                    counter-increment: number-dot-list-child;
 
                     &:before {
-                        content: counter(guide-list) "." counter(rule-list) "." counter(rule-list-child) ". ";
+                        content: counter(guide-list) "." counter(number-dot-list) "." counter(number-dot-list-child) ". ";
                         font-size: var(--sub-title-font-size);
                         font-weight: 500;
                     }

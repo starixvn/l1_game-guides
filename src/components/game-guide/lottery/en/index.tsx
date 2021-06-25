@@ -20,6 +20,9 @@ const renderGameRule = (maxbet: number) => {
 };
 
 const renderBettingOptions = () => {
+    const exampleTitle = "example-title";
+    const tableSmall = "table-small";
+    const textRedLight = "text-red-light";
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -109,17 +112,17 @@ const renderBettingOptions = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>
+            <div>
                 <strong>Example:</strong>
                 <ul className={Styles["many-example"]}>
                     <li>
-                        <div className={Styles["example-title"]}>a) 4 Sets</div>
+                        <div className={Styles[exampleTitle]}>a) 4 Sets</div>
                         <ul className="desc">
                             <li>Place bet on two numbers: 07, 77 with Odds = 1:24</li>
                             <li>Stake = 10</li>
                             <li>Total Stake = 20</li>
                         </ul>{" "}
-                        <table className={`table text-center ${Styles["table-small"]}`}>
+                        <table className={`table text-center ${Styles[tableSmall]}`}>
                             <thead>
                                 <tr>
                                     <th></th>
@@ -141,13 +144,13 @@ const renderBettingOptions = () => {
                         <p>Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * 24) * 2 = 480</p>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>b) Special </div>
+                        <div className={Styles[exampleTitle]}>b) Special </div>
                         <ul className="desc">
                             <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:90</li>
                             <li>Stake = 10</li>
                             <li>Total Stake = 30</li>
                         </ul>
-                        <table className={`table text-center ${Styles["table-small"]}`}>
+                        <table className={`table text-center ${Styles[tableSmall]}`}>
                             <thead>
                                 <tr>
                                     <th></th>
@@ -159,7 +162,7 @@ const renderBettingOptions = () => {
                                     <td className={Styles["prize"]}>Special</td>
                                     <td>
                                         <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles["text-red-light"]}>090</span>
+                                            <span className={Styles[textRedLight]}>090</span>
                                             <span className={Styles["text-red"]}>62</span>
                                         </div>
                                     </td>
@@ -169,13 +172,13 @@ const renderBettingOptions = () => {
                         <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * 90 = 900</p>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>c) Head</div>
+                        <div className={Styles[exampleTitle]}>c) Head</div>
                         <ul className="desc">
                             <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:9</li>
                             <li>Stake = 10</li>
                             <li>otal Stake = 30</li>
                         </ul>
-                        <table className={`table text-center ${Styles["table-small"]}`}>
+                        <table className={`table text-center ${Styles[tableSmall]}`}>
                             <thead>
                                 <tr>
                                     <th></th>
@@ -187,9 +190,9 @@ const renderBettingOptions = () => {
                                     <td className={Styles["prize"]}>Special</td>
                                     <td>
                                         <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles["text-red-light"]}>090</span>
+                                            <span className={Styles[textRedLight]}>090</span>
                                             <span className={Styles["text-red"]}>6</span>
-                                            <span className={Styles["text-red-light"]}>2</span>
+                                            <span className={Styles[textRedLight]}>2</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -198,13 +201,13 @@ const renderBettingOptions = () => {
                         <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * 9 = 90</p>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>d) Tail</div>
+                        <div className={Styles[exampleTitle]}>d) Tail</div>
                         <ul className="desc">
                             <li>Place bet on two numbers: 0, 5 with Odds = 1:9</li>
                             <li>Stake = 10</li>
                             <li>Total Stake = 20</li>
                         </ul>
-                        <table className={`table text-center ${Styles["table-small"]}`}>
+                        <table className={`table text-center ${Styles[tableSmall]}`}>
                             <thead>
                                 <tr>
                                     <th></th>
@@ -216,7 +219,7 @@ const renderBettingOptions = () => {
                                     <td className={Styles["prize"]}>Special</td>
                                     <td>
                                         <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles["text-red-light"]}>0906</span>
+                                            <span className={Styles[textRedLight]}>0906</span>
                                             <span className={Styles["text-red"]}>2</span>
                                         </div>
                                     </td>
@@ -226,13 +229,13 @@ const renderBettingOptions = () => {
                         <p>All selected numbers are not the same as the units digit of the Special Prize. Payout = 0</p>
                     </li>
                     <li>
-                        <div className={Styles["example-title"]}>e) 27 Sets</div>
+                        <div className={Styles[exampleTitle]}>e) 27 Sets</div>
                         <ul className="desc">
                             <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:3.6</li>
                             <li>Stake = 10</li>
                             <li>Total Stake = 40</li>
                         </ul>
-                        <table className={`table text-center ${Styles["table-small"]}`}>
+                        <table className={`table text-center ${Styles[tableSmall]}`}>
                             <thead>
                                 <tr>
                                     <th>Prizes</th>
@@ -243,7 +246,7 @@ const renderBettingOptions = () => {
                                 <tr>
                                     <td>Special</td>
                                     <td colSpan={12} className="bold">
-                                        <span className={Styles["text-red-light"]}>763</span>
+                                        <span className={Styles[textRedLight]}>763</span>
                                         <span className={Styles["text-red"]}>49</span>
                                     </td>
                                 </tr>
@@ -356,7 +359,7 @@ const renderBettingOptions = () => {
                         <p>Number 12 has appeared one time in 27 results. Payout = 10 * 3.6 = 36</p>
                     </li>
                 </ul>
-            </p>
+            </div>
         </li>
     );
 };
@@ -443,6 +446,11 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
 };
 
 const renderViewStatistic = () => {
+    const exampleTitle = "example-title";
+    const statsList = "stats-list";
+    const resultRow = "result-row";
+    const statsResult = "stats-result";
+    const subNumber = "sub-number";
     return (
         <li className="guide-item">
             <h2>Statistic</h2>
@@ -453,7 +461,7 @@ const renderViewStatistic = () => {
                 </li>
                 <li>
                     Data statistics for each bet type on the last 100 rounds
-                    <ul className={Styles["stats-list"]}>
+                    <ul className={Styles[statsList]}>
                         <li>
                             <strong>4 Sets</strong>: statistics based on the results of the Seventh Prize.
                         </li>
@@ -476,8 +484,8 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles["example-title"]}>a) 4 Sets, Special, 27 Sets </div>
-                            <ul className={Styles["stats-list"]}>
+                            <div className={Styles[exampleTitle]}>a) 4 Sets, Special, 27 Sets </div>
+                            <ul className={Styles[statsList]}>
                                 <li>
                                     10 numbers with most occurrences (shown in <span className={Styles["text-red"]}>red</span>)
                                 </li>
@@ -487,26 +495,26 @@ const renderViewStatistic = () => {
                             </ul>
                             <p className="bold">Example:</p>
                             <p>Data statistics in “4 Sets” bet type</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>44</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["right"]} ${Styles["text-red"]}`}>24</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["right"]} ${Styles["text-red"]}`}>24</span>
                                 </div>
                                 <p>number 44 has a total of 24 appearances in the 7th prize within the last 100 rounds</p>
                             </div>
                             <p>Data statistics in “27 Sets” bet type</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>00</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["left"]} ${Styles["text-blue"]}`}>0</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>0</span>
                                 </div>
                                 <p>number 00 did not appear in the last 2 digits of 27 results within the last 100 rounds.</p>
                             </div>
                         </li>
                         <li>
-                            <div className={Styles["example-title"]}>b) Head, Tail</div>
+                            <div className={Styles[exampleTitle]}>b) Head, Tail</div>
                             <p>Count the occurrences of each number from 0-9</p>
-                            <ul className={Styles["stats-list"]}>
+                            <ul className={Styles[statsList]}>
                                 <li>
                                     If the total appearances &#62; 10, will be displayed in <span className={Styles["text-red"]}>red</span>.
                                 </li>
@@ -517,34 +525,34 @@ const renderViewStatistic = () => {
                             </ul>
                             <p className="bold">Example:</p>
                             <p>Data statistics in “Head” bet type</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>1</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["right"]} ${Styles["text-red"]}`}>32</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["right"]} ${Styles["text-red"]}`}>32</span>
                                 </div>
                                 <p>number 1 has a total of 32 appearances in the tens digit of Special Prize within the last 100 rounds.</p>
                             </div>
                             <p>Data statistics in “Tail” bet type</p>
-                            <div className={Styles["result-row"]}>
-                                <div className={Styles["stats-result"]}>
+                            <div className={Styles[resultRow]}>
+                                <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>4</span>
-                                    <span className={`${Styles["sub-number"]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
                                 </div>
                                 <p>number 7 has a total of 4 appearances in the units digit of Special Prize within the last 100 rounds.</p>
                             </div>
                         </li>
                         <li>
-                            <div className={Styles["example-title"]}>c) Others (Big/Small, Odd/Even)</div>
+                            <div className={Styles[exampleTitle]}>c) Others (Big/Small, Odd/Even)</div>
                             <p>Show winning rate (%) on each bet option Big/Small, Odd/Even.</p>
                             <p className="bold">Ví dụ:</p>
                             <div className={Styles["others"]}>
                                 <div className={Styles["result"]}>
                                     <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>ODD</span>
-                                    <span className={`${Styles["sub-number"]}`}>48%</span>
+                                    <span className={`${Styles[subNumber]}`}>48%</span>
                                 </div>
                                 <div className={Styles["result"]}>
                                     <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>EVEN</span>
-                                    <span className={`${Styles["sub-number"]}`}>52%</span>
+                                    <span className={`${Styles[subNumber]}`}>52%</span>
                                 </div>
                             </div>
                             <p>The winning rate for bet option Odd is 48% and 52% for Even</p>

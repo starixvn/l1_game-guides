@@ -450,8 +450,8 @@ const renderBettingOptions = () => {
                 <img className={Styles["img-main"]} src="./static/images/roulette/game_guide-luat_choi.png" alt="luat-choi"></img>
             </div>
             {renderBetChipsNotice()}
-            <ul className="game-rules">
-                <li className="rule">
+            <ul className="style-number-dot">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Trong</span>
                     <div className="table-container">
                         <table className="table text-center">
@@ -507,7 +507,7 @@ const renderBettingOptions = () => {
                         </table>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Ngoài</span>
                     <div className="table-container">
                         <table className="table text-center">
@@ -563,7 +563,7 @@ const renderBettingOptions = () => {
                         </table>
                     </div>
                 </li>
-                <li className="rule">
+                <li className="number-dot">
                     <span className="font-weight-medium">Cược Nhanh</span>
                     <p>
                         Cược nhanh hay còn gọi là Cược Pháp, là hình thức đặt cược cho phép người chơi đặt vào nhóm các ô số được quy định
@@ -576,12 +576,12 @@ const renderBettingOptions = () => {
                             alt="game_guide-cuoc_nhanh"
                         ></img>
                     </div>
-                    <ul className="game-rules-child">
-                        <li className="rule-child">{renderCallBetTiers()}</li>
-                        <li className="rule-child">{renderCallBetOrphelins()}</li>
-                        <li className="rule-child">{renderCallBetVoisins()}</li>
-                        <li className="rule-child">{renderCallBetZero()}</li>
-                        <li className="rule-child">{renderCallBetNeighbors()}</li>
+                    <ul className="style-number-dot-number">
+                        <li className="number-dot-number">{renderCallBetTiers()}</li>
+                        <li className="number-dot-number">{renderCallBetOrphelins()}</li>
+                        <li className="number-dot-number">{renderCallBetVoisins()}</li>
+                        <li className="number-dot-number">{renderCallBetZero()}</li>
+                        <li className="number-dot-number">{renderCallBetNeighbors()}</li>
                     </ul>
                 </li>
             </ul>

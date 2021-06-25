@@ -153,8 +153,8 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             Nếu Nhà Con hoặc Nhà Cái giành chiến thắng với tổng điểm 2 lá bài đầu là 8 hoặc 9 điểm, khi đó sẽ được gọi là
                             “Thắng tự nhiên”.
                         </li>
-                        <ul className="game-rules">
-                            <li className="rule">
+                        <ul className="style-number-dot">
+                            <li className="number-dot">
                                 <span className="font-weight-medium">Quy tắc rút bài Nhà Con</span>
                                 <div className="table-container">
                                     <table className="table text-center">
@@ -183,7 +183,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     </table>
                                 </div>
                             </li>
-                            <li className="rule">
+                            <li className="number-dot">
                                 <span className="font-weight-medium"> Quy tắc rút bài Nhà Cái</span>
 
                                 <div className="table-container">

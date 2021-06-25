@@ -27,8 +27,8 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                 <li>Khi bắt đầu ván chơi, tay bài của Người Chơi và Nhà Cái, mỗi bên sẽ được chia 2 lá bài. </li>
                 <li>Các lá bài tiếp theo sẽ được rút tùy vào điểm số của 2 lá bài đầu tiên.</li>
                 <li>Khi bắt đầu phiên mới, 6 bộ bài tây 52 lá (không bao gồm lá Joker) sẽ được xào lại.</li>
-                <ul className="game-rules">
-                    <li className="rule">
+                <ul className="style-number-dot">
+                    <li className="number-dot">
                         <span className="font-weight-medium">Quy tắc rút bài cho Người Chơi</span>
                         <ul className="desc">
                             <li>
@@ -126,7 +126,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                             </li>
                         </ul>
                     </li>
-                    <li className="rule">
+                    <li className="number-dot">
                         <span className="font-weight-medium">Quy tắc rút bài cho Nhà Cái</span>
                         <ul className="desc">
                             <li>
@@ -219,22 +219,22 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
 
                 <li className="guide-item">
                     <h2>Các quy định trong game</h2>
-                    <ul className="game-rules">
-                        <li className="rule">
+                    <ul className="style-number-dot">
+                        <li className="number-dot">
                             Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi
                             bấm nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng,
                             đồng nghĩa với Người Chơi đã chấp nhận “Dừng, không rút thêm bài”. Hệ thống sẽ tự động tính toán kết quả thắng
                             thua dựa trên các lá bài đang có của Người Chơi.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ
                             thuật nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược khi nghi ngờ khách hàng có những hoạt động gian
                             lận, tham gia lừa đảo, câu kết, rửa tiền hay các hoạt động bất hợp pháp khác.
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             Công ty có quyền hủy hoặc làm mất hiệu lực mọi lượt cược khi có lỗi (thuộc về con người hay yếu tố khác) hoặc sự
                             cố hệ thống dẫn đến việc sử dụng sai tỷ lệ trả thưởng.
                         </li>

@@ -192,8 +192,8 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             cards are dealt, both the player and banker stand.
                         </li>
 
-                        <ul className="game-rules">
-                            <li className="rule">
+                        <ul className="style-number-dot">
+                            <li className="number-dot">
                                 <span className="font-weight-medium">Rules for the Player hand</span>
                                 <div className="table-container">
                                     <table className="table text-center">
@@ -222,7 +222,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     </table>
                                 </div>
                             </li>
-                            <li className="rule">
+                            <li className="number-dot">
                                 <span className="font-weight-medium"> Rules for the Banker hand</span>
                                 <ul className="desc">
                                     <li>

@@ -354,12 +354,12 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 {renderPayouts(odds, choices_maxbet, minbet)}
                 <li className="guide-item">
                     <h2>Scoreboard</h2>
-                    <ul className="game-rules">
-                        <li className="rule">
+                    <ul className="style-number-dot">
+                        <li className="number-dot">
                             <strong>Odd-Even</strong>
                             {renderStatisticalTable()}
                         </li>
-                        <li className="rule">
+                        <li className="number-dot">
                             <strong>Statistical Round result</strong>
                             <p>
                                 <img
