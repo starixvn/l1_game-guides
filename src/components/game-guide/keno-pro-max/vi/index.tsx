@@ -45,7 +45,7 @@ const bettingOptions = (gameName: string) => {
                     <div>
                         <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-medium left">
                                 <thead>
                                     <tr>
                                         <th>1</th>
@@ -94,7 +94,7 @@ const bettingOptions = (gameName: string) => {
                     <div>
                         <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-medium left">
                                 <thead>
                                     <tr>
                                         <th>4</th>
@@ -152,7 +152,7 @@ const bettingOptions = (gameName: string) => {
                     <div>
                         <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-medium left">
                                 <thead>
                                     <tr>
                                         <th>1</th>
@@ -219,7 +219,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <li>
                             Giới hạn cược và tỷ lệ trả thưởng trong Keno Pro Max như sau:
                             <div className="table-container">
-                                <table className="table text-center">
+                                <table className="table text-center table-medium">
                                     <thead>
                                         <tr>
                                             <th>Lựa Chọn</th>

@@ -23,7 +23,7 @@ const renderGameRule = (
                     The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
                     stake.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium">
                             <thead>
                                 <tr>
                                     <th>Options</th>
@@ -114,7 +114,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Example:</strong>Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead>
                                     <tr>
                                         <th colSpan={10}>Draw Results</th>
@@ -168,7 +168,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Example:</strong>Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead>
                                     <tr>
                                         <th colSpan={10}>Draw Results</th>
@@ -231,7 +231,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead>
                                     <tr>
                                         <th colSpan={10}>Draw Results</th>

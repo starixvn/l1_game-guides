@@ -45,7 +45,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
@@ -95,7 +95,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
@@ -154,7 +154,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center">
+                            <table className="table text-center table-small left">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
@@ -220,7 +220,7 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         <li>
                             Giới hạn cược và tỷ lệ trả thưởng:
                             <div className="table-container">
-                                <table className="table text-center">
+                                <table className="table text-center table-medium">
                                     <thead>
                                         <tr>
                                             <th>Lựa Chọn</th>

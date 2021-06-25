@@ -31,7 +31,7 @@ const renderGameRule = (maxbet: string) => {
                 </li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium left">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Lựa Chọn</th>
@@ -204,7 +204,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                 <li>
                     Tỷ lệ trả thưởng đã bao gồm tiền cược.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>

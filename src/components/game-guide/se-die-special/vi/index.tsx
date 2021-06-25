@@ -13,7 +13,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                 <li>
                     Người chơi dự đoán kết quả của 4 xu sau khi xóc bằng cách chọn cửa Chẵn hoặc Lẻ cùng với mức cược mong muốn.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium left">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>
@@ -79,7 +79,7 @@ const renderStatistical = () => {
         <li className="guide-item">
             <h2>Bảng thống kê kết quả</h2>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-small">
                     <thead>
                         <tr>
                             <th>Kết Quả</th>

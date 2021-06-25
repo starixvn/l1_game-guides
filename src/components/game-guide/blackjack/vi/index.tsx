@@ -151,7 +151,7 @@ const renderPayouts = (odds: OddsProps) => {
                 <li>
                     Tỷ lệ trả thưởng đã bao gồm tiền cược.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-small left">
                             <thead>
                                 <tr>
                                     <th></th>

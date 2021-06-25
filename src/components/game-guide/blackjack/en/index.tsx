@@ -174,7 +174,7 @@ const renderPayouts = (odds: OddsProps) => {
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-small left">
                             <thead>
                                 <tr>
                                     <th></th>

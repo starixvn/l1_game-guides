@@ -132,7 +132,7 @@ const renderStatistical = () => {
 export const renderStatisticalTable = () => {
     return (
         <div className="table-container">
-            <table className="table text-center">
+            <table className="table text-center table-small">
                 <thead>
                     <tr>
                         <th>Results</th>

@@ -21,7 +21,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>The standard deck with 52 cards (excluding Joker) is shuffled after every round.</li>
             </ul>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-small left">
                     <thead>
                         <tr>
                             <th>Options</th>
@@ -89,7 +89,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-small left">
                             <thead>
                                 <tr>
                                     <th>Options</th>

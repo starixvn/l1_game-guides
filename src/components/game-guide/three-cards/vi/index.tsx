@@ -28,7 +28,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
             </ul>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-small left">
                     <thead>
                         <tr>
                             <th>Lựa Chọn</th>
@@ -91,7 +91,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                 <li>
                     Tỷ lệ trả thưởng đã bao gồm tiền cược.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-small left">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>

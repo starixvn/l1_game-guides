@@ -135,6 +135,8 @@ ul {
         background: transparent;
         box-shadow: 0 1rem 1rem rgba(95, 90, 247, 0.03);
         border-radius: 0.5rem 0.5rem 0 0;
+        margin-left: auto;
+        margin-right: auto;
 
         th,
         td {
@@ -158,6 +160,26 @@ ul {
 
         td {
             border: 1px solid var(--table-border);
+        }
+
+        &.left {
+            margin-left: 0;
+        }
+    }
+
+    .table-small {
+        width: 100%;
+        margin-top: 1rem;
+        @media (min-width: 768px) {
+            width: 60%;
+        }
+    }
+
+    .table-medium {
+        width: 100%;
+        margin-top: 1rem;
+        @media (min-width: 768px) {
+            width: 80%;
         }
     }
 

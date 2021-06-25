@@ -22,7 +22,7 @@ const renderGameRule = (maxbet: string) => {
                 </li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium left">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Options</th>
@@ -234,7 +234,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
-                        <table className="table text-center">
+                        <table className="table text-center table-medium">
                             <thead>
                                 <tr>
                                     <th>Options</th>
