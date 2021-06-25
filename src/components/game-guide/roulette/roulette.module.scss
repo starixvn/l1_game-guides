@@ -9,6 +9,7 @@
     height: auto;
     max-width: 88.6rem;
     max-height: 47.5rem;
+    transform: scale(0.9);
 }
 
 .wrapper-chips {
@@ -33,13 +34,14 @@
     max-width: 71.3rem;
     max-height: 19.8rem;
 }
-.img-bet-tiers {
+.img-bet-rectangle {
     width: 100%;
     height: auto;
     max-width: 88.6rem;
     max-height: 22.1rem;
+    transform: scale(0.9);
 }
-.img-bet-neighbors {
+.img-bet-circle {
     width: 100%;
     height: auto;
     max-width: 71.3rem;
@@ -54,5 +56,14 @@
 
     @media (min-width: 768px) {
         width: 60%;
+    }
+}
+.bet-title {
+    color: #9ebfc5 !important;
+    font-weight: 700;
+}
+.table-customize {
+    tbody td {
+        border: none !important;
     }
 }

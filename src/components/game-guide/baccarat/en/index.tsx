@@ -164,7 +164,7 @@ export const renderTBodyPointCalculationRules = () => {
 
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel, maxBetFollowChoice, gameId } = props;
-    const { odds, minbet } = gameConfigs;
+    const { odds, minbet, maxbet } = gameConfigs;
     const { player, banker, big, small, tie, playerPair } = odds;
 
     return (
@@ -303,10 +303,11 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Player</td>
                                             <td>1: {player}</td>
                                             <td rowSpan={4}>
-                                                {" "}
                                                 {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
-                                            <td rowSpan={7}>{numberWithCommas(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0)}</td>
+                                            <td rowSpan={7}>
+                                                {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxBet))}
+                                            </td>
                                             <td rowSpan={7}>The Player and the Banker bets will be refunded if the result is a draw.</td>
                                         </tr>
                                         <tr>

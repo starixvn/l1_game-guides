@@ -5,6 +5,9 @@ import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 
+const wrapperImg = "wrapper-img";
+const imgBetTiers = "img-bet-rectangle";
+const tableSmall = "table-small";
 const renderGameRule = (maxBet: number) => {
     return (
         <>
@@ -19,7 +22,7 @@ const renderGameRule = (maxBet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {numberWithCommas(maxBet)}. Lưu ý, không thể hủy cược sau khi bấm Đồng Ý.
+                    phiên là {numberWithCommas(maxBet)}. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm Đồng Ý.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, vòng quay
@@ -99,15 +102,11 @@ const renderCallBetTiers = () => {
                 <li>Người chơi chọn mệnh giá chip và nhấp vào Tiers, một lần đặt cược sẽ tốn 6 chip cho 6 cược đôi.</li>
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Tiers, mức cược tương ứng cho từng cược đôi sẽ là:</p>
-            <div className={Styles["wrapper-img"]}>
-                <img
-                    className={Styles["img-bet-tiers"]}
-                    src="./static/images/roulette/game_guide-tiers_ex.png"
-                    alt="game_guide-tiers"
-                ></img>
+            <div className={Styles[wrapperImg]}>
+                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers"></img>
             </div>
             <div className="table-container text-center">
-                <table className={`table text-center ${Styles["table-small"]}`}>
+                <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
                             <th>Loại Cược</th>
@@ -170,15 +169,15 @@ const renderCallBetOrphelins = () => {
                 <li>Người chơi chọn mệnh giá chip và nhấp vào Orphelins, một lần đặt cược sẽ tốn 5 chip cho 4 cược đôi và 1 cược đơn.</li>
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Orphelins, mức cược tương ứng cho từng loại cược sẽ là:</p>
-            <div className={Styles["wrapper-img"]}>
+            <div className={Styles[wrapperImg]}>
                 <img
-                    className={Styles["img-bet-tiers"]}
+                    className={Styles[imgBetTiers]}
                     src="./static/images/roulette/game_guide-orphelins_ex.png"
                     alt="game_guide-orphelins_ex"
                 ></img>
             </div>
             <div className="table-container text-center">
-                <table className={`table text-center ${Styles["table-small"]}`}>
+                <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
                             <th>Loại Cược</th>
@@ -242,15 +241,15 @@ const renderCallBetVoisins = () => {
                 </li>
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Voisins, mức cược tương ứng cho từng loại cược sẽ là:</p>
-            <div className={Styles["wrapper-img"]}>
+            <div className={Styles[wrapperImg]}>
                 <img
-                    className={Styles["img-bet-tiers"]}
+                    className={Styles[imgBetTiers]}
                     src="./static/images/roulette/game_guide-voisins_ex.png"
                     alt="game_guide-voisins_ex"
                 ></img>
             </div>
             <div className="table-container text-center">
-                <table className={`table text-center ${Styles["table-small"]}`}>
+                <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
                             <th>Loại Cược</th>
@@ -319,11 +318,11 @@ const renderCallBetZero = () => {
                 <li>Người chơi chọn mệnh giá chip và nhấp vào Zero, một lần đặt cược sẽ tốn 4 chip cho 3 cược đôi và 1 cược đơn.</li>
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Zero, mức cược tương ứng cho từng loại cược sẽ là:</p>
-            <div className={Styles["wrapper-img"]}>
-                <img className={Styles["img-bet-tiers"]} src="./static/images/roulette/game_guide-zero_ex.png" alt="game_guide-Zero"></img>
+            <div className={Styles[wrapperImg]}>
+                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-zero_ex.png" alt="game_guide-Zero"></img>
             </div>
             <div className="table-container text-center">
-                <table className={`table text-center ${Styles["table-small"]}`}>
+                <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
                             <th>Loại Cược</th>
@@ -375,9 +374,9 @@ const renderCallBetNeighbors = () => {
                 <li>Hệ thống sẽ tạo thành 5 cược đơn ứng với 5 con số mà người chơi đã chọn.</li>
             </ul>
 
-            <div className={Styles["wrapper-img"]}>
+            <div className={Styles[wrapperImg]}>
                 <img
-                    className={Styles["img-bet-neighbors"]}
+                    className={Styles["img-bet-circle"]}
                     src="./static/images/roulette/game_guide-neighbors_1.png"
                     alt="game_guide-Zero"
                 ></img>
@@ -386,15 +385,15 @@ const renderCallBetNeighbors = () => {
                 Ví dụ: Người chơi chọn mệnh giá chip 10, ô số muốn đặt là 27, có nghĩa là người chơi đặt cược lên năm con số liền nhau
                 36-13-27-6-34 (27 là con số ở giữa).
             </p>
-            <div className={Styles["wrapper-img"]}>
+            <div className={Styles[wrapperImg]}>
                 <img
-                    className={Styles["img-bet-tiers"]}
+                    className={Styles[imgBetTiers]}
                     src="./static/images/roulette/game_guide_neighbors_ex.png"
                     alt="game_guide-neighbors_ex"
                 ></img>
             </div>
             <div className="table-container text-center">
-                <table className={`table text-center ${Styles["table-small"]}`}>
+                <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
                             <th>Loại Cược</th>
@@ -446,7 +445,7 @@ const renderBettingOptions = () => {
                 cược trong là cược vào các ô số cụ thể trên bàn cược. Cược ngoài là người chơi đặt cược vào các lựa chọn như cược Đỏ Đen,
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
-            <div className={Styles["wrapper-img"]}>
+            <div className={Styles[wrapperImg]}>
                 <img className={Styles["img-main"]} src="./static/images/roulette/game_guide-luat_choi.png" alt="luat-choi"></img>
             </div>
             {renderBetChipsNotice()}
@@ -569,7 +568,7 @@ const renderBettingOptions = () => {
                         Cược nhanh hay còn gọi là Cược Pháp, là hình thức đặt cược cho phép người chơi đặt vào nhóm các ô số được quy định
                         sẵn và sẽ có 5 lựa chọn là Cược Tiers, Cược Orphelines, Cược Voisins, Cược Zero và Cược Neighbors.
                     </p>
-                    <div className={Styles["wrapper-img"]}>
+                    <div className={Styles[wrapperImg]}>
                         <img
                             className={Styles["img-call-bet"]}
                             src="./static/images/roulette/game_guide-cuoc_nhanh.png"

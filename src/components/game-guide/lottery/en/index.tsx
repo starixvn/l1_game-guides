@@ -5,6 +5,7 @@ import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
 
+const exampleTitle = "example-title";
 const renderGameRule = (maxbet: number) => {
     return (
         <li className="guide-item">
@@ -20,7 +21,6 @@ const renderGameRule = (maxbet: number) => {
 };
 
 const renderBettingOptions = () => {
-    const exampleTitle = "example-title";
     const tableSmall = "table-small";
     const textRedLight = "text-red-light";
     return (
@@ -446,7 +446,6 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
 };
 
 const renderViewStatistic = () => {
-    const exampleTitle = "example-title";
     const statsList = "stats-list";
     const resultRow = "result-row";
     const statsResult = "stats-result";
