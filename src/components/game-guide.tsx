@@ -24,16 +24,18 @@ import { useRouter } from "next/router";
 type Props = {
     gameId: number;
     userStakeLevel: UserStakeLevelProps;
+    market: string;
 };
 
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel } = props;
+    const { gameId, userStakeLevel, market } = props;
     const { gameSettings } = appSettings;
     const router = useRouter();
     const { locale } = router;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
+        market: market,
         ...gameSettings[gameId],
     };
     const renderGuide = () => {

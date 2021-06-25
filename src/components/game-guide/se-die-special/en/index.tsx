@@ -92,10 +92,9 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}
-                        is a mini version of Se Die game that includes only two bet options ODD and EVEN. The game is played with 4 colored
-                        buttons, each button has two sides colored in red and white. The objective of this game is to predict the outcome of
-                        4 buttons. If the outcome matches the player’s bet, the player wins.
+                        {gameName} is a mini version of Se Die game that includes only two bet options ODD and EVEN. The game is played with
+                        4 colored buttons, each button has two sides colored in red and white. The objective of this game is to predict the
+                        outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>

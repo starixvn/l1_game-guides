@@ -8,11 +8,25 @@ import { useTranslation } from "next-i18next";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale, userStakeLevel, market } = props;
 
     if (locale === locales.en) {
-        return <FourGuardiansGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+        return (
+            <FourGuardiansGuideEN
+                gameConfigs={GameConfigs}
+                userStakeLevel={userStakeLevel}
+                gameName={t(gameName.toLowerCase())}
+                market={market}
+            />
+        );
     }
-    return <FourGuardiansGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+    return (
+        <FourGuardiansGuideVI
+            gameConfigs={GameConfigs}
+            userStakeLevel={userStakeLevel}
+            gameName={t(gameName.toLowerCase())}
+            market={market}
+        />
+    );
 };
 export default FourGuardiansGuide;

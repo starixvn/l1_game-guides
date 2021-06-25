@@ -10,3 +10,7 @@ export const Themes = {
     dark: "dark",
     blue: "blue",
 };
+export const Market = {
+    SC1: "SC1",
+    SC2: "SC2",
+};

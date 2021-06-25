@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import GameGuide from "../components/game-guide";
-import { locales, Themes, language, languageMapper } from "../common/constants";
+import { locales, Themes, language, languageMapper, Market } from "../common/constants";
 import { GetStaticProps } from "next";
 import appSettings from "../common/app-settings";
 
@@ -20,6 +20,7 @@ const Home = () => {
     const { setTheme } = useTheme();
     const { gameSettings } = appSettings;
     const [gameId, setGameId] = useState<number>(0);
+    const [market, setMarket] = useState<string>(Market.SC1);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
     const router = useRouter();
@@ -40,6 +41,9 @@ const Home = () => {
             const queryParams: object | any = router.query;
 
             setGameId(CheckIsInteger(queryParams?.gId));
+            if (queryParams?.m && Market.hasOwnProperty(queryParams.m.toString())) {
+                setMarket(queryParams.m.toString());
+            }
             if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
                 setTheme(queryParams.t.toString());
             }
@@ -61,7 +65,11 @@ const Home = () => {
         };
     }, []);
 
-    return !isLoading && gameSettings[gameId] ? <GameGuide gameId={gameId} userStakeLevel={userStakeLevel}></GameGuide> : <></>;
+    return !isLoading && gameSettings[gameId] ? (
+        <GameGuide gameId={gameId} userStakeLevel={userStakeLevel} market={market}></GameGuide>
+    ) : (
+        <></>
+    );
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({

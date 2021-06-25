@@ -7,6 +7,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     gameId?: number;
     locale?: string;
     maxBetFollowChoice?: MaxBetChoicesProps;
+    market?: string;
 };
 
 export type GameGuideBase = {
@@ -14,6 +15,7 @@ export type GameGuideBase = {
     gameName: string;
     locale?: string;
     id?: number;
+    market: string;
 };
 
 export interface GameConfigsBaseProps {
