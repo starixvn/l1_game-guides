@@ -8,7 +8,7 @@ import { GameGuideBase } from "../type";
 
 const KenoProMaxGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
-    const { gameName, id, locale, userStakeLevel } = props;
+    const { gameName, locale, userStakeLevel } = props;
     if (locale === locales.en) {
         return <KenoProMaxGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
     }

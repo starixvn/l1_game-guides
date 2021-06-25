@@ -1,0 +1,70 @@
+.wrapper-img {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+}
+.img-main {
+    width: 100%;
+    height: auto;
+    max-width: 88.6rem;
+    max-height: 47.5rem;
+    transform: scale(0.9);
+}
+
+.wrapper-chips {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: flex-start;
+    grid-gap: 1rem;
+    padding: 0 4rem;
+    @media (min-width: 768px) {
+        padding: 0 1rem;
+    }
+}
+.img-chip {
+    float: left;
+    height: 3.7rem;
+    width: 3.7rem;
+    margin-right: 10px;
+}
+.img-call-bet {
+    width: 100%;
+    height: auto;
+    max-width: 71.3rem;
+    max-height: 19.8rem;
+}
+.img-bet-rectangle {
+    width: 100%;
+    height: auto;
+    max-width: 88.6rem;
+    max-height: 22.1rem;
+    transform: scale(0.9);
+}
+.img-bet-circle {
+    width: 100%;
+    height: auto;
+    max-width: 71.3rem;
+    max-height: 19.8rem;
+}
+
+.table-small {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+
+    @media (min-width: 768px) {
+        width: 60%;
+    }
+}
+
+.bet-title {
+    color: #9ebfc5 !important;
+    font-weight: 700;
+}
+.table-customize {
+    tbody td {
+        border: none !important;
+    }
+}
