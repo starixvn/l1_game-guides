@@ -3,7 +3,6 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
-import { Market } from "../../../../common/constants";
 
 const wrapperImg = "wrapper-img";
 const imgRectangle = "img-rectangle";
@@ -43,7 +42,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (market: string) => {
+const renderPayouts = () => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -54,7 +53,7 @@ const renderPayouts = (market: string) => {
                 </li>
             </ul>
             <div className={Styles["icon-container"]}>
-                {market === Market.SC1 ? (
+              
                     <span className={Styles[wrapperIcon]}>
                         <img
                             className={`${Styles[iconBox]}`}
@@ -77,28 +76,7 @@ const renderPayouts = (market: string) => {
                             <span className={Styles[numberSecond]}>4</span>
                         </div>
                     </span>
-                ) : (
-                    <span className={Styles[wrapperIcon]}>
-                        <img
-                            className={`${Styles[iconBox]}`}
-                            src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                            alt="guide_item_symbol_bg"
-                        ></img>
-                        <img
-                            className={`${Styles["item10"]} ${Styles["customize"]}`}
-                            src="./static/images/four-guardians/item10.png"
-                            alt="item10"
-                        ></img>
-                        <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                            <span className={Styles[numberFirst]}>4</span>
-                            <span className={Styles[numberSecond]}>100</span>
-                            <span className={Styles[numberFirst]}>3</span>
-                            <span className={Styles[numberSecond]}>25</span>
-                            <span className={Styles[numberFirst]}>2</span>
-                            <span className={Styles[numberSecond]}>4</span>
-                        </div>
-                    </span>
-                )}
+                
 
                 <span className={Styles[wrapperIcon]}>
                     <img
@@ -255,9 +233,9 @@ const renderPayouts = (market: string) => {
                     ></img>
                     <div className={Styles[iconContent]}>
                         <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>{market === Market.SC1 ? 8000 : 800}</span>
+                        <span className={Styles[numberSecond]}>8000</span>
                         <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>{market === Market.SC1 ? 1000 : 100}</span>
+                        <span className={Styles[numberSecond]}>1000</span>
                         <span className={Styles[numberFirst]}>3</span>
                         <span className={Styles[numberSecond]}>50</span>
                         <span className={Styles[numberFirst]}>2</span>
@@ -579,7 +557,7 @@ const renderBonus = () => {
     );
 };
 
-const renderWild = (market: string) => {
+const renderWild = () => {
     return (
         <li className="guide-item">
             <h2>Wild</h2>
@@ -619,7 +597,7 @@ const renderWild = (market: string) => {
             <div>
                 <strong>Ví dụ</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
-                    <p>Người chơi chọn mức cược {market === Market.SC1 ? 1 : 10}, dòng cược số 1. Kết quả như sau:</p>
+                    <p>Người chơi chọn mức cược 1, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
                         <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
                         <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
@@ -635,7 +613,7 @@ const renderWild = (market: string) => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = {market === Market.SC1 ? 1 : 10} * 5 = {market === Market.SC1 ? 5 : 50}
+                            . Mức trả thưởng = 1 * 5 = 5
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -644,10 +622,10 @@ const renderWild = (market: string) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = {market === Market.SC1 ? 1 : 10} * 16 = {market === Market.SC1 ? 16 : 160}
+                            . Mức trả thưởng = 1 * 16 = 16
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {market === Market.SC1 ? 16 : 160}</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là 16</p>
                 </div>
             </div>
         </li>
@@ -656,7 +634,6 @@ const renderWild = (market: string) => {
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName } = props;
-    const market = props?.market ?? Market.SC1;
     return (
         <div>
             <ul className="game-guide">
@@ -670,17 +647,16 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
                             className={`${Styles["list-icon"]}`}
-                            src={`/static/images/four-guardians/${market === Market.SC1 ? "sc1" : "sc2"}/list_icon.png`}
+                            src={`/static/images/four-guardians/sc1/list_icon.png`}
                             alt="guide_item_symbol_bg"
                         ></img>
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(market)}
-                {market === Market.SC2 && renderJackpot()}
+                {renderPayouts()}
                 {renderFreeSpin()}
                 {renderBonus()}
-                {renderWild(market)}
+                {renderWild()}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

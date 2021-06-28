@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { t } = useTranslation("common");
-    const { gameName, locale, userStakeLevel, market } = props;
+    const { gameName, locale, userStakeLevel } = props;
 
     if (locale === locales.en) {
         return (
@@ -16,7 +16,6 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
                 gameConfigs={GameConfigs}
                 userStakeLevel={userStakeLevel}
                 gameName={t(gameName.toLowerCase())}
-                market={market}
             />
         );
     }
@@ -25,7 +24,6 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
             gameConfigs={GameConfigs}
             userStakeLevel={userStakeLevel}
             gameName={t(gameName.toLowerCase())}
-            market={market}
         />
     );
 };

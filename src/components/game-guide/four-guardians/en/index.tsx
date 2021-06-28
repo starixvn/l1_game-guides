@@ -3,7 +3,6 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
-import { Market } from "../../../../common/constants";
 
 const wrapperImg = "wrapper-img";
 const imgRectangle = "img-rectangle";
@@ -39,7 +38,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (market: string) => {
+const renderPayouts = () => {
     return (
         <li className="guide-item">
             <h2>Paytable</h2>
@@ -50,7 +49,7 @@ const renderPayouts = (market: string) => {
                 </li>
             </ul>
             <div className={Styles["icon-container"]}>
-                {market === Market.SC1 ? (
+            
                     <span className={Styles[wrapperIcon]}>
                         <img
                             className={`${Styles[iconBox]}`}
@@ -73,28 +72,7 @@ const renderPayouts = (market: string) => {
                             <span className={Styles[numberSecond]}>4</span>
                         </div>
                     </span>
-                ) : (
-                    <span className={Styles[wrapperIcon]}>
-                        <img
-                            className={`${Styles[iconBox]}`}
-                            src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                            alt="guide_item_symbol_bg"
-                        ></img>
-                        <img
-                            className={`${Styles["item10"]} ${Styles["customize"]}`}
-                            src="./static/images/four-guardians/item10.png"
-                            alt="item10"
-                        ></img>
-                        <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                            <span className={Styles[numberFirst]}>4</span>
-                            <span className={Styles[numberSecond]}>100</span>
-                            <span className={Styles[numberFirst]}>3</span>
-                            <span className={Styles[numberSecond]}>25</span>
-                            <span className={Styles[numberFirst]}>2</span>
-                            <span className={Styles[numberSecond]}>4</span>
-                        </div>
-                    </span>
-                )}
+                
 
                 <span className={Styles[wrapperIcon]}>
                     <img
@@ -251,9 +229,9 @@ const renderPayouts = (market: string) => {
                     ></img>
                     <div className={Styles[iconContent]}>
                         <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>{market === Market.SC1 ? 8000 : 800}</span>
+                        <span className={Styles[numberSecond]}>8000</span>
                         <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>{market === Market.SC1 ? 1000 : 100}</span>
+                        <span className={Styles[numberSecond]}>1000</span>
                         <span className={Styles[numberFirst]}>3</span>
                         <span className={Styles[numberSecond]}>50</span>
                         <span className={Styles[numberFirst]}>2</span>
@@ -628,7 +606,6 @@ const renderWild = () => {
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName } = props;
-    const market = props?.market ?? Market.SC1;
     return (
         <div>
             <ul className="game-guide">
@@ -642,14 +619,13 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
                             className={`${Styles["list-icon"]}`}
-                            src={`/static/images/four-guardians/${market === Market.SC1 ? "sc1" : "sc2"}/list_icon.png`}
+                            src={`/static/images/four-guardians/sc1/list_icon.png`}
                             alt="guide_item_symbol_bg"
                         ></img>
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(market)}
-                {market === Market.SC2 && renderJackpot()}
+                {renderPayouts()}
                 {renderFreeSpin()}
                 {renderBonus()}
                 {renderWild()}
