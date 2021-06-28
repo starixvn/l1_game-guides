@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { renderStatisticalTable } from "../../se-die/en";
+import { renderStatisticalTable } from "../../../shared/se-die/en";
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";

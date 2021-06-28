@@ -5,6 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderStatisticalTable } from "../../../shared/se-die/en";
 
 const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
     return (
@@ -126,69 +127,6 @@ const renderStatistical = () => {
             <h2>Statistical Table</h2>
             {renderStatisticalTable()}
         </li>
-    );
-};
-
-export const renderStatisticalTable = () => {
-    return (
-        <div className="table-container">
-            <table className="table text-center table-small">
-                <thead>
-                    <tr>
-                        <th>Results</th>
-                        <th>Descriptions</th>
-                        <th>Symbols</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>4 red</td>
-                        {renderFourRed()}
-                        <td>
-                            <div className="d-flex justify-content-center">
-                                <span className="dot-even">4</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4 white</td>
-                        {renderFourWhite()}
-                        <td>
-                            <div className="d-flex justify-content-center">
-                                <span className="dot-even">0</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2 red, 2 white</td>
-                        {renderTwoRedTwoWhite()}
-                        <td>
-                            <div className="d-flex justify-content-center">
-                                <span className="dot-even">2</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3 red, 1 white</td>
-                        {renderThreeRedOneWhite()}
-                        <td>
-                            <div className="d-flex justify-content-center">
-                                <span className="dot-odd">3</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1 red, 3 white</td>
-                        {renderOneRedThreeWhite()}
-                        <td>
-                            <div className="d-flex justify-content-center">
-                                <span className="dot-odd en">1</span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     );
 };
 

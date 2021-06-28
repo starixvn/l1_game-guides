@@ -3,23 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-
-const renderGameRule = (maxBetRound: number | string) => {
-    return (
-        <>
-            <h2>Game Rules</h2>
-            <ul className="desc">
-                <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
-                <li>Once the betting time has expired, the system will randomly draw 20 numbered balls and the result will be shown.</li>
-                <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
-                    stake.
-                </li>
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
-            </ul>
-        </>
-    );
-};
+import { renderFiveElements } from "../../../shared/keno/en";
 
 const bettingOptions = () => {
     return (
@@ -131,24 +115,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
-                    <ul className="desc">
-                        <li>
-                            <strong>Gold:</strong> The sum of the 20 numbered balls drawn, ranges from 210 to 695.
-                        </li>
-                        <li>
-                            <strong>Wood:</strong> The sum of the 20 numbered balls drawn, ranges from 696 to 763.
-                        </li>
-                        <li>
-                            <strong>Water:</strong> The sum of the 20 numbered balls drawn, ranges from 764 to 855.
-                        </li>
-                        <li>
-                            <strong>Fire:</strong> The sum of the 20 numbered balls drawn, ranges from 856 to 923.
-                        </li>
-                        <li>
-                            <strong>Earth:</strong> The sum of the 20 numbered balls drawn, ranges from 924 to 1410.
-                        </li>
-                    </ul>
+                    {renderFiveElements()}
                     <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">

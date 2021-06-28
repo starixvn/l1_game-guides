@@ -77,67 +77,75 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td className="text-start">1:{odds.triple} if the chosen number appears on all three dice.</td>
                                 </tr>
-                                <tr>
-                                    <td rowSpan={14}>Total Points</td>
-                                    <td>4</td>
-                                    <td rowSpan={2}>1:{odds.total4}</td>
-                                    <td rowSpan={8}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total4)}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>17</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td rowSpan={2}>1:{odds.total5}</td>
-                                </tr>
-                                <tr>
-                                    <td>16</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td rowSpan={2}>1:{odds.total6}</td>
-                                </tr>
-                                <tr>
-                                    <td>15</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td rowSpan={2}>1:{odds.total7}</td>
-                                </tr>
-                                <tr>
-                                    <td>14</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td rowSpan={2}>1:{odds.total8}</td>
-                                    <td rowSpan={6}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total8)}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>13</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td rowSpan={4}>1:{odds.total9}</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                </tr>
+                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet)}
                             </tbody>
                         </table>
                     </div>
                 </li>
             </ul>
         </li>
+    );
+};
+
+export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, locale = "en") => {
+    return (
+        <>
+            <tr>
+                <td rowSpan={14}>{locale === locales.vi ? "Tổng điểm" : "Total Points"}</td>
+                <td>4</td>
+                <td rowSpan={2}>1:{odds.total4}</td>
+                <td rowSpan={8}>
+                    {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total4)}
+                </td>
+            </tr>
+            <tr>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td rowSpan={2}>1:{odds.total5}</td>
+            </tr>
+            <tr>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td rowSpan={2}>1:{odds.total6}</td>
+            </tr>
+            <tr>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td rowSpan={2}>1:{odds.total7}</td>
+            </tr>
+            <tr>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td rowSpan={2}>1:{odds.total8}</td>
+                <td rowSpan={6}>
+                    {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total8)}
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td rowSpan={4}>1:{odds.total9}</td>
+            </tr>
+            <tr>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>12</td>
+            </tr>
+        </>
     );
 };
 

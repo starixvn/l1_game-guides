@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderFiveElements } from "../../../shared/keno/vi";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -27,7 +28,7 @@ const renderGameRule = (maxBetRound: number | string) => {
     );
 };
 
-const bettingOptions = (gameName: string) => {
+const bettingOptions = () => {
     return (
         <>
             <h2>Quy tắc tính điểm</h2>
@@ -131,24 +132,7 @@ const bettingOptions = (gameName: string) => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>
-                    <ul className="desc">
-                        <li>
-                            <strong>Kim:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 210 đến 695
-                        </li>
-                        <li>
-                            <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 696 đến 763
-                        </li>
-                        <li>
-                            <strong>Thuỷ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
-                        </li>
-                        <li>
-                            <strong>Hỏa:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 856 đến 923
-                        </li>
-                        <li>
-                            <strong>Thổ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 924 đến 1410
-                        </li>
-                    </ul>
+                    {renderFiveElements()}
                     <div>
                         <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
@@ -210,9 +194,9 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
-                <li className="guide-item">{bettingOptions(gameName)}</li>
+                <li className="guide-item">{bettingOptions()}</li>
                 <li className="guide-item">
-                    <h2>Cách chơi</h2>
+                    <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>

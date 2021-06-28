@@ -6,6 +6,8 @@ import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
 
 const exampleTitle = "example-title";
+const tableSmall = "table-small";
+const textRedLight = "text-red-light";
 const renderHowToPLay = (maxbet: number) => {
     return (
         <li className="guide-item">
@@ -27,8 +29,6 @@ const renderHowToPLay = (maxbet: number) => {
 };
 
 const renderGameRule = () => {
-    const tableSmall = "table-small";
-    const textRedLight = "text-red-light";
     return (
         <li className="guide-item">
             <h2>Luật Chơi</h2>

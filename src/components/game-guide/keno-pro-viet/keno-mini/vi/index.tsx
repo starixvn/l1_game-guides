@@ -3,6 +3,7 @@ import { renderTermsAndConditionsVI } from "../../../../shared";
 import { numberWithCommas } from "../../../../../helpers/number-helper";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
+import { renderWinningOnTable } from "../../keno-max/vi";
 
 const renderGameRule = (maxBet: number) => {
     return (
@@ -180,73 +181,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>
-                            Giới hạn cược và tỷ lệ trả thưởng trong Keno Pro Max như sau:
-                            <div className="table-container">
-                                <table className="table text-center table-medium">
-                                    <thead>
-                                        <tr>
-                                            <th>Lựa Chọn</th>
-                                            <th>Tỷ Lệ Trả Thưởng</th>
-                                            <th>Giới Hạn Cược (Min - Max)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tài</td>
-                                            <td rowSpan={4}> 1: {odds.big}</td>
-                                            <td rowSpan={4}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.big)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Xỉu</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lẻ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chẳn</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kim</td>
-                                            <td>1: {odds.gold}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.gold)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mộc</td>
-                                            <td>1: {odds.wood}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.wood)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thuỷ</td>
-                                            <td>1: {odds.water}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hoả</td>
-                                            <td>1: {odds.fire}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thổ</td>
-                                            <td>1: {odds.earth}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.earth)}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
+                        <li>{renderWinningOnTable(odds, minbet, choices_maxbet)}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
