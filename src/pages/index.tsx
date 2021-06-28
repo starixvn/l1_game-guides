@@ -18,7 +18,6 @@ const CheckIsInteger = (number: string | number | object) => {
 
 const Home = () => {
     const { setTheme } = useTheme();
-    const { gameSettings } = appSettings;
     const [gameId, setGameId] = useState<number>(0);
     const [market, setMarket] = useState<string>(Market.SC1);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -41,14 +40,14 @@ const Home = () => {
             const queryParams: object | any = router.query;
 
             setGameId(CheckIsInteger(queryParams?.gId));
-            if (queryParams?.m && Market.hasOwnProperty(queryParams.m.toString())) {
+            if (Market.hasOwnProperty(queryParams?.m?.toString())) {
                 setMarket(queryParams.m.toString());
             }
-            if (queryParams?.t && Themes.hasOwnProperty(queryParams.t.toString())) {
+            if (Themes.hasOwnProperty(queryParams?.t?.toString())) {
                 setTheme(queryParams.t.toString());
             }
 
-            if (queryParams?.lang && language.includes(queryParams.lang.toString())) {
+            if (language.includes(queryParams?.lang?.toString())) {
                 handleChangeLocale(queryParams.lang.toString(), currentURL).then(() => {
                     setIsLoading(false);
                 });
@@ -65,11 +64,7 @@ const Home = () => {
         };
     }, []);
 
-    return !isLoading && gameSettings[gameId] ? (
-        <GameGuide gameId={gameId} userStakeLevel={userStakeLevel} market={market}></GameGuide>
-    ) : (
-        <></>
-    );
+    return !isLoading && <GameGuide gameId={gameId} userStakeLevel={userStakeLevel} market={market}></GameGuide>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = locales.vi }) => ({
