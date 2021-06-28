@@ -98,6 +98,47 @@ const renderExamplePayouts = (odds: number[][]) => {
     );
 };
 
+const renderJackpot = () => {
+    return (
+        <li className="guide-item">
+            <h2>Nổ Hũ</h2>
+            <ul className="desc">
+                <li>
+                    Nổ Hũ là giải thưởng đặc biệt dành cho người chơi Long Lân Quy Phụng, có 3 giải Nổ Hũ ứng với 3 mức cược. Số tiền thưởng
+                    trong từng hũ sẽ được tích lũy tăng dần cho đến khi có người chơi may mắn quay và giành chiến thắng.
+                </li>
+            </ul>
+
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead>
+                        <tr>
+                            <th>Biểu Tượng</th>
+                            <th> Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img
+                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
+                                    src="./static/images/four-guardians/item10.png"
+                                    alt="item10"
+                                ></img>
+                            </td>
+                            <td>
+                                Người chơi sẽ thắng giải Nổ Hũ nếu quay được 5 biểu tượng “Đập Hũ” trên cùng Dòng Cược.<br></br>
+                                <strong>Lưu ý: </strong>
+                                trong trường hợp thắng giải Nổ Hũ, người chơi sẽ nhận được 98% số tiền hiện có trong Hũ.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    );
+};
+
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
@@ -276,6 +317,7 @@ const renderBonus = (odds: number[][]) => {
 
 const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
+    const betValue = 10;
     return (
         <li className="guide-item">
             <h2>Wild</h2>
@@ -318,7 +360,7 @@ const renderWild = (odds: number[][]) => {
             <div>
                 <strong>Ví dụ</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
-                    <p>Người chơi chọn mức cược 1, dòng cược số 1. Kết quả như sau:</p>
+                    <p>Người chơi chọn mức cược {betValue}, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
                             <Image
@@ -379,7 +421,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * {odds[2][3]} = {odds[2][3]}
+                            . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -388,10 +430,10 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * {odds[5][3]} = {odds[5][3]}
+                            . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}0</p>
                 </div>
             </div>
         </li>
@@ -423,6 +465,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
                 {renderPayouts(odds)}
+                {renderJackpot()}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}

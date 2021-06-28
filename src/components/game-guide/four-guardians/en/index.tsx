@@ -10,7 +10,6 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-
 const renderGameRule = () => {
     return (
         <>
@@ -235,6 +234,55 @@ const renderExamplePayout = (odds: number[][]) => {
                 </table>
             </div>
         </>
+    );
+};
+
+const renderJackpot = () => {
+    return (
+        <li className="guide-item">
+            <h2>Jackpot</h2>
+            <ul className="desc">
+                <li>
+                    Jackpot is a grand prize for Players having 5 symbols{" "}
+                    <img
+                        className={`${Styles["item10"]} ${Styles["mini"]}`}
+                        src="./static/images/four-guardians/item10.png"
+                        alt="item10"
+                    ></img>{" "}
+                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
+                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
+                    lucky Player wins the Jackpot.
+                </li>
+            </ul>
+
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th> Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img
+                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
+                                    src="./static/images/four-guardians/item10.png"
+                                    alt="item10"
+                                ></img>
+                            </td>
+                            <td>
+                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
+                                chosen.<br></br>
+                                <strong>Note: </strong>
+                                Player will receive 98% of the Jackpot prize.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
     );
 };
 
@@ -545,7 +593,9 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
+
                 {renderPayouts(odds)}
+                {renderJackpot()}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
