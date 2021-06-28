@@ -48,31 +48,39 @@ const renderPayouts = () => {
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>
             </ul>
+            {renderPayoutsIconFirstLine()}
+            {renderPayoutsIconSecondLine()}
+            {renderExamplePayout()}
+        </li>
+    );
+};
+
+const renderPayoutsIconFirstLine = () => {
+    return (
+        <>
             <div className={Styles["icon-container"]}>
-            
-                    <span className={Styles[wrapperIcon]}>
-                        <img
-                            className={`${Styles[iconBox]}`}
-                            src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                            alt="guide_item_symbol_bg"
-                        ></img>
-                        <img
-                            className={`${Styles["item10"]} ${Styles["customize"]}`}
-                            src="./static/images/four-guardians/sc1/item10.png"
-                            alt="item10"
-                        ></img>
-                        <div className={Styles[iconContent]}>
-                            <span className={Styles[numberFirst]}>5</span>
-                            <span className={Styles[numberSecond]}>1000</span>
-                            <span className={Styles[numberFirst]}>4</span>
-                            <span className={Styles[numberSecond]}>75</span>
-                            <span className={Styles[numberFirst]}>3</span>
-                            <span className={Styles[numberSecond]}>25</span>
-                            <span className={Styles[numberFirst]}>2</span>
-                            <span className={Styles[numberSecond]}>4</span>
-                        </div>
-                    </span>
-                
+                <span className={Styles[wrapperIcon]}>
+                    <img
+                        className={`${Styles[iconBox]}`}
+                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
+                        alt="guide_item_symbol_bg"
+                    ></img>
+                    <img
+                        className={`${Styles["item10"]} ${Styles["customize"]}`}
+                        src="./static/images/four-guardians/sc1/item10.png"
+                        alt="item10"
+                    ></img>
+                    <div className={Styles[iconContent]}>
+                        <span className={Styles[numberFirst]}>5</span>
+                        <span className={Styles[numberSecond]}>1000</span>
+                        <span className={Styles[numberFirst]}>4</span>
+                        <span className={Styles[numberSecond]}>75</span>
+                        <span className={Styles[numberFirst]}>3</span>
+                        <span className={Styles[numberSecond]}>25</span>
+                        <span className={Styles[numberFirst]}>2</span>
+                        <span className={Styles[numberSecond]}>4</span>
+                    </div>
+                </span>
 
                 <span className={Styles[wrapperIcon]}>
                     <img
@@ -135,6 +143,13 @@ const renderPayouts = () => {
                     </div>
                 </span>
             </div>
+        </>
+    );
+};
+
+const renderPayoutsIconSecondLine = () => {
+    return (
+        <>
             <div className={Styles["icon-container"]}>
                 <span className={Styles[wrapperIcon]}>
                     <img
@@ -239,6 +254,13 @@ const renderPayouts = () => {
                     </div>
                 </span>
             </div>
+        </>
+    );
+};
+
+const renderExamplePayout = () => {
+    return (
+        <>
             <p>
                 <strong>Example</strong>
             </p>
@@ -294,7 +316,7 @@ const renderPayouts = () => {
                     </tbody>
                 </table>
             </div>
-        </li>
+        </>
     );
 };
 

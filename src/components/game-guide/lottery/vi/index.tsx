@@ -113,267 +113,297 @@ const renderGameRule = () => {
             <div>
                 <strong>Ví dụ:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>
-                        <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
-                        <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:24</p>
-                        <ul className="desc">
-                            <li>Tiền cược: 10</li>
-                            <li>Tổng cược: 20</li>
-                            <li>
-                                Kết quả:
-                                <table className={`table text-center ${Styles[tableSmall]}`}>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Xổ Số RNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className={Styles["prize"]}>Giải Bảy</td>
-                                            <td>
-                                                <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
-                                                <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>14</span>
-                                                <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>94</span>
-                                                <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * 24) * 2 = 480</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
-                        <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:90</p>
-                        <ul className="desc">
-                            <li>Tiền cược: 10</li>
-                            <li>Tổng cược: 30</li>
-                            <li>
-                                Kết quả:
-                                <table className={`table text-center ${Styles[tableSmall]}`}>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Xổ Số RNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className={Styles["prize"]}>Giải Đặc Biệt</td>
-                                            <td>
-                                                <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles[textRedLight]}>090</span>
-                                                    <span className={Styles["text-red"]}>62</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Tiền thắng = 10 * 90 = 900</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
-                        <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:9</p>
-                        <ul className="desc">
-                            <li>Tiền cược: 10</li>
-                            <li>Tổng cược: 30</li>
-                            <li>
-                                Kết quả:
-                                <table className={`table text-center ${Styles[tableSmall]}`}>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Xổ Số RNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className={Styles["prize"]}>Giải Đặc Biệt</td>
-                                            <td>
-                                                <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles[textRedLight]}>090</span>
-                                                    <span className={Styles["text-red"]}>6</span>
-                                                    <span className={Styles[textRedLight]}>2</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Tiền thắng = 10 * 9 = 90</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
-                        <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:9</p>
-                        <ul className="desc">
-                            <li>Tiền cược: 10</li>
-                            <li>Tổng cược: 20</li>
-                            <li>
-                                Kết quả:
-                                <table className={`table text-center ${Styles[tableSmall]}`}>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Xổ Số RNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className={Styles["prize"]}>Giải Đặc Biệt</td>
-                                            <td>
-                                                <div className={`bold ${Styles["number"]}`}>
-                                                    <span className={Styles[textRedLight]}>0906</span>
-                                                    <span className={Styles["text-red"]}>2</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Số 0 và 5 khác với chữ số hàng đơn vị của giải Đặc Biệt. Người chơi thua.</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>e) Cược Lô</div>
-                        <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:3.6</p>
-                        <ul className="desc">
-                            <li>Tiền cược: 10</li>
-                            <li>Tổng cược: 40</li>
-                            <li>
-                                Kết quả:
-                                <table className={`table text-center ${Styles[tableSmall]}`}>
-                                    <thead>
-                                        <tr>
-                                            <th>Giải Thưởng</th>
-                                            <th colSpan={12}>Xổ Số RNG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Đặc Biệt</td>
-                                            <td colSpan={12} className="bold">
-                                                <span className={Styles[textRedLight]}>763</span>
-                                                <span className={Styles["text-red"]}>49</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Giải Nhất</td>
-                                            <td colSpan={12} className="bold">
-                                                <span className={Styles["text-grey"]}>684</span>00
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Giải Nhì</td>
-                                            <td colSpan={6} className="bold">
-                                                <span className={Styles["text-grey"]}>164</span>75
-                                            </td>
-                                            <td colSpan={6} className="bold">
-                                                <span className={Styles["text-grey"]}>507</span>06
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowSpan={2}>Giải Ba</td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>339</span>12
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>665</span>66
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>228</span>83
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>516</span>76
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>451</span>05
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>321</span>82
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Giải Tư</td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-grey"]}>08</span>69
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-grey"]}>03</span>60
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-grey"]}>01</span>79
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-grey"]}>84</span>05
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td rowSpan={2}>Giải Năm</td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>28</span>50
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>62</span>72
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>40</span>43
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>53</span>86
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>64</span>23
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>42</span>31
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Giải Sáu</td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>2</span>87
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>8</span>65
-                                            </td>
-                                            <td colSpan={4} className="bold">
-                                                <span className={Styles["text-grey"]}>2</span>92
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Giải Bảy</td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-red"]}>97</span>
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-red"]}>26</span>
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-red"]}>49</span>
-                                            </td>
-                                            <td colSpan={3} className="bold">
-                                                <span className={Styles["text-red"]}>33</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * 3.6) * 2 = 72</p>
-                                <p>Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * 3.6 = 36</p>
-                            </li>
-                        </ul>
-                    </li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpecial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
+    );
+};
+
+const BettingOptions4Sets = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
+            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:24</p>
+            <ul className="desc">
+                <li>Tiền cược: 10</li>
+                <li>Tổng cược: 20</li>
+                <li>
+                    Kết quả:
+                    <table className={`table text-center ${Styles[tableSmall]}`}>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Xổ Số RNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={Styles["prize"]}>Giải Bảy</td>
+                                <td>
+                                    <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
+                                    <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>14</span>
+                                    <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>94</span>
+                                    <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * 24) * 2 = 480</p>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const BettingOptionsSpecial = () => {
+    return (
+        <>
+            {" "}
+            <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
+            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:90</p>
+            <ul className="desc">
+                <li>Tiền cược: 10</li>
+                <li>Tổng cược: 30</li>
+                <li>
+                    Kết quả:
+                    <table className={`table text-center ${Styles[tableSmall]}`}>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Xổ Số RNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={Styles["prize"]}>Giải Đặc Biệt</td>
+                                <td>
+                                    <div className={`bold ${Styles["number"]}`}>
+                                        <span className={Styles[textRedLight]}>090</span>
+                                        <span className={Styles["text-red"]}>62</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Tiền thắng = 10 * 90 = 900</p>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const BettingOptionsHead = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
+            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:9</p>
+            <ul className="desc">
+                <li>Tiền cược: 10</li>
+                <li>Tổng cược: 30</li>
+                <li>
+                    Kết quả:
+                    <table className={`table text-center ${Styles[tableSmall]}`}>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Xổ Số RNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={Styles["prize"]}>Giải Đặc Biệt</td>
+                                <td>
+                                    <div className={`bold ${Styles["number"]}`}>
+                                        <span className={Styles[textRedLight]}>090</span>
+                                        <span className={Styles["text-red"]}>6</span>
+                                        <span className={Styles[textRedLight]}>2</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Tiền thắng = 10 * 9 = 90</p>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const BettingOptionsTail = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
+            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:9</p>
+            <ul className="desc">
+                <li>Tiền cược: 10</li>
+                <li>Tổng cược: 20</li>
+                <li>
+                    Kết quả:
+                    <table className={`table text-center ${Styles[tableSmall]}`}>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Xổ Số RNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className={Styles["prize"]}>Giải Đặc Biệt</td>
+                                <td>
+                                    <div className={`bold ${Styles["number"]}`}>
+                                        <span className={Styles[textRedLight]}>0906</span>
+                                        <span className={Styles["text-red"]}>2</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Số 0 và 5 khác với chữ số hàng đơn vị của giải Đặc Biệt. Người chơi thua.</p>
+                </li>
+            </ul>
+        </>
+    );
+};
+const BettingOptions27Sets = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>e) Cược Lô</div>
+            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:3.6</p>
+            <ul className="desc">
+                <li>Tiền cược: 10</li>
+                <li>Tổng cược: 40</li>
+                <li>
+                    Kết quả:
+                    <table className={`table text-center ${Styles[tableSmall]}`}>
+                        <thead>
+                            <tr>
+                                <th>Giải Thưởng</th>
+                                <th colSpan={12}>Xổ Số RNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Đặc Biệt</td>
+                                <td colSpan={12} className="bold">
+                                    <span className={Styles[textRedLight]}>763</span>
+                                    <span className={Styles["text-red"]}>49</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giải Nhất</td>
+                                <td colSpan={12} className="bold">
+                                    <span className={Styles["text-grey"]}>684</span>00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giải Nhì</td>
+                                <td colSpan={6} className="bold">
+                                    <span className={Styles["text-grey"]}>164</span>75
+                                </td>
+                                <td colSpan={6} className="bold">
+                                    <span className={Styles["text-grey"]}>507</span>06
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowSpan={2}>Giải Ba</td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>339</span>12
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>665</span>66
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>228</span>83
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>516</span>76
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>451</span>05
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>321</span>82
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giải Tư</td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-grey"]}>08</span>69
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-grey"]}>03</span>60
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-grey"]}>01</span>79
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-grey"]}>84</span>05
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowSpan={2}>Giải Năm</td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>28</span>50
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>62</span>72
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>40</span>43
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>53</span>86
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>64</span>23
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>42</span>31
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giải Sáu</td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>2</span>87
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>8</span>65
+                                </td>
+                                <td colSpan={4} className="bold">
+                                    <span className={Styles["text-grey"]}>2</span>92
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giải Bảy</td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-red"]}>97</span>
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-red"]}>26</span>
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-red"]}>49</span>
+                                </td>
+                                <td colSpan={3} className="bold">
+                                    <span className={Styles["text-red"]}>33</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * 3.6) * 2 = 72</p>
+                    <p>Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * 3.6 = 36</p>
+                </li>
+            </ul>
+        </>
     );
 };
 

@@ -144,83 +144,91 @@ const renderGameRule = (maxbet: string) => {
                             </tbody>
                         </table>
                     </div>
+                    {renderGameRuleExample()}
                 </li>
-                <p>
-                    <strong>Example</strong>
-                </p>
-                <div>
-                    <strong>Banker, Player option. </strong>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Options</th>
-                                    <th>Results </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Player</td>
-                                    <td>3 red, 1 white</td>
-                                </tr>
-                                <tr>
-                                    <td>Banker</td>
-                                    <td>1 red, 3 white</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <p>Because the number of red buttons in the Player’s result is more than Banker. Bet on the Player option will win.</p>
-                <div>
-                    <strong>Total EVEN</strong>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Options</th>
-                                    <th>Results </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Player</td>
-                                    <td>3 red, 1 white</td>
-                                </tr>
-                                <tr>
-                                    <td>Banker</td>
-                                    <td>1 red, 3 white</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <p>The total number of red buttons having in the results of both the Player and Banker is 4. Bet on Total EVEN will win.</p>
-                <div>
-                    <strong>Total ODD</strong>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>Options</th>
-                                    <th>Results </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Player</td>
-                                    <td>2 red, 2 white</td>
-                                </tr>
-                                <tr>
-                                    <td>Banker</td>
-                                    <td>1 red, 3 white</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <p>The total number of red buttons having in the results of both the Player and Banker is 3. Bet on Total ODD will win.</p>
             </ul>
+        </>
+    );
+};
+
+const renderGameRuleExample = () => {
+    return (
+        <>
+            <p>
+                <strong>Example</strong>
+            </p>
+            <div>
+                <strong>Banker, Player option. </strong>
+                <div className="table-container">
+                    <table className="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Options</th>
+                                <th>Results </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Player</td>
+                                <td>3 red, 1 white</td>
+                            </tr>
+                            <tr>
+                                <td>Banker</td>
+                                <td>1 red, 3 white</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>Because the number of red buttons in the Player’s result is more than Banker. Bet on the Player option will win.</p>
+            <div>
+                <strong>Total EVEN</strong>
+                <div className="table-container">
+                    <table className="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Options</th>
+                                <th>Results </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Player</td>
+                                <td>3 red, 1 white</td>
+                            </tr>
+                            <tr>
+                                <td>Banker</td>
+                                <td>1 red, 3 white</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>The total number of red buttons having in the results of both the Player and Banker is 4. Bet on Total EVEN will win.</p>
+            <div>
+                <strong>Total ODD</strong>
+                <div className="table-container">
+                    <table className="table text-center">
+                        <thead>
+                            <tr>
+                                <th>Options</th>
+                                <th>Results </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Player</td>
+                                <td>2 red, 2 white</td>
+                            </tr>
+                            <tr>
+                                <td>Banker</td>
+                                <td>1 red, 3 white</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>The total number of red buttons having in the results of both the Player and Banker is 3. Bet on Total ODD will win.</p>
         </>
     );
 };

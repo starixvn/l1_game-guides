@@ -6,6 +6,8 @@ import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
 
 const exampleTitle = "example-title";
+const tableSmall = "table-small";
+const textRedLight = "text-red-light";
 const renderGameRule = (maxbet: number) => {
     return (
         <li className="guide-item">
@@ -21,8 +23,6 @@ const renderGameRule = (maxbet: number) => {
 };
 
 const renderBettingOptions = () => {
-    const tableSmall = "table-small";
-    const textRedLight = "text-red-light";
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -115,252 +115,278 @@ const renderBettingOptions = () => {
             <div>
                 <strong>Example:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>
-                        <div className={Styles[exampleTitle]}>a) 4 Sets</div>
-                        <ul className="desc">
-                            <li>Place bet on two numbers: 07, 77 with Odds = 1:24</li>
-                            <li>Stake = 10</li>
-                            <li>Total Stake = 20</li>
-                        </ul>{" "}
-                        <table className={`table text-center ${Styles[tableSmall]}`}>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>RNG Lottery</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className={Styles["prize"]}>7th</td>
-                                    <td>
-                                        <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
-                                        <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>14</span>
-                                        <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>94</span>
-                                        <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * 24) * 2 = 480</p>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>b) Special </div>
-                        <ul className="desc">
-                            <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:90</li>
-                            <li>Stake = 10</li>
-                            <li>Total Stake = 30</li>
-                        </ul>
-                        <table className={`table text-center ${Styles[tableSmall]}`}>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>RNG Lottery</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className={Styles["prize"]}>Special</td>
-                                    <td>
-                                        <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles[textRedLight]}>090</span>
-                                            <span className={Styles["text-red"]}>62</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * 90 = 900</p>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>c) Head</div>
-                        <ul className="desc">
-                            <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:9</li>
-                            <li>Stake = 10</li>
-                            <li>otal Stake = 30</li>
-                        </ul>
-                        <table className={`table text-center ${Styles[tableSmall]}`}>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>RNG Lottery</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className={Styles["prize"]}>Special</td>
-                                    <td>
-                                        <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles[textRedLight]}>090</span>
-                                            <span className={Styles["text-red"]}>6</span>
-                                            <span className={Styles[textRedLight]}>2</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * 9 = 90</p>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>d) Tail</div>
-                        <ul className="desc">
-                            <li>Place bet on two numbers: 0, 5 with Odds = 1:9</li>
-                            <li>Stake = 10</li>
-                            <li>Total Stake = 20</li>
-                        </ul>
-                        <table className={`table text-center ${Styles[tableSmall]}`}>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>RNG Lottery</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td className={Styles["prize"]}>Special</td>
-                                    <td>
-                                        <div className={`bold ${Styles["number"]}`}>
-                                            <span className={Styles[textRedLight]}>0906</span>
-                                            <span className={Styles["text-red"]}>2</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>All selected numbers are not the same as the units digit of the Special Prize. Payout = 0</p>
-                    </li>
-                    <li>
-                        <div className={Styles[exampleTitle]}>e) 27 Sets</div>
-                        <ul className="desc">
-                            <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:3.6</li>
-                            <li>Stake = 10</li>
-                            <li>Total Stake = 40</li>
-                        </ul>
-                        <table className={`table text-center ${Styles[tableSmall]}`}>
-                            <thead>
-                                <tr>
-                                    <th>Prizes</th>
-                                    <th colSpan={12}>RNG Lottery</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Special</td>
-                                    <td colSpan={12} className="bold">
-                                        <span className={Styles[textRedLight]}>763</span>
-                                        <span className={Styles["text-red"]}>49</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1st</td>
-                                    <td colSpan={12} className="bold">
-                                        <span className={Styles["text-grey"]}>684</span>00
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2nd</td>
-                                    <td colSpan={6} className="bold">
-                                        <span className={Styles["text-grey"]}>164</span>75
-                                    </td>
-                                    <td colSpan={6} className="bold">
-                                        <span className={Styles["text-grey"]}>507</span>06
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td rowSpan={2}>3rd</td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>339</span>12
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>665</span>66
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>228</span>83
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>516</span>76
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>451</span>05
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>321</span>82
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4th</td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-grey"]}>08</span>69
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-grey"]}>03</span>60
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-grey"]}>01</span>79
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-grey"]}>84</span>05
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td rowSpan={2}>5th</td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>28</span>50
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>62</span>72
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>40</span>43
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>53</span>86
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>64</span>23
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>42</span>31
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6th</td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>2</span>87
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>8</span>65
-                                    </td>
-                                    <td colSpan={4} className="bold">
-                                        <span className={Styles["text-grey"]}>2</span>92
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7th</td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-red"]}>97</span>
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-red"]}>26</span>
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-red"]}>49</span>
-                                    </td>
-                                    <td colSpan={3} className="bold">
-                                        <span className={Styles["text-red"]}>33</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>Number 05 has appeared two times in 27 results. Payout = (10 * 3.6) * 2 = 72</p>
-                        <p>Number 12 has appeared one time in 27 results. Payout = 10 * 3.6 = 36</p>
-                    </li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpecial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
+    );
+};
+
+const BettingOptions4Sets = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>a) 4 Sets</div>
+            <ul className="desc">
+                <li>Place bet on two numbers: 07, 77 with Odds = 1:24</li>
+                <li>Stake = 10</li>
+                <li>Total Stake = 20</li>
+            </ul>{" "}
+            <table className={`table text-center ${Styles[tableSmall]}`}>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RNG Lottery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className={Styles["prize"]}>7th</td>
+                        <td>
+                            <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
+                            <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>14</span>
+                            <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>94</span>
+                            <span className={`bold ${Styles["number"]} ${Styles["text-red"]}`}>07</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * 24) * 2 = 480</p>
+        </>
+    );
+};
+const BettingOptionsSpecial = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>b) Special </div>
+            <ul className="desc">
+                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:90</li>
+                <li>Stake = 10</li>
+                <li>Total Stake = 30</li>
+            </ul>
+            <table className={`table text-center ${Styles[tableSmall]}`}>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RNG Lottery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className={Styles["prize"]}>Special</td>
+                        <td>
+                            <div className={`bold ${Styles["number"]}`}>
+                                <span className={Styles[textRedLight]}>090</span>
+                                <span className={Styles["text-red"]}>62</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * 90 = 900</p>
+        </>
+    );
+};
+const BettingOptionsHead = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>c) Head</div>
+            <ul className="desc">
+                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:9</li>
+                <li>Stake = 10</li>
+                <li>otal Stake = 30</li>
+            </ul>
+            <table className={`table text-center ${Styles[tableSmall]}`}>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RNG Lottery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className={Styles["prize"]}>Special</td>
+                        <td>
+                            <div className={`bold ${Styles["number"]}`}>
+                                <span className={Styles[textRedLight]}>090</span>
+                                <span className={Styles["text-red"]}>6</span>
+                                <span className={Styles[textRedLight]}>2</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * 9 = 90</p>
+        </>
+    );
+};
+const BettingOptionsTail = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>d) Tail</div>
+            <ul className="desc">
+                <li>Place bet on two numbers: 0, 5 with Odds = 1:9</li>
+                <li>Stake = 10</li>
+                <li>Total Stake = 20</li>
+            </ul>
+            <table className={`table text-center ${Styles[tableSmall]}`}>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RNG Lottery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className={Styles["prize"]}>Special</td>
+                        <td>
+                            <div className={`bold ${Styles["number"]}`}>
+                                <span className={Styles[textRedLight]}>0906</span>
+                                <span className={Styles["text-red"]}>2</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>All selected numbers are not the same as the units digit of the Special Prize. Payout = 0</p>
+        </>
+    );
+};
+const BettingOptions27Sets = () => {
+    return (
+        <>
+            <div className={Styles[exampleTitle]}>e) 27 Sets</div>
+            <ul className="desc">
+                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:3.6</li>
+                <li>Stake = 10</li>
+                <li>Total Stake = 40</li>
+            </ul>
+            <table className={`table text-center ${Styles[tableSmall]}`}>
+                <thead>
+                    <tr>
+                        <th>Prizes</th>
+                        <th colSpan={12}>RNG Lottery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Special</td>
+                        <td colSpan={12} className="bold">
+                            <span className={Styles[textRedLight]}>763</span>
+                            <span className={Styles["text-red"]}>49</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1st</td>
+                        <td colSpan={12} className="bold">
+                            <span className={Styles["text-grey"]}>684</span>00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2nd</td>
+                        <td colSpan={6} className="bold">
+                            <span className={Styles["text-grey"]}>164</span>75
+                        </td>
+                        <td colSpan={6} className="bold">
+                            <span className={Styles["text-grey"]}>507</span>06
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowSpan={2}>3rd</td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>339</span>12
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>665</span>66
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>228</span>83
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>516</span>76
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>451</span>05
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>321</span>82
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4th</td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-grey"]}>08</span>69
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-grey"]}>03</span>60
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-grey"]}>01</span>79
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-grey"]}>84</span>05
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowSpan={2}>5th</td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>28</span>50
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>62</span>72
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>40</span>43
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>53</span>86
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>64</span>23
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>42</span>31
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6th</td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>2</span>87
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>8</span>65
+                        </td>
+                        <td colSpan={4} className="bold">
+                            <span className={Styles["text-grey"]}>2</span>92
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7th</td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-red"]}>97</span>
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-red"]}>26</span>
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-red"]}>49</span>
+                        </td>
+                        <td colSpan={3} className="bold">
+                            <span className={Styles["text-red"]}>33</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Number 05 has appeared two times in 27 results. Payout = (10 * 3.6) * 2 = 72</p>
+            <p>Number 12 has appeared one time in 27 results. Payout = 10 * 3.6 = 36</p>
+        </>
     );
 };
 
