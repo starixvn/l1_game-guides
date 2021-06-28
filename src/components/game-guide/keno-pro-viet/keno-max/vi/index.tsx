@@ -8,7 +8,7 @@ import { renderFiveElements } from "../../../../shared/keno/vi";
 
 const renderGameRule = (maxBet: number) => {
     return (
-        <>
+        <li className="guide-item">
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>Người chơi nhấp vào lựa chọn mong muốn và hoàn tất việc đặt cược trước khi hết thời gian quy định. </li>
@@ -25,13 +25,13 @@ const renderGameRule = (maxBet: number) => {
                     ngẫu nhiên 20 quả bóng và kết quả sẽ được hiển thị.
                 </li>
             </ul>
-        </>
+        </li>
     );
 };
 
 const bettingOptions = () => {
     return (
-        <>
+        <li className="guide-item">
             <h2>Luật chơi</h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -177,7 +177,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
             </ul>
-        </>
+        </li>
     );
 };
 
@@ -253,6 +253,27 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
     );
 };
 
+export const renderContentKenoMaxOrMini = (
+    odds: OddsProMaxProps,
+    maxBet: number,
+    minBet: number,
+    choicesMaxBet: ChoicesMaxBetProMaxProps
+) => {
+    return (
+        <>
+            <li className="guide-item">
+                <h2>Trả thưởng</h2>
+                <ul className="desc">
+                    <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
+                    <li>{renderWinningOnTable(odds, minBet, choicesMaxBet)}</li>
+                    <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                </ul>
+            </li>
+            {renderTermsAndConditionsVI()}
+        </>
+    );
+};
+
 const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
@@ -267,18 +288,9 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         20 quả bóng trong số 80 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 20 quả bóng này.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet)}</li>
-                <li className="guide-item">{bettingOptions()}</li>
-
-                <li className="guide-item">
-                    <h2>Trả thưởng</h2>
-                    <ul className="desc">
-                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>{renderWinningOnTable(odds, minbet, choices_maxbet)}</li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
-                    </ul>
-                </li>
-                {renderTermsAndConditionsVI()}
+                {renderGameRule(maxbet)}
+                {bettingOptions()}
+                {renderContentKenoMaxOrMini(odds, maxbet, minbet, choices_maxbet)}
             </ul>
         </div>
     );

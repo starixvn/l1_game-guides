@@ -1,13 +1,12 @@
 import React from "react";
-import { renderTermsAndConditionsVI } from "../../../../shared";
 import { numberWithCommas } from "../../../../../helpers/number-helper";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
-import { renderWinningOnTable } from "../../keno-max/vi";
+import { renderContentKenoMaxOrMini } from "../../keno-max/vi";
 
 const renderGameRule = (maxBet: number) => {
     return (
-        <>
+        <li className="guide-item">
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>Người chơi nhấp vào lựa chọn mong muốn và hoàn tất việc đặt cược trước khi hết thời gian quy định. </li>
@@ -24,13 +23,13 @@ const renderGameRule = (maxBet: number) => {
                     ngẫu nhiên 10 quả bóng và kết quả sẽ được hiển thị.
                 </li>
             </ul>
-        </>
+        </li>
     );
 };
 
 const bettingOptions = () => {
     return (
-        <>
+        <li className="guide-item">
             <h2>Luật chơi</h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -157,7 +156,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
             </ul>
-        </>
+        </li>
     );
 };
 
@@ -175,17 +174,9 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         ngẫu nhiên 10 quả bóng trong số 40 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 10 quả bóng này.{" "}
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet)}</li>
-                <li className="guide-item">{bettingOptions()}</li>
-                <li className="guide-item">
-                    <h2>Trả thưởng</h2>
-                    <ul className="desc">
-                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>{renderWinningOnTable(odds, minbet, choices_maxbet)}</li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
-                    </ul>
-                </li>
-                {renderTermsAndConditionsVI()}
+                {renderGameRule(maxbet)}
+                {bettingOptions()}
+                {renderContentKenoMaxOrMini(odds, maxbet, minbet, choices_maxbet)}
             </ul>
         </div>
     );

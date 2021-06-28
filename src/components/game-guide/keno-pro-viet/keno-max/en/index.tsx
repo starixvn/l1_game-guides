@@ -1,6 +1,5 @@
 import React from "react";
 import { renderTermsAndConditionsEN } from "../../../../shared";
-import { numberWithCommas } from "../../../../../helpers/number-helper";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { renderFiveElements, renderGameRule } from "../../../../shared/keno/en";

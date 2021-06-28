@@ -1,9 +1,9 @@
 import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderPayoutDataOnTable } from "../../../shared/se-die/en";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
@@ -21,30 +21,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Mô Tả</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={2}>ODD</td>
-                                    <td>3 red, 1 white</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>EVEN</td>
-                                    <td>4 red</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                            </tbody>
+                            <tbody>{renderPayoutDataOnTable()}</tbody>
                         </table>
                     </div>
                 </li>

@@ -1,10 +1,9 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderStatisticalTable } from "../../../shared/se-die/vi";
+import { renderStatisticalTable, renderPayoutDataOnTable } from "../../../shared/se-die/vi";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
@@ -23,31 +22,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Tỷ Lệ Trả Thưởng (đã bao gồm tiền cược)</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={2}>Lẻ</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    {renderThreeRedOneWhite()}
-                                    <td rowSpan={5}>1:{odds.even}</td>
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>Chẵn</td>
-                                    <td>4 đỏ</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                            </tbody>
+                            <tbody>{renderPayoutDataOnTable(odds)}</tbody>
                         </table>
                     </div>
                 </li>

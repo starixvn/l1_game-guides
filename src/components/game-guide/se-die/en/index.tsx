@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderStatisticalTable } from "../../../shared/se-die/en";
+import { renderStatisticalTable, renderPayoutDataOnTable } from "../../../shared/se-die/en";
 
 const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
     return (
@@ -43,12 +43,16 @@ const renderGameRuleMini = (maxBetRound: number | string, gameId = 0) => {
                 <li>The maximum total stake per round is {maxBetRound} </li>
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
-                <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
-                <li>
-                    Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
-                    expires. Note, placed bets cannot be canceled.
-                </li>
-                <li>The maximum total stake per round is {maxBetRound}</li>
+                {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
+                    <>
+                        <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
+                        <li>
+                            Players can bet on one or more betting options shown on the game table. All bets must be placed before the
+                            betting time expires. Note, placed bets cannot be canceled.
+                        </li>
+                        <li>The maximum total stake per round is {maxBetRound}</li>
+                    </>
+                )}
             </ul>
         </>
     );
@@ -66,28 +70,7 @@ const renderGameRuleTable = (gameId: number) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td rowSpan={2}>ODD</td>
-                        <td>3 red, 1 white </td>
-                        {renderThreeRedOneWhite()}
-                    </tr>
-                    <tr>
-                        <td>1 red, 3 white</td>
-                        {renderOneRedThreeWhite()}
-                    </tr>
-                    <tr>
-                        <td rowSpan={3}>EVEN</td>
-                        <td>4 red</td>
-                        {renderFourRed()}
-                    </tr>
-                    <tr>
-                        <td>4 white</td>
-                        {renderFourWhite()}
-                    </tr>
-                    <tr>
-                        <td>2 red, 2 white</td>
-                        {renderTwoRedTwoWhite()}
-                    </tr>
+                    {renderPayoutDataOnTable()}
                     <tr>
                         <td>4 red</td>
                         <td>4 red</td>

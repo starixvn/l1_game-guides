@@ -3,6 +3,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { locales } from "../../../../common/constants";
 
 const renderGameRule = (maxbet: number) => {
     return (
