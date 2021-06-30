@@ -2,6 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack } from "../en";
 import Styles from "../four-guardians.module.scss";
 
 const wrapperImg = "wrapper-img";
@@ -57,209 +58,6 @@ const renderPayouts = () => {
             {renderPayoutsIconSecondLine()}
             {renderExamplePayouts()}
         </li>
-    );
-};
-
-const renderPayoutsIconFirstLine = () => {
-    return (
-        <>
-            <div className={Styles["icon-container"]}>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item10"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/sc1/item10.png"
-                        alt="item10"
-                    ></img>
-                    <div className={Styles[iconContent]}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>1000</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>75</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>2</span>
-                        <span className={Styles[numberSecond]}>4</span>
-                    </div>
-                </span>
-
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item6"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item6.png"
-                        alt="item6"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>500</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>75</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>20</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item5"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item5.png"
-                        alt="item5"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>375</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>60</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>16</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item4"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item4.png"
-                        alt="item4"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>275</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>45</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>12</span>
-                    </div>
-                </span>
-            </div>
-        </>
-    );
-};
-
-const renderPayoutsIconSecondLine = () => {
-    return (
-        <>
-            <div className={Styles["icon-container"]}>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item3"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item3.png"
-                        alt="item3"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>150</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>20</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item2"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item2.png"
-                        alt="item2"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>50</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item1"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item1.png"
-                        alt="item1"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item0"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item0.png"
-                        alt="item0"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>2</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item9"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item9.png"
-                        alt="item9"
-                    ></img>
-                    <div className={Styles[iconContent]}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>8000</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>1000</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>50</span>
-                        <span className={Styles[numberFirst]}>2</span>
-                        <span className={Styles[numberSecond]}>8</span>
-                    </div>
-                </span>
-            </div>
-        </>
     );
 };
 
@@ -325,47 +123,6 @@ const renderExamplePayouts = () => {
     );
 };
 
-const renderJackpot = () => {
-    return (
-        <li className="guide-item">
-            <h2>Nổ Hũ</h2>
-            <ul className="desc">
-                <li>
-                    Nổ Hũ là giải thưởng đặc biệt dành cho người chơi Long Lân Quy Phụng, có 3 giải Nổ Hũ ứng với 3 mức cược. Số tiền thưởng
-                    trong từng hũ sẽ được tích lũy tăng dần cho đến khi có người chơi may mắn quay và giành chiến thắng.
-                </li>
-            </ul>
-
-            <div className="table-container text-center">
-                <table className={`table text-center ${Styles[tableSmall]}`}>
-                    <thead>
-                        <tr>
-                            <th>Biểu Tượng</th>
-                            <th> Mô Tả</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img
-                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
-                                    src="./static/images/four-guardians/item10.png"
-                                    alt="item10"
-                                ></img>
-                            </td>
-                            <td>
-                                Người chơi sẽ thắng giải Nổ Hũ nếu quay được 5 biểu tượng “Đập Hũ” trên cùng Dòng Cược.<br></br>
-                                <strong>Lưu ý: </strong>
-                                trong trường hợp thắng giải Nổ Hũ, người chơi sẽ nhận được 98% số tiền hiện có trong Hũ.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
-    );
-};
-
 const renderFreeSpin = () => {
     return (
         <li className="guide-item">
@@ -388,34 +145,15 @@ const renderFreeSpin = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIconDark]}>
-                                    <img
-                                        className={`${Styles[iconBox]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        alt="guide_item_symbol_bg"
-                                    ></img>
-                                    <img
-                                        className={`${Styles["item7"]} ${Styles["dark"]}`}
-                                        src="./static/images/four-guardians/item7.png"
-                                        alt="item7"
-                                    ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles["free-spin"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>10</span>
-                                    </div>
-                                </span>
+                                {renderIconContentBlack(
+                                    "item7",
+                                    [
+                                        [5, 18],
+                                        [4, 6],
+                                        [3, 3],
+                                    ],
+                                    " FREE SPIN"
+                                )}
                             </td>
                             <td>
                                 Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận <strong>18</strong> lượt
@@ -447,11 +185,10 @@ const renderFreeSpin = () => {
                     <div className={Styles[freeSpinContentEX]}>
                         <img
                             className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/sc1/guide_example_free_spin.png"
+                            src="/static/images/four-guardians/guide_example_free_spin.png"
                             alt="guide_item_symbol_bg"
                         ></img>
                         <span>
-                            {" "}
                             Có 4 biểu tượng “Free Spin” trong kết quả, nhưng do có 3 biểu tượng nằm trên cùng một cột. Người chơi không thỏa
                             điều kiện nhận thưởng “Free Spin”.
                         </span>
@@ -497,32 +234,15 @@ const renderBonus = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIconDark]}>
-                                    <img
-                                        className={`${Styles[iconBox]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        alt="guide_item_symbol_bg"
-                                    ></img>
-                                    <img
-                                        className={`${Styles["item8"]} ${Styles["dark"]}`}
-                                        src="./static/images/four-guardians/item8.png"
-                                        alt="item8"
-                                    ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles["free-spin"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>
-                                            5 <span className="text-white">BONUS</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>
-                                            4 <span className="text-white">BONUS</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>
-                                            3 <span className="text-white">BONUS</span>
-                                        </span>
-                                    </div>
-                                </span>
+                                {renderIconContentBlack(
+                                    "item7",
+                                    [
+                                        [5, 5],
+                                        [4, 4],
+                                        [3, 3],
+                                    ],
+                                    " BONUS"
+                                )}
                             </td>
                             <td>
                                 Nếu có <strong>5</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận <strong>5</strong> lần mở
@@ -554,7 +274,7 @@ const renderBonus = () => {
                     <div className={Styles[freeSpinContentEX]}>
                         <img
                             className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/sc1/guide_example_bonus.png"
+                            src="/static/images/four-guardians/guide_example_bonus.png"
                             alt="guide_example_bonus"
                         ></img>
                         <ul className="desc">
@@ -670,7 +390,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
                             className={`${Styles["list-icon"]}`}
-                            src={`/static/images/four-guardians/sc1/list_icon.png`}
+                            src={`/static/images/four-guardians/list_icon.png`}
                             alt="guide_item_symbol_bg"
                         ></img>
                     </div>

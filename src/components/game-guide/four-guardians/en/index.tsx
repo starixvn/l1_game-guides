@@ -55,206 +55,124 @@ const renderPayouts = () => {
     );
 };
 
-const renderPayoutsIconFirstLine = () => {
+const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
+    return (
+        <span className={Styles[wrapperIcon]}>
+            <img
+                className={`${Styles[iconBox]}`}
+                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png`}
+                alt={isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}
+            ></img>
+            <img
+                className={`${Styles[itemName]} ${Styles["customize"]}`}
+                src={`./static/images/four-guardians/${itemName}.png`}
+                alt={itemName}
+            ></img>
+            <div className={`${Styles[iconContent]} ${isContentTop && Styles[contentTop]} ${isGem && Styles["gem"]}`}>
+                {dataContent.map((data) => {
+                    return (
+                        <>
+                            <span className={Styles[numberFirst]}>{data[0]}</span>
+                            <span className={Styles[numberSecond]}>{data[1]}</span>
+                        </>
+                    );
+                })}
+            </div>
+        </span>
+    );
+};
+
+export const renderPayoutsIconFirstLine = () => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item10"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/sc1/item10.png"
-                        alt="item10"
-                    ></img>
-                    <div className={Styles[iconContent]}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>1000</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>75</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>2</span>
-                        <span className={Styles[numberSecond]}>4</span>
-                    </div>
-                </span>
-
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item6"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item6.png"
-                        alt="item6"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>500</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>75</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>20</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item5"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item5.png"
-                        alt="item5"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>375</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>60</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>16</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item4"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item4.png"
-                        alt="item4"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>275</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>45</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>12</span>
-                    </div>
-                </span>
+                {renderIconContent(false, "item10", false, false, [
+                    [5, 1000],
+                    [4, 75],
+                    [3, 25],
+                    [2, 4],
+                ])}
+                {renderIconContent(false, "item6", true, false, [
+                    [5, 500],
+                    [4, 75],
+                    [3, 20],
+                ])}
+                {renderIconContent(false, "item5", true, false, [
+                    [5, 375],
+                    [4, 60],
+                    [3, 16],
+                ])}
+                {renderIconContent(false, "item4", true, false, [
+                    [5, 275],
+                    [4, 45],
+                    [3, 12],
+                ])}
             </div>
         </>
     );
 };
 
-const renderPayoutsIconSecondLine = () => {
+export const renderPayoutsIconSecondLine = () => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item3"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item3.png"
-                        alt="item3"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>150</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>20</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item2"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item2.png"
-                        alt="item2"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>50</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item1"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item1.png"
-                        alt="item1"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>25</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item0"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item0.png"
-                        alt="item0"
-                    ></img>
-                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>10</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>5</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>2</span>
-                    </div>
-                </span>
-                <span className={Styles[wrapperIcon]}>
-                    <img
-                        className={`${Styles[iconBox]}`}
-                        src="/static/images/four-guardians/guide_item_symbol_bg.png"
-                        alt="guide_item_symbol_bg"
-                    ></img>
-                    <img
-                        className={`${Styles["item9"]} ${Styles["customize"]}`}
-                        src="./static/images/four-guardians/item9.png"
-                        alt="item9"
-                    ></img>
-                    <div className={Styles[iconContent]}>
-                        <span className={Styles[numberFirst]}>5</span>
-                        <span className={Styles[numberSecond]}>8000</span>
-                        <span className={Styles[numberFirst]}>4</span>
-                        <span className={Styles[numberSecond]}>1000</span>
-                        <span className={Styles[numberFirst]}>3</span>
-                        <span className={Styles[numberSecond]}>50</span>
-                        <span className={Styles[numberFirst]}>2</span>
-                        <span className={Styles[numberSecond]}>8</span>
-                    </div>
-                </span>
+                {renderIconContent(false, "item3", true, false, [
+                    [5, 150],
+                    [4, 20],
+                    [3, 10],
+                ])}
+                {renderIconContent(false, "item2", true, true, [
+                    [5, 50],
+                    [4, 25],
+                    [3, 5],
+                ])}
+                {renderIconContent(false, "item1", true, true, [
+                    [5, 25],
+                    [4, 10],
+                    [3, 5],
+                ])}
+                {renderIconContent(false, "item0", true, true, [
+                    [5, 10],
+                    [4, 5],
+                    [3, 2],
+                ])}
+                {renderIconContent(false, "item9", false, false, [
+                    [5, 8000],
+                    [4, 1000],
+                    [3, 50],
+                    [2, 8],
+                ])}
             </div>
         </>
+    );
+};
+
+export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
+    return (
+        <span className={Styles[wrapperIconDark]}>
+            <img
+                className={`${Styles[iconBox]}`}
+                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
+                alt="guide_item_symbol_bg"
+            ></img>
+            <img
+                className={`${Styles[itemName]} ${Styles["dark"]}`}
+                src={`./static/images/four-guardians/${itemName}.png`}
+                alt={itemName}
+            ></img>
+            <div className={`${Styles["icon-content"]} ${Styles["free-spin"]}`}>
+                {dataContent.map((data) => {
+                    return (
+                        <>
+                            <span className={Styles[numberFirst]}>{data[0]}</span>
+                            <span className={Styles[numberSecond]}>
+                                {data[1]} {textAfterNumber && <span className="text-white">{textAfterNumber}</span>}
+                            </span>
+                        </>
+                    );
+                })}
+            </div>
+        </span>
     );
 };
 
@@ -275,26 +193,11 @@ const renderExamplePayout = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIcon]}>
-                                    <img
-                                        className={`${Styles[iconBox]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        alt="guide_item_symbol_bg"
-                                    ></img>
-                                    <img
-                                        className={`${Styles["item1"]} ${Styles["customize"]}`}
-                                        src="./static/images/four-guardians/item1.png"
-                                        alt="item1"
-                                    ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>25</span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>10</span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>5</span>
-                                    </div>
-                                </span>
+                                {renderIconContent(true, "item1", true, true, [
+                                    [5, 25],
+                                    [4, 10],
+                                    [3, 5],
+                                ])}
                             </td>
                             <td>
                                 Having 5 Gem symbols located on the same payline.
@@ -320,55 +223,6 @@ const renderExamplePayout = () => {
     );
 };
 
-const renderJackpot = () => {
-    return (
-        <li className="guide-item">
-            <h2>Jackpot</h2>
-            <ul className="desc">
-                <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
-                </li>
-            </ul>
-
-            <div className="table-container text-center">
-                <table className={`table text-center ${Styles[tableSmall]}`}>
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img
-                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
-                                    src="./static/images/four-guardians/item10.png"
-                                    alt="item10"
-                                ></img>
-                            </td>
-                            <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
-    );
-};
-
 const renderFreeSpin = () => {
     return (
         <li className="guide-item">
@@ -388,34 +242,15 @@ const renderFreeSpin = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIconDark]}>
-                                    <img
-                                        className={`${Styles[iconBox]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        alt="guide_item_symbol_bg"
-                                    ></img>
-                                    <img
-                                        className={`${Styles["item7"]} ${Styles["dark"]}`}
-                                        src="./static/images/four-guardians/item7.png"
-                                        alt="item7"
-                                    ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles["free-spin"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>
-                                            10 <span className="text-white">FREE SPIN</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>10</span>
-                                    </div>
-                                </span>
+                                {renderIconContentBlack(
+                                    "item7",
+                                    [
+                                        [5, 18],
+                                        [4, 6],
+                                        [3, 3],
+                                    ],
+                                    " FREE SPIN"
+                                )}
                             </td>
                             <td>
                                 Having 5 Free Spin symbols in the result.<br></br>Get 18 Free Spins Bonus.
@@ -442,7 +277,7 @@ const renderFreeSpin = () => {
                     <div className={Styles[freeSpinContentEX]}>
                         <img
                             className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/sc1/guide_example_free_spin.png"
+                            src="/static/images/four-guardians/guide_example_free_spin.png"
                             alt="guide_item_symbol_bg"
                         ></img>
                         <span>
@@ -480,32 +315,15 @@ const renderBonus = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIconDark]}>
-                                    <img
-                                        className={`${Styles[iconBox]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        alt="guide_item_symbol_bg"
-                                    ></img>
-                                    <img
-                                        className={`${Styles["item8"]} ${Styles["dark"]}`}
-                                        src="./static/images/four-guardians/item8.png"
-                                        alt="item8"
-                                    ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles["free-spin"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>
-                                            5 <span className="text-white">BONUS</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>
-                                            4 <span className="text-white">BONUS</span>
-                                        </span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>
-                                            3 <span className="text-white">BONUS</span>
-                                        </span>
-                                    </div>
-                                </span>
+                                {renderIconContentBlack(
+                                    "item8",
+                                    [
+                                        [5, 5],
+                                        [4, 4],
+                                        [3, 3],
+                                    ],
+                                    " BONUS"
+                                )}
                             </td>
                             <td>
                                 Having 5 Bonus symbols in the result.<br></br>Can open 5 Treasure Chests in Bonus Game.
@@ -525,9 +343,7 @@ const renderBonus = () => {
                     </tbody>
                 </table>
             </div>
-            <p>
-                <strong>Lưu ý: </strong>
-            </p>
+
             <ul className="desc">
                 <li>
                     <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
@@ -535,7 +351,7 @@ const renderBonus = () => {
                     <div className={Styles[freeSpinContentEX]}>
                         <img
                             className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/sc1/guide_example_bonus.png"
+                            src="/static/images/four-guardians/guide_example_bonus.png"
                             alt="guide_example_bonus"
                         ></img>
                         <ul className="desc">
@@ -641,7 +457,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
                             className={`${Styles["list-icon"]}`}
-                            src={`/static/images/four-guardians/sc1/list_icon.png`}
+                            src={`/static/images/four-guardians/list_icon.png`}
                             alt="guide_item_symbol_bg"
                         ></img>
                     </div>
