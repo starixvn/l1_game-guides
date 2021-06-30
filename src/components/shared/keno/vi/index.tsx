@@ -1,6 +1,6 @@
 import React from "react";
 
-export const renderFiveElements = () => {
+export const FiveElements = () => {
     return (
         <>
             <span className="font-weight-medium">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>

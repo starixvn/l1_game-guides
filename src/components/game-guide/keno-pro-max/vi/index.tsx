@@ -3,7 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderFiveElements } from "../../../shared/keno/vi";
+import { FiveElements } from "../../../shared/keno/vi";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -132,7 +132,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    {renderFiveElements()}
+                    {FiveElements()}
                     <div>
                         <strong>Ví dụ:</strong> 20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">

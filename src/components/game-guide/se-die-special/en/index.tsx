@@ -3,7 +3,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderPayoutDataOnTable } from "../../../shared/se-die/en";
+import { PayoutOrRuleDataOnTable } from "../../../shared/se-die/en";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
@@ -21,7 +21,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Mô Tả</th>
                                 </tr>
                             </thead>
-                            <tbody>{renderPayoutDataOnTable()}</tbody>
+                            <tbody>{PayoutOrRuleDataOnTable()}</tbody>
                         </table>
                     </div>
                 </li>

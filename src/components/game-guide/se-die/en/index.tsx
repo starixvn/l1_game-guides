@@ -2,10 +2,10 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
+import { renderTwoRedTwoWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderStatisticalTable, renderPayoutDataOnTable } from "../../../shared/se-die/en";
+import { StatisticalTable, PayoutOrRuleDataOnTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 
 const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
     return (
@@ -70,27 +70,8 @@ const renderGameRuleTable = (gameId: number) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {renderPayoutDataOnTable()}
-                    <tr>
-                        <td>4 red</td>
-                        <td>4 red</td>
-                        {renderFourRed()}
-                    </tr>
-                    <tr>
-                        <td>4 white</td>
-                        <td>4 white</td>
-                        {renderFourWhite()}
-                    </tr>
-                    <tr>
-                        <td>3 red, 1 white</td>
-                        <td>3 red, 1 white</td>
-                        {renderThreeRedOneWhite()}
-                    </tr>
-                    <tr>
-                        <td>1 red, 3 white</td>
-                        <td>1 red, 3 white</td>
-                        {renderOneRedThreeWhite()}
-                    </tr>
+                    {PayoutOrRuleDataOnTable()}
+                    {RedWhiteDataOnTable()}
                     {!SeDieMini.includes(gameId) && (
                         <tr>
                             <td>2 red, 2 white</td>
@@ -108,7 +89,7 @@ const renderStatistical = () => {
     return (
         <li className="guide-item">
             <h2>Statistical Table</h2>
-            {renderStatisticalTable()}
+            {StatisticalTable()}
         </li>
     );
 };
@@ -153,7 +134,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li>
                             All winning amounts are instantly added to your account balance when bets are settled.
                             <div className="table-container">
-                                <table className="table text-center">
+                                <table className="table text-center table-small">
                                     <thead>
                                         <tr>
                                             <th>Options</th>

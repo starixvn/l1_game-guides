@@ -3,7 +3,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderStatisticalTable, renderPayoutDataOnTable } from "../../../shared/se-die/vi";
+import { StatisticalTable, PayoutOrRuleDataOnTable } from "../../../shared/se-die/vi";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
@@ -22,7 +22,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Tỷ Lệ Trả Thưởng (đã bao gồm tiền cược)</th>
                                 </tr>
                             </thead>
-                            <tbody>{renderPayoutDataOnTable(odds)}</tbody>
+                            <tbody>{PayoutOrRuleDataOnTable(odds)}</tbody>
                         </table>
                     </div>
                 </li>
@@ -68,7 +68,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>
 
-                {renderStatisticalTable()}
+                {StatisticalTable()}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

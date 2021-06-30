@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../../shared";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
-import { renderFiveElements, renderGameRule } from "../../../../shared/keno/en";
+import { FiveElements, GameRuleKeno } from "../../../../shared/keno/en";
 
 const bettingOptions = () => {
     return (
@@ -118,7 +118,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    {renderFiveElements()}
+                    {FiveElements()}
                     <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">
@@ -183,7 +183,7 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         total sum of the 20 numbered balls drawn will determine the player‘s win or loss.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxbet, minbet, choices_maxbet, userStakeLevel)}</li>
+                <li className="guide-item">{GameRuleKeno(odds, maxbet, minbet, choices_maxbet, userStakeLevel)}</li>
                 <li className="guide-item">{bettingOptions()}</li>
 
                 {renderTermsAndConditionsEN()}

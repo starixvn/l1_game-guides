@@ -3,7 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderFiveElements } from "../../../shared/keno/en";
+import { FiveElements } from "../../../shared/keno/en";
 
 const bettingOptions = () => {
     return (
@@ -115,7 +115,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    {renderFiveElements()}
+                    {FiveElements()}
                     <div>
                         <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
                         <div className="table-container">

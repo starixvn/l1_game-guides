@@ -3,7 +3,7 @@ import { OddsProps } from "../../../game-guide/se-die/type";
 import { OddsProps as OddsPropsSpecial } from "../../../game-guide/se-die-special/type";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../dot";
 
-export const renderStatisticalTable = () => {
+export const StatisticalTable = () => {
     return (
         <div className="table-container">
             <table className="table text-center table-small">
@@ -66,7 +66,7 @@ export const renderStatisticalTable = () => {
     );
 };
 
-export const renderPayoutDataOnTable = (odds: OddsProps | OddsPropsSpecial) => {
+export const PayoutOrRuleDataOnTable = (odds: OddsProps | OddsPropsSpecial) => {
     return (
         <>
             <tr>

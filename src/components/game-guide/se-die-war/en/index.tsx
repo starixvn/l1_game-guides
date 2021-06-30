@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { renderStatisticalTable } from "../../../shared/se-die/en";
+import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
@@ -33,25 +33,31 @@ const renderGameRule = (maxBet: string) => {
                             <tbody>
                                 <tr>
                                     <td colSpan={2}>Player</td>
-                                    <td colSpan={2}>The number of red buttons in the Player’s result is more than Banker.</td>
+                                    <td colSpan={2} className="text-start">
+                                        The number of red buttons in the Player’s result is more than Banker.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Banker</td>
-                                    <td colSpan={2}>The number of red buttons in the Banker’s result is more than Player.</td>
+                                    <td colSpan={2} className="text-start">
+                                        The number of red buttons in the Banker’s result is more than Player.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Tie</td>
-                                    <td colSpan={2}>The Player and Banker have the same result.</td>
+                                    <td colSpan={2} className="text-start">
+                                        The Player and Banker have the same result.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Total Even</td>
-                                    <td colSpan={2}>
+                                    <td colSpan={2} className="text-start">
                                         The total number of red buttons having in the results of both the Player and Banker is EVEN.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Total Odd</td>
-                                    <td colSpan={2}>
+                                    <td colSpan={2} className="text-start">
                                         The total number of red buttons having in the results of both the Player and Banker is ODD.
                                     </td>
                                 </tr>
@@ -93,31 +99,14 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
                 <td>2 red, 2 white</td>
                 {renderTwoRedTwoWhite()}
             </tr>
-            <tr>
-                <td>4 red</td>
-                <td>4 red</td>
-                {renderFourRed()}
-            </tr>
-            <tr>
-                <td>4 white</td>
-                <td>4 white</td>
-                {renderFourWhite()}
-            </tr>
-            <tr>
-                <td>3 red, 1 white</td>
-                <td>3 red, 1 white</td>
-                {renderThreeRedOneWhite()}
-            </tr>
-            <tr>
-                <td>1 red, 3 white</td>
-                <td>1 red, 3 white</td>
-                {renderOneRedThreeWhite()}
-            </tr>
+            {RedWhiteDataOnTable()}
         </>
     );
 };
 
 const renderGameRuleExample = () => {
+    const oneRedThreeWhite = "1 red, 3 white";
+    const threeRedOneWhite = "3 red, 1 white";
     return (
         <>
             <p>
@@ -125,17 +114,17 @@ const renderGameRuleExample = () => {
             </p>
             <div>
                 <strong>Banker, Player option. </strong>
-                {renderGameRuleTable(["3 red, 1 white", "1 red, 3 white"])}
+                {renderGameRuleTable([threeRedOneWhite, oneRedThreeWhite])}
             </div>
             <p>Because the number of red buttons in the Player’s result is more than Banker. Bet on the Player option will win.</p>
             <div>
                 <strong>Total EVEN</strong>
-                {renderGameRuleTable(["3 red, 1 white", "1 red, 3 white"])}
+                {renderGameRuleTable([threeRedOneWhite, oneRedThreeWhite])}
             </div>
             <p>The total number of red buttons having in the results of both the Player and Banker is 4. Bet on Total EVEN will win.</p>
             <div>
                 <strong>Total ODD</strong>
-                {renderGameRuleTable(["2 red, 2 white", "1 red, 3 white"])}
+                {renderGameRuleTable(["2 red, 2 white", oneRedThreeWhite])}
             </div>
             <p>The total number of red buttons having in the results of both the Player and Banker is 3. Bet on Total ODD will win.</p>
         </>
@@ -176,7 +165,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
-                        <table className="table text-center table-medium">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Options</th>
@@ -186,85 +175,85 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Player</td>
+                                    <td className="text-start">Player</td>
                                     <td rowSpan={2}>1:{odds.player}</td>
                                     <td rowSpan={5}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker</td>
+                                    <td className="text-start">Banker</td>
                                 </tr>
                                 <tr>
-                                    <td>Tie</td>
+                                    <td className="text-start">Tie</td>
                                     <td>1:{odds.tie}</td>
                                 </tr>
                                 <tr>
-                                    <td>Total Even</td>
+                                    <td className="text-start">Total Even</td>
                                     <td rowSpan={2}>1:{odds.even}</td>
                                 </tr>
                                 <tr>
-                                    <td>Total Odd</td>
+                                    <td className="text-start">Total Odd</td>
                                 </tr>
                                 <tr>
-                                    <td>Player - Even</td>
+                                    <td className="text-start">Player - Even</td>
                                     <td rowSpan={2}>1:{odds.playerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Player - Odd</td>
+                                    <td className="text-start">Player - Odd</td>
                                 </tr>
                                 <tr>
-                                    <td>Player - 3 Red</td>
+                                    <td className="text-start">Player - 3 Red</td>
                                     <td rowSpan={2}>1:{odds.playerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Player - 1 Red</td>
+                                    <td className="text-start">Player - 1 Red</td>
                                 </tr>
                                 <tr>
-                                    <td>Player - 4 Red</td>
+                                    <td className="text-start">Player - 4 Red</td>
                                     <td rowSpan={2}>1:{odds.playerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Player - 4 White</td>
+                                    <td className="text-start">Player - 4 White</td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - Even</td>
+                                    <td className="text-start">Banker - Even</td>
                                     <td rowSpan={2}>1:{odds.bankerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - Odd</td>
+                                    <td className="text-start">Banker - Odd</td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - 3 Red</td>
+                                    <td className="text-start">Banker - 3 Red</td>
                                     <td rowSpan={2}>1:{odds.bankerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - 1 Red</td>
+                                    <td className="text-start">Banker - 1 Red</td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - 4 Red</td>
+                                    <td className="text-start">Banker - 4 Red</td>
                                     <td rowSpan={2}>1:{odds.bankerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker - 4 White</td>
+                                    <td className="text-start">Banker - 4 White</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -299,7 +288,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <ul className="style-number-dot">
                         <li className="number-dot">
                             <strong>Odd-Even</strong>
-                            {renderStatisticalTable()}
+                            {StatisticalTable()}
                         </li>
                         <li className="number-dot">
                             <strong>Statistical Round result</strong>

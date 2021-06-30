@@ -3,7 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../../pages";
 import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../game-guide/keno-pro-max/type";
 
-export const renderFiveElements = () => {
+export const FiveElements = () => {
     return (
         <>
             <span className="font-weight-medium">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
@@ -28,7 +28,7 @@ export const renderFiveElements = () => {
     );
 };
 
-export const renderGameRule = (
+export const GameRuleKeno = (
     odds: OddsProMaxProps,
     maxBet: number,
     minBet: number,

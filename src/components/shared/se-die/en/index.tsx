@@ -1,7 +1,7 @@
 import React from "react";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../dot";
 
-export const renderStatisticalTable = () => {
+export const StatisticalTable = () => {
     return (
         <div className="table-container">
             <table className="table text-center table-small">
@@ -64,7 +64,7 @@ export const renderStatisticalTable = () => {
     );
 };
 
-export const renderPayoutDataOnTable = () => {
+export const PayoutOrRuleDataOnTable = () => {
     return (
         <>
             <tr>
@@ -88,6 +88,33 @@ export const renderPayoutDataOnTable = () => {
             <tr>
                 <td>2 red, 2 white</td>
                 {renderTwoRedTwoWhite()}
+            </tr>
+        </>
+    );
+};
+
+export const RedWhiteDataOnTable = () => {
+    return (
+        <>
+            <tr>
+                <td>4 red</td>
+                <td>4 red</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>4 white</td>
+                <td>4 white</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td>3 red, 1 white</td>
+                <td>3 red, 1 white</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td>1 red, 3 white</td>
+                <td>1 red, 3 white</td>
+                {renderOneRedThreeWhite()}
             </tr>
         </>
     );

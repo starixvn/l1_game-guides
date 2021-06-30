@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderStatisticalTable, renderPayoutDataOnTable } from "../../../shared/se-die/vi";
+import { StatisticalTable, PayoutOrRuleDataOnTable } from "../../../shared/se-die/vi";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0, minBet: string, odds: OddsProps) => {
     return (
@@ -39,7 +39,7 @@ const renderGameRuleOrPayoutTable = (gameId: number, odds: OddsProps) => {
     return (
         <>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Lựa Chọn</th>
@@ -49,7 +49,7 @@ const renderGameRuleOrPayoutTable = (gameId: number, odds: OddsProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {renderPayoutDataOnTable(odds)}
+                        {PayoutOrRuleDataOnTable(odds)}
                         <tr>
                             <td>4 đỏ</td>
                             <td>4 đỏ</td>
@@ -91,7 +91,7 @@ const renderGameRuleTableMini = (minBet: string, gameId: number, maxBetFollowCho
     return (
         <>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th></th>
@@ -152,7 +152,7 @@ const renderStatistical = () => {
     return (
         <li className="guide-item">
             <h2>Bảng thống kê kết quả</h2>
-            {renderStatisticalTable()}
+            {StatisticalTable()}
         </li>
     );
 };
@@ -161,7 +161,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
     return (
         <>
             <div className="table-container">
-                <table className="table text-center">
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Lựa Chọn</th>

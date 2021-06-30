@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { renderStatisticalTable } from "../../../shared/se-die/vi";
+import { StatisticalTable } from "../../../shared/se-die/vi";
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
@@ -42,23 +42,33 @@ const renderGameRule = (maxbet: string) => {
                             <tbody>
                                 <tr>
                                     <td colSpan={2}>Nhà Con</td>
-                                    <td colSpan={2}>Tổng xu Đỏ có trong kết quả của Nhà Con nhiều hơn Nhà Cái.</td>
+                                    <td colSpan={2} className="text-start">
+                                        Tổng xu Đỏ có trong kết quả của Nhà Con nhiều hơn Nhà Cái.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Nhà Cái</td>
-                                    <td colSpan={2}>Tổng xu Đỏ có trong kết quả của Nhà Cái nhiều hơn Nhà Con.</td>
+                                    <td colSpan={2} className="text-start">
+                                        Tổng xu Đỏ có trong kết quả của Nhà Cái nhiều hơn Nhà Con.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Hoà</td>
-                                    <td colSpan={2}>Nhà Con và Nhà Cái có cùng kết quả.</td>
+                                    <td colSpan={2} className="text-start">
+                                        Nhà Con và Nhà Cái có cùng kết quả.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Tổng Chẵn</td>
-                                    <td colSpan={2}>Tổng xu Đỏ có trong kết quả của cả Nhà Con và Nhà Cái là số Chẵn.</td>
+                                    <td colSpan={2} className="text-start">
+                                        Tổng xu Đỏ có trong kết quả của cả Nhà Con và Nhà Cái là số Chẵn.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>Tổng Lẻ</td>
-                                    <td colSpan={2}>Tổng xu Đỏ có trong kết quả của cả Nhà Con và Nhà Cái là số Lẻ.</td>
+                                    <td colSpan={2} className="text-start">
+                                        Tổng xu Đỏ có trong kết quả của cả Nhà Con và Nhà Cái là số Lẻ.
+                                    </td>
                                 </tr>
                                 {renderGameRulePlayerOrBanker(false)}
                                 {renderGameRulePlayerOrBanker(true)}
@@ -170,7 +180,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                 <li>
                     Tỷ lệ trả thưởng đã bao gồm tiền cược.
                     <div className="table-container">
-                        <table className="table text-center table-medium">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>
@@ -180,85 +190,85 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Nhà Con</td>
+                                    <td className="text-start">Nhà Con</td>
                                     <td rowSpan={2}>1:{odds.player}</td>
                                     <td rowSpan={5}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái</td>
+                                    <td className="text-start">Nhà Cái</td>
                                 </tr>
                                 <tr>
-                                    <td>Hoà</td>
+                                    <td className="text-start">Hoà</td>
                                     <td>1:{odds.tie}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tổng chẵn</td>
+                                    <td className="text-start">Tổng chẵn</td>
                                     <td rowSpan={2}>1:{odds.even}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tổng lẻ</td>
+                                    <td className="text-start">Tổng lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con chẵn</td>
+                                    <td className="text-start">Nhà Con chẵn</td>
                                     <td rowSpan={2}>1:{odds.playerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con lẻ</td>
+                                    <td className="text-start">Nhà Con lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con 3 đỏ</td>
+                                    <td className="text-start">Nhà Con 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds.playerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con 1 đỏ</td>
+                                    <td className="text-start">Nhà Con 1 đỏ</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con 4 đỏ</td>
+                                    <td className="text-start">Nhà Con 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds.playerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Con 4 trắng</td>
+                                    <td className="text-start">Nhà Con 4 trắng</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái chẵn</td>
+                                    <td className="text-start">Nhà Cái chẵn</td>
                                     <td rowSpan={2}>1:{odds.bankerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái lẻ</td>
+                                    <td className="text-start">Nhà Cái lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái 3 đỏ</td>
+                                    <td className="text-start">Nhà Cái 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds.bankerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái 1 đỏ</td>
+                                    <td className="text-start">Nhà Cái 1 đỏ</td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái 4 đỏ</td>
+                                    <td className="text-start">Nhà Cái 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds.bankerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái 4 trắng</td>
+                                    <td className="text-start">Nhà Cái 4 trắng</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -293,7 +303,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <ul className="style-number-dot">
                         <li className="number-dot">
                             <span className="font-weight-medium">Chẵn Lẻ</span>
-                            {renderStatisticalTable()}
+                            {StatisticalTable()}
                         </li>
                         <li className="number-dot">
                             <span className="font-weight-medium">Dãy Số Thống Kê</span>

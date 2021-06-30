@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../../shared";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
-import { renderGameRule } from "../../../../shared/keno/en";
+import { GameRuleKeno } from "../../../../shared/keno/en";
 
 const bettingOptions = () => {
     return (
@@ -164,7 +164,7 @@ const KenoMiniGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         total sum of the 10 numbered balls drawn will determine the player‘s win or loss.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxbet, minbet, choices_maxbet, userStakeLevel, true)}</li>
+                <li className="guide-item">{GameRuleKeno(odds, maxbet, minbet, choices_maxbet, userStakeLevel, true)}</li>
                 <li className="guide-item">{bettingOptions()}</li>
 
                 {renderTermsAndConditionsEN()}
