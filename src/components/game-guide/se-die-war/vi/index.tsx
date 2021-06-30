@@ -60,92 +60,8 @@ const renderGameRule = (maxbet: string) => {
                                     <td colSpan={2}>Tổng Lẻ</td>
                                     <td colSpan={2}>Tổng xu Đỏ có trong kết quả của cả Nhà Con và Nhà Cái là số Lẻ.</td>
                                 </tr>
-                                <tr>
-                                    <td rowSpan={9}>Nhà Con</td>
-                                    <td rowSpan={2}>Lẻ</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>Chẵn</td>
-                                    <td>4 đỏ</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                                <tr>
-                                    <td>4 đỏ</td>
-                                    <td>4 đỏ</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    <td>4 trắng</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={9}>Nhà Cái</td>
-                                    <td rowSpan={2}>Lẻ</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>Chẵn</td>
-                                    <td>4 đỏ</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 đỏ, 2 trắng</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                                <tr>
-                                    <td>4 đỏ</td>
-                                    <td>4 đỏ</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 trắng</td>
-                                    <td>4 trắng</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    <td>3 đỏ, 1 trắng</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    <td>1 đỏ, 3 trắng</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
+                                {renderGameRulePlayerOrBanker(false)}
+                                {renderGameRulePlayerOrBanker(true)}
                             </tbody>
                         </table>
                     </div>
@@ -191,6 +107,56 @@ const renderGameRule = (maxbet: string) => {
                     </li>
                 </ul>
             </ul>
+        </>
+    );
+};
+
+const renderGameRulePlayerOrBanker = (isBanker = false) => {
+    return (
+        <>
+            <tr>
+                <td rowSpan={9}>{isBanker ? "Nhà Cái" : "Nhà Con"}</td>
+                <td rowSpan={2}>Lẻ</td>
+                <td>3 đỏ, 1 trắng</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td>1 đỏ, 3 trắng</td>
+                {renderOneRedThreeWhite()}
+            </tr>
+            <tr>
+                <td rowSpan={3}>Chẵn</td>
+                <td>4 đỏ</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>4 trắng</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td>2 đỏ, 2 trắng</td>
+                {renderTwoRedTwoWhite()}
+            </tr>
+            <tr>
+                <td>4 đỏ</td>
+                <td>4 đỏ</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>4 trắng</td>
+                <td>4 trắng</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td>3 đỏ, 1 trắng</td>
+                <td>3 đỏ, 1 trắng</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td>1 đỏ, 3 trắng</td>
+                <td>1 đỏ, 3 trắng</td>
+                {renderOneRedThreeWhite()}
+            </tr>
         </>
     );
 };

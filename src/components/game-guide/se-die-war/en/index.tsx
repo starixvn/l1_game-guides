@@ -7,7 +7,7 @@ import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 
-const renderGameRule = (maxbet: string) => {
+const renderGameRule = (maxBet: string) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -15,7 +15,7 @@ const renderGameRule = (maxbet: string) => {
                 <li>Select the chip value you wish to play. All bets must be placed before the betting time expires.</li>
                 <li>Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, the Bowl will be removed and the result is shown.</li>
-                <li>The maximum total stake per round is {maxbet}</li>
+                <li>The maximum total stake per round is {maxBet}</li>
                 <li>
                     The total stake amount of all players shown on each bet option is only for reference. For different markets and
                     currencies, the totals are converted based on the internal rates set by the company.
@@ -55,98 +55,64 @@ const renderGameRule = (maxbet: string) => {
                                         The total number of red buttons having in the results of both the Player and Banker is ODD.
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td rowSpan={9}>Player</td>
-                                    <td rowSpan={2}>Odd</td>
-                                    <td>3 red, 1 white</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>Even</td>
-                                    <td>4 red</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                                <tr>
-                                    <td>4 red</td>
-                                    <td>4 red</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    <td>4 white</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>3 red, 1 white</td>
-                                    <td>3 red, 1 white</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    <td>1 red, 3 white</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={9}>Banker</td>
-                                    <td rowSpan={2}>Odd</td>
-                                    <td>3 red, 1 white</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
-                                <tr>
-                                    <td rowSpan={3}>Even</td>
-                                    <td>4 red</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>2 red, 2 white</td>
-                                    {renderTwoRedTwoWhite()}
-                                </tr>
-                                <tr>
-                                    <td>4 red</td>
-                                    <td>4 red</td>
-                                    {renderFourRed()}
-                                </tr>
-                                <tr>
-                                    <td>4 white</td>
-                                    <td>4 white</td>
-                                    {renderFourWhite()}
-                                </tr>
-                                <tr>
-                                    <td>3 red, 1 white</td>
-                                    <td>3 red, 1 white</td>
-                                    {renderThreeRedOneWhite()}
-                                </tr>
-                                <tr>
-                                    <td>1 red, 3 white</td>
-                                    <td>1 red, 3 white</td>
-                                    {renderOneRedThreeWhite()}
-                                </tr>
+                                {renderGameRulePlayerOrBanker(false)}
+                                {renderGameRulePlayerOrBanker(true)}
                             </tbody>
                         </table>
                     </div>
                     {renderGameRuleExample()}
                 </li>
             </ul>
+        </>
+    );
+};
+
+const renderGameRulePlayerOrBanker = (isBanker = false) => {
+    return (
+        <>
+            <tr>
+                <td rowSpan={9}>{isBanker ? "Banker" : "Player"}</td>
+                <td rowSpan={2}>Odd</td>
+                <td>3 red, 1 white</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td>1 red, 3 white</td>
+                {renderOneRedThreeWhite()}
+            </tr>
+            <tr>
+                <td rowSpan={3}>Even</td>
+                <td>4 red</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>4 white</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td>2 red, 2 white</td>
+                {renderTwoRedTwoWhite()}
+            </tr>
+            <tr>
+                <td>4 red</td>
+                <td>4 red</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>4 white</td>
+                <td>4 white</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td>3 red, 1 white</td>
+                <td>3 red, 1 white</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td>1 red, 3 white</td>
+                <td>1 red, 3 white</td>
+                {renderOneRedThreeWhite()}
+            </tr>
         </>
     );
 };
@@ -159,77 +125,45 @@ const renderGameRuleExample = () => {
             </p>
             <div>
                 <strong>Banker, Player option. </strong>
-                <div className="table-container">
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                                <th>Options</th>
-                                <th>Results </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Player</td>
-                                <td>3 red, 1 white</td>
-                            </tr>
-                            <tr>
-                                <td>Banker</td>
-                                <td>1 red, 3 white</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                {renderGameRuleTable(["3 red, 1 white", "1 red, 3 white"])}
             </div>
             <p>Because the number of red buttons in the Player’s result is more than Banker. Bet on the Player option will win.</p>
             <div>
                 <strong>Total EVEN</strong>
-                <div className="table-container">
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                                <th>Options</th>
-                                <th>Results </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Player</td>
-                                <td>3 red, 1 white</td>
-                            </tr>
-                            <tr>
-                                <td>Banker</td>
-                                <td>1 red, 3 white</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                {renderGameRuleTable(["3 red, 1 white", "1 red, 3 white"])}
             </div>
             <p>The total number of red buttons having in the results of both the Player and Banker is 4. Bet on Total EVEN will win.</p>
             <div>
                 <strong>Total ODD</strong>
-                <div className="table-container">
-                    <table className="table text-center">
-                        <thead>
-                            <tr>
-                                <th>Options</th>
-                                <th>Results </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Player</td>
-                                <td>2 red, 2 white</td>
-                            </tr>
-                            <tr>
-                                <td>Banker</td>
-                                <td>1 red, 3 white</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                {renderGameRuleTable(["2 red, 2 white", "1 red, 3 white"])}
             </div>
             <p>The total number of red buttons having in the results of both the Player and Banker is 3. Bet on Total ODD will win.</p>
         </>
+    );
+};
+
+const renderGameRuleTable = (data: string[]) => {
+    return (
+        <div className="table-container">
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Options</th>
+                        <th>Results </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Player</td>
+                        <td>{data[0]}</td>
+                    </tr>
+                    <tr>
+                        <td>Banker</td>
+                        <td>{data[1]}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     );
 };
 
