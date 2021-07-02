@@ -5,6 +5,7 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
+import { locales } from "../../../../common/constants";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -47,8 +48,8 @@ const renderPayouts = (odds: number[][]) => {
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine(odds)}
-            {renderPayoutsIconSecondLine(odds)}
+            {renderPayoutsIconFirstLine(odds, locales.vi)}
+            {renderPayoutsIconSecondLine(odds, locales.vi)}
             {renderExamplePayouts(odds)}
         </li>
     );
@@ -121,8 +122,8 @@ const renderJackpot = () => {
                         <tr>
                             <td>
                                 <img
-                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
-                                    src="./static/images/four-guardians/item10.png"
+                                    className={`${Styles["item10"]}}`}
+                                    src="./static/images/four-guardians/vi/item10.png"
                                     alt="item10"
                                 ></img>
                             </td>
@@ -347,7 +348,7 @@ const renderWild = (odds: number[][]) => {
                         và{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/four-guardians/item10.png"
+                            src="./static/images/four-guardians/vi/item10.png"
                             alt="item10"
                         ></img>
                     </li>
@@ -455,7 +456,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/list_icon.png`}
+                            src={`/static/images/four-guardians/vi/list_icon.png`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}

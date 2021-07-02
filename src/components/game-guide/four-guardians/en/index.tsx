@@ -4,12 +4,15 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
+import { IObjectKeys } from "../../../../common/constants";
+import { locales } from "../../../../common/constants";
 
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
+const item10LocaleMapper: IObjectKeys = { vi: "vi/item10", en: "en/item10" };
 const renderGameRule = () => {
     return (
         <>
@@ -49,14 +52,21 @@ const renderPayouts = (odds: number[][]) => {
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>
             </ul>
-            {renderPayoutsIconFirstLine(odds)}
-            {renderPayoutsIconSecondLine(odds)}
+            {renderPayoutsIconFirstLine(odds, locales.en)}
+            {renderPayoutsIconSecondLine(odds, locales.en)}
             {renderExamplePayout(odds)}
         </li>
     );
 };
 
-export const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
+const renderIconContent = (
+    isBgBlack = false,
+    itemName = "item10",
+    isContentTop = false,
+    isGem = false,
+    dataContent: number[][],
+    locale = "en"
+) => {
     return (
         <span className={Styles["wrapper-icon"]}>
             <Image
@@ -70,7 +80,7 @@ export const renderIconContent = (isBgBlack = false, itemName = "item10", isCont
 
             <img
                 className={`${Styles[itemName]} ${Styles["customize"]}`}
-                src={`./static/images/four-guardians/${itemName}.png`}
+                src={`./static/images/four-guardians/${itemName === "item10" ? item10LocaleMapper[locale] : itemName}.png`}
                 alt={itemName}
             ></img>
             <div
@@ -91,66 +101,129 @@ export const renderIconContent = (isBgBlack = false, itemName = "item10", isCont
     );
 };
 
-export const renderPayoutsIconFirstLine = (odds: number[][]) => {
+export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                {renderIconContent(false, "item10", false, false, [
-                    [5, odds[10][5]],
-                    [4, odds[10][4]],
-                    [3, odds[10][3]],
-                    [2, odds[10][2]],
-                ])}
-                {renderIconContent(false, "item6", true, false, [
-                    [5, odds[6][5]],
-                    [4, odds[6][4]],
-                    [3, odds[6][3]],
-                ])}
-                {renderIconContent(false, "item5", true, false, [
-                    [5, odds[5][5]],
-                    [4, odds[5][4]],
-                    [3, odds[5][3]],
-                ])}
-                {renderIconContent(false, "item4", true, false, [
-                    [5, odds[4][5]],
-                    [4, odds[4][4]],
-                    [3, odds[4][3]],
-                ])}
+                {renderIconContent(
+                    false,
+                    "item10",
+                    false,
+                    false,
+                    [
+                        [5, odds[10][5]],
+                        [4, odds[10][4]],
+                        [3, odds[10][3]],
+                        [2, odds[10][2]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item6",
+                    true,
+                    false,
+                    [
+                        [5, odds[6][5]],
+                        [4, odds[6][4]],
+                        [3, odds[6][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item5",
+                    true,
+                    false,
+                    [
+                        [5, odds[5][5]],
+                        [4, odds[5][4]],
+                        [3, odds[5][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item4",
+                    true,
+                    false,
+                    [
+                        [5, odds[4][5]],
+                        [4, odds[4][4]],
+                        [3, odds[4][3]],
+                    ],
+                    locale
+                )}
             </div>
         </>
     );
 };
 
-export const renderPayoutsIconSecondLine = (odds: number[][]) => {
+export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                {renderIconContent(false, "item3", true, false, [
-                    [5, odds[3][5]],
-                    [4, odds[3][4]],
-                    [3, odds[3][3]],
-                ])}
-                {renderIconContent(false, "item2", true, true, [
-                    [5, odds[2][5]],
-                    [4, odds[2][4]],
-                    [3, odds[2][3]],
-                ])}
-                {renderIconContent(false, "item1", true, true, [
-                    [5, odds[1][5]],
-                    [4, odds[1][4]],
-                    [3, odds[1][3]],
-                ])}
-                {renderIconContent(false, "item0", true, true, [
-                    [5, odds[0][5]],
-                    [4, odds[0][4]],
-                    [3, odds[0][3]],
-                ])}
-                {renderIconContent(false, "item9", false, false, [
-                    [5, odds[9][5]],
-                    [4, odds[9][4]],
-                    [3, odds[9][3]],
-                    [2, odds[9][2]],
-                ])}
+                {renderIconContent(
+                    false,
+                    "item3",
+                    true,
+                    false,
+                    [
+                        [5, odds[3][5]],
+                        [4, odds[3][4]],
+                        [3, odds[3][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item2",
+                    true,
+                    true,
+                    [
+                        [5, odds[2][5]],
+                        [4, odds[2][4]],
+                        [3, odds[2][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item1",
+                    true,
+                    true,
+                    [
+                        [5, odds[1][5]],
+                        [4, odds[1][4]],
+                        [3, odds[1][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item0",
+                    true,
+                    true,
+                    [
+                        [5, odds[0][5]],
+                        [4, odds[0][4]],
+                        [3, odds[0][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item9",
+                    false,
+                    false,
+                    [
+                        [5, odds[9][5]],
+                        [4, odds[9][4]],
+                        [3, odds[9][3]],
+                        [2, odds[9][2]],
+                    ],
+                    locale
+                )}
             </div>
         </>
     );
@@ -246,7 +319,7 @@ const renderJackpot = () => {
                     Jackpot is a grand prize for Players having 5 symbols{" "}
                     <img
                         className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/item10.png"
+                        src="./static/images/four-guardians/en/item10.png"
                         alt="item10"
                     ></img>{" "}
                     located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
@@ -267,8 +340,8 @@ const renderJackpot = () => {
                         <tr>
                             <td>
                                 <img
-                                    className={`${Styles["item10"]} ${Styles["sc2"]}`}
-                                    src="./static/images/four-guardians/item10.png"
+                                    className={`${Styles["item10"]}`}
+                                    src="./static/images/four-guardians/en/item10.png"
                                     alt="item10"
                                 ></img>
                             </td>
@@ -478,7 +551,7 @@ const renderWild = (odds: number[][]) => {
                         and{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/four-guardians/item10.png"
+                            src="./static/images/four-guardians/en/item10.png"
                             alt="item10"
                         ></img>
                     </li>
@@ -584,7 +657,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/list_icon.png`}
+                            src={`/static/images/four-guardians/en/list_icon.png`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}
