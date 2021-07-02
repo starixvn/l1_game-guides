@@ -16,6 +16,7 @@ const Home = () => {
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
     const [isLoading, setIsLoading] = useState(true);
     const [classContainerOptions, setClassContainerOptions] = useState<string>();
+    const [name, setName] = useState<string>("");
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
     let top: number;
@@ -32,6 +33,7 @@ const Home = () => {
             if (language.includes(queryParams?.lang?.toString())) {
                 setLocale(languageMapper[queryParams.lang.toString()]);
             }
+            setName(queryParams?.name);
 
             if (queryParams?.t) {
                 setTheme(queryParams.t.toString());
@@ -85,7 +87,7 @@ const Home = () => {
 
     return (
         <div ref={wrapperRef} id="container-guide" className={`container-guide ${classContainerOptions}`}>
-            <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
+            <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel} name={name}></GameGuide>
         </div>
     );
 };

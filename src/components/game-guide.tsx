@@ -18,21 +18,31 @@ import ThreeCardsGuide from "./game-guide/three-cards";
 import KenoMaxGuide from "./game-guide/keno-pro-viet/keno-max";
 import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
 import RouletteGuide from "./game-guide/roulette";
+import LuckyWheelGuide from "./game-guide/lucky-wheel";
 import { UserStakeLevelProps } from "../pages";
 
 type Props = {
     gameId: number;
     userStakeLevel: UserStakeLevelProps | undefined;
     locale: string;
+    name: string;
 };
 
+const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, locale } = props;
+    const { gameId, userStakeLevel, name, locale } = props;
     const { gameSettings } = appSettings;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
+    };
+    const otherGuides = () => {
+        if (name === guideNameOther.luckyWheel) {
+            return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
+        } else {
+            return <></>;
+        }
     };
     const renderGuide = () => {
         switch (gameId) {
@@ -83,7 +93,7 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 35:
                 return <ThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
-                return <></>;
+                return otherGuides();
         }
     };
 
