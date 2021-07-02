@@ -4,16 +4,11 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
 
-const wrapperImg = "wrapper-img";
-const imgRectangle = "img-rectangle";
-const wrapperIcon = "wrapper-icon";
-const wrapperIconDark = "wrapper-icon-dark";
 const tableSmall = "table-small";
+const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
-const iconContent = "icon-content";
 const iconBox = "icon-box";
-const contentTop = "content-top";
 const freeSpinContentEX = "free-spin-content-ex";
 
 const renderGameRule = () => {
@@ -30,8 +25,12 @@ const renderGameRule = () => {
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
-                <div className={Styles[wrapperImg]}>
-                    <img className={Styles[imgRectangle]} src="./static/images/four-guardians/guide_payline.png" alt="guide_payline"></img>
+                <div className={Styles["wrapper-img"]}>
+                    <img
+                        className={Styles["img-rectangle"]}
+                        src="./static/images/four-guardians/guide_payline.png"
+                        alt="guide_payline"
+                    ></img>
                 </div>
             </ul>
         </>
@@ -57,7 +56,7 @@ const renderPayouts = () => {
 
 const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
     return (
-        <span className={Styles[wrapperIcon]}>
+        <span className={Styles["wrapper-icon"]}>
             <img
                 className={`${Styles[iconBox]}`}
                 src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png`}
@@ -68,13 +67,17 @@ const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop 
                 src={`./static/images/four-guardians/${itemName}.png`}
                 alt={itemName}
             ></img>
-            <div className={`${Styles[iconContent]} ${isContentTop && Styles[contentTop]} ${isGem && Styles["gem"]}`}>
-                {dataContent.map((data) => {
+            <div
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
+            >
+                {dataContent.map((data, index) => {
                     return (
-                        <>
-                            <span className={Styles[numberFirst]}>{data[0]}</span>
-                            <span className={Styles[numberSecond]}>{data[1]}</span>
-                        </>
+                        <div key={index} className={Styles["icon-content"]}>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1]}</span>
+                        </div>
                     );
                 })}
             </div>
@@ -149,7 +152,7 @@ export const renderPayoutsIconSecondLine = () => {
 
 export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
     return (
-        <span className={Styles[wrapperIconDark]}>
+        <span className={Styles["wrapper-icon-dark"]}>
             <img
                 className={`${Styles[iconBox]}`}
                 src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
@@ -160,15 +163,15 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
                 src={`./static/images/four-guardians/${itemName}.png`}
                 alt={itemName}
             ></img>
-            <div className={`${Styles["icon-content"]} ${Styles["free-spin"]}`}>
-                {dataContent.map((data) => {
+            <div className={`${Styles["icon-content-wrapper"]} ${Styles["spin-position"]}`}>
+                {dataContent.map((data, index) => {
                     return (
-                        <>
-                            <span className={Styles[numberFirst]}>{data[0]}</span>
-                            <span className={Styles[numberSecond]}>
+                        <div key={index} className={`${Styles["icon-content"]} ${Styles["free-spin"]}`}>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
                                 {data[1]} {textAfterNumber && <span className="text-white">{textAfterNumber}</span>}
                             </span>
-                        </>
+                        </div>
                     );
                 })}
             </div>

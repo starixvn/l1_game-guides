@@ -5,16 +5,10 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack } from "../en";
 import Styles from "../four-guardians.module.scss";
 
-const wrapperImg = "wrapper-img";
-const imgRectangle = "img-rectangle";
-const wrapperIcon = "wrapper-icon";
-const wrapperIconDark = "wrapper-icon-dark";
 const tableSmall = "table-small";
+const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
-const iconContent = "icon-content";
-const iconBox = "icon-box";
-const contentTop = "content-top";
 const freeSpinContentEX = "free-spin-content-ex";
 
 const renderGameRule = () => {
@@ -30,9 +24,9 @@ const renderGameRule = () => {
                 <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
-                    <div className={Styles[wrapperImg]}>
+                    <div className={Styles["wrapper-img"]}>
                         <img
-                            className={Styles[imgRectangle]}
+                            className={Styles["img-rectangle"]}
                             src="./static/images/four-guardians/guide_payline.png"
                             alt="guide_payline"
                         ></img>
@@ -78,9 +72,9 @@ const renderExamplePayouts = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles[wrapperIcon]}>
+                                <span className={Styles["wrapper-icon"]}>
                                     <img
-                                        className={`${Styles[iconBox]}`}
+                                        className={`${Styles["icon-box"]}`}
                                         src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
                                         alt="guide_item_symbol_bg"
                                     ></img>
@@ -89,13 +83,13 @@ const renderExamplePayouts = () => {
                                         src="./static/images/four-guardians/item1.png"
                                         alt="item1"
                                     ></img>
-                                    <div className={`${Styles[iconContent]} ${Styles[contentTop]} ${Styles["gem"]}`}>
-                                        <span className={Styles[numberFirst]}>5</span>
-                                        <span className={Styles[numberSecond]}>25</span>
-                                        <span className={Styles[numberFirst]}>4</span>
-                                        <span className={Styles[numberSecond]}>10</span>
-                                        <span className={Styles[numberFirst]}>3</span>
-                                        <span className={Styles[numberSecond]}>5</span>
+                                    <div className={`${Styles["icon-content"]} ${Styles["icon-content-top"]} ${Styles["gem-position"]} ${Styles["icon-content-customize"]}`}>
+                                        <span className={`${Styles[number]} ${`${Styles[number]} ${Styles[numberFirst]}`}`}>5</span>
+                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>25</span>
+                                        <span className={`${Styles[number]} ${Styles[numberFirst]}`}>4</span>
+                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>10</span>
+                                        <span className={`${Styles[number]} ${Styles[numberFirst]}`}>3</span>
+                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>5</span>
                                     </div>
                                 </span>
                             </td>
