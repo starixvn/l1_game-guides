@@ -29,7 +29,7 @@ const renderGameRule = (maxBet: string) => {
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Options</th>
-                                    <th>Winning Condition</th>
+                                    <th>Winning Conditions</th>
                                     <th>Descriptions</th>
                                 </tr>
                             </thead>

@@ -108,10 +108,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                 {renderIconContent(
                     false,
                     "item10",
-                    false,
+                    true,
                     false,
                     [
-                        [5, odds[10][5]],
                         [4, odds[10][4]],
                         [3, odds[10][3]],
                         [2, odds[10][2]],
