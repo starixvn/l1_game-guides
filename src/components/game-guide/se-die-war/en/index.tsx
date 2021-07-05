@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
@@ -292,13 +293,16 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                         <li className="number-dot">
                             <strong>Statistical Round result</strong>
-                            <p>
-                                <img
-                                    className={Styles["wrapper-img"]}
-                                    src="./static/images/sedie-war/guide-stats-en.png"
+                            <div className={Styles["wrapper-guide-stats"]}>
+                                <Image
+                                    src="/static/images/sedie-war/guide-stats-en.png"
                                     alt="guide-stats-en"
-                                ></img>
-                            </p>
+                                    width={718}
+                                    height={150}
+                                    layout="responsive"
+                                    loading="lazy"
+                                />
+                            </div>
 
                             <p>
                                 <strong>Note</strong>: the number shown in the statistical round is the total red buttons having in the

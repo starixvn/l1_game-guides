@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
@@ -6,7 +7,6 @@ import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
-const imgBetTiers = "img-bet-rectangle";
 const tableSmall = "table-small";
 const renderGameRule = (maxBet: number) => {
     return (
@@ -103,7 +103,14 @@ const renderCallBetTiers = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Tiers, mức cược tương ứng cho từng cược đôi sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers"></img>
+                <Image
+                    src="/static/images/roulette/game_guide-tiers_ex.png"
+                    alt="game_guide-tiers"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -170,11 +177,14 @@ const renderCallBetOrphelins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Orphelins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide-orphelins_ex.png"
+                <Image
+                    src="/static/images/roulette/game_guide-orphelins_ex.png"
                     alt="game_guide-orphelins_ex"
-                ></img>
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -242,11 +252,14 @@ const renderCallBetVoisins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Voisins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide-voisins_ex.png"
+                <Image
+                    src="/static/images/roulette/game_guide-voisins_ex.png"
                     alt="game_guide-voisins_ex"
-                ></img>
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -319,7 +332,14 @@ const renderCallBetZero = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Zero, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-zero_ex.png" alt="game_guide-Zero"></img>
+                <Image
+                    src="/static/images/roulette/game_guide-zero_ex.png"
+                    alt="game_guide-zero_ex"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -374,23 +394,29 @@ const renderCallBetNeighbors = () => {
                 <li>Hệ thống sẽ tạo thành 5 cược đơn ứng với 5 con số mà người chơi đã chọn.</li>
             </ul>
 
-            <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles["img-bet-circle"]}
-                    src="./static/images/roulette/game_guide-neighbors_1.png"
-                    alt="game_guide-Zero"
-                ></img>
+            <div className={Styles["wrapper-img-circle"]}>
+                <Image
+                    src="/static/images/roulette/game_guide-neighbors_1.png"
+                    alt="game_guide-neighbors_1"
+                    width={713}
+                    height={198}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <p>
                 Ví dụ: Người chơi chọn mệnh giá chip 10, ô số muốn đặt là 27, có nghĩa là người chơi đặt cược lên năm con số liền nhau
                 36-13-27-6-34 (27 là con số ở giữa).
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide_neighbors_ex.png"
-                    alt="game_guide-neighbors_ex"
-                ></img>
+                <Image
+                    src="/static/images/roulette/game_guide_neighbors_ex.png"
+                    alt="game_guide_neighbors_ex"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -445,8 +471,15 @@ const renderBettingOptions = () => {
                 cược trong là cược vào các ô số cụ thể trên bàn cược. Cược ngoài là người chơi đặt cược vào các lựa chọn như cược Đỏ Đen,
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
-            <div className={Styles[wrapperImg]}>
-                <img className={Styles["img-main"]} src="./static/images/roulette/game_guide-luat_choi.png" alt="luat-choi"></img>
+            <div className={Styles["wrapper-img-rule"]}>
+                <Image
+                    src="/static/images/roulette/game_guide-luat_choi.png"
+                    alt="luat-choi"
+                    width={886}
+                    height={475}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
@@ -569,11 +602,16 @@ const renderBettingOptions = () => {
                         sẵn và sẽ có 5 lựa chọn là Cược Tiers, Cược Orphelines, Cược Voisins, Cược Zero và Cược Neighbors.
                     </p>
                     <div className={Styles[wrapperImg]}>
-                        <img
-                            className={Styles["img-call-bet"]}
-                            src="./static/images/roulette/game_guide-cuoc_nhanh.png"
-                            alt="game_guide-cuoc_nhanh"
-                        ></img>
+                        <div className={Styles["wrapper-img-circle"]}>
+                            <Image
+                                src="/static/images/roulette/game_guide-cuoc_nhanh.png"
+                                alt="game_guide-cuoc_nhanh"
+                                width={713}
+                                height={221}
+                                layout="responsive"
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">{renderCallBetTiers()}</li>

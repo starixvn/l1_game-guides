@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
@@ -7,7 +8,6 @@ import Styles from "../roulette.module.scss";
 import { UserStakeLevelProps } from "../../../../pages";
 
 const wrapperImg = "wrapper-img";
-const imgBetTiers = "img-bet-rectangle";
 const tableSmall = "table-small";
 const renderGameRule = (
     odds: OddsProps,
@@ -225,7 +225,14 @@ const renderCallBetTiers = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Tiers option, it will cost 6 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers"></img>
+                <Image
+                    src="/static/images/roulette/game_guide-tiers_ex.png"
+                    alt="game_guide-tiers"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -294,11 +301,14 @@ const renderCallBetOrphelins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide-orphelins_ex.png"
+                <Image
+                    src="/static/images/roulette/game_guide-orphelins_ex.png"
                     alt="game_guide-orphelins_ex"
-                ></img>
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -361,11 +371,14 @@ const renderCallBetVoisins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide-voisins_ex.png"
+                <Image
+                    src="/static/images/roulette/game_guide-voisins_ex.png"
                     alt="game_guide-voisins_ex"
-                ></img>
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -440,7 +453,14 @@ const renderCallBetZero = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgBetTiers]} src="./static/images/roulette/game_guide-zero_ex.png" alt="game_guide-Zero"></img>
+                <Image
+                    src="/static/images/roulette/game_guide-zero_ex.png"
+                    alt="game_guide-zero_ex"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -497,23 +517,29 @@ const renderCallBetNeighbors = () => {
                 <li>To play Neighbor bet, five chips will be taken which are placed on 5 Straight bets.</li>
             </ul>
 
-            <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles["img-bet-circle"]}
-                    src="./static/images/roulette/game_guide-neighbors_1.png"
-                    alt="game_guide-Zero"
-                ></img>
+            <div className={Styles["wrapper-img-circle"]}>
+                <Image
+                    src="/static/images/roulette/game_guide-neighbors_1.png"
+                    alt="game_guide-neighbors_1"
+                    width={713}
+                    height={198}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <p>
                 <strong>Example: </strong>Player selects the chip value 10, and click on number 27 for a Neighbors bet, it will cost 5 chips
                 for five Straight bets: (36), (13), (27), (6), (34).
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles[imgBetTiers]}
-                    src="./static/images/roulette/game_guide_neighbors_ex.png"
-                    alt="game_guide-neighbors_ex"
-                ></img>
+                <Image
+                    src="/static/images/roulette/game_guide_neighbors_ex.png"
+                    alt="game_guide_neighbors_ex"
+                    width={886}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -568,8 +594,15 @@ const renderBettingOptions = () => {
                 numbers themselves are called inside bets (Straight, Split, Street...), whereas the bets that you place on the outside the
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
-            <div className={Styles[wrapperImg]}>
-                <img className={Styles["img-main"]} src="./static/images/roulette/game_guide-luat_choi.png" alt="luat-choi"></img>
+            <div className={Styles["wrapper-img-rule"]}>
+                <Image
+                    src="/static/images/roulette/game_guide-luat_choi.png"
+                    alt="luat-choi"
+                    width={886}
+                    height={475}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             {renderBetChipsNotice()}
         </li>
@@ -584,12 +617,15 @@ const renderCallBet = () => {
                 Call Bet or French Bet are special betting options which are a predefined set of bets. There are 5 options: Tiers, Voisins
                 du Zero, Orphelins, Zero, Neighbors.
             </p>
-            <div className={Styles[wrapperImg]}>
-                <img
-                    className={Styles["img-call-bet"]}
-                    src="./static/images/roulette/game_guide-cuoc_nhanh.png"
+            <div className={Styles["wrapper-img-circle"]}>
+                <Image
+                    src="/static/images/roulette/game_guide-cuoc_nhanh.png"
                     alt="game_guide-cuoc_nhanh"
-                ></img>
+                    width={713}
+                    height={221}
+                    layout="responsive"
+                    loading="lazy"
+                />
             </div>
             <ul className="style-number-dot">
                 <li className="number-dot">

@@ -1,8 +1,19 @@
 .wrapper-img {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    display: inline-block;
+    max-width: 88.6rem;
+    max-height: 22.1rem;
+    margin: 0 auto;
+    transform: scale(0.9);
+}
+.wrapper-img-circle {
+    max-width: 71.3rem;
+    max-height: 19.8rem;
+    margin: 0 auto;
+}
+
+.wrapper-img-rule {
+    max-width: 88.6rem;
+    max-height: 47.5rem;
+    margin: 0 auto;
 }
 .img-main {
     width: 100%;
@@ -33,13 +44,6 @@
     height: auto;
     max-width: 71.3rem;
     max-height: 19.8rem;
-}
-.img-bet-rectangle {
-    width: 100%;
-    height: auto;
-    max-width: 88.6rem;
-    max-height: 22.1rem;
-    transform: scale(0.9);
 }
 .img-bet-circle {
     width: 100%;

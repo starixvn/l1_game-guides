@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -24,12 +25,15 @@ const renderGameRule = () => {
                 <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
-                    <div className={Styles["wrapper-img"]}>
-                        <img
-                            className={Styles["img-rectangle"]}
-                            src="./static/images/four-guardians/guide_payline.png"
+                    <div className={Styles["wrapper-img-rectangle"]}>
+                        <Image
+                            src={`/static/images/four-guardians/guide_payline.png`}
                             alt="guide_payline"
-                        ></img>
+                            width={844}
+                            height={165}
+                            layout="responsive"
+                            loading="lazy"
+                        />
                     </div>
                 </li>
             </ul>
@@ -73,17 +77,23 @@ const renderExamplePayouts = () => {
                         <tr>
                             <td rowSpan={3}>
                                 <span className={Styles["wrapper-icon"]}>
-                                    <img
+                                    <Image
                                         className={`${Styles["icon-box"]}`}
                                         src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
+                                        width={200}
+                                        height={132}
+                                        layout="fixed"
                                         alt="guide_item_symbol_bg"
-                                    ></img>
+                                        loading="lazy"
+                                    />
                                     <img
                                         className={`${Styles["item1"]} ${Styles["customize"]}`}
                                         src="./static/images/four-guardians/item1.png"
                                         alt="item1"
                                     ></img>
-                                    <div className={`${Styles["icon-content"]} ${Styles["icon-content-top"]} ${Styles["gem-position"]} ${Styles["icon-content-customize"]}`}>
+                                    <div
+                                        className={`${Styles["icon-content"]} ${Styles["icon-content-top"]} ${Styles["gem-position"]} ${Styles["icon-content-customize"]}`}
+                                    >
                                         <span className={`${Styles[number]} ${`${Styles[number]} ${Styles[numberFirst]}`}`}>5</span>
                                         <span className={`${Styles[number]} ${Styles[numberSecond]}`}>25</span>
                                         <span className={`${Styles[number]} ${Styles[numberFirst]}`}>4</span>
@@ -177,11 +187,16 @@ const renderFreeSpin = () => {
                     Các biểu tượng “Free Spin” phải nằm trên các cột khác nhau. Ví dụ, nếu có 3 biểu tượng “Free Spin” nằm trên cùng một
                     cột, hệ thống sẽ tính là 1 biểu tượng.
                     <div className={Styles[freeSpinContentEX]}>
-                        <img
-                            className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/guide_example_free_spin.png"
-                            alt="guide_item_symbol_bg"
-                        ></img>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                alt="guide_item_symbol_bg"
+                                width={333}
+                                height={126}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
                         <span>
                             Có 4 biểu tượng “Free Spin” trong kết quả, nhưng do có 3 biểu tượng nằm trên cùng một cột. Người chơi không thỏa
                             điều kiện nhận thưởng “Free Spin”.
@@ -266,11 +281,16 @@ const renderBonus = () => {
                     Các biểu tượng “Bonus” phải nằm trên các cột khác nhau. Ví dụ, nếu có 2 biểu tượng “Bonus” nằm trên cùng một cột, hệ
                     thống sẽ tính là 1 biểu tượng.
                     <div className={Styles[freeSpinContentEX]}>
-                        <img
-                            className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/guide_example_bonus.png"
-                            alt="guide_example_bonus"
-                        ></img>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                alt="guide_example_bonus"
+                                width={333}
+                                height={126}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
                         <ul className="desc">
                             <li>
                                 Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
@@ -295,15 +315,19 @@ const renderBonus = () => {
 };
 
 const renderWild = () => {
+    const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className="guide-item">
             <h2>Wild</h2>
             <div className={Styles[freeSpinContentEX]}>
-                <img
-                    className={`${Styles["item-wild"]} ${Styles["big"]}`}
+                <Image
                     src="/static/images/four-guardians/guide_example_wild.png"
                     alt="guide_example_wild"
-                ></img>
+                    width={133}
+                    height={87}
+                    layout="fixed"
+                    loading="lazy"
+                />
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
@@ -336,11 +360,56 @@ const renderWild = () => {
                 <div className={Styles["wrapper-ex-wild"]}>
                     <p>Người chơi chọn mức cược 1, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
-                        <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
-                        <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
-                        <img className={`${Styles["item9"]}`} src="./static/images/four-guardians/item9.png" alt="item9"></img>
-                        <img className={`${Styles["item5"]}`} src="./static/images/four-guardians/item5.png" alt="item5"></img>
-                        <img className={`${Styles["item5"]}`} src="./static/images/four-guardians/item5.png" alt="item5"></img>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item2.png"
+                                alt="item2"
+                                width={77}
+                                height={67}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item2.png"
+                                alt="item2"
+                                width={77}
+                                height={67}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item9.png"
+                                alt="item9"
+                                width={74}
+                                height={50}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item5.png"
+                                alt="item5"
+                                width={76}
+                                height={77}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item5.png"
+                                alt="item5"
+                                width={76}
+                                height={77}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
                     <ul className="plus">
                         <li>
@@ -382,11 +451,13 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img
-                            className={`${Styles["list-icon"]}`}
+                        <Image
                             src={`/static/images/four-guardians/list_icon.png`}
                             alt="guide_item_symbol_bg"
-                        ></img>
+                            width={38}
+                            height={38}
+                            layout="responsive"
+                        />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
@@ -307,13 +308,16 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                         <li className="number-dot">
                             <span className="font-weight-medium">Dãy Số Thống Kê</span>
-                            <p>
-                                <img
-                                    className={Styles["wrapper-img"]}
-                                    src="./static/images/sedie-war/guide-stats-vi.png"
+                            <div className={Styles["wrapper-guide-stats"]}>
+                                <Image
+                                    src="/static/images/sedie-war/guide-stats-vi.png"
                                     alt="guide-stats-vi"
-                                ></img>
-                            </p>
+                                    width={718}
+                                    height={150}
+                                    layout="responsive"
+                                    loading="lazy"
+                                />
+                            </div>
 
                             <p>
                                 <strong>Lưu ý:</strong> Con số trong dãy số thống kê thể hiện tổng số xu Đỏ có trong kết quả của cả Nhà Con

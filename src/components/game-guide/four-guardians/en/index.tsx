@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -25,12 +26,15 @@ const renderGameRule = () => {
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
-                <div className={Styles["wrapper-img"]}>
-                    <img
-                        className={Styles["img-rectangle"]}
-                        src="./static/images/four-guardians/guide_payline.png"
+                <div className={Styles["wrapper-img-rectangle"]}>
+                    <Image
+                        src={`/static/images/four-guardians/guide_payline.png`}
                         alt="guide_payline"
-                    ></img>
+                        width={844}
+                        height={165}
+                        layout="responsive"
+                        loading="lazy"
+                    />
                 </div>
             </ul>
         </>
@@ -57,11 +61,15 @@ const renderPayouts = () => {
 const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
     return (
         <span className={Styles["wrapper-icon"]}>
-            <img
-                className={`${Styles[iconBox]}`}
+            <Image
                 src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png`}
+                width={200}
+                height={132}
+                layout="fixed"
                 alt={isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}
-            ></img>
+                loading="lazy"
+            />
+
             <img
                 className={`${Styles[itemName]} ${Styles["customize"]}`}
                 src={`./static/images/four-guardians/${itemName}.png`}
@@ -153,11 +161,16 @@ export const renderPayoutsIconSecondLine = () => {
 export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
     return (
         <span className={Styles["wrapper-icon-dark"]}>
-            <img
+            <Image
                 className={`${Styles[iconBox]}`}
                 src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
+                width={237}
+                height={132}
+                layout="fixed"
                 alt="guide_item_symbol_bg"
-            ></img>
+                loading="lazy"
+            />
+
             <img
                 className={`${Styles[itemName]} ${Styles["dark"]}`}
                 src={`./static/images/four-guardians/${itemName}.png`}
@@ -216,7 +229,7 @@ const renderExamplePayout = () => {
                         <tr>
                             <td>
                                 Having 3 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * 5<strong>5</strong>
+                                <br></br>Payout = Bet Level * 5
                             </td>
                         </tr>
                     </tbody>
@@ -266,7 +279,7 @@ const renderFreeSpin = () => {
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Free Spin symbols in the result.<br></br>Bạn nhận <strong>3</strong>Get 3 Free Spins Bonus.
+                                Having 3 Free Spin symbols in the result.<br></br>Get 3 Free Spins Bonus.
                             </td>
                         </tr>
                     </tbody>
@@ -278,11 +291,17 @@ const renderFreeSpin = () => {
                     <strong> Note:</strong> The “Free Spin" symbols must appear in different reels. For example, if there are 3 "Free Spin"
                     symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
-                        <img
-                            className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/guide_example_free_spin.png"
-                            alt="guide_item_symbol_bg"
-                        ></img>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                alt="guide_item_symbol_bg"
+                                width={333}
+                                height={126}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+
                         <span>
                             There are 4 "Free spin" symbols in the result, but 3 symbols located on the same reel. The player is not
                             eligible for the Free spins bonus.
@@ -352,11 +371,17 @@ const renderBonus = () => {
                     <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
                     on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
-                        <img
-                            className={`${Styles["free-spin-ex"]}`}
-                            src="/static/images/four-guardians/guide_example_bonus.png"
-                            alt="guide_example_bonus"
-                        ></img>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                alt="guide_example_bonus"
+                                width={333}
+                                height={126}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+
                         <ul className="desc">
                             <li>
                                 There are 4 "Bonus" symbols in the result, but 2 symbols located on the same reel. The player is only
@@ -375,15 +400,20 @@ const renderBonus = () => {
 };
 
 const renderWild = () => {
+    const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className="guide-item">
             <h2>Wild</h2>
             <div className={Styles[freeSpinContentEX]}>
-                <img
-                    className={`${Styles["item-wild"]} ${Styles["big"]}`}
+                <Image
                     src="/static/images/four-guardians/guide_example_wild.png"
                     alt="guide_example_wild"
-                ></img>
+                    width={133}
+                    height={87}
+                    layout="fixed"
+                    loading="lazy"
+                />
+
                 <ul className="desc">
                     <li>
                         “Wild” symbol can substitute for all symbols except
@@ -412,11 +442,56 @@ const renderWild = () => {
                 <strong>Example</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
-                        <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
-                        <img className={`${Styles["item2"]}`} src="./static/images/four-guardians/item2.png" alt="item2"></img>
-                        <img className={`${Styles["item9"]}`} src="./static/images/four-guardians/item9.png" alt="item9"></img>
-                        <img className={`${Styles["item5"]}`} src="./static/images/four-guardians/item5.png" alt="item5"></img>
-                        <img className={`${Styles["item5"]}`} src="./static/images/four-guardians/item5.png" alt="item5"></img>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item2.png"
+                                alt="item2"
+                                width={77}
+                                height={67}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item2.png"
+                                alt="item2"
+                                width={77}
+                                height={67}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item9.png"
+                                alt="item9"
+                                width={74}
+                                height={50}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item5.png"
+                                alt="item5"
+                                width={76}
+                                height={77}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/four-guardians/item5.png"
+                                alt="item5"
+                                width={76}
+                                height={77}
+                                layout="fixed"
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
                     <ul className="desc">
                         <li>
@@ -458,11 +533,13 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img
-                            className={`${Styles["list-icon"]}`}
+                        <Image
                             src={`/static/images/four-guardians/list_icon.png`}
                             alt="guide_item_symbol_bg"
-                        ></img>
+                            width={38}
+                            height={38}
+                            layout="responsive"
+                        />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
