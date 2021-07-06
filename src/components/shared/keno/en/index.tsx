@@ -36,7 +36,7 @@ export const GameRuleKeno = (
     userStakeLevel: UserStakeLevelProps,
     isMini = false
 ) => {
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxBet));
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxBet, maxBet));
     return (
         <>
             <h2>Game Rules</h2>

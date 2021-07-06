@@ -50,7 +50,7 @@ const renderGameRule = (
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
                                     </td>
                                     <td rowSpan={12}>
-                                        {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxBet))}
+                                        {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxBet, maxBet))}
                                     </td>
                                 </tr>
                                 <tr>

@@ -560,8 +560,8 @@ const renderViewStatistic = () => {
                             <p>Data statistics in “Tail” bet type</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
-                                    <span className={Styles["number"]}>4</span>
-                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
+                                    <span className={Styles["number"]}>7</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>4</span>
                                 </div>
                                 <p>number 7 has a total of 4 appearances in the units digit of Special Prize within the last 100 rounds.</p>
                             </div>
@@ -569,7 +569,7 @@ const renderViewStatistic = () => {
                         <li>
                             <div className={Styles[exampleTitle]}>c) Others (Big/Small, Odd/Even)</div>
                             <p>Show winning rate (%) on each bet option Big/Small, Odd/Even.</p>
-                            <p className="bold">Ví dụ:</p>
+                            <p className="bold">Example:</p>
                             <div className={Styles["others"]}>
                                 <div className={Styles["result"]}>
                                     <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>ODD</span>

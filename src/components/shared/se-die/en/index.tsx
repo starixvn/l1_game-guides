@@ -1,5 +1,6 @@
 import React from "react";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../dot";
+import Styles from "../se-die.module.scss";
 
 export const StatisticalTable = () => {
     return (
@@ -107,12 +108,12 @@ export const RedWhiteDataOnTable = () => {
                 {renderFourWhite()}
             </tr>
             <tr>
-                <td>3 red, 1 white</td>
+                <td className={Styles["rule-option-choice"]}>3 red, 1 white</td>
                 <td>3 red, 1 white</td>
                 {renderThreeRedOneWhite()}
             </tr>
             <tr>
-                <td>1 red, 3 white</td>
+                <td className={Styles["rule-option-choice"]}>1 red, 3 white</td>
                 <td>1 red, 3 white</td>
                 {renderOneRedThreeWhite()}
             </tr>

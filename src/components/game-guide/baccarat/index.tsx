@@ -18,7 +18,9 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConf
     const maxBetSubChoice = numberWithCommas(
         userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet, choices_maxbet.tie) : maxbet
     );
-    const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(
+        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
+    );
 
     return { maxBetMainChoice, maxBetSubChoice, maxBetRound };
 };

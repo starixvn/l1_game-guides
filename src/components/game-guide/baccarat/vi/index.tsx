@@ -126,10 +126,9 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         {BaccaratVip.includes(gameId ? gameId : BaccaratVip[0])
                             ? "là game đánh bài, được xây dựng với giao diện đồ họa hoàn toàn mới, nhằm nâng cao trải nghiệm của người chơi."
                             : "hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới."}
-                        hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới.Trò chơi sử
-                        dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con,
-                        Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong
-                        muốn.
+                        Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa
+                        chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược
+                        vào lựa chọn mong muốn.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0, minbet)}</li>
@@ -281,7 +280,9 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                         <tr>
                                             <td>Hoà</td>
                                             <td>1: {tie}</td>
-                                            <td rowSpan={3}>1 - {maxBetFollowChoice?.maxBetSubChoice}</td>
+                                            <td rowSpan={3}>
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetSubChoice}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Con Đôi</td>

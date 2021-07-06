@@ -193,7 +193,7 @@ ul {
             counter-increment: number-dot-list;
 
             &:before {
-                content: counter(guide-list) "." counter(number-dot-list) ". ";
+                content: counter(guide-list) "." counter(number-dot-list) " ";
                 font-size: var(--sub-title-font-size);
                 font-weight: 500;
             }
@@ -206,7 +206,7 @@ ul {
                     counter-increment: number-dot-list-child;
 
                     &:before {
-                        content: counter(guide-list) "." counter(number-dot-list) "." counter(number-dot-list-child) ". ";
+                        content: counter(guide-list) "." counter(number-dot-list) "." counter(number-dot-list-child) " ";
                         font-size: var(--sub-title-font-size);
                         font-weight: 500;
                     }
@@ -216,7 +216,10 @@ ul {
     }
 
     .icon-wrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: 6rem 6rem 6rem 6rem 6rem 6rem;
+        padding: 2rem;
+        text-align: center;
         justify-content: center;
         .symbol-size {
             font-size: 5rem;

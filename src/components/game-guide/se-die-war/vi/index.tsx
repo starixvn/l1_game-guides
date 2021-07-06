@@ -159,12 +159,12 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
                 {renderFourWhite()}
             </tr>
             <tr>
-                <td>3 đỏ, 1 trắng</td>
+                <td className={Styles["rule-option-choice"]}>3 đỏ, 1 trắng</td>
                 <td>3 đỏ, 1 trắng</td>
                 {renderThreeRedOneWhite()}
             </tr>
             <tr>
-                <td>1 đỏ, 3 trắng</td>
+                <td className={Styles["rule-option-choice"]}>1 đỏ, 3 trắng</td>
                 <td>1 đỏ, 3 trắng</td>
                 {renderOneRedThreeWhite()}
             </tr>

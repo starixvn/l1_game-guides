@@ -578,8 +578,8 @@ const renderViewStatistic = () => {
                             <p>Kết quả soi cầu số 7 cho cược “Số Đuôi”</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
-                                    <span className={Styles["number"]}>4</span>
-                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>7</span>
+                                    <span className={Styles["number"]}>7</span>
+                                    <span className={`${Styles[subNumber]} ${Styles["left"]} ${Styles["text-blue"]}`}>4</span>
                                 </div>
                                 <p>Số 7 có tổng số lần xuất hiện trong kết quả số hàng Đơn vị của giải Đặc Biệt là 4 lần.</p>
                             </div>

@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
@@ -26,6 +27,12 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="symbol-size icon-ca vip"></div>
                         <div className="symbol-size icon-cua vip"></div>
                         <div className="symbol-size icon-tom vip"></div>
+                        <div >Stag</div>
+                        <div >Gourd</div>
+                        <div >Rooster</div>
+                        <div >Fish</div>
+                        <div >Crab</div>
+                        <div >Prawn</div>
                     </div>
                 </li>
                 <li className="guide-item">
@@ -55,7 +62,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>Options</th>
                                             <th>Winning Conditions</th>
                                             <th>Payouts</th>
-                                            <th>Bet Limit (Min - Max)</th>
+                                            <th className={Styles["min-max-width"]}>Bet Limit (Min - Max)</th>
                                         </tr>
                                     </thead>
                                     <tbody>

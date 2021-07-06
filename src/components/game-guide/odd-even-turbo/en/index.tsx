@@ -7,7 +7,7 @@ import { GameGuideProps } from "../../type";
 const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet));
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet));
     return (
         <div>
             <ul className="game-guide">
@@ -27,7 +27,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                             <li>EVEN: the player will win if the total points of three dice is an even number. </li>
                         </ul>
                         <li>
-                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Cancel button if you want to
+                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Clear button if you want to
                             reset all your bets.
                         </li>
                         <li>

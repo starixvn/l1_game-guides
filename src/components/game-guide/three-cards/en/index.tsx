@@ -66,11 +66,13 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
             <ul className="desc">
                 <li>
                     Bet 10 on Red option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Hearts (
-                    <span className={Styles[imgRed]}>♥</span>), Clubs (♣).<br></br> Payout = {bet} x {odds.red} = {winRed}
+                    <span className={Styles[imgRed]}>♥</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
+                    {bet} x {odds.red} = {winRed}
                 </li>
                 <li>
                     Bet 10 on Diamonds option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Diamonds (
-                    <span className={Styles[imgRed]}>♥</span>),Clubs (♣).<br></br> Payout = {bet} x {odds.diamonds} = {winDiamonds}
+                    <span className={Styles[imgRed]}>♥</span>),Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
+                    {bet} x {odds.diamonds} = {winDiamonds}
                 </li>
             </ul>
         </>
@@ -144,8 +146,9 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     <p className="content">
                         {gameName} is another exciting card game that is played with one standard 52-card deck (excluding Joker). There are
                         6 betting options including Red, Black, Diamonds (<span className={Styles["img-red"]}>♦</span>), Hearts (
-                        <span className={Styles["img-red"]}>♥</span>), Spades (♠), and Clubs (♣). The objective of this game is to predict
-                        the suit of 3 cards drawn for each round. If the outcome matches the player’s bet, the player wins.
+                        <span className={Styles["img-red"]}>♥</span>), Spades (<span className={Styles["img-black"]}>♠</span>), and Clubs (
+                        <span className={Styles["img-black"]}>♣</span>). The objective of this game is to predict the suit of 3 cards drawn
+                        for each round. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>

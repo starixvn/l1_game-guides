@@ -206,7 +206,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                     <td>Specific Number</td>
                                     <td>Bet on any number from 1 to 6</td>
                                     <td className="text-start">
-                                        TBet on a specific number from 1 to 6. If the chosen number has appeared among three dice, you win{" "}
+                                        Bet on a specific number from 1 to 6. If the chosen number has appeared among three dice, you win{" "}
                                     </td>
                                 </tr>
                                 <tr>

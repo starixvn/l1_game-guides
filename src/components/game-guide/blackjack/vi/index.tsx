@@ -103,7 +103,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                     Gấp Đôi
                                                     <img
                                                         className={Styles[wrapperImg]}
-                                                        src="./static/images/blackjack/guide_split.png"
+                                                        src="./static/images/blackjack/guide_double.png"
                                                     ></img>
                                                 </td>
                                                 <td className="text-start">

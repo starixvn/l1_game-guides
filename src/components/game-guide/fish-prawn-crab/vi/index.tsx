@@ -25,6 +25,12 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         <div className="symbol-size icon-ca"></div>
                         <div className="symbol-size icon-cua"></div>
                         <div className="symbol-size icon-tom"></div>
+                        <div>Nai</div>
+                        <div>Bầu</div>
+                        <div>Gà</div>
+                        <div>Cá</div>
+                        <div>Cua</div>
+                        <div>Tôm</div>
                     </div>
                 </li>
                 <li className="guide-item">

@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
@@ -25,6 +26,12 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="symbol-size icon-ca vip"></div>
                         <div className="symbol-size icon-cua vip"></div>
                         <div className="symbol-size icon-tom vip"></div>
+                        <div>Nai</div>
+                        <div>Bầu</div>
+                        <div>Gà</div>
+                        <div>Cá</div>
+                        <div>Cua</div>
+                        <div>Tôm</div>
                     </div>
                 </li>
                 <li className="guide-item">
@@ -54,7 +61,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>Lựa Chọn</th>
                                             <th>Điều Kiện Thắng</th>
                                             <th>Trả Thưởng</th>
-                                            <th>Giới Hạn Cược (Min - Max)</th>
+                                            <th className={Styles["min-max-width"]}>Giới Hạn Cược (Min - Max)</th>
                                         </tr>
                                     </thead>
                                     <tbody>

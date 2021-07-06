@@ -4,6 +4,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../baccarat.module.scss";
 
 const renderGameRule = () => {
     return (
@@ -176,7 +177,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         {gameName}{" "}
                         {BaccaratVip.includes(gameId ? gameId : BaccaratVip[0])
                             ? "is an enhanced version of Baccarat with impressive graphic designs, animations and higher betting limits. "
-                            : "is one of the most often-played card games in the casino. "}{" "}
+                            : "is one of the most often-played card games in the casino. "}
                         The game is played with one standard 52-card deck (excluding Joker). There are 7 betting options and Punters can bet
                         on one or more betting options shown on the game table.
                     </p>
@@ -306,9 +307,13 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                                 {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                             <td rowSpan={7}>
-                                                {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet))}
+                                                {numberWithCommas(
+                                                    Math.min(userStakeLevel?.maxBet ? userStakeLevel.maxBet : maxbet, maxbet)
+                                                )}
                                             </td>
-                                            <td rowSpan={7}>The Player and the Banker bets will be refunded if the result is a draw.</td>
+                                            <td rowSpan={7} className={Styles["note-width"]}>
+                                                All bets on Player and Banker will be refunded if the result is a draw.
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Banker</td>
@@ -325,7 +330,9 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                         <tr>
                                             <td>Tie</td>
                                             <td>1: {tie}</td>
-                                            <td rowSpan={3}>1 - {maxBetFollowChoice?.maxBetSubChoice}</td>
+                                            <td rowSpan={3}>
+                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetSubChoice}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Player pair</td>

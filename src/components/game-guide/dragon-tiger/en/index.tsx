@@ -7,7 +7,9 @@ import { GameGuideProps } from "../../type";
 const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : 0, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(
+        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
+    );
     return (
         <div>
             <ul className="game-guide">
@@ -34,13 +36,11 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                             Card’s point values:
                             <ul className="detail">
                                 <li>
-                                    The ranking of cards from the lowest to the highest is as follows: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-                                    Jack, Queen, and King.
+                                    The card ranking from the lowest to the highest is as follows: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack,
+                                    Queen, and King.
                                 </li>
-                                <li>
-                                    Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points. The rest of
-                                    the cards (2 to 10) are counted at face value.
-                                </li>
+                                <li>Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points.</li>
+                                <li>The rest of the cards (2 to 10) are counted at face value.</li>
                             </ul>
                         </li>
                         <li>
