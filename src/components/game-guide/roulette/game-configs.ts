@@ -1,16 +1,16 @@
 const choicesMaxBet = {
     bigSmall: 2000,
-    column: 2000,
-    corner: 800,
-    dozen: 2000,
-    fourNumbers: 800,
-    line: 1000,
+    column: 1000,
+    corner: 250,
+    dozen: 1000,
+    fourNumbers: 250,
+    line: 400,
     oddEven: 2000,
     redBlack: 2000,
-    split: 400,
-    straightUp: 200,
-    street: 600,
-    triangle: 600,
+    split: 100,
+    straightUp: 50,
+    street: 150,
+    triangle: 150,
 };
 
 const odds = {

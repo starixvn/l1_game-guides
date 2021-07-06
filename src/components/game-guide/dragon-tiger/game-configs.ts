@@ -1,13 +1,13 @@
 const choicesMaxBet = {
     dragon: 2000,
-    tiger: 2000,
     tie: 500,
+    tiger: 2000,
 };
 
 const odds = {
     dragon: 2,
-    tiger: 2,
     tie: 11,
+    tiger: 2,
 };
 
 const GameConfigs = {

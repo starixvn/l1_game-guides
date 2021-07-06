@@ -10,13 +10,13 @@ const choicesMaxBet = {
     wood: 1500,
 };
 const odds = {
-    big: 1.98,
+    big: 1.96,
     earth: 9.2,
     even: 1.96,
     fire: 4.6,
     gold: 9.2,
     odd: 1.96,
-    small: 1.94,
+    small: 1.96,
     water: 2.4,
     wood: 4.6,
 };

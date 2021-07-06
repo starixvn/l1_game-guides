@@ -11,19 +11,19 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    single: 2,
-    double: 3.5,
-    triple: 6,
     anyTriple: 33,
+    double: 3.5,
     mountain: 1.96,
     ocean: 1.96,
+    single: 2,
+    triple: 6,
 };
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
     maxbet: 5000,
-    minbet: 20,
+    minbet: 10,
     odds: odds,
 };
 

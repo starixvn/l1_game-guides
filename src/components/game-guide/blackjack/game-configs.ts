@@ -6,7 +6,7 @@ const odds = {
 const GameConfigs = {
     choices_maxbet: {},
     enableFreeBet: false,
-    maxbet: 3000,
+    maxbet: 2000,
     minbet: 1,
     odds: odds,
 };
