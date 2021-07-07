@@ -1,7 +1,6 @@
 const basePath = "";
 const gameSettings = require("./game-settings.json");
 const configs = require("./configs.json");
-const { i18n } = require("./next-i18next.config");
 const { v4: uuidv4 } = require("uuid");
 
 const appSettings = {
@@ -10,7 +9,6 @@ const appSettings = {
 };
 
 module.exports = {
-    i18n,
     future: {
         webpack5: true,
     },
@@ -51,4 +49,8 @@ module.exports = {
         ];
     },
     basePath,
+    images: {
+        loader: "imgix",
+        path: configs.proxy.uri,
+    },
 };

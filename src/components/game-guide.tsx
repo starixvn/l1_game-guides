@@ -19,18 +19,16 @@ import KenoMaxGuide from "./game-guide/keno-pro-viet/keno-max";
 import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
 import RouletteGuide from "./game-guide/roulette";
 import { UserStakeLevelProps } from "../pages";
-import { useRouter } from "next/router";
 
 type Props = {
     gameId: number;
     userStakeLevel: UserStakeLevelProps;
+    locale: string;
 };
 
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel } = props;
+    const { gameId, userStakeLevel, locale } = props;
     const { gameSettings } = appSettings;
-    const router = useRouter();
-    const { locale } = router;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,

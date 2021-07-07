@@ -3,16 +3,16 @@ import ThreeCardsGuideEN from "./en";
 import ThreeCardsGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
-import { useTranslation } from "next-i18next";
+import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const ThreeCardsGuide = (props: GameGuideBase) => {
-    const { t } = useTranslation("common");
     const { gameName, locale, userStakeLevel } = props;
 
     if (locale === locales.en) {
-        return <ThreeCardsGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+        return (
+            <ThreeCardsGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />
+        );
     }
-    return <ThreeCardsGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+    return <ThreeCardsGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default ThreeCardsGuide;

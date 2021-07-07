@@ -3,8 +3,71 @@ export interface IObjectKeys {
 }
 
 export const locales: IObjectKeys = { en: "en", vi: "vi" };
+export const languageMapper: IObjectKeys = { "en-US": "en", "vi-VN": "vi" };
+export const language = ["en-US", "vi-VN"];
 export const Themes = {
     light: "light",
     dark: "dark",
     blue: "blue",
+};
+
+export const GameNameVI: IObjectKeys = {
+    taixiu: "Tài Xỉu",
+    xocxoc: "Xóc Đĩa",
+    baucua: "Bầu Cua",
+    txturbo: "Tài Xỉu Siêu Tốc",
+    dragontiger: "Rồng Hổ",
+    vipsedie: "Xóc Đĩa VIP",
+    baccarat: " Cào Baccarat",
+    vipbaccarat: " Cào Baccarat VIP",
+    vipfishprawncrab: "Bầu Cua VIP",
+    specialsedie: "Xóc Đĩa Cân Cửa",
+    vipsediewar: "Xóc Đĩa Đối Kháng",
+    kenopromax: "Keno Pro Max",
+    oeturbo: "Chẵn Lẻ Siêu Tốc",
+    blackjack: "Blackjack",
+    sicbo: "Tài Xỉu Sic Bo",
+    fourguardians: "Long Lân Quy Phụng",
+    lottery: "Xổ Số RNG",
+    threecards: "3 Lá Đỏ Đen",
+    kenomax: "Keno Max",
+    kenomax2: "Keno Max 2",
+    kenomini: "Keno Mini",
+    kenomini2: "Keno Mini 2",
+    kenoeast: "Keno Đông",
+    kenwest: "Keno Tây",
+    kenosouth: "Keno Nam",
+    kenonorth: "Keno Bắc",
+    roulette: "Roulette",
+};
+
+export const GameNameEN: IObjectKeys = {
+    taixiu: "Big Small",
+    xocxoc: "Se Die",
+    baucua: "Fish Prawn Crab",
+    txturbo: "Turbo Big Small",
+    dragontiger: "Dragon Tiger",
+    vipsedie: "VIP Se Die",
+    baccarat: "Baccarat",
+    vipbaccarat: " Baccarat VIP",
+    vipfishprawncrab: "VIP Fish Prawn Crab",
+    minisedie: "Mini Se Die",
+    specialsedie: "Special Se Die",
+    vipsediewar: "Se Die War",
+    kenopromax: "Keno Pro Max",
+    oeturbo: "Turbo Odd Even",
+    blackjack: "Blackjack",
+    sicbo: "Sic Bo",
+    fourguardians: "Four Guardians",
+    lottery: "RNG Lottery",
+    threecards: "Three Cards",
+    kenomax: "Keno Max",
+    kenomax2: "Keno Max 2",
+    kenomini: "Keno Mini",
+    kenomini2: "Keno Mini 2",
+    kenoeast: "Keno East",
+    kenwest: "Keno West",
+    kenosouth: "Keno South",
+    kenonorth: "Keno North",
+    roulette: "Roulette",
 };

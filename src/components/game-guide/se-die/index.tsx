@@ -4,8 +4,7 @@ import SeDieGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../se-die-vip/game-configs";
 import GameConfigsMini from "../se-die-mini/game-configs";
-import { locales } from "../../../common/constants";
-import { useTranslation } from "next-i18next";
+import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
@@ -25,7 +24,6 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConf
     return { maxBetMain, maxBetRed4, maxBetRed3, maxBetRed2, maxBetRound };
 };
 const SeDieGuide = (props: GameGuideBase) => {
-    const { t } = useTranslation("common");
     const { gameName, id, locale, userStakeLevel } = props;
     const gameConfigs = () => {
         switch (id) {
@@ -45,7 +43,7 @@ const SeDieGuide = (props: GameGuideBase) => {
             <SeDieGuideEN
                 gameConfigs={gameConfigs()}
                 userStakeLevel={userStakeLevel}
-                gameName={t(gameName.toLowerCase())}
+                gameName={GameNameEN[gameName.toLowerCase()]}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
             />
@@ -55,7 +53,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         <SeDieGuideVI
             gameConfigs={gameConfigs()}
             userStakeLevel={userStakeLevel}
-            gameName={t(gameName.toLowerCase())}
+            gameName={GameNameVI[gameName.toLowerCase()]}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />

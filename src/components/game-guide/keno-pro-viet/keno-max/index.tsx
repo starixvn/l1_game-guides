@@ -8,11 +8,9 @@ import GameConfigsSouth from "../keno-south/game-configs";
 import GameConfigsWest from "../keno-west/game-configs";
 import GameConfigsEast from "../keno-east/game-configs";
 import { GameGuideBase } from "../../type";
-import { locales } from "../../../../common/constants";
-import { useTranslation } from "next-i18next";
+import { locales, GameNameEN, GameNameVI } from "../../../../common/constants";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
-    const { t } = useTranslation("common");
     const { gameName, locale, userStakeLevel, id } = props;
     const gameConfigs = () => {
         switch (id) {
@@ -32,8 +30,8 @@ const KenoMaxGuide = (props: GameGuideBase) => {
         }
     };
     if (locale === locales.en) {
-        return <KenoMaxGuideEN gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+        return <KenoMaxGuideEN gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <KenoMaxGuideVI gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+    return <KenoMaxGuideVI gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default KenoMaxGuide;

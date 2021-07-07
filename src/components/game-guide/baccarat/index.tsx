@@ -3,8 +3,7 @@ import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../baccarat-vip/game-configs";
-import { locales } from "../../../common/constants";
-import { useTranslation } from "next-i18next";
+import { locales, GameNameVI, GameNameEN } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
@@ -27,7 +26,6 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConf
 
 export const BaccaratVip = [27];
 const BaccaratGuide = (props: GameGuideBase) => {
-    const { t } = useTranslation("common");
     const { gameName, id, locale, userStakeLevel } = props;
     const gameConfigs = BaccaratVip.includes(id ? id : BaccaratVip[0]) ? GameConfigsVIP : GameConfigs;
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
@@ -36,7 +34,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
             <BaccaratGuideEN
                 gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
-                gameName={t(gameName.toLowerCase())}
+                gameName={GameNameVI[gameName.toLowerCase()]}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
             />
@@ -46,7 +44,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
         <BaccaratGuideVI
             gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
-            gameName={t(gameName.toLowerCase())}
+            gameName={GameNameEN[gameName.toLowerCase()]}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />

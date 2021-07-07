@@ -3,26 +3,32 @@ import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
-import { useTranslation } from "next-i18next";
+import { locales, GameNameEN, GameNameVI, IObjectKeys } from "../../../common/constants";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { t } = useTranslation("common");
     const { gameName, locale, userStakeLevel } = props;
 
     if (locale === locales.en) {
-        return <BlackjackGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+        return <BlackjackGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <BlackjackGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={t(gameName.toLowerCase())} />;
+    return <BlackjackGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 
 export const CardPointValuesTable = (locale = "vi") => {
+    const CardLocaleMapper: IObjectKeys = {
+        vi: "Bài",
+        en: "Card",
+    };
+    const PontLocaleMapper: IObjectKeys = {
+        vi: "Điểm",
+        en: "Point",
+    };
     return (
         <div className="table-container">
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <th>{locale === locales.vi ? "Bài" : "Card"}</th>
+                        <th>{CardLocaleMapper[locale]}</th>
                         <th> A</th>
                         <th> 2</th>
                         <th> 3</th>
@@ -41,7 +47,7 @@ export const CardPointValuesTable = (locale = "vi") => {
                 <tbody>
                     <tr>
                         <td>
-                            <span className="font-weight-medium">{locale === locales.vi ? "Điểm" : "Point"}</span>
+                            <span className="font-weight-medium">{PontLocaleMapper[locale]}</span>
                         </td>
                         <td>1 {locale === locales.vi ? "hoặc" : "or"} 11</td>
                         <td>2</td>

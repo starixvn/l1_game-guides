@@ -1,11 +1,9 @@
-import { WithTranslation } from "next-i18next";
 import { WithRouterProps } from "next/dist/client/with-router";
 
 export type GameSettingProps = {
     id: number;
     gameName: string;
-} & WithTranslation &
-    WithRouterProps;
+} & WithRouterProps;
 
 interface ProxySetting {
     ssl: string;
