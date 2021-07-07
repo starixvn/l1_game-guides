@@ -49,7 +49,7 @@ export const GameNameEN: IObjectKeys = {
     dragontiger: "Dragon Tiger",
     vipsedie: "VIP Se Die",
     baccarat: "Baccarat",
-    vipbaccarat: " Baccarat VIP",
+    vipbaccarat: "VIP Baccarat",
     vipfishprawncrab: "VIP Fish Prawn Crab",
     minisedie: "Mini Se Die",
     specialsedie: "Special Se Die",

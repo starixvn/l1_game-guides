@@ -126,81 +126,213 @@ const renderBetChipsNotice = () => {
             <table className={`table text-center ${Styles["table-customize"]}`}>
                 <thead>
                     <tr>
-                        <th className={Styles["bet-title"]}>INSIDE BETS</th>
-                        <th className={Styles["bet-title"]}>OUTSIDE BETS</th>
+                        <th>INSIDE BETS</th>
+                        <th>OUTSIDE BETS</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr className="text-start">
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/A-X.png" alt="A-X"></img>
-                            <strong>Straight Up: </strong>a bet on a specific number.<br></br>+ Place your chips directly on any single
-                            number (including Zero)
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/A-X.png"
+                                    alt="A-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Straight Up: </strong>a bet on a specific number.<br></br>+ Place your chips directly on any
+                                    single number (including Zero)
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/H-X.png" alt="H-X"></img>
-                            <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one the
-                            areas marked "1:3" at the end of the columns.
-                        </td>
-                    </tr>
-                    <tr className="text-start">
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/B-X.png" alt="B-X"></img>
-                            <strong>Split: </strong>a bet on two adjoining numbers, either horizontal or vertical.<br></br>+ Place your
-                            chips on the line between any two numbers.
-                        </td>
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/I-X.png" alt="I-X"></img>
-                            <strong>Dozen: </strong>a bet on twelve consecutive numbers.<br></br>+ Place your chips in one of the three
-                            areas marked "1-12", "13-24" or "25-36".
-                        </td>
-                    </tr>
-                    <tr className="text-start">
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/C-X.png" alt="C-X"></img>
-                            <strong>Street: </strong>a bet on three consecutive numbers located on the same line.<br></br>+ Place your chips
-                            on the outside border od the three numbers.
-                        </td>
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/J-X.png" alt="J-X"></img>
-                            <strong>Red/Black: </strong>bet on whether the final result is Red or Black colour.
-                        </td>
-                    </tr>
-                    <tr className="text-start">
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/D-X.png" alt="D-X"></img>
-                            <strong>Triangle: </strong>a bet on three adjoining numbers 0, 1, 2 or 0, 2, 3.<br></br>+ Place your chips on
-                            the intersecting corner pf (0, 1, anf 2) or (0, 2, and 3).
-                        </td>
-                        <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/K-X.png" alt="K-X"></img>
-                            <strong>Odd/Even: </strong>bet on whether the final result is Odd or Even number (excluding Zero)
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/H-X.png"
+                                    alt="H-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one
+                                    the areas marked "1:3" at the end of the columns.
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr className="text-start">
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/E-X.png" alt="E-X"></img>
-                            <strong>Corner: </strong>a bet on four numbers
-                            <br></br>+ Place your chips on the intersection where all four numbers meet.
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/B-X.png"
+                                    alt="B-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Split: </strong>a bet on two adjoining numbers, either horizontal or vertical.<br></br>+ Place
+                                    your chips on the line between any two numbers.
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/L-X.png" alt="L-X"></img>
-                            <strong>Big/Small: </strong>bet on whether the final result is Big (19-36) or Small (1-18)
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/I-X.png"
+                                    alt="I-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Dozen: </strong>a bet on twelve consecutive numbers.<br></br>+ Place your chips in one of the
+                                    three areas marked "1-12", "13-24" or "25-36".
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     <tr className="text-start">
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/F-X.png" alt="F-X"></img>
-                            <strong>Four numbers: </strong>a bet on four numbers 0, 1, 2, 3.<br></br>+ Place your chips on the intersecting
-                            corner of 0 and the row of 1, 2, 3.
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/C-X.png"
+                                    alt="C-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Street: </strong>a bet on three consecutive numbers located on the same line.<br></br>+ Place
+                                    your chips on the outside border of the three numbers.
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/J-X.png"
+                                    alt="J-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Red/Black: </strong>bet on whether the final result is Red or Black colour.
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr className="text-start">
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/D-X.png"
+                                    alt="D-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Triangle: </strong>a bet on three adjoining numbers 0, 1, 2 or 0, 2, 3.<br></br>+ Place your
+                                    chips on the intersecting corner of (0, 1, and 2) or (0, 2, and 3).
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/K-X.png"
+                                    alt="K-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Odd/Even: </strong>bet on whether the final result is Odd or Even number (excluding Zero).
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr className="text-start">
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/E-X.png"
+                                    alt="E-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Corner: </strong>a bet on four numbers
+                                    <br></br>+ Place your chips on the intersection where all four numbers meet.
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/L-X.png"
+                                    alt="L-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Big/Small: </strong>bet on whether the final result is Big (19-36) or Small (1-18).
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr className="text-start">
+                        <td>
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/F-X.png"
+                                    alt="F-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Four numbers: </strong>a bet on four numbers 0, 1, 2, 3.<br></br>+ Place your chips on the
+                                    intersecting corner of 0 and the row of 1, 2, 3.
+                                </div>
+                            </div>
                         </td>
                         <td></td>
                     </tr>
                     <tr className="text-start">
                         <td>
-                            <img className={Styles["img-chip"]} src="./static/images/roulette/G-X.png" alt="G-X"></img>
-                            <strong>Line: </strong>a bet on two adjoining rows.<br></br>+ Place your chips at the end of two rows on the
-                            intersection between them.
+                            <div className={Styles["img-chip"]}>
+                                <Image
+                                    src="/static/images/roulette/G-X.png"
+                                    alt="G-X"
+                                    width={37}
+                                    height={37}
+                                    layout="fixed"
+                                    loading="lazy"
+                                />
+                                <div>
+                                    <strong>Line: </strong>a bet on two adjoining rows.<br></br>+ Place your chips at the end of two rows on
+                                    the intersection between them.
+                                </div>
+                            </div>
                         </td>
                         <td></td>
                     </tr>
@@ -596,7 +728,7 @@ const renderBettingOptions = () => {
             </p>
             <div className={Styles["wrapper-img-rule"]}>
                 <Image
-                    src="/static/images/roulette/game_guide-luat_choi.png"
+                    src="/static/images/roulette/en/game_guide-luat_choi.png"
                     alt="luat-choi"
                     width={886}
                     height={475}

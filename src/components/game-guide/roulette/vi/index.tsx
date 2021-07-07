@@ -37,56 +37,80 @@ const renderBetChipsNotice = () => {
     return (
         <div className={Styles["wrapper-chips"]}>
             <div>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/A-X.png" alt="A-X"></img>
-                    Cược Đơn<br></br> (Cược vào 1 số cụ thể)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/B-X.png" alt="B-X"></img>
-                    Cược Đôi<br></br> (Cược vào 2 số kế nhau)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/C-X.png" alt="C-X"></img>
-                    Cược Hàng<br></br> (Cược vào 3 số cùng một hàng)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/D-X.png" alt="D-X"></img>
-                    Cược Bộ Ba<br></br> (Cược vào tổ hợp ba số 0, 1, 2 hoặc 0, 2, 3)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/E-X.png" alt="E-X"></img>
-                    Cược Góc<br></br> (Cược vào 4 số cùng giao nhau tại một góc)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/F-X.png" alt="F-X"></img>
-                    Cược Bộ Bốn<br></br> (Cược vào tổ hợp bốn số 0, 1, 2, 3)
-                </p>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Đơn<br></br> (Cược vào 1 số cụ thể)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Đôi<br></br> (Cược vào 2 số kế nhau)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Hàng<br></br> (Cược vào 3 số cùng một hàng)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Bộ Ba<br></br> (Cược vào tổ hợp ba số 0, 1, 2 hoặc 0, 2, 3)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Góc<br></br> (Cược vào 4 số cùng giao nhau tại một góc)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Bộ Bốn<br></br> (Cược vào tổ hợp bốn số 0, 1, 2, 3)
+                    </div>
+                </div>
             </div>
             <div>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/G-X.png" alt="G-X"></img>
-                    Cược 2 Hàng<br></br> (Cược vào 2 hàng liền kề)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/H-X.png" alt="H-X"></img>
-                    Cược Cột<br></br> (Cược vào 12 số trong một cột)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/I-X.png" alt="I-X"></img>
-                    Cược Tá<br></br> (Cược vào nhóm 12 số)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/J-X.png" alt="J-X"></img>
-                    Đỏ/Đen<br></br> (Cược viên bi sẽ dừng ở ô số Đỏ hay Đen)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/K-X.png" alt="K-X"></img>
-                    Chẵn/Lẻ<br></br> (Cược viên bi sẽ dừng ở ô số Chẵn hay Lẻ)
-                </p>
-                <p>
-                    <img className={Styles["img-chip"]} src="./static/images/roulette/L-X.png" alt="L-X"></img>
-                    Tài/Xỉu<br></br> (Cược kết quả Tài 19-36 hay Xỉu 1-18)
-                </p>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược 2 Hàng<br></br> (Cược vào 2 hàng liền kề)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Cột<br></br> (Cược vào 12 số trong một cột)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Cược Tá<br></br> (Cược vào nhóm 12 số)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Đỏ/Đen<br></br> (Cược viên bi sẽ dừng ở ô số Đỏ hay Đen)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Chẵn/Lẻ<br></br> (Cược viên bi sẽ dừng ở ô số Chẵn hay Lẻ)
+                    </div>
+                </div>
+                <div className={Styles["img-chip"]}>
+                    <Image src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <div>
+                        Tài/Xỉu<br></br> (Cược kết quả Tài 19-36 hay Xỉu 1-18)
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -473,7 +497,7 @@ const renderBettingOptions = () => {
             </p>
             <div className={Styles["wrapper-img-rule"]}>
                 <Image
-                    src="/static/images/roulette/game_guide-luat_choi.png"
+                    src="/static/images/roulette/vi/game_guide-luat_choi.png"
                     alt="luat-choi"
                     width={886}
                     height={475}

@@ -34,10 +34,9 @@
     }
 }
 .img-chip {
-    float: left;
-    height: 3.7rem;
-    width: 3.7rem;
-    margin-right: 10px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: 4.7rem auto;
 }
 .img-call-bet {
     width: 100%;

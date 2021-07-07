@@ -92,7 +92,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                     </tbody>
                                 </table>
                             </div>
-                            <strong>Note</strong>:The players bet on Dragon or Tiger will lose 50% of their stake if the result is a draw.
+                            <strong>Note: </strong>The players bet on Dragon or Tiger will lose 50% of their stake if the result is a draw.
                         </li>
                     </ul>
                 </li>

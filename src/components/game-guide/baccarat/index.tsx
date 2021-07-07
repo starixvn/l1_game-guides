@@ -34,7 +34,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
             <BaccaratGuideEN
                 gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
-                gameName={GameNameVI[gameName.toLowerCase()]}
+                gameName={GameNameEN[gameName.toLowerCase()]}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
             />
@@ -44,7 +44,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
         <BaccaratGuideVI
             gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
-            gameName={GameNameEN[gameName.toLowerCase()]}
+            gameName={GameNameVI[gameName.toLowerCase()]}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />
