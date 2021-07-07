@@ -45,7 +45,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small left">
                                 <thead></thead>
@@ -95,7 +95,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small left">
                                 <thead></thead>
@@ -137,7 +137,7 @@ const bettingOptions = () => {
                 <li className="number-dot">
                     {FiveElements()}
                     <div>
-                        <strong>Ví dụ:</strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
+                        <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small left">
                                 <thead></thead>
