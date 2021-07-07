@@ -1,7 +1,7 @@
 {
     "proxy": {
         "ssl": true,
-        "uri": "uatproxy.sabagame.com",
+        "uri": "https://sitguides.sabagame.com/",
         "path": "/sit"
     },
     "sentry": {
