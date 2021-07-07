@@ -42,8 +42,8 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                             The dice will be shaken and the result will be shown. If the outcome of three dice matches your bet, you win.
                         </li>
                         <li>
-                            If the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to the players who
-                            have the latest bet ticket.<br></br>
+                            Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be
+                            refunded to the players who have the latest bet ticket.<br></br>
                             <strong>Example:</strong> Player A bets 60 on ODD, player B bets 70 on EVEN, and C bets 20 on EVEN. To balance
                             the total amounts bet on ODD and EVEN, the system will refund 20 to player C and 10 to player B.
                         </li>

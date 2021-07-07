@@ -36,8 +36,8 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                     Min bet and Max bet must be between {minbet} - {maxbet} and the maximum total stake per round is {maxbet}
                 </li>
                 <li>
-                    If the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to the players who have the
-                    latest bet ticket.<br></br>
+                    Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
+                    the players who have the latest bet ticket.<br></br>
                     <strong>Example</strong>: Player A bets 100 on ODD, player B bets 30 on EVEN, and C bets 90 on EVEN. To balance the
                     total amounts bet on ODD and EVEN, the system will refund 20 to player C.
                 </li>

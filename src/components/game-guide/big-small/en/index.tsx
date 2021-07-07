@@ -42,8 +42,8 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             The dice will be shaken and the result will be shown. If the outcome of three dice matches your bet, you win.
                         </li>
                         <li>
-                            If the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who
-                            have the latest bet ticket.
+                            Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be
+                            refunded to the players who have the latest bet ticket.
                             <p>
                                 <strong>Example:</strong> Player A bets 100 on BIG, player B bets 40 on SMALL, and C bets 80 on SMALL. To
                                 balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.

@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Image from "next/image";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
@@ -21,18 +22,61 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bets on which symbols will appear.
                     </p>
                     <div className="icon-wrapper">
-                        <div className="symbol-size icon-nai vip"></div>
-                        <div className="symbol-size icon-bau vip"></div>
-                        <div className="symbol-size icon-ga vip"></div>
-                        <div className="symbol-size icon-ca vip"></div>
-                        <div className="symbol-size icon-cua vip"></div>
-                        <div className="symbol-size icon-tom vip"></div>
-                        <div >Stag</div>
-                        <div >Gourd</div>
-                        <div >Rooster</div>
-                        <div >Fish</div>
-                        <div >Crab</div>
-                        <div >Prawn</div>
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/stag.png`}
+                            alt="stag"
+                            width={55}
+                            height={55}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/gourd.png`}
+                            alt="gourd"
+                            width={60}
+                            height={60}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/crooster.png`}
+                            alt="crooster"
+                            width={55}
+                            height={55}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/fish.png`}
+                            alt="fish"
+                            width={60}
+                            height={60}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/crab.png`}
+                            alt="crab"
+                            width={60}
+                            height={60}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+                        <Image
+                            src={`/static/images/fish-prawn-crab-vip/prawn.png`}
+                            alt="prawn"
+                            width={60}
+                            height={60}
+                            layout="fixed"
+                            loading="lazy"
+                        />
+                        <div>Stag</div>
+                        <div>Gourd</div>
+                        <div>Rooster</div>
+                        <div>Fish</div>
+                        <div>Crab</div>
+                        <div>Prawn</div>
                     </div>
                 </li>
                 <li className="guide-item">
