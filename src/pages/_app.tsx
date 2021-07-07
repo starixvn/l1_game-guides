@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import { Themes } from "../common/constants";
 
-const SabaGameGuideApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
     return (
         <ThemeProvider defaultTheme={Themes.light}>
             <Component {...pageProps} />
@@ -12,4 +12,4 @@ const SabaGameGuideApp = ({ Component, pageProps }: AppProps) => {
     );
 };
 
-export default SabaGameGuideApp;
+export default App;
