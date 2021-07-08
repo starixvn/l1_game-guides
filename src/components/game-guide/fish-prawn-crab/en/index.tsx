@@ -43,7 +43,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             per round is {maxBetRound}
                         </li>
                         <li>
-                            Payouts::
+                            Payouts:
                             <ul className="detail">
                                 <li>{odds.single} if the chosen symbol appears once.</li>
                                 <li>{odds.double} if the chosen symbol appears twice.</li>

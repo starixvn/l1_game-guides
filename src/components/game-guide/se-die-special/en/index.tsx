@@ -18,7 +18,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                 <tr>
                                     <th>Options</th>
                                     <th>Winning Conditions</th>
-                                    <th>Mô Tả</th>
+                                    <th>Descriptions</th>
                                 </tr>
                             </thead>
                             <tbody>{PayoutOrRuleDataOnTable()}</tbody>
