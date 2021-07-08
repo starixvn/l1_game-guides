@@ -53,4 +53,5 @@ module.exports = {
         loader: "imgix",
         path: configs.proxy.uri,
     },
+    generateEtags: false,
 };
