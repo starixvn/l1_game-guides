@@ -14,15 +14,15 @@ html {
     --header-index: 1071;
     --popup-guide-history-index: 100;
 
-    // dots
-    --dot-even-border: #c4c4c4;
+    //dot
+    --dot-even-background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 100%);
     --dot-even-text-color: #828282;
-    --dot-even-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    --dot-even-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 
-    --dot-odd-background: #de4b56;
-    --dot-odd-border: #bc2a34;
+    --dot-odd-background: linear-gradient(180deg, #ff6e79 6.04%, #e73542 50.31%, #cc1a27 100%);
+    --dot-odd-border: linear-gradient(180deg, #ff8e95 6.04%, #a80915 100%);
     --dot-odd-text-color: #fff;
-    --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 0.25);
+    --dot-odd-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="light"] {
@@ -37,6 +37,9 @@ html {
     // font-size
     --font-size: 1.4rem;
     --font-size-table: 1.4rem;
+
+    // dot
+    --dot-even-border: linear-gradient(180deg, #ececec 0%, #c5c5c5 100%);
 }
 
 [data-theme="dark"] {
@@ -51,6 +54,9 @@ html {
     // font-size
     --font-size: 1.4rem;
     --font-size-table: 1.4rem;
+
+    // dot
+    --dot-even-border: linear-gradient(180deg, #ececec 0%, #c5c5c5 100%);
 }
 
 [data-theme="blue"] {
@@ -65,6 +71,9 @@ html {
     // font-size
     --font-size: 1.6rem;
     --font-size-table: 1.6rem;
+
+    // dots
+    --dot-even-border: #fff;
 }
 
 body {
