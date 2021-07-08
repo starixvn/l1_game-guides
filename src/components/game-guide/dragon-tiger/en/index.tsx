@@ -40,7 +40,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                     Queen, and King.
                                 </li>
                                 <li>Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points.</li>
-                                <li>The rest of the cards (2 to 10) are counted at face value.</li>
+                                <li>All cards (2 to 10) are counted at face value.</li>
                             </ul>
                         </li>
                         <li>
