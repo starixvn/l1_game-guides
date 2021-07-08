@@ -26,7 +26,7 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                     </div>
                 </li>
                 <li>
-                    Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Cancel button if you want to reset all
+                    Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Clear button if you want to reset all
                     your bets.
                 </li>
                 <li>
