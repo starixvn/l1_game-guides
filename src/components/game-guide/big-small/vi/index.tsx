@@ -26,6 +26,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             <li>Tài: tổng điểm 3 viên xúc xắc &gt;= 11</li>
                             <li>Xỉu: tổng điểm 3 viên xúc xắc &lt;= 10</li>
                         </ul>
+                        <li>Trong một phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Tài hoặc Xỉu.</li>
                         <li>
                             Người chơi có thể tăng lượng tiền đặt cược bằng cách đặt thêm vào cùng 1 lựa chọn trước khi thời gian đặt cược
                             kết thúc.
