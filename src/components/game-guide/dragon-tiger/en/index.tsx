@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../dragon-tiger.module.scss";
 
 const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
@@ -64,7 +65,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                         <tr>
                                             <th>Options</th>
                                             <th>Payouts</th>
-                                            <th>
+                                            <th className={Styles["bet-limit-width"]}>
                                                 Bet Limit <br /> (Min - Max)
                                             </th>
                                             <th>Max Total Stake Per Round</th>

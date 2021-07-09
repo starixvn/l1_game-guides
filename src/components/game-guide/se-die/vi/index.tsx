@@ -6,6 +6,7 @@ import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwo
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, PayoutOrRuleDataOnTable } from "../../../shared/se-die/vi";
+import Styles from "../se-die.module.scss";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0, minBet: string) => {
     return (
@@ -107,7 +108,7 @@ const renderGameRuleTableMini = (minBet: string, gameId: number, maxBetFollowCho
                         <tr>
                             <th></th>
                             <th>Lựa Chọn</th>
-                            <th>Giới Hạn Cược (Min - Max)</th>
+                            <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min - Max)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -169,7 +170,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                         <tr>
                             <th>Lựa Chọn</th>
                             <th>Trả Thưởng</th>
-                            <th>Giới Hạn Cược (Min - Max)</th>
+                            <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min - Max)</th>
                         </tr>
                     </thead>
                     <tbody>
