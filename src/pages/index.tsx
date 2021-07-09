@@ -14,6 +14,7 @@ const Home = () => {
     const [gameId, setGameId] = useState<number>(0);
     const [locale, setLocale] = useState<string>(locales.vi);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
+    const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
             return Number.isInteger(+number) ? +number : 0;
         };
         if (router.isReady) {
+            setIsLoading(false);
             const queryParams: object | any = router.query;
             setGameId(CheckIsInteger(queryParams?.gId));
             if (language.includes(queryParams?.lang.toString())) {
@@ -31,6 +33,10 @@ const Home = () => {
             setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
         }
     }, [router.isReady]);
+
+    if (isLoading) {
+        return <></>;
+    }
 
     return <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>;
 };
