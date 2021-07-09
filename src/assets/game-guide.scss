@@ -36,7 +36,7 @@
     // text-size
     --title-font-size: 1.8rem;
     --sub-title-font-size: 1.6rem;
-    --line-height: 2.5rem;
+    --line-height: 3rem;
     --select-text: none;
 }
 
@@ -64,8 +64,12 @@ ul {
     padding: 0 1.6rem;
     counter-reset: guide-list;
     font-size: var(--font-size);
-    line-height: var(--line-height);
     user-select: var(--select-text);
+
+    p,
+    li {
+        line-height: var(--line-height);
+    }
 
     .guide-item {
         counter-increment: guide-list;
