@@ -40,5 +40,4 @@ module.exports = {
         return config;
     },
     basePath,
-    generateEtags: false,
 };
