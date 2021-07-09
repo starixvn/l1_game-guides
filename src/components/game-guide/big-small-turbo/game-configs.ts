@@ -1,13 +1,13 @@
 const odds = {
-    big: 1.96,
-    small: 1.96,
+    big: 1.97,
+    small: 1.97,
 };
 
 const GameConfigs = {
     choices_maxbet: {},
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 3300,
+    minbet: 3,
     odds: odds,
 };
 
