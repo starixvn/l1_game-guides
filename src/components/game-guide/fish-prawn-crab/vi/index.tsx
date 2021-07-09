@@ -4,6 +4,25 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 
+export const renderIconChoice = () => {
+    return (
+        <div className="icon-wrapper">
+            <div className="symbol-size icon-nai"></div>
+            <div className="symbol-size icon-bau"></div>
+            <div className="symbol-size icon-ga"></div>
+            <div className="symbol-size icon-ca"></div>
+            <div className="symbol-size icon-cua"></div>
+            <div className="symbol-size icon-tom"></div>
+            <div className="text">Nai</div>
+            <div className="text">Bầu</div>
+            <div className="text">Gà</div>
+            <div className="text">Cá</div>
+            <div className="text">Cua</div>
+            <div className="text">Tôm</div>
+        </div>
+    );
+};
+
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
@@ -18,20 +37,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         {gameName} hay còn gọi là bầu cua tôm cá, là trò chơi dân gian rất phổ biến ở Châu Á. Trò chơi sử dụng 3 viên xúc
                         xắc (xí ngầu) 6 mặt, mỗi mặt sẽ có một biểu tượng (linh vật) ứng với một cửa trên bàn chơi.
                     </p>
-                    <div className="icon-wrapper">
-                        <div className="symbol-size icon-nai"></div>
-                        <div className="symbol-size icon-bau"></div>
-                        <div className="symbol-size icon-ga"></div>
-                        <div className="symbol-size icon-ca"></div>
-                        <div className="symbol-size icon-cua"></div>
-                        <div className="symbol-size icon-tom"></div>
-                        <div>Nai</div>
-                        <div>Bầu</div>
-                        <div>Gà</div>
-                        <div>Cá</div>
-                        <div>Cua</div>
-                        <div>Tôm</div>
-                    </div>
+                    {renderIconChoice()}
                 </li>
                 <li className="guide-item">
                     <h2>Cách chơi</h2>

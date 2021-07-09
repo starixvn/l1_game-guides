@@ -4,6 +4,25 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 
+export const renderIconChoice = () => {
+    return (
+        <div className="icon-wrapper">
+            <div className="symbol-size icon-nai"></div>
+            <div className="symbol-size icon-bau"></div>
+            <div className="symbol-size icon-ga"></div>
+            <div className="symbol-size icon-ca"></div>
+            <div className="symbol-size icon-cua"></div>
+            <div className="symbol-size icon-tom"></div>
+            <div className="text">Stag</div>
+            <div className="text">Gourd</div>
+            <div className="text">Rooster</div>
+            <div className="text">Fish</div>
+            <div className="text">Crab</div>
+            <div className="text">Prawn</div>
+        </div>
+    );
+};
+
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
@@ -19,20 +38,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         symbols (fish, prawn, crab, rooster, gourd, and stag). There are 6 betting options available, one for each symbol.
                         Players place bets on which symbols will appear.
                     </p>
-                    <div className="icon-wrapper">
-                        <div className="symbol-size icon-nai"></div>
-                        <div className="symbol-size icon-bau"></div>
-                        <div className="symbol-size icon-ga"></div>
-                        <div className="symbol-size icon-ca"></div>
-                        <div className="symbol-size icon-cua"></div>
-                        <div className="symbol-size icon-tom"></div>
-                        <div>Stag</div>
-                        <div>Gourd</div>
-                        <div>Rooster</div>
-                        <div>Fish</div>
-                        <div>Crab</div>
-                        <div>Prawn</div>
-                    </div>
+                    {renderIconChoice()}
                 </li>
                 <li className="guide-item">
                     <h2>Game Rules</h2>

@@ -71,12 +71,12 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             layout="fixed"
                             loading="lazy"
                         />
-                        <div>Stag</div>
-                        <div>Gourd</div>
-                        <div>Rooster</div>
-                        <div>Fish</div>
-                        <div>Crab</div>
-                        <div>Prawn</div>
+                        <div className="text">Stag</div>
+                        <div className="text">Gourd</div>
+                        <div className="text">Rooster</div>
+                        <div className="text">Fish</div>
+                        <div className="text">Crab</div>
+                        <div className="text">Prawn</div>
                     </div>
                 </li>
                 <li className="guide-item">

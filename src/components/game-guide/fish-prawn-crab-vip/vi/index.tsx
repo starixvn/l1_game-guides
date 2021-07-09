@@ -71,12 +71,12 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             loading="lazy"
                         />
 
-                        <div>Nai</div>
-                        <div>Bầu</div>
-                        <div>Gà</div>
-                        <div>Cá</div>
-                        <div>Cua</div>
-                        <div>Tôm</div>
+                        <div className="text">Nai</div>
+                        <div className="text">Bầu</div>
+                        <div className="text">Gà</div>
+                        <div className="text">Cá</div>
+                        <div className="text">Cua</div>
+                        <div className="text">Tôm</div>
                     </div>
                 </li>
                 <li className="guide-item">

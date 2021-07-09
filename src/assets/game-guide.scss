@@ -56,6 +56,10 @@ ul {
     transform: translate(-50%, 0);
 }
 
+.text {
+    font-family: var(--font-family);
+}
+
 .game-guide {
     padding: 0 1.6rem;
     counter-reset: guide-list;

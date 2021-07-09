@@ -61,7 +61,7 @@ const renderGameRuleMini = (maxBetRound: number | string, gameId = 0) => {
 const renderGameRuleTable = (gameId: number) => {
     return (
         <div className="table-container">
-            <table className="table text-center">
+            <table className="table text-center table-small">
                 <thead>
                     <tr>
                         <th>Options</th>
