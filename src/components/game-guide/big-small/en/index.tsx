@@ -27,8 +27,8 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             <li>SMALL: the player will win if the total points of the three dice &lt;= 10</li>
                         </ul>
                         <li>
-                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Clear button if you want to
-                            reset all your bets.
+                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete. Note, placed bets cannot be
+                            canceled.
                         </li>
                         <li>
                             Players can increase their stake amount by placing another bet with the same selection before the betting time
@@ -42,8 +42,8 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             The dice will be shaken and the result will be shown. If the outcome of three dice matches your bet, you win.
                         </li>
                         <li>
-                            Balancing the Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded
-                            to the players who have the latest bet ticket.
+                            Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be
+                            refunded to the players who have the latest bet ticket.
                             <p>
                                 <strong>Example:</strong> Player A bets 100 on BIG, player B bets 40 on SMALL, and C bets 80 on SMALL. To
                                 balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.
