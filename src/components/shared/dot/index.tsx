@@ -25,21 +25,21 @@ export const renderFourWhite = () => {
 export const renderOneRedThreeWhite = () => {
     return (
         <td>
-            <div className="d-flex justify-content-center">{renderDot([true, false, false, false])}</div>
+            <div className="d-flex justify-content-center">{renderDot([false, false, false, true])}</div>
         </td>
     );
 };
 export const renderTwoRedTwoWhite = () => {
     return (
         <td>
-            <div className="d-flex justify-content-center">{renderDot([true, true, false, false])}</div>
+            <div className="d-flex justify-content-center">{renderDot([false, false, true, true])}</div>
         </td>
     );
 };
 export const renderThreeRedOneWhite = () => {
     return (
         <td>
-            <div className="d-flex justify-content-center">{renderDot([true, true, true, false])}</div>
+            <div className="d-flex justify-content-center">{renderDot([false, true, true, true])}</div>
         </td>
     );
 };
