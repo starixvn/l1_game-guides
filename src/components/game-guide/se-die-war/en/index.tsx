@@ -288,11 +288,11 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     <h2>Scoreboard</h2>
                     <ul className="style-number-dot">
                         <li className="number-dot">
-                            <strong>Odd-Even</strong>
+                            <strong className="title-text">Odd-Even</strong>
                             {StatisticalTable()}
                         </li>
                         <li className="number-dot">
-                            <strong>Statistical Round result</strong>
+                            <strong className="title-text">Statistical Round result</strong>
                             <div className={Styles["wrapper-guide-stats"]}>
                                 <Image
                                     src="/static/images/sedie-war/guide-stats-en.png"

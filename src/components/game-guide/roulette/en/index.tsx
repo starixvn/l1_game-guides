@@ -345,7 +345,7 @@ const renderBetChipsNotice = () => {
 const renderCallBetTiers = () => {
     return (
         <>
-            <span className="font-weight-medium">Tiers</span>
+            <span className="font-weight-medium title-text">Tiers</span>
             <ul className="desc">
                 <li>The Tiers bet includes the numbers 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33. </li>
                 <li>
@@ -417,7 +417,7 @@ const renderCallBetTiers = () => {
 const renderCallBetOrphelins = () => {
     return (
         <>
-            <span className="font-weight-medium">Orphelins</span>
+            <span className="font-weight-medium title-text">Orphelins</span>
             <ul className="desc">
                 <li>The Orphelins bet includes the numbers 1, 20, 14, 31, 9, 6, 34, 17.</li>
                 <li>
@@ -490,7 +490,7 @@ const renderCallBetOrphelins = () => {
 const renderCallBetVoisins = () => {
     return (
         <>
-            <span className="font-weight-medium">Voisins</span>
+            <span className="font-weight-medium title-text">Voisins</span>
             <ul className="desc">
                 <li>The Voisins bet includes the numbers 22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25. </li>
                 <li>
@@ -573,7 +573,7 @@ const renderCallBetVoisins = () => {
 const renderCallBetZero = () => {
     return (
         <>
-            <span className="font-weight-medium">Zero</span>
+            <span className="font-weight-medium title-text">Zero</span>
             <ul className="desc">
                 <li>The Zero bet includes the numbers 12, 35, 3, 26, 0, 32, 15.</li>
                 <li>
@@ -644,7 +644,7 @@ const renderCallBetZero = () => {
 const renderCallBetNeighbors = () => {
     return (
         <>
-            <span className="font-weight-medium">Neighbors</span>
+            <span className="font-weight-medium title-text">Neighbors</span>
             <p>
                 The Neighbors is made with 5 numbers, among that one number is chosen by the player, together with the two numbers that lay
                 on the left and right side of that number on the wheel.
@@ -753,19 +753,22 @@ const renderCallBet = () => {
                 Call Bet or French Bet are special betting options which are a predefined set of bets. There are 5 options: Tiers, Voisins
                 du Zero, Orphelins, Zero, Neighbors.
             </p>
-            <div className={Styles["wrapper-img-circle"]}>
-                <Image
-                    src="/static/images/roulette/game_guide-cuoc_nhanh.png"
-                    alt="game_guide-cuoc_nhanh"
-                    width={713}
-                    height={221}
-                    layout="responsive"
-                    loading="lazy"
-                />
+            <div className={Styles[wrapperImg]}>
+                <div className={Styles["wrapper-img-circle"]}>
+                    <Image
+                        src="/static/images/roulette/game_guide-cuoc_nhanh.png"
+                        alt="game_guide-cuoc_nhanh"
+                        width={713}
+                        height={221}
+                        layout="responsive"
+                        loading="lazy"
+                    />
+                </div>
             </div>
+
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium">Types of Call Bet</span>
+                    <span className="font-weight-medium title-text">Types of Call Bet</span>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">{renderCallBetTiers()}</li>
                         <li className="number-dot-number">{renderCallBetOrphelins()}</li>

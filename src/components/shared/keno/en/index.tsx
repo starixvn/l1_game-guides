@@ -6,7 +6,7 @@ import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../game-guide/k
 export const FiveElements = () => {
     return (
         <>
-            <span className="font-weight-medium">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
+            <span className="font-weight-medium title-text">Five Elements (Gold, Wood, Water, Fire, Earth)</span>
             <ul className="desc">
                 <li>
                     <strong>Gold:</strong> The sum of the 20 numbered balls drawn, ranges from 210 to 695.

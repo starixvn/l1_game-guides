@@ -29,7 +29,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                 <li>Khi bắt đầu phiên mới, 6 bộ bài tây 52 lá (không bao gồm lá Joker) sẽ được xào lại.</li>
                 <ul className="style-number-dot">
                     <li className="number-dot">
-                        <span className="font-weight-medium">Quy tắc rút bài cho Người Chơi</span>
+                        <span className="font-weight-medium title-text">Quy tắc rút bài cho Người Chơi</span>
                         <ul className="desc">
                             <li>
                                 Nếu tổng điểm 2 lá bài đầu tiên đạt 21 điểm, được gọi là Blackjack, Người Chơi sẽ thắng ngay mà không cần so
@@ -127,7 +127,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                         </ul>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium">Quy tắc rút bài cho Nhà Cái</span>
+                        <span className="font-weight-medium title-text">Quy tắc rút bài cho Nhà Cái</span>
                         <ul className="desc">
                             <li>
                                 Nhà Cái chỉ rút bài sau khi Người Chơi hoàn tất việc rút bài. Khác với Người Chơi, Nhà Cái chỉ rút thêm bài

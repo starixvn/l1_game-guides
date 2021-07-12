@@ -31,7 +31,7 @@ const renderGameRule = (maxbet: number, minbet: number, userStakeLevel: UserStak
                 <li>Cards are shuffled after each round.</li>
                 <ul className="style-number-dot">
                     <li className="number-dot">
-                        <span className="font-weight-medium"> Rules for the Player’s hand</span>
+                        <span className="font-weight-medium title-text"> Rules for the Player’s hand</span>
                         <ul className="desc">
                             <li>
                                 If the Player gets 21 points on the first two cards (Blackjack), the Player will win automatically, except
@@ -148,7 +148,7 @@ const renderGameRule = (maxbet: number, minbet: number, userStakeLevel: UserStak
                         </ul>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium">Rules for the Dealer’s hand</span>
+                        <span className="font-weight-medium title-text">Rules for the Dealer’s hand</span>
                         <ul className="desc">
                             <li>
                                 The Dealer starts his/her hand after the player has completed. The Dealer must draw on "16 or less" and

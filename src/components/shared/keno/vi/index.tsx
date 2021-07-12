@@ -3,7 +3,7 @@ import React from "react";
 export const FiveElements = () => {
     return (
         <>
-            <span className="font-weight-medium">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>
+            <span className="font-weight-medium title-text">Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)</span>
             <ul className="desc">
                 <li>
                     <strong>Kim:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 210 đến 695

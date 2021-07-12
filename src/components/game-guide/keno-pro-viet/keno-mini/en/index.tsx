@@ -10,7 +10,7 @@ const bettingOptions = () => {
             <h2>Betting Options</h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium"> Big/Small</span>
+                    <span className="font-weight-medium title-text"> Big/Small</span>
                     <ul className="desc">
                         <li>
                             <strong>Big:</strong> The sum of the 10 numbered balls drawn is {`>=`} 206
@@ -52,7 +52,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Odd/Even</span>
+                    <span className="font-weight-medium title-text">Odd/Even</span>
                     <ul className="desc">
                         <li>
                             <strong>Odd:</strong> the sum of the 10 numbered balls drawn is an odd number.
@@ -94,7 +94,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium"> Five Elements (Gold, Wood, Water, Fire, Earth)</span>
+                    <span className="font-weight-medium title-text"> Five Elements (Gold, Wood, Water, Fire, Earth)</span>
                     <ul className="desc">
                         <li>
                             <strong>Gold:</strong> The sum of the 10 numbered balls drawn, ranges from 55 to 163.

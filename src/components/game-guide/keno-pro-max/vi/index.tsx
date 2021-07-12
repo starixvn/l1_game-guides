@@ -34,7 +34,7 @@ const bettingOptions = () => {
             <h2>Luật chơi </h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Tài/Xỉu</span>
+                    <span className="font-weight-medium title-text">Cược Tài/Xỉu</span>
                     <ul className="desc">
                         <li>
                             <strong>Tài:</strong> tổng điểm của 20 quả bóng được rút {`>=`} 811
@@ -83,7 +83,7 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Chẵn/Lẻ</span>
+                    <span className="font-weight-medium title-text">Cược Chẵn/Lẻ</span>
                     <ul className="desc">
                         <li>
                             <strong>Lẻ:</strong> tổng điểm của 20 trái bóng được rút là một số lẻ.

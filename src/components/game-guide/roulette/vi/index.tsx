@@ -119,7 +119,7 @@ const renderBetChipsNotice = () => {
 const renderCallBetTiers = () => {
     return (
         <>
-            <span className="font-weight-medium"> Cược Tiers</span>
+            <span className="font-weight-medium title-text"> Cược Tiers</span>
             <ul className="desc">
                 <li>Cược “Tiers” bao gồm các số 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33.</li>
                 <li>Hệ thống sẽ tạo thành 6 cược đôi: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36). </li>
@@ -187,7 +187,7 @@ const renderCallBetTiers = () => {
 const renderCallBetOrphelins = () => {
     return (
         <>
-            <span className="font-weight-medium">Cược Orphelins</span>
+            <span className="font-weight-medium title-text">Cược Orphelins</span>
             <ul className="desc">
                 <li>Cược “Orphelins” bao gồm các số 1, 20, 14, 31, 9, 6, 34, 17.</li>
                 <li>
@@ -258,7 +258,7 @@ const renderCallBetOrphelins = () => {
 const renderCallBetVoisins = () => {
     return (
         <>
-            <span className="font-weight-medium">Cược Voisins</span>
+            <span className="font-weight-medium title-text">Cược Voisins</span>
             <ul className="desc">
                 <li>Cược “Voisins” bao gồm các số 22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25.</li>
                 <li>
@@ -346,7 +346,7 @@ const renderCallBetVoisins = () => {
 const renderCallBetZero = () => {
     return (
         <>
-            <span className="font-weight-medium">Cược Zero</span>
+            <span className="font-weight-medium title-text">Cược Zero</span>
             <ul className="desc">
                 <li>Cược “Zero” bao gồm các số 12, 35, 3, 26, 0, 32, 15.</li>
                 <li>
@@ -415,7 +415,7 @@ const renderCallBetZero = () => {
 const renderCallBetNeighbors = () => {
     return (
         <>
-            <span className="font-weight-medium">Cược Neighbors</span>
+            <span className="font-weight-medium title-text">Cược Neighbors</span>
             <ul className="desc">
                 <li>Cược Neighbors là đặt vào một số và hai số nằm bên trái và phải của số đó. </li>
                 <li>Người chơi chọn mệnh giá chip, bấm vào ô số muốn đặt.</li>
@@ -512,7 +512,7 @@ const renderBettingOptions = () => {
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Trong</span>
+                    <span className="font-weight-medium title-text">Cược Trong</span>
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
@@ -568,7 +568,7 @@ const renderBettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Ngoài</span>
+                    <span className="font-weight-medium title-text">Cược Ngoài</span>
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
@@ -624,7 +624,7 @@ const renderBettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium">Cược Nhanh</span>
+                    <span className="font-weight-medium title-text">Cược Nhanh</span>
                     <p>
                         Cược nhanh hay còn gọi là Cược Pháp, là hình thức đặt cược cho phép người chơi đặt vào nhóm các ô số được quy định
                         sẵn và sẽ có 5 lựa chọn là Cược Tiers, Cược Orphelines, Cược Voisins, Cược Zero và Cược Neighbors.

@@ -195,7 +195,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
 
                         <ul className="style-number-dot">
                             <li className="number-dot">
-                                <span className="font-weight-medium">Rules for the Player hand</span>
+                                <span className="font-weight-medium title-text">Rules for the Player hand</span>
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -224,7 +224,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                 </div>
                             </li>
                             <li className="number-dot">
-                                <span className="font-weight-medium"> Rules for the Banker hand</span>
+                                <span className="font-weight-medium title-text"> Rules for the Banker hand</span>
                                 <ul className="desc">
                                     <li>
                                         If the Player hand gets the third card then the Banker draws a third card according to the following

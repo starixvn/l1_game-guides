@@ -154,7 +154,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         </li>
                         <ul className="style-number-dot">
                             <li className="number-dot">
-                                <span className="font-weight-medium">Quy tắc rút bài Nhà Con</span>
+                                <span className="font-weight-medium title-text">Quy tắc rút bài Nhà Con</span>
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -183,7 +183,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                 </div>
                             </li>
                             <li className="number-dot">
-                                <span className="font-weight-medium"> Quy tắc rút bài Nhà Cái</span>
+                                <span className="font-weight-medium title-text"> Quy tắc rút bài Nhà Cái</span>
 
                                 <div className="table-container">
                                     <table className="table text-center">
