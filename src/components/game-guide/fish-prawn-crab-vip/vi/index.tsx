@@ -94,7 +94,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </ul>
                 </li>
                 <li className="guide-item">
-                    <h2>Tỷ lệ trả thưởng và Giới hạn cược</h2>
+                    <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>

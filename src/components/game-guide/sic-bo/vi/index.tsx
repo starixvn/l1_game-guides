@@ -32,7 +32,7 @@ const renderGameRule = (maxbet: number) => {
 const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
-            <h2>Tỷ lệ trả thưởng và Giới hạn cược</h2>
+            <h2>Trả thưởng</h2>
             <ul className="desc">
                 <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                 <li>
