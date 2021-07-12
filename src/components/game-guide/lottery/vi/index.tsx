@@ -475,7 +475,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                         <td>Chẵn</td>
                         <td rowSpan={2}>1:{odds.others}</td>
                         <td rowSpan={2}>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets4)}
+                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
                         </td>
                     </tr>
                     <tr>
