@@ -169,7 +169,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
     const { player, banker, big, small, tie, playerPair } = odds;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -354,7 +354,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 </li>
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default BaccaratGuideEN;

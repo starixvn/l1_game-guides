@@ -173,7 +173,7 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
     const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -188,7 +188,7 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
 
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoProGuideEN;

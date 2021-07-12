@@ -787,7 +787,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -803,7 +803,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                 {renderCallBet()}
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default RouletteGuideEN;

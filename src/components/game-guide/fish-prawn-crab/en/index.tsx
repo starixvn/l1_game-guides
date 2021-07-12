@@ -29,7 +29,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
     const maxBetRound = numberWithCommas(userStakeLevel?.maxBet ? Math.min(userStakeLevel?.maxBet, maxbet) : maxbet);
     const maxChoiceRound = numberWithCommas(choices_maxbet.crab);
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -82,7 +82,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 </li>
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default FishPrawnCrabGuideEN;

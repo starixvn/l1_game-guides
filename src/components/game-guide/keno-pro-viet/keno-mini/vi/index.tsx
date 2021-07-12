@@ -165,7 +165,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
     const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -254,7 +254,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoMiniGuideVI;

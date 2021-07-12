@@ -433,7 +433,7 @@ const renderWild = () => {
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName } = props;
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -459,7 +459,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 {renderWild()}
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default SicBoGuideVI;

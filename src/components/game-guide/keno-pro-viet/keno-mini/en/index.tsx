@@ -154,7 +154,7 @@ const KenoMiniGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
     const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet));
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -251,7 +251,7 @@ const KenoMiniGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
 
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoMiniGuideEN;

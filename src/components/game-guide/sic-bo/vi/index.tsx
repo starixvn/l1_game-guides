@@ -96,7 +96,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -159,7 +159,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default SicBoGuideVI;

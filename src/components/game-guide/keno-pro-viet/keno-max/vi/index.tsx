@@ -279,7 +279,7 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
     const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -292,7 +292,7 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                 {bettingOptions()}
                 {renderContentKenoMaxOrMini(odds, maxbet, minbet, choices_maxbet)}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoMaxGuideVI;

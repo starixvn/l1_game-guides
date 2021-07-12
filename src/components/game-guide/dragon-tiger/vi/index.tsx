@@ -7,9 +7,11 @@ import { GameGuideProps } from "../../type";
 const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, userStakeLevel, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(
+        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
+    );
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -125,7 +127,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default DragonTigerGuideVI;

@@ -91,6 +91,9 @@ body {
     color: var(--text-color);
     font-weight: 400;
     overscroll-behavior: contain;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .game-container {

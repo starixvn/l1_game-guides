@@ -171,7 +171,7 @@ const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
         userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
     );
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -265,7 +265,7 @@ const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
 
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoProMaxGuideEN;

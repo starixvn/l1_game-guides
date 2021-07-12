@@ -11,7 +11,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -190,7 +190,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default FishPrawnCrabGuideVI;

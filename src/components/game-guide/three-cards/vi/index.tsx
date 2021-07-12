@@ -64,8 +64,8 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 </table>
             </div>
             <p>
-                <strong>Lưu ý:</strong> Lưu ý: Đối với các cửa cược Rô, Cơ, Bích, Chuồn, tỷ lệ trả thưởng sẽ không nhân hệ số nếu kết quả có
-                nhiều hơn 1 lá bài cùng chất.
+                <strong>Lưu ý: </strong> Đối vớ các cửa cược Rô, Cơ, Bích, Chuồn, tỷ lệ trả thưởng sẽ không nhân hệ số nếu kết quả có nhiều
+                hơn 1 lá bài cùng chất.
             </p>
             <p>
                 <strong>Ví dụ:</strong>
@@ -141,7 +141,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     const imgCustomize = "img-customize";
     const wrapperImg = "wrapper-img";
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -195,7 +195,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default ThreeCardsGuideVI;

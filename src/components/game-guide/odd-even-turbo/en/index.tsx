@@ -9,7 +9,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
     const { odds, minbet, maxbet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet));
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -62,7 +62,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                 </li>
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default OddEvenTurboGuideEN;

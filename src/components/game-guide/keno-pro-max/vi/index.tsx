@@ -183,7 +183,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     const { big, earth, fire, water, gold, wood } = odds;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -272,7 +272,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
 
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default KenoProMaxGuideVI;

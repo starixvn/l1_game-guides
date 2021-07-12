@@ -181,7 +181,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
     const { odds, minbet, maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -245,7 +245,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                     </ul>
                 </li>
             </ul>
-        </div>
+        </>
     );
 };
 export default BlackjackGuideVI;

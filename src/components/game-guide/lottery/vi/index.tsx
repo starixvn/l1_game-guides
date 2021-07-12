@@ -612,7 +612,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
@@ -760,7 +760,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                 {renderViewStatistic()}
                 {renderTermsAndConditionsVI()}
             </ul>
-        </div>
+        </>
     );
 };
 export default LotteryGuideVI;

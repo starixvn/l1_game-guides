@@ -139,7 +139,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     return (
-        <div>
+        <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
@@ -156,7 +156,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsEN()}
             </ul>
-        </div>
+        </>
     );
 };
 export default ThreeCardsGuideEN;
