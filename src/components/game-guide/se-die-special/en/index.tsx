@@ -3,7 +3,8 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { PayoutOrRuleDataOnTable } from "../../../shared/se-die/en";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { StatisticalTable } from "../../../shared/se-die/en";
 
 const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     return (
@@ -19,9 +20,36 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Options</th>
                                     <th>Winning Conditions</th>
                                     <th>Descriptions</th>
+                                    <th>
+                                        Payouts <div className="font-weight-normal">(including the initial stake)</div>
+                                    </th>
                                 </tr>
                             </thead>
-                            <tbody>{PayoutOrRuleDataOnTable()}</tbody>
+                            <tbody>
+                                <tr>
+                                    <td rowSpan={2}>ODD</td>
+                                    <td>3 red, 1 white</td>
+                                    {renderThreeRedOneWhite()}
+                                    <td rowSpan={5}>1:{odds.even}</td>
+                                </tr>
+                                <tr>
+                                    <td>1 red, 3 white</td>
+                                    {renderOneRedThreeWhite()}
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3}>EVEN</td>
+                                    <td>4 red</td>
+                                    {renderFourRed()}
+                                </tr>
+                                <tr>
+                                    <td>4 white</td>
+                                    {renderFourWhite()}
+                                </tr>
+                                <tr>
+                                    <td>2 red, 2 white</td>
+                                    {renderTwoRedTwoWhite()}
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </li>
@@ -46,15 +74,11 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
     );
 };
 
-const renderPayouts = (odds: object | any) => {
+const renderStatisticTable = () => {
     return (
         <li className="guide-item">
-            <h2>Payouts</h2>
-            <ul className="desc">
-                <li>The payout on ODD, EVEN is 1:{odds.even}</li>
-                <li>The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.</li>
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
-            </ul>
+            <h2>Statistical Table</h2>
+            {StatisticalTable()}
         </li>
     );
 };
@@ -76,7 +100,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>
 
-                {renderPayouts(odds)}
+                {renderStatisticTable()}
                 {renderTermsAndConditionsEN()}
             </ul>
         </div>

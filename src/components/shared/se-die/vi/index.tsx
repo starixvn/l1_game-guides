@@ -6,7 +6,7 @@ import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwo
 export const StatisticalTable = () => {
     return (
         <div className="table-container">
-            <table className="table text-center table-small">
+            <table className="table text-center table-small left">
                 <thead>
                     <tr>
                         <th>Kết Quả</th>

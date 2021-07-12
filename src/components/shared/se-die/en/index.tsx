@@ -5,7 +5,7 @@ import Styles from "../se-die.module.scss";
 export const StatisticalTable = () => {
     return (
         <div className="table-container">
-            <table className="table text-center table-small">
+            <table className="table text-center table-small left">
                 <thead>
                     <tr>
                         <th>Results</th>
