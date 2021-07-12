@@ -202,11 +202,15 @@ ul {
         .number-dot {
             margin: 0.5rem 0;
             counter-increment: number-dot-list;
+            span {
+                color: var(--primary-color);
+            }
 
             &:before {
                 content: counter(guide-list) "." counter(number-dot-list) " ";
                 font-size: var(--sub-title-font-size);
                 font-weight: 500;
+                color: var(--primary-color);
             }
             .style-number-dot-number {
                 padding-left: 1rem;
@@ -220,8 +224,25 @@ ul {
                         content: counter(guide-list) "." counter(number-dot-list) "." counter(number-dot-list-child) " ";
                         font-size: var(--sub-title-font-size);
                         font-weight: 500;
+                        color: var(--primary-color);
                     }
                 }
+            }
+        }
+    }
+
+    .style-number-rule {
+        padding-left: 1rem;
+        counter-reset: number-dot-list;
+        margin-bottom: 1rem;
+
+        .number-dot {
+            margin: 0.5rem 0;
+            counter-increment: number-dot-list;
+            &:before {
+                content: counter(guide-list) "." counter(number-dot-list) " ";
+                font-size: var(--sub-title-font-size);
+                font-weight: 500;
             }
         }
     }

@@ -8,7 +8,7 @@ exports[`Terms and Conditions VI ender correctly 1`] = `
     Các quy định trong game
   </h2>
   <ul
-    className="style-number-dot"
+    className="style-number-rule"
   >
     <li
       className="number-dot"

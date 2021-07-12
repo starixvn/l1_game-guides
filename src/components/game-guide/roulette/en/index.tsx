@@ -469,7 +469,11 @@ const renderCallBetOrphelins = () => {
                             <td>31, 34</td>
                             <td>10</td>
                         </tr>
-
+                        <tr>
+                            <td>Straight Up</td>
+                            <td>1</td>
+                            <td>10</td>
+                        </tr>
                         <tr>
                             <td colSpan={2}>
                                 <strong>Total</strong>

@@ -9,7 +9,6 @@ import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 
 const renderGameRule = (maxbet: string) => {
-    const classChoiceMargin = "player-margin";
     return (
         <>
             <h2>Cách chơi</h2>
@@ -82,39 +81,45 @@ const renderGameRule = (maxbet: string) => {
                 </p>
                 <ul className="game-guide-alpha">
                     <li>
-                        <strong>Cược Nhà Con, Nhà Cái.</strong>
-                        <ul className="desc">
-                            <li>
-                                Kết Quả Nhà Con: 3 đỏ, 1 trắng<br></br>{" "}
-                                <span className={Styles[classChoiceMargin]}>Nhà Cái: 1 đỏ, 3 trắng</span>
-                                <br></br> Cược vào Nhà Con thắng do có nhiều số xu đỏ hơn Nhà Cái.
-                            </li>
-                        </ul>
+                        <strong>a) Cược Nhà Con, Nhà Cái.</strong>
+                        <div className={Styles["wrapper-banker-player"]}>
+                            <div>+ Kết Quả </div>
+                            <div>Nhà Con: 3 đỏ, 1 trắng</div>
+                            <div></div>
+                            <div>Nhà Cái: 1 đỏ, 3 trắng</div>
+                        </div>
+                        <div className={Styles["content-text"]}>Cược vào Nhà Con thắng do có nhiều số xu đỏ hơn Nhà Cái.</div>
                     </li>
                     <li>
-                        <strong>Cược Tổng Chẵn</strong>
-                        <ul className="desc">
-                            <li>
-                                Kết Quả Nhà Con: 3 đỏ, 1 trắng<br></br>
-                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 1 đỏ, 3 trắng </span>
-                                <br></br> Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (4 đỏ).
-                            </li>
-                            <li>
-                                Kết Quả Nhà Con: 4 trắng<br></br>
-                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 4 trắng </span>
-                                <br></br> Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (0 đỏ).
-                            </li>
-                        </ul>
+                        <strong>b) Cược Tổng Chẵn</strong>
+                        <div className={Styles["wrapper-banker-player"]}>
+                            <div>+ Kết Quả </div>
+                            <div>Nhà Con: 3 đỏ, 1 trắng</div>
+                            <div></div>
+                            <div>Nhà Cái: 1 đỏ, 3 trắng</div>
+                        </div>
+                        <div className={Styles["content-text"]}>
+                            Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (4 đỏ).
+                        </div>
+                        <div className={Styles["wrapper-banker-player"]}>
+                            <div>+ Kết Quả </div>
+                            <div>Nhà Con: 4 trắng</div>
+                            <div></div>
+                            <div>Nhà Cái: 4 trắng</div>
+                        </div>
+                        <div className={Styles["content-text"]}>
+                            Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (0 đỏ).
+                        </div>
                     </li>
                     <li>
-                        <strong>Cược Tổng Lẻ</strong>
-                        <ul className="desc">
-                            <li>
-                                Kết Quả Nhà Con: 2 đỏ, 2 trắng<br></br>
-                                <span className={Styles[classChoiceMargin]}> Nhà Cái: 1 đỏ, 3 trắng </span>
-                                <br></br> Cược vào Tổng Lẻ thắng do tổng xu đỏ có trong kết quả là số Lẻ (3 đỏ).
-                            </li>
-                        </ul>
+                        <strong>c )Cược Tổng Lẻ</strong>
+                        <div className={Styles["wrapper-banker-player"]}>
+                            <div>+ Kết Quả </div>
+                            <div>Nhà Con: 2 đỏ, 2 trắng</div>
+                            <div></div>
+                            <div>Nhà Cái: 1 đỏ, 3 trắng</div>
+                        </div>
+                        <div className={Styles["content-text"]}>Cược vào Tổng Lẻ thắng do tổng xu đỏ có trong kết quả là số Lẻ (3 đỏ).</div>
                     </li>
                 </ul>
             </ul>
@@ -191,85 +196,85 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Nhà Con</td>
+                                    <td>Nhà Con</td>
                                     <td rowSpan={2}>1:{odds.player}</td>
                                     <td rowSpan={5}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái</td>
+                                    <td>Nhà Cái</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Hoà</td>
+                                    <td>Hòa</td>
                                     <td>1:{odds.tie}</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Tổng chẵn</td>
+                                    <td>Tổng chẵn</td>
                                     <td rowSpan={2}>1:{odds.even}</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Tổng lẻ</td>
+                                    <td>Tổng lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con chẵn</td>
+                                    <td>Nhà Con chẵn</td>
                                     <td rowSpan={2}>1:{odds.playerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con lẻ</td>
+                                    <td>Nhà Con lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con 3 đỏ</td>
+                                    <td>Nhà Con 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds.playerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con 1 đỏ</td>
+                                    <td>Nhà Con 1 đỏ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con 4 đỏ</td>
+                                    <td>Nhà Con 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds.playerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Con 4 trắng</td>
+                                    <td>Nhà Con 4 trắng</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái chẵn</td>
+                                    <td>Nhà Cái chẵn</td>
                                     <td rowSpan={2}>1:{odds.bankerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái lẻ</td>
+                                    <td>Nhà Cái lẻ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái 3 đỏ</td>
+                                    <td>Nhà Cái 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds.bankerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái 1 đỏ</td>
+                                    <td>Nhà Cái 1 đỏ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái 4 đỏ</td>
+                                    <td>Nhà Cái 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds.bankerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Nhà Cái 4 trắng</td>
+                                    <td>Nhà Cái 4 trắng</td>
                                 </tr>
                             </tbody>
                         </table>

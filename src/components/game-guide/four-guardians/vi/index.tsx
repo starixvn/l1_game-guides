@@ -291,18 +291,10 @@ const renderBonus = () => {
                                 loading="lazy"
                             />
                         </div>
-                        <ul className="desc">
-                            <li>
-                                Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
-                                <img
-                                    className={`${Styles["item8"]} ${Styles["mini"]}`}
-                                    src="./static/images/four-guardians/item8.png"
-                                    alt="item8"
-                                ></img>
-                                quay được.
-                            </li>
-                            <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
-                        </ul>
+                        <p>
+                            Có 4 biểu tượng “Bonus” trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được
+                            3 lần mở thưởng.
+                        </p>
                     </div>
                 </li>
                 <li className="clear-both">

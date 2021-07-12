@@ -219,7 +219,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
 
                 <li className="guide-item">
                     <h2>Các quy định trong game</h2>
-                    <ul className="style-number-dot">
+                    <ul className="style-number-rule">
                         <li className="number-dot">
                             Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi
                             bấm nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng,

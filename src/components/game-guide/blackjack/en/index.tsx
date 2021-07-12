@@ -240,7 +240,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
 
                 <li className="guide-item">
                     <h2>Terms and Conditions</h2>
-                    <ul className="style-number-dot">
+                    <ul className="style-number-rule">
                         <li className="number-dot">
                             The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
                             the "Deal" button.

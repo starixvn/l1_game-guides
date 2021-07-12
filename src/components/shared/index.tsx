@@ -2,7 +2,7 @@ export const renderTermsAndConditionsEN = () => {
     return (
         <li className="guide-item">
             <h2>Terms and Conditions</h2>
-            <ul className="style-number-dot">
+            <ul className="style-number-rule">
                 <li className="number-dot">
                     The Company reserves the right to cancel or void any bets because of a force majeure event including but not limited to
                     any technical errors, network service failures, power failures.
@@ -28,7 +28,7 @@ export const renderTermsAndConditionsVI = () => {
     return (
         <li className="guide-item">
             <h2>Các quy định trong game</h2>
-            <ul className="style-number-dot">
+            <ul className="style-number-rule">
                 <li className="number-dot">
                     Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ thuật
                     nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.

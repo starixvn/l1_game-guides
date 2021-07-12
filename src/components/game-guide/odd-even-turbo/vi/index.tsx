@@ -38,8 +38,7 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                         </li>
                         <li>
                             Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minbet)} đến {numberWithCommas(maxbet)} cho một lần đặt
-                            cược và tổng tiền cược tối đa cho 1 phiên là
-                            {maxBetRound}
+                            cược và tổng tiền cược tối đa cho 1 phiên là {maxBetRound}
                         </li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc

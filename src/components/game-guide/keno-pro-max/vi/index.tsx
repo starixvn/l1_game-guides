@@ -31,7 +31,7 @@ const renderGameRule = (maxBetRound: number | string) => {
 const bettingOptions = () => {
     return (
         <>
-            <h2>Quy tắc tính điểm</h2>
+            <h2>Luật chơi </h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="font-weight-medium">Cược Tài/Xỉu</span>

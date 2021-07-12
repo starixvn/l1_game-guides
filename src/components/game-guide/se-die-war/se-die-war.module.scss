@@ -10,3 +10,13 @@
 .rule-option-choice {
     min-width: 11.5rem;
 }
+
+.wrapper-banker-player {
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    grid-column-gap: 0.5rem;
+}
+.content-text {
+    padding-left: 1rem;
+}
