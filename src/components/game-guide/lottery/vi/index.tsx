@@ -655,9 +655,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                                 <td>2</td>
                             </tr>
                             <tr>
-                                <td rowSpan={2} className="bold">
-                                    Giải Ba
-                                </td>
+                                <td rowSpan={2}>Giải Ba</td>
                                 <td colSpan={4} className="bold">
                                     33912
                                 </td>

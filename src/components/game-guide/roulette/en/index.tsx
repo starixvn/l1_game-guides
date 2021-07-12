@@ -689,7 +689,7 @@ const renderCallBetNeighbors = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={5}>Straight Up</td>
-                            <td>0, 36</td>
+                            <td>36</td>
                             <td>10</td>
                         </tr>
                         <tr>
