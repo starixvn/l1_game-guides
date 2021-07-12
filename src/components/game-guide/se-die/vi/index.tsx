@@ -5,7 +5,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { StatisticalTable, PayoutOrRuleDataOnTable } from "../../../shared/se-die/vi";
+import { StatisticalTable } from "../../../shared/se-die/vi";
 import Styles from "../se-die.module.scss";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0, minBet: string) => {
@@ -21,7 +21,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
                     phiên là {maxBetFollowChoice?.maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
-                {SeDieMini.includes(gameId) ? renderGameRuleTableMini(minBet, gameId, maxBetFollowChoice) : renderGameRuleOrPayoutTable()}
+                {renderGameRuleOrPayoutTable(gameId)}
                 <li>
                     Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ
                     được hiển thị đếm ngược trên bàn chơi.
@@ -31,7 +31,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
     );
 };
 
-const renderGameRuleOrPayoutTable = () => {
+const renderGameRuleOrPayoutTable = (gameId: number) => {
     return (
         <li className="contentBeforeEmpty">
             <div className="table-container">
@@ -86,65 +86,13 @@ const renderGameRuleOrPayoutTable = () => {
                             <td>1 đỏ, 3 trắng</td>
                             {renderOneRedThreeWhite()}
                         </tr>
-                        <tr>
-                            <td>2 đỏ, 2 trắng</td>
-                            <td>2 đỏ, 2 trắng</td>
-                            {renderTwoRedTwoWhite()}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
-    );
-};
-
-const renderGameRuleTableMini = (minBet: string, gameId: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
-    return (
-        <li>
-            Giới hạn cược:
-            <div className="table-container">
-                <table className="table text-center table-small">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Lựa Chọn</th>
-                            <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min - Max)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={2}>
-                                <strong>2 cửa chính</strong>
-                            </td>
-                            <td>Chẵn</td>
-                            <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetMain}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Lẻ</td>
-                        </tr>
-                        <tr>
-                            <td rowSpan={5}>
-                                <strong>{!SeDieMini.includes(gameId) ? 5 : 4} cửa phụ</strong>
-                            </td>
-                            <td>4 đỏ</td>
-                            <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetRed4}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4 trắng</td>
-                        </tr>
-                        <tr>
-                            <td>3 đỏ, 1 trắng</td>
-                            <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetRed3}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1 đỏ, 3 trắng</td>
-                        </tr>
+                        {!SeDieMini.includes(gameId) && (
+                            <tr>
+                                <td>2 đỏ, 2 trắng</td>
+                                <td>2 đỏ, 2 trắng</td>
+                                {renderTwoRedTwoWhite()}
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
@@ -161,7 +109,7 @@ const renderStatistical = () => {
     );
 };
 
-const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId: number) => {
     return (
         <>
             <div className="table-container">
@@ -169,7 +117,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                     <thead>
                         <tr>
                             <th>Lựa Chọn</th>
-                            <th>Trả Thưởng</th>
+                            <th>{SeDieMini.includes(gameId) && "Tỷ Lệ "}Trả Thưởng</th>
                             <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min - Max)</th>
                         </tr>
                     </thead>
@@ -204,57 +152,15 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                         <tr>
                             <td> 1 đỏ, 3 trắng</td>
                         </tr>
-                        <tr>
-                            <td> 2 đỏ, 2 trắng</td>
-                            <td>1:{odds.red2}</td>
-                            <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetRed2}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </>
-    );
-};
-
-const renderPayoutMini = (odds: OddsProps) => {
-    return (
-        <>
-            <div className="table-container">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>Lựa Chọn</th>
-                            <th>Điều Kiện Thắng</th>
-                            <th>Mô Tả</th>
-                            <th>Tỷ Lệ Trả Thưởng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {PayoutOrRuleDataOnTable(odds)}
-                        <tr>
-                            <td>4 đỏ</td>
-                            <td>4 đỏ</td>
-                            {renderFourRed()}
-                            <td rowSpan={2}>1:{odds.red4}</td>
-                        </tr>
-                        <tr>
-                            <td>4 trắng</td>
-                            <td>4 trắng</td>
-                            {renderFourWhite()}
-                        </tr>
-                        <tr>
-                            <td>3 đỏ, 1 trắng</td>
-                            <td>3 đỏ, 1 trắng</td>
-                            {renderThreeRedOneWhite()}
-                            <td rowSpan={2}>1:{odds.red3}</td>
-                        </tr>
-                        <tr>
-                            <td>1 đỏ, 3 trắng</td>
-                            <td>1 đỏ, 3 trắng</td>
-                            {renderOneRedThreeWhite()}
-                        </tr>
+                        {!SeDieMini.includes(gameId) && (
+                            <tr>
+                                <td> 2 đỏ, 2 trắng</td>
+                                <td>1:{odds.red2}</td>
+                                <td rowSpan={2}>
+                                    {minBet} - {maxBetFollowChoice?.maxBetRed2}
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
@@ -297,9 +203,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
                             Tỷ lệ trả thưởng đã bao gồm tiền cược.
-                            {SeDieMini.includes(gameId ? gameId : SeDieMini[0])
-                                ? renderPayoutMini(odds)
-                                : renderPayoutTable(odds, numberWithCommas(minbet), maxBetFollowChoice)}
+                            {renderPayoutTable(odds, numberWithCommas(minbet), maxBetFollowChoice, props?.gameId ?? 0)}
                         </li>
                     </ul>
                 </li>
