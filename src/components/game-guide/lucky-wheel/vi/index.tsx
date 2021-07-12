@@ -16,7 +16,7 @@ const LuckyWheelGuideVI: React.FC = () => {
                         <li>Kết quả giải thưởng sẽ được công bố ngay khi lượt quay kết thúc.</li>
                         <li>Các lượt quay may mắn đều có thời hạn hiệu lực, khi hết hạn, toàn bộ lượt quay còn lại sẽ bị mất.</li>
                         <li>
-                            <strong>Lưu ý:</strong>Không giới hạn số lượt quay mỗi ngày.
+                            <strong>Lưu ý: </strong>Không giới hạn số lượt quay mỗi ngày.
                         </li>
                     </ul>
                 </li>

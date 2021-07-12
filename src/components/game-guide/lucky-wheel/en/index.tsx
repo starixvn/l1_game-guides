@@ -18,18 +18,18 @@ const LuckyWheelGuideEN: React.FC = () => {
                 <li className="guide-item">
                     <h2>How to place a bet using Scoin</h2>
                     <ul className="desc">
-                        <li>Scoin can only be used to play the Sedie game in Vgaming.</li>
+                        <li>Scoin can only be used to play the Se Die game in Vgaming.</li>
                         <li>
                             The Free Spins will be valid for a week from the time the players get the notification. After this period, any
                             unused Free Spins will be lost.
                         </li>
-                        <li>The winning amount from the Sedie game using Scoin will be credited to your account balance.</li>
+                        <li>The winning amount from the Se Die game using Scoin will be credited to your account balance.</li>
                         <li>
                             <strong>Note:</strong>
                             <ul className="plus">
                                 <li>Scoin cannot be exchanged for cash.</li>
                                 <li>
-                                    Scoin is only available for Sedie, with other games, the stakes will be deducted directly from your
+                                    Scoin is only available for Se Die, with other games, the stakes will be deducted directly from your
                                     account balance.
                                 </li>
                             </ul>
