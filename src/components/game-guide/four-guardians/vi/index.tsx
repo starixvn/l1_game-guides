@@ -345,7 +345,7 @@ const renderWild = (odds: number[][]) => {
                             src="./static/images/four-guardians/item8.png"
                             alt="item8"
                         ></img>
-                        và{" "}
+                        và Nổ Hũ{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/vi/item10.png"
