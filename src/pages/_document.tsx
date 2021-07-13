@@ -23,50 +23,6 @@ export default class extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            const next = document.getElementById('__next')
-                            let ele = document.getElementById('container-guide');
-                            let y = 0;
-                            let height = 0;
-                            const mouseDownHandler = function(e) {
-                                ele = document.getElementById('container-guide');
-                                height = Math.abs(ele.offsetHeight - window.innerHeight);
-                                y = e.clientY;
-                                document.addEventListener('mousemove', mouseMoveHandler);
-                                document.addEventListener('mouseup', mouseUpHandler);
-                            };
-                        
-                            const mouseMoveHandler = function(e) {
-                                // How far the mouse has been moved
-                                const dy = e.clientY - y;
-                            
-                                // Set the position of element
-                                let calculatedTop = (ele.offsetTop + dy);
-                                if(calculatedTop > 0){
-                                    calculatedTop = 0;
-                                }
-                                if(calculatedTop < -height){
-                                    calculatedTop = -height;
-                                }
-                                ele.style.top = calculatedTop + "px"; 
-                            
-                                // Reassign the position of mouse
-                                y = e.clientY;
-                            };
-                        
-                            const mouseUpHandler = function() {
-                                document.removeEventListener('mousemove', mouseMoveHandler);
-                                document.removeEventListener('mouseup', mouseUpHandler);
-                            };
-                        
-                            // Attach the handler
-                            next.addEventListener('mousedown', mouseDownHandler);
-                        
-                        `,
-                        }}
-                    />
                 </body>
             </Html>
         );

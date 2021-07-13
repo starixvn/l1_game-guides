@@ -72,6 +72,7 @@ ul {
 }
 
 .game-guide {
+    pointer-events: none;
     padding: 0 1.6rem;
     counter-reset: guide-list;
     font-size: var(--font-size);
