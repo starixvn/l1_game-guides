@@ -114,7 +114,7 @@ const renderJackpot = () => {
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Biểu Tượng</th>
+                            <th className={Styles["bonus-symbol-width"]}>Biểu Tượng</th>
                             <th> Mô Tả</th>
                         </tr>
                     </thead>
