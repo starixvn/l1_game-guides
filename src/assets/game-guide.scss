@@ -64,11 +64,9 @@ ul {
 }
 
 .container-guide {
-    position: absolute;
-    cursor: grab;
+    max-height: 100vh;
     overflow: auto;
-    left: 0;
-    right: 0;
+    cursor: grab;
 }
 
 .game-guide {

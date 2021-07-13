@@ -17,8 +17,8 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
+    let top: number;
     let y: number;
-    let height: number;
 
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
@@ -38,37 +38,15 @@ const Home = () => {
     }, [router.isReady]);
 
     useEffect(() => {
-        const mouseDownHandler = function (e: MouseEvent) {
+        const mouseDownThumbHandler = function (e) {
             if (wrapperRef.current) {
-                height = Math.abs(wrapperRef.current.offsetHeight - window.innerHeight);
+                top = wrapperRef.current.scrollTop;
             }
-
+            // Get the current mouse position
             y = e.clientY;
+
             document.addEventListener("mousemove", mouseMoveHandler);
             document.addEventListener("mouseup", mouseUpHandler);
-        };
-
-        const mouseMoveHandler = function (e: MouseEvent) {
-            // How far the mouse has been moved
-
-            const dy = e.clientY - y;
-
-            // Set the position of element
-            if (wrapperRef.current) {
-                let calculatedTop = wrapperRef.current.offsetTop + dy;
-
-                if (calculatedTop > 0) {
-                    calculatedTop = 0;
-                }
-
-                if (calculatedTop < -height) {
-                    calculatedTop = -height;
-                }
-                wrapperRef.current.style.top = calculatedTop + "px";
-            }
-
-            // Reassign the position of mouse
-            y = e.clientY;
         };
 
         const mouseUpHandler = function () {
@@ -76,12 +54,19 @@ const Home = () => {
             document.removeEventListener("mouseup", mouseUpHandler);
         };
 
-        document.addEventListener("mousedown", mouseDownHandler);
+        const mouseMoveHandler = function (e: MouseEvent) {
+            // How far the mouse has been moved
+            const dy = e.clientY - y;
+            if (wrapperRef.current) {
+                const scrollRatio = wrapperRef.current.clientHeight / wrapperRef.current.scrollHeight;
+                wrapperRef.current.scrollTop = top - dy / scrollRatio;
+            }
+        };
+
+        document.addEventListener("mousedown", mouseDownThumbHandler);
 
         return () => {
-            if (wrapperRef.current) {
-                wrapperRef.current.removeEventListener("mousedown", mouseDownHandler);
-            }
+            document.removeEventListener("mousedown", mouseDownThumbHandler);
         };
     }, [wrapperRef]);
 
