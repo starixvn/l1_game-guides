@@ -11,6 +11,9 @@
     --sub-title-font-size: 1.4rem;
     --line-height: 2rem;
     --select-text: auto;
+
+    //icon fish prawn crab
+    --font-size-icon: 5rem;
 }
 
 [data-theme="dark"] .game-guide {
@@ -26,6 +29,9 @@
     --sub-title-font-size: 1.4rem;
     --line-height: 2rem;
     --select-text: auto;
+
+    //icon fish prawn crab
+    --font-size-icon: 5rem;
 }
 
 [data-theme="blue"] {
@@ -41,6 +47,9 @@
     --sub-title-font-size: 1.6rem;
     --line-height: 3rem;
     --select-text: none;
+
+    //icon fish prawn crab
+    --font-size-icon: 6rem;
 }
 
 ul {
@@ -263,16 +272,19 @@ ul {
         padding: 2rem;
         text-align: center;
         justify-content: center;
+        @media (min-width: 768px) {
+            grid-template-columns: 7rem 7rem 7rem 7rem 7rem 7rem;
+        }
         .symbol-size {
-            font-size: 5rem;
+            font-size: var(--font-size-icon);
             padding: 0.5rem;
 
             &.icon-bau {
-                font-size: 4.6rem;
+                font-size: calc(var(--font-size-icon) - 0.6rem);
             }
 
             &.icon-ca {
-                font-size: 5.6rem;
+                font-size: calc(var(--font-size-icon) + 0.6rem);
             }
         }
     }

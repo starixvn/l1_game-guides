@@ -25,16 +25,16 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/stag.png`}
                             alt="stag"
-                            width={55}
-                            height={55}
+                            width={70}
+                            height={70}
                             layout="fixed"
                             loading="lazy"
                         />
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/gourd.png`}
                             alt="gourd"
-                            width={60}
-                            height={60}
+                            width={75}
+                            height={75}
                             layout="fixed"
                             loading="lazy"
                         />
@@ -42,32 +42,32 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/crooster.png`}
                             alt="crooster"
-                            width={55}
-                            height={55}
+                            width={70}
+                            height={70}
                             layout="fixed"
                             loading="lazy"
                         />
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/fish.png`}
                             alt="fish"
-                            width={60}
-                            height={60}
+                            width={75}
+                            height={75}
                             layout="fixed"
                             loading="lazy"
                         />
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/crab.png`}
                             alt="crab"
-                            width={60}
-                            height={60}
+                            width={75}
+                            height={75}
                             layout="fixed"
                             loading="lazy"
                         />
                         <Image
                             src={`/static/images/fish-prawn-crab-vip/prawn.png`}
                             alt="prawn"
-                            width={60}
-                            height={60}
+                            width={75}
+                            height={75}
                             layout="fixed"
                             loading="lazy"
                         />

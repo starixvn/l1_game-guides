@@ -135,7 +135,7 @@ const renderGameRuleExample = () => {
 const renderGameRuleTable = (data: string[]) => {
     return (
         <div className="table-container">
-            <table className="table text-center">
+            <table className="table text-center table-small">
                 <thead>
                     <tr>
                         <th>Options</th>
