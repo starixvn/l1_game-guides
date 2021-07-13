@@ -27,12 +27,8 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             <li>SMALL: the player will win if the total points of the three dice &lt;= 10</li>
                         </ul>
                         <li>
-                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete. Note, placed bets cannot be
-                            canceled.
-                        </li>
-                        <li>
                             Players can increase their stake amount by placing another bet with the same selection before the betting time
-                            expires.
+                            expires. Note, placed bets cannot be canceled.
                         </li>
                         <li>
                             Min bet and Max bet must be between {numberWithCommas(minbet)} - {numberWithCommas(maxbet)} and the maximum
