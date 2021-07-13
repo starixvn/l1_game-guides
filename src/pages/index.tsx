@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import ScrollContainer from "react-indiana-drag-scroll";
 import GameGuide from "../components/game-guide";
 import { locales, languageMapper, language } from "../common/constants";
 
@@ -57,10 +56,8 @@ const Home = () => {
     }
 
     return (
-        <div ref={wrapperRef}>
-            <ScrollContainer className="scroll-container" horizontal={false} hideScrollbars={false} style={containerHeight}>
-                <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
-            </ScrollContainer>
+        <div ref={wrapperRef} id="container-guide">
+            <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
         </div>
     );
 };
