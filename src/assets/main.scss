@@ -3,25 +3,6 @@
 @import "./components/icons";
 @import "./game-guide.scss";
 
-html {
-    font-size: 10px !important;
-
-    --font-family: "Roboto", arial, sans-serif;
-    --font-money: "BebasNeue", Arial, sans-serif;
-    --font-number: "BinanceFlex", Arial, sans-serif;
-
-    // z-index
-    --header-index: 1071;
-    --popup-guide-history-index: 100;
-
-    //dot
-    --dot-even-background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 100%);
-
-    --dot-odd-background: linear-gradient(180deg, #ff6e79 6.04%, #e73542 50.31%, #cc1a27 100%);
-    --dot-odd-border: linear-gradient(180deg, #ff8e95 6.04%, #a80915 100%);
-    --dot-odd-text-color: #fff;
-}
-
 [data-theme="light"] {
     --page-background: #fff;
     --primary-color: #ff9a00;
@@ -80,6 +61,26 @@ html {
     --dot-even-border: #fff;
     --dot-even-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
     --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 1);
+}
+
+html {
+    font-size: 10px !important;
+    background-color: var(--page-background);
+
+    --font-family: "Roboto", arial, sans-serif;
+    --font-money: "BebasNeue", Arial, sans-serif;
+    --font-number: "BinanceFlex", Arial, sans-serif;
+
+    // z-index
+    --header-index: 1071;
+    --popup-guide-history-index: 100;
+
+    //dot
+    --dot-even-background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 100%);
+
+    --dot-odd-background: linear-gradient(180deg, #ff6e79 6.04%, #e73542 50.31%, #cc1a27 100%);
+    --dot-odd-border: linear-gradient(180deg, #ff8e95 6.04%, #a80915 100%);
+    --dot-odd-text-color: #fff;
 }
 
 body {

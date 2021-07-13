@@ -38,7 +38,7 @@ const Home = () => {
     }, [router.isReady]);
 
     useEffect(() => {
-        const mouseDownThumbHandler = function (e) {
+        const mouseDownThumbHandler = function (e:MouseEvent) {
             if (wrapperRef.current) {
                 top = wrapperRef.current.scrollTop;
             }
