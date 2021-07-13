@@ -1,7 +1,6 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-
 import { language, languageMapper, locales } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
