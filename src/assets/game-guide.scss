@@ -63,6 +63,12 @@ ul {
     font-family: var(--font-family);
 }
 
+.container-guide {
+    position: absolute;
+    cursor: grab;
+    overflow: auto;
+}
+
 .game-guide {
     padding: 0 1.6rem;
     counter-reset: guide-list;

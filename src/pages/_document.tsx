@@ -26,41 +26,43 @@ export default class extends Document {
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
-                            const ele = document.getElementById('container-guide');
-                            let pos = { top: 0, left: 0, x: 0, y: 0 };
-                        
+                            const next = document.getElementById('__next')
+                            let ele = document.getElementById('container-guide');
+                            let y = 0;
+                            let height = 0;
                             const mouseDownHandler = function(e) {
-                                console.log("mouseDownHandler");
-                                pos = {
-                                    left: ele.scrollLeft,
-                                    top: ele.scrollTop,
-                                    // Get the current mouse position
-                                    x: e.clientX,
-                                    y: e.clientY,
-                                };
-                        
-                                window.body.addEventListener('mousemove', mouseMoveHandler);
-                                window.body.addEventListener('mouseup', mouseUpHandler);
+                                ele = document.getElementById('container-guide');
+                                height = Math.abs(ele.offsetHeight - window.innerHeight);
+                                y = e.clientY;
+                                document.addEventListener('mousemove', mouseMoveHandler);
+                                document.addEventListener('mouseup', mouseUpHandler);
                             };
                         
                             const mouseMoveHandler = function(e) {
                                 // How far the mouse has been moved
-                                const dx = e.clientX - pos.x;
-                                const dy = e.clientY - pos.y;
-                        
-                                // Scroll the element
-                                console.log("mouseMoveHandler");
-                                ele.scrollTop = pos.top - dy;
-                                ele.scrollLeft = pos.left - dx;
+                                const dy = e.clientY - y;
+                            
+                                // Set the position of element
+                                let calculatedTop = (ele.offsetTop + dy);
+                                if(calculatedTop > 0){
+                                    calculatedTop = 0;
+                                }
+                                if(calculatedTop < -height){
+                                    calculatedTop = -height;
+                                }
+                                ele.style.top = calculatedTop + "px"; 
+                            
+                                // Reassign the position of mouse
+                                y = e.clientY;
                             };
                         
                             const mouseUpHandler = function() {
-                                window.body.removeEventListener('mousemove', mouseMoveHandler);
-                                window.body.removeEventListener('mouseup', mouseUpHandler);
+                                document.removeEventListener('mousemove', mouseMoveHandler);
+                                document.removeEventListener('mouseup', mouseUpHandler);
                             };
                         
                             // Attach the handler
-                            ele.addEventListener('mousedown', mouseDownHandler);
+                            next.addEventListener('mousedown', mouseDownHandler);
                         
                         `,
                         }}

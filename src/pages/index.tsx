@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
+
+import { language, languageMapper, locales } from "../common/constants";
 import GameGuide from "../components/game-guide";
-import { locales, languageMapper, language } from "../common/constants";
 
 export interface UserStakeLevelProps {
     minBet: number;
@@ -56,7 +57,7 @@ const Home = () => {
     }
 
     return (
-        <div ref={wrapperRef} id="container-guide">
+        <div ref={wrapperRef} id="container-guide" className="container-guide">
             <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
         </div>
     );
