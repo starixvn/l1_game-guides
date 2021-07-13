@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-import { language, languageMapper, locales } from "../common/constants";
+import { language, languageMapper, locales, Themes } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
 export interface UserStakeLevelProps {
@@ -10,11 +10,12 @@ export interface UserStakeLevelProps {
 }
 
 const Home = () => {
-    const { setTheme } = useTheme();
+    const { setTheme, theme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [locale, setLocale] = useState<string>(locales.vi);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
     const [isLoading, setIsLoading] = useState(true);
+    const [classContainer, setClassContainer] = useState<string>();
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
     let top: number;
@@ -32,13 +33,16 @@ const Home = () => {
                 setLocale(languageMapper[queryParams.lang.toString()]);
             }
 
-            setTheme(queryParams?.t?.toString());
+            if (queryParams?.t) {
+                setTheme(queryParams.t.toString());
+                queryParams.t.toString() === Themes.blue && setClassContainer("container-guide-cursor");
+            }
             setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
         }
     }, [router.isReady]);
 
     useEffect(() => {
-        const mouseDownThumbHandler = function (e:MouseEvent) {
+        const mouseDownHandler = function (e: MouseEvent) {
             if (wrapperRef.current) {
                 top = wrapperRef.current.scrollTop;
             }
@@ -63,19 +67,19 @@ const Home = () => {
             }
         };
 
-        document.addEventListener("mousedown", mouseDownThumbHandler);
+        theme === Themes.blue && document.addEventListener("mousedown", mouseDownHandler);
 
         return () => {
-            document.removeEventListener("mousedown", mouseDownThumbHandler);
+            document.removeEventListener("mousedown", mouseDownHandler);
         };
-    }, [wrapperRef]);
+    }, [wrapperRef, theme]);
 
     if (isLoading) {
         return <></>;
     }
 
     return (
-        <div ref={wrapperRef} id="container-guide" className="container-guide">
+        <div ref={wrapperRef} id="container-guide" className={`container-guide ${classContainer}`}>
             <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
         </div>
     );

@@ -75,7 +75,10 @@ ul {
 .container-guide {
     max-height: 100vh;
     overflow: auto;
-    cursor: grab;
+    cursor: auto;
+    &.container-guide-cursor {
+        cursor: grab !important;
+    }
 }
 
 .game-guide {
