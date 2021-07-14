@@ -248,6 +248,9 @@
     &.mini {
         transform: scale(0.55);
     }
+    &.en {
+        max-width: 9.7rem;
+    }
 }
 .item-wild {
     @extend %item;

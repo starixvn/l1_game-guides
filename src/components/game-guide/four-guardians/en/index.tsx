@@ -59,7 +59,7 @@ const renderPayouts = (odds: number[][]) => {
     );
 };
 
-const renderIconContent = (
+export const renderIconContent = (
     isBgBlack = false,
     itemName = "item10",
     isContentTop = false,
@@ -339,7 +339,7 @@ const renderJackpot = () => {
                         <tr>
                             <td>
                                 <img
-                                    className={`${Styles["item10"]}`}
+                                    className={`${Styles["item10"]} ${Styles["en"]}`}
                                     src="./static/images/four-guardians/en/item10.png"
                                     alt="item10"
                                 ></img>
