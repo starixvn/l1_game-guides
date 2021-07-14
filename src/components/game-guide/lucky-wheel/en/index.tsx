@@ -40,7 +40,7 @@ const LuckyWheelGuideEN: React.FC = () => {
                 <li className="guide-item">
                     <h2>Terms and Conditions</h2>
                     <p>By entering into this promotion you agree to be bound by these terms and conditions.</p>
-                    <ul className="style-number-dot">
+                    <ul className="style-number-rule">
                         <li className="number-dot">
                             The Company reserves the right to cancel any Lucky Wheel results because of a force majeure event including but
                             not limited to any technical errors, network service failures, power failures.

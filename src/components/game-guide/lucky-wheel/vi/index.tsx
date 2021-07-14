@@ -42,7 +42,7 @@ const LuckyWheelGuideVI: React.FC = () => {
 
                 <li className="guide-item">
                     <h2>Quy định</h2>
-                    <ul className="style-number-dot">
+                    <ul className="style-number-rule">
                         <li className="number-dot">
                             Công ty có quyền hủy hoặc làm mất hiệu lực các lượt quay may mắn trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ
                             thuật nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.
