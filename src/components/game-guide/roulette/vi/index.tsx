@@ -458,7 +458,7 @@ const renderCallBetNeighbors = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={5}>Cược Đơn</td>
-                            <td>0, 36</td>
+                            <td>36</td>
                             <td>10</td>
                         </tr>
                         <tr>

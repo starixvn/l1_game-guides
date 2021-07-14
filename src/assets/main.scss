@@ -65,7 +65,7 @@
 
 html {
     font-size: 10px !important;
-    background-color: var(--page-background);
+    background-color: transparent;
 
     --font-family: "Roboto", arial, sans-serif;
     --font-money: "BebasNeue", Arial, sans-serif;
@@ -86,7 +86,7 @@ html {
 body {
     padding: 0;
     margin: 0;
-    background-color: var(--page-background);
+    background-color: transparent;
     font-family: var(--font-family);
     font-size: 1.4rem;
     color: var(--text-color);
@@ -102,6 +102,7 @@ body {
     position: relative;
     width: 100%;
     margin: 0 auto;
+    background-color: var(--page-background);
 
     @media (min-width: 1280px) {
         width: 123.2rem;
