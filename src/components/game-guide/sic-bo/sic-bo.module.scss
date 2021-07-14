@@ -1,0 +1,10 @@
+.bet-option-width {
+    min-width: 12rem;
+}
+
+.bet-choice-width {
+    min-width: 13.6rem;
+    @media (min-width: 768px) {
+        min-width: 21.5rem;
+    }
+}

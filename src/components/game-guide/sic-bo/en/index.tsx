@@ -4,6 +4,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales } from "../../../../common/constants";
+import Styles from "../sic-bo.module.scss";
 
 const renderGameRule = (maxbet: number) => {
     return (
@@ -172,8 +173,8 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Options</th>
-                                    <th>Choices</th>
+                                    <th className={Styles["bet-option-width"]}>Options</th>
+                                    <th className={Styles["bet-choice-width"]}>Choices</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>

@@ -5,6 +5,7 @@ import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsTableOnBody } from "../en";
 import { locales } from "../../../../common/constants";
+import Styles from "../sic-bo.module.scss";
 
 const renderGameRule = (maxbet: number) => {
     return (
@@ -112,8 +113,8 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Loại cược</th>
-                                    <th>Lựa chọn</th>
+                                    <th className={Styles["bet-option-width"]}>Loại cược</th>
+                                    <th className={Styles["bet-choice-width"]}>Lựa chọn</th>
                                     <th>Điều kiện thắng</th>
                                 </tr>
                             </thead>
