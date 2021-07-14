@@ -199,7 +199,7 @@ const renderExamplePayout = () => {
                 <strong>Example</strong>
             </p>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Symbol</th>
@@ -248,7 +248,7 @@ const renderFreeSpin = () => {
                 <li>The Free Spin symbols do not have to be on the same payline.</li>
             </ul>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Symbol</th>
@@ -327,7 +327,7 @@ const renderBonus = () => {
                 <li>The Bonus symbols do not have to be on the same payline.</li>
             </ul>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Symbol</th>

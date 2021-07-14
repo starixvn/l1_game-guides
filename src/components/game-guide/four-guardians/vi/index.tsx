@@ -66,7 +66,7 @@ const renderExamplePayouts = () => {
                 <strong>Ví dụ:</strong>
             </p>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Biểu Tượng</th>
@@ -139,7 +139,7 @@ const renderFreeSpin = () => {
                 <li>Các biểu tượng “Free Spin” không bắt buộc phải nằm trên cùng một dòng cược.</li>
             </ul>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Biểu Tượng</th>
@@ -233,7 +233,7 @@ const renderBonus = () => {
                 <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
             </ul>
             <div className="table-container text-center">
-                <table className={`table text-center ${tableSmall}`}>
+                <table className="table text-center table-medium">
                     <thead>
                         <tr>
                             <th>Biểu Tượng</th>
