@@ -8,6 +8,9 @@ import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 
+const wrapperBankerPlayer = "wrapper-banker-player";
+const contentText = "content-text";
+
 const renderGameRule = (maxbet: string) => {
     return (
         <>
@@ -82,44 +85,44 @@ const renderGameRule = (maxbet: string) => {
                 <ul className="game-guide-alpha">
                     <li>
                         <strong>a) Cược Nhà Con, Nhà Cái.</strong>
-                        <div className={Styles["wrapper-banker-player"]}>
+                        <div className={Styles[wrapperBankerPlayer]}>
                             <div>+ Kết Quả </div>
                             <div>Nhà Con: 3 đỏ, 1 trắng</div>
                             <div></div>
                             <div>Nhà Cái: 1 đỏ, 3 trắng</div>
                         </div>
-                        <div className={Styles["content-text"]}>Cược vào Nhà Con thắng do có nhiều số xu đỏ hơn Nhà Cái.</div>
+                        <div className={Styles[contentText]}>Cược vào Nhà Con thắng do có nhiều số xu đỏ hơn Nhà Cái.</div>
                     </li>
                     <li>
                         <strong>b) Cược Tổng Chẵn</strong>
-                        <div className={Styles["wrapper-banker-player"]}>
+                        <div className={Styles[wrapperBankerPlayer]}>
                             <div>+ Kết Quả </div>
                             <div>Nhà Con: 3 đỏ, 1 trắng</div>
                             <div></div>
                             <div>Nhà Cái: 1 đỏ, 3 trắng</div>
                         </div>
-                        <div className={Styles["content-text"]}>
+                        <div className={Styles[contentText]}>
                             Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (4 đỏ).
                         </div>
-                        <div className={Styles["wrapper-banker-player"]}>
+                        <div className={Styles[wrapperBankerPlayer]}>
                             <div>+ Kết Quả </div>
                             <div>Nhà Con: 4 trắng</div>
                             <div></div>
                             <div>Nhà Cái: 4 trắng</div>
                         </div>
-                        <div className={Styles["content-text"]}>
+                        <div className={Styles[contentText]}>
                             Cược vào Tổng Chẵn thắng do tổng xu đỏ có trong kết quả là số Chẵn (0 đỏ).
                         </div>
                     </li>
                     <li>
                         <strong>c )Cược Tổng Lẻ</strong>
-                        <div className={Styles["wrapper-banker-player"]}>
+                        <div className={Styles[wrapperBankerPlayer]}>
                             <div>+ Kết Quả </div>
                             <div>Nhà Con: 2 đỏ, 2 trắng</div>
                             <div></div>
                             <div>Nhà Cái: 1 đỏ, 3 trắng</div>
                         </div>
-                        <div className={Styles["content-text"]}>Cược vào Tổng Lẻ thắng do tổng xu đỏ có trong kết quả là số Lẻ (3 đỏ).</div>
+                        <div className={Styles[contentText]}>Cược vào Tổng Lẻ thắng do tổng xu đỏ có trong kết quả là số Lẻ (3 đỏ).</div>
                     </li>
                 </ul>
             </ul>

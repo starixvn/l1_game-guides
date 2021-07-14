@@ -18,6 +18,9 @@
     //sedie
     --dot-size: 1.6rem;
     --dot-font-size: 1.1rem;
+
+    // sedie war
+    --banker-player-width: 7rem 1fr;
 }
 
 [data-theme="dark"] .game-guide {
@@ -40,9 +43,12 @@
     //sedie
     --dot-size: 1.6rem;
     --dot-font-size: 1.1rem;
+
+    // sedie war
+    --banker-player-width: 7rem 1fr;
 }
 
-[data-theme="blue"] {
+[data-theme="blue"] .game-guide {
     --table-background: #e5e5e5;
     --table-border: #949494;
     --table-color: #000;
@@ -62,6 +68,9 @@
     //sedie
     --dot-size: 1.8rem;
     --dot-font-size: 1.3rem;
+
+    // sedie war
+    --banker-player-width: 8rem 1fr;
 }
 
 ul {

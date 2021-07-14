@@ -29,7 +29,7 @@ const Home = () => {
             setIsLoading(false);
             const queryParams: object | any = router.query;
             setGameId(CheckIsInteger(queryParams?.gId));
-            if (language.includes(queryParams?.lang.toString())) {
+            if (language.includes(queryParams?.lang?.toString())) {
                 setLocale(languageMapper[queryParams.lang.toString()]);
             }
 
@@ -37,7 +37,7 @@ const Home = () => {
                 setTheme(queryParams.t.toString());
                 if (queryParams.t.toString() === Themes.blue) {
                     setClassContainerOptions("container-guide-cursor");
-                    document.body.classList.add("overflow-hidden")
+                    document.body.classList.add("overflow-hidden");
                 }
             }
             setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });

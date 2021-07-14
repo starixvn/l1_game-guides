@@ -6,7 +6,6 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack } from "../en";
 import Styles from "../four-guardians.module.scss";
 
-const tableSmall = "table-small";
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
@@ -94,7 +93,7 @@ const renderExamplePayouts = () => {
                                     <div
                                         className={`${Styles["icon-content"]} ${Styles["icon-content-top"]} ${Styles["gem-position"]} ${Styles["icon-content-customize"]}`}
                                     >
-                                        <span className={`${Styles[number]} ${`${Styles[number]} ${Styles[numberFirst]}`}`}>5</span>
+                                        <span className={`${Styles[number]} ${Styles[number]} ${Styles[numberFirst]}`}>5</span>
                                         <span className={`${Styles[number]} ${Styles[numberSecond]}`}>25</span>
                                         <span className={`${Styles[number]} ${Styles[numberFirst]}`}>4</span>
                                         <span className={`${Styles[number]} ${Styles[numberSecond]}`}>10</span>
@@ -244,7 +243,7 @@ const renderBonus = () => {
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
-                                    "item7",
+                                    "item8",
                                     [
                                         [5, 5],
                                         [4, 4],

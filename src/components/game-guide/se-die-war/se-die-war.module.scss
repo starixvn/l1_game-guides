@@ -14,7 +14,7 @@
 .wrapper-banker-player {
     padding-left: 1rem;
     display: grid;
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: var(--banker-player-width);
     grid-column-gap: 0.5rem;
 }
 .content-text {

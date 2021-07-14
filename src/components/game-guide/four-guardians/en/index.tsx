@@ -5,7 +5,6 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
 
-const tableSmall = "table-small";
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
@@ -521,7 +520,8 @@ const renderWild = () => {
 };
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameName } = props;
+    const { gameName, gameConfigs } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
