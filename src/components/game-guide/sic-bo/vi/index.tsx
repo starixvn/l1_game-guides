@@ -109,53 +109,59 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">
                     <h2>Điều kiện thắng</h2>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th className={Styles["bet-option-width"]}>Loại cược</th>
-                                    <th className={Styles["bet-choice-width"]}>Lựa chọn</th>
-                                    <th>Điều kiện thắng</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={2}>Tài/Xỉu</td>
-                                    <td>Tài</td>
-                                    <td className="text-start">
-                                        <ul className="plus">
-                                            <li> Thắng nếu tổng điểm của ba xúc xắc từ 11 đến 17.</li>
-                                            <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Xỉu</td>
-                                    <td className="text-start">
-                                        <ul className="plus">
-                                            <li> Thắng nếu tổng điểm của ba xúc xắc từ 4 đến 10.</li>
-                                            <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Bộ Ba Bất Kỳ</td>
-                                    <td>Bộ Ba Bất Kỳ</td>
-                                    <td className="text-start">Thắng nếu kết quả là một bộ ba xúc xắc bất kỳ.</td>
-                                </tr>
-                                <tr>
-                                    <td>Cược số</td>
-                                    <td>Xúc xắc 1 đến 6</td>
-                                    <td className="text-start">Thắng nếu xúc xắc người chơi chọn xuất hiện trong kết quả.</td>
-                                </tr>
-                                <tr>
-                                    <td>Tổng điểm</td>
-                                    <td>Từ 4 đến 17</td>
-                                    <td className="text-start">Thắng nếu lựa chọn của người chơi bằng với tổng điểm của ba xúc xắc.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty">
+                            <div className="table-container">
+                                <table className="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th className={Styles["bet-option-width"]}>Loại cược</th>
+                                            <th className={Styles["bet-choice-width"]}>Lựa chọn</th>
+                                            <th>Điều kiện thắng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={2}>Tài/Xỉu</td>
+                                            <td>Tài</td>
+                                            <td className="text-start">
+                                                <ul className="plus">
+                                                    <li> Thắng nếu tổng điểm của ba xúc xắc từ 11 đến 17.</li>
+                                                    <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Xỉu</td>
+                                            <td className="text-start">
+                                                <ul className="plus">
+                                                    <li> Thắng nếu tổng điểm của ba xúc xắc từ 4 đến 10.</li>
+                                                    <li> Thua nếu kết quả có bộ ba bất kỳ.</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bộ Ba Bất Kỳ</td>
+                                            <td>Bộ Ba Bất Kỳ</td>
+                                            <td className="text-start">Thắng nếu kết quả là một bộ ba xúc xắc bất kỳ.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cược số</td>
+                                            <td>Xúc xắc 1 đến 6</td>
+                                            <td className="text-start">Thắng nếu xúc xắc người chơi chọn xuất hiện trong kết quả.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tổng điểm</td>
+                                            <td>Từ 4 đến 17</td>
+                                            <td className="text-start">
+                                                Thắng nếu lựa chọn của người chơi bằng với tổng điểm của ba xúc xắc.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsVI()}

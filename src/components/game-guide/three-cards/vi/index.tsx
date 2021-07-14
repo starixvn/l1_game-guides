@@ -25,46 +25,49 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
                     hiển thị.
                 </li>
-                <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
+                <li>
+                    Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.{" "}
+                    <div className="table-container">
+                        <table className="table text-center table-small left">
+                            <thead>
+                                <tr>
+                                    <th>Lựa Chọn</th>
+                                    <th>Điều Kiện Thắng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="text-start">Đỏ</td>
+                                    <td className="text-start">Có ít nhất 2 lá bài là chất Rô hoặc Cơ.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Đen</td>
+                                    <td className="text-start">Có ít nhất 2 lá bài là chất Bích hoặc Chuồn.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Rô</td>
+                                    <td className="text-start">Có ít nhất 1 lá bài là chất Rô.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Cơ</td>
+                                    <td className="text-start">Có ít nhất 1 lá bài là chất Cơ.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Bích</td>
+                                    <td className="text-start">Có ít nhất 1 lá bài là chất Bích.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Chuồn</td>
+                                    <td className="text-start">Có ít nhất 1 lá bài là chất Chuồn.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
             </ul>
-            <div className="table-container">
-                <table className="table text-center table-small left">
-                    <thead>
-                        <tr>
-                            <th>Lựa Chọn</th>
-                            <th>Điều Kiện Thắng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="text-start">Đỏ</td>
-                            <td className="text-start">Có ít nhất 2 lá bài là chất Rô hoặc Cơ.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Đen</td>
-                            <td className="text-start">Có ít nhất 2 lá bài là chất Bích hoặc Chuồn.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Rô</td>
-                            <td className="text-start">Có ít nhất 1 lá bài là chất Rô.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Cơ</td>
-                            <td className="text-start">Có ít nhất 1 lá bài là chất Cơ.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Bích</td>
-                            <td className="text-start">Có ít nhất 1 lá bài là chất Bích.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Chuồn</td>
-                            <td className="text-start">Có ít nhất 1 lá bài là chất Chuồn.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
             <p>
-                <strong>Lưu ý: </strong> Đối vớ các cửa cược Rô, Cơ, Bích, Chuồn, tỷ lệ trả thưởng sẽ không nhân hệ số nếu kết quả có nhiều
+                <strong>Lưu ý: </strong> Đối với các cửa cược Rô, Cơ, Bích, Chuồn, tỷ lệ trả thưởng sẽ không nhân hệ số nếu kết quả có nhiều
                 hơn 1 lá bài cùng chất.
             </p>
             <p>

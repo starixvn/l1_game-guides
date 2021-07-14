@@ -603,140 +603,142 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         on the numbers you like, the game determines the win or loss by matching the numbers based on 27 results of 8
                         prizes.
                     </p>
-                    <table className={`table text-center ${Styles["table-medium"]}`}>
-                        <thead>
-                            <tr>
-                                <th>Prizes</th>
-                                <th colSpan={12}>RNG Lottery</th>
-                                <th>No. of Results</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Special</td>
-                                <td colSpan={12} className="bold">
-                                    <span className={Styles["text-red"]}>76349</span>
-                                </td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>First</td>
-                                <td colSpan={12} className="bold">
-                                    68400
-                                </td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Second</td>
-                                <td colSpan={6} className="bold">
-                                    16475
-                                </td>
-                                <td colSpan={6} className="bold">
-                                    50706
-                                </td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td rowSpan={2}>
-                                    Third
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    33912
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    66566
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    22883
-                                </td>
-                                <td rowSpan={2}>6</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={4} className="bold">
-                                    51676
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    45105
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    32182
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fourth</td>
-                                <td colSpan={3} className="bold">
-                                    0869
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    0360
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    0179
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    8405
-                                </td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td rowSpan={2}>Fifth</td>
-                                <td colSpan={4} className="bold">
-                                    2850
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    6272
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    4043
-                                </td>
-                                <td rowSpan={2}>6</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={4} className="bold">
-                                    5386
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    6423
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    4231
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sixth</td>
-                                <td colSpan={4} className="bold">
-                                    287
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    865
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    292
-                                </td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Seventh</td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>97</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>26</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>42</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>33</span>
-                                </td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={13}></td>
-                                <td className="bold">Total = 27</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty">
+                            <table className={`table text-center ${Styles["table-medium"]}`}>
+                                <thead>
+                                    <tr>
+                                        <th>Prizes</th>
+                                        <th colSpan={12}>RNG Lottery</th>
+                                        <th>No. of Results</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Special</td>
+                                        <td colSpan={12} className="bold">
+                                            <span className={Styles["text-red"]}>76349</span>
+                                        </td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>First</td>
+                                        <td colSpan={12} className="bold">
+                                            68400
+                                        </td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Second</td>
+                                        <td colSpan={6} className="bold">
+                                            16475
+                                        </td>
+                                        <td colSpan={6} className="bold">
+                                            50706
+                                        </td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowSpan={2}>Third</td>
+                                        <td colSpan={4} className="bold">
+                                            33912
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            66566
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            22883
+                                        </td>
+                                        <td rowSpan={2}>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={4} className="bold">
+                                            51676
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            45105
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            32182
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fourth</td>
+                                        <td colSpan={3} className="bold">
+                                            0869
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            0360
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            0179
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            8405
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowSpan={2}>Fifth</td>
+                                        <td colSpan={4} className="bold">
+                                            2850
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            6272
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            4043
+                                        </td>
+                                        <td rowSpan={2}>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={4} className="bold">
+                                            5386
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            6423
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            4231
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sixth</td>
+                                        <td colSpan={4} className="bold">
+                                            287
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            865
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            292
+                                        </td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Seventh</td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>97</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>26</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>42</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>33</span>
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={13}></td>
+                                        <td className="bold">Total = 27</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
                 </li>
                 {renderGameRule(maxbet)}
                 {renderBettingOptions()}

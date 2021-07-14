@@ -18,44 +18,47 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, cards will be turned up.</li>
                 <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
-                <li>The standard deck with 52 cards (excluding Joker) is shuffled after every round.</li>
+                <li>
+                    The standard deck with 52 cards (excluding Joker) is shuffled after every round.{" "}
+                    <div className="table-container">
+                        <table className="table text-center table-small left">
+                            <thead>
+                                <tr>
+                                    <th>Options</th>
+                                    <th>Winning Conditions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="text-start">Red</td>
+                                    <td className="text-start">Having at least 2 cards are Diamonds or Hearts in the result.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Black</td>
+                                    <td className="text-start">Having at least 2 cards are Spades or Clubs in the result.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Diamonds</td>
+                                    <td className="text-start">Having at least 1 card is Diamonds in the result.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Hearts</td>
+                                    <td className="text-start">Having at least 1 card is Hearts in the result. </td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Spades</td>
+                                    <td className="text-start">Having at least 1 card is Spades in the result.</td>
+                                </tr>
+                                <tr>
+                                    <td className="text-start">Clubs</td>
+                                    <td className="text-start">Having at least 1 card is Clubs in the result. </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
             </ul>
-            <div className="table-container">
-                <table className="table text-center table-small left">
-                    <thead>
-                        <tr>
-                            <th>Options</th>
-                            <th>Winning Conditions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="text-start">Red</td>
-                            <td className="text-start">Having at least 2 cards are Diamonds or Hearts in the result.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Black</td>
-                            <td className="text-start">Having at least 2 cards are Spades or Clubs in the result.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Diamonds</td>
-                            <td className="text-start">Having at least 1 card is Diamonds in the result.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Hearts</td>
-                            <td className="text-start">Having at least 1 card is Hearts in the result. </td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Spades</td>
-                            <td className="text-start">Having at least 1 card is Spades in the result.</td>
-                        </tr>
-                        <tr>
-                            <td className="text-start">Clubs</td>
-                            <td className="text-start">Having at least 1 card is Clubs in the result. </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
             <p>
                 <strong>Note:</strong> For Diamonds, Hearts, Spades, and Clubs option, the payout will not change if the result has more
                 than 1 card of the same suit.

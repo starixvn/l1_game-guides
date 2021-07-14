@@ -89,7 +89,9 @@ const renderStatistical = () => {
     return (
         <li className="guide-item">
             <h2>Statistical Table</h2>
-            {StatisticalTable()}
+            <ul className="desc">
+                <li className="contentBeforeEmpty"> {StatisticalTable()}</li>
+            </ul>
         </li>
     );
 };

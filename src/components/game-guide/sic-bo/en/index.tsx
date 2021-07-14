@@ -169,58 +169,63 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">
                     <h2>Betting options</h2>
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th className={Styles["bet-option-width"]}>Options</th>
-                                    <th className={Styles["bet-choice-width"]}>Choices</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={2}>Big Small</td>
-                                    <td>Big</td>
-                                    <td className="text-start">
-                                        <ul className="plus">
-                                            <li> Bet on the total score of the three dice is between 11 and 17 points. </li>
-                                            <li> If the three dice are of equal value, you lose this bet</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Small</td>
-                                    <td className="text-start">
-                                        <ul className="plus">
-                                            <li> Bet on the total score of the three dice is between 4 and 10 points.</li>
-                                            <li> If the three dice are of equal value, you lose this bet</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Any Triple</td>
-                                    <td>Any Triple</td>
-                                    <td className="text-start">To win this bet, all three dice must show the same number. </td>
-                                </tr>
-                                <tr>
-                                    <td>Specific Number</td>
-                                    <td>Bet on any number from 1 to 6</td>
-                                    <td className="text-start">
-                                        Bet on a specific number from 1 to 6. If the chosen number has appeared among three dice, you win{" "}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Total Points</td>
-                                    <td>Bet on any number from 4 to 17</td>
-                                    <td className="text-start">
-                                        Bet on the total score of three dice. The player predicts whether the total score of three dice is
-                                        equal to a chosen number.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty">
+                            <div className="table-container">
+                                <table className="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th className={Styles["bet-option-width"]}>Options</th>
+                                            <th className={Styles["bet-choice-width"]}>Choices</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={2}>Big Small</td>
+                                            <td>Big</td>
+                                            <td className="text-start">
+                                                <ul className="plus">
+                                                    <li> Bet on the total score of the three dice is between 11 and 17 points. </li>
+                                                    <li> If the three dice are of equal value, you lose this bet</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Small</td>
+                                            <td className="text-start">
+                                                <ul className="plus">
+                                                    <li> Bet on the total score of the three dice is between 4 and 10 points.</li>
+                                                    <li> If the three dice are of equal value, you lose this bet</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Any Triple</td>
+                                            <td>Any Triple</td>
+                                            <td className="text-start">To win this bet, all three dice must show the same number. </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Specific Number</td>
+                                            <td>Bet on any number from 1 to 6</td>
+                                            <td className="text-start">
+                                                Bet on a specific number from 1 to 6. If the chosen number has appeared among three dice,
+                                                you win{" "}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Points</td>
+                                            <td>Bet on any number from 4 to 17</td>
+                                            <td className="text-start">
+                                                Bet on the total score of three dice. The player predicts whether the total score of three
+                                                dice is equal to a chosen number.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 {renderPayouts(odds, minbet, choices_maxbet)}
                 {renderTermsAndConditionsEN()}

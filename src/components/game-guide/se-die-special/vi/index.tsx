@@ -67,8 +67,13 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>
+                <li className="guide-item">
+                    <h2>Bảng thống kê kết quả</h2>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty"> {StatisticalTable()}</li>
+                    </ul>
+                </li>
 
-                {StatisticalTable()}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

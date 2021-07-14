@@ -621,138 +621,142 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         chơi đặt cược vào con số bạn yêu thích, kết quả thắng thua sẽ được tính toán bằng cách khớp các số dựa trên 27 kết
                         quả của 8 giải thưởng.{" "}
                     </p>
-                    <table className={`table text-center ${Styles["table-medium"]}`}>
-                        <thead>
-                            <tr>
-                                <th>Giải Thưởng</th>
-                                <th colSpan={12}>Xổ Số RNG</th>
-                                <th>Số Lượng Kết Quả</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Đặc Biệt</td>
-                                <td colSpan={12} className="bold">
-                                    <span className={Styles["text-red"]}>76349</span>
-                                </td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Giải Nhất</td>
-                                <td colSpan={12} className="bold">
-                                    68400
-                                </td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Giải Nhì</td>
-                                <td colSpan={6} className="bold">
-                                    16475
-                                </td>
-                                <td colSpan={6} className="bold">
-                                    50706
-                                </td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td rowSpan={2}>Giải Ba</td>
-                                <td colSpan={4} className="bold">
-                                    33912
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    66566
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    22883
-                                </td>
-                                <td rowSpan={2}>6</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={4} className="bold">
-                                    51676
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    45105
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    32182
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Giải Tư</td>
-                                <td colSpan={3} className="bold">
-                                    0869
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    0360
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    0179
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    8405
-                                </td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td rowSpan={2}>Giải Năm</td>
-                                <td colSpan={4} className="bold">
-                                    2850
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    6272
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    4043
-                                </td>
-                                <td rowSpan={2}>6</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={4} className="bold">
-                                    5386
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    6423
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    4231
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Giải Sáu</td>
-                                <td colSpan={4} className="bold">
-                                    287
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    865
-                                </td>
-                                <td colSpan={4} className="bold">
-                                    292
-                                </td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Giải Bảy</td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>97</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>26</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>42</span>
-                                </td>
-                                <td colSpan={3} className="bold">
-                                    <span className={Styles["text-red"]}>33</span>
-                                </td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td colSpan={13}></td>
-                                <td className="bold">Tổng = 27</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty">
+                            <table className={`table text-center ${Styles["table-medium"]}`}>
+                                <thead>
+                                    <tr>
+                                        <th>Giải Thưởng</th>
+                                        <th colSpan={12}>Xổ Số RNG</th>
+                                        <th>Số Lượng Kết Quả</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Đặc Biệt</td>
+                                        <td colSpan={12} className="bold">
+                                            <span className={Styles["text-red"]}>76349</span>
+                                        </td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giải Nhất</td>
+                                        <td colSpan={12} className="bold">
+                                            68400
+                                        </td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giải Nhì</td>
+                                        <td colSpan={6} className="bold">
+                                            16475
+                                        </td>
+                                        <td colSpan={6} className="bold">
+                                            50706
+                                        </td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowSpan={2}>Giải Ba</td>
+                                        <td colSpan={4} className="bold">
+                                            33912
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            66566
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            22883
+                                        </td>
+                                        <td rowSpan={2}>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={4} className="bold">
+                                            51676
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            45105
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            32182
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giải Tư</td>
+                                        <td colSpan={3} className="bold">
+                                            0869
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            0360
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            0179
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            8405
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowSpan={2}>Giải Năm</td>
+                                        <td colSpan={4} className="bold">
+                                            2850
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            6272
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            4043
+                                        </td>
+                                        <td rowSpan={2}>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={4} className="bold">
+                                            5386
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            6423
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            4231
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giải Sáu</td>
+                                        <td colSpan={4} className="bold">
+                                            287
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            865
+                                        </td>
+                                        <td colSpan={4} className="bold">
+                                            292
+                                        </td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Giải Bảy</td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>97</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>26</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>42</span>
+                                        </td>
+                                        <td colSpan={3} className="bold">
+                                            <span className={Styles["text-red"]}>33</span>
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan={13}></td>
+                                        <td className="bold">Tổng = 27</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
                 </li>
                 {renderHowToPLay(maxbet)}
                 {renderGameRule()}
