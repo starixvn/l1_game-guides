@@ -86,10 +86,10 @@ ul {
 }
 
 .container-guide {
-    max-height: 100vh;
-    overflow: auto;
     cursor: auto;
     &.container-guide-cursor {
+        overflow: auto;
+        max-height: 100vh;
         cursor: grab !important;
     }
 }

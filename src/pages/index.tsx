@@ -15,7 +15,7 @@ const Home = () => {
     const [locale, setLocale] = useState<string>(locales.vi);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
     const [isLoading, setIsLoading] = useState(true);
-    const [classContainer, setClassContainer] = useState<string>();
+    const [classContainerOptions, setClassContainerOptions] = useState<string>();
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
     let top: number;
@@ -35,7 +35,10 @@ const Home = () => {
 
             if (queryParams?.t) {
                 setTheme(queryParams.t.toString());
-                queryParams.t.toString() === Themes.blue && setClassContainer("container-guide-cursor");
+                if (queryParams.t.toString() === Themes.blue) {
+                    setClassContainerOptions("container-guide-cursor");
+                    document.body.classList.add("overflow-hidden")
+                }
             }
             setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
         }
@@ -79,7 +82,7 @@ const Home = () => {
     }
 
     return (
-        <div ref={wrapperRef} id="container-guide" className={`container-guide ${classContainer}`}>
+        <div ref={wrapperRef} id="container-guide" className={`container-guide ${classContainerOptions}`}>
             <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel}></GameGuide>
         </div>
     );
