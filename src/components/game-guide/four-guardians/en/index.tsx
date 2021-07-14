@@ -40,7 +40,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = () => {
+const renderPayouts = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Paytable</h2>
@@ -50,14 +50,14 @@ const renderPayouts = () => {
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>
             </ul>
-            {renderPayoutsIconFirstLine()}
-            {renderPayoutsIconSecondLine()}
-            {renderExamplePayout()}
+            {renderPayoutsIconFirstLine(odds)}
+            {renderPayoutsIconSecondLine(odds)}
+            {renderExamplePayout(odds)}
         </li>
     );
 };
 
-const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
+export const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
     return (
         <span className={Styles["wrapper-icon"]}>
             <Image
@@ -92,65 +92,65 @@ const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop 
     );
 };
 
-export const renderPayoutsIconFirstLine = () => {
+export const renderPayoutsIconFirstLine = (odds: number[][]) => {
     return (
         <>
             <div className={Styles["icon-container"]}>
                 {renderIconContent(false, "item10", false, false, [
-                    [5, 1000],
-                    [4, 75],
-                    [3, 25],
-                    [2, 4],
+                    [5, odds[10][5]],
+                    [4, odds[10][4]],
+                    [3, odds[10][3]],
+                    [2, odds[10][2]],
                 ])}
                 {renderIconContent(false, "item6", true, false, [
-                    [5, 500],
-                    [4, 75],
-                    [3, 20],
+                    [5, odds[6][5]],
+                    [4, odds[6][4]],
+                    [3, odds[6][3]],
                 ])}
                 {renderIconContent(false, "item5", true, false, [
-                    [5, 375],
-                    [4, 60],
-                    [3, 16],
+                    [5, odds[5][5]],
+                    [4, odds[5][4]],
+                    [3, odds[5][3]],
                 ])}
                 {renderIconContent(false, "item4", true, false, [
-                    [5, 275],
-                    [4, 45],
-                    [3, 12],
+                    [5, odds[4][5]],
+                    [4, odds[4][4]],
+                    [3, odds[4][3]],
                 ])}
             </div>
         </>
     );
 };
 
-export const renderPayoutsIconSecondLine = () => {
+export const renderPayoutsIconSecondLine = (odds: number[][]) => {
     return (
         <>
             <div className={Styles["icon-container"]}>
                 {renderIconContent(false, "item3", true, false, [
-                    [5, 150],
-                    [4, 20],
-                    [3, 10],
+                    [5, odds[3][5]],
+                    [4, odds[3][4]],
+                    [3, odds[3][3]],
                 ])}
                 {renderIconContent(false, "item2", true, true, [
-                    [5, 50],
-                    [4, 25],
-                    [3, 5],
+                    [5, odds[2][5]],
+                    [4, odds[2][4]],
+                    [3, odds[2][3]],
                 ])}
                 {renderIconContent(false, "item1", true, true, [
-                    [5, 25],
-                    [4, 10],
-                    [3, 5],
+                    [5, odds[1][5]],
+                    [4, odds[1][4]],
+                    [3, odds[1][3]],
                 ])}
                 {renderIconContent(false, "item0", true, true, [
-                    [5, 10],
-                    [4, 5],
-                    [3, 2],
+                    [5, odds[0][5]],
+                    [4, odds[0][4]],
+                    [3, odds[0][3]],
                 ])}
                 {renderIconContent(false, "item9", false, false, [
-                    [5, 8000],
-                    [4, 1000],
-                    [3, 50],
-                    [2, 8],
+                    [5, odds[9][5]],
+                    [4, odds[9][4]],
+                    [3, odds[9][3]],
+                    [2, odds[9][2]],
                 ])}
             </div>
         </>
@@ -191,7 +191,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
     );
 };
 
-const renderExamplePayout = () => {
+const renderExamplePayout = (odds: number[][]) => {
     return (
         <>
             <p>
@@ -209,26 +209,26 @@ const renderExamplePayout = () => {
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContent(true, "item1", true, true, [
-                                    [5, 25],
-                                    [4, 10],
-                                    [3, 5],
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
                                 ])}
                             </td>
                             <td>
                                 Having 5 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * 25
+                                <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 4 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * 10
+                                <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 3 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * 5
+                                <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -238,7 +238,7 @@ const renderExamplePayout = () => {
     );
 };
 
-const renderFreeSpin = () => {
+const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
@@ -260,25 +260,25 @@ const renderFreeSpin = () => {
                                 {renderIconContentBlack(
                                     "item7",
                                     [
-                                        [5, 18],
-                                        [4, 6],
-                                        [3, 3],
+                                        [5, odds[7][5]],
+                                        [4, odds[7][4]],
+                                        [3, odds[7][3]],
                                     ],
                                     " FREE SPIN"
                                 )}
                             </td>
                             <td>
-                                Having 5 Free Spin symbols in the result.<br></br>Get 18 Free Spins Bonus.
+                                Having 5 Free Spin symbols in the result.<br></br>Get {odds[7][5]} Free Spins Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Free Spin symbols in the result.<br></br>Get 6 Free Spins Bonus.
+                                Having 4 Free Spin symbols in the result.<br></br>Get {odds[7][4]} Free Spins Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Free Spin symbols in the result.<br></br>Get 3 Free Spins Bonus.
+                                Having 3 Free Spin symbols in the result.<br></br>Get {odds[7][3]} Free Spins Bonus.
                             </td>
                         </tr>
                     </tbody>
@@ -317,7 +317,7 @@ const renderFreeSpin = () => {
     );
 };
 
-const renderBonus = () => {
+const renderBonus = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
@@ -339,26 +339,26 @@ const renderBonus = () => {
                                 {renderIconContentBlack(
                                     "item8",
                                     [
-                                        [5, 5],
-                                        [4, 4],
-                                        [3, 3],
+                                        [5, odds[8][5]],
+                                        [4, odds[8][4]],
+                                        [3, odds[8][3]],
                                     ],
                                     " BONUS"
                                 )}
                             </td>
                             <td>
-                                Having 5 Bonus symbols in the result.<br></br>Can open 5 Treasure Chests in Bonus Game.
+                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} Treasure Chests in Bonus Game.
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 4 Bonus symbols in the result.
-                                <br></br> Can open 4 Treasure Chests in Bonus Game.
+                                <br></br> Can open {odds[8][4]} Treasure Chests in Bonus Game.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Bonus symbols in the result.<br></br>Can open 3 Treasure Chests in Bonus Game.
+                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} Treasure Chests in Bonus Game.
                             </td>
                         </tr>
                     </tbody>
@@ -398,7 +398,7 @@ const renderBonus = () => {
     );
 };
 
-const renderWild = () => {
+const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className="guide-item">
@@ -500,7 +500,7 @@ const renderWild = () => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * 5
+                            {`=>`} Payout = Bet Level * {odds[2][3]}
                         </li>
                         <li>
                             If Wild symbol is
@@ -509,10 +509,12 @@ const renderWild = () => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * 16
+                            {`=>`} Payout = Bet Level * {odds[5][3]}
                         </li>
                     </ul>
-                    <p> Player will get the highest win on this payline {`=>`} Payout = Bet Level * 16</p>
+                    <p>
+                        Player will get the highest win on this payline {`=>`} Payout = Bet Level * {Math.max(odds[2][3], odds[5][3])}
+                    </p>
                 </div>
             </div>
         </li>
@@ -543,10 +545,10 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts()}
-                {renderFreeSpin()}
-                {renderBonus()}
-                {renderWild()}
+                {renderPayouts(odds)}
+                {renderFreeSpin(odds)}
+                {renderBonus(odds)}
+                {renderWild(odds)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

@@ -3,14 +3,10 @@ import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack } from "../en";
+import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
 
-const number = "number";
-const numberFirst = "number-first";
-const numberSecond = "number-second";
 const freeSpinContentEX = "free-spin-content-ex";
-
 const renderGameRule = () => {
     return (
         <>
@@ -40,7 +36,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = () => {
+const renderPayouts = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -51,14 +47,14 @@ const renderPayouts = () => {
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine()}
-            {renderPayoutsIconSecondLine()}
-            {renderExamplePayouts()}
+            {renderPayoutsIconFirstLine(odds)}
+            {renderPayoutsIconSecondLine(odds)}
+            {renderExamplePayouts(odds)}
         </li>
     );
 };
 
-const renderExamplePayouts = () => {
+const renderExamplePayouts = (odds: number[][]) => {
     return (
         <>
             <p>
@@ -75,48 +71,24 @@ const renderExamplePayouts = () => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                <span className={Styles["wrapper-icon"]}>
-                                    <Image
-                                        className={`${Styles["icon-box"]}`}
-                                        src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                                        width={200}
-                                        height={132}
-                                        layout="fixed"
-                                        alt="guide_item_symbol_bg"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        className={`${Styles["item1"]} ${Styles["customize"]}`}
-                                        src="./static/images/four-guardians/item1.png"
-                                        alt="item1"
-                                    ></img>
-                                    <div
-                                        className={`${Styles["icon-content"]} ${Styles["icon-content-top"]} ${Styles["gem-position"]} ${Styles["icon-content-customize"]}`}
-                                    >
-                                        <span className={`${Styles[number]} ${Styles[number]} ${Styles[numberFirst]}`}>5</span>
-                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>25</span>
-                                        <span className={`${Styles[number]} ${Styles[numberFirst]}`}>4</span>
-                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>10</span>
-                                        <span className={`${Styles[number]} ${Styles[numberFirst]}`}>3</span>
-                                        <span className={`${Styles[number]} ${Styles[numberSecond]}`}>5</span>
-                                    </div>
-                                </span>
+                                {renderIconContent(true, "item1", true, true, [
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
+                                ])}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> mảnh Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược *
-                                <strong>25</strong>
+                                Nếu có <strong>5</strong> mảnh Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong></strong>4 mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược *{" "}
-                                <strong>10</strong>
+                                Nếu có <strong></strong>4 mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược *{" "}
-                                <strong>5</strong>
+                                Nếu có <strong>3</strong> mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -126,7 +98,7 @@ const renderExamplePayouts = () => {
     );
 };
 
-const renderFreeSpin = () => {
+const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
@@ -151,28 +123,28 @@ const renderFreeSpin = () => {
                                 {renderIconContentBlack(
                                     "item7",
                                     [
-                                        [5, 18],
-                                        [4, 6],
-                                        [3, 3],
+                                        [5, odds[7][5]],
+                                        [4, odds[7][4]],
+                                        [3, odds[7][3]],
                                     ],
                                     " FREE SPIN"
                                 )}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận <strong>18</strong> lượt
-                                quay miễn phí.
+                                Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {odds[7][5]} lượt quay miễn
+                                phí.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận <strong>6</strong> lượt quay
-                                miễn phí.
+                                Nếu có <strong>4</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {odds[7][4]} lượt quay miễn
+                                phí.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận <strong>3</strong> lượt quay
-                                miễn phí.
+                                Nếu có <strong>3</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {odds[7][3]} lượt quay miễn
+                                phí.
                             </td>
                         </tr>
                     </tbody>
@@ -215,7 +187,7 @@ const renderFreeSpin = () => {
     );
 };
 
-const renderBonus = () => {
+const renderBonus = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
@@ -245,28 +217,25 @@ const renderBonus = () => {
                                 {renderIconContentBlack(
                                     "item8",
                                     [
-                                        [5, 5],
-                                        [4, 4],
-                                        [3, 3],
+                                        [5, odds[8][5]],
+                                        [4, odds[8][4]],
+                                        [3, odds[8][3]],
                                     ],
                                     " BONUS"
                                 )}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận <strong>5</strong> lần mở
-                                thưởng.
+                                Nếu có <strong>5</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][5]} lần mở thưởng.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận <strong>4</strong> lần mở
-                                thưởng.
+                                Nếu có <strong>4</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][4]} lần mở thưởng.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận <strong>3</strong> lần mở
-                                thưởng.
+                                Nếu có <strong>3</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][3]} lần mở thưởng.
                             </td>
                         </tr>
                     </tbody>
@@ -305,7 +274,7 @@ const renderBonus = () => {
     );
 };
 
-const renderWild = () => {
+const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className="guide-item">
@@ -410,7 +379,7 @@ const renderWild = () => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * 5 = 5
+                            . Mức trả thưởng = 1 * 5 = {odds[2][3]}
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -419,10 +388,10 @@ const renderWild = () => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * 16 = 16
+                            . Mức trả thưởng = 1 * 16 = {odds[5][3]}
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là 16</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>
                 </div>
             </div>
         </li>
@@ -430,7 +399,8 @@ const renderWild = () => {
 };
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameName } = props;
+    const { gameConfigs, gameName } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -452,10 +422,10 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts()}
-                {renderFreeSpin()}
-                {renderBonus()}
-                {renderWild()}
+                {renderPayouts(odds)}
+                {renderFreeSpin(odds)}
+                {renderBonus(odds)}
+                {renderWild(odds)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
