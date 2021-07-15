@@ -58,16 +58,16 @@
 
     // text-size
     --title-font-size: 2rem;
-    --sub-title-font-size: 1.8rem;
-    --line-height: 3rem;
+    --sub-title-font-size: 1.9rem;
+    --line-height: 3.2rem;
     --select-text: none;
 
     //icon fish prawn crab
     --font-size-icon: 6rem;
 
     //sedie
-    --dot-size: 1.8rem;
-    --dot-font-size: 1.3rem;
+    --dot-size: 2rem;
+    --dot-font-size: 1.5rem;
 
     // sedie war
     --banker-player-width: 8rem 1fr;
@@ -79,7 +79,7 @@ ul {
 
     li {
         line-height: 2rem;
-        font-size: var(--font-size-table);
+        font-size: var(--font-size);
     }
 }
 
