@@ -186,8 +186,8 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                             <td>Big</td>
                                             <td className="text-start">
                                                 <ul className="plus">
-                                                    <li> Bet on the total score of the three dice is between 11 and 17 points. </li>
-                                                    <li> If the three dice are of equal value, you lose this bet</li>
+                                                    <li> Bet on the total score of three dice is between 11 and 17 points. </li>
+                                                    <li> If three dice are of equal value, you lose this bet</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -195,8 +195,8 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                             <td>Small</td>
                                             <td className="text-start">
                                                 <ul className="plus">
-                                                    <li> Bet on the total score of the three dice is between 4 and 10 points.</li>
-                                                    <li> If the three dice are of equal value, you lose this bet</li>
+                                                    <li> Bet on the total score of three dice is between 4 and 10 points.</li>
+                                                    <li> If three dice are of equal value, you lose this bet</li>
                                                 </ul>
                                             </td>
                                         </tr>
