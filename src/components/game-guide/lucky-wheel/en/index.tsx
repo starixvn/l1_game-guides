@@ -11,7 +11,7 @@ const LuckyWheelGuideEN: React.FC = () => {
                             The players having Free Spins can play Lucky Wheel and receive Scoin{" "}
                             <img src="/static/images/lucky-wheel/coin.png" alt="coin" width={26} height={26} />
                         </li>
-                        <li>Scoin obtained from Lucky Wheel will automatically be added to your Scoin wallet</li>
+                        <li>Scoin obtained from Lucky Wheel will automatically be added to your Scoin wallet.</li>
                         <li>There is no limit to the number of free spins can play per day.</li>
                     </ul>
                 </li>
