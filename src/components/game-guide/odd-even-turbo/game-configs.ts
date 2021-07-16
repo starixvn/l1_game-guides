@@ -1,13 +1,13 @@
 const odds = {
-    even: 1.96,
-    odd: 1.96,
+    even: 1.98,
+    odd: 1.98,
 };
 
 const GameConfigs = {
     choices_maxbet: {},
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 3000,
+    minbet: 20,
     odds: odds,
 };
 

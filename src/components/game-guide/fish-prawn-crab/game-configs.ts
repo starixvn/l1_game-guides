@@ -1,23 +1,23 @@
 const choicesMaxBet = {
-    crab: 2500,
-    fish: 2500,
-    gourd: 2500,
-    prawn: 2500,
-    rooster: 2500,
-    stag: 2500,
+    crab: 4000,
+    fish: 4000,
+    gourd: 4000,
+    prawn: 4000,
+    rooster: 4000,
+    stag: 4000,
 };
 
 const odds = {
-    single: 2,
-    double: 3.5,
-    triple: 6,
+    single: 3,
+    double: 3.8,
+    triple: 8,
 };
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 4000,
+    minbet: 5,
     odds: odds,
 };
 
