@@ -47,7 +47,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center table-small left">
+                            <table className="table text-center table-small">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
@@ -97,7 +97,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center table-small left">
+                            <table className="table text-center table-small">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
@@ -139,7 +139,7 @@ const bettingOptions = () => {
                     <div>
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
-                            <table className="table text-center table-small left">
+                            <table className="table text-center table-small">
                                 <thead></thead>
                                 <tbody>
                                     <tr>
