@@ -1,11 +1,12 @@
 const choicesMaxBet = {
-    red: 2000,
-    black: 2000,
-    diamonds: 2000,
-    hearts: 2000,
-    spades: 2000,
-    clubs: 2000,
+    red: 20000,
+    black: 20000,
+    diamonds: 20000,
+    hearts: 20000,
+    spades: 20000,
+    clubs: 20000,
 };
+
 const odds = {
     red: 1.96,
     black: 1.96,
@@ -18,8 +19,8 @@ const odds = {
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 20000,
+    minbet: 10,
     odds: odds,
 };
 

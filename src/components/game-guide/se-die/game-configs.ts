@@ -1,11 +1,11 @@
 const choicesMaxBet = {
-    even: 2000,
-    odd: 2000,
-    red2: 2000,
-    red4: 500,
-    white4: 500,
-    red3: 2000,
-    white3: 2000,
+    even: 20000,
+    odd: 20000,
+    red2: 20000,
+    red4: 2000,
+    white4: 2000,
+    white3: 10000,
+    red3: 10000,
 };
 
 const odds = {
@@ -21,8 +21,8 @@ const odds = {
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 20000,
+    minbet: 10,
     odds: odds,
 };
 

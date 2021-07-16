@@ -1,14 +1,15 @@
 const choicesMaxBet = {
-    big: 2000,
-    small: 2000,
-    odd: 2000,
-    even: 2000,
-    gold: 500,
-    wood: 1500,
-    water: 2000,
-    fire: 1500,
-    earth: 500,
+    big: 20000,
+    small: 20000,
+    odd: 20000,
+    even: 20000,
+    gold: 2000,
+    wood: 4000,
+    water: 20000,
+    fire: 4000,
+    earth: 2000,
 };
+
 const odds = {
     big: 1.98,
     small: 1.94,
@@ -23,8 +24,8 @@ const odds = {
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
-    maxbet: 2000,
-    minbet: 1,
+    maxbet: 20000,
+    minbet: 10,
     odds: odds,
 };
 
