@@ -1,21 +1,21 @@
 const choicesMaxBet = {
-    banker: 5000,
-    bankerPair: 500,
-    big: 5000,
     player: 5000,
-    playerPair: 500,
+    banker: 5000,
+    big: 5000,
     small: 5000,
     tie: 500,
+    playerPair: 500,
+    bankerPair: 500,
 };
 
 const odds = {
-    banker: 1.95,
-    bankerPair: 12,
-    big: 1.54,
     player: 2,
-    playerPair: 12,
+    banker: 1.95,
+    big: 1.54,
     small: 2.5,
     tie: 9,
+    playerPair: 12,
+    bankerPair: 12,
 };
 
 const GameConfigs = {

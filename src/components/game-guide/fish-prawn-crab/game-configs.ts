@@ -8,16 +8,16 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    double: 4.5,
-    single: 3,
-    triple: 7,
+    single: 2,
+    double: 3.5,
+    triple: 6,
 };
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 3000,
-    minbet: 5,
+    maxbet: 2000,
+    minbet: 1,
     odds: odds,
 };
 

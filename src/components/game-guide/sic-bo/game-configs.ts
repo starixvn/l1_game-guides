@@ -1,13 +1,13 @@
 const choicesMaxBet = {
-    anyTriple: 200,
-    big: 2000,
-    small: 2000,
     specific1: 2000,
     specific2: 2000,
     specific3: 2000,
     specific4: 2000,
     specific5: 2000,
     specific6: 2000,
+    big: 2000,
+    small: 2000,
+    anyTriple: 200,
     total4: 200,
     total5: 200,
     total6: 200,
@@ -24,11 +24,12 @@ const choicesMaxBet = {
     total17: 200,
 };
 const odds = {
-    anyTriple: 33,
-    big: 2,
-    double: 3.5,
     single: 2,
+    double: 3.5,
+    triple: 6,
+    big: 2,
     small: 2,
+    anyTriple: 33,
     total4: 61,
     total5: 31,
     total6: 18,
@@ -43,7 +44,6 @@ const odds = {
     total15: 18,
     total16: 31,
     total17: 61,
-    triple: 6,
 };
 
 const GameConfigs = {
