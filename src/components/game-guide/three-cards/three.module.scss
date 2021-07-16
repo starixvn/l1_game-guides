@@ -9,28 +9,33 @@
         display: block;
     }
 }
+
 .wrapper-img {
     text-align: center;
+    padding: 2rem;
 }
+
 .img-customize {
     width: 100%;
     height: auto;
-    max-width: 6.9rem;
-    max-height: 6.6rem;
-    transform: scale(0.8);
+    max-width: 12rem;
+    max-height: 7.4rem;
     &.red {
         max-width: 9.6rem;
         max-height: 6.2rem;
     }
+
     &.black {
         max-width: 12rem;
         max-height: 5rem;
         margin-top: 1rem;
     }
+
     &.heart {
         max-width: 7.3rem;
         max-height: 6.7rem;
     }
+
     &.diamond {
         max-width: 6rem;
         max-height: 7.4rem;

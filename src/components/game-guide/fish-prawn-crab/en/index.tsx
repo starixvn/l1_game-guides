@@ -6,20 +6,14 @@ import { GameGuideProps } from "../../type";
 
 export const renderIconChoice = () => {
     return (
-        <div className="icon-wrapper">
+        <>
             <div className="symbol-size icon-nai"></div>
             <div className="symbol-size icon-bau"></div>
             <div className="symbol-size icon-ga"></div>
             <div className="symbol-size icon-ca"></div>
             <div className="symbol-size icon-cua"></div>
             <div className="symbol-size icon-tom"></div>
-            <div className="text">Stag</div>
-            <div className="text">Gourd</div>
-            <div className="text">Rooster</div>
-            <div className="text">Fish</div>
-            <div className="text">Crab</div>
-            <div className="text">Prawn</div>
-        </div>
+        </>
     );
 };
 
@@ -38,7 +32,15 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         symbols (fish, prawn, crab, rooster, gourd, and stag). There are 6 betting options available, one for each symbol.
                         Players place bets on which symbols will appear.
                     </p>
-                    {renderIconChoice()}
+                    <div className="icon-wrapper">
+                        {renderIconChoice()}
+                        <div className="text">Stag</div>
+                        <div className="text">Gourd</div>
+                        <div className="text">Rooster</div>
+                        <div className="text">Fish</div>
+                        <div className="text">Crab</div>
+                        <div className="text">Prawn</div>
+                    </div>
                 </li>
                 <li className="guide-item">
                     <h2>Game Rules</h2>

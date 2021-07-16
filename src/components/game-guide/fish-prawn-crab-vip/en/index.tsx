@@ -3,13 +3,74 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Styles from "../fish-prawn-crab-vip.module.scss";
+import { Themes } from "../../../../common/constants";
 
+export const renderListIcon = () => {
+    const { theme } = useTheme();
+    const widthIcon1 = theme === Themes.blue ? 123 : 75;
+    const widthIcon2 = theme === Themes.blue ? 118 : 70;
+    return (
+        <>
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/stag.png`}
+                alt="stag"
+                width={widthIcon2}
+                height={widthIcon2}
+                layout="fixed"
+                loading="lazy"
+            />
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/gourd.png`}
+                alt="gourd"
+                width={widthIcon1}
+                height={widthIcon1}
+                layout="fixed"
+                loading="lazy"
+            />
+
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
+                alt="crooster"
+                width={widthIcon2}
+                height={widthIcon2}
+                layout="fixed"
+                loading="lazy"
+            />
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/fish.png`}
+                alt="fish"
+                width={widthIcon1}
+                height={widthIcon1}
+                layout="fixed"
+                loading="lazy"
+            />
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/crab.png`}
+                alt="crab"
+                width={widthIcon1}
+                height={widthIcon1}
+                layout="fixed"
+                loading="lazy"
+            />
+            <Image
+                src={`/static/images/fish-prawn-crab-vip/prawn.png`}
+                alt="prawn"
+                width={widthIcon1}
+                height={widthIcon1}
+                layout="fixed"
+                loading="lazy"
+            />
+        </>
+    );
+};
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
+
     return (
         <>
             <ul className="game-guide">
@@ -22,55 +83,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bets on which symbols will appear.
                     </p>
                     <div className="icon-wrapper">
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/stag.png`}
-                            alt="stag"
-                            width={70}
-                            height={70}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/gourd.png`}
-                            alt="gourd"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                            alt="crooster"
-                            width={70}
-                            height={70}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/fish.png`}
-                            alt="fish"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/crab.png`}
-                            alt="crab"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/prawn.png`}
-                            alt="prawn"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
+                        {renderListIcon()}
                         <div className="text">Stag</div>
                         <div className="text">Gourd</div>
                         <div className="text">Rooster</div>

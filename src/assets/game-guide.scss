@@ -13,7 +13,8 @@
     --select-text: auto;
 
     //icon fish prawn crab
-    --font-size-icon: 5rem;
+    --font-size-FPC: 5rem;
+    --grid-gap-FPC: 0.5rem 2rem;
 
     //sedie
     --dot-size: 1.6rem;
@@ -38,7 +39,8 @@
     --select-text: auto;
 
     //icon fish prawn crab
-    --font-size-icon: 5rem;
+    --font-size-FPC: 5rem;
+    --grid-gap-FPC: 0.5rem 2rem;
 
     //sedie
     --dot-size: 1.6rem;
@@ -63,7 +65,8 @@
     --select-text: none;
 
     //icon fish prawn crab
-    --font-size-icon: 6rem;
+    --font-size-FPC: 10rem;
+    --grid-gap-FPC: 2rem 6rem;
 
     //sedie
     --dot-size: 2rem;
@@ -293,23 +296,24 @@ ul {
 
     .icon-wrapper {
         display: grid;
-        grid-template-columns: 6rem 6rem 6rem 6rem 6rem 6rem;
-        padding: 2rem;
+        grid-template-columns: repeat(6, minmax(5rem, calc(var(--font-size-FPC) - 1rem)));
+        grid-gap: var(--grid-gap-FPC);
         text-align: center;
         justify-content: center;
         @media (min-width: 768px) {
-            grid-template-columns: 7rem 7rem 7rem 7rem 7rem 7rem;
+            grid-template-columns: repeat(6, var(--font-size-FPC));
         }
         .symbol-size {
-            font-size: var(--font-size-icon);
+            font-size: var(--font-size-FPC);
+
             padding: 0.5rem;
 
             &.icon-bau {
-                font-size: calc(var(--font-size-icon) - 0.6rem);
+                font-size: calc(var(--font-size-FPC) - 0.6rem);
             }
 
             &.icon-ca {
-                font-size: calc(var(--font-size-icon) + 0.6rem);
+                font-size: calc(var(--font-size-FPC) + 0.6rem);
             }
         }
     }

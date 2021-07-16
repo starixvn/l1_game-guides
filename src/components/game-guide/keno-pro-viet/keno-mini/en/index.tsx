@@ -1,8 +1,94 @@
 import React from "react";
+import { numberWithCommas } from "../../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../../shared";
 import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
-import { numberWithCommas } from "../../../../../helpers/number-helper";
+import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../keno-pro-max/type";
+
+const payouts = (odds: OddsProMaxProps, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
+    return (
+        <>
+            <h2>Payouts</h2>
+            <ul className="desc">
+                <li>
+                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
+                    stake.
+                </li>
+                <li>
+                    All winning amounts are instantly added to your account balance when bets are settled.
+                    <div className="table-container">
+                        <table className="table text-center table-small">
+                            <thead>
+                                <tr>
+                                    <th>Options</th>
+                                    <th>Payouts</th>
+                                    <th>
+                                        Bet Limit <br></br>(Min-Max)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Big</td>
+                                    <td> 1: {odds.big}</td>
+                                    <td rowSpan={4}>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Small</td>
+                                    <td> 1: {odds.small}</td>
+                                </tr>
+                                <tr>
+                                    <td>Odd</td>
+                                    <td rowSpan={2}> 1: {odds.odd}</td>
+                                </tr>
+                                <tr>
+                                    <td>Even</td>
+                                </tr>
+                                <tr>
+                                    <td>Gold</td>
+                                    <td>1: {odds.gold}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.gold)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Wood</td>
+                                    <td>1: {odds.wood}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.wood)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Water</td>
+                                    <td>1: {odds.water}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Fire</td>
+                                    <td>1: {odds.fire}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Earth</td>
+                                    <td>1: {odds.earth}</td>
+                                    <td>
+                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.earth)}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </>
+    );
+};
 
 const bettingOptions = () => {
     return (
@@ -171,84 +257,11 @@ const KenoMiniGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         <li>
                             Once the betting time has expired, the system will randomly draw 10 numbered balls and the result will be shown.
                         </li>
-                        <li>
-                            The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
-                            initial stake.
-                            <div className="table-container">
-                                <table className="table text-center table-medium">
-                                    <thead>
-                                        <tr>
-                                            <th>Options</th>
-                                            <th>Payouts</th>
-                                            <th>Bet Limit (Min-Max)</th>
-                                            <th>Max Total Stake Per Round</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Big</td>
-                                            <td> 1: {odds.big}</td>
-                                            <td rowSpan={4}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.big)}
-                                            </td>
-                                            <td rowSpan={9}>{maxBetRound}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Small</td>
-                                            <td> 1: {odds.small}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Odd</td>
-                                            <td rowSpan={2}> 1: {odds.odd}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Even</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gold</td>
-                                            <td>1: {odds.gold}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.gold)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Wood</td>
-                                            <td>1: {odds.wood}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.wood)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Water</td>
-                                            <td>1: {odds.water}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fire</td>
-                                            <td>1: {odds.fire}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Earth</td>
-                                            <td>1: {odds.earth}</td>
-                                            <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.earth)}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
-
-                        <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                        <li>The maximum total stake per round is {maxBetRound}</li>
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
-
+                <li className="guide-item">{payouts(odds, minbet, choices_maxbet)}</li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

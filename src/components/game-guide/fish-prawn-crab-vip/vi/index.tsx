@@ -3,7 +3,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Image from "next/image";
+import { renderListIcon } from "../en";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
@@ -21,56 +21,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bàn chơi.
                     </p>
                     <div className="icon-wrapper">
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/stag.png`}
-                            alt="stag"
-                            width={70}
-                            height={70}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/gourd.png`}
-                            alt="gourd"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                            alt="crooster"
-                            width={70}
-                            height={70}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/fish.png`}
-                            alt="fish"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/crab.png`}
-                            alt="crab"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-                        <Image
-                            src={`/static/images/fish-prawn-crab-vip/prawn.png`}
-                            alt="prawn"
-                            width={75}
-                            height={75}
-                            layout="fixed"
-                            loading="lazy"
-                        />
-
+                        {renderListIcon()}
                         <div className="text">Nai</div>
                         <div className="text">Bầu</div>
                         <div className="text">Gà</div>
