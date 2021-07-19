@@ -6,11 +6,9 @@ import { GameGuideProps } from "../../type";
 import Styles from "../dragon-tiger.module.scss";
 
 const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, userStakeLevel, gameName } = props;
+    const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(
-        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
-    );
+    const maxBetRound = numberWithCommas(maxbet);
     return (
         <>
             <ul className="game-guide">

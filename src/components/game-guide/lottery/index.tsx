@@ -6,11 +6,11 @@ import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const LotteryGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
 
     if (locale === locales.en) {
-        return <LotteryGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <LotteryGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <LotteryGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <LotteryGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default LotteryGuide;

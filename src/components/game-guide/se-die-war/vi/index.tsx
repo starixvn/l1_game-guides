@@ -289,7 +289,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { gameConfigs, gameName, userStakeLevel } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
@@ -304,7 +304,13 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">
+                    {renderGameRule(
+                        numberWithCommas(
+                            userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
+                        )
+                    )}
+                </li>
 
                 {renderPayouts(odds, choices_maxbet, minbet)}
                 <li className="guide-item">

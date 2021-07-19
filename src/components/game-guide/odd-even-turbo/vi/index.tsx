@@ -5,9 +5,9 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 
 const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, userStakeLevel, gameName } = props;
+    const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet));
+    const maxBetRound = numberWithCommas(maxbet);
     return (
         <>
             <ul className="game-guide">

@@ -6,11 +6,11 @@ import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const SeDieSpecialGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
 
     if (locale === locales.en) {
-        return <SeDieGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <SeDieGuideEN gameConfigs={GameConfigs}  gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <SeDieGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <SeDieGuideVI gameConfigs={GameConfigs}  gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default SeDieSpecialGuide;

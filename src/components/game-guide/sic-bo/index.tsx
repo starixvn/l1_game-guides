@@ -6,11 +6,11 @@ import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const SicBoGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
 
     if (locale === locales.en) {
-        return <SicBoGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <SicBoGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <SicBoGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <SicBoGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default SicBoGuide;

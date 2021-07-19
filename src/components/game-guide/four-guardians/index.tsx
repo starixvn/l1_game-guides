@@ -6,13 +6,11 @@ import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
 
     if (locale === locales.en) {
-        return (
-            <FourGuardiansGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />
-        );
+        return <FourGuardiansGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <FourGuardiansGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <FourGuardiansGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default FourGuardiansGuide;

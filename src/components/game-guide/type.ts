@@ -2,7 +2,7 @@ import { UserStakeLevelProps } from "../../pages";
 
 export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     gameConfigs: GameConfigs;
-    userStakeLevel: UserStakeLevelProps;
+    userStakeLevel?: UserStakeLevelProps;
     gameName: string;
     gameId?: number;
     locale?: string;
@@ -10,7 +10,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
 };
 
 export type GameGuideBase = {
-    userStakeLevel: UserStakeLevelProps;
+    userStakeLevel?: UserStakeLevelProps;
     gameName: string;
     locale?: string;
     id?: number;

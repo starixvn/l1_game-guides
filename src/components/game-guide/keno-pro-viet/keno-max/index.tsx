@@ -11,7 +11,7 @@ import { GameGuideBase } from "../../type";
 import { locales, GameNameEN, GameNameVI } from "../../../../common/constants";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel, id } = props;
+    const { gameName, locale, id } = props;
     const gameConfigs = () => {
         switch (id) {
             case 13:
@@ -30,8 +30,8 @@ const KenoMaxGuide = (props: GameGuideBase) => {
         }
     };
     if (locale === locales.en) {
-        return <KenoMaxGuideEN gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <KenoMaxGuideEN gameConfigs={gameConfigs()} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <KenoMaxGuideVI gameConfigs={gameConfigs()} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <KenoMaxGuideVI gameConfigs={gameConfigs()} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default KenoMaxGuide;

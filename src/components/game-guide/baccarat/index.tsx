@@ -9,7 +9,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
 import { GameGuideBase } from "../type";
 
-export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConfigs: GameConfigProps) => {
+export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
     const maxBetMainChoice = numberWithCommas(
         userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet, choices_maxbet.player) : maxbet

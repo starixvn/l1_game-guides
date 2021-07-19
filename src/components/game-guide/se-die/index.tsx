@@ -12,7 +12,7 @@ import { GameGuideBase } from "../type";
 
 export const SeDieVip = [22];
 export const SeDieMini = [9];
-export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps, gameConfigs: GameConfigProps) => {
+export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
     const maxBetStake = userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet;
     const maxBetMain = numberWithCommas(Math.min(maxBetStake, maxbet, choices_maxbet.even));

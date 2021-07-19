@@ -5,7 +5,6 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
-import { UserStakeLevelProps } from "../../../../pages";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -13,7 +12,6 @@ const renderGameRule = (
     odds: OddsProps,
     minBet: number,
     choiceMaxBet: ChoicesMaxBetProps,
-    userStakeLevel: UserStakeLevelProps,
     maxBet: number
 ) => {
     return (
@@ -50,7 +48,7 @@ const renderGameRule = (
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
                                     </td>
                                     <td rowSpan={12}>
-                                        {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxBet, maxBet))}
+                                        {numberWithCommas( maxBet)}
                                     </td>
                                 </tr>
                                 <tr>
@@ -783,7 +781,7 @@ const renderCallBet = () => {
 };
 
 const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, userStakeLevel } = props;
+    const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
 
     return (
@@ -798,7 +796,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         into the number you selected, you will win; otherwise, you lose.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, minbet, choices_maxbet, userStakeLevel, maxbet)}</li>
+                <li className="guide-item">{renderGameRule(odds, minbet, choices_maxbet, maxbet)}</li>
                 {renderBettingOptions()}
                 {renderCallBet()}
                 {renderTermsAndConditionsEN()}

@@ -5,9 +5,8 @@ import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
-import { UserStakeLevelProps } from "../../../../pages";
 
-const renderGameRule = (maxbet: number, minbet: number, userStakeLevel: UserStakeLevelProps) => {
+const renderGameRule = (maxbet: number, minbet: number) => {
     const wrapperImg = "wrapper-img";
     const optionsWidthImg = "options-width";
     return (
@@ -22,7 +21,7 @@ const renderGameRule = (maxbet: number, minbet: number, userStakeLevel: UserStak
                 </li>
                 <li>
                     Min bet and Max bet must be between {numberWithCommas(minbet)} - {numberWithCommas(maxbet)} and the maximum total stake
-                    per hand is {numberWithCommas(Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet))}
+                    per hand is {numberWithCommas(maxbet)}
                 </li>
                 <li>
                     After the Players click the “Deal” button, two cards are dealt for each Players’ hand and Dealer. Players’ cards are
@@ -201,7 +200,7 @@ const renderPayouts = (odds: OddsProps) => {
 };
 
 const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, userStakeLevel } = props;
+    const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet } = gameConfigs;
 
     return (
@@ -216,7 +215,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         will win if the total points of your cards are closer to 21 than the Dealer's cards.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet, minbet, userStakeLevel)}</li>
+                <li className="guide-item">{renderGameRule(maxbet, minbet)}</li>
                 <li className="guide-item">
                     <h2>Point Calculation Rules</h2>
                     <ul className="desc">

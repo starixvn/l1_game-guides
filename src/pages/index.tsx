@@ -5,8 +5,8 @@ import { language, languageMapper, locales, Themes } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
 export interface UserStakeLevelProps {
-    minBet: number;
-    maxBet: number;
+    minBet?: number;
+    maxBet?: number;
 }
 
 const Home = () => {

@@ -6,13 +6,13 @@ import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const FishPrawnCrab = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
     if (locale === locales.en) {
         return (
-            <FishPrawnCrabGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />
+            <FishPrawnCrabGuideEN gameConfigs={GameConfigs}  gameName={GameNameEN[gameName.toLowerCase()]} />
         );
     }
 
-    return <FishPrawnCrabGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <FishPrawnCrabGuideVI gameConfigs={GameConfigs}  gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default FishPrawnCrab;

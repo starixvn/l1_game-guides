@@ -8,12 +8,12 @@ import { locales, IObjectKeys, GameNameEN, GameNameVI } from "../../../common/co
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
     const gameConfigs = gameName === BigSmallName.TXTurbo ? GameConfigsTurbo : GameConfigs;
     if (locale === locales.en) {
-        return <BigSmallGuideEN gameConfigs={gameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <BigSmallGuideEN gameConfigs={gameConfigs}  gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
 
-    return <BigSmallGuideVI gameConfigs={gameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <BigSmallGuideVI gameConfigs={gameConfigs}  gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default BigSmallGuide;

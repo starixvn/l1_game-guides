@@ -18,9 +18,9 @@ export const renderIconChoice = () => {
 };
 
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, userStakeLevel, gameName } = props;
+    const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(userStakeLevel?.maxBet ? Math.min(userStakeLevel?.maxBet, maxbet) : maxbet);
+    const maxBetRound = numberWithCommas(maxbet);
     const maxChoiceRound = numberWithCommas(choices_maxbet.crab);
     return (
         <>

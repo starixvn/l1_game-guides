@@ -7,12 +7,12 @@ import { GameGuideBase } from "../../type";
 import { locales, GameNameEN, GameNameVI } from "../../../../common/constants";
 const gameMini2Id = [15];
 const KenoMiniGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel, id } = props;
+    const { gameName, locale, id } = props;
     const gameConfig = gameMini2Id.includes(id ?? gameMini2Id[0]) ? GameConfigsMini2 : GameConfigsMini;
 
     if (locale === locales.en) {
-        return <KenoMiniGuideEN gameConfigs={gameConfig} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <KenoMiniGuideEN gameConfigs={gameConfig} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <KenoMiniGuideVI gameConfigs={gameConfig} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <KenoMiniGuideVI gameConfigs={gameConfig} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default KenoMiniGuide;

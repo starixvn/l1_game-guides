@@ -7,13 +7,11 @@ import { locales, IObjectKeys, GameNameEN, GameNameVI } from "../../../common/co
 
 export const OddEvenTurboName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const OddEvenTurboGuide = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
+    const { gameName, locale } = props;
     if (locale === locales.en) {
-        return (
-            <OddEvenTurboGuideEN gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameEN[gameName.toLowerCase()]} />
-        );
+        return <OddEvenTurboGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
 
-    return <OddEvenTurboGuideVI gameConfigs={GameConfigs} userStakeLevel={userStakeLevel} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <OddEvenTurboGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default OddEvenTurboGuide;
