@@ -1,10 +1,11 @@
 .container-img {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 0 1rem;
     grid-template-columns: repeat(6, auto);
     justify-content: center;
     align-items: center;
-    grid-column-gap: 10px;
+    grid-column-gap: 1rem;
+    text-align: center;
     p {
         display: block;
     }
@@ -12,7 +13,7 @@
 
 .wrapper-img {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem 2rem;
 }
 
 .img-customize {
@@ -24,10 +25,17 @@
         max-width: 9.6rem;
         max-height: 6.2rem;
     }
+    &.red-en {
+        min-height: 5.5rem;
+    }
 
     &.black {
         max-width: 12rem;
         max-height: 5rem;
+        margin-top: 1rem;
+    }
+    &.black-en {
+        min-height: 5rem;
         margin-top: 1rem;
     }
 

@@ -34,7 +34,7 @@ const renderGameRule = (maxbet: string) => {
                 </li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
-                        <table className="table text-center table-medium left">
+                        <table className="table text-center table-medium">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Lựa Chọn</th>

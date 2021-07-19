@@ -4,6 +4,7 @@ import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../three.module.scss";
+import { locales } from "../../../../common/constants";
 
 const renderGameRule = (odds: OddsProps, maxbet: number) => {
     const bet = 10;
@@ -21,7 +22,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>
                     The standard deck with 52 cards (excluding Joker) is shuffled after every round.{" "}
                     <div className="table-container">
-                        <table className="table text-center table-small left">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Options</th>
@@ -94,7 +95,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
-                        <table className="table text-center table-small left">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Options</th>
@@ -138,9 +139,47 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
     );
 };
 
+export const renderChoiceImage = (locale = "en") => {
+    const imgCustomize = "img-customize";
+    const wrapperImg = "wrapper-img";
+    const prefixLocale = locale === locales.en ? "_en" : "";
+    return (
+        <>
+            <div className={Styles[wrapperImg]}>
+                <img
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]}`}
+                    src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
+                ></img>
+            </div>
+            <div className={Styles[wrapperImg]}>
+                <img
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]}`}
+                    src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
+                ></img>
+            </div>
+            <div className={Styles[wrapperImg]}>
+                <img
+                    className={`${Styles[imgCustomize]} ${Styles["diamond"]}`}
+                    src="./static/images/three-cards/table_icon_diamond.png"
+                ></img>
+            </div>
+            <div className={Styles[wrapperImg]}>
+                <img className={`${Styles[imgCustomize]} ${Styles["heart"]}`} src="./static/images/three-cards/table_icon_heart.png"></img>
+            </div>
+            <div className={Styles[wrapperImg]}>
+                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_spade.png"></img>
+            </div>
+            <div className={Styles[wrapperImg]}>
+                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_club.png"></img>
+            </div>
+        </>
+    );
+};
+
 const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+
     return (
         <>
             <ul className="game-guide">
@@ -153,6 +192,15 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <span className={Styles["img-black"]}>♣</span>). The objective of this game is to predict the suit of 3 cards drawn
                         for each round. If the outcome matches the player’s bet, the player wins.
                     </p>
+                    <div className={Styles["container-img"]}>
+                        {renderChoiceImage(locales.en)}
+                        <p>Red</p>
+                        <p>Black</p>
+                        <p>Diamonds</p>
+                        <p>Hearts</p>
+                        <p>Spades</p>
+                        <p>Clubs</p>
+                    </div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
 

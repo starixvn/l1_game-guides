@@ -1,9 +1,11 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderChoiceImage } from "../en";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../three.module.scss";
+import { locales } from "../../../../common/constants";
 
 const renderGameRule = (odds: OddsProps, maxbet: number) => {
     const bet = 10;
@@ -28,7 +30,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>
                     Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.{" "}
                     <div className="table-container">
-                        <table className="table text-center table-small left">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>
@@ -94,7 +96,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                 <li>
                     Tỷ lệ trả thưởng đã bao gồm tiền cược.
                     <div className="table-container">
-                        <table className="table text-center table-small left">
+                        <table className="table text-center table-small">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>
@@ -141,8 +143,6 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
 const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const imgCustomize = "img-customize";
-    const wrapperImg = "wrapper-img";
     return (
         <>
             <ul className="game-guide">
@@ -155,42 +155,13 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         được tính dựa trên chất của các lá bài.
                     </p>
                     <div className={Styles["container-img"]}>
-                        <div className={Styles[wrapperImg]}>
-                            <img
-                                className={`${Styles[imgCustomize]} ${Styles["red"]}`}
-                                src="./static/images/three-cards/table_text_red.png"
-                            ></img>
-                            <p>Đỏ</p>
-                        </div>
-                        <div className={Styles[wrapperImg]}>
-                            <img
-                                className={`${Styles[imgCustomize]} ${Styles["black"]}`}
-                                src="./static/images/three-cards/table_txt_black.png"
-                            ></img>
-                            <p>Đen</p>
-                        </div>
-                        <div className={Styles[wrapperImg]}>
-                            <img
-                                className={`${Styles[imgCustomize]} ${Styles["diamond"]}`}
-                                src="./static/images/three-cards/table_icon_diamond.png"
-                            ></img>
-                            <p>Rô</p>
-                        </div>
-                        <div className={Styles[wrapperImg]}>
-                            <img
-                                className={`${Styles[imgCustomize]} ${Styles["heart"]}`}
-                                src="./static/images/three-cards/table_icon_heart.png"
-                            ></img>
-                            <p>Cơ</p>
-                        </div>
-                        <div className={Styles[wrapperImg]}>
-                            <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_spade.png"></img>
-                            <p>Bích</p>
-                        </div>
-                        <div className={Styles[wrapperImg]}>
-                            <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_club.png"></img>
-                            <p>Chuồn</p>
-                        </div>
+                        {renderChoiceImage(locales.vi)}
+                        <p>Đỏ</p>
+                        <p>Đen</p>
+                        <p>Rô</p>
+                        <p>Cơ</p>
+                        <p>Bích</p>
+                        <p>Chuồn</p>
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>

@@ -10,8 +10,8 @@ import { Themes } from "../../../../common/constants";
 
 export const renderListIcon = () => {
     const { theme } = useTheme();
-    const widthIcon1 = theme === Themes.blue ? 123 : 75;
-    const widthIcon2 = theme === Themes.blue ? 118 : 70;
+    const widthIcon1 = theme === Themes.blue ? 100 : 75;
+    const widthIcon2 = theme === Themes.blue ? 95 : 70;
     return (
         <>
             <Image
