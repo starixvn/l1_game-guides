@@ -194,7 +194,7 @@ const bettingOptions = () => {
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Total Sum</strong> 798. Players bet on EVEN will win.
+                                            <strong>Total Sum</strong> = 798. Players bet on EVEN will win.
                                         </td>
                                     </tr>
                                 </tbody>
