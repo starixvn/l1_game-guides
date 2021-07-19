@@ -379,7 +379,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * 5 = {odds[2][3]}
+                            . Mức trả thưởng = 1 * {odds[2][3]} = {odds[2][3]}
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -388,7 +388,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * 16 = {odds[5][3]}
+                            . Mức trả thưởng = 1 * {odds[5][3]} = {odds[5][3]}
                         </li>
                     </ul>
                     <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>

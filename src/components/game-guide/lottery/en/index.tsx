@@ -22,7 +22,7 @@ const renderGameRule = (maxbet: number) => {
     );
 };
 
-const renderBettingOptions = () => {
+const renderBettingOptions = (odds: OddsProps) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -115,26 +115,26 @@ const renderBettingOptions = () => {
             <div>
                 <strong>Example:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets()}</li>
-                    <li>{BettingOptionsSpecial()}</li>
-                    <li>{BettingOptionsHead()}</li>
-                    <li>{BettingOptionsTail()}</li>
-                    <li>{BettingOptions27Sets()}</li>
+                    <li>{BettingOptions4Sets(odds)}</li>
+                    <li>{BettingOptionsSpecial(odds)}</li>
+                    <li>{BettingOptionsHead(odds)}</li>
+                    <li>{BettingOptionsTail(odds)}</li>
+                    <li>{BettingOptions27Sets(odds)}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = () => {
+const BettingOptions4Sets = (odds: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77 with Odds = 1:24</li>
+                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds.Sets4}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
-            </ul>{" "}
+            </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
@@ -154,16 +154,18 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * 24) * 2 = 480</p>
+            <p>
+                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds.Sets4}) * 2 = {10 * odds.Sets4 * 2}
+            </p>
         </>
     );
 };
-const BettingOptionsSpecial = () => {
+const BettingOptionsSpecial = (odds: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Special </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:90</li>
+                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:{odds.special}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 30</li>
             </ul>
@@ -186,16 +188,16 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * 90 = 900</p>
+            <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds.special} = {10 * odds.special}</p>
         </>
     );
 };
-const BettingOptionsHead = () => {
+const BettingOptionsHead = (odds: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Head</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:9</li>
+                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:{odds.head}</li>
                 <li>Stake = 10</li>
                 <li>otal Stake = 30</li>
             </ul>
@@ -219,16 +221,16 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * 9 = 90</p>
+            <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds.head} = {10 * odds.head}</p>
         </>
     );
 };
-const BettingOptionsTail = () => {
+const BettingOptionsTail = (odds: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Tail</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5 with Odds = 1:9</li>
+                <li>Place bet on two numbers: 0, 5 with Odds = 1:{odds.tail}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -255,12 +257,12 @@ const BettingOptionsTail = () => {
         </>
     );
 };
-const BettingOptions27Sets = () => {
+const BettingOptions27Sets = (odds: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:3.6</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds.Sets27}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 40</li>
             </ul>
@@ -384,8 +386,8 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. Payout = (10 * 3.6) * 2 = 72</p>
-            <p>Number 12 has appeared one time in 27 results. Payout = 10 * 3.6 = 36</p>
+            <p>Number 05 has appeared two times in 27 results. Payout = (10 * {odds.Sets27}) * 2 = {10 * odds.Sets27 * 2}</p>
+            <p>Number 12 has appeared one time in 27 results. Payout = 10 * {odds.Sets27} = {10 * odds.Sets27}</p>
         </>
     );
 };
@@ -741,7 +743,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                     </ul>
                 </li>
                 {renderGameRule(maxbet)}
-                {renderBettingOptions()}
+                {renderBettingOptions(odds)}
                 {renderPayouts(odds, choices_maxbet, minbet, maxbet)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsEN()}
