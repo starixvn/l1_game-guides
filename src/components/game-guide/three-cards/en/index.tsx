@@ -86,7 +86,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
 const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
-            <h2>Payout</h2>
+            <h2>Payouts</h2>
             <ul className="desc">
                 <li>
                     The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial

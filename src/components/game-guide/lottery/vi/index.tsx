@@ -36,7 +36,7 @@ const renderGameRule = (odds: OddsProps) => {
             <table className="table">
                 <thead>
                     <tr className="text-center">
-                        <th>Loại Cược</th>
+                        <th className={Styles["rule-options-width"]}>Loại Cược</th>
                         <th>Điều Kiện Thắng</th>
                     </tr>
                 </thead>

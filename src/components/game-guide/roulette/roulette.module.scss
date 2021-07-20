@@ -72,3 +72,10 @@
         border: none !important;
     }
 }
+
+.bet-into-options-width {
+    min-width: auto;
+    @media (min-width: 768px) {
+        min-width: 19rem;
+    }
+}

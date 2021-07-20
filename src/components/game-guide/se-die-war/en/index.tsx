@@ -160,7 +160,7 @@ const renderGameRuleTable = (data: string[]) => {
 const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, minBet: number) => {
     return (
         <li className="guide-item">
-            <h2>Payout </h2>
+            <h2>Payouts</h2>
             <ul className="desc">
                 <li>The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.</li>
                 <li>

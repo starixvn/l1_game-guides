@@ -104,7 +104,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </ul>
                 </li>
                 <li className="guide-item">
-                    <h2>Payout</h2>
+                    <h2>Payouts</h2>
                     <ul className="desc">
                         <li>
                             The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the

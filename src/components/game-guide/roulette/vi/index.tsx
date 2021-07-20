@@ -517,7 +517,7 @@ const renderBettingOptions = () => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Lựa Chọn</th>
+                                    <th className={Styles["bet-into-options-width"]}>Lựa Chọn</th>
                                     <th>Mô Tả</th>
                                     <th>Vị Trí Đặt</th>
                                 </tr>

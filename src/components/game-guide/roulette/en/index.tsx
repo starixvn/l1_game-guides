@@ -8,12 +8,7 @@ import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps,
-    minBet: number,
-    choiceMaxBet: ChoicesMaxBetProps,
-    maxBet: number
-) => {
+const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMaxBetProps, maxBet: number) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -36,7 +31,9 @@ const renderGameRule = (
                                 <tr>
                                     <th>Bet Types</th>
                                     <th>Payouts</th>
-                                    <th>Bet Limit (Min - Max)</th>
+                                    <th>
+                                        Bet Limit <br></br> (Min - Max)
+                                    </th>
                                     <th>Max Total Stake Per Round</th>
                                 </tr>
                             </thead>
@@ -47,9 +44,7 @@ const renderGameRule = (
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
                                     </td>
-                                    <td rowSpan={12}>
-                                        {numberWithCommas( maxBet)}
-                                    </td>
+                                    <td rowSpan={12}>{numberWithCommas(maxBet)}</td>
                                 </tr>
                                 <tr>
                                     <td>Split</td>

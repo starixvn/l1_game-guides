@@ -64,7 +64,8 @@
 }
 
 .result-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 14rem 1fr;
     align-items: center;
     margin-bottom: 1rem;
 }
@@ -74,11 +75,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 12rem;
+    width: 12.5rem;
     height: 6rem;
     margin-right: 1rem;
     background: url(/static/images/lottery/number_item_bg.png) no-repeat center;
-    background-size: 12rem 6rem;
+    background-size: 12.5rem 6rem;
 
     .number {
         font-size: 3.5rem;
@@ -127,5 +128,12 @@
             right: 1.5rem;
             font-size: 1.8rem;
         }
+    }
+}
+
+.rule-options-width {
+    min-width: auto;
+    @media (min-width: 768px) {
+        min-width: 13rem;
     }
 }

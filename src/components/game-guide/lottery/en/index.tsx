@@ -395,7 +395,7 @@ const BettingOptions27Sets = (odds: OddsProps) => {
 const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet: number, maxBet: number) => {
     return (
         <li className="guide-item">
-            <h2>Payout</h2>
+            <h2>Payouts</h2>
             <ul className="desc">
                 <li>The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.</li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
