@@ -14,7 +14,7 @@
 
     //icon fish prawn crab
     --font-size-FPC: 5rem;
-    --grid-gap-FPC: 0.5rem 2rem;
+    --grid-gap-FPC: 0 1rem;
 
     //sedie
     --dot-size: 1.6rem;
@@ -40,7 +40,7 @@
 
     //icon fish prawn crab
     --font-size-FPC: 5rem;
-    --grid-gap-FPC: 0.5rem 2rem;
+    --grid-gap-FPC: 0 1rem;
 
     //sedie
     --dot-size: 1.6rem;
@@ -300,6 +300,7 @@ ul {
         grid-gap: var(--grid-gap-FPC);
         text-align: center;
         justify-content: center;
+        padding-bottom: 1rem;
         @media (min-width: 768px) {
             grid-template-columns: repeat(6, var(--font-size-FPC));
         }
