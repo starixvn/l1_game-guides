@@ -1,29 +1,29 @@
 const choicesMaxBet = {
-    stag: 3000,
-    gourd: 3000,
-    rooster: 3000,
-    fish: 3000,
-    crab: 3000,
-    prawn: 3000,
-    anyTriple: 1000,
-    mountain: 3000,
-    ocean: 3000,
+    stag: 5000,
+    gourd: 5000,
+    rooster: 5000,
+    fish: 5000,
+    crab: 5000,
+    prawn: 5000,
+    anyTriple: 500,
+    mountain: 5000,
+    ocean: 5000,
 };
 
 const odds = {
-    single: 3,
-    double: 3.8,
-    triple: 8,
+    single: 2,
+    double: 3.5,
+    triple: 6,
     anyTriple: 33,
-    mountain: 1.98,
-    ocean: 1.98,
+    mountain: 1.96,
+    ocean: 1.96,
 };
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 4000,
-    minbet: 50,
+    maxbet: 5000,
+    minbet: 10,
     odds: odds,
 };
 
