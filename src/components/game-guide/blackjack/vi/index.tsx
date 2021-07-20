@@ -8,7 +8,7 @@ import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxbet: number, minbet: number) => {
     const wrapperImg = "wrapper-img";
-    const optionsWidthImg = "options-width";
+    const optionsWidth = "options-width";
     return (
         <>
             <h2>Cách chơi</h2>
@@ -41,13 +41,13 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>Lựa Chọn</th>
+                                                <th className={Styles[optionsWidth]}>Lựa Chọn</th>
                                                 <th> Mô Tả</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Rút
                                                     <img className={Styles[wrapperImg]} src="./static/images/blackjack/guide_hit.png"></img>
                                                 </td>
@@ -64,7 +64,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Dừng
                                                     <img
                                                         className={Styles[wrapperImg]}
@@ -74,7 +74,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 <td className="text-start">Người Chơi quyết định dừng không rút bài.</td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Tách
                                                     <img
                                                         className={Styles[wrapperImg]}
@@ -99,7 +99,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Gấp Đôi
                                                     <img
                                                         className={Styles[wrapperImg]}

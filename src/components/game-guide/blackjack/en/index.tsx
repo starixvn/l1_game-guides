@@ -8,7 +8,7 @@ import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxbet: number, minbet: number) => {
     const wrapperImg = "wrapper-img";
-    const optionsWidthImg = "options-width";
+    const optionsWidth = "options-width";
     return (
         <>
             <h2>Game Rules</h2>
@@ -48,13 +48,13 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>Options</th>
+                                                <th className={Styles[optionsWidth]}>Options</th>
                                                 <th> Description</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Hit
                                                     <img className={Styles[wrapperImg]} src="./static/images/blackjack/guide_hit.png"></img>
                                                 </td>
@@ -73,7 +73,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Stand
                                                     <img
                                                         className={Styles[wrapperImg]}
@@ -89,7 +89,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Split
                                                     <img
                                                         className={Styles[wrapperImg]}
@@ -122,7 +122,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className={Styles[optionsWidthImg]}>
+                                                <td>
                                                     Double
                                                     <img
                                                         className={Styles[wrapperImg]}

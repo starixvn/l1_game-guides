@@ -119,7 +119,9 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>Options</th>
                                             <th>Winning Conditions</th>
                                             <th>Payouts</th>
-                                            <th className={Styles["min-max-width"]}>Bet Limit (Min - Max)</th>
+                                            <th className={Styles["min-max-width"]}>
+                                                Bet Limit <br></br>(Min - Max)
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
