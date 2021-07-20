@@ -13,7 +13,7 @@ const Home = () => {
     const { setTheme, theme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [locale, setLocale] = useState<string>(locales.vi);
-    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({ minBet: 0, maxBet: 0 });
+    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
     const [isLoading, setIsLoading] = useState(true);
     const [classContainerOptions, setClassContainerOptions] = useState<string>();
     const router = useRouter();
@@ -40,7 +40,9 @@ const Home = () => {
                     document.body.classList.add("overflow-hidden");
                 }
             }
-            setUserStakeLevel({ minBet: CheckIsInteger(queryParams?.minBet), maxBet: CheckIsInteger(queryParams?.maxBet) });
+            if (queryParams?.minBet && queryParams?.maxBet) {
+                setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
+            }
         }
     }, [router.isReady]);
 

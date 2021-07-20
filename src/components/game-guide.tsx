@@ -22,7 +22,7 @@ import { UserStakeLevelProps } from "../pages";
 
 type Props = {
     gameId: number;
-    userStakeLevel: UserStakeLevelProps;
+    userStakeLevel: UserStakeLevelProps | undefined;
     locale: string;
 };
 
