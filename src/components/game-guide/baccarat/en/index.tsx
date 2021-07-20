@@ -306,11 +306,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
-                                            <td rowSpan={7}>
-                                                {numberWithCommas(
-                                                    Math.min(userStakeLevel?.maxBet ? userStakeLevel.maxBet : maxbet, maxbet)
-                                                )}
-                                            </td>
+                                            <td rowSpan={7}>{numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet))}</td>
                                             <td rowSpan={7} className={Styles["note-width"]}>
                                                 All bets on Player and Banker will be refunded if the result is a draw.
                                             </td>

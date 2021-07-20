@@ -10,15 +10,9 @@ import { GameGuideBase } from "../type";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { choices_maxbet, maxbet } = gameConfigs;
-    const maxBetMain = numberWithCommas(
-        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet, choices_maxbet.fish) : maxbet
-    );
-    const maxBetAnyTriple = numberWithCommas(
-        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet, choices_maxbet.anyTriple) : maxbet
-    );
-    const maxBetRound = numberWithCommas(
-        userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
-    );
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fish));
+    const maxBetAnyTriple = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.anyTriple));
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet));
 
     return { maxBetMain, maxBetAnyTriple, maxBetRound };
 };

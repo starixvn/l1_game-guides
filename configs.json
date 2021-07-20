@@ -1,9 +1,4 @@
 {
-    "proxy": {
-        "ssl": false,
-        "uri": "http://localhost:3000/",
-        "path": ""
-    },
     "sentry": {
         "dsn": "https://c8f93631be824a14b9f114f53e3a2bfc@sentry.lumigame.com/3",
         "environment": "LOCAL"

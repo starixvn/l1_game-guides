@@ -307,7 +307,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 <li className="guide-item">
                     {renderGameRule(
                         numberWithCommas(
-                            userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
+                              Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)
                         )
                     )}
                 </li>

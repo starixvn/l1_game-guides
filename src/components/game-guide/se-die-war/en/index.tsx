@@ -281,13 +281,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         loss based on the number of red or white sites faced up in the result
                     </p>
                 </li>
-                <li className="guide-item">
-                    {renderGameRule(
-                        numberWithCommas(
-                            userStakeLevel ? Math.min(userStakeLevel?.maxBet ? userStakeLevel?.maxBet : maxbet, maxbet) : maxbet
-                        )
-                    )}
-                </li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)))}</li>
 
                 {renderPayouts(odds, choices_maxbet, minbet)}
                 <li className="guide-item">
