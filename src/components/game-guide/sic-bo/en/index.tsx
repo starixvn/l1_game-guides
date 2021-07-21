@@ -39,7 +39,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Options</th>
+                                    <th className={Styles["bet-option-width"]}>Options</th>
                                     <th className={Styles["bet-choice-width"]}>Choices</th>
                                     <th>Payouts</th>
                                     <th className={Styles["bet-limit-width"]}>
