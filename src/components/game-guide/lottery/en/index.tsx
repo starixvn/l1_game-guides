@@ -188,7 +188,9 @@ const BettingOptionsSpecial = (odds: OddsProps) => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds.special} = {10 * odds.special}</p>
+            <p>
+                The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds.special} = {10 * odds.special}
+            </p>
         </>
     );
 };
@@ -199,7 +201,7 @@ const BettingOptionsHead = (odds: OddsProps) => {
             <ul className="desc">
                 <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:{odds.head}</li>
                 <li>Stake = 10</li>
-                <li>otal Stake = 30</li>
+                <li>Total Stake = 30</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -221,7 +223,9 @@ const BettingOptionsHead = (odds: OddsProps) => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds.head} = {10 * odds.head}</p>
+            <p>
+                The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds.head} = {10 * odds.head}
+            </p>
         </>
     );
 };
@@ -386,8 +390,12 @@ const BettingOptions27Sets = (odds: OddsProps) => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. Payout = (10 * {odds.Sets27}) * 2 = {10 * odds.Sets27 * 2}</p>
-            <p>Number 12 has appeared one time in 27 results. Payout = 10 * {odds.Sets27} = {10 * odds.Sets27}</p>
+            <p>
+                Number 05 has appeared two times in 27 results. Payout = (10 * {odds.Sets27}) * 2 = {10 * odds.Sets27 * 2}
+            </p>
+            <p>
+                Number 12 has appeared one time in 27 results. Payout = 10 * {odds.Sets27} = {10 * odds.Sets27}
+            </p>
         </>
     );
 };
@@ -400,13 +408,15 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                 <li>The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.</li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
-            <table className={`table text-center ${Styles["table-small"]}`}>
+            <table className={`table text-center table-medium`}>
                 <thead>
                     <tr>
                         <th colSpan={2}>Options</th>
                         <th>Payouts</th>
-                        <th>Bet Limit (Min-Max)</th>
-                        <th>Max Total Stake Per Round</th>
+                        <th>
+                            Bet Limit <br></br>(Min-Max)
+                        </th>
+                        <th className={Styles["payout-max-total-width"]}>Max Total Stake Per Round</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -9,7 +9,7 @@ import Styles from "../sic-bo.module.scss";
 const renderGameRule = (maxbet: number) => {
     return (
         <>
-            <h2>Game rules</h2>
+            <h2>Game Rules</h2>
             <ul className="desc">
                 <li>Select the chip value you wish to play. Players can bet on one or more betting options shown on the game table.</li>
                 <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
@@ -42,7 +42,9 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                     <th>Options</th>
                                     <th className={Styles["bet-choice-width"]}>Choices</th>
                                     <th>Payouts</th>
-                                    <th>Bet Limit (Min-Max)</th>
+                                    <th>
+                                        Bet Limit <br></br>(Min-Max)
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -168,7 +170,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(maxbet)}</li>
                 <li className="guide-item">
-                    <h2>Betting options</h2>
+                    <h2>Betting Options</h2>
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
                             <div className="table-container">

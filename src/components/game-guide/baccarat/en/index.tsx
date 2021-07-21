@@ -284,12 +284,12 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </ul>
                 </li>
                 <li className="guide-item">
-                    <h2>Bet Limit and Payouts</h2>
+                    <h2>Payouts</h2>
 
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
                             <div className="table-container">
-                                <table className="table text-center table-medium left">
+                                <table className="table text-center table-medium">
                                     <thead>
                                         <tr>
                                             <th className={Styles["payouts-option-width"]}>Options</th>

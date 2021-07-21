@@ -137,3 +137,10 @@
         min-width: 13rem;
     }
 }
+
+.payout-max-total-width {
+    max-width: 9rem;
+    @media (min-width: 768px) {
+        max-width: 18rem;
+    }
+}
