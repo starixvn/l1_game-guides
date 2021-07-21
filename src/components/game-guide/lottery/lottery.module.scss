@@ -132,10 +132,7 @@
 }
 
 .rule-options-width {
-    min-width: auto;
-    @media (min-width: 768px) {
-        min-width: 13rem;
-    }
+    min-width: 13rem;
 }
 
 .payout-max-total-width {

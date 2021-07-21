@@ -294,7 +294,9 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                         <tr>
                                             <th className={Styles["payouts-option-width"]}>Options</th>
                                             <th>Payouts</th>
-                                            <th>Bet Limit (Min-Max)</th>
+                                            <th>
+                                                Bet Limit <br></br>(Min-Max)
+                                            </th>
                                             <th>Max Total Stake Per Round</th>
                                             <th>Note</th>
                                         </tr>

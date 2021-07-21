@@ -42,7 +42,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                     <th>Options</th>
                                     <th className={Styles["bet-choice-width"]}>Choices</th>
                                     <th>Payouts</th>
-                                    <th>
+                                    <th className={Styles["bet-limit-width"]}>
                                         Bet Limit <br></br>(Min-Max)
                                     </th>
                                 </tr>

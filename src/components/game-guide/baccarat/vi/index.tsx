@@ -5,6 +5,7 @@ import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import Styles from "../baccarat.module.scss";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -158,7 +159,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>Tổng điểm 2 lá bài đầu tiên</th>
+                                                <th className={Styles["rule-hand-width"]}>Tổng điểm 2 lá bài đầu tiên</th>
                                                 <th>Hành động</th>
                                             </tr>
                                         </thead>
@@ -188,7 +189,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>Tổng điểm 2 lá bài đầu tiên</th>
+                                                <th className={Styles["rule-hand-width"]}>Tổng điểm 2 lá bài đầu tiên</th>
                                                 <th>Nhà Cái được rút khi lá thứ ba của Nhà Con là:</th>
                                             </tr>
                                         </thead>
