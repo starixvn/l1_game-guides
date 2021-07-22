@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
@@ -7,6 +8,7 @@ import { StatisticalTable } from "../../../shared/se-die/vi";
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
+import { Themes } from "../../../../common/constants";
 
 const wrapperBankerPlayer = "wrapper-banker-player";
 const contentText = "content-text";
@@ -291,7 +293,8 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-
+    const { theme } = useTheme();
+    const pathImg = theme === Themes.light ? "dark/guide-stats-vi.png" : "guide-stats-vi.png?1";
     return (
         <>
             <ul className="game-guide">
@@ -304,13 +307,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">
-                    {renderGameRule(
-                        numberWithCommas(
-                              Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)
-                        )
-                    )}
-                </li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)))}</li>
 
                 {renderPayouts(odds, choices_maxbet, minbet)}
                 <li className="guide-item">
@@ -324,12 +321,12 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                             <span className="font-weight-medium title-text">Dãy Số Thống Kê</span>
                             <div className={Styles["wrapper-guide-stats"]}>
                                 <Image
-                                    src="/static/images/sedie-war/guide-stats-vi.png"
+                                    src={`/static/images/sedie-war/${pathImg}`}
                                     alt="guide-stats-vi"
                                     width={718}
                                     height={150}
                                     layout="responsive"
-                                    loading="lazy"
+                                    loading="eager"
                                 />
                             </div>
 

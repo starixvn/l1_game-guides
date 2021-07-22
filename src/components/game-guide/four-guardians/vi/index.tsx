@@ -27,7 +27,7 @@ const renderGameRule = () => {
                             width={844}
                             height={165}
                             layout="responsive"
-                            loading="lazy"
+                            loading="eager"
                         />
                     </div>
                 </li>
@@ -165,7 +165,7 @@ const renderFreeSpin = (odds: number[][]) => {
                                 width={333}
                                 height={126}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <span>
@@ -256,7 +256,7 @@ const renderBonus = (odds: number[][]) => {
                                 width={333}
                                 height={126}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <p>
@@ -286,7 +286,7 @@ const renderWild = (odds: number[][]) => {
                     width={133}
                     height={87}
                     layout="fixed"
-                    loading="lazy"
+                    loading="eager"
                 />
                 <ul className="desc">
                     <li>
@@ -327,7 +327,7 @@ const renderWild = (odds: number[][]) => {
                                 width={77}
                                 height={67}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -337,7 +337,7 @@ const renderWild = (odds: number[][]) => {
                                 width={77}
                                 height={67}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -347,7 +347,7 @@ const renderWild = (odds: number[][]) => {
                                 width={74}
                                 height={50}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -357,7 +357,7 @@ const renderWild = (odds: number[][]) => {
                                 width={76}
                                 height={77}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -367,7 +367,7 @@ const renderWild = (odds: number[][]) => {
                                 width={76}
                                 height={77}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                     </div>

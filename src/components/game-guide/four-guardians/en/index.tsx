@@ -32,7 +32,7 @@ const renderGameRule = () => {
                         width={844}
                         height={165}
                         layout="responsive"
-                        loading="lazy"
+                        loading="eager"
                     />
                 </div>
             </ul>
@@ -66,7 +66,7 @@ export const renderIconContent = (isBgBlack = false, itemName = "item10", isCont
                 height={132}
                 layout="fixed"
                 alt={isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}
-                loading="lazy"
+                loading="eager"
             />
 
             <img
@@ -167,7 +167,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
                 height={132}
                 layout="fixed"
                 alt="guide_item_symbol_bg"
-                loading="lazy"
+                loading="eager"
             />
 
             <img
@@ -297,7 +297,7 @@ const renderFreeSpin = (odds: number[][]) => {
                                 width={333}
                                 height={126}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
 
@@ -377,7 +377,7 @@ const renderBonus = (odds: number[][]) => {
                                 width={333}
                                 height={126}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
 
@@ -410,7 +410,7 @@ const renderWild = (odds: number[][]) => {
                     width={133}
                     height={87}
                     layout="fixed"
-                    loading="lazy"
+                    loading="eager"
                 />
 
                 <ul className="desc">
@@ -448,7 +448,7 @@ const renderWild = (odds: number[][]) => {
                                 width={77}
                                 height={67}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -458,7 +458,7 @@ const renderWild = (odds: number[][]) => {
                                 width={77}
                                 height={67}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -468,7 +468,7 @@ const renderWild = (odds: number[][]) => {
                                 width={74}
                                 height={50}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -478,7 +478,7 @@ const renderWild = (odds: number[][]) => {
                                 width={76}
                                 height={77}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
@@ -488,7 +488,7 @@ const renderWild = (odds: number[][]) => {
                                 width={76}
                                 height={77}
                                 layout="fixed"
-                                loading="lazy"
+                                loading="eager"
                             />
                         </div>
                     </div>

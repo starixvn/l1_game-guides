@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
@@ -7,6 +8,7 @@ import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en
 import { GameConfigProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
+import { Themes } from "../../../../common/constants";
 
 const renderGameRule = (maxBet: string) => {
     return (
@@ -268,7 +270,8 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-
+    const { theme } = useTheme();
+    const pathImg = theme === Themes.light ? "dark/guide-stats-vi.png" : "guide-stats-vi.png?1";
     return (
         <>
             <ul className="game-guide">
@@ -295,7 +298,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                             <strong className="title-text">Statistical Round result</strong>
                             <div className={Styles["wrapper-guide-stats"]}>
                                 <Image
-                                    src="/static/images/sedie-war/guide-stats-en.png"
+                                    src={`/static/images/sedie-war/${pathImg}`}
                                     alt="guide-stats-en"
                                     width={718}
                                     height={150}
