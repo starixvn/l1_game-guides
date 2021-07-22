@@ -99,47 +99,6 @@ const renderExamplePayouts = (odds: number[][]) => {
     );
 };
 
-const renderJackpot = () => {
-    return (
-        <li className="guide-item">
-            <h2>Nổ Hũ</h2>
-            <ul className="desc">
-                <li>
-                    Nổ Hũ là giải thưởng đặc biệt dành cho người chơi Long Lân Quy Phụng, có 3 giải Nổ Hũ ứng với 3 mức cược. Số tiền thưởng
-                    trong từng hũ sẽ được tích lũy tăng dần cho đến khi có người chơi may mắn quay và giành chiến thắng.
-                </li>
-            </ul>
-
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th className={Styles["bonus-symbol-width"]}>Biểu Tượng</th>
-                            <th> Mô Tả</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img
-                                    className={`${Styles["item10"]}}`}
-                                    src="./static/images/four-guardians/vi/item10.png"
-                                    alt="item10"
-                                ></img>
-                            </td>
-                            <td>
-                                Người chơi sẽ thắng giải Nổ Hũ nếu quay được 5 biểu tượng “Đập Hũ” trên cùng Dòng Cược.<br></br>
-                                <strong>Lưu ý: </strong>
-                                trong trường hợp thắng giải Nổ Hũ, người chơi sẽ nhận được 98% số tiền hiện có trong Hũ.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
-    );
-};
-
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
@@ -458,7 +417,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/vi/list_icon.png`}
+                            src={`/static/images/four-guardians/list_icon.png`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}
@@ -468,7 +427,6 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
                 {renderPayouts(odds)}
-                {renderJackpot()}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}

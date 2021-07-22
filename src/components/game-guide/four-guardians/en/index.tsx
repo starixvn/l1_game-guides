@@ -11,7 +11,6 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-const item10LocaleMapper: IObjectKeys = { vi: "vi/item10", en: "en/item10" };
 const renderGameRule = () => {
     return (
         <>
@@ -78,8 +77,8 @@ export const renderIconContent = (
             />
 
             <img
-                className={`${Styles[itemName]} ${Styles["customize"]} ${locale === locales.en ? Styles["en"] : ""}`}
-                src={`./static/images/four-guardians/${itemName === "item10" ? item10LocaleMapper[locale] : itemName}.png?v1`}
+                className={`${Styles[itemName]} ${Styles["customize"]}`}
+                src={`./static/images/four-guardians/${itemName}.png`}
                 alt={itemName}
             ></img>
             <div
@@ -310,55 +309,6 @@ const renderExamplePayout = (odds: number[][]) => {
                 </table>
             </div>
         </>
-    );
-};
-
-const renderJackpot = () => {
-    return (
-        <li className="guide-item">
-            <h2>Jackpot</h2>
-            <ul className="desc">
-                <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/en/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
-                </li>
-            </ul>
-
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th className={Styles["bonus-symbol-width"]}>Symbol</th>
-                            <th> Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img
-                                    className={`${Styles["item10"]} ${Styles["en"]}`}
-                                    src="./static/images/four-guardians/en/item10.png"
-                                    alt="item10"
-                                ></img>
-                            </td>
-                            <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </li>
     );
 };
 
@@ -663,7 +613,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/en/list_icon.png?v1`}
+                            src={`/static/images/four-guardians/list_icon.png?v1`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}
@@ -674,7 +624,6 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 <li className="guide-item">{renderGameRule()}</li>
 
                 {renderPayouts(odds)}
-                {renderJackpot()}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
