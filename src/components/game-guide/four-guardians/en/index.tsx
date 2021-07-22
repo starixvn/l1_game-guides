@@ -322,7 +322,7 @@ const renderJackpot = () => {
                 <li>
                     Jackpot is a grand prize for Players having 5 symbols{" "}
                     <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
+                        className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                         src="./static/images/four-guardians/en/item10.png"
                         alt="item10"
                     ></img>{" "}
@@ -556,7 +556,7 @@ const renderWild = (odds: number[][]) => {
                         ></img>
                         and{" "}
                         <img
-                            className={`${Styles["item10"]} ${Styles["mini"]}`}
+                            className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/en/item10.png"
                             alt="item10"
                         ></img>
