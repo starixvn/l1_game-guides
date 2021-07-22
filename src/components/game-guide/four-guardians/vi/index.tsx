@@ -202,7 +202,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                src="/static/images/four-guardians/vi/guide_example_free_spin.png"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -293,7 +293,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                src="/static/images/four-guardians/vi/guide_example_bonus.png"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -327,8 +327,8 @@ const renderWild = (odds: number[][]) => {
                     <Image
                         src="/static/images/four-guardians/guide_example_wild.png"
                         alt="guide_example_wild"
-                        width={244}
-                        height={159}
+                        width={245}
+                        height={160}
                         layout="fixed"
                         loading="eager"
                     />
@@ -399,8 +399,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -409,8 +409,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />

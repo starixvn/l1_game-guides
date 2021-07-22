@@ -39,27 +39,27 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Đỏ</td>
+                                    <td>Đỏ</td>
                                     <td className="text-start">Có ít nhất 2 lá bài là chất Rô hoặc Cơ.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Đen</td>
+                                    <td>Đen</td>
                                     <td className="text-start">Có ít nhất 2 lá bài là chất Bích hoặc Chuồn.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Rô</td>
+                                    <td>Rô</td>
                                     <td className="text-start">Có ít nhất 1 lá bài là chất Rô.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Cơ</td>
+                                    <td>Cơ</td>
                                     <td className="text-start">Có ít nhất 1 lá bài là chất Cơ.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Bích</td>
+                                    <td>Bích</td>
                                     <td className="text-start">Có ít nhất 1 lá bài là chất Bích.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Chuồn</td>
+                                    <td>Chuồn</td>
                                     <td className="text-start">Có ít nhất 1 lá bài là chất Chuồn.</td>
                                 </tr>
                             </tbody>
@@ -106,30 +106,30 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Đỏ</td>
+                                    <td>Đỏ</td>
                                     <td rowSpan={2}>1:{odds.red}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.red)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Đen</td>
+                                    <td>Đen</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Rô</td>
+                                    <td>Rô</td>
                                     <td rowSpan={4}>1:{odds.diamonds}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.diamonds)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Cơ</td>
+                                    <td>Cơ</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Bích</td>
+                                    <td>Bích</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Chuồn</td>
+                                    <td>Chuồn</td>
                                 </tr>
                             </tbody>
                         </table>

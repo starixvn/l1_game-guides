@@ -79,7 +79,7 @@ export const renderIconContent = (
             />
 
             <img
-                className={`${Styles[itemName]} ${Styles["customize"]}`}
+                className={`${Styles[itemName]} ${Styles["customize"]} ${locale === locales.en ? Styles["en"] : ""}`}
                 src={`./static/images/four-guardians/${itemName === "item10" ? item10LocaleMapper[locale] : itemName}.png`}
                 alt={itemName}
             ></img>
@@ -417,7 +417,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_free_spin.png?v1"
+                                src="/static/images/four-guardians/en/guide_example_free_spin.png?v1"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -497,7 +497,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_bonus.png?v1"
+                                src="/static/images/four-guardians/en/guide_example_bonus.png?v1"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -533,8 +533,8 @@ const renderWild = (odds: number[][]) => {
                     <Image
                         src="/static/images/four-guardians/guide_example_wild.png"
                         alt="guide_example_wild"
-                        width={244}
-                        height={159}
+                        width={245}
+                        height={160}
                         layout="fixed"
                         loading="eager"
                     />
@@ -602,8 +602,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -612,8 +612,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />

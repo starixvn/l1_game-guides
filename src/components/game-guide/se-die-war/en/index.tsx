@@ -178,85 +178,85 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Player</td>
+                                    <td>Player</td>
                                     <td rowSpan={2}>1:{odds.player}</td>
                                     <td rowSpan={5}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker</td>
+                                    <td>Banker</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Tie</td>
+                                    <td>Tie</td>
                                     <td>1:{odds.tie}</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Total Even</td>
+                                    <td>Total Even</td>
                                     <td rowSpan={2}>1:{odds.even}</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Total Odd</td>
+                                    <td>Total Odd</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - Even</td>
+                                    <td>Player - Even</td>
                                     <td rowSpan={2}>1:{odds.playerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - Odd</td>
+                                    <td>Player - Odd</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - 3 Red</td>
+                                    <td>Player - 3 Red</td>
                                     <td rowSpan={2}>1:{odds.playerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - 1 Red</td>
+                                    <td>Player - 1 Red</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - 4 Red</td>
+                                    <td>Player - 4 Red</td>
                                     <td rowSpan={2}>1:{odds.playerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Player - 4 White</td>
+                                    <td>Player - 4 White</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - Even</td>
+                                    <td>Banker - Even</td>
                                     <td rowSpan={2}>1:{odds.bankerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - Odd</td>
+                                    <td>Banker - Odd</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - 3 Red</td>
+                                    <td>Banker - 3 Red</td>
                                     <td rowSpan={2}>1:{odds.bankerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - 1 Red</td>
+                                    <td>Banker - 1 Red</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - 4 Red</td>
+                                    <td>Banker - 4 Red</td>
                                     <td rowSpan={2}>1:{odds.bankerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Banker - 4 White</td>
+                                    <td>Banker - 4 White</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -119,18 +119,18 @@
 
 .item0 {
     @extend %item;
-    max-width: 7.7rem;
-    max-height: 7.2rem;
+    max-width: 6.5rem;
+    max-height: 6.1rem;
     &.customize {
         position: absolute;
-        top: 24%;
+        top: 27%;
         left: 13%;
     }
 }
 .item1 {
     @extend %item;
-    max-width: 7rem;
-    max-height: 7.5rem;
+    max-width: 6.4rem;
+    max-height: 6.3rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -139,11 +139,11 @@
 }
 .item2 {
     @extend %item;
-    max-width: 9.4rem;
-    max-height: 7.6rem;
+    max-width: 7.7rem;
+    max-height: 6.7rem;
     &.customize {
         position: absolute;
-        top: 18%;
+        top: 23%;
         left: 8%;
     }
     &.mini {
@@ -152,31 +152,31 @@
 }
 .item3 {
     @extend %item;
-    max-width: 8.8rem;
-    max-height: 6.4rem;
+    max-width: 7.4rem;
+    max-height: 5.3rem;
     &.customize {
         position: absolute;
-        top: 26%;
-        left: 8%;
+        top: 30%;
+        left: 11%;
     }
 }
 .item4 {
     @extend %item;
-    max-width: 7.6rem;
-    max-width: 7.4rem;
+    max-width: 6.1rem;
+    max-width: 6.4rem;
     &.customize {
         position: absolute;
-        top: 17%;
+        top: 22%;
         left: 13%;
     }
 }
 .item5 {
     @extend %item;
-    max-width: 9.7rem;
-    max-height: 9.9rem;
+    max-width: 8.5rem;
+    max-height: 8.6rem;
     &.customize {
         position: absolute;
-        top: 12%;
+        top: 15%;
         left: 8%;
     }
     &.mini {
@@ -185,18 +185,18 @@
 }
 .item6 {
     @extend %item;
-    max-width: 8.2rem;
-    max-height: 8.5rem;
+    max-width: 6.9rem;
+    max-height: 7.3rem;
     &.customize {
         position: absolute;
-        top: 18%;
+        top: 23%;
         left: 13%;
     }
 }
 .item7 {
     @extend %item;
-    max-width: 10rem;
-    max-height: 6.4rem;
+    max-width: 8.6rem;
+    max-height: 5.5rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -213,8 +213,8 @@
 }
 .item8 {
     @extend %item;
-    max-width: 9.4rem;
-    max-height: 8.4rem;
+    max-width: 7.7rem;
+    max-height: 6.6rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -231,8 +231,8 @@
 }
 .item9 {
     @extend %item;
-    max-width: 8.9rem;
-    max-height: 5.7rem;
+    max-width: 7.4rem;
+    max-height: 5rem;
     &.customize {
         position: absolute;
         top: 27%;
@@ -241,8 +241,8 @@
 }
 .item10 {
     @extend %item;
-    max-width: 9rem;
-    max-height: 7.8rem;
+    max-width: 7.7rem;
+    max-height: 6.7rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -252,7 +252,7 @@
         transform: scale(0.55);
     }
     &.en {
-        max-width: 9.7rem;
+        max-width: 10rem;
     }
 }
 .item-wild {

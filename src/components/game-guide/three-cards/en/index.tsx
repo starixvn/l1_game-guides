@@ -31,27 +31,27 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Red</td>
+                                    <td>Red</td>
                                     <td className="text-start">Having at least 2 cards are Diamonds or Hearts in the result.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Black</td>
+                                    <td>Black</td>
                                     <td className="text-start">Having at least 2 cards are Spades or Clubs in the result.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Diamonds</td>
+                                    <td>Diamonds</td>
                                     <td className="text-start">Having at least 1 card is Diamonds in the result.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Hearts</td>
+                                    <td>Hearts</td>
                                     <td className="text-start">Having at least 1 card is Hearts in the result. </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Spades</td>
+                                    <td>Spades</td>
                                     <td className="text-start">Having at least 1 card is Spades in the result.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Clubs</td>
+                                    <td>Clubs</td>
                                     <td className="text-start">Having at least 1 card is Clubs in the result. </td>
                                 </tr>
                             </tbody>
@@ -105,30 +105,30 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td className="text-start">Red</td>
+                                    <td>Red</td>
                                     <td rowSpan={2}>1:{odds.red}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.red)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Black</td>
+                                    <td>Black</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Diamonds</td>
+                                    <td>Diamonds</td>
                                     <td rowSpan={4}>1:{odds.diamonds}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.diamonds)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Hearts</td>
+                                    <td>Hearts</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Spades</td>
+                                    <td>Spades</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">Clubs</td>
+                                    <td>Clubs</td>
                                 </tr>
                             </tbody>
                         </table>
