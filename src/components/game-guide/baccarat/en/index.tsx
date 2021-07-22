@@ -92,10 +92,6 @@ const renderPointCalculationRules = (gameName: string) => {
     return (
         <>
             <h2>Point Calculation Rules</h2>
-            <p>
-                All cards from 2 to 9 are counted at face value and an Ace is counted as one. Face cards (Jack, Queen, King) and Tens are
-                counted as zero.
-            </p>
             <ul className="desc">
                 <li>
                     Card’s point values:

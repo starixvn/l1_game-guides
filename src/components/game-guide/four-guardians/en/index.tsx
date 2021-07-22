@@ -70,7 +70,7 @@ export const renderIconContent = (
     return (
         <span className={Styles["wrapper-icon"]}>
             <Image
-                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png`}
+                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png?1`}
                 width={200}
                 height={132}
                 layout="fixed"
@@ -233,8 +233,8 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         <span className={Styles["wrapper-icon-dark"]}>
             <Image
                 className={`${Styles[iconBox]}`}
-                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                width={237}
+                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png?1"
+                width={269}
                 height={132}
                 layout="fixed"
                 alt="guide_item_symbol_bg"
@@ -246,10 +246,15 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
                 src={`./static/images/four-guardians/${itemName}.png`}
                 alt={itemName}
             ></img>
-            <div className={`${Styles["icon-content-wrapper"]} ${Styles["spin-position"]}`}>
+            <div
+                className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
+            >
                 {dataContent.map((data, index) => {
                     return (
-                        <div key={index} className={`${Styles["icon-content"]} ${Styles["free-spin"]}`}>
+                        <div
+                            key={index}
+                            className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
+                        >
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
                                 {data[1]} {textAfterNumber && <span className="text-white">{textAfterNumber}</span>}
@@ -412,7 +417,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                src="/static/images/four-guardians/guide_example_free_spin.png?v1"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -492,7 +497,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                src="/static/images/four-guardians/guide_example_bonus.png?v1"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -523,15 +528,17 @@ const renderWild = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Wild</h2>
-            <div className={Styles[freeSpinContentEX]}>
-                <Image
-                    src="/static/images/four-guardians/guide_example_wild.png"
-                    alt="guide_example_wild"
-                    width={133}
-                    height={87}
-                    layout="fixed"
-                    loading="eager"
-                />
+            <div className={Styles["wild-content-ex"]}>
+                <span className={Styles["wrapper-wild"]}>
+                    <Image
+                        src="/static/images/four-guardians/guide_example_wild.png"
+                        alt="guide_example_wild"
+                        width={244}
+                        height={159}
+                        layout="fixed"
+                        loading="eager"
+                    />
+                </span>
 
                 <ul className="desc">
                     <li>
@@ -656,7 +663,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/en/list_icon.png`}
+                            src={`/static/images/four-guardians/en/list_icon.png?v1`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}

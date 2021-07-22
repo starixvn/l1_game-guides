@@ -50,7 +50,7 @@
 
 .wrapper-icon-dark {
     position: relative;
-    width: 23.7rem;
+    width: 26.9rem;
     height: 13.2rem;
     display: inline-block;
     margin: 0.5rem;
@@ -92,10 +92,14 @@
         right: 1.1rem;
         top: 3.7rem;
     }
+    &.bonus-position {
+        right: 1.7rem;
+        top: 3.7rem;
+    }
 }
 
 .number {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.9rem;
     display: inline-flex;
@@ -104,7 +108,7 @@
     }
     &.number-second {
         color: #f3d603;
-        margin-right: 0.1rem;
+        text-align: right;
     }
 }
 
@@ -115,8 +119,8 @@
 
 .item0 {
     @extend %item;
-    max-width: 6.5rem;
-    max-height: 6.1rem;
+    max-width: 7.7rem;
+    max-height: 7.2rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -125,8 +129,8 @@
 }
 .item1 {
     @extend %item;
-    max-width: 6.4rem;
-    max-height: 6.3rem;
+    max-width: 7rem;
+    max-height: 7.5rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -135,12 +139,12 @@
 }
 .item2 {
     @extend %item;
-    max-width: 7.7rem;
-    max-height: 6.7rem;
+    max-width: 9.4rem;
+    max-height: 7.6rem;
     &.customize {
         position: absolute;
-        top: 24%;
-        left: 13%;
+        top: 18%;
+        left: 8%;
     }
     &.mini {
         transform: scale(0.6);
@@ -148,33 +152,32 @@
 }
 .item3 {
     @extend %item;
-    max-width: 7.4rem;
-    max-height: 5.3rem;
+    max-width: 8.8rem;
+    max-height: 6.4rem;
     &.customize {
         position: absolute;
-        top: 30%;
-        left: 13%;
+        top: 26%;
+        left: 8%;
     }
 }
 .item4 {
     @extend %item;
-    max-width: 6.1rem;
-    max-width: 6.4rem;
+    max-width: 7.6rem;
+    max-width: 7.4rem;
     &.customize {
         position: absolute;
-        top: 24%;
+        top: 17%;
         left: 13%;
     }
 }
 .item5 {
     @extend %item;
-    max-width: 8.5rem;
-    max-height: 8.6rem;
-    transform: scale(0.9);
+    max-width: 9.7rem;
+    max-height: 9.9rem;
     &.customize {
         position: absolute;
-        top: 19%;
-        left: 13%;
+        top: 12%;
+        left: 8%;
     }
     &.mini {
         transform: scale(0.5);
@@ -182,18 +185,18 @@
 }
 .item6 {
     @extend %item;
-    max-width: 6.9rem;
-    max-height: 7.3rem;
+    max-width: 8.2rem;
+    max-height: 8.5rem;
     &.customize {
         position: absolute;
-        top: 24%;
+        top: 18%;
         left: 13%;
     }
 }
 .item7 {
     @extend %item;
-    max-width: 8.6rem;
-    max-height: 5.5rem;
+    max-width: 10rem;
+    max-height: 6.4rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -210,8 +213,8 @@
 }
 .item8 {
     @extend %item;
-    max-width: 7.7rem;
-    max-height: 6.6rem;
+    max-width: 9.4rem;
+    max-height: 8.4rem;
     &.customize {
         position: absolute;
         top: 24%;
@@ -222,14 +225,14 @@
     }
     &.dark {
         position: absolute;
-        top: 26%;
+        top: 20%;
         left: 8%;
     }
 }
 .item9 {
     @extend %item;
-    max-width: 7.4rem;
-    max-height: 5rem;
+    max-width: 8.9rem;
+    max-height: 5.7rem;
     &.customize {
         position: absolute;
         top: 27%;
@@ -238,12 +241,12 @@
 }
 .item10 {
     @extend %item;
-    max-width: 7.7rem;
-    max-height: 6.7rem;
+    max-width: 9rem;
+    max-height: 7.8rem;
     &.customize {
         position: absolute;
         top: 24%;
-        left: 13%;
+        left: 10%;
     }
     &.mini {
         transform: scale(0.55);
@@ -271,18 +274,45 @@
 .free-spin {
     top: 3.6rem;
     right: 1.1rem;
-    grid-template-columns: 1.3rem 10rem;
+    grid-template-columns: 1.3rem 11rem;
     span {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         font-weight: 700;
         display: inline-block;
     }
 }
+
+.bonus {
+    top: 3.6rem;
+    right: 1.1rem;
+    grid-template-columns: 1.3rem 10rem;
+    span {
+        font-size: 1.7rem;
+        font-weight: 700;
+        display: inline-block;
+    }
+}
+
 .free-spin-content-ex {
     display: flex;
     align-items: center;
     @media (max-width: 576px) {
         display: block;
+    }
+}
+.wild-content-ex {
+    display: grid;
+    grid-template-columns: 32.5rem 1fr;
+    padding-bottom: 1.5rem;
+    @media (max-width: 576px) {
+        display: block;
+    }
+
+    .wrapper-wild {
+        @media (max-width: 576px) {
+            display: block;
+            text-align: center;
+        }
     }
 }
 
@@ -302,11 +332,6 @@
         align-items: center;
         .wrapper-wild-img {
             margin-right: 1rem !important;
-        }
-
-        @media (max-width: 576px) {
-            display: block;
-            text-align: center;
         }
     }
     @media (min-width: 768px) {

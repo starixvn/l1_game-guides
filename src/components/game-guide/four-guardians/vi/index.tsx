@@ -322,15 +322,17 @@ const renderWild = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Wild</h2>
-            <div className={Styles[freeSpinContentEX]}>
-                <Image
-                    src="/static/images/four-guardians/guide_example_wild.png"
-                    alt="guide_example_wild"
-                    width={133}
-                    height={87}
-                    layout="fixed"
-                    loading="eager"
-                />
+            <div className={Styles["wild-content-ex"]}>
+                <span className={Styles["wrapper-wild"]}>
+                    <Image
+                        src="/static/images/four-guardians/guide_example_wild.png"
+                        alt="guide_example_wild"
+                        width={244}
+                        height={159}
+                        layout="fixed"
+                        loading="eager"
+                    />
+                </span>
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
