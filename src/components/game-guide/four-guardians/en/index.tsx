@@ -507,7 +507,7 @@ const renderWild = (odds: number[][]) => {
                         and{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
-                            src="./static/images/four-guardians/en/item10.png"
+                            src="./static/images/four-guardians/item10.png"
                             alt="item10"
                         ></img>
                     </li>
