@@ -271,7 +271,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                         </div>
                                     </li>
                                     <li>
-                                        If the total points of Player's first two cards are 6 or 7 then the Banker will stand on a total of
+                                        If the total points of {`Player's`} first two cards are 6 or 7 then the Banker will stand on a total of
                                         6 or 7, and draw on a total of 5 or less.
                                     </li>
                                 </ul>

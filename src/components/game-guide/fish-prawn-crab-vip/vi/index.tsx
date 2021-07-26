@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "next-themes";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
@@ -10,6 +11,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
+    const { theme } = useTheme();
     return (
         <>
             <ul className="game-guide">
@@ -21,7 +23,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bàn chơi.
                     </p>
                     <div className="icon-wrapper">
-                        {renderListIcon()}
+                        {renderListIcon(theme)}
                         <div className="text">Nai</div>
                         <div className="text">Bầu</div>
                         <div className="text">Gà</div>

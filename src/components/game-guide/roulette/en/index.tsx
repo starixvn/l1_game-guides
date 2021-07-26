@@ -153,7 +153,7 @@ const renderBetChipsNotice = () => {
                                 />
                                 <div>
                                     <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one
-                                    the areas marked "1:3" at the end of the columns.
+                                    the areas marked {`"1:3"`} at the end of the columns.
                                 </div>
                             </div>
                         </td>
@@ -187,7 +187,7 @@ const renderBetChipsNotice = () => {
                                 />
                                 <div>
                                     <strong>Dozen: </strong>a bet on twelve consecutive numbers.<br></br>+ Place your chips in one of the
-                                    three areas marked "1-12", "13-24" or "25-36".
+                                    three areas marked {`"1-12", "13-24" or "25-36"`}.
                                 </div>
                             </div>
                         </td>

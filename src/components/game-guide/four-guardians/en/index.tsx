@@ -4,8 +4,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
-import { IObjectKeys } from "../../../../common/constants";
-import { locales } from "../../../../common/constants";
+import { IObjectKeys, locales } from "../../../../common/constants";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -19,7 +18,7 @@ const renderGameRule = () => {
             <h2>Game Rules</h2>
             <ul className="desc">
                 <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing "Spin".
+                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
                     <div className="text-center">
                         <strong>Total Bet</strong> = Paylines * Bet Level
                     </div>
@@ -70,7 +69,7 @@ export const renderIconContent = (
     return (
         <span className={Styles["wrapper-icon"]}>
             <Image
-                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png?1`}
+                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png?v1`}
                 width={200}
                 height={132}
                 layout="fixed"
@@ -80,7 +79,7 @@ export const renderIconContent = (
 
             <img
                 className={`${Styles[itemName]} ${Styles["customize"]} ${locale === locales.en ? Styles["en"] : ""}`}
-                src={`./static/images/four-guardians/${itemName === "item10" ? item10LocaleMapper[locale] : itemName}.png`}
+                src={`./static/images/four-guardians/${itemName === "item10" ? item10LocaleMapper[locale] : itemName}.png?v1`}
                 alt={itemName}
             ></img>
             <div
@@ -233,7 +232,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         <span className={Styles["wrapper-icon-dark"]}>
             <Image
                 className={`${Styles[iconBox]}`}
-                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png?1"
+                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png?v1"
                 width={269}
                 height={132}
                 layout="fixed"
@@ -412,7 +411,8 @@ const renderFreeSpin = (odds: number[][]) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin" symbols must appear in different reels. For example, if there are 3 "Free Spin"
+                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
+                    {`"Free Spin"`}
                     symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
@@ -427,7 +427,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 "Free spin" symbols in the result, but 3 symbols located on the same reel. The player is not
+                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols located on the same reel. The player is not
                             eligible for the Free spins bonus.
                         </span>
                     </div>
@@ -508,7 +508,7 @@ const renderBonus = (odds: number[][]) => {
 
                         <ul className="desc">
                             <li>
-                                There are 4 "Bonus" symbols in the result, but 2 symbols located on the same reel. The player is only
+                                There are 4 {`"Bonus"`} symbols in the result, but 2 symbols located on the same reel. The player is only
                                 eligible for 3 Treasure Chests.
                             </li>
                             <li>
@@ -590,7 +590,7 @@ const renderWild = (odds: number[][]) => {
                         </div>
                         <div className={Styles[wrapperWildImg]}>
                             <Image
-                                src="/static/images/four-guardians/item9.png"
+                                src="/static/images/four-guardians/item9.png?v1"
                                 alt="item9"
                                 width={74}
                                 height={50}

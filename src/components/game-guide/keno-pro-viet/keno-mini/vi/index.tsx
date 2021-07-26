@@ -62,7 +62,7 @@ const bettingOptions = () => {
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 188. Cược vào "XỈU" thắng.
+                                            <strong>Tổng điểm</strong> = 188. Cược vào {`"XỈU"`} thắng.
                                         </td>
                                     </tr>
                                 </tbody>
