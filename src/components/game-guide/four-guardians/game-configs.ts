@@ -9,13 +9,13 @@ const odds = {
     7: { 2: 0, 3: 3, 4: 6, 5: 18 },
     8: { 2: 0, 3: 3, 4: 4, 5: 5 },
     9: { 2: 8, 3: 50, 4: 1000, 5: 8000 },
-    10: { 2: 4, 3: 25, 4: 100, 5: 0 },
+    10: { 2: 4, 3: 25, 4: 100, 5: 5000 },
 };
 
 const GameConfigs = {
-    jackpot: { winningRatio: 0.98 },
+    jackpot: { winningRatio: 0 },
     odds: odds,
-    stakeLevels: [1, 10, 50],
+    stakeLevels: [0.1, 1, 5],
 };
 
 export default GameConfigs;

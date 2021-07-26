@@ -1,10 +1,13 @@
 const choicesMaxBet = {
-    Sets4: 2000,
-    special: 1000,
-    head: 5000,
-    tail: 5000,
-    Sets27: 20000,
-    others: 20000,
+    Sets4: 200,
+    special: 100,
+    head: 500,
+    tail: 500,
+    Sets27: 2000,
+    others: 2000,
+    parlay2: 200,
+    parlay3: 100,
+    parlay4: 100,
 };
 const odds = {
     Sets4: 24,
@@ -13,13 +16,16 @@ const odds = {
     tail: 9,
     Sets27: 3.6,
     others: 1.96,
+    parlay2: 13,
+    parlay3: 50,
+    parlay4: 120,
 };
 
 const GameConfigs = {
     choices_maxbet: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 20000,
-    minbet: 10,
+    maxbet: 2000,
+    minbet: 1,
     odds: odds,
 };
 
