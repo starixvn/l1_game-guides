@@ -271,7 +271,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
     const { theme } = useTheme();
-    const pathImg = theme === Themes.light ? "dark/guide-stats-vi.png" : "guide-stats-vi.png?1";
+    const pathImg = theme === Themes.light ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
     return (
         <>
             <ul className="game-guide">
@@ -303,7 +303,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                     width={718}
                                     height={150}
                                     layout="responsive"
-                                    loading="lazy"
+                                    loading="eager"
                                 />
                             </div>
 
