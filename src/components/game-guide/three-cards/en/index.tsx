@@ -1,4 +1,5 @@
 import React from "react";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
@@ -15,7 +16,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>Select the chip value you wish to play. Players can bet on one or more betting options shown on the game table.</li>
+                <li>Players can bet on one or more betting options shown on the game table.</li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, cards will be turned up.</li>
                 <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
@@ -88,10 +89,8 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
         <li className="guide-item">
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
-                    stake.
-                </li>
+                <li>The winning amount is calculated according to the payout ratio.</li>
+                <li>The Payout includes the initial stake.</li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
@@ -149,28 +148,42 @@ export const renderChoiceImage = (locale = "en") => {
                 <img
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]}`}
                     src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
+                    alt="red"
                 ></img>
+                <p>{locale === locales.en ? "Red" : "Đỏ"}</p>
             </div>
             <div className={Styles[wrapperImg]}>
                 <img
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]}`}
                     src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
+                    alt="black"
                 ></img>
+                <p>{locale === locales.en ? "Black" : "Đen"}</p>
             </div>
             <div className={Styles[wrapperImg]}>
                 <img
                     className={`${Styles[imgCustomize]} ${Styles["diamond"]}`}
                     src="./static/images/three-cards/table_icon_diamond.png"
+                    alt="diamond"
                 ></img>
+                <p>{locale === locales.en ? "Diamonds" : "Rô"}</p>
             </div>
             <div className={Styles[wrapperImg]}>
-                <img className={`${Styles[imgCustomize]} ${Styles["heart"]}`} src="./static/images/three-cards/table_icon_heart.png"></img>
+                <img
+                    className={`${Styles[imgCustomize]} ${Styles["heart"]}`}
+                    src="./static/images/three-cards/table_icon_heart.png"
+                    alt="heart"
+                ></img>
+
+                <p>{locale === locales.en ? "Hearts" : "Cơ"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_spade.png"></img>
+            <div className={`${Styles[wrapperImg]} ${Styles["spade"]}`}>
+                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_spade.png" alt="spade"></img>
+                <p>{locale === locales.en ? "Spades" : "Bích"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
-                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_club.png"></img>
+            <div className={`${Styles[wrapperImg]} ${Styles["club"]}`}>
+                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_club.png" alt="club"></img>
+                <p>{locale === locales.en ? "Clubs" : "Chuồn"}</p>
             </div>
         </>
     );
@@ -192,15 +205,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <span className={Styles["img-black"]}>♣</span>). The objective of this game is to predict the suit of 3 cards drawn
                         for each round. If the outcome matches the player’s bet, the player wins.
                     </p>
-                    <div className={Styles["container-img"]}>
-                        {renderChoiceImage(locales.en)}
-                        <p>Red</p>
-                        <p>Black</p>
-                        <p>Diamonds</p>
-                        <p>Hearts</p>
-                        <p>Spades</p>
-                        <p>Clubs</p>
-                    </div>
+                    <div className={Styles["container-img"]}>{renderChoiceImage(locales.en)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
 

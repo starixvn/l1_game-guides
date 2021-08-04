@@ -16,7 +16,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>
-                    Người chơi chọn mệnh giá và nhấp vào cửa cược mong muốn trước khi 3 lá bài được mở. Nếu kết quả mở ra trùng với lựa chọn
+                    Người chơi dự đoán kết quả và hoàn tất việc đặt cược trước khi 3 lá bài được mở. Nếu kết quả mở ra trùng với lựa chọn
                     của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
                 </li>
                 <li>
@@ -150,19 +150,13 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         <strong>{gameName}</strong> hấp dẫn người chơi với lối chơi khá đơn giản. Trò chơi sử dụng bộ bài tây 52 lá (không
-                        bao gồm lá Joker) và sẽ có 6 lựa chọn (cửa) trên bàn chơi bao gồm 2 cửa chính (Đỏ, Đen) và 4 cửa phụ (Rô, Cơ, Bích,
-                        Chuồn). Mỗi phiên sẽ có 3 lá bài được rút, người chơi đặt cược vào các lựa chọn mong muốn. Kết quả thắng thua sẽ
-                        được tính dựa trên chất của các lá bài.
+                        bao gồm lá Joker) và sẽ có 6 lựa chọn (cửa) trên bàn chơi bao gồm 2 cửa chính Đỏ, Đen và 4 cửa phụ Rô (
+                        <span className={Styles["img-red"]}>♦</span>), Cơ (<span className={Styles["img-red"]}>♥</span>), Bích (
+                        <span className={Styles["img-black"]}>♠</span>) , Chuồn (<span className={Styles["img-black"]}>♣</span>). Mỗi phiên
+                        sẽ có 3 lá bài được rút, người chơi đặt cược vào các lựa chọn mong muốn. Kết quả thắng thua sẽ được tính dựa trên
+                        chất của các lá bài.
                     </p>
-                    <div className={Styles["container-img"]}>
-                        {renderChoiceImage(locales.vi)}
-                        <p>Đỏ</p>
-                        <p>Đen</p>
-                        <p>Rô</p>
-                        <p>Cơ</p>
-                        <p>Bích</p>
-                        <p>Chuồn</p>
-                    </div>
+                    <div className={Styles["container-img"]}>{renderChoiceImage(locales.vi)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
 

@@ -11,13 +11,13 @@ const renderGameRule = (maxBetRound: number | string) => {
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>
-                    Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi hệ thống chọn ngẫu nhiên 20 quả bóng. Nếu tổng
-                    điểm của 20 quả bóng được chọn có kết quả trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ
-                    tiền cược nếu lựa chọn sai.
+                    Người chơi dự đoán kết quả và hoàn tất việc đặt cược trước khi hệ thống chọn ngẫu nhiên 20 quả bóng. Nếu tổng điểm của
+                    20 quả bóng được chọn có kết quả trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược
+                    nếu lựa chọn sai.
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxBetRound}. Lưu ý, không thể hủy cược sau khi đặt.
+                    phiên là {maxBetRound}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, hệ thống sẽ chọn
