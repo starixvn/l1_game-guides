@@ -1,4 +1,5 @@
 import React from "react";
+
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { ChoicesMaxBetProMaxProps, GameConfigProps, OddsProMaxProps } from "../type";

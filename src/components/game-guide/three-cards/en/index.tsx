@@ -1,11 +1,12 @@
 import React from "react";
+import { useTheme } from "next-themes";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
-import { locales } from "../../../../common/constants";
 
 const renderGameRule = (odds: OddsProps, maxbet: number) => {
     const bet = 10;
@@ -138,15 +139,17 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
     );
 };
 
-export const renderChoiceImage = (locale = "en") => {
+export const renderChoiceImage = (locale = "en", isSM: boolean) => {
     const imgCustomize = "img-customize";
     const wrapperImg = "wrapper-img";
     const prefixLocale = locale === locales.en ? "_en" : "";
+    const classMobile = isSM ? "sm" : "";
+
     return (
         <>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]}`}>
                 <img
-                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]}`}
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]} ${Styles[classMobile]}`}
                     src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
                     alt="red"
                 ></img>
@@ -154,7 +157,9 @@ export const renderChoiceImage = (locale = "en") => {
             </div>
             <div className={Styles[wrapperImg]}>
                 <img
-                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]}`}
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${
+                        Styles[classMobile]
+                    }`}
                     src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
                     alt="black"
                 ></img>
@@ -162,7 +167,7 @@ export const renderChoiceImage = (locale = "en") => {
             </div>
             <div className={Styles[wrapperImg]}>
                 <img
-                    className={`${Styles[imgCustomize]} ${Styles["diamond"]}`}
+                    className={`${Styles[imgCustomize]} ${Styles["diamond"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_diamond.png"
                     alt="diamond"
                 ></img>
@@ -170,19 +175,27 @@ export const renderChoiceImage = (locale = "en") => {
             </div>
             <div className={Styles[wrapperImg]}>
                 <img
-                    className={`${Styles[imgCustomize]} ${Styles["heart"]}`}
+                    className={`${Styles[imgCustomize]} ${Styles["heart"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_heart.png"
                     alt="heart"
                 ></img>
 
                 <p>{locale === locales.en ? "Hearts" : "Cơ"}</p>
             </div>
-            <div className={`${Styles[wrapperImg]} ${Styles["spade"]}`}>
-                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_spade.png" alt="spade"></img>
+            <div className={Styles[wrapperImg]}>
+                <img
+                    className={`${Styles[imgCustomize]} ${Styles["spade"]} ${Styles[classMobile]}`}
+                    src="./static/images/three-cards/table_icon_spade.png"
+                    alt="spade"
+                ></img>
                 <p>{locale === locales.en ? "Spades" : "Bích"}</p>
             </div>
-            <div className={`${Styles[wrapperImg]} ${Styles["club"]}`}>
-                <img className={Styles[imgCustomize]} src="./static/images/three-cards/table_icon_club.png" alt="club"></img>
+            <div className={Styles[wrapperImg]}>
+                <img
+                    className={`${Styles[imgCustomize]} ${Styles["club"]} ${Styles[classMobile]}`}
+                    src="./static/images/three-cards/table_icon_club.png"
+                    alt="club"
+                ></img>
                 <p>{locale === locales.en ? "Clubs" : "Chuồn"}</p>
             </div>
         </>
@@ -192,6 +205,8 @@ export const renderChoiceImage = (locale = "en") => {
 const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { theme } = useTheme();
+    const isSM = theme === Themes.blue ? false : true;
 
     return (
         <>
@@ -205,7 +220,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <span className={Styles["img-black"]}>♣</span>). The objective of this game is to predict the suit of 3 cards drawn
                         for each round. If the outcome matches the player’s bet, the player wins.
                     </p>
-                    <div className={Styles["container-img"]}>{renderChoiceImage(locales.en)}</div>
+                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
 

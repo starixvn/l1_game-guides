@@ -1,11 +1,13 @@
 import React from "react";
+import { useTheme } from "next-themes";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderChoiceImage } from "../en";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
-import { locales } from "../../../../common/constants";
 
 const renderGameRule = (odds: OddsProps, maxbet: number) => {
     const bet = 10;
@@ -143,6 +145,9 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
 const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { theme } = useTheme();
+    const isSM = theme === Themes.blue ? false : true;
+
     return (
         <>
             <ul className="game-guide">
@@ -156,7 +161,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         sẽ có 3 lá bài được rút, người chơi đặt cược vào các lựa chọn mong muốn. Kết quả thắng thua sẽ được tính dựa trên
                         chất của các lá bài.
                     </p>
-                    <div className={Styles["container-img"]}>{renderChoiceImage(locales.vi)}</div>
+                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.vi, isSM)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
 
