@@ -1,12 +1,12 @@
 import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { StatisticalTable } from "../../../shared/se-die/en";
 
-const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
+const renderGameRule = (maxbet: string) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -20,9 +20,6 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Options</th>
                                     <th>Winning Conditions</th>
                                     <th>Descriptions</th>
-                                    <th>
-                                        Payouts <div className="font-weight-normal">(including the initial stake)</div>
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,7 +27,6 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <td rowSpan={2}>ODD</td>
                                     <td>3 red, 1 white</td>
                                     {renderThreeRedOneWhite()}
-                                    <td rowSpan={5}>1:{odds.even}</td>
                                 </tr>
                                 <tr>
                                     <td>1 red, 3 white</td>
@@ -54,14 +50,12 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                     </div>
                 </li>
                 <li>
-                    Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Clear button if you want to reset all
-                    your bets.
-                </li>
-                <li>
                     Players can increase their stake amount by placing another bet with the same selection before the betting time expires.
                 </li>
+                <li>The maximum total stake per round is {maxbet}. Note, placed bets cannot be canceled.</li>
                 <li>
-                    Min bet and Max bet must be between {minbet} - {maxbet} and the maximum total stake per round is {maxbet}
+                    Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
+                    the players who have the latest bet ticket.
                 </li>
                 <li>
                     Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
@@ -100,8 +94,43 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>
-
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">
+                    <h2>Payouts</h2>
+                    <ul className="desc">
+                        <li>
+                            The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.
+                        </li>
+                        <li>
+                            All winning amounts are instantly added to your account balance when bets are settled.
+                            <div className="table-container">
+                                <table className="table text-center table-small">
+                                    <thead>
+                                        <tr>
+                                            <th>Options</th>
+                                            <th>Payouts</th>
+                                            <th>
+                                                Bet Limit <br /> (Min - Max)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ODD</td>
+                                            <td rowSpan={2}>1:{odds.even}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(maxbet)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>EVEN</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
                 {renderStatisticTable()}
                 {renderTermsAndConditionsEN()}
             </ul>

@@ -1,11 +1,12 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { StatisticalTable, PayoutOrRuleDataOnTable } from "../../../shared/se-die/vi";
+import { StatisticalTable } from "../../../shared/se-die/vi";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 
-const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
+const renderGameRule = (maxBet: string) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -19,31 +20,49 @@ const renderGameRule = (maxbet: string, minbet: string, odds: OddsProps) => {
                                     <th>Lựa Chọn</th>
                                     <th>Điều Kiện Thắng</th>
                                     <th>Mô Tả</th>
-                                    <th>Tỷ Lệ Trả Thưởng (đã bao gồm tiền cược)</th>
                                 </tr>
                             </thead>
-                            <tbody>{PayoutOrRuleDataOnTable(odds)}</tbody>
+                            <tbody>
+                                <tr>
+                                    <td rowSpan={2}>Lẻ</td>
+                                    <td>3 đỏ, 1 trắng</td>
+                                    {renderThreeRedOneWhite()}
+                                </tr>
+                                <tr>
+                                    <td>1 đỏ, 3 trắng</td>
+                                    {renderOneRedThreeWhite()}
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3}>Chẵn</td>
+                                    <td>4 đỏ</td>
+                                    {renderFourRed()}
+                                </tr>
+                                <tr>
+                                    <td>4 trắng</td>
+                                    {renderFourWhite()}
+                                </tr>
+                                <tr>
+                                    <td>2 đỏ, 2 trắng</td>
+                                    {renderTwoRedTwoWhite()}
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </li>
                 <li>Trong 1 phiên cược, người chơi chỉ được chọn 1 cửa duy nhất Chẵn hoặc Lẻ.</li>
-                <li>Sau khi chọn mức tiền cược, nhấn nút Đồng Ý để xác nhận hoặc chọn Xóa nếu muốn nhập lại số tiền khác.</li>
                 <li>
                     Người chơi có thể tăng lượng tiền đặt cược bằng cách đặt thêm vào cùng 1 lựa chọn trước khi thời gian đặt cược kết thúc.
                 </li>
-                <li>
-                    Số tiền cược phải nằm trong khoảng từ {minbet} đến {maxbet} cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là{" "}
-                    {maxbet}
-                </li>
+                <li>Tổng tiền cược tối đa cho 1 phiên là {maxBet}. Lưu ý, không thể hủy cược sau khi đặt.</li>
                 <li>
                     Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được
                     hiển thị đếm ngược trên bàn chơi.
                 </li>
                 <li>
                     Nhà cái cân cửa: trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài
-                    khoản người chơi đặt cược sau. Ví dụ: Người chơi A đặt 80 vào cửa Chẵn, người chơi B đặt <strong>50</strong> vào cửa Lẻ,
-                    người chơi C đặt 60 vào cửa Lẻ. Hệ thống sẽ tính toán cân bằng lượng tiền giữa 2 cửa và sẽ trả lại cho C (người chơi đặt
-                    cược sau) <strong>30</strong>
+                    khoản người chơi đặt cược sau. <br></br>Ví dụ: Người chơi A đặt 80 vào cửa Chẵn, người chơi B đặt <strong>50</strong>{" "}
+                    vào cửa Lẻ, người chơi C đặt 60 vào cửa Lẻ. Hệ thống sẽ tính toán cân bằng lượng tiền giữa 2 cửa và sẽ trả lại cho C
+                    (người chơi đặt cược sau) <strong>30</strong>
                 </li>
             </ul>
         </>
@@ -66,7 +85,41 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         thua sẽ phụ thuộc vào số mặt đỏ hoặc trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet), numberWithCommas(minbet), odds)}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">
+                    <h2>Trả thưởng</h2>
+                    <ul className="desc">
+                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
+                        <li>
+                            Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                            <div className="table-container">
+                                <table className="table text-center table-small">
+                                    <thead>
+                                        <tr>
+                                            <th>Lựa Chọn</th>
+                                            <th>Tỷ Lệ Trả Thưởng</th>
+                                            <th>
+                                                Giới Hạn Cược <br /> (Min - Max)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Chẵn</td>
+                                            <td rowSpan={2}>1:{odds.even}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minbet)} - {numberWithCommas(maxbet)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lẻ</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
                 <li className="guide-item">
                     <h2>Bảng thống kê kết quả</h2>
                     <ul className="desc">

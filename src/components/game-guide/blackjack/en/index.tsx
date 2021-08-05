@@ -56,7 +56,11 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                             <tr>
                                                 <td>
                                                     Hit
-                                                    <img className={Styles[wrapperImg]} src="./static/images/blackjack/guide_hit.png"></img>
+                                                    <img
+                                                        className={Styles[wrapperImg]}
+                                                        src="./static/images/blackjack/guide_hit.png"
+                                                        alt="guide_hit"
+                                                    ></img>
                                                 </td>
                                                 <td className="text-start">
                                                     <ul className="desc">
@@ -78,6 +82,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                     <img
                                                         className={Styles[wrapperImg]}
                                                         src="./static/images/blackjack/guide_stop.png"
+                                                        alt="guide_stop"
                                                     ></img>
                                                 </td>
                                                 <td className="text-start">
@@ -94,6 +99,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                     <img
                                                         className={Styles[wrapperImg]}
                                                         src="./static/images/blackjack/guide_split.png"
+                                                        alt="guide_split"
                                                     ></img>
                                                 </td>
                                                 <td className="text-start">
@@ -127,6 +133,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                                                     <img
                                                         className={Styles[wrapperImg]}
                                                         src="./static/images/blackjack/guide_double.png"
+                                                        alt="guide_double"
                                                     ></img>
                                                 </td>
                                                 <td className="text-start">

@@ -14,18 +14,18 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>
-                    Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi bát được mở. Nếu kết quả mở ra trùng với lựa
-                    chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.{" "}
+                    Người chơi dự đoán kết quả và hoàn tất việc đặt cược trước khi bát được mở. Nếu kết quả mở ra trùng với lựa chọn của
+                    bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
                     phiên là {maxBetFollowChoice?.maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
-                {renderGameRuleOrPayoutTable(gameId)}
                 <li>
-                    Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ
-                    được hiển thị đếm ngược trên bàn chơi.
+                    Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được
+                    hiển thị đếm ngược trên bàn chơi.
                 </li>
+                {renderGameRuleOrPayoutTable(gameId)}
             </ul>
         </>
     );
@@ -176,9 +176,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                const description1 = "là bản rút gọn - mini game của trò Xóc Đĩa, với giao diện đơn giản, ";
-                const description2 = "nhẹ nhàng nhưng không kém phần lôi cuốn - hấp dẫn.";
-                return `${description1}${description2} `;
+                return "là bản rút gọn của trò Xóc Đĩa. ";
             case 22:
                 return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
             default:
@@ -193,9 +191,9 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName} {gameDescription()}
-                        Trò chơi có luật và cách chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế
-                        2 mặt đỏ và trắng. Người chơi sẽ đặt cược vào các lựa chọn (cửa) có sẵn. Kết quả thắng thua sẽ phụ thuộc vào số mặt
-                        đỏ hoặc trắng được lật của đồng xu sau khi xóc.
+                        Trò chơi có luật chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế 2 mặt đỏ
+                        và trắng. Người chơi sẽ đặt cược vào các lựa chọn (cửa) có sẵn. Kết quả thắng thua sẽ phụ thuộc vào số mặt đỏ hoặc
+                        trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice, props?.gameId ?? 0, numberWithCommas(minbet))}</li>

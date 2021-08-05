@@ -2,12 +2,12 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { renderTwoRedTwoWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { StatisticalTable, PayoutOrRuleDataOnTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
+import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 
-const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
+const renderGameRule = (maxBetRound: number | string, gameId = 0) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -29,35 +29,6 @@ const renderGameRuleBase = (maxBetRound: number | string, gameId = 0) => {
     );
 };
 
-const renderGameRuleMini = (maxBetRound: number | string, gameId = 0) => {
-    return (
-        <>
-            <h2>Game Rules</h2>
-            <ul className="desc">
-                <li>
-                    Select the desired chip with the value that suits you best, and place your chip on preferred betting options. Note,
-                    placed bets cannot be canceled.
-                </li>
-                <li>Players can bet on one or more betting options shown on the table.</li>
-                <li>Once the betting time has expired, the bowl is opened and the result will be shown.</li>
-                <li>The maximum total stake per round is {maxBetRound} </li>
-
-                <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
-                {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
-                    <>
-                        <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
-                        <li>
-                            Players can bet on one or more betting options shown on the game table. All bets must be placed before the
-                            betting time expires. Note, placed bets cannot be canceled.
-                        </li>
-                        <li>The maximum total stake per round is {maxBetRound}</li>
-                    </>
-                )}
-            </ul>
-        </>
-    );
-};
-
 const renderGameRuleTable = (gameId: number) => {
     return (
         <div className="table-container">
@@ -70,7 +41,28 @@ const renderGameRuleTable = (gameId: number) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {PayoutOrRuleDataOnTable()}
+                    <tr>
+                        <td rowSpan={2}>ODD</td>
+                        <td>3 red, 1 white</td>
+                        {renderThreeRedOneWhite()}
+                    </tr>
+                    <tr>
+                        <td>1 red, 3 white</td>
+                        {renderOneRedThreeWhite()}
+                    </tr>
+                    <tr>
+                        <td rowSpan={3}>EVEN</td>
+                        <td>4 red</td>
+                        {renderFourRed()}
+                    </tr>
+                    <tr>
+                        <td>4 white</td>
+                        {renderFourWhite()}
+                    </tr>
+                    <tr>
+                        <td>2 red, 2 white</td>
+                        {renderTwoRedTwoWhite()}
+                    </tr>
                     {RedWhiteDataOnTable()}
                     {!SeDieMini.includes(gameId) && (
                         <tr>
@@ -102,9 +94,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                const description1 = "game is a compact version of Se Die game with fewer betting options. ";
-                const description2 = "Players can open up the game and place bets anytime, anywhere, even in the game room. ";
-                return `${description1}${description2} `;
+                return " is a compact version of Se Die game with fewer betting options. ";
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:
@@ -122,11 +112,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
-                <li className="guide-item">
-                    {SeDieMini.includes(gameId ? gameId : SeDieMini[0])
-                        ? renderGameRuleMini(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)
-                        : renderGameRuleBase(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)}
-                </li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
