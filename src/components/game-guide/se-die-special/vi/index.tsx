@@ -14,7 +14,7 @@ const renderGameRule = (maxBet: string) => {
                 <li>
                     Người chơi dự đoán kết quả của 4 xu sau khi xóc bằng cách chọn cửa Chẵn hoặc Lẻ cùng với mức cược mong muốn.
                     <div className="table-container">
-                        <table className="table text-center table-medium left">
+                        <table className="table text-center table-medium">
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>

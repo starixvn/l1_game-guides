@@ -15,7 +15,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                     <h2>Introduction</h2>
                     <p className="content">
                         {gameName} or commonly known as Sicbo or Tai Sai, is a game played with three dice. The players place bets and
-                        predict the total points of the three dice is BIG or SMALL.
+                        predict the total points of the three dice are BIG or SMALL.
                     </p>
                 </li>
                 <li className="guide-item">

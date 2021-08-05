@@ -14,7 +14,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò chơi đổ xúc xắc đơn giản. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán
+                        {gameName} là trò chơi đổ xúc xắc đơn giản, trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán
                         xem kết quả là Tài hay Xỉu.
                     </p>
                 </li>
