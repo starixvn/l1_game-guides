@@ -6,7 +6,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../baccarat.module.scss";
 
-const renderGameRule = () => {
+const renderGameRule = (maxBetRound: number | string) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -20,6 +20,7 @@ const renderGameRule = () => {
                     Small, Player Pair, or Banker Pair options.
                 </li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
+                <li>The maximum total stake per round is {maxBetRound}</li>
                 <li>Once the betting time has expired, the dealer turns the cards face up.</li>
                 <li>Based on the total points of the first two cards, the dealer will determine whether either hand gets a third card.</li>
                 <li>
@@ -172,13 +173,13 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <p className="content">
                         {gameName}{" "}
                         {BaccaratVip.includes(gameId ? gameId : BaccaratVip[0])
-                            ? "is an enhanced version of Baccarat with impressive graphic designs, animations and higher betting limits. "
+                            ? "is an enhanced version of Baccarat with higher betting limits. "
                             : "is one of the most often-played card games in the casino. "}
                         The game is played with one standard 52-card deck (excluding Joker). There are 7 betting options and Punters can bet
                         on one or more betting options shown on the game table.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Third Card Rules</h2>
@@ -271,8 +272,8 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                         </div>
                                     </li>
                                     <li>
-                                        If the total points of {`Player's`} first two cards are 6 or 7 then the Banker will stand on a total of
-                                        6 or 7, and draw on a total of 5 or less.
+                                        If the total points of {`Player's`} first two cards are 6 or 7 then the Banker will stand on a total
+                                        of 6 or 7, and draw on a total of 5 or less.
                                     </li>
                                 </ul>
                             </li>
@@ -283,7 +284,11 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <h2>Payouts</h2>
 
                     <ul className="desc">
+                        <li>The winning amount is calculated according to the payout ratio.</li>
+                        <li>The Payout includes the initial stake.</li>
+                        <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                         <li className="contentBeforeEmpty">
+                            <strong>Note:</strong> All bets on Player and Banker will be refunded if the result is a draw.
                             <div className="table-container">
                                 <table className="table text-center table-medium">
                                     <thead>
@@ -293,8 +298,6 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <th>
                                                 Bet Limit <br></br>(Min-Max)
                                             </th>
-                                            <th>Max Total Stake Per Round</th>
-                                            <th>Note</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -303,10 +306,6 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>1: {player}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMainChoice}
-                                            </td>
-                                            <td rowSpan={7}>{numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet))}</td>
-                                            <td rowSpan={7} className={Styles["note-width"]}>
-                                                All bets on Player and Banker will be refunded if the result is a draw.
                                             </td>
                                         </tr>
                                         <tr>
@@ -339,11 +338,6 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                 </table>
                             </div>
                         </li>
-                        <li>
-                            The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
-                            initial stake.
-                        </li>
-                        <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>
                 </li>
                 {renderTermsAndConditionsEN()}

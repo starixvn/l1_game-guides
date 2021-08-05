@@ -87,7 +87,7 @@ const renderPointCalculationRules = (gameName: string) => {
             <h2>Quy tắc tính điểm</h2>
             <ul className="desc">
                 <li>
-                    Điểm số các lá bài trong Rồng Hổ sẽ được tính như sau:
+                    Điểm số các lá bài trong {gameName} sẽ được tính như sau:
                     <ul className="detail">
                         <li>Các lá bài từ 2 đến 9 có giá trị tùy theo số trên mỗi lá bài; lá A được tính là 1 điểm.</li>
                         <li>Các lá 10, J, Q, K được tính là 0 điểm.</li>
@@ -124,8 +124,8 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <p className="content">
                         {gameName}{" "}
                         {BaccaratVip.includes(gameId ? gameId : BaccaratVip[0])
-                            ? "là game đánh bài, được xây dựng với giao diện đồ họa hoàn toàn mới, nhằm nâng cao trải nghiệm của người chơi."
-                            : "hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới."}
+                            ? "là phiên bản đặc biệt của trò Cào Baccarat, với hạn mức cược được nâng cấp, mở rộng. "
+                            : "hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới. "}
                         Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa
                         chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược
                         vào lựa chọn mong muốn.
