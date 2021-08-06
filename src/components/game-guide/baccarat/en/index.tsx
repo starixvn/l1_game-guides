@@ -33,7 +33,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Options</th>
+                                    <th className={Styles["rule-options"]}>Options</th>
                                     <th>Descriptions</th>
                                 </tr>
                             </thead>
@@ -110,7 +110,7 @@ const renderPointCalculationRules = (gameName: string) => {
                         <tr>
                             <th>First Two Cards</th>
                             <th>Third Card</th>
-                            <th>Totals</th>
+                            <th className={Styles["point-total"]}>Totals</th>
                             <th>Total Points Based On {gameName} Rules</th>
                         </tr>
                     </thead>

@@ -8,4 +8,15 @@
 
 .rule-hand-width {
     min-width: 26rem;
+    @media (max-width: 576px) {
+        min-width: 11rem;
+    }
+}
+
+.rule-options {
+    min-width: 10rem;
+}
+
+.point-total {
+    min-width: 10rem;
 }

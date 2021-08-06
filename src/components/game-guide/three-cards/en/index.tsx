@@ -27,7 +27,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                         <table className="table text-center table-small">
                             <thead>
                                 <tr>
-                                    <th>Options</th>
+                                    <th className={Styles["payout-option"]}>Options</th>
                                     <th>Winning Conditions</th>
                                 </tr>
                             </thead>
@@ -98,7 +98,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                         <table className="table text-center table-small">
                             <thead>
                                 <tr>
-                                    <th>Options</th>
+                                    <th className={Styles["payout-option"]}>Options</th>
                                     <th>Payouts </th>
                                     <th>Bet Limit (Min - Max)</th>
                                 </tr>
