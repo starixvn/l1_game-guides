@@ -99,7 +99,7 @@ const renderPointCalculationRules = (gameName: string) => {
                     <thead>
                         <tr>
                             <th>Hai lá bài đầu</th>
-                            <th>Lá thứ ba</th>
+                            <th className={Styles["point-three-cards"]}>Lá thứ ba</th>
                             <th className={Styles["point-total"]}>Điểm số</th>
                             <th>Tổng điểm tính theo {gameName} </th>
                         </tr>

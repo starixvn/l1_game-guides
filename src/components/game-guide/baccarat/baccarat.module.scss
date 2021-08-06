@@ -9,7 +9,7 @@
 .rule-hand-width {
     min-width: 26rem;
     @media (max-width: 576px) {
-        min-width: 11rem;
+        min-width: 13rem;
     }
 }
 
@@ -19,4 +19,8 @@
 
 .point-total {
     min-width: 10rem;
+}
+
+.point-three-cards {
+    min-width: 6rem;
 }
