@@ -4,7 +4,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
-import { IObjectKeys, locales } from "../../../../common/constants";
+import { locales } from "../../../../common/constants";
 
 const number = "number";
 const numberFirst = "number-first";

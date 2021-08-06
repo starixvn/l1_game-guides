@@ -161,8 +161,8 @@ export const renderTBodyPointCalculationRules = () => {
 };
 
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, userStakeLevel, maxBetFollowChoice, gameId } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { odds, minbet } = gameConfigs;
     const { player, banker, big, small, tie, playerPair } = odds;
 
     return (

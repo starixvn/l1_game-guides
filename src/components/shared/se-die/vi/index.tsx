@@ -1,6 +1,4 @@
 import React from "react";
-import { OddsProps } from "../../../game-guide/se-die/type";
-import { OddsProps as OddsPropsSpecial } from "../../../game-guide/se-die-special/type";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../dot";
 
 export const StatisticalTable = () => {
