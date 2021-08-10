@@ -209,7 +209,7 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
                             <td>Lẻ</td>
                         </tr>
                         <tr>
-                            <td>Chẳn</td>
+                            <td>Chẵn</td>
                         </tr>
                         <tr>
                             <td>Kim</td>
@@ -226,14 +226,14 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
                             </td>
                         </tr>
                         <tr>
-                            <td>Thuỷ</td>
+                            <td>Thủy</td>
                             <td>1: {odds.water}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
                             </td>
                         </tr>
                         <tr>
-                            <td>Hoả</td>
+                            <td>Hỏa</td>
                             <td>1: {odds.fire}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}

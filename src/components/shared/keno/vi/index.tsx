@@ -12,7 +12,7 @@ export const FiveElements = () => {
                     <strong>Mộc:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 696 đến 763
                 </li>
                 <li>
-                    <strong>Thuỷ:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
+                    <strong>Thủy:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 764 đến 855
                 </li>
                 <li>
                     <strong>Hỏa:</strong> tổng điểm của 20 quả bóng được rút ra nằm trong khoảng 856 đến 923

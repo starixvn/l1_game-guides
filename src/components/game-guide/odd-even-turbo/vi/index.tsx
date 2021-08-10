@@ -24,7 +24,7 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                         <li>Người chơi dự đoán tổng điểm xúc xắc bằng cách chọn cửa Chẵn hoặc Lẻ cùng với mức cược mong muốn.</li>
                         <ul className="detail">
                             <li>
-                                <strong>Chẳn:</strong> tổng điểm 3 viên xúc xắc là số chẵn.
+                                <strong>Chẵn:</strong> tổng điểm 3 viên xúc xắc là số chẵn.
                             </li>
                             <li>
                                 <strong>Lẻ:</strong> tổng điểm 3 viên xúc xắc là số lẻ.{" "}

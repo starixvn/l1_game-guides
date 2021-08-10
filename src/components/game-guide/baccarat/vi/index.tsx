@@ -278,7 +278,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>1: {small}</td>
                                         </tr>
                                         <tr>
-                                            <td>Hoà</td>
+                                            <td>Hòa</td>
                                             <td>1: {tie}</td>
                                             <td rowSpan={3}>
                                                 {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetSubChoice}

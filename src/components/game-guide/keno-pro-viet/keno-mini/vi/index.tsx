@@ -118,7 +118,7 @@ const bettingOptions = () => {
                             <strong>Mộc:</strong> tổng điểm của 10 quả bóng được rút ra nằm trong khoảng 164 đến 187
                         </li>
                         <li>
-                            <strong>Thuỷ:</strong> tổng điểm của 10 quả bóng được rút ra nằm trong khoảng 188 đến 222
+                            <strong>Thủy:</strong> tổng điểm của 10 quả bóng được rút ra nằm trong khoảng 188 đến 222
                         </li>
                         <li>
                             <strong>Hỏa:</strong> tổng điểm của 10 quả bóng được rút ra nằm trong khoảng 223 đến 246
@@ -208,7 +208,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                                             <td rowSpan={2}> 1: {odds.odd}</td>
                                         </tr>
                                         <tr>
-                                            <td>Chẳn</td>
+                                            <td>Chẵn</td>
                                         </tr>
                                         <tr>
                                             <td>Kim</td>
@@ -225,14 +225,14 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Thuỷ</td>
+                                            <td>Thủy</td>
                                             <td>1: {odds.water}</td>
                                             <td>
                                                 {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Hoả</td>
+                                            <td>Hỏa</td>
                                             <td>1: {odds.fire}</td>
                                             <td>
                                                 {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}

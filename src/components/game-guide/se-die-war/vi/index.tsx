@@ -58,7 +58,7 @@ const renderGameRule = (maxbet: string) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan={2}>Hoà</td>
+                                    <td colSpan={2}>Hòa</td>
                                     <td colSpan={2} className="text-start">
                                         Nhà Con và Nhà Cái có cùng kết quả.
                                     </td>

@@ -227,7 +227,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                                             <td>Lẻ</td>
                                         </tr>
                                         <tr>
-                                            <td>Chẳn</td>
+                                            <td>Chẵn</td>
                                         </tr>
                                         <tr>
                                             <td>Kim</td>
@@ -244,14 +244,14 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Thuỷ</td>
+                                            <td>Thủy</td>
                                             <td>1: {water}</td>
                                             <td>
                                                 {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Hoả</td>
+                                            <td>Hỏa</td>
                                             <td>1: {fire}</td>
                                             <td>
                                                 {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}
