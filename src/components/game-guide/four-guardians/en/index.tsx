@@ -4,20 +4,20 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
+import { IObjectKeys, locales } from "../../../../common/constants";
 
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-
 const renderGameRule = () => {
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
                 <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing "Spin".
+                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
                     <div className="text-center">
                         <strong>Total Bet</strong> = Paylines * Bet Level
                     </div>
@@ -50,18 +50,25 @@ const renderPayouts = (odds: number[][]) => {
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>
             </ul>
-            {renderPayoutsIconFirstLine(odds)}
-            {renderPayoutsIconSecondLine(odds)}
+            {renderPayoutsIconFirstLine(odds, locales.en)}
+            {renderPayoutsIconSecondLine(odds, locales.en)}
             {renderExamplePayout(odds)}
         </li>
     );
 };
 
-export const renderIconContent = (isBgBlack = false, itemName = "item10", isContentTop = false, isGem = false, dataContent: number[][]) => {
+export const renderIconContent = (
+    isBgBlack = false,
+    itemName = "item10",
+    isContentTop = false,
+    isGem = false,
+    dataContent: number[][],
+    locale = "en"
+) => {
     return (
         <span className={Styles["wrapper-icon"]}>
             <Image
-                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png`}
+                src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png?v1`}
                 width={200}
                 height={132}
                 layout="fixed"
@@ -92,66 +99,128 @@ export const renderIconContent = (isBgBlack = false, itemName = "item10", isCont
     );
 };
 
-export const renderPayoutsIconFirstLine = (odds: number[][]) => {
+export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                {renderIconContent(false, "item10", false, false, [
-                    [5, odds[10][5]],
-                    [4, odds[10][4]],
-                    [3, odds[10][3]],
-                    [2, odds[10][2]],
-                ])}
-                {renderIconContent(false, "item6", true, false, [
-                    [5, odds[6][5]],
-                    [4, odds[6][4]],
-                    [3, odds[6][3]],
-                ])}
-                {renderIconContent(false, "item5", true, false, [
-                    [5, odds[5][5]],
-                    [4, odds[5][4]],
-                    [3, odds[5][3]],
-                ])}
-                {renderIconContent(false, "item4", true, false, [
-                    [5, odds[4][5]],
-                    [4, odds[4][4]],
-                    [3, odds[4][3]],
-                ])}
+                {renderIconContent(
+                    false,
+                    "item10",
+                    true,
+                    false,
+                    [
+                        [4, odds[10][4]],
+                        [3, odds[10][3]],
+                        [2, odds[10][2]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item6",
+                    true,
+                    false,
+                    [
+                        [5, odds[6][5]],
+                        [4, odds[6][4]],
+                        [3, odds[6][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item5",
+                    true,
+                    false,
+                    [
+                        [5, odds[5][5]],
+                        [4, odds[5][4]],
+                        [3, odds[5][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item4",
+                    true,
+                    false,
+                    [
+                        [5, odds[4][5]],
+                        [4, odds[4][4]],
+                        [3, odds[4][3]],
+                    ],
+                    locale
+                )}
             </div>
         </>
     );
 };
 
-export const renderPayoutsIconSecondLine = (odds: number[][]) => {
+export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
-                {renderIconContent(false, "item3", true, false, [
-                    [5, odds[3][5]],
-                    [4, odds[3][4]],
-                    [3, odds[3][3]],
-                ])}
-                {renderIconContent(false, "item2", true, true, [
-                    [5, odds[2][5]],
-                    [4, odds[2][4]],
-                    [3, odds[2][3]],
-                ])}
-                {renderIconContent(false, "item1", true, true, [
-                    [5, odds[1][5]],
-                    [4, odds[1][4]],
-                    [3, odds[1][3]],
-                ])}
-                {renderIconContent(false, "item0", true, true, [
-                    [5, odds[0][5]],
-                    [4, odds[0][4]],
-                    [3, odds[0][3]],
-                ])}
-                {renderIconContent(false, "item9", false, false, [
-                    [5, odds[9][5]],
-                    [4, odds[9][4]],
-                    [3, odds[9][3]],
-                    [2, odds[9][2]],
-                ])}
+                {renderIconContent(
+                    false,
+                    "item3",
+                    true,
+                    false,
+                    [
+                        [5, odds[3][5]],
+                        [4, odds[3][4]],
+                        [3, odds[3][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item2",
+                    true,
+                    true,
+                    [
+                        [5, odds[2][5]],
+                        [4, odds[2][4]],
+                        [3, odds[2][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item1",
+                    true,
+                    true,
+                    [
+                        [5, odds[1][5]],
+                        [4, odds[1][4]],
+                        [3, odds[1][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item0",
+                    true,
+                    true,
+                    [
+                        [5, odds[0][5]],
+                        [4, odds[0][4]],
+                        [3, odds[0][3]],
+                    ],
+                    locale
+                )}
+                {renderIconContent(
+                    false,
+                    "item9",
+                    false,
+                    false,
+                    [
+                        [5, odds[9][5]],
+                        [4, odds[9][4]],
+                        [3, odds[9][3]],
+                        [2, odds[9][2]],
+                    ],
+                    locale
+                )}
             </div>
         </>
     );
@@ -162,8 +231,8 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         <span className={Styles["wrapper-icon-dark"]}>
             <Image
                 className={`${Styles[iconBox]}`}
-                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png"
-                width={237}
+                src="/static/images/four-guardians/guide_item_symbol_bg-dark.png?v1"
+                width={269}
                 height={132}
                 layout="fixed"
                 alt="guide_item_symbol_bg"
@@ -175,10 +244,15 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
                 src={`./static/images/four-guardians/${itemName}.png`}
                 alt={itemName}
             ></img>
-            <div className={`${Styles["icon-content-wrapper"]} ${Styles["spin-position"]}`}>
+            <div
+                className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
+            >
                 {dataContent.map((data, index) => {
                     return (
-                        <div key={index} className={`${Styles["icon-content"]} ${Styles["free-spin"]}`}>
+                        <div
+                            key={index}
+                            className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
+                        >
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
                                 {data[1]} {textAfterNumber && <span className="text-white">{textAfterNumber}</span>}
@@ -287,12 +361,13 @@ const renderFreeSpin = (odds: number[][]) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin" symbols must appear in different reels. For example, if there are 3 "Free Spin"
+                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
+                    {`"Free Spin"`}
                     symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                src="/static/images/four-guardians/guide_example_free_spin.png?v1"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -302,7 +377,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 "Free spin" symbols in the result, but 3 symbols located on the same reel. The player is not
+                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols located on the same reel. The player is not
                             eligible for the Free spins bonus.
                         </span>
                     </div>
@@ -372,7 +447,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                src="/static/images/four-guardians/guide_example_bonus.png?v1"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -383,7 +458,7 @@ const renderBonus = (odds: number[][]) => {
 
                         <ul className="desc">
                             <li>
-                                There are 4 "Bonus" symbols in the result, but 2 symbols located on the same reel. The player is only
+                                There are 4 {`"Bonus"`} symbols in the result, but 2 symbols located on the same reel. The player is only
                                 eligible for 3 Treasure Chests.
                             </li>
                             <li>
@@ -403,15 +478,17 @@ const renderWild = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Wild</h2>
-            <div className={Styles[freeSpinContentEX]}>
-                <Image
-                    src="/static/images/four-guardians/guide_example_wild.png"
-                    alt="guide_example_wild"
-                    width={133}
-                    height={87}
-                    layout="fixed"
-                    loading="eager"
-                />
+            <div className={Styles["wild-content-ex"]}>
+                <span className={Styles["wrapper-wild"]}>
+                    <Image
+                        src="/static/images/four-guardians/guide_example_wild.png"
+                        alt="guide_example_wild"
+                        width={245}
+                        height={160}
+                        layout="fixed"
+                        loading="eager"
+                    />
+                </span>
 
                 <ul className="desc">
                     <li>
@@ -429,7 +506,7 @@ const renderWild = (odds: number[][]) => {
                         ></img>
                         and{" "}
                         <img
-                            className={`${Styles["item10"]} ${Styles["mini"]}`}
+                            className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item10.png"
                             alt="item10"
                         ></img>
@@ -463,7 +540,7 @@ const renderWild = (odds: number[][]) => {
                         </div>
                         <div className={Styles[wrapperWildImg]}>
                             <Image
-                                src="/static/images/four-guardians/item9.png"
+                                src="/static/images/four-guardians/item9.png?v1"
                                 alt="item9"
                                 width={74}
                                 height={50}
@@ -475,8 +552,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -485,8 +562,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -536,7 +613,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/list_icon.png`}
+                            src={`/static/images/four-guardians/list_icon.png?v1`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}
@@ -545,6 +622,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
+
                 {renderPayouts(odds)}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}

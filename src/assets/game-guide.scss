@@ -7,6 +7,7 @@
     --border-line: none;
 
     // text-size
+    --big-title-font-size: 1.8rem;
     --title-font-size: 1.6rem;
     --sub-title-font-size: 1.4rem;
     --line-height: 2rem;
@@ -33,6 +34,7 @@
     --border-line: none;
 
     // text-size
+    --big-title-font-size: 1.8rem;
     --title-font-size: 1.6rem;
     --sub-title-font-size: 1.4rem;
     --line-height: 2rem;
@@ -59,6 +61,7 @@
     --border-line: #949494 1px solid;
 
     // text-size
+    --big-title-font-size: 2.4rem;
     --title-font-size: 2.2rem;
     --sub-title-font-size: 2.1rem;
     --line-height: 3.4rem;
@@ -118,6 +121,12 @@ ul {
         line-height: var(--line-height);
     }
 
+    h1 {
+        display: inline-block;
+        font-size: var(--big-title-font-size);
+        font-weight: 500;
+        color: var(--primary-color);
+    }
     .guide-item {
         counter-increment: guide-list;
 

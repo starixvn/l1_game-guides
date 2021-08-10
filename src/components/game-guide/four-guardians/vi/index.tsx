@@ -5,6 +5,7 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
+import { locales } from "../../../../common/constants";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -47,8 +48,8 @@ const renderPayouts = (odds: number[][]) => {
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine(odds)}
-            {renderPayoutsIconSecondLine(odds)}
+            {renderPayoutsIconFirstLine(odds, locales.vi)}
+            {renderPayoutsIconSecondLine(odds, locales.vi)}
             {renderExamplePayouts(odds)}
         </li>
     );
@@ -276,18 +277,21 @@ const renderBonus = (odds: number[][]) => {
 
 const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
+    const betValue = 10;
     return (
         <li className="guide-item">
             <h2>Wild</h2>
-            <div className={Styles[freeSpinContentEX]}>
-                <Image
-                    src="/static/images/four-guardians/guide_example_wild.png"
-                    alt="guide_example_wild"
-                    width={133}
-                    height={87}
-                    layout="fixed"
-                    loading="eager"
-                />
+            <div className={Styles["wild-content-ex"]}>
+                <span className={Styles["wrapper-wild"]}>
+                    <Image
+                        src="/static/images/four-guardians/guide_example_wild.png"
+                        alt="guide_example_wild"
+                        width={245}
+                        height={160}
+                        layout="fixed"
+                        loading="eager"
+                    />
+                </span>
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
@@ -302,7 +306,7 @@ const renderWild = (odds: number[][]) => {
                             src="./static/images/four-guardians/item8.png"
                             alt="item8"
                         ></img>
-                        và{" "}
+                        và Nổ Hũ{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item10.png"
@@ -318,7 +322,7 @@ const renderWild = (odds: number[][]) => {
             <div>
                 <strong>Ví dụ</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
-                    <p>Người chơi chọn mức cược 1, dòng cược số 1. Kết quả như sau:</p>
+                    <p>Người chơi chọn mức cược {betValue}, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
                             <Image
@@ -354,8 +358,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -364,8 +368,8 @@ const renderWild = (odds: number[][]) => {
                             <Image
                                 src="/static/images/four-guardians/item5.png"
                                 alt="item5"
-                                width={76}
-                                height={77}
+                                width={85}
+                                height={86}
                                 layout="fixed"
                                 loading="eager"
                             />
@@ -379,7 +383,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * {odds[2][3]} = {odds[2][3]}
+                            . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -388,10 +392,10 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = 1 * {odds[5][3]} = {odds[5][3]}
+                            . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}0</p>
                 </div>
             </div>
         </li>

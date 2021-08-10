@@ -8,8 +8,7 @@ import Image from "next/image";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 import { Themes } from "../../../../common/constants";
 
-export const renderListIcon = () => {
-    const { theme } = useTheme();
+export const renderListIcon = (theme: string | undefined) => {
     const widthIcon1 = theme === Themes.blue ? 100 : 75;
     const widthIcon2 = theme === Themes.blue ? 95 : 70;
     return (
@@ -70,7 +69,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds, minbet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
-
+    const { theme } = useTheme();
     return (
         <>
             <ul className="game-guide">
@@ -83,7 +82,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bets on which symbols will appear.
                     </p>
                     <div className="icon-wrapper">
-                        {renderListIcon()}
+                        {renderListIcon(theme)}
                         <div className="text">Stag</div>
                         <div className="text">Gourd</div>
                         <div className="text">Rooster</div>

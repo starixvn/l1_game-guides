@@ -42,8 +42,8 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                             </li>
                             <li>If the Player’s total goes over 21 (Bust). The Player loses, even if the Dealer also exceeds 21.</li>
                             <li>
-                                Depending on the total points of the first two cards, the Player will have up to four options: "Hit",
-                                "Stand", "Double", or "Split", as per the game rules.
+                                Depending on the total points of the first two cards, the Player will have up to four options: {`"Hit"`},{" "}
+                                {`"Stand"`}, {`"Double"`}, or {`"Split"`}, as per the game rules.
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -150,8 +150,8 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                         <span className="font-weight-medium title-text">Rules for the Dealer’s hand</span>
                         <ul className="desc">
                             <li>
-                                The Dealer starts his/her hand after the player has completed. The Dealer must draw on "16 or less" and
-                                stand on "17 and more".
+                                The Dealer starts his/her hand after the player has completed. The Dealer must draw on {`"16 or less"`} and
+                                stand on {`"17 and more"`}.
                             </li>
                             <li>If the Player and the Dealer have the same total, the outcome is PUSH (Tie) and the bet is returned. </li>
                         </ul>
@@ -209,10 +209,10 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} (also called "21") is a fun and enjoyable casino card game. The game is played with six standard decks of
-                        52 cards (excluding Joker) shuffled together. In Blackjack, the Player plays against the Dealer, and the object of
-                        the game is to have the total points of your cards as close to 21 as possible, without going over 21. The Player
-                        will win if the total points of your cards are closer to 21 than the Dealer's cards.
+                        {gameName} (also called {`"21"`}) is a fun and enjoyable casino card game. The game is played with six standard
+                        decks of 52 cards (excluding Joker) shuffled together. In Blackjack, the Player plays against the Dealer, and the
+                        object of the game is to have the total points of your cards as close to 21 as possible, without going over 21. The
+                        Player will win if the total points of your cards are closer to 21 than the {`Dealer's`} cards.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxbet, minbet)}</li>
@@ -242,7 +242,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                     <ul className="style-number-rule">
                         <li className="number-dot">
                             The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
-                            the "Deal" button.
+                            the {`"Deal"`} button.
                         </li>
                         <li className="number-dot">
                             The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and

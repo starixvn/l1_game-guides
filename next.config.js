@@ -9,9 +9,6 @@ const appSettings = {
 };
 
 module.exports = {
-    future: {
-        webpack5: true,
-    },
     publicRuntimeConfig: appSettings,
     generateBuildId: async () => {
         return uuidv4();
