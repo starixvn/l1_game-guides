@@ -247,7 +247,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
-                            Giới hạn cược và tỷ lệ trả thưởng trong Cào Baccarat như sau:
+                            Giới hạn cược và tỷ lệ trả thưởng trong {gameName} như sau:
                             <div className="table-container">
                                 <table className="table text-center table-medium left">
                                     <thead>

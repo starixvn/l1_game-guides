@@ -77,7 +77,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 </li>
                 <li>
                     Bet 10 on Diamonds option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Diamonds (
-                    <span className={Styles[imgRed]}>♥</span>),Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
+                    <span className={Styles[imgRed]}>♦</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
                     {bet} x {odds.diamonds} = {winDiamonds}
                 </li>
             </ul>
