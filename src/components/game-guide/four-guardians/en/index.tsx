@@ -377,7 +377,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols located on the same reel. The player is not
+                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols are located on the same reel. The player is not
                             eligible for the Free spins bonus.
                         </span>
                     </div>
@@ -456,17 +456,16 @@ const renderBonus = (odds: number[][]) => {
                             />
                         </div>
 
-                        <ul className="desc">
-                            <li>
-                                There are 4 {`"Bonus"`} symbols in the result, but 2 symbols located on the same reel. The player is only
-                                eligible for 3 Treasure Chests.
-                            </li>
-                            <li>
-                                Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will
-                                randomly open Chests and settle the game round.
-                            </li>
-                        </ul>
+                        <span>
+                            There are 4 {`"Bonus"`} symbols in the result, but 2 symbols are located on the same reel. The player is only
+                            eligible for 3 Treasure Chests.
+                        </span>
                     </div>
+                </li>
+                <li>
+                    {" "}
+                    Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
+                    Chests and settle the game round.
                 </li>
             </ul>
         </li>

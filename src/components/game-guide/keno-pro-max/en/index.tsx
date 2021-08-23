@@ -12,9 +12,7 @@ const payouts = (odds: OddsProMaxProps, minBet: number, choicesMaxBet: ChoicesMa
         <>
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>
-                The winning amount is calculated according to the payout ratio.
-                </li>
+                <li>The winning amount is calculated according to the payout ratio.</li>
                 <li>The Payout includes the initial stake.</li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
@@ -102,7 +100,7 @@ const bettingOptions = () => {
                             <strong>Big:</strong> The sum of the 20 numbered balls drawn is {`>=`} 811
                         </li>
                         <li>
-                            <strong>Small:</strong> The sum of the 20 numbered balls drawn is{`<=`} 810
+                            <strong>Small:</strong> The sum of the 20 numbered balls drawn is {`<=`} 810
                         </li>
                     </ul>
                     <div>
