@@ -22,6 +22,8 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
         "@babel/preset-env": "^7.14.5",
         "@babel/preset-react": "^7.14.5",
         "@types/enzyme": "^3.10.8",
@@ -36,6 +38,7 @@
         "enzyme-to-json": "^3.6.2",
         "eslint": "^7.31.0",
         "eslint-config-next": "^11.0.1",
+        "husky": "^7.0.1",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.0.4",
         "jest-extended": "^0.11.5",
@@ -49,5 +52,10 @@
         "reportPath": "reports",
         "reportFile": "test-reporter.xml",
         "indent": 4
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
     }
 }

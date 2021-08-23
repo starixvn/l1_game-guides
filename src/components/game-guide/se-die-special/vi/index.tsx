@@ -60,9 +60,9 @@ const renderGameRule = (maxBet: string) => {
                 </li>
                 <li>
                     Nhà cái cân cửa: trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài
-                    khoản người chơi đặt cược sau. <br></br>Ví dụ: Người chơi A đặt 80 vào cửa Chẵn, người chơi B đặt <strong>50</strong>{" "}
-                    vào cửa Lẻ, người chơi C đặt 60 vào cửa Lẻ. Hệ thống sẽ tính toán cân bằng lượng tiền giữa 2 cửa và sẽ trả lại cho C
-                    (người chơi đặt cược sau) <strong>30</strong>
+                    khoản người chơi đặt cược sau. <br></br>Ví dụ: Người chơi A đặt 80 vào cửa Chẵn, người chơi B đặt 50 vào cửa Lẻ, người
+                    chơi C đặt 60 vào cửa Lẻ. Hệ thống sẽ tính toán cân bằng lượng tiền giữa 2 cửa và sẽ trả lại cho C (người chơi đặt cược
+                    sau) 30
                 </li>
             </ul>
         </>
