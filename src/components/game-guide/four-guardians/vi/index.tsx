@@ -161,7 +161,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_free_spin.png"
+                                src="/static/images/four-guardians/L1/guide_example_free_spin.png"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -252,7 +252,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/four-guardians/guide_example_bonus.png"
+                                src="/static/images/four-guardians/L1/guide_example_bonus.png"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -309,7 +309,7 @@ const renderWild = (odds: number[][]) => {
                         và Nổ Hũ{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/four-guardians/item10.png"
+                            src="./static/images/four-guardians/L1/item10.png"
                             alt="item10"
                         ></img>
                     </li>
@@ -417,7 +417,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/list_icon.png`}
+                            src={`/static/images/four-guardians/L1/list_icon.png`}
                             alt="guide_item_symbol_bg"
                             width={38}
                             height={38}
