@@ -147,7 +147,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
 
     return (
         <>
-            <div className={`${Styles[wrapperImg]}`}>
+            <div className={`${Styles[wrapperImg]} ${Styles["red"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]} ${Styles[classMobile]}`}
                     src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
@@ -155,7 +155,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                 ></img>
                 <p>{locale === locales.en ? "Red" : "Đỏ"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]} ${Styles["black"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${
                         Styles[classMobile]
@@ -165,7 +165,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                 ></img>
                 <p>{locale === locales.en ? "Black" : "Đen"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]} ${Styles["diamond"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${Styles["diamond"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_diamond.png"
@@ -173,7 +173,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                 ></img>
                 <p>{locale === locales.en ? "Diamonds" : "Rô"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]} ${Styles["heart"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${Styles["heart"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_heart.png"
@@ -182,7 +182,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
 
                 <p>{locale === locales.en ? "Hearts" : "Cơ"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]} ${Styles["spade"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${Styles["spade"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_spade.png"
@@ -190,7 +190,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                 ></img>
                 <p>{locale === locales.en ? "Spades" : "Bích"}</p>
             </div>
-            <div className={Styles[wrapperImg]}>
+            <div className={`${Styles[wrapperImg]} ${Styles["club"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${Styles["club"]} ${Styles[classMobile]}`}
                     src="./static/images/three-cards/table_icon_club.png"
