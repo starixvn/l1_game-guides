@@ -90,6 +90,7 @@
         height: 6.6rem;
     }
     &.sm {
+        grid-template-rows: 8rem;
         transform: scale(0.45);
         margin-bottom: 0rem;
     }
@@ -113,4 +114,8 @@
 
 .payout-option {
     min-width: 9rem;
+}
+
+.content-customize {
+    margin-bottom: 0;
 }

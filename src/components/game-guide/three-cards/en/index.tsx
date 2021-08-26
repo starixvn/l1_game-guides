@@ -213,7 +213,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
-                    <p className="content">
+                    <p className={`content ${Styles["content-customize"]}`}>
                         {gameName} is another exciting card game that is played with one standard 52-card deck (excluding Joker). There are
                         6 betting options including Red, Black, Diamonds (<span className={Styles["img-red"]}>♦</span>), Hearts (
                         <span className={Styles["img-red"]}>♥</span>), Spades (<span className={Styles["img-black"]}>♠</span>), and Clubs (
