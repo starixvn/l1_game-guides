@@ -14,7 +14,7 @@ const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
         <>
-            <h2 className={Styles["heading2"]}>Game Rules</h2>
+            <h2>Game Rules</h2>
             <ul className="desc">
                 <li>
                     The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
@@ -43,7 +43,7 @@ const renderGameRule = () => {
 const renderPayouts = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Paytable</h2>
+            <h2>Paytable</h2>
             <ul className="desc">
                 <li>The winning amount is calculated according to the payout ratio.</li>
                 <li>
@@ -309,7 +309,7 @@ const renderExamplePayout = (odds: number[][]) => {
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Free Spin</h2>
+            <h2>Free Spin</h2>
             <ul className="desc">
                 <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
                 <li>The Free Spin symbols do not have to be on the same payline.</li>
@@ -389,7 +389,7 @@ const renderFreeSpin = (odds: number[][]) => {
 const renderBonus = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Bonus</h2>
+            <h2>Bonus</h2>
             <ul className="desc">
                 <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – Treasure Chest.</li>
                 <li>The Bonus symbols do not have to be on the same payline.</li>
@@ -470,7 +470,7 @@ const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Wild</h2>
+            <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <Image
@@ -589,7 +589,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
         <>
             <ul className="game-guide">
                 <li className={`guide-item ${Styles["guide-item"]}`}>
-                    <h2 className={Styles["heading2"]}>Introduction</h2>
+                    <h2>Introduction</h2>
                     <p className="content">
                         {gameName} is an online slot game, with high quality graphics. The game includes 5 reels and 3 rows, with 11
                         different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.

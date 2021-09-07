@@ -11,7 +11,7 @@ const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
         <>
-            <h2 className={Styles["heading2"]}>Cách chơi</h2>
+            <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.</li>
                 <li>
@@ -40,7 +40,7 @@ const renderGameRule = () => {
 const renderPayouts = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Trả thưởng</h2>
+            <h2>Trả thưởng</h2>
             <ul className="desc">
                 <li>Mỗi biểu tượng sẽ có tỷ lệ trả thưởng tương ứng khác nhau.</li>
                 <li>
@@ -102,7 +102,7 @@ const renderExamplePayouts = (odds: number[][]) => {
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Free Spin</h2>
+            <h2>Free Spin</h2>
             <ul className="desc">
                 <li>
                     Free Spin hay còn gọi là lượt quay miễn phí, người chơi sẽ nhận được số lượt quay miễn phí tương ứng với số biểu tượng
@@ -191,7 +191,7 @@ const renderFreeSpin = (odds: number[][]) => {
 const renderBonus = (odds: number[][]) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Bonus</h2>
+            <h2>Bonus</h2>
             <ul className="desc">
                 <li>
                     Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
@@ -276,7 +276,7 @@ const renderWild = (odds: number[][]) => {
     const betValue = 10;
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading2"]}>Wild</h2>
+            <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <Image
@@ -397,7 +397,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
         <>
             <ul className="game-guide">
                 <li className={`guide-item ${Styles["guide-item"]}`}>
-                    <h2 className={Styles["heading2"]}>Giới thiệu</h2>
+                    <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName} là thể loại Slot game (game xèng), trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người
                         chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
