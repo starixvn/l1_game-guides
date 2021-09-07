@@ -1,0 +1,172 @@
+@import "../../../assets/components/base-slot-game";
+
+.heading2,
+.guide-item:before {
+    color: #de5400 !important;
+}
+
+.guide-item {
+    color: #6a4100 !important;
+}
+
+.custom-table-thead {
+    background-color: #613613 !important;
+
+    .custom-table-th {
+        color: #fff790 !important;
+    }
+}
+
+.custom-table-tbody {
+    color: #6a4100 !important;
+}
+
+.item0 {
+    max-width: 10.4rem;
+    max-height: 8.9rem;
+    &.customize {
+        top: 13%;
+        left: 5%;
+    }
+}
+.item1 {
+    max-width: 9.2rem;
+    max-height: 9.4rem;
+    &.customize {
+        top: 13%;
+        left: 7%;
+    }
+}
+.item2 {
+    max-width: 10rem;
+    max-height: 9.1rem;
+    &.customize {
+        top: 14%;
+        left: 5%;
+    }
+    &.mini {
+        transform: none;
+        max-width: 4.5rem;
+        max-height: 3.6rem;
+        margin: 0 0.5rem;
+    }
+}
+.item3 {
+    max-width: 9.8rem;
+    max-height: 10rem;
+    &.customize {
+        top: 13%;
+        left: 6%;
+    }
+}
+.item4 {
+    max-width: 9.1rem;
+    max-width: 9.3rem;
+    &.customize {
+        top: 13%;
+        left: 8%;
+    }
+}
+.item5 {
+    max-width: 10rem;
+    max-height: 10.1rem;
+    &.customize {
+        top: 12%;
+        left: 6%;
+    }
+    &.mini {
+        transform: none;
+        max-width: 4rem;
+        max-height: 4.1rem;
+        margin: 0 0.5rem;
+    }
+}
+.item6 {
+    max-width: 9.2rem;
+    max-height: 9.5rem;
+    &.customize {
+        top: 13%;
+        left: 9%;
+    }
+}
+.item7 {
+    max-width: 10.6rem;
+    max-height: 8.8rem;
+    &.customize {
+        top: 13%;
+        left: 5%;
+    }
+    &.dark {
+        top: 15%;
+        left: 6%;
+    }
+    &.mini {
+        transform: none;
+        max-width: 4.6rem;
+        max-height: 3.8rem;
+        margin: 0 1rem;
+    }
+}
+.item8 {
+    max-width: 10.7rem;
+    max-height: 8.7rem;
+    &.customize {
+        top: 13%;
+        left: 5%;
+    }
+    &.mini {
+        transform: none;
+        max-height: 3.7rem;
+        max-width: 4.7rem;
+        margin: 0 1rem;
+    }
+    &.dark {
+        top: 17%;
+        left: 7%;
+    }
+}
+.item9 {
+    @extend %item;
+    max-width: 8.4rem;
+    max-height: 9.4rem;
+    &.customize {
+        top: 13%;
+        left: 9%;
+    }
+}
+.item10 {
+    max-width: 10.3rem;
+    max-height: 8.9rem;
+
+    &.customize {
+        top: 14%;
+        left: 5%;
+    }
+
+    &.mini {
+        transform: none;
+        max-width: 4.8rem;
+        max-height: 5.4rem;
+        margin: 0 1rem;
+    }
+    &.en {
+        max-width: 6.9rem;
+    }
+}
+
+.icon-content {
+    .number {
+        &.number-first,
+        &.number-second {
+            color: #6a4100 !important;
+        }
+    }
+
+    .text {
+        color: #6a4100 !important;
+    }
+}
+
+.wild-content-ex {
+    grid-template-columns: 14.6rem 1fr;
+}

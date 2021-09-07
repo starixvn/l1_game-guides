@@ -1,9 +1,394 @@
 import React from "react";
-
+import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../heroes-slot.module.scss";
+import { locales } from "../../../../common/constants";
+
+const freeSpinContentEX = "free-spin-content-ex";
+const renderGameRule = () => {
+    return (
+        <>
+            <h2 className={Styles["heading2"]}>Cách chơi</h2>
+            <ul className="desc">
+                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.</li>
+                <li>
+                    <strong>Lưu ý: </strong>Tổng tiền cược = Mức Cược * Số Dòng Cược
+                </li>
+                <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
+                <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
+                <li>
+                    Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
+                    <div className={Styles["wrapper-img-rectangle"]}>
+                        <Image
+                            src={`/static/images/heroes/guide_payline.png`}
+                            alt="guide_payline"
+                            width={834}
+                            height={159}
+                            layout="responsive"
+                            loading="eager"
+                        />
+                    </div>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderPayouts = (odds: number[][]) => {
+    return (
+        <li className={`guide-item ${Styles["guide-item"]}`}>
+            <h2 className={Styles["heading2"]}>Trả thưởng</h2>
+            <ul className="desc">
+                <li>Mỗi biểu tượng sẽ có tỷ lệ trả thưởng tương ứng khác nhau.</li>
+                <li>
+                    <strong>Lưu ý:</strong> Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                </li>
+            </ul>
+
+            {renderPayoutsIconFirstLine(odds, locales.vi)}
+            {renderPayoutsIconSecondLine(odds, locales.vi)}
+            {renderExamplePayouts(odds)}
+        </li>
+    );
+};
+
+const renderExamplePayouts = (odds: number[][]) => {
+    return (
+        <>
+            <p>
+                <strong>Ví dụ:</strong>
+            </p>
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead className={Styles["custom-table-thead"]}>
+                        <tr>
+                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
+                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody className={Styles["custom-table-tbody"]}>
+                        <tr>
+                            <td rowSpan={3}>
+                                {renderIconContent(true, "item1", true, true, [
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
+                                ])}
+                            </td>
+                            <td>
+                                Nếu có <strong>5</strong> biểu tượng Sóng trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>4</strong> biểu tượng Sóng trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>3</strong> biểu tượng Sóng trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+};
+
+const renderFreeSpin = (odds: number[][]) => {
+    return (
+        <li className={`guide-item ${Styles["guide-item"]}`}>
+            <h2 className={Styles["heading2"]}>Free Spin</h2>
+            <ul className="desc">
+                <li>
+                    Free Spin hay còn gọi là lượt quay miễn phí, người chơi sẽ nhận được số lượt quay miễn phí tương ứng với số biểu tượng
+                    “Free Spin” quay được.
+                </li>
+                <li>Các biểu tượng “Free Spin” không bắt buộc phải nằm trên cùng một dòng cược.</li>
+            </ul>
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead className={Styles["custom-table-thead"]}>
+                        <tr>
+                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
+                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody className={Styles["custom-table-tbody"]}>
+                        <tr>
+                            <td rowSpan={3}>
+                                {renderIconContentBlack(
+                                    "item7",
+                                    [
+                                        [5, odds[7][5]],
+                                        [4, odds[7][4]],
+                                        [3, odds[7][3]],
+                                    ],
+                                    " FREE SPIN"
+                                )}
+                            </td>
+                            <td>
+                                Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {odds[7][5]} lượt quay miễn
+                                phí.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>4</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {odds[7][4]} lượt quay miễn
+                                phí.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>3</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {odds[7][3]} lượt quay miễn
+                                phí.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <strong>Lưu ý: </strong>
+            </p>
+            <ul className="desc">
+                <li>
+                    Các biểu tượng “Free Spin” phải nằm trên các cột khác nhau. Ví dụ, nếu có 3 biểu tượng “Free Spin” nằm trên cùng một
+                    cột, hệ thống sẽ tính là 1 biểu tượng.
+                    <div className={Styles[freeSpinContentEX]}>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/heroes/L1/guide_example_free_spin.png"
+                                alt="guide_item_symbol_bg"
+                                width={265}
+                                height={125}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <span>
+                            Có 4 biểu tượng “Free Spin” trong kết quả, nhưng do có 3 biểu tượng nằm trên cùng một cột. Người chơi không thỏa
+                            điều kiện nhận thưởng “Free Spin”.
+                        </span>
+                    </div>
+                </li>
+                <li className="clear-both">
+                    Mức Cược, số Dòng Cược của lượt quay miễn phí sẽ bằng với Mức Cược và số Dòng Cược của lượt quay gần nhất (lượt quay mà
+                    người chơi trúng Free Spin).
+                </li>
+                <li>
+                    Người chơi phải hoàn tất các lượt quay miễn phí trong vòng 24 tiếng tính từ thời điểm trúng Free Spin, sau khoảng thời
+                    gian này, các lượt quay chưa sử dụng sẽ bị hủy.
+                </li>
+            </ul>
+        </li>
+    );
+};
+
+const renderBonus = (odds: number[][]) => {
+    return (
+        <li className={`guide-item ${Styles["guide-item"]}`}>
+            <h2 className={Styles["heading2"]}>Bonus</h2>
+            <ul className="desc">
+                <li>
+                    Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
+                    <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>
+                    quay được.
+                </li>
+                <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
+            </ul>
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead className={Styles["custom-table-thead"]}>
+                        <tr>
+                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
+                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody className={Styles["custom-table-tbody"]}>
+                        <tr>
+                            <td rowSpan={3}>
+                                {renderIconContentBlack(
+                                    "item8",
+                                    [
+                                        [5, odds[8][5]],
+                                        [4, odds[8][4]],
+                                        [3, odds[8][3]],
+                                    ],
+                                    " BONUS"
+                                )}
+                            </td>
+                            <td>
+                                Nếu có <strong>5</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][5]} lần mở thưởng.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>4</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][4]} lần mở thưởng.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Nếu có <strong>3</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][3]} lần mở thưởng.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <strong>Lưu ý: </strong>
+            </p>
+            <ul className="desc">
+                <li>
+                    Các biểu tượng “Bonus” phải nằm trên các cột khác nhau. Ví dụ, nếu có 2 biểu tượng “Bonus” nằm trên cùng một cột, hệ
+                    thống sẽ tính là 1 biểu tượng.
+                    <div className={Styles[freeSpinContentEX]}>
+                        <div className={Styles["wrapper-free-spin-ex"]}>
+                            <Image
+                                src="/static/images/heroes/L1/guide_example_bonus.png"
+                                alt="guide_example_bonus"
+                                width={265}
+                                height={125}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <p>
+                            Có 4 biểu tượng “Bonus” trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được
+                            3 lần mở thưởng.
+                        </p>
+                    </div>
+                </li>
+                <li className="clear-both">
+                    Người chơi sẽ có 2 phút để hoàn tất việc mở thưởng. Nếu sau 2 phút, người chơi vẫn không thể hoàn tất, hệ thống sẽ mở
+                    ngẫu nhiên các phần thưởng cho đến khi hết lượt. Kết quả sẽ được lưu trong mục Lịch sử phiên.
+                </li>
+            </ul>
+        </li>
+    );
+};
+
+const renderWild = (odds: number[][]) => {
+    const wrapperWildImg = "wrapper-wild-img";
+    const betValue = 10;
+    return (
+        <li className={`guide-item ${Styles["guide-item"]}`}>
+            <h2 className={Styles["heading2"]}>Wild</h2>
+            <div className={Styles["wild-content-ex"]}>
+                <span className={Styles["wrapper-wild"]}>
+                    <Image
+                        src="/static/images/heroes/guide_example_wild.png"
+                        alt="guide_example_wild"
+                        width={128}
+                        height={143}
+                        layout="fixed"
+                        loading="eager"
+                    />
+                </span>
+                <ul className="desc">
+                    <li>
+                        Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
+                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png" alt="item7"></img>,
+                        Bonus{" "}
+                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>
+                        và{" "}
+                        <img
+                            className={`${Styles["item10"]} ${Styles["mini"]}`}
+                            src="./static/images/heroes/L1/item10.png"
+                            alt="item10"
+                        ></img>
+                    </li>
+                    <li>
+                        Người chơi sẽ nhận được mức trả thưởng cao nhất trên mỗi dòng cược trong trường hợp có được 2 nhóm biểu tượng cùng
+                        thỏa điều kiện thắng.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <strong>Ví dụ</strong>
+                <div className={Styles["wrapper-ex-wild"]}>
+                    <p>Người chơi chọn mức cược {betValue}, dòng cược số 1. Kết quả như sau:</p>
+                    <div className={Styles["wild-img"]}>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/heroes/item2.png"
+                                alt="item2"
+                                width={70}
+                                height={60}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/heroes/item2.png"
+                                alt="item2"
+                                width={70}
+                                height={60}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/heroes/item9.png"
+                                alt="item9"
+                                width={45}
+                                height={55}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/heroes/item5.png"
+                                alt="item5"
+                                width={62}
+                                height={63}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                        <div className={Styles[wrapperWildImg]}>
+                            <Image
+                                src="/static/images/heroes/item5.png"
+                                alt="item5"
+                                width={62}
+                                height={63}
+                                layout="fixed"
+                                loading="eager"
+                            />
+                        </div>
+                    </div>
+                    <ul className="plus">
+                        <li>
+                            Nếu biểu tượng Wild thay thế{" "}
+                            <img
+                                className={`${Styles["item2"]} ${Styles["mini"]}`}
+                                src="./static/images/heroes/item2.png"
+                                alt="item2-mini"
+                            ></img>
+                            . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
+                        </li>
+                        <li>
+                            Nếu biểu tượng Wild thay thế{" "}
+                            <img
+                                className={`${Styles["item5"]} ${Styles["mini"]}`}
+                                src="./static/images/heroes/item5.png"
+                                alt="item5-mini"
+                            ></img>
+                            . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
+                        </li>
+                    </ul>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}0</p>
+                </div>
+            </div>
+        </li>
+    );
+};
 
 const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
@@ -11,13 +396,27 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     return (
         <>
             <ul className="game-guide">
-                <li className="guide-item">
-                    <h2>Giới thiệu</h2>
+                <li className={`guide-item ${Styles["guide-item"]}`}>
+                    <h2 className={Styles["heading2"]}>Giới thiệu</h2>
                     <p className="content">
                         {gameName} là thể loại Slot game (game xèng), trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người
                         chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
+                    <div className={Styles["wrapper-list-icon"]}>
+                        <Image
+                            src={`/static/images/heroes/L1/list_icon.png`}
+                            alt="guide_item_symbol_bg"
+                            width={418}
+                            height={380}
+                            layout="responsive"
+                        />
+                    </div>
                 </li>
+                <li className={`guide-item ${Styles["guide-item"]}`}>{renderGameRule()}</li>
+                {renderPayouts(odds)}
+                {renderFreeSpin(odds)}
+                {renderBonus(odds)}
+                {renderWild(odds)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
