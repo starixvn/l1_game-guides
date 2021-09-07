@@ -610,7 +610,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsEN(Styles["guide-item"])}
             </ul>
         </>
     );

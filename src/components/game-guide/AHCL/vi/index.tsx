@@ -417,7 +417,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsVI()}
+                {renderTermsAndConditionsVI(Styles["guide-item"])}
             </ul>
         </>
     );
