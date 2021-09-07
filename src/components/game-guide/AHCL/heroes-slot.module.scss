@@ -22,6 +22,7 @@
 }
 
 .item0 {
+    @extend %item;
     max-width: 10.4rem;
     max-height: 8.9rem;
     &.customize {
@@ -30,6 +31,7 @@
     }
 }
 .item1 {
+    @extend %item;
     max-width: 9.2rem;
     max-height: 9.4rem;
     &.customize {
@@ -38,6 +40,7 @@
     }
 }
 .item2 {
+    @extend %item;
     max-width: 10rem;
     max-height: 9.1rem;
     &.customize {
@@ -45,13 +48,13 @@
         left: 5%;
     }
     &.mini {
-        transform: none;
         max-width: 4.5rem;
         max-height: 3.6rem;
         margin: 0 0.5rem;
     }
 }
 .item3 {
+    @extend %item;
     max-width: 9.8rem;
     max-height: 10rem;
     &.customize {
@@ -60,6 +63,7 @@
     }
 }
 .item4 {
+    @extend %item;
     max-width: 9.1rem;
     max-width: 9.3rem;
     &.customize {
@@ -68,6 +72,7 @@
     }
 }
 .item5 {
+    @extend %item;
     max-width: 10rem;
     max-height: 10.1rem;
     &.customize {
@@ -75,13 +80,13 @@
         left: 6%;
     }
     &.mini {
-        transform: none;
         max-width: 4rem;
         max-height: 4.1rem;
         margin: 0 0.5rem;
     }
 }
 .item6 {
+    @extend %item;
     max-width: 9.2rem;
     max-height: 9.5rem;
     &.customize {
@@ -90,6 +95,7 @@
     }
 }
 .item7 {
+    @extend %item;
     max-width: 10.6rem;
     max-height: 8.8rem;
     &.customize {
@@ -101,13 +107,13 @@
         left: 6%;
     }
     &.mini {
-        transform: none;
         max-width: 4.6rem;
         max-height: 3.8rem;
         margin: 0 1rem;
     }
 }
 .item8 {
+    @extend %item;
     max-width: 10.7rem;
     max-height: 8.7rem;
     &.customize {
@@ -115,7 +121,6 @@
         left: 5%;
     }
     &.mini {
-        transform: none;
         max-height: 3.7rem;
         max-width: 4.7rem;
         margin: 0 1rem;
@@ -135,6 +140,7 @@
     }
 }
 .item10 {
+    @extend %item;
     max-width: 10.3rem;
     max-height: 8.9rem;
 
@@ -144,13 +150,9 @@
     }
 
     &.mini {
-        transform: none;
         max-width: 4.8rem;
         max-height: 5.4rem;
         margin: 0 1rem;
-    }
-    &.en {
-        max-width: 6.9rem;
     }
 }
 
