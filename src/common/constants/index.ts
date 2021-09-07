@@ -40,6 +40,7 @@ export const GameNameVI: IObjectKeys = {
     kenosouth: "Keno Nam",
     kenonorth: "Keno Bắc",
     roulette: "Roulette",
+    heroesslot:"Anh Hùng Chim Lạc"
 };
 
 export const GameNameEN: IObjectKeys = {
@@ -71,4 +72,5 @@ export const GameNameEN: IObjectKeys = {
     kenosouth: "Keno South",
     kenonorth: "Keno North",
     roulette: "Roulette",
+    heroesslot:"The Legend of Heroes"
 };
