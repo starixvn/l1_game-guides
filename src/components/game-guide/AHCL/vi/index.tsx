@@ -161,7 +161,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/heroes/L1/guide_example_free_spin.png"
+                                src="/static/images/heroes/L1/guide_example_free_spin.png#v2"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
@@ -248,7 +248,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/heroes/L1/guide_example_bonus.png"
+                                src="/static/images/heroes/L1/guide_example_bonus.png#v2"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}
@@ -291,10 +291,10 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png" alt="item7"></img>,
-                        Bonus{" "}
-                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>
-                        và{" "}
+                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png#v2" alt="item7"></img>
+                        , Bonus
+                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png#v2" alt="item8"></img>
+                        và
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
                             src="./static/images/heroes/L1/item10.png"
@@ -404,7 +404,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/heroes/L1/list_icon.png`}
+                            src={`/static/images/heroes/L1/list_icon.png#v2`}
                             alt="guide_item_symbol_bg"
                             width={396}
                             height={380}

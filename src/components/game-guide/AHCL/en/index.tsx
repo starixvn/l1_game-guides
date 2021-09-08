@@ -229,7 +229,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         <span className={Styles["wrapper-icon-dark"]}>
             <Image
                 className={`${Styles[iconBox]}`}
-                src="/static/images/heroes/guide_item_symbol_bg.png?v1"
+                src="/static/images/heroes/guide_item_symbol_bg.png#v2"
                 width={269}
                 height={132}
                 layout="fixed"
@@ -361,7 +361,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/heroes/L1/guide_example_free_spin.png?v1"
+                                src="/static/images/heroes/L1/guide_example_free_spin.png#v2"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
@@ -441,7 +441,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/heroes/L1/guide_example_bonus.png?v1"
+                                src="/static/images/heroes/L1/guide_example_bonus.png#v2"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}
@@ -487,8 +487,8 @@ const renderWild = (odds: number[][]) => {
                     <li>
                         “Wild” symbol can substitute for all symbols except
                         <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>,
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png" alt="item7"></img>
-                        and{" "}
+                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png#v2" alt="item7"></img>
+                        and
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src="./static/images/heroes/L1/item10.png"
@@ -596,7 +596,7 @@ const HeroesSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/heroes/L1/list_icon.png`}
+                            src={`/static/images/heroes/L1/list_icon.png#v2`}
                             alt="guide_item_symbol_bg"
                             width={396}
                             height={380}
