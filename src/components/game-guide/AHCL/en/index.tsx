@@ -582,7 +582,7 @@ const renderWild = (odds: number[][]) => {
     );
 };
 
-const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const HeroesSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName, gameConfigs } = props;
     const { odds } = gameConfigs;
     return (
@@ -596,9 +596,9 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/four-guardians/L1/list_icon.png?v1`}
+                            src={`/static/images/heroes/L1/list_icon.png`}
                             alt="guide_item_symbol_bg"
-                            width={418}
+                            width={396}
                             height={380}
                             layout="responsive"
                         />
@@ -615,4 +615,4 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
         </>
     );
 };
-export default SicBoGuideEN;
+export default HeroesSlotGuideEN;

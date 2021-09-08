@@ -406,7 +406,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <Image
                             src={`/static/images/heroes/L1/list_icon.png`}
                             alt="guide_item_symbol_bg"
-                            width={418}
+                            width={396}
                             height={380}
                             layout="responsive"
                         />
