@@ -14,8 +14,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>
-                    Người chơi dự đoán kết quả và hoàn tất việc đặt cược trước khi bát được mở. Nếu kết quả mở ra trùng với lựa chọn của
-                    bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
+                    Người chơi dự đoán kết quả và hoàn tất việc đặt cược trước khi bát được mở. Nếu kết quả mở ra trùng với lựa chọn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
