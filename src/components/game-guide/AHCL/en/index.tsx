@@ -42,7 +42,7 @@ const renderGameRule = () => {
 
 const renderPayouts = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Paytable</h2>
             <ul className="desc">
                 <li>The winning amount is calculated according to the payout ratio.</li>
@@ -267,13 +267,13 @@ const renderExamplePayout = (odds: number[][]) => {
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Symbol</th>
-                            <th className={Styles["custom-table-th"]}> Description</th>
+                            <th>Symbol</th>
+                            <th> Description</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContent(true, "item1", true, true, [
@@ -308,7 +308,7 @@ const renderExamplePayout = (odds: number[][]) => {
 
 const renderFreeSpin = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Free Spin</h2>
             <ul className="desc">
                 <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
@@ -316,13 +316,13 @@ const renderFreeSpin = (odds: number[][]) => {
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Symbol</th>
-                            <th className={Styles["custom-table-th"]}>Description</th>
+                            <th>Symbol</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
@@ -388,7 +388,7 @@ const renderFreeSpin = (odds: number[][]) => {
 
 const renderBonus = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Bonus</h2>
             <ul className="desc">
                 <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – Treasure Chest.</li>
@@ -396,13 +396,13 @@ const renderBonus = (odds: number[][]) => {
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Symbol</th>
-                            <th className={Styles["custom-table-th"]}> Description</th>
+                            <th>Symbol</th>
+                            <th> Description</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
@@ -469,7 +469,7 @@ const renderBonus = (odds: number[][]) => {
 const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
@@ -588,7 +588,7 @@ const HeroesSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     return (
         <>
             <ul className="game-guide">
-                <li className={`guide-item ${Styles["guide-item"]}`}>
+                <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
                         {gameName} is an online slot game, with high quality graphics. The game includes 5 reels and 3 rows, with 11
@@ -604,7 +604,7 @@ const HeroesSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         />
                     </div>
                 </li>
-                <li className={`guide-item ${Styles["guide-item"]}`}>{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule()}</li>
 
                 {renderPayouts(odds)}
                 {renderFreeSpin(odds)}

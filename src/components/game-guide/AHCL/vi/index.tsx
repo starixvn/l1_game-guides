@@ -39,7 +39,7 @@ const renderGameRule = () => {
 
 const renderPayouts = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Trả thưởng</h2>
             <ul className="desc">
                 <li>Mỗi biểu tượng sẽ có tỷ lệ trả thưởng tương ứng khác nhau.</li>
@@ -63,13 +63,13 @@ const renderExamplePayouts = (odds: number[][]) => {
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
-                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                            <th>Biểu Tượng</th>
+                            <th> Mô Tả</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContent(true, "item1", true, true, [
@@ -101,7 +101,7 @@ const renderExamplePayouts = (odds: number[][]) => {
 
 const renderFreeSpin = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Free Spin</h2>
             <ul className="desc">
                 <li>
@@ -112,13 +112,13 @@ const renderFreeSpin = (odds: number[][]) => {
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
-                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                            <th>Biểu Tượng</th>
+                            <th> Mô Tả</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
@@ -190,7 +190,7 @@ const renderFreeSpin = (odds: number[][]) => {
 
 const renderBonus = (odds: number[][]) => {
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Bonus</h2>
             <ul className="desc">
                 <li>
@@ -202,13 +202,13 @@ const renderBonus = (odds: number[][]) => {
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
-                    <thead className={Styles["custom-table-thead"]}>
+                    <thead>
                         <tr>
-                            <th className={Styles["custom-table-th"]}>Biểu Tượng</th>
-                            <th className={Styles["custom-table-th"]}> Mô Tả</th>
+                            <th>Biểu Tượng</th>
+                            <th> Mô Tả</th>
                         </tr>
                     </thead>
-                    <tbody className={Styles["custom-table-tbody"]}>
+                    <tbody>
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
@@ -275,7 +275,7 @@ const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     const betValue = 10;
     return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
+        <li className="guide-item">
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
@@ -396,7 +396,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     return (
         <>
             <ul className="game-guide">
-                <li className={`guide-item ${Styles["guide-item"]}`}>
+                <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName} là thể loại Slot game (game xèng), trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người
@@ -412,7 +412,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         />
                     </div>
                 </li>
-                <li className={`guide-item ${Styles["guide-item"]}`}>{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule()}</li>
                 {renderPayouts(odds)}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}

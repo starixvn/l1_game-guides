@@ -1,27 +1,5 @@
 @import "../../../assets/components/base-slot-game";
 
-.guide-item:before,
-.guide-item h2 {
-    color: #de5400 !important;
-}
-
-.guide-item {
-    color: #6a4100 !important;
-}
-
-.custom-table-thead {
-    background-color: #613613 !important;
-
-    .custom-table-th {
-        color: #fff790 !important;
-    }
-}
-
-.custom-table-tbody {
-    color: #6a4100 !important;
-    background-color: #fff !important;
-}
-
 .item0 {
     @extend %item;
     max-width: 10.4rem;
@@ -161,12 +139,12 @@
     .number {
         &.number-first,
         &.number-second {
-            color: #6a4100 !important;
+            color: var(--text-color);
         }
     }
 
     .text {
-        color: #6a4100 !important;
+        color: var(--text-color);
     }
 }
 

@@ -21,6 +21,14 @@
     --dot-even-border: linear-gradient(180deg, #ececec 0%, #c5c5c5 100%);
     --dot-even-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     --dot-odd-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+
+    // table
+    --table-background: #fff;
+    --table-border: #dce2f3;
+    --table-color: var(--text-color);
+    --table-header-background: #ffd487;
+    --table-header-color: #2c2f3e;
+    --border-line: none;
 }
 
 [data-theme="dark"] {
@@ -41,9 +49,18 @@
     --dot-even-border: linear-gradient(180deg, #ececec 0%, #c5c5c5 100%);
     --dot-even-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     --dot-odd-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+
+    // table
+    --table-background: #121f2c;
+    --table-border: #364252;
+    --table-color: var(--text-color);
+    --table-header-background: #ffd487;
+    --table-header-color: #2c2f3e;
+    --border-line: none;
 }
 
-[data-theme="blue"] {
+[data-theme="blue"],
+[data-theme="four-guardians"] {
     --primary-color: #f3d603;
     --text-color: #fff;
     --page-background: transparent;
@@ -61,6 +78,48 @@
     --dot-even-border: #fff;
     --dot-even-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
     --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 1);
+
+    // table
+    --table-background: #e5e5e5;
+    --table-border: #949494;
+    --table-color: #000;
+    --table-header-background: #abaaaa;
+    --table-header-color: #000;
+    --border-line: #949494 1px solid;
+}
+
+[data-theme="four-guardians"] {
+    // scrollbar
+    --scrollbar-background: rgba(185, 122, 69, 0.3);
+    --scrollbar-thumb-background: #b97a45;
+}
+
+[data-theme="ahcl"] {
+    --primary-color: #de5400;
+    --text-color: #6a4100;
+    --page-background: transparent;
+
+    // scrollbar
+    --scrollbar-background: rgba(185, 122, 69, 0.3);
+    --scrollbar-thumb-background: #b97a45;
+
+    // font-size
+    --font-size: 2rem;
+    --font-size-table: 2rem;
+
+    // dots
+    --dot-even-text-color: #000;
+    --dot-even-border: #fff;
+    --dot-even-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+    --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 1);
+
+    // table
+    --table-background: #fff;
+    --table-border: #949494;
+    --table-color: #6a4100;
+    --table-header-background: #613613;
+    --table-header-color: #fff790;
+    --border-line: #949494 1px solid;
 }
 
 html {
@@ -83,7 +142,7 @@ html {
     --dot-odd-text-color: #fff;
 }
 
-body { 
+body {
     padding: 0;
     margin: 0;
     background-color: transparent;
