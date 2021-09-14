@@ -1,0 +1,13 @@
+.bet-option-wd {
+    min-width: 10.8rem;
+    @media (max-width: 460px) {
+        min-width: 7rem;
+    }
+}
+
+.bet-team-wd {
+    min-width: 8rem;
+}
+.bet-odd-wd {
+    min-width: 8.5rem;
+}

@@ -20,6 +20,7 @@ import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
 import RouletteGuide from "./game-guide/roulette";
 import LuckyWheelGuide from "./game-guide/lucky-wheel";
 import HeroesSlotGuide from "./game-guide/AHCL";
+import KenoMatchGuide from "./game-guide/keno-match";
 import { UserStakeLevelProps } from "../pages";
 
 type Props = {
@@ -93,6 +94,9 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <LotteryGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 35:
                 return <ThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 36:
+            case 37:
+                return <KenoMatchGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 38:
                 return <HeroesSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:

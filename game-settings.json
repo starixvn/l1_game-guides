@@ -111,6 +111,14 @@
         "id": 35,
         "gameName": "ThreeCards"
     },
+    "36": {
+        "id": 36,
+        "gameName": "KenoMatch1"
+    },
+    "37": {
+        "id": 37,
+        "gameName": "KenoMatch2"
+    },
     "38": {
         "id": 38,
         "gameName": "HeroesSlot"

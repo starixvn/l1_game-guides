@@ -1,0 +1,439 @@
+import React from "react";
+import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
+import { GameGuideProps } from "../../type";
+import { KenoMatchMD5, minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
+import Styles from "../keno-match.module.scss";
+
+const renderGameRule = (maxBetRound: number | string) => {
+    return (
+        <>
+            <h2>Cách chơi</h2>
+            <ul className="desc">
+                <li>Người chơi nhấp vào lựa chọn mong muốn và hoàn tất việc đặt cược trước khi hết thời gian quy định. </li>
+                <li>Bạn có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược.</li>
+                <li>
+                    Tổng tiền cược tối đa cho 1 phiên là {maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderBettingOptions = () => {
+    return (
+        <>
+            <h2>Luật chơi</h2>
+            <ul className="desc">
+                <li>Mỗi phiên sẽ có 2 đợt mở số, đợt một dành cho kết quả “Hiệp 1”, đợt hai dành cho “Toàn trận”.</li>
+                <li>
+                    Người chơi có 2 khoảng thời gian đặt cược:
+                    <ul className="detail">
+                        <li>
+                            Đặt cược trước khi công bố kết quả Hiệp 1, bạn có thể đặt cược cho “Hiệp 1” và “Toàn trận”, áp dụng cho tất cả
+                            các loại cược. Tỷ lệ cược được cố định và giữ nguyên qua các phiên chơi.
+                        </li>
+                        <li>
+                            <strong>Đặt cược Live</strong>: đặt cược ngay sau khi công bố kết quả 10 số được rút ngẫu nhiên trong “Hiệp 1”
+                            cho “Đội Xanh” và “Đội Đỏ”. <strong>Lưu ý</strong>: bạn chỉ có thể đặt vào “Toàn trận”. Tỷ lệ cược sẽ thay đổi
+                            dựa trên kết quả của “Hiệp 1”.
+                        </li>
+                    </ul>
+                </li>
+                <li className="contentBeforeEmpty">
+                    <div className="table-container">
+                        <table className="table text-center">
+                            <thead>
+                                <tr>
+                                    <th colSpan={2}>Lựa Chọn</th>
+                                    <th>Điều Kiện Thắng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Đội Xanh
+                                    </td>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className="text-start">
+                                        Thắng nếu tổng điểm 10 số được rút cho Đội Xanh lớn hơn Đội Đỏ.
+                                        <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Xanh lớn hơn Đội Đỏ.
+                                        <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Đội Đỏ
+                                    </td>
+                                    <td className="text-start">Hiệp 1</td>
+                                    <td className="text-start">
+                                        Thắng nếu tổng điểm 10 số được rút cho Đội Đỏ lớn hơn Đội Xanh.
+                                        <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Đỏ lớn hơn Đội Xanh.
+                                        <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Tài
+                                    </td>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội {`>=`} 811</td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội {`>=`} 1621
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Xỉu
+                                    </td>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội {`<`} 811</td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội {`<`} 1621
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Chẵn
+                                    </td>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số chẵn.</td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số chẵn.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                                <tr>
+                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                        Lẻ
+                                    </td>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số lẻ.</td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td rowSpan={2} className="text-start">
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số lẻ.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+    return (
+        <>
+            <h2>Trả thưởng</h2>
+            <ul className="desc">
+                <li>
+                    Tỷ lệ cược đã bao gồm tiền vốn.
+                    <ul className="game-guide-alpha">
+                        <li>
+                            <strong>a) Đặt cược trước khi công bố kết quả Hiệp 1</strong>
+                            <div className="table-container">
+                                <table className="table text-center table-medium">
+                                    <thead>
+                                        <tr>
+                                            <th colSpan={2} className={Styles["payouts-option-width"]}>
+                                                Lựa Chọn
+                                            </th>
+                                            <th>Tỷ Lệ Cược</th>
+                                            <th>
+                                                Hạn Mức Cược <br></br>(Min - Max)
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={2}>Đội Xanh</td>
+                                            <td>Hiệp 1</td>
+                                            <td rowSpan={2}>1: {odds.fhBlue}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={2}>Đội Đỏ</td>
+                                            <td>Hiệp 1</td>
+                                            <td rowSpan={2}>1: {odds.fhRed}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRedChoice}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={2}>Tài</td>
+                                            <td>Hiệp 1</td>
+                                            <td rowSpan={2}>1: {odds.fhOver}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetOverChoice}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={2}>Xỉu</td>
+                                            <td>Hiệp 1</td>
+                                            <td rowSpan={2}>1: {odds.fhUnder}</td>
+                                            <td rowSpan={2}>
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetUnderChoice}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={2}>Chẵn</td>
+                                            <td>Hiệp 1</td>
+                                            <td rowSpan={4}>1: {odds.fhEven}</td>
+                                            <td rowSpan={4}>
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetEvenChoice}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowSpan={2}>Lẻ</td>
+                                            <td>Hiệp 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Toàn trận</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <strong>b) Đặt cược Live</strong>
+                            <div>
+                                <ul className="desc">
+                                    <li>
+                                        Với loại cược <strong>Đội Xanh/Đỏ - Toàn trận (Live)</strong> và{" "}
+                                        <strong>Tài/Xỉu - Toàn trận (Live)</strong>
+                                        <ul className="detail">
+                                            <li>Tỷ lệ cược sẽ thay đổi tùy vào kết quả “Hiệp 1” của 2 đội.</li>
+                                            <li>Hạn mức cược tối đa sẽ thay đổi tùy vào tỷ lệ cược.</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Đội Xanh/Đội Đỏ - Toàn trận (Live)</strong>: Tỷ lệ cược chỉ khả dụng khi tổng điểm chênh
+                                        lệch trong “Hiệp 1” giữa Đội Xanh và Đội Đỏ từ -150 đến 150
+                                    </li>
+                                    <li>
+                                        <strong>Tài/Xỉu - Toàn trận (Live)</strong>: Tỷ lệ cược chỉ khả dụng khi tổng điểm trong “Hiệp 1”
+                                        của cả Đội Xanh và Đội Đỏ từ 661 đến 980
+                                    </li>
+                                    <li className="contentBeforeEmpty">
+                                        <div className="table-container">
+                                            <table className="table text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th colSpan={2} rowSpan={2}>
+                                                            Lựa Chọn
+                                                        </th>
+                                                        <th rowSpan={2}>
+                                                            Tỷ Lệ Cược
+                                                            <br></br>(Min - Max)
+                                                        </th>
+                                                        <th colSpan={2}>Hạn Mức Cược</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Min</th>
+                                                        <th>Max</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Đội Xanh</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles["bet-odd-wd"]}>
+                                                            {minPayoutBlue} - {odds.liveFTBlue}
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td rowSpan={4} className="text-start">
+                                                            Mức cược tối đa sẽ thay đổi tùy vào tỷ lệ cược.
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Đội Đỏ</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles["bet-odd-wd"]}>
+                                                            {minPayoutRed} - {odds.liveFTRed}
+                                                        </td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Tài</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles["bet-odd-wd"]}>
+                                                            {minPayoutOver} - {odds.liveFTOver}
+                                                        </td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Xỉu</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles["bet-odd-wd"]}>
+                                                            {minPayoutUnder} - {odds.liveFTUnder}
+                                                        </td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Chẵn</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                                                            1:{odds.liveFTEven}
+                                                        </td>
+                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Lẻ</td>
+                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderMD5 = () => {
+    return (
+        <>
+            <h2> MD5 (Message-Digest algorithm 5) </h2>
+            <ul className="game-guide-alpha">
+                <li>
+                    <strong>a) Công nghệ MD5</strong>
+                    <ul className="desc">
+                        <li>
+                            <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
+                            thông qua bên thứ ba.
+                        </li>
+                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi đặt cược. </li>
+                        <li>
+                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược và kết quả
+                            cuối cùng sau khi được công bố.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>b) Các bước kiểm tra</strong>
+                    <ul className="desc">
+                        <li>
+                            <strong>Bước 1</strong>: Copy chuỗi MD5 trong game trước khi kết quả được công bố.
+                        </li>
+                        <li>
+                            <strong>Bước 2</strong>: Sau khi hệ thống công bố kết quả, copy chuỗi dữ liệu trong mục Key.
+                        </li>
+                        <li>
+                            <strong>Bước 3</strong>: Truy cập{" "}
+                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                https://md5.services/
+                            </a>{" "}
+                            và dán Key vừa copy vào ô MD5.
+                        </li>
+                        <li>
+                            <strong>Bước 4</strong>: Bấm nút <i>“hash, darling hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo ra và
+                            chuỗi MD5 ở Bước 1.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch, kết quả được công bố không thay đổi so với kết quả
+                được hệ thống tạo ra ngẫu nhiên trước khi đặt cược.
+            </div>
+        </>
+    );
+};
+
+const KenoMatchGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { odds, minbet } = gameConfigs;
+
+    return (
+        <div>
+            <ul className="game-guide">
+                <li className="guide-item">
+                    <h2>Giới thiệu</h2>
+                    <p className="content">
+                        {gameName}{" "}
+                        {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0])
+                            ? "là phiên bản khác của Keno Match với tính năng xác thực MD5 (Message-Digest algorithm 5) cho phép người chơi tự kiểm tra tính minh bạch trong kết quả thắng thua."
+                            : "là phiên bản hoàn toàn mới của trò Keno truyền thống."}{" "}
+                        Trò chơi gồm 2 bộ số, một cho Đội Xanh và một cho Đội Đỏ, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu
+                        nhiên 20 số (không trùng lặp) cho mỗi đội, trong đó 10 số được rút cho “Hiệp 1” và 10 số được rút cho “Toàn Trận”.
+                        Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho mỗi đội.
+                    </p>
+                </li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
+                <li className="guide-item">{renderBettingOptions()}</li>
+                <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
+                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && <li className="guide-item">{renderMD5()}</li>}
+                {renderTermsAndConditionsVI()}
+            </ul>
+        </div>
+    );
+};
+export default KenoMatchGuideVI;
