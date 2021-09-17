@@ -41,6 +41,13 @@
     --banker-player-width: 9rem 1fr;
 }
 
+[data-theme="ahcl"] .game-guide {
+    // text-size
+    --big-title-font-size: 2.6rem;
+    --title-font-size: 2.4rem;
+    --sub-title-font-size: 2.3rem;
+}
+
 ul {
     list-style: none;
     padding-left: 0;
