@@ -356,8 +356,7 @@ const renderFreeSpin = (odds: number[][]) => {
             <ul className="desc">
                 <li>
                     <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
-                    {`"Free Spin"`}
-                    symbols on the same reel, the system will count as one symbol.
+                    {`"Free Spin"`} symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
