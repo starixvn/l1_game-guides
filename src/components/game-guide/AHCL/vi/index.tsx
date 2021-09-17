@@ -383,7 +383,7 @@ const renderWild = (odds: number[][]) => {
                             . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}0</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>
                 </div>
             </div>
         </li>
