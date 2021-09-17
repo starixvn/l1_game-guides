@@ -440,7 +440,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <Image
-                                src="/static/images/heroes/L1/guide_example_bonus.png#v2"
+                                src="/static/images/heroes/L1/guide_example_bonus.png#v3"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}

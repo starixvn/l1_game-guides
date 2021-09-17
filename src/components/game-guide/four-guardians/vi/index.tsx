@@ -277,7 +277,7 @@ const renderBonus = (odds: number[][]) => {
 
 const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
-    const betValue = 10;
+    const betValue = 1;
     return (
         <li className="guide-item">
             <h2>Wild</h2>
