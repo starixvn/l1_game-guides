@@ -128,7 +128,7 @@ const renderFreeSpin = (odds: number[][]) => {
                                         [4, odds[7][4]],
                                         [3, odds[7][3]],
                                     ],
-                                    " FREE SPIN"
+                                    " FREE SPINS"
                                 )}
                             </td>
                             <td>

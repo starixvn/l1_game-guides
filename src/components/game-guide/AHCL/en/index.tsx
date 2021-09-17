@@ -332,7 +332,7 @@ const renderFreeSpin = (odds: number[][]) => {
                                         [4, odds[7][4]],
                                         [3, odds[7][3]],
                                     ],
-                                    " FREE SPIN"
+                                    " FREE SPINS"
                                 )}
                             </td>
                             <td>
@@ -595,7 +595,7 @@ const HeroesSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <Image
-                            src={`/static/images/heroes/L1/list_icon.png#v2`}
+                            src={`/static/images/heroes/L1/list_icon.png#v3`}
                             alt="guide_item_symbol_bg"
                             width={396}
                             height={380}
