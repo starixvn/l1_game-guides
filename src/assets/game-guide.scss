@@ -1,38 +1,5 @@
-[data-theme="light"] .game-guide {
-    --table-background: #fff;
-    --table-border: #dce2f3;
-    --table-color: var(--text-color);
-    --table-header-background: #ffd487;
-    --table-header-color: #2c2f3e;
-    --border-line: none;
-
-    // text-size
-    --big-title-font-size: 1.8rem;
-    --title-font-size: 1.6rem;
-    --sub-title-font-size: 1.4rem;
-    --line-height: 2rem;
-    --select-text: auto;
-
-    //icon fish prawn crab
-    --font-size-FPC: 5rem;
-    --grid-gap-FPC: 0 1rem;
-
-    //sedie
-    --dot-size: 1.6rem;
-    --dot-font-size: 1.1rem;
-
-    // sedie war
-    --banker-player-width: 7rem 1fr;
-}
-
+[data-theme="light"] .game-guide,
 [data-theme="dark"] .game-guide {
-    --table-background: #121f2c;
-    --table-border: #364252;
-    --table-color: var(--text-color);
-    --table-header-background: #ffd487;
-    --table-header-color: #2c2f3e;
-    --border-line: none;
-
     // text-size
     --big-title-font-size: 1.8rem;
     --title-font-size: 1.6rem;
@@ -52,14 +19,9 @@
     --banker-player-width: 7rem 1fr;
 }
 
-[data-theme="blue"] .game-guide {
-    --table-background: #e5e5e5;
-    --table-border: #949494;
-    --table-color: #000;
-    --table-header-background: #abaaaa;
-    --table-header-color: #000;
-    --border-line: #949494 1px solid;
-
+[data-theme="blue"] .game-guide,
+[data-theme="four-guardians"] .game-guide,
+[data-theme="ahcl"] .game-guide {
     // text-size
     --big-title-font-size: 2.4rem;
     --title-font-size: 2.2rem;
@@ -77,6 +39,13 @@
 
     // sedie war
     --banker-player-width: 9rem 1fr;
+}
+
+[data-theme="ahcl"] .game-guide {
+    // text-size
+    --big-title-font-size: 2.6rem;
+    --title-font-size: 2.4rem;
+    --sub-title-font-size: 2.3rem;
 }
 
 ul {

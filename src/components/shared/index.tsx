@@ -1,6 +1,6 @@
-export const renderTermsAndConditionsEN = () => {
+export const renderTermsAndConditionsEN = (style: string = "") => {
     return (
-        <li className="guide-item">
+        <li className={`guide-item ${style}`}>
             <h2>Terms and Conditions</h2>
             <ul className="style-number-rule">
                 <li className="number-dot">
@@ -24,9 +24,9 @@ export const renderTermsAndConditionsEN = () => {
     );
 };
 
-export const renderTermsAndConditionsVI = () => {
+export const renderTermsAndConditionsVI = (style: string = "") => {
     return (
-        <li className="guide-item">
+        <li className={`guide-item ${style}`}>
             <h2>Các quy định trong game</h2>
             <ul className="style-number-rule">
                 <li className="number-dot">

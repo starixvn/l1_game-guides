@@ -128,7 +128,7 @@ const renderFreeSpin = (odds: number[][]) => {
                                         [4, odds[7][4]],
                                         [3, odds[7][3]],
                                     ],
-                                    " FREE SPIN"
+                                    " FREE SPINS"
                                 )}
                             </td>
                             <td>
@@ -277,7 +277,7 @@ const renderBonus = (odds: number[][]) => {
 
 const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
-    const betValue = 10;
+    const betValue = 1;
     return (
         <li className="guide-item">
             <h2>Wild</h2>
@@ -395,7 +395,7 @@ const renderWild = (odds: number[][]) => {
                             . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
                         </li>
                     </ul>
-                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}0</p>
+                    <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>
                 </div>
             </div>
         </li>
