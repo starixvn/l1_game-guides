@@ -79,17 +79,17 @@ const renderExamplePayouts = (odds: number[][]) => {
                                 ])}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> mảnh Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
+                                Nếu có <strong>5</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong></strong>4 mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
+                                Nếu có <strong></strong>4 biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> mảnh Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
+                                Nếu có <strong>3</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
