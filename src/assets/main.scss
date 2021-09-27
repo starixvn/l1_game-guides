@@ -151,10 +151,6 @@ body {
     color: var(--text-color);
     font-weight: 400;
     overscroll-behavior: contain;
-
-    &.overflow-hidden {
-        overflow: hidden;
-    }
 }
 
 .game-container {

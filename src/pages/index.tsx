@@ -39,49 +39,12 @@ const Home = () => {
 
             if (queryParams?.t) {
                 setTheme(queryParams.t.toString());
-                if (!themeNotSupportGrabScroll.includes(queryParams.t.toString() ?? "")) {
-                    setClassContainerOptions("container-guide-cursor");
-                    document.body.classList.add("overflow-hidden");
-                }
             }
             if (queryParams?.minBet && queryParams?.maxBet) {
                 setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
             }
         }
     }, [router.isReady]);
-
-    useEffect(() => {
-        const mouseDownHandler = function (e: MouseEvent) {
-            if (wrapperRef.current) {
-                top = wrapperRef.current.scrollTop;
-            }
-            // Get the current mouse position
-            y = e.clientY;
-
-            document.addEventListener("mousemove", mouseMoveHandler);
-            document.addEventListener("mouseup", mouseUpHandler);
-        };
-
-        const mouseUpHandler = function () {
-            document.removeEventListener("mousemove", mouseMoveHandler);
-            document.removeEventListener("mouseup", mouseUpHandler);
-        };
-
-        const mouseMoveHandler = function (e: MouseEvent) {
-            // How far the mouse has been moved
-            const dy = e.clientY - y;
-            if (wrapperRef.current) {
-                const scrollRatio = wrapperRef.current.clientHeight / wrapperRef.current.scrollHeight;
-                wrapperRef.current.scrollTop = top - dy / scrollRatio;
-            }
-        };
-
-        !themeNotSupportGrabScroll.includes(theme ?? "") && document.addEventListener("mousedown", mouseDownHandler);
-
-        return () => {
-            !themeNotSupportGrabScroll.includes(theme ?? "") && document.removeEventListener("mousedown", mouseDownHandler);
-        };
-    }, [wrapperRef, theme]);
 
     if (isLoading) {
         return <></>;
