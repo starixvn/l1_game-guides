@@ -9,6 +9,7 @@ export interface UserStakeLevelProps {
     maxBet?: number;
 }
 
+const themeNotSupportGrabScroll = [Themes.dark, Themes.light];
 const Home = () => {
     const { setTheme, theme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
@@ -19,6 +20,7 @@ const Home = () => {
     const [name, setName] = useState<string>("");
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
+
     let top: number;
     let y: number;
 
@@ -37,7 +39,7 @@ const Home = () => {
 
             if (queryParams?.t) {
                 setTheme(queryParams.t.toString());
-                if (queryParams.t.toString() === Themes.blue) {
+                if (!themeNotSupportGrabScroll.includes(queryParams.t.toString() ?? "")) {
                     setClassContainerOptions("container-guide-cursor");
                     document.body.classList.add("overflow-hidden");
                 }
@@ -74,10 +76,10 @@ const Home = () => {
             }
         };
 
-        theme === Themes.blue && document.addEventListener("mousedown", mouseDownHandler);
+        !themeNotSupportGrabScroll.includes(theme ?? "") && document.addEventListener("mousedown", mouseDownHandler);
 
         return () => {
-            document.removeEventListener("mousedown", mouseDownHandler);
+            !themeNotSupportGrabScroll.includes(theme ?? "") && document.removeEventListener("mousedown", mouseDownHandler);
         };
     }, [wrapperRef, theme]);
 
