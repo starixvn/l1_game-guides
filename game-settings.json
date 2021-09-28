@@ -122,5 +122,13 @@
     "38": {
         "id": 38,
         "gameName": "HeroesSlot"
+    },
+    "40": {
+        "id": 40,
+        "gameName": "KenoPower1"
+    },
+    "41": {
+        "id": 41,
+        "gameName": "KenoPower2"
     }
 }

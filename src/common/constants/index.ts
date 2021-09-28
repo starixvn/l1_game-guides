@@ -45,6 +45,8 @@ export const GameNameVI: IObjectKeys = {
     heroesslot: "Anh Hùng Chim Lạc",
     kenomatch1: "Keno Match",
     kenomatch2: "Keno Match MD5",
+    kenopower1: "Keno Đối Kháng",
+    kenopower2: "Keno Đối Kháng MD5",
 };
 
 export const GameNameEN: IObjectKeys = {
@@ -79,4 +81,6 @@ export const GameNameEN: IObjectKeys = {
     heroesslot: "The Legend of Heroes",
     kenomatch1: "Keno Match",
     kenomatch2: "Keno Match MD5",
+    kenopower1: "Keno Power",
+    kenopower2: "Keno Power MD5",
 };

@@ -4,6 +4,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { KenoMatchMD5, minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
+import { renderMD5VI } from "../../../shared/md5/vi";
 import Styles from "../keno-match.module.scss";
 
 const renderGameRule = (maxBetRound: number | string) => {
@@ -358,55 +359,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
     );
 };
 
-const renderMD5 = () => {
-    return (
-        <>
-            <h2> MD5 (Message-Digest algorithm 5) </h2>
-            <ul className="game-guide-alpha">
-                <li>
-                    <strong>a) Công nghệ MD5</strong>
-                    <ul className="desc">
-                        <li>
-                            <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
-                            thông qua bên thứ ba.
-                        </li>
-                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi đặt cược. </li>
-                        <li>
-                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược và kết quả
-                            cuối cùng sau khi được công bố.
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>b) Các bước kiểm tra</strong>
-                    <ul className="desc">
-                        <li>
-                            <strong>Bước 1</strong>: Copy chuỗi MD5 trong game trước khi kết quả được công bố.
-                        </li>
-                        <li>
-                            <strong>Bước 2</strong>: Sau khi hệ thống công bố kết quả, copy chuỗi dữ liệu trong mục Key.
-                        </li>
-                        <li>
-                            <strong>Bước 3</strong>: Truy cập{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            và dán Key vừa copy vào ô MD5.
-                        </li>
-                        <li>
-                            <strong>Bước 4</strong>: Bấm nút <i>“hash, darling hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo ra và
-                            chuỗi MD5 ở Bước 1.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div>
-                Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch, kết quả được công bố không thay đổi so với kết quả
-                được hệ thống tạo ra ngẫu nhiên trước khi đặt cược.
-            </div>
-        </>
-    );
-};
+
 
 const KenoMatchGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
@@ -430,7 +383,7 @@ const KenoMatchGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
                 <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
-                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && <li className="guide-item">{renderMD5()}</li>}
+                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && <li className="guide-item">{renderMD5VI()}</li>}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>
