@@ -37,18 +37,18 @@ const renderBettingOptions = () => {
                 <tbody>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Nhà Con/Nhà Cái
+                            Đội Xanh/Đội Đỏ
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Nhà Con</td>
+                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Đội Xanh</td>
                         <td className="text-start">
-                            Thắng nếu tổng điểm Nhà Con {`>`} Nhà Cái
+                            Thắng nếu tổng điểm Đội Xanh {`>`} Đội Đỏ
                             <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 bên bằng nhau.
                         </td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Nhà Cái</td>
+                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Đội Đỏ</td>
                         <td className="text-start">
-                            Thắng nếu tổng điểm của Nhà Cái {`>`} Nhà Con
+                            Thắng nếu tổng điểm của Đội Đỏ {`>`} Đội Xanh
                             <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 bên bằng nhau.
                         </td>
                     </tr>
@@ -57,44 +57,44 @@ const renderBettingOptions = () => {
                             Tổng Tài/Xỉu
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
-                        <td className="text-start">Thắng nếu tổng điểm của cả Nhà Con và Nhà Cái {`>=`} 1621</td>
+                        <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ {`>=`} 1621</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
-                        <td className="text-start">Thắng nếu tổng điểm của cả Nhà Con và Nhà Cái {`<`} 1621</td>
+                        <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ {`<`} 1621</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
                             Tổng Chẵn/Lẻ
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Chẵn</td>
-                        <td className="text-start">Thắng nếu tổng điểm của cả Nhà Con và Nhà Cái là số chẵn.</td>
+                        <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ là số chẵn.</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Lẻ</td>
-                        <td className="text-start">Thắng nếu tổng điểm của cả Nhà Con và Nhà Cái là số lẻ.</td>
+                        <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ là số lẻ.</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Nhà Con <br /> Tài/Xỉu
+                            Đội Xanh <br /> Tài/Xỉu
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
-                        <td className="text-start">Thắng nếu tổng điểm của Nhà Con {`>=`} 811</td>
+                        <td className="text-start">Thắng nếu tổng điểm của Đội Xanh {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
-                        <td className="text-start">Thắng nếu tổng điểm của Nhà Con {`<`} 811</td>
+                        <td className="text-start">Thắng nếu tổng điểm của Đội Xanh {`<`} 811</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Nhà Cái <br /> Tài/Xỉu
+                            Đội Đỏ <br /> Tài/Xỉu
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
-                        <td className="text-start">Thắng nếu tổng điểm của Nhà Cái {`>=`} 811</td>
+                        <td className="text-start">Thắng nếu tổng điểm của Đội Đỏ {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
-                        <td className="text-start">Thắng nếu tổng điểm của Nhà Cái {`<`} 811</td>
+                        <td className="text-start">Thắng nếu tổng điểm của Đội Đỏ {`<`} 811</td>
                     </tr>
                 </tbody>
             </table>
@@ -124,15 +124,15 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Nhà Con/ Nhà Cái</td>
-                                    <td>Nhà Con</td>
+                                    <td rowSpan={2}>Đội Xanh/ Đội Đỏ</td>
+                                    <td>Đội Xanh</td>
                                     <td rowSpan={6}>1: {odds.blue}</td>
                                     <td rowSpan={6}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nhà Cái</td>
+                                    <td>Đội Đỏ</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>Tổng Tài/Xỉu</td>
@@ -150,7 +150,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>
-                                        Nhà Con <br />
+                                        Đội Xanh <br />
                                         Tài/Xỉu
                                     </td>
                                     <td>Tài</td>
@@ -164,7 +164,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>
-                                        Nhà Cái <br />
+                                        Đội Đỏ <br />
                                         Tài/Xỉu
                                     </td>
                                     <td>Tài</td>
@@ -195,8 +195,8 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0])
                             ? "là phiên bản khác của trò Keno Đối Kháng với tính năng xác thực MD5 (Message-Digest algorithm 5) cho phép người chơi tự kiểm tra tính minh bạch trong kết quả thắng thua. Trò"
                             : "là trò"}{" "}
-                        chơi gồm 2 bộ số, một cho Nhà Con và một cho Nhà Cái, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu nhiên 20
-                        số (không trùng lặp) cho mỗi bên. Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho Nhà Con, Nhà Cái.
+                        chơi gồm 2 bộ số, một cho Đội Xanh và một cho Đội Đỏ, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu nhiên 20
+                        số (không trùng lặp) cho mỗi bên. Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho Đội Xanh, Đội Đỏ.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>

@@ -36,20 +36,20 @@ const renderBettingOptions = () => {
                 <tbody>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Player/Banker
+                            Team Blue/Team Red
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Player</td>
+                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Blue</td>
                         <td className="text-start">
-                            Punter wins if the total points of Player {`>`} Banker.
+                            Punter wins if the total points of Team Blue {`>`} Team Red.
                             <br />
-                            +All bets will be refunded if the total points of Player and Banker are equal.
+                            +All bets will be refunded if the total points of Team Blue and Team Red are equal.
                         </td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Banker</td>
+                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Red</td>
                         <td className="text-start">
-                            Punter wins if the total points of Banker {`>`} Player.
-                            <br />+ + All bets will be refunded if the total points of Banker and Player are equal.
+                            Punter wins if the total points of Team Red {`>`} Team Blue.
+                            <br />+ + All bets will be refunded if the total points of Team Red and Team Blue are equal.
                         </td>
                     </tr>
                     <tr>
@@ -57,44 +57,44 @@ const renderBettingOptions = () => {
                             Sum Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Punter wins if the total points of both Player and Banker {`>=`} 1621</td>
+                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red {`>=`} 1621</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of both Player and Banker {`<`} 1621</td>
+                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red {`<`} 1621</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
                             Sum Even/Odd
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Even</td>
-                        <td className="text-start">Punter wins if the total points of both Player and Banker is an even number.</td>
+                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red is an even number.</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Odd</td>
-                        <td className="text-start">Punter wins if the total points of both Player and Banker is an odd number.</td>
+                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red is an odd number.</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Player <br /> Big/Small
+                            Team Blue <br /> Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Big Punter wins if the total points of Player {`>=`} 811</td>
+                        <td className="text-start">Big Punter wins if the total points of Team Blue {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of Player {`<`} 811</td>
+                        <td className="text-start">Punter wins if the total points of Team Blue {`<`} 811</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
-                            Banker <br /> Big/Small
+                            Team Red <br /> Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Punter wins if the total points of Banker {`>=`} 811</td>
+                        <td className="text-start">Punter wins if the total points of Team Red {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of Banker {`<`} 811</td>
+                        <td className="text-start">Punter wins if the total points of Team Red {`<`} 811</td>
                     </tr>
                 </tbody>
             </table>
@@ -125,15 +125,15 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Player/ Banker</td>
-                                    <td>Player</td>
+                                    <td rowSpan={2}>Team Blue/ Team Red</td>
+                                    <td>Team Blue</td>
                                     <td rowSpan={6}>1: {odds.blue}</td>
                                     <td rowSpan={6}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker</td>
+                                    <td>Team Red</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>Sum Big/Small</td>
@@ -151,7 +151,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>
-                                        Player <br />
+                                        Team Blue <br />
                                         Big/Small
                                     </td>
                                     <td>Big</td>
@@ -165,7 +165,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>
-                                        Banker <br />
+                                        Team Red <br />
                                         Big/Small
                                     </td>
                                     <td>Big</td>
@@ -195,8 +195,8 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0])
                             ? "is a different version of Keno Power, with a new feature MD5 (Message-Digest algorithm 5) that allows players to check the fairness and authenticity of every game result. The game"
                             : ""}{" "}
-                        consists of 2 sets of numbers, one for the “Player”, and another for “Banker”, each set of 80 numbers (from 01 to
-                        80). The system will randomly draw 20 numbers (no duplicates) for Banker, Player. The object of this game is to
+                        consists of 2 sets of numbers, one for the “Team Blue”, and another for “Team Red”, each set of 80 numbers (from 01 to
+                        80). The system will randomly draw 20 numbers (no duplicates) for Team Red, Team Blue. The object of this game is to
                         predict the total score of the numbers drawn.
                     </p>
                 </li>
