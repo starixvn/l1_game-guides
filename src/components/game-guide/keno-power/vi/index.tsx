@@ -181,6 +181,18 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
     );
 };
 
+const md5Title = () => {
+    return (
+        <>
+            là phiên bản khác của trò Keno Đối Kháng với tính năng xác thực
+            <a href="#md5" className="md5-title">
+                <strong> MD5 (Message-Digest algorithm 5) </strong>
+            </a>
+            cho phép người chơi tự kiểm tra tính minh bạch trong kết quả thắng thua. Trò
+        </>
+    );
+};
+
 const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
@@ -191,17 +203,18 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0])
-                            ? "là phiên bản khác của trò Keno Đối Kháng với tính năng xác thực MD5 (Message-Digest algorithm 5) cho phép người chơi tự kiểm tra tính minh bạch trong kết quả thắng thua. Trò"
-                            : "là trò"}{" "}
-                        chơi gồm 2 bộ số, một cho Đội Xanh và một cho Đội Đỏ, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu nhiên 20
-                        số (không trùng lặp) cho mỗi bên. Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho Đội Xanh, Đội Đỏ.
+                        {gameName} {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) ? md5Title() : "là trò"} chơi gồm 2 bộ số, một
+                        cho Đội Xanh và một cho Đội Đỏ, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu nhiên 20 số (không trùng lặp)
+                        cho mỗi bên. Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho Đội Xanh, Đội Đỏ.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
-                {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && <li className="guide-item">{renderMD5VI()}</li>}
+                {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5VI()}
+                    </li>
+                )}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

@@ -182,6 +182,18 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
     );
 };
 
+const md5Title = () => {
+    return (
+        <>
+            is a different version of Keno Power, with a new feature
+            <a href="#md5" className="md5-title">
+                <strong> MD5 (Message-Digest algorithm 5) </strong>
+            </a>
+            that allows players to check the fairness and authenticity of every game result. The game
+        </>
+    );
+};
+
 const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
@@ -191,18 +203,19 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0])
-                            ? "is a different version of Keno Power, with a new feature MD5 (Message-Digest algorithm 5) that allows players to check the fairness and authenticity of every game result. The game"
-                            : ""}{" "}
-                        consists of 2 sets of numbers, one for the “Team Blue”, and another for “Team Red”, each set of 80 numbers (from 01 to
-                        80). The system will randomly draw 20 numbers (no duplicates) for Team Red, Team Blue. The object of this game is to
-                        predict the total score of the numbers drawn.
+                        {gameName} {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) ? md5Title() : ""} consists of 2 sets of
+                        numbers, one for the “Team Blue”, and another for “Team Red”, each set of 80 numbers (from 01 to 80). The system
+                        will randomly draw 20 numbers (no duplicates) for Team Red, Team Blue. The object of this game is to predict the
+                        total score of the numbers drawn.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
-                {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && <li className="guide-item">{renderMD5EN()}</li>}
+                {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

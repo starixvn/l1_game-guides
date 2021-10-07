@@ -370,6 +370,18 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
     );
 };
 
+const md5Title = () => {
+    return (
+        <>
+            is a different version of Keno Match, with a new feature
+            <a href="#md5" className="md5-title">
+                <strong> MD5 (Message-Digest algorithm 5) </strong>
+            </a>
+            that allows players to check the fairness and authenticity of every game result.
+        </>
+    );
+};
+
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minbet } = gameConfigs;
@@ -381,7 +393,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <p className="content">
                         {gameName}{" "}
                         {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0])
-                            ? "is a different version of Keno Match, with a new feature MD5 (Message-Digest algorithm 5) that allows players to check the fairness and authenticity of every game result."
+                            ? md5Title()
                             : "is a completely new version of the traditional Keno game."}{" "}
                         The game consists of 2 sets of numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers
                         (from 01 to 80). The system will randomly draw 20 numbers (no duplicates) for each team, of which 10 numbers are
@@ -392,7 +404,11 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
                 <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
-                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && <li className="guide-item">{renderMD5EN()}</li>}
+                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
