@@ -404,28 +404,25 @@ const KenoMatchGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             <ul className="desc">
                                 <li>
                                     <strong>Bước 1</strong>: Copy chuỗi MD5 trước khi kết quả Hiệp 1 được công bố.
-                                    <div className={Styles["wrapper-img-md5"]}>
-                                        <Image
-                                            src={`/static/images/keno-match/md5-copy.png`}
-                                            alt="md5-copy"
-                                            width={552}
-                                            height={29}
-                                            layout="responsive"
-                                            loading="eager"
-                                        />
+                                    <div className={Styles["md5-section"]}>
+                                        <span className={`${Styles["text"]}`}>
+                                            <strong>MD5:</strong> e3a900200600b4fb0e596a412a9d7ac3
+                                        </span>
+                                        <div className={Styles["copy-box"]}>
+                                            <span className={Styles["copy-text"]}>Copy</span>
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
                                     <strong>Bước 2</strong>: Copy chuỗi dữ liệu trong mục Key sau khi kết quả Hiệp 1 được công bố.
-                                    <div className={Styles["wrapper-img-md5"]}>
-                                        <Image
-                                            src={`/static/images/keno-match/md5-key.png`}
-                                            alt="md5-key"
-                                            width={551}
-                                            height={28}
-                                            layout="responsive"
-                                            loading="eager"
-                                        />
+                                    <div className={Styles["md5-section"]}>
+                                        <span className={`${Styles["text"]}`}>
+                                            <strong>Key:</strong> [<span className={Styles["blue"]}>406</span>;
+                                            <span className={Styles["red"]}>309</span>]c6b8e3282ceb68274d49c83ac
+                                        </span>
+                                        <div className={Styles["copy-box"]}>
+                                            <span className={Styles["copy-text"]}>Copy</span>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
