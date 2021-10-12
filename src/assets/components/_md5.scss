@@ -14,6 +14,9 @@
     justify-content: space-between;
     cursor: pointer !important;
     font-size: 1.6rem;
+    @media (max-width: 576px) {
+        font-size: 1.4rem;
+    }
 
     .text {
         &.md5-key {
@@ -37,6 +40,13 @@
             left: 0.5rem;
             top: 0;
             color: #fff;
+            @media (max-width: 576px) {
+                font-size: 1.3rem;
+                left: 0.6rem;
+            }
+        }
+        @media (max-width: 386px) {
+            top: 1rem;
         }
 
         &:before {
