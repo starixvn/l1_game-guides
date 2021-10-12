@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
@@ -13,7 +15,7 @@ const renderGameRule = (maxBetRound: number | string) => {
             <h2>Game Rules</h2>
             <ul className="desc">
                 <li>Make sure you bet an amount you’re comfortable with.</li>
-                <li>The Punters can bet on one or more betting options shown on the game table.</li>
+                <li>Players can bet on one or more betting options shown on the game table.</li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>The maximum total stake per round is {maxBetRound}</li>
                 <li className="contentBeforeEmpty">{renderBettingOptions()}</li>
@@ -40,16 +42,15 @@ const renderBettingOptions = () => {
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Blue</td>
                         <td className="text-start">
-                            Punter wins if the total points of Team Blue {`>`} Team Red.
-                            <br />
-                            +All bets will be refunded if the total points of Team Blue and Team Red are equal.
+                            Player wins if the total points of Team Blue {`>`} Team Red.
+                            <br />+ All bets will be refunded if the total points of both teams are equal.
                         </td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Red</td>
                         <td className="text-start">
-                            Punter wins if the total points of Team Red {`>`} Team Blue.
-                            <br />+ + All bets will be refunded if the total points of Team Red and Team Blue are equal.
+                            Player wins if the total points of Team Red {`>`} Team Blue.
+                            <br />+ All bets will be refunded if the total points of both teams are equal.
                         </td>
                     </tr>
                     <tr>
@@ -57,44 +58,44 @@ const renderBettingOptions = () => {
                             Sum Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red {`>=`} 1621</td>
+                        <td className="text-start">Player wins if the total points of both teams {`>=`} 1621</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red {`<`} 1621</td>
+                        <td className="text-start">Player wins if the total points of both teams {`<`} 1621</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
                             Sum Even/Odd
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Even</td>
-                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red is an even number.</td>
+                        <td className="text-start">Player wins if the total points of both teams are an even number.</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Odd</td>
-                        <td className="text-start">Punter wins if the total points of both Team Blue and Team Red is an odd number.</td>
+                        <td className="text-start">Player wins if the total points of both teams are an odd number.</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
                             Team Blue <br /> Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Big Punter wins if the total points of Team Blue {`>=`} 811</td>
+                        <td className="text-start">Big Player wins if the total points of Team Blue {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of Team Blue {`<`} 811</td>
+                        <td className="text-start">Player wins if the total points of team Blue {`<`} 811</td>
                     </tr>
                     <tr>
                         <td rowSpan={2} className={Styles["bet-team-wd"]}>
                             Team Red <br /> Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Punter wins if the total points of Team Red {`>=`} 811</td>
+                        <td className="text-start">Player wins if the total points of Team Red {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
-                        <td className="text-start">Punter wins if the total points of Team Red {`<`} 811</td>
+                        <td className="text-start">Player wins if the total points of Team Red {`<`} 811</td>
                     </tr>
                 </tbody>
             </table>
@@ -125,53 +126,47 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Team Blue/ Team Red</td>
-                                    <td>Team Blue</td>
+                                    <td rowSpan={2}>Team Blue/Team Red</td>
+                                    <td className="text-start">Team Blue</td>
                                     <td rowSpan={6}>1: {odds.blue}</td>
                                     <td rowSpan={6}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Team Red</td>
+                                    <td className="text-start">Team Red</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>Sum Big/Small</td>
-                                    <td>Big</td>
+                                    <td className="text-start">Big</td>
                                 </tr>
                                 <tr>
-                                    <td>Small</td>
+                                    <td className="text-start">Small</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>Sum Even/Odd</td>
-                                    <td>Even</td>
+                                    <td className="text-start">Even</td>
                                 </tr>
                                 <tr>
-                                    <td>Odd</td>
+                                    <td className="text-start">Odd</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>
-                                        Team Blue <br />
-                                        Big/Small
-                                    </td>
-                                    <td>Big</td>
+                                    <td rowSpan={2}>Team Blue Big/Small</td>
+                                    <td className="text-start">Big</td>
                                     <td rowSpan={4}>1: {odds.blue}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueRedChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Small</td>
+                                    <td className="text-start">Small</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>
-                                        Team Red <br />
-                                        Big/Small
-                                    </td>
-                                    <td>Big</td>
+                                    <td rowSpan={2}>Team Red Big/Small</td>
+                                    <td className="text-start">Big</td>
                                 </tr>
                                 <tr>
-                                    <td>Small</td>
+                                    <td className="text-start">Small</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -204,9 +199,9 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>Introduction</h2>
                     <p className="content">
                         {gameName} {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) ? md5Title() : ""} consists of 2 sets of
-                        numbers, one for the “Team Blue”, and another for “Team Red”, each set of 80 numbers (from 01 to 80). The system
-                        will randomly draw 20 numbers (no duplicates) for Team Red, Team Blue. The object of this game is to predict the
-                        total score of the numbers drawn.
+                        numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers (from 01 to 80). The system will
+                        randomly draw 20 numbers (no duplicates) for each team. The object of this game is to predict the total score of the
+                        numbers drawn.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
@@ -214,6 +209,74 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}
+                        <div>
+                            <strong>Example</strong>: check the authenticity and transparency of final results.
+                            <ul className="desc">
+                                <li>
+                                    <strong>Step 1</strong>: Copy the MD5 string before the result is announced.
+                                    <div className={Styles["wrapper-img-md5"]}>
+                                        <Image
+                                            src={`/static/images/keno-power/md5-copy.png`}
+                                            alt="md5-copy"
+                                            width={551}
+                                            height={26}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>Step 2</strong>: Copy key string after the system publishes the result.
+                                    <div className={Styles["wrapper-img-md5"]}>
+                                        <Image
+                                            src={`/static/images/keno-power/md5-key.png`}
+                                            alt="md5-key"
+                                            width={552}
+                                            height={27}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            Noted: <span className={Styles["blue"]}>684</span> and <span className={Styles["red"]}>778</span> are results of
+                            Team Blue and Team Red respectively.
+                            <ul className="desc">
+                                <li>
+                                    <strong>Step 3</strong>: Go to{" "}
+                                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                        https://md5.services/
+                                    </a>{" "}
+                                    and paste the key string into the MD5 box
+                                    <div className={Styles["wrapper-img-hash"]}>
+                                        <Image
+                                            src={`/static/images/keno-power/md5-hash.png`}
+                                            alt="md5-copy"
+                                            width={387}
+                                            height={120}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>Step 4</strong>: Press the “hash, darling hash!” button and compare the newly generated checksum
+                                    MD5 string with the MD5 string in Step 1
+                                    <div className={Styles["wrapper-img"]}>
+                                        <Image
+                                            src={`/static/images/keno-power/md5.png`}
+                                            alt="md5-copy"
+                                            width={362}
+                                            height={98}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 )}
                 {renderTermsAndConditionsEN()}

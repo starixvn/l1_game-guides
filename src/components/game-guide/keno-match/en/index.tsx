@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
@@ -136,13 +138,13 @@ const renderBettingOptions = () => {
                                     </td>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams is an even number.
+                                        Player wins if the total points (in the First Half) of both teams are an even number.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams is an even number.
+                                        Player wins if the total points (First Half + Full Time) of both teams are an even number.
                                     </td>
                                 </tr>
                                 <tr>
@@ -154,13 +156,13 @@ const renderBettingOptions = () => {
                                     </td>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams is an odd number.
+                                        Player wins if the total points (in the First Half) of both teams are an odd number.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams is an odd number.
+                                        Player wins if the total points (First Half + Full Time) of both teams are an odd number.
                                     </td>
                                 </tr>
                                 <tr>
@@ -203,65 +205,65 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                     <tbody>
                                         <tr>
                                             <td rowSpan={2}>Team Blue</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds.fhBlue}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Team Red</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds.fhRed}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRedChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Over</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds.fhOver}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetOverChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Under</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds.fhUnder}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetUnderChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Even</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                             <td rowSpan={4}>1: {odds.fhEven}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetEvenChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Odd</td>
-                                            <td>First Half</td>
+                                            <td className="text-start">First Half</td>
                                         </tr>
                                         <tr>
-                                            <td>Full Time</td>
+                                            <td className="text-start">Full Time</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -407,6 +409,75 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}
+                        <div>
+                            <strong>Example</strong>: check the authenticity and transparency of First Half’s results
+                            <ul className="desc">
+                                <li>
+                                    <strong>Step 1</strong>: Copy the MD5 string before the First Haft’s result is announced.
+                                    <div className={Styles["wrapper-img-md5"]}>
+                                        <Image
+                                            src={`/static/images/keno-match/md5-copy.png`}
+                                            alt="md5-copy"
+                                            width={552}
+                                            height={29}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>Step 2</strong>: Copy key string after the system publishes the Frist Half’s result.
+                                    <div className={Styles["wrapper-img-md5"]}>
+                                        <Image
+                                            src={`/static/images/keno-match/md5-key.png`}
+                                            alt="md5-key"
+                                            width={551}
+                                            height={28}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            Noted: <span className={Styles["blue"]}>406</span> and <span className={Styles["red"]}>309</span> are first haft
+                            result of Team Blue and Team Red respectively
+                            <ul className="desc">
+                                <li>
+                                    <strong>Step 3</strong>: Go to{" "}
+                                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                        https://md5.services/
+                                    </a>{" "}
+                                    and paste the key string into the MD5 box
+                                    <div className={Styles["wrapper-img"]}>
+                                        <Image
+                                            src={`/static/images/keno-match/md5-hash.png`}
+                                            alt="md5-copy"
+                                            width={387}
+                                            height={111}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <strong>Step 4</strong>: Press the “hash, darling hash!” button and compare the newly generated checksum
+                                    MD5 string with the MD5 string in Step 1
+                                    <div className={Styles["wrapper-img"]}>
+                                        <Image
+                                            src={`/static/images/keno-match/md5.png`}
+                                            alt="md5-copy"
+                                            width={362}
+                                            height={75}
+                                            layout="responsive"
+                                            loading="eager"
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 )}
                 {renderTermsAndConditionsEN()}
