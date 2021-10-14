@@ -80,7 +80,7 @@ const renderBettingOptions = () => {
                             Team Blue <br /> Big/Small
                         </td>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
-                        <td className="text-start">Big Player wins if the total points of Team Blue {`>=`} 811</td>
+                        <td className="text-start">Player wins if the total points of Team Blue {`>=`} 811</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>

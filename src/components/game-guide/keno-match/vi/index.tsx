@@ -61,14 +61,14 @@ const renderBettingOptions = () => {
                                     </td>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
                                     <td className="text-start">
-                                        Thắng nếu tổng điểm 10 số được rút cho Đội Xanh lớn hơn Đội Đỏ.
+                                        Thắng nếu tổng điểm 10 số được rút cho Đội Xanh {`>`} Đội Đỏ.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
-                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Xanh lớn hơn Đội Đỏ.
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Xanh {`>`} Đội Đỏ.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
@@ -81,14 +81,14 @@ const renderBettingOptions = () => {
                                     </td>
                                     <td className="text-start">Hiệp 1</td>
                                     <td className="text-start">
-                                        Thắng nếu tổng điểm 10 số được rút cho Đội Đỏ lớn hơn Đội Xanh.
+                                        Thắng nếu tổng điểm 10 số được rút cho Đội Đỏ {`>`} Đội Xanh.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
-                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Đỏ lớn hơn Đội Xanh.
+                                        Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Đỏ {`>`} Đội Xanh.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>

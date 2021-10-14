@@ -33,7 +33,7 @@ export const renderMD5VI = () => {
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
-                            và dán <strong>Key</strong> vừa copy vào ô MD5.
+                            và dán chuỗi <strong>Key</strong> vừa copy vào ô MD5.
                         </li>
                         <li>
                             <strong>Bước 4</strong>: Bấm nút <strong>“hash, darling hash!”</strong>. So sánh chuỗi{" "}
