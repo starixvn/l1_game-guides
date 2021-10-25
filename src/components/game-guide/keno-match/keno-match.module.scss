@@ -3,12 +3,12 @@
 .bet-option-wd {
     min-width: 10.8rem;
     @media (max-width: 460px) {
-        min-width: 7rem;
+        min-width: 6.8rem;
     }
 }
 
 .bet-team-wd {
-    min-width: 8rem;
+    min-width: 6.8rem;
 }
 
 .bet-odd-wd {
@@ -30,8 +30,8 @@
 
 .payouts-min-wd {
     min-width: auto;
-    @media (min-width: 992px) {
-        min-width: 10rem;
+    @media (min-width: 576.99px) {
+        min-width: 15rem;
     }
 }
 
