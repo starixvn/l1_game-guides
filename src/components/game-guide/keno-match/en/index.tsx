@@ -189,7 +189,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                     <ul className="game-guide-alpha">
                         <li>
                             <strong>a) Place bets before any numbers are drawn for the “First Half” result</strong>
-                            <div className="table-container">
+                            <div className={`table-container ${Styles["table-payouts-bet"]}`}>
                                 <table className="table text-center table-medium">
                                     <thead>
                                         <tr>
@@ -290,7 +290,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                         “First Half” of both teams is between 661 and 980
                                     </li>
                                     <li className="contentBeforeEmpty">
-                                        <div className="table-container">
+                                        <div className={`table-container ${Styles["table-payouts-bet-live"]}`}>
                                             <table className="table text-center">
                                                 <thead>
                                                     <tr>
@@ -303,7 +303,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <th colSpan={2}>Bet Limit</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>Min</th>
+                                                        <th className={Styles["payouts-min-wd"]}>Min</th>
                                                         <th>Max</th>
                                                     </tr>
                                                 </thead>

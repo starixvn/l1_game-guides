@@ -10,6 +10,7 @@
 .bet-team-wd {
     min-width: 8rem;
 }
+
 .bet-odd-wd {
     min-width: 8.5rem;
 }
@@ -25,4 +26,25 @@
     margin: 0 auto;
     max-width: 38.7rem;
     max-height: 11.3rem;
+}
+
+.payouts-min-wd {
+    min-width: auto;
+    @media (min-width: 992px) {
+        min-width: 10rem;
+    }
+}
+
+.table-payouts-bet {
+    margin-left: inherit;
+    @media (max-width: 576px) {
+        margin-left: -1rem;
+    }
+}
+
+.table-payouts-bet-live {
+    margin-left: inherit;
+    @media (max-width: 576px) {
+        margin-left: -2rem;
+    }
 }
