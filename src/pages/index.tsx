@@ -53,6 +53,18 @@ const Home = () => {
     const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
 
     useEffect(() => {
+        const CheckIsInteger = (number: string | number | object) => {
+            return Number.isInteger(+number) ? +number : 0;
+        };
+
+        const bindEvent = (element: any, eventName: any, eventHandler: any) => {
+            if (element.addEventListener) {
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + eventName, eventHandler);
+            }
+        };
+
         if (router.isReady) {
             const queryParams: object | any = router.query;
 
