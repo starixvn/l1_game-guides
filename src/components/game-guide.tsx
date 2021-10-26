@@ -30,16 +30,18 @@ type Props = {
     userStakeLevel: UserStakeLevelProps | undefined;
     locale: string;
     name: string;
+    gameConfigs: any;
 };
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, name, locale } = props;
+    const { gameId, userStakeLevel, name, locale, gameConfigs } = props;
     const { gameSettings } = appSettings;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
+        gameConfigs: gameConfigs,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {

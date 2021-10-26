@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { language, languageMapper, locales } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
@@ -24,6 +24,21 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
         setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
     }
 };
+export type GameConfigs = {
+    maxBetPerChoices: any;
+    enableFreeBet: boolean;
+    maxBet: number;
+    minBet: number;
+    odds: any;
+};
+
+function bindEvent(element: any, eventName: any, eventHandler: any) {
+    if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+    } else if (element.attachEvent) {
+        element.attachEvent("on" + eventName, eventHandler);
+    }
+}
 
 const Home = () => {
     const { setTheme } = useTheme();
@@ -33,6 +48,8 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState<string>("");
     const router = useRouter();
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
 
     useEffect(() => {
         if (router.isReady) {
@@ -45,6 +62,10 @@ const Home = () => {
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
         }
+
+        bindEvent(window, "message", function (event: any) {
+            event?.data && setGameConfigs(JSON.parse(event.data));
+        });
     }, [router.isReady]);
 
     if (isLoading) {
@@ -52,8 +73,16 @@ const Home = () => {
     }
 
     return (
-        <div id="container-guide" className="container-guide">
-            <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel} name={name}></GameGuide>
+        <div ref={wrapperRef} id="container-guide" className="container-guide">
+            {gameConfigs && (
+                <GameGuide
+                    gameId={gameId}
+                    locale={locale}
+                    userStakeLevel={userStakeLevel}
+                    name={name}
+                    gameConfigs={gameConfigs}
+                ></GameGuide>
+            )}
         </div>
     );
 };
