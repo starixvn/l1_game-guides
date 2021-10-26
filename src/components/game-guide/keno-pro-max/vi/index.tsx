@@ -180,7 +180,7 @@ const bettingOptions = () => {
 
 const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { big, earth, fire, water, gold, wood } = odds;
 
     return (
@@ -194,7 +194,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         bóng này.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxBet))}</li>
                 <li className="guide-item">{bettingOptions()}</li>
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
@@ -217,7 +217,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                                             <td>Tài</td>
                                             <td rowSpan={4}> 1: {big}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.big)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.big)}
                                             </td>
                                         </tr>
                                         <tr>
@@ -233,35 +233,35 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                                             <td>Kim</td>
                                             <td>1: {gold}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.gold)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.gold)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Mộc</td>
                                             <td>1: {wood}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.wood)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.wood)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thủy</td>
                                             <td>1: {water}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.water)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.water)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Hỏa</td>
                                             <td>1: {fire}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.fire)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.fire)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thổ</td>
                                             <td>1: {earth}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.earth)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.earth)}
                                             </td>
                                         </tr>
                                     </tbody>

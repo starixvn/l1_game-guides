@@ -8,7 +8,7 @@ import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 
-const renderGameRule = (odds: OddsProps, maxbet: number) => {
+const renderGameRule = (odds: OddsProps, maxBet: number) => {
     const bet = 10;
     const winRed = numberWithCommas(bet * odds.red);
     const winDiamonds = numberWithCommas(bet * odds.diamonds);
@@ -20,7 +20,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 <li>Players can bet on one or more betting options shown on the game table.</li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, cards will be turned up.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
+                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
                 <li>
                     The standard deck with 52 cards (excluding Joker) is shuffled after every round.{" "}
                     <div className="table-container">
@@ -204,7 +204,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
 
 const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
 
@@ -222,9 +222,9 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
+                <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
 
-                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderPayouts(odds, minBet, maxBetPerChoices)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

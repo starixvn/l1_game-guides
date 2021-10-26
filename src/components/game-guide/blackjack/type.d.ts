@@ -7,5 +7,5 @@ export interface OddsProps {
 
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsProps;
-    choices_maxbet: {};
+    maxBetPerChoices: {};
 }

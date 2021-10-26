@@ -14,10 +14,19 @@ export type GameGuideBase = {
     gameName: string;
     locale?: string;
     id?: number;
+    gameConfigs: GameConfigs;
 };
 
 export interface GameConfigsBaseProps {
-    minbet: number;
-    maxbet: number;
+    minBet: number;
+    maxBet: number;
     enableFreeBet?: boolean;
 }
+
+export type GameConfigs = {
+    maxBetPerChoices: any;
+    enableFreeBet: boolean;
+    maxBet: number;
+    minBet: number;
+    odds: any;
+};

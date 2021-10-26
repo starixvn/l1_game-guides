@@ -6,8 +6,8 @@ import { GameGuideProps } from "../../type";
 
 const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
     return (
         <>
             <ul className="game-guide">
@@ -100,7 +100,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                         <tr>
                                             <td>Rồng</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.dragon)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.dragon)}
                                             </td>
                                             <td rowSpan={2}>1:{odds.dragon}</td>
                                         </tr>
@@ -110,7 +110,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                         <tr>
                                             <td>Hòa</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(choices_maxbet.tie)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.tie)}
                                             </td>
                                             <td>1:{odds.tie}</td>
                                         </tr>

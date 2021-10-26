@@ -7,7 +7,7 @@ import { renderPayoutsTableOnBody } from "../en";
 import { locales } from "../../../../common/constants";
 import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxbet: number) => {
+const renderGameRule = (maxBet: number) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -16,7 +16,7 @@ const renderGameRule = (maxbet: number) => {
                     Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
                     cược. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
-                <li>Tổng tiền cược tối đa cho một phiên là {numberWithCommas(maxbet)}</li>
+                <li>Tổng tiền cược tối đa cho một phiên là {numberWithCommas(maxBet)}</li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Xúc xắc sẽ được lắc khi bắt đầu phiên, kết
                     quả sẽ được hiển thị khi hết thời gian đặt cược.
@@ -94,7 +94,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -106,7 +106,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         dụng ba viên xúc xắc (xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet)}</li>
+                <li className="guide-item">{renderGameRule(maxBet)}</li>
                 <li className="guide-item">
                     <h2>Điều kiện thắng</h2>
                     <ul className="desc">
@@ -163,7 +163,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderPayouts(odds, minBet, maxBetPerChoices)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

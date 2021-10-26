@@ -15,14 +15,14 @@ export const minPayoutUnder = 1.04;
 export const KenoMatchMD5 = [37];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { choices_maxbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet));
-    const maxBetBlueChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fhBlue));
-    const maxBetRedChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fhRed));
-    const maxBetOverChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fhOver));
-    const maxBetUnderChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fhUnder));
-    const maxBetEvenChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.fhEven));
-    const maxBetEvenLiveChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.liveFTEven));
+    const { maxBetPerChoices, maxBet } = gameConfigs;
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const maxBetBlueChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhBlue));
+    const maxBetRedChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhRed));
+    const maxBetOverChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhOver));
+    const maxBetUnderChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhUnder));
+    const maxBetEvenChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhEven));
+    const maxBetEvenLiveChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.liveFTEven));
 
     return { maxBetRound, maxBetBlueChoice, maxBetRedChoice, maxBetOverChoice, maxBetUnderChoice, maxBetEvenChoice, maxBetEvenLiveChoice };
 };

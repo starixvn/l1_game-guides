@@ -8,7 +8,7 @@ import Styles from "../lottery.module.scss";
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
 const textRedLight = "text-red-light";
-const renderHowToPLay = (maxbet: number) => {
+const renderHowToPLay = (maxBet: number) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -18,7 +18,7 @@ const renderHowToPLay = (maxbet: number) => {
                     Bạn có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. <strong>Lưu ý</strong>, không thể hủy cược
                     sau khi đặt.
                 </li>
-                <li>Tổng tiền cược tối đa cho 1 phiên là {numberWithCommas(maxbet)}</li>
+                <li>Tổng tiền cược tối đa cho 1 phiên là {numberWithCommas(maxBet)}</li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
                     hiển thị.
@@ -618,7 +618,7 @@ const renderViewStatistic = () => {
 
 const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -767,9 +767,9 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         </li>
                     </ul>
                 </li>
-                {renderHowToPLay(maxbet)}
+                {renderHowToPLay(maxBet)}
                 {renderGameRule(odds)}
-                {renderPayouts(odds, choices_maxbet, minbet)}
+                {renderPayouts(odds, maxBetPerChoices, minBet)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsVI()}
             </ul>

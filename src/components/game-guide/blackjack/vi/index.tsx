@@ -6,7 +6,7 @@ import { CardPointValuesTable } from "..";
 import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
 
-const renderGameRule = (maxbet: number, minbet: number) => {
+const renderGameRule = (maxBet: number, minBet: number) => {
     const wrapperImg = "wrapper-img";
     const optionsWidth = "options-width";
     return (
@@ -22,7 +22,7 @@ const renderGameRule = (maxbet: number, minbet: number) => {
                 </li>
                 <li>Bạn có thể chơi nhiều tay bài trong 1 phiên, bằng cách đặt chip vào nhiều ô khác nhau, mỗi ô ứng với 1 tay bài.</li>
                 <li>
-                    Số tiền cược cho mỗi tay bài phải nằm trong khoảng từ {numberWithCommas(minbet)} đến {numberWithCommas(maxbet)}.
+                    Số tiền cược cho mỗi tay bài phải nằm trong khoảng từ {numberWithCommas(minBet)} đến {numberWithCommas(maxBet)}.
                 </li>
                 <li>Khi bắt đầu ván chơi, tay bài của Người Chơi và Nhà Cái, mỗi bên sẽ được chia 2 lá bài. </li>
                 <li>Các lá bài tiếp theo sẽ được rút tùy vào điểm số của 2 lá bài đầu tiên.</li>
@@ -185,7 +185,7 @@ const renderPayouts = (odds: OddsProps) => {
 
 const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { odds, minBet, maxBet } = gameConfigs;
 
     return (
         <>
@@ -199,7 +199,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         điểm nhưng không được vượt quá 21. Bên nào gần 21 điểm hơn thì bên đó giành chiến thắng.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet, minbet)}</li>
+                <li className="guide-item">{renderGameRule(maxBet, minBet)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc tính điểm</h2>
                     <ul className="desc">

@@ -18,10 +18,10 @@ const odds = {
 };
 
 const GameConfigs = {
-    choices_maxbet: choicesMaxBet,
+    maxBetPerChoices: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 5000,
-    minbet: 10,
+    maxBet: 5000,
+    minBet: 10,
     odds: odds,
 };
 

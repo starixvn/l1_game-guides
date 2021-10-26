@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { language, languageMapper, locales } from "../common/constants";
 import GameGuide from "../components/game-guide";
+import { GameConfigs } from "../components/game-guide/type";
 
 export interface UserStakeLevelProps {
     minBet?: number;

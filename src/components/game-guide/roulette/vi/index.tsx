@@ -756,7 +756,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
 
 const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -770,9 +770,9 @@ const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         lại.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet)}</li>
+                <li className="guide-item">{renderGameRule(maxBet)}</li>
                 {renderBettingOptions()}
-                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderPayouts(odds, minBet, maxBetPerChoices)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

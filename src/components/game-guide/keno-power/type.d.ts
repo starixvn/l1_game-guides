@@ -30,7 +30,7 @@ export interface ChoicesMaxBetProps {
 
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsProps;
-    choices_maxbet: ChoicesMaxBetProps;
+    maxBetPerChoices: ChoicesMaxBetProps;
 }
 
 export interface MaxBetChoicesProps {

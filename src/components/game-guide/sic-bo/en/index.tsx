@@ -6,7 +6,7 @@ import { GameGuideProps } from "../../type";
 import { locales } from "../../../../common/constants";
 import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxbet: number) => {
+const renderGameRule = (maxBet: number) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -14,7 +14,7 @@ const renderGameRule = (maxbet: number) => {
                 <li>Select the chip value you wish to play. Players can bet on one or more betting options shown on the game table.</li>
                 <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
+                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
                 <li>
                     The total stake amount of all players shown on each bet option is only for reference. For different markets and
                     currencies, the totals are converted based on the internal rates set by the company.
@@ -155,7 +155,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choice
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -168,7 +168,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         the total value of the dice.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxbet)}</li>
+                <li className="guide-item">{renderGameRule(maxBet)}</li>
                 <li className="guide-item">
                     <h2>Betting Options</h2>
                     <ul className="desc">
@@ -229,7 +229,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderPayouts(odds, minBet, maxBetPerChoices)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

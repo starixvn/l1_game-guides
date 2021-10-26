@@ -10,10 +10,10 @@ import { GameConfigProps } from "./type";
 import { GameGuideBase } from "../type";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { choices_maxbet, maxbet } = gameConfigs;
-    const maxBetMainChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.player));
-    const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet, choices_maxbet.tie));
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet));
+    const { maxBetPerChoices, maxBet } = gameConfigs;
+    const maxBetMainChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
+    const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
+    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
 
     return { maxBetMainChoice, maxBetSubChoice, maxBetRound };
 };

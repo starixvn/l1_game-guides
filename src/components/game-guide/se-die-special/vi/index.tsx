@@ -71,7 +71,7 @@ const renderGameRule = (maxBet: string) => {
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { odds, minBet, maxBet } = gameConfigs;
 
     return (
         <>
@@ -85,7 +85,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         thua sẽ phụ thuộc vào số mặt đỏ hoặc trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxBet))}</li>
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
@@ -108,7 +108,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                             <td>Chẵn</td>
                                             <td rowSpan={2}>1:{odds.even}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(maxbet)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBet)}
                                             </td>
                                         </tr>
                                         <tr>

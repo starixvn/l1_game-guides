@@ -6,8 +6,8 @@ import { GameGuideProps } from "../../type";
 
 const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
+    const { odds, minBet, maxBet } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
     return (
         <>
             <ul className="game-guide">
@@ -35,7 +35,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                             expires.
                         </li>
                         <li>
-                            Min bet and Max bet must be between {numberWithCommas(minbet)} - {numberWithCommas(maxbet)} and the maximum
+                            Min bet and Max bet must be between {numberWithCommas(minBet)} - {numberWithCommas(maxBet)} and the maximum
                             total stake per round is {maxBetRound}
                         </li>
                         <li>

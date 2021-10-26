@@ -9,7 +9,7 @@ import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { odds, minbet } = gameConfigs;
+    const { odds, minBet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
     const { theme } = useTheme();
     return (
@@ -68,7 +68,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả một lần.</td>
                                             <td>1: {single}</td>
                                             <td rowSpan={5}>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -100,7 +100,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
                                             <td>1: {anyTriple}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

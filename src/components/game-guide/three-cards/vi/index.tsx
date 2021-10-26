@@ -9,7 +9,7 @@ import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 
-const renderGameRule = (odds: OddsProps, maxbet: number) => {
+const renderGameRule = (odds: OddsProps, maxBet: number) => {
     const bet = 10;
     const winRed = numberWithCommas(bet * odds.red);
     const winDiamonds = numberWithCommas(bet * odds.diamonds);
@@ -23,7 +23,7 @@ const renderGameRule = (odds: OddsProps, maxbet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho
-                    một phiên là <strong>{numberWithCommas(maxbet)}</strong>. Lưu ý, không thể hủy cược sau khi đặt.
+                    một phiên là <strong>{numberWithCommas(maxBet)}</strong>. Lưu ý, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
@@ -144,7 +144,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
 
 const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
 
@@ -163,9 +163,9 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.vi, isSM)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxbet)}</li>
+                <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
 
-                {renderPayouts(odds, minbet, choices_maxbet)}
+                {renderPayouts(odds, minBet, maxBetPerChoices)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

@@ -6,7 +6,7 @@ import { GameGuideProps } from "../../type";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { StatisticalTable } from "../../../shared/se-die/en";
 
-const renderGameRule = (maxbet: string) => {
+const renderGameRule = (maxBet: string) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -52,7 +52,7 @@ const renderGameRule = (maxbet: string) => {
                 <li>
                     Players can increase their stake amount by placing another bet with the same selection before the betting time expires.
                 </li>
-                <li>The maximum total stake per round is {maxbet}. Note, placed bets cannot be canceled.</li>
+                <li>The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled.</li>
                 <li>
                     Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
                     the players who have the latest bet ticket.
@@ -81,7 +81,7 @@ const renderStatisticTable = () => {
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
+    const { odds, minBet, maxBet } = gameConfigs;
 
     return (
         <>
@@ -94,7 +94,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxbet))}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(maxBet))}</li>
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
@@ -119,7 +119,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                             <td>ODD</td>
                                             <td rowSpan={2}>1:{odds.even}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {numberWithCommas(maxbet)}
+                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBet)}
                                             </td>
                                         </tr>
                                         <tr>

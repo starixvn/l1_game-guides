@@ -13,7 +13,7 @@ import { Themes } from "../../../../common/constants";
 const wrapperBankerPlayer = "wrapper-banker-player";
 const contentText = "content-text";
 
-const renderGameRule = (maxbet: string) => {
+const renderGameRule = (maxBet: string) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -24,7 +24,7 @@ const renderGameRule = (maxbet: string) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxbet}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                    phiên là {maxBet}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được
@@ -292,7 +292,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const pathImg = theme === Themes.light ? "dark/guide-stats-vi.png" : "guide-stats-vi.png?1";
     return (
@@ -307,9 +307,9 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)))}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)))}</li>
 
-                {renderPayouts(odds, choices_maxbet, minbet)}
+                {renderPayouts(odds, maxBetPerChoices, minBet)}
                 <li className="guide-item">
                     <h2>Bảng thống kê kết quả</h2>
                     <ul className="style-number-dot">

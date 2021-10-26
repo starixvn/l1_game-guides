@@ -276,7 +276,7 @@ export const renderContentKenoMaxOrMini = (
 
 const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
+    const { odds, maxBet, minBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -288,9 +288,9 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         20 quả bóng trong số 80 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 20 quả bóng này.
                     </p>
                 </li>
-                {renderGameRule(maxbet)}
+                {renderGameRule(maxBet)}
                 {bettingOptions()}
-                {renderContentKenoMaxOrMini(odds, maxbet, minbet, choices_maxbet)}
+                {renderContentKenoMaxOrMini(odds, maxBet, minBet, maxBetPerChoices)}
             </ul>
         </>
     );

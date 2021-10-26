@@ -67,7 +67,7 @@ export const renderListIcon = (theme: string | undefined) => {
 };
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { odds, minbet } = gameConfigs;
+    const { odds, minBet } = gameConfigs;
     const { single, double, triple, mountain, ocean, anyTriple } = odds;
     const { theme } = useTheme();
     return (
@@ -129,7 +129,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">If the chosen symbol appears once. </td>
                                             <td>1: {single}</td>
                                             <td rowSpan={5}>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -161,7 +161,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
                                             <td>1: {anyTriple}</td>
                                             <td>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

@@ -19,9 +19,9 @@ export const renderIconChoice = () => {
 
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
-    const maxChoiceRound = numberWithCommas(choices_maxbet.crab);
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
+    const maxChoiceRound = numberWithCommas(maxBetPerChoices.crab);
     return (
         <>
             <ul className="game-guide">
@@ -47,7 +47,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                     <ul className="desc">
                         <li>The dice will be shaken and the result will be shown. If the symbol you have bet on shows up, you win.</li>
                         <li>
-                            Min bet and Max bet must be between {numberWithCommas(minbet)} - {maxChoiceRound} and the maximum total stake
+                            Min bet and Max bet must be between {numberWithCommas(minBet)} - {maxChoiceRound} and the maximum total stake
                             per round is {maxBetRound}
                         </li>
                         <li>

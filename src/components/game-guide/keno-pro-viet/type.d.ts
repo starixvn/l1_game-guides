@@ -3,5 +3,5 @@ import { GameConfigsBaseProps } from "../type";
 
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsProMaxProps;
-    choices_maxbet: ChoicesMaxBetProMaxProps;
+    maxBetPerChoices: ChoicesMaxBetProMaxProps;
 }

@@ -90,7 +90,7 @@ const renderStatistical = () => {
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
-    const { odds, minbet } = gameConfigs;
+    const { odds, minBet } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -137,7 +137,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td>ODD</td>
                                             <td rowSpan={2}>1:{odds.even}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetMain}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -148,7 +148,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td rowSpan={2}>1:{odds.red4}</td>
 
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed4}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed4}
                                             </td>
                                         </tr>
                                         <tr>
@@ -158,7 +158,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td>3 red, 1 white</td>
                                             <td rowSpan={2}>1:{odds.red3}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed3}
+                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
@@ -169,7 +169,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                                 <td>2 red, 2 white</td>
                                                 <td>1:{odds.red2}</td>
                                                 <td>
-                                                    {numberWithCommas(minbet)} - {maxBetFollowChoice?.maxBetRed2}
+                                                    {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
                                             </tr>
                                         )}

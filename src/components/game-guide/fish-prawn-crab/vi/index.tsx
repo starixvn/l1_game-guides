@@ -7,9 +7,9 @@ import { renderIconChoice } from "../en";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
-    const maxChoiceRound = numberWithCommas(choices_maxbet.crab);
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
+    const maxChoiceRound = numberWithCommas(maxBetPerChoices.crab);
     return (
         <>
             <ul className="game-guide">
@@ -37,7 +37,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
                         </li>
                         <li>
-                            Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minbet)} đến {maxChoiceRound} cho một lần đặt cược và
+                            Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minBet)} đến {maxChoiceRound} cho một lần đặt cược và
                             tổng tiền cược tối đa cho 1 phiên là {maxBetRound}
                         </li>
                         <li>

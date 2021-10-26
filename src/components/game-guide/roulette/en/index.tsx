@@ -777,7 +777,7 @@ const renderCallBet = () => {
 
 const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -791,7 +791,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         into the number you selected, you will win; otherwise, you lose.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, minbet, choices_maxbet, maxbet)}</li>
+                <li className="guide-item">{renderGameRule(odds, minBet, maxBetPerChoices, maxBet)}</li>
                 {renderBettingOptions()}
                 {renderCallBet()}
                 {renderTermsAndConditionsEN()}

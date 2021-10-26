@@ -390,7 +390,7 @@ const md5Title = () => {
 
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
-    const { odds, minbet } = gameConfigs;
+    const { odds, minBet } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -409,7 +409,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
-                <li className="guide-item">{renderPayouts(odds, minbet, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, minBet, maxBetFollowChoice)}</li>
                 {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}

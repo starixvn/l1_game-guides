@@ -269,7 +269,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, userStakeLevel } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const pathImg = theme === Themes.light ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
     return (
@@ -284,9 +284,9 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         loss based on the number of red or white sites faced up in the result
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxbet, maxbet)))}</li>
+                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)))}</li>
 
-                {renderPayouts(odds, choices_maxbet, minbet)}
+                {renderPayouts(odds, maxBetPerChoices, minBet)}
                 <li className="guide-item">
                     <h2>Scoreboard</h2>
                     <ul className="style-number-dot">

@@ -8,7 +8,7 @@ import Styles from "../lottery.module.scss";
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
 const textRedLight = "text-red-light";
-const renderGameRule = (maxbet: number) => {
+const renderGameRule = (maxBet: number) => {
     return (
         <li className="guide-item">
             <h2>Game Rules</h2>
@@ -16,7 +16,7 @@ const renderGameRule = (maxbet: number) => {
                 <li>Select the chip value you wish to play. All bets must be completed before the betting time expires.</li>
                 <li>Note, placed bets cannot be canceled.</li>
                 <li>Players can bet on one or more betting options shown on the game table.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxbet)}</li>
+                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
             </ul>
         </li>
     );
@@ -603,7 +603,7 @@ const renderViewStatistic = () => {
 
 const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet, choices_maxbet } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
     return (
         <>
@@ -752,9 +752,9 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         </li>
                     </ul>
                 </li>
-                {renderGameRule(maxbet)}
+                {renderGameRule(maxBet)}
                 {renderBettingOptions(odds)}
-                {renderPayouts(odds, choices_maxbet, minbet, maxbet)}
+                {renderPayouts(odds, maxBetPerChoices, minBet, maxBet)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsEN()}
             </ul>

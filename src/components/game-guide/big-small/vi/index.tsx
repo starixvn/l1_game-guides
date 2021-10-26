@@ -6,8 +6,8 @@ import { GameGuideProps } from "../../type";
 
 const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
+    const { odds, minBet, maxBet } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
     return (
         <>
             <ul className="game-guide">
@@ -32,7 +32,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                             kết thúc.
                         </li>
                         <li>
-                            Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minbet)} đến {numberWithCommas(maxbet)} cho một lần đặt
+                            Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minBet)} đến {numberWithCommas(maxBet)} cho một lần đặt
                             cược và tổng tiền cược tối đa cho 1 phiên là {maxBetRound}
                         </li>
                         <li>

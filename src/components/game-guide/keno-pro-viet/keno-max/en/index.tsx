@@ -255,8 +255,8 @@ const bettingOptions = () => {
 
 const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, maxbet, minbet, choices_maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
+    const { odds, maxBet, minBet, maxBetPerChoices } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
     return (
         <>
             <ul className="game-guide">
@@ -279,7 +279,7 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
-                <li className="guide-item">{payouts(odds, minbet, choices_maxbet)}</li>
+                <li className="guide-item">{payouts(odds, minBet, maxBetPerChoices)}</li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

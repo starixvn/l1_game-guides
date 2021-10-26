@@ -19,10 +19,10 @@ const odds = {
 };
 
 const GameConfigs = {
-    choices_maxbet: choicesMaxBet,
+    maxBetPerChoices: choicesMaxBet,
     enableFreeBet: false,
-    maxbet: 2000,
-    minbet: 1,
+    maxBet: 2000,
+    minBet: 1,
     odds: odds,
 };
 
