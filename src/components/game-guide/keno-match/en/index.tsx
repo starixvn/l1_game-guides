@@ -12,7 +12,6 @@ import Styles from "../keno-match.module.scss";
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
 const classBetOddWd = "bet-odd-wd";
-
 const renderGameRule = (maxBetRound: number | string) => {
     return (
         <>

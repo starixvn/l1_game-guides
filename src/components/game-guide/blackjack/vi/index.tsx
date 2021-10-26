@@ -187,7 +187,7 @@ const renderPayouts = (odds: OddsProps) => {
 const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet } = gameConfigs;
-    const { t } = useTranslation([gameName.toLocaleLowerCase()]);
+    const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
             <ul className="game-guide">

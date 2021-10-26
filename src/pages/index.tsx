@@ -61,7 +61,7 @@ const Home = () => {
             if (element.addEventListener) {
                 element.addEventListener(eventName, eventHandler, false);
             } else if (element.attachEvent) {
-                element.attachEvent("on" + eventName, eventHandler);
+                element.attachEvent(`on${eventName}`, eventHandler);
             }
         };
 
