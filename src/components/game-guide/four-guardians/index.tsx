@@ -2,14 +2,14 @@ import React from "react";
 import FourGuardiansGuideEN from "./en";
 import FourGuardiansGuideVI from "./vi";
 import { GameGuideBase } from "../type";
-import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
-    const { gameName, locale, gameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate } = props;
 
     if (locale === locales.en) {
-        return <FourGuardiansGuideEN gameConfigs={gameConfigs as any} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <FourGuardiansGuideEN gameConfigs={gameConfigs as any} gameName={gameNameTranslate} />;
     }
-    return <FourGuardiansGuideVI gameConfigs={gameConfigs as any} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <FourGuardiansGuideVI gameConfigs={gameConfigs as any} gameName={gameNameTranslate} />;
 };
 export default FourGuardiansGuide;

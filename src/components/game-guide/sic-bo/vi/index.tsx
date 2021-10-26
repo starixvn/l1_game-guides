@@ -1,10 +1,11 @@
 import React from "react";
+import { useTranslation, TFunction } from "next-i18next";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsTableOnBody } from "../en";
-import { locales } from "../../../../common/constants";
 import Styles from "../sic-bo.module.scss";
 
 const renderGameRule = (maxBet: number) => {
@@ -30,7 +31,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -82,7 +83,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td>Xuất hiện ba lần 1:{odds.triple}</td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, locales.vi)}
+                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
                             </tbody>
                         </table>
                     </div>
@@ -95,7 +96,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-
+    const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
             <ul className="game-guide">
@@ -163,7 +164,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minBet, maxBetPerChoices)}
+                {renderPayouts(odds, minBet, maxBetPerChoices, t)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

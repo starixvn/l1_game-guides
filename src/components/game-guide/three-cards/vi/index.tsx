@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "next-themes";
+import { useTranslation } from "next-i18next";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
@@ -147,7 +148,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
-
+    const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
             <ul className="game-guide">
@@ -161,7 +162,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         sẽ có 3 lá bài được rút, người chơi đặt cược vào các lựa chọn mong muốn. Kết quả thắng thua sẽ được tính dựa trên
                         chất của các lá bài.
                     </p>
-                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.vi, isSM)}</div>
+                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.vi, isSM, t)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
 

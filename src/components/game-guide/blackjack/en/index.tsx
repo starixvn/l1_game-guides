@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
+
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
-import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxBet: number, minBet: number) => {
@@ -209,7 +210,7 @@ const renderPayouts = (odds: OddsProps) => {
 const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet } = gameConfigs;
-
+    const { t } = useTranslation([gameName.toLocaleLowerCase()]);
     return (
         <>
             <ul className="game-guide">
@@ -234,7 +235,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         <li>
                             The hand with Blackjack (21 points on the first two cards) will win over a 21 achieved with 3 or more cards.
                         </li>
-                        <li>Card’s point values:{CardPointValuesTable(locales.en)}</li>
+                        <li>Card’s point values:{CardPointValuesTable(t)}</li>
                     </ul>
                     <strong>Example: </strong>
                     <ul className="detail">

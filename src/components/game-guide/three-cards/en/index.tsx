@@ -1,6 +1,8 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
+import { useTranslation, TFunction } from "next-i18next";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
@@ -139,7 +141,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
     );
 };
 
-export const renderChoiceImage = (locale = "en", isSM: boolean) => {
+export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) => {
     const imgCustomize = "img-customize";
     const wrapperImg = "wrapper-img";
     const prefixLocale = locale === locales.en ? "_en" : "";
@@ -153,7 +155,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
                     alt="red"
                 ></img>
-                <p>{locale === locales.en ? "Red" : "Đỏ"}</p>
+                <p>{t("red")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["black"]}`}>
                 <img
@@ -163,7 +165,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
                     alt="black"
                 ></img>
-                <p>{locale === locales.en ? "Black" : "Đen"}</p>
+                <p>{t("black")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["diamond"]}`}>
                 <img
@@ -171,7 +173,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     src="./static/images/three-cards/table_icon_diamond.png"
                     alt="diamond"
                 ></img>
-                <p>{locale === locales.en ? "Diamonds" : "Rô"}</p>
+                <p>{t("diamonds")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["heart"]}`}>
                 <img
@@ -180,7 +182,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     alt="heart"
                 ></img>
 
-                <p>{locale === locales.en ? "Hearts" : "Cơ"}</p>
+                <p>{t("hearts")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["spade"]}`}>
                 <img
@@ -188,7 +190,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     src="./static/images/three-cards/table_icon_spade.png"
                     alt="spade"
                 ></img>
-                <p>{locale === locales.en ? "Spades" : "Bích"}</p>
+                <p>{t("spades")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["club"]}`}>
                 <img
@@ -196,7 +198,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean) => {
                     src="./static/images/three-cards/table_icon_club.png"
                     alt="club"
                 ></img>
-                <p>{locale === locales.en ? "Clubs" : "Chuồn"}</p>
+                <p>{t("clubs")}</p>
             </div>
         </>
     );
@@ -207,7 +209,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
-
+    const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
             <ul className="game-guide">
@@ -220,7 +222,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         <span className={Styles["img-black"]}>♣</span>). The objective of this game is to predict the suit of 3 cards drawn
                         for each round. If the outcome matches the player’s bet, the player wins.
                     </p>
-                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM)}</div>
+                    <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
 

@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation, TFunction } from "next-i18next";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { locales } from "../../../../common/constants";
 import Styles from "../sic-bo.module.scss";
 
 const renderGameRule = (maxBet: number) => {
@@ -24,7 +25,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -81,7 +82,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td className="text-start">1:{odds.triple} if the chosen number appears on all three dice.</td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet)}
+                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
                             </tbody>
                         </table>
                     </div>
@@ -91,11 +92,11 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
     );
 };
 
-export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, locale = "en") => {
+export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <>
             <tr>
-                <td rowSpan={14}>{locale === locales.vi ? "Tổng điểm" : "Total Points"}</td>
+                <td rowSpan={14}>{t("totalPoints")}</td>
                 <td>4</td>
                 <td rowSpan={2}>1:{odds.total4}</td>
                 <td rowSpan={8}>
@@ -156,6 +157,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choice
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const { t } = useTranslation(gameName.toLocaleLowerCase());
 
     return (
         <>
@@ -229,7 +231,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minBet, maxBetPerChoices)}
+                {renderPayouts(odds, minBet, maxBetPerChoices, t)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

@@ -1,7 +1,8 @@
+import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
-import { language, languageMapper, locales } from "../common/constants";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import GameGuide from "../components/game-guide";
 import { GameConfigs } from "../components/game-guide/type";
 
@@ -44,7 +45,6 @@ function bindEvent(element: any, eventName: any, eventHandler: any) {
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
-    const [locale, setLocale] = useState<string>(locales.en);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
     const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState<string>("");
@@ -70,7 +70,6 @@ const Home = () => {
 
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
-            handleLocale(queryParams, setLocale);
             setName(queryParams?.name);
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
@@ -90,7 +89,7 @@ const Home = () => {
             {gameConfigs && (
                 <GameGuide
                     gameId={gameId}
-                    locale={locale}
+                    locale={router?.locale ?? "en"}
                     userStakeLevel={userStakeLevel}
                     name={name}
                     gameConfigs={gameConfigs}
@@ -98,6 +97,14 @@ const Home = () => {
             )}
         </div>
     );
+};
+
+export const getStaticProps = async ({ locale = "en" }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common", "blackjack", "sicbo", "threecards"])),
+        },
+    };
 };
 
 export default Home;

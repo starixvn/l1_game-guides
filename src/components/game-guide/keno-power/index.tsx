@@ -1,7 +1,7 @@
 import React from "react";
 import KenoPowerGuideEN from "./en";
 import KenoPowerGuideVI from "./vi";
-import { locales, GameNameVI, GameNameEN } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
@@ -19,14 +19,14 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const KenoPowerGuide = (props: GameGuideBase) => {
-    const { gameName, id, locale, userStakeLevel, gameConfigs } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate } = props;
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
     if (locale === locales.en) {
         return (
             <KenoPowerGuideEN
                 gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
-                gameName={GameNameEN[gameName.toLowerCase()]}
+                gameName={gameNameTranslate}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
             />
@@ -36,7 +36,7 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         <KenoPowerGuideVI
             gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
-            gameName={GameNameVI[gameName.toLowerCase()]}
+            gameName={gameNameTranslate}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />

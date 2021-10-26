@@ -1,15 +1,16 @@
 import React from "react";
+
 import HeroesSlotGuideEN from "./en";
 import HeroesSlotGuideVI from "./vi";
 import { GameGuideBase } from "../type";
-import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 
 const HeroesSlotGuide = (props: GameGuideBase) => {
-    const { gameName, locale, gameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate } = props;
 
     if (locale === locales.en) {
-        return <HeroesSlotGuideEN gameConfigs={gameConfigs as any} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <HeroesSlotGuideEN gameConfigs={gameConfigs as any} gameName={gameNameTranslate} />;
     }
-    return <HeroesSlotGuideVI gameConfigs={gameConfigs as any} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <HeroesSlotGuideVI gameConfigs={gameConfigs as any} gameName={gameNameTranslate} />;
 };
 export default HeroesSlotGuide;

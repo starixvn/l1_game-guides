@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
+
 import appSettings from "../common/app-settings";
 import BigSmallGuide from "./game-guide/big-small";
 import DragonTigerGuide from "./game-guide/dragon-tiger";
@@ -36,12 +38,14 @@ type Props = {
 const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
     const { gameId, userStakeLevel, name, locale, gameConfigs } = props;
+    const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
         gameConfigs: gameConfigs,
+        gameNameTranslate: t(gameSettings[gameId].gameName.toLocaleLowerCase()),
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {

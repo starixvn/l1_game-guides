@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
+
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
-import { locales } from "../../../../common/constants";
 import Styles from "../blackjack.module.scss";
 
 const renderGameRule = (maxBet: number, minBet: number) => {
@@ -186,7 +187,7 @@ const renderPayouts = (odds: OddsProps) => {
 const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet } = gameConfigs;
-
+    const { t } = useTranslation([gameName.toLocaleLowerCase()]);
     return (
         <>
             <ul className="game-guide">
@@ -205,7 +206,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                     <ul className="desc">
                         <li>
                             Điểm số các lá bài trong Blackjack sẽ được tính như sau:
-                            {CardPointValuesTable(locales.vi)}
+                            {CardPointValuesTable(t)}
                         </li>
                         <li>
                             Nếu tổng các lá bài (không bao gồm lá A) lớn hơn hoặc bằng 11 thì A sẽ tính 1 điểm.

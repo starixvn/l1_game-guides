@@ -1,7 +1,7 @@
 import React from "react";
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
-import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
@@ -24,7 +24,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { gameName, id, locale, userStakeLevel, gameConfigs } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate } = props;
 
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
 
@@ -33,7 +33,7 @@ const SeDieGuide = (props: GameGuideBase) => {
             <SeDieGuideEN
                 gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
-                gameName={GameNameEN[gameName.toLowerCase()]}
+                gameName={gameNameTranslate}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
             />
@@ -43,7 +43,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         <SeDieGuideVI
             gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
-            gameName={GameNameVI[gameName.toLowerCase()]}
+            gameName={gameNameTranslate}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
         />

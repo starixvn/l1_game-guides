@@ -1,33 +1,27 @@
 import React from "react";
+import { TFunction } from "next-i18next";
+
 import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
 import { GameGuideBase } from "../type";
-import { locales, GameNameEN, GameNameVI, IObjectKeys } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { gameName, locale, gameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate } = props;
 
     if (locale === locales.en) {
-        return <BlackjackGuideEN gameConfigs={gameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <BlackjackGuideEN gameConfigs={gameConfigs} gameName={gameNameTranslate} />;
     }
-    return <BlackjackGuideVI gameConfigs={gameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <BlackjackGuideVI gameConfigs={gameConfigs} gameName={gameNameTranslate} />;
 };
 
-export const CardPointValuesTable = (locale = "vi") => {
-    const CardLocaleMapper: IObjectKeys = {
-        vi: "Bài",
-        en: "Card",
-    };
-    const PontLocaleMapper: IObjectKeys = {
-        vi: "Điểm",
-        en: "Point",
-    };
+export const CardPointValuesTable = (t: TFunction) => {
     return (
         <div className="table-container">
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <th>{CardLocaleMapper[locale]}</th>
+                        <th>{t("card")}</th>
                         <th> A</th>
                         <th> 2</th>
                         <th> 3</th>
@@ -46,9 +40,9 @@ export const CardPointValuesTable = (locale = "vi") => {
                 <tbody>
                     <tr>
                         <td>
-                            <span className="font-weight-medium">{PontLocaleMapper[locale]}</span>
+                            <span className="font-weight-medium">{t("point")}</span>
                         </td>
-                        <td>1 {locale === locales.vi ? "hoặc" : "or"} 11</td>
+                        <td>1 {t("or")} 11</td>
                         <td>2</td>
                         <td>3</td>
                         <td>4</td>

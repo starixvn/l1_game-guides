@@ -15,6 +15,7 @@ export type GameGuideBase = {
     locale?: string;
     id?: number;
     gameConfigs: GameConfigs;
+    gameNameTranslate: string;
 };
 
 export interface GameConfigsBaseProps {
