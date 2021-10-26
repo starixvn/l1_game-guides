@@ -1,17 +1,16 @@
 import React from "react";
 import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
-import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI, IObjectKeys } from "../../../common/constants";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { gameName, locale } = props;
+    const { gameName, locale, gameConfigs } = props;
 
     if (locale === locales.en) {
-        return <BlackjackGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <BlackjackGuideEN gameConfigs={gameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <BlackjackGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <BlackjackGuideVI gameConfigs={gameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 
 export const CardPointValuesTable = (locale = "vi") => {

@@ -1,17 +1,16 @@
 import React from "react";
 import OddEvenTurboGuideEN from "./en";
 import OddEvenTurboGuideVI from "./vi";
-import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales, IObjectKeys, GameNameEN, GameNameVI } from "../../../common/constants";
 
 export const OddEvenTurboName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const OddEvenTurboGuide = (props: GameGuideBase) => {
-    const { gameName, locale } = props;
+    const { gameName, locale, gameConfigs } = props;
     if (locale === locales.en) {
-        return <OddEvenTurboGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <OddEvenTurboGuideEN gameConfigs={gameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
 
-    return <OddEvenTurboGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <OddEvenTurboGuideVI gameConfigs={gameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default OddEvenTurboGuide;

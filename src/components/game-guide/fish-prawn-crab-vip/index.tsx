@@ -1,7 +1,6 @@
 import React from "react";
 import FishPrawnCrabGuideEN from "./en";
 import FishPrawnCrabGuideVI from "./vi";
-import GameConfigs from "./game-configs";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -18,12 +17,12 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const FishPrawnCrabVIP = (props: GameGuideBase) => {
-    const { gameName, locale, userStakeLevel } = props;
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, GameConfigs);
+    const { gameName, locale, userStakeLevel, gameConfigs } = props;
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
     if (locale === locales.en) {
         return (
             <FishPrawnCrabGuideEN
-                gameConfigs={GameConfigs}
+                gameConfigs={gameConfigs}
                 userStakeLevel={userStakeLevel}
                 gameName={GameNameEN[gameName.toLowerCase()]}
                 maxBetFollowChoice={maxBetFollowChoice}
@@ -33,7 +32,7 @@ const FishPrawnCrabVIP = (props: GameGuideBase) => {
 
     return (
         <FishPrawnCrabGuideVI
-            gameConfigs={GameConfigs}
+            gameConfigs={gameConfigs}
             userStakeLevel={userStakeLevel}
             gameName={GameNameVI[gameName.toLowerCase()]}
             maxBetFollowChoice={maxBetFollowChoice}

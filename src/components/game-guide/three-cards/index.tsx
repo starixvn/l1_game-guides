@@ -1,16 +1,15 @@
 import React from "react";
 import ThreeCardsGuideEN from "./en";
 import ThreeCardsGuideVI from "./vi";
-import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
 
 const ThreeCardsGuide = (props: GameGuideBase) => {
-    const { gameName, locale } = props;
+    const { gameName, locale, gameConfigs } = props;
 
     if (locale === locales.en) {
-        return <ThreeCardsGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <ThreeCardsGuideEN gameConfigs={gameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
     }
-    return <ThreeCardsGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <ThreeCardsGuideVI gameConfigs={gameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
 };
 export default ThreeCardsGuide;

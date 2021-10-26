@@ -1,8 +1,6 @@
 import React from "react";
 import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
-import GameConfigs from "./game-configs";
-import GameConfigsVIP from "../baccarat-vip/game-configs";
 import { locales, GameNameVI, GameNameEN } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -20,8 +18,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 
 export const BaccaratVip = [27];
 const BaccaratGuide = (props: GameGuideBase) => {
-    const { gameName, id, locale, userStakeLevel } = props;
-    const gameConfigs = BaccaratVip.includes(id ? id : BaccaratVip[0]) ? GameConfigsVIP : GameConfigs;
+    const { gameName, id, locale, userStakeLevel, gameConfigs } = props;
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
     if (locale === locales.en) {
         return (
