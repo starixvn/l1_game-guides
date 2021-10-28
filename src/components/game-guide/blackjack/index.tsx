@@ -1,18 +1,25 @@
 import React from "react";
 import { TFunction } from "next-i18next";
 
+import GameConfigs from "./game-configs";
 import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic } = props;
+    const getGameConfigs = () => {
+        if (!dynamic) {
+            gameConfigs.odds = GameConfigs.odds;
+        }
+        return gameConfigs;
+    };
 
     if (locale === locales.en) {
-        return <BlackjackGuideEN gameConfigs={gameConfigs} gameName={gameNameTranslate} />;
+        return <BlackjackGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
     }
-    return <BlackjackGuideVI gameConfigs={gameConfigs} gameName={gameNameTranslate} />;
+    return <BlackjackGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
 };
 
 export const CardPointValuesTable = (t: TFunction) => {

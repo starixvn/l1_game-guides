@@ -163,7 +163,6 @@ export const renderTBodyPointCalculationRules = () => {
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minBet } = gameConfigs;
-    const { player, banker, big, small, tie, playerPair } = odds;
 
     return (
         <>
@@ -303,33 +302,33 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <tbody>
                                         <tr>
                                             <td>Player</td>
-                                            <td>1: {player}</td>
+                                            <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Banker</td>
-                                            <td>1: {banker}</td>
+                                            <td>1: {odds?.banker}</td>
                                         </tr>
                                         <tr>
                                             <td>Big</td>
-                                            <td>1: {big}</td>
+                                            <td>1: {odds?.big}</td>
                                         </tr>
                                         <tr>
                                             <td>Small</td>
-                                            <td>1: {small}</td>
+                                            <td>1: {odds?.small}</td>
                                         </tr>
                                         <tr>
                                             <td>Tie</td>
-                                            <td>1: {tie}</td>
+                                            <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Player pair</td>
-                                            <td rowSpan={2}>1: {playerPair}</td>
+                                            <td rowSpan={2}>1: {odds?.playerPair}</td>
                                         </tr>
                                         <tr>
                                             <td>Banker pair</td>

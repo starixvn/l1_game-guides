@@ -194,53 +194,53 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                                     <tbody>
                                         <tr>
                                             <td>Tài</td>
-                                            <td> 1: {odds.big}</td>
+                                            <td> 1: {odds?.big}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.big)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Xỉu</td>
-                                            <td> 1: {odds.small}</td>
+                                            <td> 1: {odds?.small}</td>
                                         </tr>
                                         <tr>
                                             <td>Lẻ</td>
-                                            <td rowSpan={2}> 1: {odds.odd}</td>
+                                            <td rowSpan={2}> 1: {odds?.odd}</td>
                                         </tr>
                                         <tr>
                                             <td>Chẵn</td>
                                         </tr>
                                         <tr>
                                             <td>Kim</td>
-                                            <td>1: {odds.gold}</td>
+                                            <td>1: {odds?.gold}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.gold)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Mộc</td>
-                                            <td>1: {odds.wood}</td>
+                                            <td>1: {odds?.wood}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.wood)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thủy</td>
-                                            <td>1: {odds.water}</td>
+                                            <td>1: {odds?.water}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.water)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Hỏa</td>
-                                            <td>1: {odds.fire}</td>
+                                            <td>1: {odds?.fire}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.fire)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thổ</td>
-                                            <td>1: {odds.earth}</td>
+                                            <td>1: {odds?.earth}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.earth)}
                                             </td>

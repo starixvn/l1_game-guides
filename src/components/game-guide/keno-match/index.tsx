@@ -1,4 +1,6 @@
 import React from "react";
+
+import GameConfigs from "./game-configs";
 import KenoMatchGuideEN from "./en";
 import KenoMatchGuideVI from "./vi";
 import { locales } from "../../../common/constants";
@@ -27,12 +29,19 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const KenoMatchGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate } = props;
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const getGameConfigs = () => {
+        if (!dynamic) {
+            gameConfigs.odds = GameConfigs.odds;
+        }
+        return gameConfigs;
+    };
+
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
     if (locale === locales.en) {
         return (
             <KenoMatchGuideEN
-                gameConfigs={gameConfigs}
+                gameConfigs={getGameConfigs()}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
                 gameId={id}
@@ -42,7 +51,7 @@ const KenoMatchGuide = (props: GameGuideBase) => {
     }
     return (
         <KenoMatchGuideVI
-            gameConfigs={gameConfigs}
+            gameConfigs={getGameConfigs()}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
             gameId={id}

@@ -111,7 +111,12 @@ const renderStatistical = () => {
     );
 };
 
-const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId: number) => {
+const renderPayoutTable = (
+    odds: OddsProps | undefined,
+    minBet: string,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    gameId: number
+) => {
     return (
         <>
             <div className="table-container">
@@ -126,7 +131,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                     <tbody>
                         <tr>
                             <td>Chẵn</td>
-                            <td rowSpan={2}>1:{odds.even}</td>
+                            <td rowSpan={2}>1:{odds?.even}</td>
                             <td rowSpan={2}>
                                 {minBet} - {maxBetFollowChoice?.maxBetMain}
                             </td>
@@ -136,7 +141,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                         </tr>
                         <tr>
                             <td>4 đỏ</td>
-                            <td rowSpan={2}>1:{odds.red4}</td>
+                            <td rowSpan={2}>1:{odds?.red4}</td>
                             <td rowSpan={2}>
                                 {minBet} - {maxBetFollowChoice?.maxBetRed4}
                             </td>
@@ -146,7 +151,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                         </tr>
                         <tr>
                             <td> 3 đỏ, 1 trắng</td>
-                            <td rowSpan={2}>1:{odds.red3}</td>
+                            <td rowSpan={2}>1:{odds?.red3}</td>
                             <td rowSpan={2}>
                                 {minBet} - {maxBetFollowChoice?.maxBetRed3}
                             </td>
@@ -157,7 +162,7 @@ const renderPayoutTable = (odds: OddsProps, minBet: string, maxBetFollowChoice: 
                         {!SeDieMini.includes(gameId) && (
                             <tr>
                                 <td> 2 đỏ, 2 trắng</td>
-                                <td>1:{odds.red2}</td>
+                                <td>1:{odds?.red2}</td>
                                 <td rowSpan={2}>
                                     {minBet} - {maxBetFollowChoice?.maxBetRed2}
                                 </td>

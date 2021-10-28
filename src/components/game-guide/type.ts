@@ -16,6 +16,7 @@ export type GameGuideBase = {
     id?: number;
     gameConfigs: GameConfigs;
     gameNameTranslate: string;
+    dynamic: boolean;
 };
 
 export interface GameConfigsBaseProps {
@@ -29,5 +30,5 @@ export type GameConfigs = {
     enableFreeBet: boolean;
     maxBet: number;
     minBet: number;
-    odds: any;
+    odds?: any;
 };

@@ -105,7 +105,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -130,7 +130,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 <tr>
                                     <td rowSpan={2}>Team Blue/Team Red</td>
                                     <td className="text-start">Team Blue</td>
-                                    <td rowSpan={6}>1: {odds.blue}</td>
+                                    <td rowSpan={6}>1: {odds?.blue}</td>
                                     <td rowSpan={6}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
@@ -155,7 +155,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                 <tr>
                                     <td rowSpan={2}>Team Blue Big/Small</td>
                                     <td className="text-start">Big</td>
-                                    <td rowSpan={4}>1: {odds.blue}</td>
+                                    <td rowSpan={4}>1: {odds?.blue}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueRedChoice}
                                     </td>

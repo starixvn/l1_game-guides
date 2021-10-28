@@ -106,7 +106,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                     <tbody>
                                         <tr>
                                             <td>Chẵn</td>
-                                            <td rowSpan={2}>1:{odds.even}</td>
+                                            <td rowSpan={2}>1:{odds?.even}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {numberWithCommas(maxBet)}
                                             </td>

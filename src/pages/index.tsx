@@ -51,7 +51,7 @@ const Home = () => {
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
     const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
-
+    const [dynamic, setDynamic] = useState<boolean>(false);
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
@@ -73,10 +73,13 @@ const Home = () => {
             setName(queryParams?.name);
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
+            if (queryParams?.dy) {
+                +queryParams?.dy === 1 && setDynamic(true);
+            }
         }
 
         bindEvent(window, "message", function (event: any) {
-            event?.data && setGameConfigs(JSON.parse(event.data));
+            event?.data?.maxBetPerChoices && setGameConfigs(JSON.parse(event?.data));
         });
     }, [router.isReady]);
 
@@ -86,13 +89,25 @@ const Home = () => {
 
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {gameConfigs && (
+            {dynamic ? (
+                gameConfigs && (
+                    <GameGuide
+                        gameId={gameId}
+                        locale={router?.locale ?? "en"}
+                        userStakeLevel={userStakeLevel}
+                        name={name}
+                        gameConfigs={gameConfigs}
+                        dynamic={dynamic}
+                    ></GameGuide>
+                )
+            ) : (
                 <GameGuide
                     gameId={gameId}
                     locale={router?.locale ?? "en"}
                     userStakeLevel={userStakeLevel}
                     name={name}
                     gameConfigs={gameConfigs}
+                    dynamic={dynamic}
                 ></GameGuide>
             )}
         </div>

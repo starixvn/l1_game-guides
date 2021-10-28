@@ -56,7 +56,7 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ trả thưởng khi đặt vào Chẵn, Lẻ là 1 ăn {odds.even} </li>
+                        <li>Tỷ lệ trả thưởng khi đặt vào Chẵn, Lẻ là 1 ăn {odds?.even} </li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>

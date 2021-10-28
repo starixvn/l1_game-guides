@@ -10,7 +10,6 @@ import Styles from "../fish-prawn-crab-vip.module.scss";
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds, minBet } = gameConfigs;
-    const { single, double, triple, mountain, ocean, anyTriple } = odds;
     const { theme } = useTheme();
     return (
         <>
@@ -66,18 +65,18 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={3}>Linh vật cụ thể (Nai, Bầu, Gà, Cá, Cua, Tôm)</td>
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả một lần.</td>
-                                            <td>1: {single}</td>
+                                            <td>1: {odds?.single}</td>
                                             <td rowSpan={5}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả hai lần.</td>
-                                            <td>1: {double}</td>
+                                            <td>1: {odds?.double}</td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả ba lần.</td>
-                                            <td>1: {triple}</td>
+                                            <td>1: {odds?.triple}</td>
                                         </tr>
                                         <tr>
                                             <td>Trên Cạn (Nai, Bầu, Gà)</td>
@@ -85,7 +84,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần trong
                                                 kết quả.
                                             </td>
-                                            <td>1: {mountain}</td>
+                                            <td>1: {odds?.mountain}</td>
                                         </tr>
                                         <tr>
                                             <td>Dưới Nước (Cá, Cua, Tôm)</td>
@@ -93,12 +92,12 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần trong
                                                 kết quả.
                                             </td>
-                                            <td>1: {ocean}</td>
+                                            <td>1: {odds?.ocean}</td>
                                         </tr>
                                         <tr>
                                             <td>Bộ Ba Bất Kỳ</td>
                                             <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
-                                            <td>1: {anyTriple}</td>
+                                            <td>1: {odds?.anyTriple}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>

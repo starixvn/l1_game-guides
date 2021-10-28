@@ -50,7 +50,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The payout on Big, Small is 1: {odds.big}</li>
+                        <li>The payout on Big, Small is 1: {odds?.big}</li>
                         <li>
                             The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the
                             initial stake.

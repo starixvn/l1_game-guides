@@ -2,6 +2,6 @@ import { OddsProMaxProps, ChoicesMaxBetProMaxProps } from "./../keno-pro-max/typ
 import { GameConfigsBaseProps } from "../type";
 
 export interface GameConfigProps extends GameConfigsBaseProps {
-    odds: OddsProMaxProps;
+    odds?: OddsProMaxProps;
     maxBetPerChoices: ChoicesMaxBetProMaxProps;
 }

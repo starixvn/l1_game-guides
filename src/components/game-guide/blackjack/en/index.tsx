@@ -170,7 +170,7 @@ const renderGameRule = (maxBet: number, minBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps) => {
+const renderPayouts = (odds: OddsProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -192,11 +192,11 @@ const renderPayouts = (odds: OddsProps) => {
                             <tbody>
                                 <tr>
                                     <td>Blackjack Win</td>
-                                    <td>1:{odds.blackjack}</td>
+                                    <td>1:{odds?.blackjack}</td>
                                 </tr>
                                 <tr>
                                     <td>Normal Win</td>
-                                    <td>1:{odds.regular}</td>
+                                    <td>1:{odds?.regular}</td>
                                 </tr>
                             </tbody>
                         </table>

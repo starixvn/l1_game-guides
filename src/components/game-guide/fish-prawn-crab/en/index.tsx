@@ -53,9 +53,9 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         <li>
                             Payouts:
                             <ul className="detail">
-                                <li>1:{odds.single} if the chosen symbol appears once.</li>
-                                <li>1:{odds.double} if the chosen symbol appears twice.</li>
-                                <li>1:{odds.triple} if the chosen symbol appears three times.</li>
+                                <li>1:{odds?.single} if the chosen symbol appears once.</li>
+                                <li>1:{odds?.double} if the chosen symbol appears twice.</li>
+                                <li>1:{odds?.triple} if the chosen symbol appears three times.</li>
                             </ul>
                         </li>
                         <li>
@@ -71,11 +71,11 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                 <ul className="detail">
                                     <li>
                                         Betting 10 on “Fish” and having one Fish symbol turns up, then you will be paid{" "}
-                                        <strong>{10 * odds.single}</strong>
+                                        <strong>{10 * (odds?.single ?? 0)}</strong>
                                     </li>
                                     <li>
                                         Betting 10 on “Crab” and having two Crab symbols turn up, then you will be paid{" "}
-                                        <strong>{10 * odds.double}</strong>
+                                        <strong>{10 * (odds?.double ?? 0)}</strong>
                                     </li>
                                 </ul>
                             </div>

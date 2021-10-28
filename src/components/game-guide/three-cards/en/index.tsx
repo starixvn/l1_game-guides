@@ -10,10 +10,10 @@ import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 
-const renderGameRule = (odds: OddsProps, maxBet: number) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
     const bet = 10;
-    const winRed = numberWithCommas(bet * odds.red);
-    const winDiamonds = numberWithCommas(bet * odds.diamonds);
+    const winRed = numberWithCommas(bet * (odds?.red ?? 0));
+    const winDiamonds = numberWithCommas(bet * (odds?.diamonds ?? 0));
     const imgRed = "img-red";
     return (
         <>
@@ -75,19 +75,19 @@ const renderGameRule = (odds: OddsProps, maxBet: number) => {
                 <li>
                     Bet 10 on Red option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Hearts (
                     <span className={Styles[imgRed]}>♥</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
-                    {bet} x {odds.red} = {winRed}
+                    {bet} x {odds?.red} = {winRed}
                 </li>
                 <li>
                     Bet 10 on Diamonds option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Diamonds (
                     <span className={Styles[imgRed]}>♦</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
-                    {bet} x {odds.diamonds} = {winDiamonds}
+                    {bet} x {odds?.diamonds} = {winDiamonds}
                 </li>
             </ul>
         </>
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -108,7 +108,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                             <tbody>
                                 <tr>
                                     <td>Red</td>
-                                    <td rowSpan={2}>1:{odds.red}</td>
+                                    <td rowSpan={2}>1:{odds?.red}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.red)}
                                     </td>
@@ -118,7 +118,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 </tr>
                                 <tr>
                                     <td>Diamonds</td>
-                                    <td rowSpan={4}>1:{odds.diamonds}</td>
+                                    <td rowSpan={4}>1:{odds?.diamonds}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.diamonds)}
                                     </td>

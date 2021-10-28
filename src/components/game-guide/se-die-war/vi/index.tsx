@@ -202,7 +202,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                             <tbody>
                                 <tr>
                                     <td>Nhà Con</td>
-                                    <td rowSpan={2}>1:{odds.player}</td>
+                                    <td rowSpan={2}>1:{odds?.player}</td>
                                     <td rowSpan={5}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
                                     </td>
@@ -212,18 +212,18 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Hòa</td>
-                                    <td>1:{odds.tie}</td>
+                                    <td>1:{odds?.tie}</td>
                                 </tr>
                                 <tr>
                                     <td>Tổng chẵn</td>
-                                    <td rowSpan={2}>1:{odds.even}</td>
+                                    <td rowSpan={2}>1:{odds?.even}</td>
                                 </tr>
                                 <tr>
                                     <td>Tổng lẻ</td>
                                 </tr>
                                 <tr>
                                     <td>Nhà Con chẵn</td>
-                                    <td rowSpan={2}>1:{odds.playerEven}</td>
+                                    <td rowSpan={2}>1:{odds?.playerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
                                     </td>
@@ -233,7 +233,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Nhà Con 3 đỏ</td>
-                                    <td rowSpan={2}>1:{odds.playerRed3}</td>
+                                    <td rowSpan={2}>1:{odds?.playerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
                                     </td>
@@ -243,7 +243,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Nhà Con 4 đỏ</td>
-                                    <td rowSpan={2}>1:{odds.playerRed4}</td>
+                                    <td rowSpan={2}>1:{odds?.playerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
                                     </td>
@@ -253,7 +253,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Nhà Cái chẵn</td>
-                                    <td rowSpan={2}>1:{odds.bankerEven}</td>
+                                    <td rowSpan={2}>1:{odds?.bankerEven}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
                                     </td>
@@ -263,7 +263,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Nhà Cái 3 đỏ</td>
-                                    <td rowSpan={2}>1:{odds.bankerRed3}</td>
+                                    <td rowSpan={2}>1:{odds?.bankerRed3}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
                                     </td>
@@ -273,7 +273,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                 </tr>
                                 <tr>
                                     <td>Nhà Cái 4 đỏ</td>
-                                    <td rowSpan={2}>1:{odds.bankerRed4}</td>
+                                    <td rowSpan={2}>1:{odds?.bankerRed4}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
                                     </td>

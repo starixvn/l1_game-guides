@@ -68,7 +68,6 @@ export const renderListIcon = (theme: string | undefined) => {
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds, minBet } = gameConfigs;
-    const { single, double, triple, mountain, ocean, anyTriple } = odds;
     const { theme } = useTheme();
     return (
         <>
@@ -127,18 +126,18 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={3}>Specific Symbol (Fish, Prawn, Crab, Rooster, Gourd, Stag)</td>
                                             <td className="text-start">If the chosen symbol appears once. </td>
-                                            <td>1: {single}</td>
+                                            <td>1: {odds?.single}</td>
                                             <td rowSpan={5}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">If the chosen symbol appears twice.</td>
-                                            <td>1: {double}</td>
+                                            <td>1: {odds?.double}</td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">If the chosen symbol appears three times. </td>
-                                            <td>1: {triple}</td>
+                                            <td>1: {odds?.triple}</td>
                                         </tr>
                                         <tr>
                                             <td>Mountain (Rooster, Gourd, Stag)</td>
@@ -146,7 +145,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Place a bet on the Mountain group of 3 symbols. The player will win if having at least two
                                                 symbols from the Mountain group appear in the result.
                                             </td>
-                                            <td>1: {mountain}</td>
+                                            <td>1: {odds?.mountain}</td>
                                         </tr>
                                         <tr>
                                             <td>Ocean (Fish, Prawn, Crab)</td>
@@ -154,12 +153,12 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Place a bet on the Ocean group of 3 symbols. The player will win if having at least two
                                                 symbols from the Ocean group appear in the result.
                                             </td>
-                                            <td>1: {ocean}</td>
+                                            <td>1: {odds?.ocean}</td>
                                         </tr>
                                         <tr>
                                             <td>Any Triple</td>
                                             <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
-                                            <td>1: {anyTriple}</td>
+                                            <td>1: {odds?.anyTriple}</td>
                                             <td>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>

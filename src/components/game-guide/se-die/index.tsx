@@ -1,4 +1,8 @@
 import React from "react";
+
+import GameConfigs from "./game-configs";
+import GameConfigsVIP from "../se-die-vip/game-configs";
+import GameConfigsMini from "../se-die-mini/game-configs";
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
 import { locales } from "../../../common/constants";
@@ -22,14 +26,32 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const getGameConfigs = () => {
+        if (dynamic) {
+            return gameConfigs;
+        } else {
+            switch (id) {
+                case 7:
+                    gameConfigs.odds = GameConfigsMini.odds;
+                    break;
+                case 22:
+                    gameConfigs.odds = GameConfigsVIP.odds;
+                    break;
 
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
+                default:
+                    gameConfigs.odds = GameConfigs.odds;
+                    break;
+            }
+            return gameConfigs;
+        }
+    };
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
 
     if (locale === locales.en) {
         return (
             <SeDieGuideEN
-                gameConfigs={gameConfigs}
+                gameConfigs={getGameConfigs()}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
                 gameId={id}
@@ -39,7 +61,7 @@ const SeDieGuide = (props: GameGuideBase) => {
     }
     return (
         <SeDieGuideVI
-            gameConfigs={gameConfigs}
+            gameConfigs={getGameConfigs()}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
             gameId={id}

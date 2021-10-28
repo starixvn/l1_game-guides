@@ -150,7 +150,7 @@ const renderGameRule = (maxBet: number, minBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps) => {
+const renderPayouts = (odds: OddsProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng </h2>
@@ -169,11 +169,11 @@ const renderPayouts = (odds: OddsProps) => {
                             <tbody>
                                 <tr>
                                     <td>Thắng với Blackjack</td>
-                                    <td>1:{odds.blackjack}</td>
+                                    <td>1:{odds?.blackjack}</td>
                                 </tr>
                                 <tr>
                                     <td>Thắng điểm thông thường</td>
-                                    <td>1:{odds.regular}</td>
+                                    <td>1:{odds?.regular}</td>
                                 </tr>
                             </tbody>
                         </table>

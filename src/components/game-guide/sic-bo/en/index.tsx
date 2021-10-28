@@ -25,7 +25,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -52,7 +52,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td rowSpan={2}>Big Small</td>
                                     <td>Big</td>
-                                    <td rowSpan={2}>1:{odds.big}</td>
+                                    <td rowSpan={2}>1:{odds?.big}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
                                     </td>
@@ -63,7 +63,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td>Any Triple</td>
                                     <td>Any Triple</td>
-                                    <td>1:{odds.anyTriple}</td>
+                                    <td>1:{odds?.anyTriple}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.anyTriple)}
                                     </td>
@@ -71,16 +71,16 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td rowSpan={3}>Specific Number</td>
                                     <td rowSpan={3}>Bet on any number from 1 to 6</td>
-                                    <td className="text-start">1:{odds.single} if the chosen number appears once.</td>
+                                    <td className="text-start">1:{odds?.single} if the chosen number appears once.</td>
                                     <td rowSpan={3}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.specific1)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">1:{odds.double} if the chosen number appears twice.</td>
+                                    <td className="text-start">1:{odds?.double} if the chosen number appears twice.</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">1:{odds.triple} if the chosen number appears on all three dice.</td>
+                                    <td className="text-start">1:{odds?.triple} if the chosen number appears on all three dice.</td>
                                 </tr>
                                 {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
                             </tbody>
@@ -92,13 +92,13 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
     );
 };
 
-export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <>
             <tr>
                 <td rowSpan={14}>{t("totalPoints")}</td>
                 <td>4</td>
-                <td rowSpan={2}>1:{odds.total4}</td>
+                <td rowSpan={2}>1:{odds?.total4}</td>
                 <td rowSpan={8}>
                     {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total4)}
                 </td>
@@ -108,28 +108,28 @@ export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choice
             </tr>
             <tr>
                 <td>5</td>
-                <td rowSpan={2}>1:{odds.total5}</td>
+                <td rowSpan={2}>1:{odds?.total5}</td>
             </tr>
             <tr>
                 <td>16</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td rowSpan={2}>1:{odds.total6}</td>
+                <td rowSpan={2}>1:{odds?.total6}</td>
             </tr>
             <tr>
                 <td>15</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td rowSpan={2}>1:{odds.total7}</td>
+                <td rowSpan={2}>1:{odds?.total7}</td>
             </tr>
             <tr>
                 <td>14</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td rowSpan={2}>1:{odds.total8}</td>
+                <td rowSpan={2}>1:{odds?.total8}</td>
                 <td rowSpan={6}>
                     {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total8)}
                 </td>
@@ -139,7 +139,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps, minBet: number, choice
             </tr>
             <tr>
                 <td>9</td>
-                <td rowSpan={4}>1:{odds.total9}</td>
+                <td rowSpan={4}>1:{odds?.total9}</td>
             </tr>
             <tr>
                 <td>10</td>

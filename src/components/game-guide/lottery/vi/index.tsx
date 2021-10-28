@@ -28,7 +28,7 @@ const renderHowToPLay = (maxBet: number) => {
     );
 };
 
-const renderGameRule = (odds: OddsProps) => {
+const renderGameRule = (odds: OddsProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Luật Chơi</h2>
@@ -124,11 +124,11 @@ const renderGameRule = (odds: OddsProps) => {
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps) => {
+const BettingOptions4Sets = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
-            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:{odds.Sets4}</p>
+            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:{odds?.Sets4}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 20</li>
@@ -154,7 +154,8 @@ const BettingOptions4Sets = (odds: OddsProps) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * {odds.Sets4}) * 2 = {10 * odds.Sets4 * 2}
+                        Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * {odds?.Sets4}) * 2 ={" "}
+                        {10 * (odds?.Sets4 ?? 0) * 2}
                     </p>
                 </li>
             </ul>
@@ -162,11 +163,11 @@ const BettingOptions4Sets = (odds: OddsProps) => {
     );
 };
 
-const BettingOptionsSpecial = (odds: OddsProps) => {
+const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
-            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:{odds.special}</p>
+            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:{odds?.special}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 30</li>
@@ -192,7 +193,7 @@ const BettingOptionsSpecial = (odds: OddsProps) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Tiền thắng = 10 * {odds.special} = {10 * odds.special}
+                        Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Tiền thắng = 10 * {odds?.special ?? 0} = {10 * (odds?.special ?? 0)}
                     </p>
                 </li>
             </ul>
@@ -200,11 +201,11 @@ const BettingOptionsSpecial = (odds: OddsProps) => {
     );
 };
 
-const BettingOptionsHead = (odds: OddsProps) => {
+const BettingOptionsHead = (odds?: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
-            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:{odds.head}</p>
+            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:{odds?.head}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 30</li>
@@ -231,7 +232,7 @@ const BettingOptionsHead = (odds: OddsProps) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Tiền thắng = 10 * {odds.head} = {10 * odds.head}
+                        Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Tiền thắng = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
                     </p>
                 </li>
             </ul>
@@ -239,11 +240,11 @@ const BettingOptionsHead = (odds: OddsProps) => {
     );
 };
 
-const BettingOptionsTail = (odds: OddsProps) => {
+const BettingOptionsTail = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
-            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:{odds.tail}</p>
+            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:{odds?.tail}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 20</li>
@@ -274,11 +275,11 @@ const BettingOptionsTail = (odds: OddsProps) => {
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps) => {
+const BettingOptions27Sets = (odds?: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) Cược Lô</div>
-            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:{odds.Sets27}</p>
+            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:{odds?.Sets27}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 40</li>
@@ -405,10 +406,11 @@ const BettingOptions27Sets = (odds: OddsProps) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * {odds.Sets27}) * 2 = {10 * odds.Sets27 * 2}
+                        Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * {odds?.Sets27}) * 2 ={" "}
+                        {10 * (odds?.Sets27 ?? 0) * 2}
                     </p>
                     <p>
-                        Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * {odds.Sets27} = {10 * odds.Sets27}
+                        Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * {odds?.Sets27} = {10 * (odds?.Sets27 ?? 0)}
                     </p>
                 </li>
             </ul>
@@ -416,7 +418,7 @@ const BettingOptions27Sets = (odds: OddsProps) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet: number) => {
+const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetProps, minBet: number) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -436,35 +438,35 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                 <tbody>
                     <tr>
                         <td colSpan={2}>Đề Đầu</td>
-                        <td>1:{odds.Sets4}</td>
+                        <td>1:{odds?.Sets4}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets4)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Đề Đặc Biệt</td>
-                        <td>1:{odds.special}</td>
+                        <td>1:{odds?.special}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.special)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đầu</td>
-                        <td>1:{odds.head}</td>
+                        <td>1:{odds?.head}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.head)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đuôi</td>
-                        <td>1:{odds.tail}</td>
+                        <td>1:{odds?.tail}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.tail)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Lô</td>
-                        <td>1:{odds.Sets27}</td>
+                        <td>1:{odds?.Sets27}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets27)}
                         </td>
@@ -472,7 +474,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                     <tr>
                         <td rowSpan={4}>Hai Cửa</td>
                         <td>Tài</td>
-                        <td rowSpan={2}>1:{odds.others}</td>
+                        <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
                         </td>
@@ -482,7 +484,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                     </tr>
                     <tr>
                         <td>Chẵn</td>
-                        <td rowSpan={2}>1:{odds.others}</td>
+                        <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
                         </td>

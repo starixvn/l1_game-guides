@@ -114,7 +114,6 @@ const renderPointCalculationRules = (gameName: string) => {
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds, minBet } = gameConfigs;
-    const { player, banker, big, small, tie, playerPair } = odds;
 
     return (
         <div>
@@ -260,33 +259,33 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <tbody>
                                         <tr>
                                             <td>Nhà Con</td>
-                                            <td>1: {player}</td>
+                                            <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Nhà Cái</td>
-                                            <td>1: {banker}</td>
+                                            <td>1: {odds?.banker}</td>
                                         </tr>
                                         <tr>
                                             <td>Tài</td>
-                                            <td>1: {big}</td>
+                                            <td>1: {odds?.big}</td>
                                         </tr>
                                         <tr>
                                             <td>Xỉu</td>
-                                            <td>1: {small}</td>
+                                            <td>1: {odds?.small}</td>
                                         </tr>
                                         <tr>
                                             <td>Hòa</td>
-                                            <td>1: {tie}</td>
+                                            <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Con Đôi</td>
-                                            <td rowSpan={2}>1: {playerPair}</td>
+                                            <td rowSpan={2}>1: {odds?.playerPair}</td>
                                         </tr>
                                         <tr>
                                             <td>Cái Đôi</td>

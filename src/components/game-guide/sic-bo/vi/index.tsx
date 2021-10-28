@@ -31,7 +31,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -53,7 +53,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td rowSpan={2}>Tài/Xỉu</td>
                                     <td>Tài</td>
-                                    <td rowSpan={2}>1:{odds.big}</td>
+                                    <td rowSpan={2}>1:{odds?.big}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
                                     </td>
@@ -64,7 +64,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td>Bộ Ba Bất Kỳ</td>
                                     <td>Bộ Ba Bất Kỳ</td>
-                                    <td>1:{odds.anyTriple}</td>
+                                    <td>1:{odds?.anyTriple}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.anyTriple)}
                                     </td>
@@ -72,16 +72,16 @@ const renderPayouts = (odds: OddsProps, minBet: number, choicesMaxBet: ChoicesMa
                                 <tr>
                                     <td rowSpan={3}>Cược số</td>
                                     <td rowSpan={3}>Xúc xắc 1 đến 6</td>
-                                    <td>Xuất hiện một lần 1:{odds.single}</td>
+                                    <td>Xuất hiện một lần 1:{odds?.single}</td>
                                     <td rowSpan={3}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.specific1)}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Xuất hiện hai lần 1:{odds.double}</td>
+                                    <td>Xuất hiện hai lần 1:{odds?.double}</td>
                                 </tr>
                                 <tr>
-                                    <td>Xuất hiện ba lần 1:{odds.triple}</td>
+                                    <td>Xuất hiện ba lần 1:{odds?.triple}</td>
                                 </tr>
                                 {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
                             </tbody>

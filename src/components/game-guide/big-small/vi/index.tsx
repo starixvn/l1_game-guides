@@ -54,7 +54,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là 1 ăn {odds.big}</li>
+                        <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là 1 ăn {odds?.big}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>

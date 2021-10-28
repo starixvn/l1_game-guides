@@ -171,7 +171,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Trả thưởng</h2>
@@ -200,7 +200,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 Đội Xanh
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={2}>1: {odds.fhBlue}</td>
+                                            <td rowSpan={2}>1: {odds?.fhBlue}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>
@@ -213,7 +213,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 Đội Đỏ
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={2}>1: {odds.fhRed}</td>
+                                            <td rowSpan={2}>1: {odds?.fhRed}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRedChoice}
                                             </td>
@@ -226,7 +226,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 Tài
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={2}>1: {odds.fhOver}</td>
+                                            <td rowSpan={2}>1: {odds?.fhOver}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetOverChoice}
                                             </td>
@@ -239,7 +239,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 Xỉu
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={2}>1: {odds.fhUnder}</td>
+                                            <td rowSpan={2}>1: {odds?.fhUnder}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetUnderChoice}
                                             </td>
@@ -252,7 +252,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 Chẵn
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={4}>1: {odds.fhEven}</td>
+                                            <td rowSpan={4}>1: {odds?.fhEven}</td>
                                             <td rowSpan={4}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetEvenChoice}
                                             </td>
@@ -317,7 +317,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Đội Xanh</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutBlue} - {odds.liveFTBlue}
+                                                            {minPayoutBlue} - {odds?.liveFTBlue}
                                                         </td>
                                                         <td>1</td>
                                                         <td rowSpan={4} className="text-start">
@@ -328,7 +328,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Đội Đỏ</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutRed} - {odds.liveFTRed}
+                                                            {minPayoutRed} - {odds?.liveFTRed}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
@@ -336,7 +336,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Tài</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutOver} - {odds.liveFTOver}
+                                                            {minPayoutOver} - {odds?.liveFTOver}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
@@ -344,7 +344,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Xỉu</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutUnder} - {odds.liveFTUnder}
+                                                            {minPayoutUnder} - {odds?.liveFTUnder}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
@@ -352,7 +352,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Chẵn</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td rowSpan={2} className={Styles[classBetTeamWd]}>
-                                                            1:{odds.liveFTEven}
+                                                            1:{odds?.liveFTEven}
                                                         </td>
                                                         <td>1</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>

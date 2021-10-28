@@ -47,9 +47,9 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         <li>
                             Người chơi sẽ thắng nếu trong ba viên xúc xắc xuất hiện linh vật mà người chơi đã đặt cược.
                             <ul className="detail">
-                                <li>Nếu linh vật được chọn xuất hiện 1 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds.single}</li>
-                                <li>Nếu linh vật được chọn xuất hiện 2 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds.double}</li>
-                                <li>Nếu linh vật được chọn xuất hiện 3 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds.triple}</li>
+                                <li>Nếu linh vật được chọn xuất hiện 1 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds?.single}</li>
+                                <li>Nếu linh vật được chọn xuất hiện 2 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds?.double}</li>
+                                <li>Nếu linh vật được chọn xuất hiện 3 lần &#8658; Tỷ lệ trả thưởng 1 ăn {odds?.triple}</li>
                             </ul>
                         </li>
                         <div>
@@ -62,11 +62,11 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                 <ul className="detail">
                                     <li>
                                         Cược 10 vào “Cá” và có một biểu tượng Cá trong kết quả. Tiền thắng{" "}
-                                        <strong>{10 * odds.single}</strong>
+                                        <strong>{10 * (odds?.single ?? 0)}</strong>
                                     </li>
                                     <li>
                                         Cược 10 vào “Cua” và có hai biểu tượng Cua trong kết quả. Tiền thắng{" "}
-                                        <strong>{10 * odds.double}</strong>
+                                        <strong>{10 * (odds?.double ?? 0)} </strong>
                                     </li>
                                 </ul>
                             </div>

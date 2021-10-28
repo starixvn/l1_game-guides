@@ -8,7 +8,7 @@ import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMaxBetProps, maxBet: number) => {
+const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps, maxBet: number) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -40,7 +40,7 @@ const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMa
                             <tbody>
                                 <tr>
                                     <td>Straight Up</td>
-                                    <td>1:{odds.straightUp}</td>
+                                    <td>1:{odds?.straightUp}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
                                     </td>
@@ -48,14 +48,14 @@ const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMa
                                 </tr>
                                 <tr>
                                     <td>Split</td>
-                                    <td>1:{odds.split}</td>
+                                    <td>1:{odds?.split}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.split)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Street</td>
-                                    <td rowSpan={2}>1:{odds.street}</td>
+                                    <td rowSpan={2}>1:{odds?.street}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.street)}
                                     </td>
@@ -65,7 +65,7 @@ const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMa
                                 </tr>
                                 <tr>
                                     <td>Corner</td>
-                                    <td rowSpan={2}>1:{odds.corner}</td>
+                                    <td rowSpan={2}>1:{odds?.corner}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.corner)}
                                     </td>
@@ -75,14 +75,14 @@ const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMa
                                 </tr>
                                 <tr>
                                     <td>Line</td>
-                                    <td>1:{odds.line}</td>
+                                    <td>1:{odds?.line}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.line)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Column</td>
-                                    <td rowSpan={2}>1:{odds.dozen}</td>
+                                    <td rowSpan={2}>1:{odds?.dozen}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.dozen)}
                                     </td>
@@ -92,7 +92,7 @@ const renderGameRule = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMa
                                 </tr>
                                 <tr>
                                     <td>Red/Black</td>
-                                    <td rowSpan={3}>1:{odds.redBlack}</td>
+                                    <td rowSpan={3}>1:{odds?.redBlack}</td>
                                     <td rowSpan={3}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.redBlack)}
                                     </td>

@@ -52,7 +52,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The payout on ODD, EVEN is 1:{odds.even}</li>
+                        <li>The payout on ODD, EVEN is 1:{odds?.even}</li>
                         <li>
                             The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
                             initial stake.

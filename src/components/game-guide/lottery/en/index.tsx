@@ -22,7 +22,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps) => {
+const renderBettingOptions = (odds: OddsProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -126,12 +126,12 @@ const renderBettingOptions = (odds: OddsProps) => {
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps) => {
+const BettingOptions4Sets = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds.Sets4}</li>
+                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds?.Sets4}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -155,17 +155,18 @@ const BettingOptions4Sets = (odds: OddsProps) => {
                 </tbody>
             </table>
             <p>
-                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds.Sets4}) * 2 = {10 * odds.Sets4 * 2}
+                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds?.Sets4}) * 2 ={" "}
+                {10 * (odds?.Sets4 ?? 0) * 2}
             </p>
         </>
     );
 };
-const BettingOptionsSpecial = (odds: OddsProps) => {
+const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Special </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:{odds.special}</li>
+                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:{odds?.special}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 30</li>
             </ul>
@@ -189,17 +190,18 @@ const BettingOptionsSpecial = (odds: OddsProps) => {
                 </tbody>
             </table>
             <p>
-                The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds.special} = {10 * odds.special}
+                The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds?.special} ={" "}
+                {10 * (odds?.special ?? 0)}
             </p>
         </>
     );
 };
-const BettingOptionsHead = (odds: OddsProps) => {
+const BettingOptionsHead = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Head</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:{odds.head}</li>
+                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:{odds?.head}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 30</li>
             </ul>
@@ -224,17 +226,17 @@ const BettingOptionsHead = (odds: OddsProps) => {
                 </tbody>
             </table>
             <p>
-                The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds.head} = {10 * odds.head}
+                The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
             </p>
         </>
     );
 };
-const BettingOptionsTail = (odds: OddsProps) => {
+const BettingOptionsTail = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Tail</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5 with Odds = 1:{odds.tail}</li>
+                <li>Place bet on two numbers: 0, 5 with Odds = 1:{odds?.tail}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -261,12 +263,12 @@ const BettingOptionsTail = (odds: OddsProps) => {
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps) => {
+const BettingOptions27Sets = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds.Sets27}</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds?.Sets27}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 40</li>
             </ul>
@@ -391,16 +393,16 @@ const BettingOptions27Sets = (odds: OddsProps) => {
                 </tbody>
             </table>
             <p>
-                Number 05 has appeared two times in 27 results. Payout = (10 * {odds.Sets27}) * 2 = {10 * odds.Sets27 * 2}
+                Number 05 has appeared two times in 27 results. Payout = (10 * {odds?.Sets27}) * 2 = {10 * (odds?.Sets27 ?? 0) * 2}
             </p>
             <p>
-                Number 12 has appeared one time in 27 results. Payout = 10 * {odds.Sets27} = {10 * odds.Sets27}
+                Number 12 has appeared one time in 27 results. Payout = 10 * {odds?.Sets27} = {10 * (odds?.Sets27 ?? 0)}
             </p>
         </>
     );
 };
 
-const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet: number, maxBet: number) => {
+const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetProps, minBet: number, maxBet: number) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -422,7 +424,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                 <tbody>
                     <tr>
                         <td colSpan={2}>4 Sets</td>
-                        <td>1:{odds.Sets4}</td>
+                        <td>1:{odds?.Sets4}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets4)}
                         </td>
@@ -430,28 +432,28 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                     </tr>
                     <tr>
                         <td colSpan={2}>Special</td>
-                        <td>1:{odds.special}</td>
+                        <td>1:{odds?.special}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.special)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Head</td>
-                        <td>1:{odds.head}</td>
+                        <td>1:{odds?.head}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.head)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Tail</td>
-                        <td>1:{odds.tail}</td>
+                        <td>1:{odds?.tail}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.tail)}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>27 Sets</td>
-                        <td>1:{odds.Sets27}</td>
+                        <td>1:{odds?.Sets27}</td>
                         <td>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets27)}
                         </td>
@@ -459,7 +461,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                     <tr>
                         <td rowSpan={4}>Others</td>
                         <td>Big</td>
-                        <td rowSpan={2}>1:{odds.others}</td>
+                        <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
                         </td>
@@ -469,7 +471,7 @@ const renderPayouts = (odds: OddsProps, choiceMaxBet: ChoicesMaxBetProps, minBet
                     </tr>
                     <tr>
                         <td>Odd</td>
-                        <td rowSpan={2}>1:{odds.others}</td>
+                        <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
                             {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
                         </td>

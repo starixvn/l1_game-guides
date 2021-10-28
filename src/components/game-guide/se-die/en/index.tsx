@@ -135,7 +135,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <tbody>
                                         <tr>
                                             <td>ODD</td>
-                                            <td rowSpan={2}>1:{odds.even}</td>
+                                            <td rowSpan={2}>1:{odds?.even}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
@@ -145,7 +145,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>4 red</td>
-                                            <td rowSpan={2}>1:{odds.red4}</td>
+                                            <td rowSpan={2}>1:{odds?.red4}</td>
 
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed4}
@@ -156,7 +156,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>3 red, 1 white</td>
-                                            <td rowSpan={2}>1:{odds.red3}</td>
+                                            <td rowSpan={2}>1:{odds?.red3}</td>
                                             <td rowSpan={2}>
                                                 {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
@@ -167,7 +167,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 red, 2 white</td>
-                                                <td>1:{odds.red2}</td>
+                                                <td>1:{odds?.red2}</td>
                                                 <td>
                                                     {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>

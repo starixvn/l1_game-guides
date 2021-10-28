@@ -181,7 +181,7 @@ const bettingOptions = () => {
     );
 };
 
-export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
+export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
     return (
         <>
             Giới hạn cược và tỷ lệ trả thưởng:
@@ -197,7 +197,7 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
                     <tbody>
                         <tr>
                             <td>Tài</td>
-                            <td rowSpan={4}> 1: {odds.big}</td>
+                            <td rowSpan={4}> 1: {odds?.big}</td>
                             <td rowSpan={4}>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
                             </td>
@@ -213,35 +213,35 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
                         </tr>
                         <tr>
                             <td>Kim</td>
-                            <td>1: {odds.gold}</td>
+                            <td>1: {odds?.gold}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.gold)}
                             </td>
                         </tr>
                         <tr>
                             <td>Mộc</td>
-                            <td>1: {odds.wood}</td>
+                            <td>1: {odds?.wood}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.wood)}
                             </td>
                         </tr>
                         <tr>
                             <td>Thủy</td>
-                            <td>1: {odds.water}</td>
+                            <td>1: {odds?.water}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
                             </td>
                         </tr>
                         <tr>
                             <td>Hỏa</td>
-                            <td>1: {odds.fire}</td>
+                            <td>1: {odds?.fire}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}
                             </td>
                         </tr>
                         <tr>
                             <td>Thổ</td>
-                            <td>1: {odds.earth}</td>
+                            <td>1: {odds?.earth}</td>
                             <td>
                                 {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.earth)}
                             </td>
@@ -254,7 +254,7 @@ export const renderWinningOnTable = (odds: OddsProMaxProps, minBet: number, choi
 };
 
 export const renderContentKenoMaxOrMini = (
-    odds: OddsProMaxProps,
+    odds: OddsProMaxProps | undefined,
     maxBet: number,
     minBet: number,
     choicesMaxBet: ChoicesMaxBetProMaxProps

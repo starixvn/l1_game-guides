@@ -5,7 +5,7 @@ import { GameConfigProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../keno-pro-max/type";
 
-const payouts = (odds: OddsProMaxProps, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
+const payouts = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -30,53 +30,53 @@ const payouts = (odds: OddsProMaxProps, minBet: number, choicesMaxBet: ChoicesMa
                             <tbody>
                                 <tr>
                                     <td>Big</td>
-                                    <td> 1: {odds.big}</td>
+                                    <td> 1: {odds?.big}</td>
                                     <td rowSpan={4}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Small</td>
-                                    <td> 1: {odds.small}</td>
+                                    <td> 1: {odds?.small}</td>
                                 </tr>
                                 <tr>
                                     <td>Odd</td>
-                                    <td rowSpan={2}> 1: {odds.odd}</td>
+                                    <td rowSpan={2}> 1: {odds?.odd}</td>
                                 </tr>
                                 <tr>
                                     <td>Even</td>
                                 </tr>
                                 <tr>
                                     <td>Gold</td>
-                                    <td>1: {odds.gold}</td>
+                                    <td>1: {odds?.gold}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.gold)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Wood</td>
-                                    <td>1: {odds.wood}</td>
+                                    <td>1: {odds?.wood}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.wood)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Water</td>
-                                    <td>1: {odds.water}</td>
+                                    <td>1: {odds?.water}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fire</td>
-                                    <td>1: {odds.fire}</td>
+                                    <td>1: {odds?.fire}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Earth</td>
-                                    <td>1: {odds.earth}</td>
+                                    <td>1: {odds?.earth}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.earth)}
                                     </td>

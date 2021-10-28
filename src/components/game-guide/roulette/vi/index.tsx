@@ -654,7 +654,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -677,7 +677,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược Đơn</td>
                                     <td>1 số</td>
-                                    <td>1:{odds.straightUp}</td>
+                                    <td>1:{odds?.straightUp}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
                                     </td>
@@ -685,7 +685,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược Đôi</td>
                                     <td>2 số</td>
-                                    <td>1:{odds.split}</td>
+                                    <td>1:{odds?.split}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.split)}
                                     </td>
@@ -693,7 +693,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược Hàng</td>
                                     <td rowSpan={2}>3 số</td>
-                                    <td rowSpan={2}>1:{odds.street}</td>
+                                    <td rowSpan={2}>1:{odds?.street}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.street)}
                                     </td>
@@ -704,7 +704,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược Góc</td>
                                     <td rowSpan={2}>4 số</td>
-                                    <td rowSpan={2}>1:{odds.corner}</td>
+                                    <td rowSpan={2}>1:{odds?.corner}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.corner)}
                                     </td>
@@ -715,7 +715,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược 2 Hàng</td>
                                     <td>6 số</td>
-                                    <td>1:{odds.line}</td>
+                                    <td>1:{odds?.line}</td>
                                     <td>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.line)}
                                     </td>
@@ -723,7 +723,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Cược Cột</td>
                                     <td rowSpan={2}>12 số</td>
-                                    <td rowSpan={2}>1:{odds.dozen}</td>
+                                    <td rowSpan={2}>1:{odds?.dozen}</td>
                                     <td rowSpan={2}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.dozen)}
                                     </td>
@@ -734,7 +734,7 @@ const renderPayouts = (odds: OddsProps, minBet: number, choiceMaxBet: ChoicesMax
                                 <tr>
                                     <td>Tài/Xỉu</td>
                                     <td rowSpan={3}>18 số</td>
-                                    <td rowSpan={3}>1:{odds.redBlack}</td>
+                                    <td rowSpan={3}>1:{odds?.redBlack}</td>
                                     <td rowSpan={3}>
                                         {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.redBlack)}
                                     </td>
