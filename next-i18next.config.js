@@ -1,7 +1,7 @@
 module.exports = {
     i18n: {
         defaultLocale: "en",
-        locales: ["vi", "en"],
+        locales: ["vi", "en", "th", "id", "zh"],
         localeDetection: false,
         react: {
             transEmptyNodeValue: "", // what to return for empty Trans
@@ -9,6 +9,6 @@ module.exports = {
             transKeepBasicHtmlNodesFor: ["br", "strong", "i"], // don't convert to <1></1> if simple react elements
             useSuspense: true,
         },
-        fallbackLng: ["vi", "en"],
+        fallbackLng: ["vi", "en", "th", "id", "zh"],
     },
 };
