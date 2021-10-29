@@ -47,6 +47,7 @@ export const GameNameVI: IObjectKeys = {
     kenomatch2: "Keno Match MD5",
     kenopower1: "Keno Đối Kháng",
     kenopower2: "Keno Đối Kháng MD5",
+    bitcoinmaster: "BitcoinMaster",
 };
 
 export const GameNameEN: IObjectKeys = {
@@ -83,4 +84,5 @@ export const GameNameEN: IObjectKeys = {
     kenomatch2: "Keno Match MD5",
     kenopower1: "Keno Power",
     kenopower2: "Keno Power MD5",
+    bitcoinmaster: "BitcoinMaster",
 };
