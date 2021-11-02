@@ -80,7 +80,7 @@ const Home = () => {
         }
 
         bindEvent(window, "message", function (event: any) {
-            event?.data && setGameConfigs(JSON.parse(event.data));
+            event?.data && typeof event?.data === "string" && setGameConfigs(JSON.parse(event.data));
         });
     }, [router.isReady]);
 
