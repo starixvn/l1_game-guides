@@ -90,6 +90,8 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         height={400}
                                         layout="responsive"
                                         loading="eager"
+                                        quality={100}
+                                        priority
                                     />
                                 </div>
                                 <div className={Styles["wrapper-huobi"]}>
@@ -100,6 +102,8 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         height={397}
                                         layout="responsive"
                                         loading="eager"
+                                        quality={100}
+                                        priority
                                     />
                                 </div>
                                 <div className={Styles["wrapper-okex"]}>
@@ -110,6 +114,8 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         height={946}
                                         layout="responsive"
                                         loading="eager"
+                                        quality={100}
+                                        priority
                                     />
                                 </div>
                                 <div className={Styles["wrapper-mexc"]}>
@@ -120,6 +126,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         height={154}
                                         layout="responsive"
                                         loading="eager"
+                                        quality={100}
                                     />
                                 </div>
                             </div>
