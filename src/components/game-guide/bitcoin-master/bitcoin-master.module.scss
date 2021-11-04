@@ -1,0 +1,25 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 22rem 22rem;
+    grid-row-gap: 2rem;
+    justify-content: center;
+    text-align: center;
+}
+.wrapper-binance {
+    max-width: 13.8rem;
+    max-height: 2.8rem;
+}
+
+.wrapper-huobi {
+    max-width: 8.5rem;
+    max-height: 2.4rem;
+}
+.wrapper-mexc {
+    max-width: 16rem;
+    max-height: 3.2rem;
+}
+
+.wrapper-okex {
+    max-width: 9.7rem;
+    max-height: 3.5rem;
+}
