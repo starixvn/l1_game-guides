@@ -180,6 +180,7 @@ ul {
         }
 
         tbody {
+            border-top: none !important;
             background-color: var(--table-background);
             color: var(--table-color);
         }
