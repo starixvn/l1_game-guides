@@ -1,9 +1,13 @@
 .wrapper {
+    height: 4rem;
+    margin: 1rem 0;
+    background-image: url("/static/images/bitcoin-master/BG_logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
-    grid-template-columns: 22rem 22rem;
-    grid-row-gap: 2rem;
+    grid-template-columns: 18rem 18rem 18rem 18rem;
     justify-content: center;
-    text-align: center;
+    align-items: center;
 }
 .wrapper-binance {
     max-width: 13.8rem;
