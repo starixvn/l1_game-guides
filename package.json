@@ -19,13 +19,14 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "sass": "^1.43.4",
+        "sharp": "^0.29.2",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
-        "@commitlint/cli": "^13.1.0",
-        "@commitlint/config-conventional": "^13.1.0",
         "@babel/preset-env": "^7.14.5",
         "@babel/preset-react": "^7.14.5",
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
         "@types/enzyme": "^3.10.8",
         "@types/enzyme-adapter-react-16": "^1.0.6",
         "@types/jest": "^26.0.23",
