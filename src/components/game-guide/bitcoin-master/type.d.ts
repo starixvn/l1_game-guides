@@ -1,11 +1,20 @@
 import { GameConfigsBaseProps } from "../type";
 
 export interface OddsProps {
-    big: number;
-    small: number;
+    down: number;
+    even: number;
+    odd: number;
+    up: number;
+}
+
+export interface ChoicesMaxBetProps {
+    down: number;
+    even: number;
+    odd: number;
+    up: number;
 }
 
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds: OddsProps;
-    choices_maxbet: {};
+    choices_maxbet: ChoicesMaxBetProps;
 }

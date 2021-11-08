@@ -24,8 +24,10 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 <li className="guide-item">
                     <h2>Cách chơi</h2>
                     <ul className="desc">
-                        Người chơi dự đoán mức giá Bitcoin được ghi nhận cuối cùng sau 60 giây bằng cách đặt cược vào các lựa chọn với mức
-                        cược mong muốn.
+                        <li>
+                            Người chơi dự đoán mức giá Bitcoin được ghi nhận cuối cùng sau 60 giây bằng cách đặt cược vào các lựa chọn với
+                            mức cược mong muốn.
+                        </li>
                         <li className="contentBeforeEmpty">
                             <div className="table-container">
                                 <table className="table text-center">
@@ -70,6 +72,9 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             </div>
                         </li>
                         <li>Có 2 loại cược: Tăng/Giảm, Chẵn/Lẻ. Trong 1 phiên, với mỗi loại cược, bạn chỉ được đặt vào 1 lựa chọn.</li>
+                        <li className="contentBeforeEmpty">
+                            <strong> Ví dụ:</strong> Với loại cươc Tăng/Giảm, người chơi chỉ được chọn 1 cửa duy nhất Tăng hoặc Giảm
+                        </li>
                         <li>
                             Người chơi có thể tăng lượng tiền đặt cược bằng cách đặt thêm vào cùng 1 lựa chọn trước khi thời gian đặt cược
                             kết thúc.
@@ -132,28 +137,38 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             </div>
                         </li>
                         <strong>Ví dụ:</strong>
-                        <ul>
+                        <ul className="desc">
                             <li className="contentBeforeEmpty">
                                 Mức giá Bitcoin ở giây thứ 1s (Giá đặt lệnh) = <strong>48,761.13</strong>
                             </li>
                             <li className="contentBeforeEmpty">
                                 Mức giá Bitcoin ở giây thứ 60s (Kết quả) = <strong>49,011.08</strong>
                             </li>
-                            <li className="contentBeforeEmpty">
-                                Tăng/Giảm
-                                <br></br> + Mức giá ở giây thứ 60s (Kết quả) cao hơn mức giá ở giây thứ 1s (Giá đặt lệnh) {`=>`} Bitcoin
-                                tăng giá, cược vào lựa chọn Tăng sẽ thắng.
-                            </li>
-                            <li className="contentBeforeEmpty">
-                                Chẵn/Lẻ
-                                <br></br> + Mức giá ở giây thứ 60s là số lẻ (49,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
-                            </li>
                         </ul>
+                    </ul>
+                    <ul className="desc">
+                        <li className="contentBeforeEmpty">
+                            Tăng/Giảm
+                            <ul className="desc">
+                                <li className="contentBeforeEmpty">
+                                    + Mức giá ở giây thứ 60s (Kết quả) cao hơn mức giá ở giây thứ 1s (Giá đặt lệnh) {`=>`} Bitcoin tăng giá,
+                                    cược vào lựa chọn Tăng sẽ thắng.
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="contentBeforeEmpty">
+                            Chẵn/Lẻ
+                            <ul className="desc">
+                                <li className="contentBeforeEmpty">
+                                    + Mức giá ở giây thứ 60s là số lẻ (49,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <ul className="desc">
                         <li>
-                            <strong> Nhà cái cân cửa</strong>: với cùng 1 loại cược, trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch
+                            <strong>Nhà cái cân cửa</strong>: với cùng 1 loại cược, trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch
                             nhau, số tiền chênh lệch sẽ được hoàn trả vào tài khoản người chơi đặt cược sau.
                             <br></br>
                             <strong>Ví dụ:</strong> Với loại cược Tăng/Giảm, người chơi A đặt 80 vào cửa Tăng, người chơi B đặt 50 vào cửa
@@ -185,7 +200,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         <tr>
                                             <td rowSpan={2}>Tăng/Giảm</td>
                                             <td className="text-start">Tăng</td>
-                                            <td rowSpan={2}>1: {odds.big}</td>
+                                            <td rowSpan={2}>1: {odds.up}</td>
                                             <td rowSpan={4}>
                                                 {minbet} - {maxBetRound}
                                             </td>
@@ -196,7 +211,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                         <tr>
                                             <td rowSpan={2}>Chẵn/Lẻ</td>
                                             <td className="text-start">Chẵn</td>
-                                            <td rowSpan={2}>1: {odds.small}</td>
+                                            <td rowSpan={2}>1: {odds.odd}</td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">Lẻ</td>
