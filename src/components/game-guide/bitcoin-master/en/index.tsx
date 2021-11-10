@@ -218,7 +218,7 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         </li>
                     </ul>
                 </li>
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsEN("", 43)}
             </ul>
         </>
     );

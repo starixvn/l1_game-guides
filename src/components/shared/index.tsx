@@ -1,8 +1,18 @@
-export const renderTermsAndConditionsEN = (style: string = "") => {
+import React from "react";
+
+const games = { bitcoinMaster: 43 };
+
+export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
         <li className={`guide-item ${style}`}>
             <h2>Terms and Conditions</h2>
             <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
+                        extended period of time or is canceled.
+                    </li>
+                )}
                 <li className="number-dot">
                     The Company reserves the right to cancel or void any bets because of a force majeure event including but not limited to
                     any technical errors, network service failures, power failures.
@@ -24,11 +34,17 @@ export const renderTermsAndConditionsEN = (style: string = "") => {
     );
 };
 
-export const renderTermsAndConditionsVI = (style: string = "") => {
+export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
     return (
         <li className={`guide-item ${style}`}>
             <h2>Các quy định trong game</h2>
             <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp giá trị Bitcoin không thể có trong
+                        thời gian dài.
+                    </li>
+                )}
                 <li className="number-dot">
                     Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ thuật
                     nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.

@@ -81,8 +81,8 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         </li>
                         <li>Tổng tiền cược tối đa cho 1 phiên là {maxBetRound}. Lưu ý, không thể hủy cược sau khi đặt.</li>
                         <li>
-                            Với loại cược Tăng/Giảm, tiền cược sẽ được hoàn trả trong trường hợp giá trị Bitcoin không thay đổi sau 60s, mức
-                            giá cuối cùng (Kết quả) bằng giá khởi điểm (Giá đặt lệnh).
+                            Với loại cược Tăng/Giảm, tiền cược sẽ được hoàn trả trong trường hợp giá trị Bitcoin không thay đổi sau 60 giây,
+                            mức giá cuối cùng (Kết quả) bằng giá khởi điểm (Giá đặt lệnh).
                         </li>
                         <li>
                             Giá trị Bitcoin được sử dụng trong game là giá trị trung bình theo thời gian thực từ 4 sàn giao dịch:
@@ -139,10 +139,10 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         <strong>Ví dụ:</strong>
                         <ul className="desc">
                             <li className="contentBeforeEmpty">
-                                Mức giá Bitcoin ở giây thứ 1s (Giá đặt lệnh) = <strong>48,761.13</strong>
+                                Mức giá Bitcoin ở giây thứ 1 (Giá đặt lệnh) = <strong>48,761.13</strong>
                             </li>
                             <li className="contentBeforeEmpty">
-                                Mức giá Bitcoin ở giây thứ 60s (Kết quả) = <strong>49,011.08</strong>
+                                Mức giá Bitcoin ở giây thứ 60 (Kết quả) = <strong>49,011.08</strong>
                             </li>
                         </ul>
                     </ul>
@@ -151,7 +151,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             Tăng/Giảm
                             <ul className="desc">
                                 <li className="contentBeforeEmpty">
-                                    + Mức giá ở giây thứ 60s (Kết quả) cao hơn mức giá ở giây thứ 1s (Giá đặt lệnh) {`=>`} Bitcoin tăng giá,
+                                    + Mức giá ở giây thứ 60 (Kết quả) cao hơn mức giá ở giây thứ 1 (Giá đặt lệnh) {`=>`} Bitcoin tăng giá,
                                     cược vào lựa chọn Tăng sẽ thắng.
                                 </li>
                             </ul>
@@ -160,7 +160,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             Chẵn/Lẻ
                             <ul className="desc">
                                 <li className="contentBeforeEmpty">
-                                    + Mức giá ở giây thứ 60s là số lẻ (49,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
+                                    + Mức giá ở giây thứ 60 là số lẻ (49,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
                                 </li>
                             </ul>
                         </li>
@@ -222,7 +222,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         </li>
                     </ul>
                 </li>
-                {renderTermsAndConditionsVI()}
+                {renderTermsAndConditionsVI("", 43)}
             </ul>
         </>
     );
