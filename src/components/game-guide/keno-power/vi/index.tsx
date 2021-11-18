@@ -9,6 +9,9 @@ import { KenoPowerMD5 } from "../index";
 import { renderMD5VI } from "../../../shared/md5/vi";
 import Styles from "../keno-match.module.scss";
 
+const classBetTeamWd = "bet-team-wd";
+const classBetOptionWd = "bet-option-wd";
+
 const renderGameRule = (maxBetRound: number | string) => {
     return (
         <>
@@ -38,64 +41,64 @@ const renderBettingOptions = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Đội Xanh/Đội Đỏ
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Đội Xanh</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Đội Xanh</td>
                         <td className="text-start">
                             Thắng nếu tổng điểm Đội Xanh {`>`} Đội Đỏ
                             <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 bên bằng nhau.
                         </td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Đội Đỏ</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Đội Đỏ</td>
                         <td className="text-start">
                             Thắng nếu tổng điểm của Đội Đỏ {`>`} Đội Xanh
                             <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 bên bằng nhau.
                         </td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Tổng Tài/Xỉu
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Tài</td>
                         <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ {`>=`} 1621</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Xỉu</td>
                         <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ {`<`} 1621</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Tổng Chẵn/Lẻ
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Chẵn</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Chẵn</td>
                         <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ là số chẵn.</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Lẻ</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Lẻ</td>
                         <td className="text-start">Thắng nếu tổng điểm của cả Đội Xanh và Đội Đỏ là số lẻ.</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Đội Xanh <br /> Tài/Xỉu
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Tài</td>
                         <td className="text-start">Thắng nếu tổng điểm của Đội Xanh {`>=`} 811</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Xỉu</td>
                         <td className="text-start">Thắng nếu tổng điểm của Đội Xanh {`<`} 811</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Đội Đỏ <br /> Tài/Xỉu
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Tài</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Tài</td>
                         <td className="text-start">Thắng nếu tổng điểm của Đội Đỏ {`>=`} 811</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Xỉu</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Xỉu</td>
                         <td className="text-start">Thắng nếu tổng điểm của Đội Đỏ {`<`} 811</td>
                     </tr>
                 </tbody>

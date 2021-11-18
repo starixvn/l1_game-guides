@@ -9,6 +9,10 @@ import { KenoMatchMD5, minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnde
 import { renderMD5EN } from "../../../shared/md5/en";
 import Styles from "../keno-match.module.scss";
 
+const classBetTeamWd = "bet-team-wd";
+const classBetOptionWd = "bet-option-wd";
+const classBetOddWd = "bet-odd-wd";
+
 const renderGameRule = (maxBetRound: number | string) => {
     return (
         <>
@@ -57,27 +61,27 @@ const renderBettingOptions = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Team Blue
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
                                     <td className="text-start">
                                         Player wins if the total points of 10 randomly drawn numbers for team Blue {`>`} team Red. <br />+
                                         All bets will be refunded if the total points of both teams are equal.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of team Blue {`>`} team Red. <br />+ All
                                         bets will be refunded if the total points of both teams are equal.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Team Red
                                     </td>
                                     <td className="text-start">First Half</td>
@@ -87,86 +91,86 @@ const renderBettingOptions = () => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of team Red {`>`} team Blue. <br />+ All
                                         bets will be refunded if the total points of both teams are equal.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Over
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
                                     <td className="text-start">
                                         Player wins if the total points (in the First Half) of both teams {`>=`} 811
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of both teams {`>=`} 1621
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Under
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
                                     <td className="text-start">
                                         Player wins if the total points (in the First Half) of both teams {`<`} 811
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of both teams {`<`} 1621
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Even
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
                                     <td className="text-start">
                                         Player wins if the total points (in the First Half) of both teams are an even number.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of both teams are an even number.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Odd
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
                                     <td className="text-start">
                                         Player wins if the total points (in the First Half) of both teams are an odd number.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
                                     <td rowSpan={2} className="text-start">
                                         Player wins if the total points (First Half + Full Time) of both teams are an odd number.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -309,9 +313,9 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Team Blue</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Blue</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutBlue} - {odds.liveFTBlue}
                                                         </td>
                                                         <td>1</td>
@@ -320,41 +324,41 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Team Red</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Red</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutRed} - {odds.liveFTRed}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Over</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Over</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutOver} - {odds.liveFTOver}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Under</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Under</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutUnder} - {odds.liveFTUnder}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Even</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
-                                                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Even</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                                                             1:{odds.liveFTEven}
                                                         </td>
                                                         <td>1</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Odd</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Odd</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td>1</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>

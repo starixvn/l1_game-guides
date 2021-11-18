@@ -9,6 +9,9 @@ import { KenoPowerMD5 } from "../index";
 import { renderMD5EN } from "../../../shared/md5/en";
 import Styles from "../keno-match.module.scss";
 
+const classBetTeamWd = "bet-team-wd";
+const classBetOptionWd = "bet-option-wd";
+
 const renderGameRule = (maxBetRound: number | string) => {
     return (
         <>
@@ -37,64 +40,64 @@ const renderBettingOptions = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Team Blue/Team Red
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Blue</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Team Blue</td>
                         <td className="text-start">
                             Player wins if the total points of Team Blue {`>`} Team Red.
                             <br />+ All bets will be refunded if the total points of both teams are equal.
                         </td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Team Red</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Team Red</td>
                         <td className="text-start">
                             Player wins if the total points of Team Red {`>`} Team Blue.
                             <br />+ All bets will be refunded if the total points of both teams are equal.
                         </td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Sum Big/Small
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Big</td>
                         <td className="text-start">Player wins if the total points of both teams {`>=`} 1621</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Small</td>
                         <td className="text-start">Player wins if the total points of both teams {`<`} 1621</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Sum Even/Odd
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Even</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Even</td>
                         <td className="text-start">Player wins if the total points of both teams are an even number.</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Odd</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Odd</td>
                         <td className="text-start">Player wins if the total points of both teams are an odd number.</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Team Blue <br /> Big/Small
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Big</td>
                         <td className="text-start">Player wins if the total points of Team Blue {`>=`} 811</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Small</td>
                         <td className="text-start">Player wins if the total points of team Blue {`<`} 811</td>
                     </tr>
                     <tr>
-                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                             Team Red <br /> Big/Small
                         </td>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Big</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Big</td>
                         <td className="text-start">Player wins if the total points of Team Red {`>=`} 811</td>
                     </tr>
                     <tr>
-                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Small</td>
+                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Small</td>
                         <td className="text-start">Player wins if the total points of Team Red {`<`} 811</td>
                     </tr>
                 </tbody>

@@ -7,8 +7,11 @@ import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { KenoMatchMD5, minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
 import { renderMD5VI } from "../../../shared/md5/vi";
-
 import Styles from "../keno-match.module.scss";
+
+const classBetTeamWd = "bet-team-wd";
+const classBetOptionWd = "bet-option-wd";
+const classBetOddWd = "bet-odd-wd";
 
 const renderGameRule = (maxBetRound: number | string) => {
     return (
@@ -56,27 +59,27 @@ const renderBettingOptions = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Đội Xanh
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Hiệp 1</td>
                                     <td className="text-start">
                                         Thắng nếu tổng điểm 10 số được rút cho Đội Xanh {`>`} Đội Đỏ.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Xanh {`>`} Đội Đỏ.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Đội Đỏ
                                     </td>
                                     <td className="text-start">Hiệp 1</td>
@@ -86,78 +89,78 @@ const renderBettingOptions = () => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Đỏ {`>`} Đội Xanh.
                                         <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Tài
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Hiệp 1</td>
                                     <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội {`>=`} 811</td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội {`>=`} 1621
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Xỉu
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Hiệp 1</td>
                                     <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội {`<`} 811</td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội {`<`} 1621
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Chẵn
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Hiệp 1</td>
                                     <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số chẵn.</td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số chẵn.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={3} className={Styles["bet-team-wd"]}>
+                                    <td rowSpan={3} className={Styles[classBetTeamWd]}>
                                         Lẻ
                                     </td>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Hiệp 1</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Hiệp 1</td>
                                     <td className="text-start">Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số lẻ.</td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận</td>
                                     <td rowSpan={2} className="text-start">
                                         Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số lẻ.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -311,9 +314,9 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Đội Xanh</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Đội Xanh</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutBlue} - {odds.liveFTBlue}
                                                         </td>
                                                         <td>1</td>
@@ -322,41 +325,41 @@ const renderPayouts = (odds: OddsProps, minBet: number, maxBetFollowChoice: MaxB
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Đội Đỏ</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Đội Đỏ</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutRed} - {odds.liveFTRed}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Tài</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Tài</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutOver} - {odds.liveFTOver}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Xỉu</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
-                                                        <td className={Styles["bet-odd-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Xỉu</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
+                                                        <td className={Styles[classBetOddWd]}>
                                                             {minPayoutUnder} - {odds.liveFTUnder}
                                                         </td>
                                                         <td>1</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Chẵn</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
-                                                        <td rowSpan={2} className={Styles["bet-team-wd"]}>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Chẵn</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
+                                                        <td rowSpan={2} className={Styles[classBetTeamWd]}>
                                                             1:{odds.liveFTEven}
                                                         </td>
                                                         <td>1</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles["bet-team-wd"]}`}>Lẻ</td>
-                                                        <td className={`text-start ${Styles["bet-option-wd"]}`}>Toàn trận (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Lẻ</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
                                                         <td>1</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>

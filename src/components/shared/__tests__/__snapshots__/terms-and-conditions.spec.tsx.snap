@@ -2,7 +2,7 @@
 
 exports[`Terms and Conditions VI ender correctly 1`] = `
 <li
-  className="guide-item"
+  className="guide-item "
 >
   <h2>
     Các quy định trong game

@@ -9,21 +9,21 @@ export interface UserStakeLevelProps {
     maxBet?: number;
 }
 
+const CheckIsInteger = (number: string | number | object) => {
+    return Number.isInteger(+number) ? +number : 0;
+};
+
 const Home = () => {
-    const { setTheme, theme } = useTheme();
+    const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [locale, setLocale] = useState<string>(locales.en);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
     const [isLoading, setIsLoading] = useState(true);
-    const [classContainerOptions, setClassContainerOptions] = useState<string>();
     const [name, setName] = useState<string>("");
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const CheckIsInteger = (number: string | number | object) => {
-            return Number.isInteger(+number) ? +number : 0;
-        };
         if (router.isReady) {
             setIsLoading(false);
             const queryParams: object | any = router.query;
@@ -47,7 +47,7 @@ const Home = () => {
     }
 
     return (
-        <div ref={wrapperRef} id="container-guide" className={`container-guide ${classContainerOptions}`}>
+        <div ref={wrapperRef} id="container-guide" className="container-guide">
             <GameGuide gameId={gameId} locale={locale} userStakeLevel={userStakeLevel} name={name}></GameGuide>
         </div>
     );
