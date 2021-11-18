@@ -53,14 +53,14 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                             <td>Even</td>
                                             <td className="text-start">
                                                 The Result Price is an even number.
-                                                <br></br>+ Note: A number is even if its units digit is even
+                                                <br></br>+ Note: A number is even if its units digit is even.
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Odd</td>
                                             <td className="text-start">
                                                 The Result Price is an odd number.
-                                                <br></br>+ Note: A number is odd if its units digit is odd
+                                                <br></br>+ Note: A number is odd if its units digit is odd.
                                             </td>
                                         </tr>
                                     </tbody>
@@ -195,22 +195,22 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                     <tbody>
                                         <tr>
                                             <td rowSpan={2}>Up/Down</td>
-                                            <td className="text-start">Up</td>
+                                            <td>Up</td>
                                             <td rowSpan={2}>1: {odds.up}</td>
                                             <td rowSpan={4}>
                                                 {minbet} - {maxBetRound}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Down</td>
+                                            <td>Down</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Even/Odd</td>
-                                            <td className="text-start">Even</td>
+                                            <td>Even</td>
                                             <td rowSpan={2}>1: {odds.odd}</td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Odd</td>
+                                            <td>Odd</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -6,10 +6,10 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    down: 1.98,
-    even: 1.98,
-    odd: 1.98,
-    up: 1.98,
+    down: 1.96,
+    even: 1.96,
+    odd: 1.96,
+    up: 1.96,
 };
 
 const GameConfigs = {

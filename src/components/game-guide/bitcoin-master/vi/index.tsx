@@ -25,8 +25,8 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                     <h2>Cách chơi</h2>
                     <ul className="desc">
                         <li>
-                            Người chơi dự đoán mức giá Bitcoin được ghi nhận cuối cùng sau 60 giây bằng cách đặt cược vào các lựa chọn với
-                            mức cược mong muốn.
+                            Người chơi dự đoán mức giá Bitcoin (Kết quả) được ghi nhận cuối cùng sau 60 giây bằng cách đặt cược vào các lựa
+                            chọn với mức cược mong muốn.
                         </li>
                         <li className="contentBeforeEmpty">
                             <div className="table-container">
@@ -43,27 +43,27 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                             <td rowSpan={2}>Tăng/Giảm</td>
                                             <td>Tăng</td>
                                             <td className="text-start">
-                                                Mức giá cuối cùng sau 60s cao hơn mức giá khởi điểm (Giá đặt lệnh)
+                                                Mức giá cuối cùng sau 60 giây cao hơn mức giá khởi điểm (Giá đặt lệnh).
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Giảm</td>
                                             <td className="text-start">
-                                                Mức giá cuối cùng sau 60s thấp hơn mức giá khởi điểm (Giá đặt lệnh)
+                                                Mức giá cuối cùng sau 60 giây thấp hơn mức giá khởi điểm (Giá đặt lệnh).
                                             </td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Chẵn/Lẻ</td>
                                             <td>Chẵn</td>
                                             <td className="text-start">
-                                                Mức giá cuối cùng sau 60s là số Chẵn.
+                                                Mức giá cuối cùng sau 60 giây là số Chẵn.
                                                 <br></br>+ Lưu ý: Chỉ tính trên chữ số hàng đơn vị, không bao gồm phần thập phân.
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Lẻ</td>
                                             <td className="text-start">
-                                                Mức giá cuối cùng sau 60s là số Lẻ.
+                                                Mức giá cuối cùng sau 60 giây là số Lẻ.
                                                 <br></br>+ Lưu ý: Chỉ tính trên chữ số hàng đơn vị, không bao gồm phần thập phân.
                                             </td>
                                         </tr>
@@ -73,7 +73,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         </li>
                         <li>Có 2 loại cược: Tăng/Giảm, Chẵn/Lẻ. Trong 1 phiên, với mỗi loại cược, bạn chỉ được đặt vào 1 lựa chọn.</li>
                         <li className="contentBeforeEmpty">
-                            <strong> Ví dụ:</strong> Với loại cươc Tăng/Giảm, người chơi chỉ được chọn 1 cửa duy nhất Tăng hoặc Giảm
+                            <strong> Ví dụ:</strong> Với loại cược Tăng/Giảm, người chơi chỉ được chọn 1 cửa duy nhất Tăng hoặc Giảm.
                         </li>
                         <li>
                             Người chơi có thể tăng lượng tiền đặt cược bằng cách đặt thêm vào cùng 1 lựa chọn trước khi thời gian đặt cược
@@ -199,22 +199,22 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                     <tbody>
                                         <tr>
                                             <td rowSpan={2}>Tăng/Giảm</td>
-                                            <td className="text-start">Tăng</td>
+                                            <td>Tăng</td>
                                             <td rowSpan={2}>1: {odds.up}</td>
                                             <td rowSpan={4}>
                                                 {minbet} - {maxBetRound}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Giảm</td>
+                                            <td>Giảm</td>
                                         </tr>
                                         <tr>
                                             <td rowSpan={2}>Chẵn/Lẻ</td>
-                                            <td className="text-start">Chẵn</td>
+                                            <td>Chẵn</td>
                                             <td rowSpan={2}>1: {odds.odd}</td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Lẻ</td>
+                                            <td>Lẻ</td>
                                         </tr>
                                     </tbody>
                                 </table>
