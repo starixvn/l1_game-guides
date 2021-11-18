@@ -1,7 +1,4 @@
 import React from "react";
-import Image from "next/image";
-
-import Styles from "../md5.module.scss";
 
 export const renderMD5EN = () => {
     return (
