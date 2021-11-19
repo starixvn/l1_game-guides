@@ -18,7 +18,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName} là thể loại game cá cược hoàn toàn mới, cho phép người chơi đặt cược dựa trên giá trị Bitcoin trong 60
-                        giây kế tiếp. Có 4 lựa chọn để đặt cược: Tăng, Giảm, Chẵn, Lẻ
+                        giây kế tiếp. Có 4 lựa chọn để đặt cược: Tăng, Giảm, Chẵn, Lẻ.
                     </p>
                 </li>
                 <li className="guide-item">
