@@ -122,10 +122,10 @@ const renderGameRule = (maxBetRound: string | undefined) => {
                 <strong>Ví dụ:</strong>
                 <ul className="desc">
                     <li className="contentBeforeEmpty">
-                        Mức giá Bitcoin ở giây thứ 1 (Giá đặt lệnh) = <strong>48,761.13</strong>
+                        Mức giá Bitcoin ở giây thứ 1 (Giá đặt lệnh) = <strong>57,761.13</strong>
                     </li>
                     <li className="contentBeforeEmpty">
-                        Mức giá Bitcoin ở giây thứ 60 (Kết quả) = <strong>49,011.08</strong>
+                        Mức giá Bitcoin ở giây thứ 60 (Kết quả) = <strong>58,011.08</strong>
                     </li>
                 </ul>
             </ul>
@@ -143,7 +143,7 @@ const renderGameRule = (maxBetRound: string | undefined) => {
                     Chẵn/Lẻ
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
-                            + Mức giá ở giây thứ 60 là số lẻ (49,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
+                            + Mức giá ở giây thứ 60 là số lẻ (58,011) {`=>`} Cược vào lựa chọn Lẻ sẽ thắng.
                         </li>
                     </ul>
                 </li>

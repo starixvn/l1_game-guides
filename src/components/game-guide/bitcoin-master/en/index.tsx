@@ -125,10 +125,10 @@ const renderGameRule = (maxBetRound: string | undefined) => {
                 <strong>Example:</strong>
                 <ul className="desc">
                     <li className="contentBeforeEmpty">
-                        Bitcoin value at the starting time (Betting Price) = <strong>48,761.13</strong>
+                        Bitcoin value at the starting time (Betting Price) = <strong>57,761.13</strong>
                     </li>
                     <li className="contentBeforeEmpty">
-                        Bitcoin value at 60 seconds (Result Price) = <strong>49,011.08</strong>
+                        Bitcoin value at 60 seconds (Result Price) = <strong>58,011.08</strong>
                     </li>
                 </ul>
             </ul>
@@ -142,7 +142,7 @@ const renderGameRule = (maxBetRound: string | undefined) => {
                 <li>
                     Even/Odd
                     <ul className="desc">
-                        <li className="contentBeforeEmpty">+ Result Price is an odd number (49,011). Place a bet on “Odd” will win</li>
+                        <li className="contentBeforeEmpty">+ Result Price is an odd number (58,011). Place a bet on “Odd” will win</li>
                     </ul>
                 </li>
             </ul>
