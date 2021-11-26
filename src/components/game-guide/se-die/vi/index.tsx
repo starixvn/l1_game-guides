@@ -176,8 +176,9 @@ const renderPayoutTable = (
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, userStakeLevel } = props;
     const { odds, minBet } = gameConfigs;
+    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -208,7 +209,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
                             Tỷ lệ trả thưởng đã bao gồm tiền cược.
-                            {renderPayoutTable(odds, numberWithCommas(minBet), maxBetFollowChoice, props?.gameId ?? 0)}
+                            {renderPayoutTable(odds, minBetStake, maxBetFollowChoice, props?.gameId ?? 0)}
                         </li>
                     </ul>
                 </li>

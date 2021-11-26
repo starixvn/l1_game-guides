@@ -161,9 +161,9 @@ export const renderTBodyPointCalculationRules = () => {
 };
 
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, userStakeLevel } = props;
     const { odds, minBet } = gameConfigs;
-
+    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     return (
         <>
             <ul className="game-guide">
@@ -304,7 +304,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Player</td>
                                             <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMainChoice}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -323,7 +323,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Tie</td>
                                             <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetSubChoice}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>

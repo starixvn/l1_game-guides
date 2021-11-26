@@ -8,8 +8,9 @@ import { renderListIcon } from "../en";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, userStakeLevel } = props;
     const { odds, minBet } = gameConfigs;
+    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const { theme } = useTheme();
     return (
         <>
@@ -67,7 +68,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả một lần.</td>
                                             <td>1: {odds?.single}</td>
                                             <td rowSpan={5}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMain}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
@@ -99,7 +100,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
                                             <td>1: {odds?.anyTriple}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

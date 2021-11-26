@@ -112,9 +112,9 @@ const renderPointCalculationRules = (gameName: string) => {
 };
 
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, userStakeLevel } = props;
     const { odds, minBet } = gameConfigs;
-
+    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     return (
         <div>
             <ul className="game-guide">
@@ -261,7 +261,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Nhà Con</td>
                                             <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetMainChoice}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetMainChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -280,7 +280,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Hòa</td>
                                             <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetSubChoice}
+                                                {minBetStake} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>
