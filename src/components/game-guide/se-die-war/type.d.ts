@@ -44,3 +44,15 @@ export interface GameConfigProps extends GameConfigsBaseProps {
     odds?: OddsProps;
     maxBetPerChoices: ChoicesMaxBetProps;
 }
+
+export interface MaxBetChoicesProps {
+    maxBetMain: string;
+    minBetMain: string;
+    maxBetPlayer: string;
+    maxBetPlayerEven: string;
+    maxBetPlayerRed3: string;
+    maxBetPlayerRed4: string;
+    maxBetBankerEven: string;
+    maxBetBankerRed3: string;
+    maxBetBankerRed4: string;
+}

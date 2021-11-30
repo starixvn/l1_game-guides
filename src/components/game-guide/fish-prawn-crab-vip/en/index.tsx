@@ -66,9 +66,8 @@ export const renderListIcon = (theme: string | undefined) => {
     );
 };
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { theme } = useTheme();
     return (
         <>
@@ -99,7 +98,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                         <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                         <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
-                        <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetRound}</li>
+                        <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">
@@ -129,7 +128,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">If the chosen symbol appears once. </td>
                                             <td>1: {odds?.single}</td>
                                             <td rowSpan={5}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetMain}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFish}
                                             </td>
                                         </tr>
                                         <tr>
@@ -161,7 +160,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
                                             <td>1: {odds?.anyTriple}</td>
                                             <td>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

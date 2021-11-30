@@ -1,10 +1,10 @@
 import React from "react";
-import { numberWithCommas } from "../../../../../helpers/number-helper";
-import { GameConfigProps } from "../../type";
+
+import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { renderTermsAndConditionsVI } from "../../../../shared";
 
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -16,7 +16,7 @@ const renderGameRule = (maxBet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là{" "}
-                    {numberWithCommas(maxBet)}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
+                    {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, hệ thống sẽ chọn
@@ -160,9 +160,9 @@ const bettingOptions = () => {
     );
 };
 
-const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, maxBet, minBet, maxBetPerChoices } = gameConfigs;
+const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -174,7 +174,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         ngẫu nhiên 10 quả bóng trong số 40 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 10 quả bóng này.{" "}
                     </p>
                 </li>
-                {renderGameRule(maxBet)}
+                {renderGameRule(maxBetFollowChoice?.maxBetMain)}
                 {bettingOptions()}
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
@@ -196,7 +196,7 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                                             <td>Tài</td>
                                             <td> 1: {odds?.big}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.big)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                             </td>
                                         </tr>
                                         <tr>
@@ -214,35 +214,35 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                                             <td>Kim</td>
                                             <td>1: {odds?.gold}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.gold)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Mộc</td>
                                             <td>1: {odds?.wood}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.wood)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thủy</td>
                                             <td>1: {odds?.water}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.water)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Hỏa</td>
                                             <td>1: {odds?.fire}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.fire)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thổ</td>
                                             <td>1: {odds?.earth}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.earth)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                                             </td>
                                         </tr>
                                     </tbody>

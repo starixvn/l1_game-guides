@@ -1,13 +1,13 @@
 import React from "react";
+
 import { BaccaratVip } from "..";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../baccarat.module.scss";
 
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRule = (maxBetMain: number | string) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -30,7 +30,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                    phiên là {maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
                 <li>Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.</li>
                 <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được sử dụng khi bắt đầu phiên mới.</li>
@@ -112,9 +112,8 @@ const renderPointCalculationRules = (gameName: string) => {
 };
 
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { odds } = gameConfigs;
     return (
         <div>
             <ul className="game-guide">
@@ -130,7 +129,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         vào lựa chọn mong muốn.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
@@ -261,7 +260,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Nhà Con</td>
                                             <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetMainChoice}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                             </td>
                                         </tr>
                                         <tr>
@@ -280,7 +279,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Hòa</td>
                                             <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetSubChoice}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>

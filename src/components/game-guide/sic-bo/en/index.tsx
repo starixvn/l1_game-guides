@@ -3,7 +3,7 @@ import { useTranslation, TFunction } from "next-i18next";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
+import { GameConfigProps, OddsProps, ChoicesMaxBetProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../sic-bo.module.scss";
 
@@ -154,7 +154,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: nu
     );
 };
 
-const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName } = props;
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());

@@ -1,15 +1,13 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderIconChoice } from "../en";
 
-const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
-    const maxChoiceRound = numberWithCommas(maxBetPerChoices.crab);
+const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -37,8 +35,9 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                             đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
                         </li>
                         <li>
-                            Số tiền cược phải nằm trong khoảng từ {numberWithCommas(minBet)} đến {maxChoiceRound} cho một lần đặt cược và
-                            tổng tiền cược tối đa cho 1 phiên là {maxBetRound}
+                            Số tiền cược phải nằm trong khoảng từ {maxBetFollowChoice?.minBetMain} đến{" "}
+                            {maxBetFollowChoice?.maxBetMain} cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là{" "}
+                            {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc

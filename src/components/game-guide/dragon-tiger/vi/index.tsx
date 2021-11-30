@@ -1,13 +1,12 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 
-const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
+const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -69,7 +68,8 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                         </li>
                         <li>
                             Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối
-                            đa cho 1 phiên là {maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                            đa cho 1 phiên là {maxBetFollowChoice?.maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi
+                            đặt.
                         </li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, các lá
@@ -100,7 +100,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                         <tr>
                                             <td>Rồng</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.dragon)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                             </td>
                                             <td rowSpan={2}>1:{odds?.dragon}</td>
                                         </tr>
@@ -110,7 +110,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                         <tr>
                                             <td>Hòa</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.tie)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTie}
                                             </td>
                                             <td>1:{odds?.tie}</td>
                                         </tr>

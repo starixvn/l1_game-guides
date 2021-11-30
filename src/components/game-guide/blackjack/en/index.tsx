@@ -1,13 +1,12 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
 
-const renderGameRule = (maxBet: number, minBet: number) => {
+const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
     const optionsWidth = "options-width";
     return (
@@ -21,8 +20,7 @@ const renderGameRule = (maxBet: number, minBet: number) => {
                     dealt.
                 </li>
                 <li>
-                    Min bet and Max bet must be between {numberWithCommas(minBet)} - {numberWithCommas(maxBet)} and the maximum total stake
-                    per hand is {numberWithCommas(maxBet)}
+                    Min bet and Max bet must be between {minBet} - {maxBet} and the maximum total stake per hand is {maxBet}
                 </li>
                 <li>
                     After the Players click the “Deal” button, two cards are dealt for each Players’ hand and Dealer. Players’ cards are
@@ -207,9 +205,9 @@ const renderPayouts = (odds: OddsProps | undefined) => {
     );
 };
 
-const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet } = gameConfigs;
+const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
@@ -223,7 +221,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         Player will win if the total points of your cards are closer to 21 than the {`Dealer's`} cards.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBet, minBet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain)}</li>
                 <li className="guide-item">
                     <h2>Point Calculation Rules</h2>
                     <ul className="desc">

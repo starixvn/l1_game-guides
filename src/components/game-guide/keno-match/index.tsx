@@ -16,8 +16,9 @@ export const minPayoutUnder = 1.04;
 export const KenoMatchMD5 = [37];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet } = gameConfigs;
+    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetRound = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetBlueChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhBlue));
     const maxBetRedChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhRed));
     const maxBetOverChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhOver));
@@ -25,7 +26,16 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
     const maxBetEvenChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.fhEven));
     const maxBetEvenLiveChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.liveFTEven));
 
-    return { maxBetRound, maxBetBlueChoice, maxBetRedChoice, maxBetOverChoice, maxBetUnderChoice, maxBetEvenChoice, maxBetEvenLiveChoice };
+    return {
+        maxBetRound,
+        minBetRound,
+        maxBetBlueChoice,
+        maxBetRedChoice,
+        maxBetOverChoice,
+        maxBetUnderChoice,
+        maxBetEvenChoice,
+        maxBetEvenLiveChoice,
+    };
 };
 
 const KenoMatchGuide = (props: GameGuideBase) => {

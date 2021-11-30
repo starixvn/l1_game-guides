@@ -6,10 +6,11 @@ import { GameGuideBase } from "../type";
 import GameConfigs from "./game-configs";
 import GameConfigsTurbo from "../big-small-turbo/game-configs";
 import { locales, IObjectKeys } from "../../../common/constants";
+import { handleMaxBetChoice } from "../index.helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName, userStakeLevel } = props;
     const getGameConfigs = () => {
         if (dynamic) {
             return gameConfigs;
@@ -22,10 +23,12 @@ const BigSmallGuide = (props: GameGuideBase) => {
             return gameConfigs;
         }
     };
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+
     if (locale === locales.en) {
-        return <BigSmallGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+        return <BigSmallGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
 
-    return <BigSmallGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+    return <BigSmallGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default BigSmallGuide;

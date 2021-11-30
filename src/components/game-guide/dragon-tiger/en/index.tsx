@@ -1,14 +1,13 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../dragon-tiger.module.scss";
 
-const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
+const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -74,9 +73,9 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                             <td>Dragon</td>
                                             <td rowSpan={2}>1:{odds?.dragon}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.dragon)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                             </td>
-                                            <td rowSpan={3}>{maxBetRound}</td>
+                                            <td rowSpan={3}>{maxBetFollowChoice?.maxBetMain}</td>
                                         </tr>
                                         <tr>
                                             <td>Tiger</td>
@@ -85,7 +84,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props
                                             <td>Tie</td>
                                             <td>1:{odds?.tie}</td>
                                             <td>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBetPerChoices.tie)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTie}
                                             </td>
                                         </tr>
                                     </tbody>

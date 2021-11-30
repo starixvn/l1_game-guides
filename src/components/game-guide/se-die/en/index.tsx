@@ -1,13 +1,13 @@
 import React from "react";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 
-const renderGameRule = (maxBetRound: number | string, gameId = 0) => {
+const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -23,7 +23,7 @@ const renderGameRule = (maxBetRound: number | string, gameId = 0) => {
                     Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
                     expires. Note, placed bets cannot be canceled.
                 </li>
-                <li>The maximum total stake per round is {maxBetRound}</li>
+                <li>The maximum total stake per round is {maxBetMain}</li>
             </ul>
         </>
     );
@@ -89,9 +89,8 @@ const renderStatistical = () => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { odds } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -113,7 +112,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0, props?.gameId ?? 0)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
@@ -138,7 +137,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td>ODD</td>
                                             <td rowSpan={2}>1:{odds?.even}</td>
                                             <td rowSpan={2}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetMain}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
                                         </tr>
                                         <tr>
@@ -149,7 +148,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td rowSpan={2}>1:{odds?.red4}</td>
 
                                             <td rowSpan={2}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetRed4}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
                                             </td>
                                         </tr>
                                         <tr>
@@ -159,7 +158,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td>3 red, 1 white</td>
                                             <td rowSpan={2}>1:{odds?.red3}</td>
                                             <td rowSpan={2}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetRed3}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
@@ -170,7 +169,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                                 <td>2 red, 2 white</td>
                                                 <td>1:{odds?.red2}</td>
                                                 <td>
-                                                    {minBetStake} - {maxBetFollowChoice?.maxBetRed2}
+                                                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
                                             </tr>
                                         )}

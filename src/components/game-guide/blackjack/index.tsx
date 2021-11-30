@@ -6,20 +6,22 @@ import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { handleMaxBetChoice } from "../index.helper";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel } = props;
     const getGameConfigs = () => {
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
         }
         return gameConfigs;
     };
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
 
     if (locale === locales.en) {
-        return <BlackjackGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+        return <BlackjackGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
-    return <BlackjackGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+    return <BlackjackGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 
 export const CardPointValuesTable = (t: TFunction) => {

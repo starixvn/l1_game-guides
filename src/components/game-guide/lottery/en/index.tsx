@@ -1,14 +1,14 @@
 import React from "react";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
 
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
 const textRedLight = "text-red-light";
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Game Rules</h2>
@@ -16,7 +16,7 @@ const renderGameRule = (maxBet: number) => {
                 <li>Select the chip value you wish to play. All bets must be completed before the betting time expires.</li>
                 <li>Note, placed bets cannot be canceled.</li>
                 <li>Players can bet on one or more betting options shown on the game table.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
+                <li>The maximum total stake per round is {maxBet}</li>
             </ul>
         </li>
     );
@@ -131,7 +131,7 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds?.Sets4}</li>
+                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds && odds["4Sets"]}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -155,8 +155,8 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
                 </tbody>
             </table>
             <p>
-                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds?.Sets4}) * 2 ={" "}
-                {10 * (odds?.Sets4 ?? 0) * 2}
+                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds ? odds["4Sets"] : 0}) * 2 ={" "}
+                {10 * (odds ? odds["4Sets"] : 0) * 2}
             </p>
         </>
     );
@@ -268,7 +268,7 @@ const BettingOptions27Sets = (odds: OddsProps | undefined) => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds?.Sets27}</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds && odds["27Sets"]}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 40</li>
             </ul>
@@ -393,16 +393,16 @@ const BettingOptions27Sets = (odds: OddsProps | undefined) => {
                 </tbody>
             </table>
             <p>
-                Number 05 has appeared two times in 27 results. Payout = (10 * {odds?.Sets27}) * 2 = {10 * (odds?.Sets27 ?? 0) * 2}
+                Number 05 has appeared two times in 27 results. Payout = (10 * {odds ? odds["27Sets"] : 0}) * 2 = {10 * (odds ? odds["27Sets"] : 0) * 2}
             </p>
             <p>
-                Number 12 has appeared one time in 27 results. Payout = 10 * {odds?.Sets27} = {10 * (odds?.Sets27 ?? 0)}
+                Number 12 has appeared one time in 27 results. Payout = 10 * {odds ? odds["27Sets"]: 0} = {10 * (odds ? odds["27Sets"] : 0)}
             </p>
         </>
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetProps, minBet: number, maxBet: number) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -424,38 +424,38 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                 <tbody>
                     <tr>
                         <td colSpan={2}>4 Sets</td>
-                        <td>1:{odds?.Sets4}</td>
+                        <td>1:{odds && odds["4Sets"]}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets4)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
                         </td>
-                        <td rowSpan={9}>{numberWithCommas(maxBet)}</td>
+                        <td rowSpan={9}>{maxBetFollowChoice?.maxBetMain}</td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Special</td>
                         <td>1:{odds?.special}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.special)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecial}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Head</td>
                         <td>1:{odds?.head}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.head)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetHead}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Tail</td>
                         <td>1:{odds?.tail}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.tail)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTail}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>27 Sets</td>
-                        <td>1:{odds?.Sets27}</td>
+                        <td>1:{odds && odds["27Sets"]}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets27)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets27}
                         </td>
                     </tr>
                     <tr>
@@ -463,7 +463,7 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                         <td>Big</td>
                         <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
                     </tr>
                     <tr>
@@ -473,7 +473,7 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                         <td>Odd</td>
                         <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
                     </tr>
                     <tr>
@@ -603,9 +603,9 @@ const renderViewStatistic = () => {
     );
 };
 
-const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -754,9 +754,9 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         </li>
                     </ul>
                 </li>
-                {renderGameRule(maxBet)}
+                {renderGameRule(maxBetFollowChoice?.maxBetMain)}
                 {renderBettingOptions(odds)}
-                {renderPayouts(odds, maxBetPerChoices, minBet, maxBet)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsEN()}
             </ul>

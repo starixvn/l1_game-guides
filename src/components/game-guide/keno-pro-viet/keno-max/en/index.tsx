@@ -1,12 +1,12 @@
 import React from "react";
-import { numberWithCommas } from "../../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsEN } from "../../../../shared";
-import { GameConfigProps } from "../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { FiveElements } from "../../../../shared/keno/en";
-import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../keno-pro-max/type";
+import { OddsProMaxProps } from "../../../keno-pro-max/type";
 
-const payouts = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
+const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -33,7 +33,7 @@ const payouts = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBe
                                     <td>Big</td>
                                     <td rowSpan={4}> 1: {odds?.big}</td>
                                     <td rowSpan={4}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
                                 </tr>
                                 <tr>
@@ -49,35 +49,35 @@ const payouts = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBe
                                     <td>Gold</td>
                                     <td>1: {odds?.gold}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.gold)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Wood</td>
                                     <td>1: {odds?.wood}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.wood)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Water</td>
                                     <td>1: {odds?.water}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fire</td>
                                     <td>1: {odds?.fire}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Earth</td>
                                     <td>1: {odds?.earth}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.earth)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                                     </td>
                                 </tr>
                             </tbody>
@@ -253,10 +253,9 @@ const bettingOptions = () => {
     );
 };
 
-const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, maxBet, minBet, maxBetPerChoices } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
+const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -275,11 +274,11 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         <li>
                             Once the betting time has expired, the system will randomly draw 20 numbered balls and the result will be shown.
                         </li>
-                        <li>The maximum total stake per round is {maxBetRound}</li>
+                        <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
-                <li className="guide-item">{payouts(odds, minBet, maxBetPerChoices)}</li>
+                <li className="guide-item">{payouts(odds, maxBetFollowChoice)}</li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

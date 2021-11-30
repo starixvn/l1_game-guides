@@ -1,12 +1,12 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable } from "../../../shared/se-die/vi";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 
-const renderGameRule = (maxBet: string) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -69,9 +69,9 @@ const renderGameRule = (maxBet: string) => {
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet } = gameConfigs;
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -85,7 +85,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         thua sẽ phụ thuộc vào số mặt đỏ hoặc trắng được lật của đồng xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(maxBet))}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
@@ -108,7 +108,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                                             <td>Chẵn</td>
                                             <td rowSpan={2}>1:{odds?.even}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {numberWithCommas(maxBet)}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>

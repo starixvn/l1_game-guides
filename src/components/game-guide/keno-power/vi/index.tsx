@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -107,7 +106,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Trả thưởng</h2>
@@ -133,7 +132,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                     <td>Đội Xanh</td>
                                     <td rowSpan={6}>1: {odds?.blue}</td>
                                     <td rowSpan={6}>
-                                        {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
                                 </tr>
                                 <tr>
@@ -161,7 +160,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                     <td>Tài</td>
                                     <td rowSpan={4}>1: {odds?.blue}</td>
                                     <td rowSpan={4}>
-                                        {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueRedChoice}
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueRedChoice}
                                     </td>
                                 </tr>
                                 <tr>
@@ -200,7 +199,7 @@ const md5Title = () => {
 
 const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
-    const { odds, minBet } = gameConfigs;
+    const { odds } = gameConfigs;
 
     return (
         <div>
@@ -214,7 +213,7 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
-                <li className="guide-item">{renderPayouts(odds, minBet, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
                 {KenoPowerMD5.includes(gameId ? gameId : KenoPowerMD5[0]) && (
                     <li id="md5" className="guide-item">
                         {renderMD5VI()}

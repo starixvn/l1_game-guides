@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -180,7 +179,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -211,7 +210,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                             <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds?.fhBlue}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetBlueChoice}
+                                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -222,7 +221,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                             <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds?.fhRed}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetRedChoice}
+                                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRedChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -233,7 +232,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                             <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds?.fhOver}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetOverChoice}
+                                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetOverChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -244,7 +243,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                             <td className="text-start">First Half</td>
                                             <td rowSpan={2}>1: {odds?.fhUnder}</td>
                                             <td rowSpan={2}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetUnderChoice}
+                                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetUnderChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -255,7 +254,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, maxBetFollow
                                             <td className="text-start">First Half</td>
                                             <td rowSpan={4}>1: {odds?.fhEven}</td>
                                             <td rowSpan={4}>
-                                                {numberWithCommas(minBet)} - {maxBetFollowChoice?.maxBetEvenChoice}
+                                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetEvenChoice}
                                             </td>
                                         </tr>
                                         <tr>
@@ -389,7 +388,7 @@ const md5Title = () => {
 
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
-    const { odds, minBet } = gameConfigs;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -408,7 +407,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
-                <li className="guide-item">{renderPayouts(odds, minBet, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
                 {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}

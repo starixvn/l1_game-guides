@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
+import {} from "../../../../helpers/number-helper";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -22,7 +22,7 @@ const renderGameRule = (maxBet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {numberWithCommas(maxBet)}. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm Đồng Ý.
+                    phiên là {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm Đồng Ý.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, vòng quay
@@ -654,7 +654,7 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -679,7 +679,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>1 số</td>
                                     <td>1:{odds?.straightUp}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightUp}
                                     </td>
                                 </tr>
                                 <tr>
@@ -687,7 +687,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>2 số</td>
                                     <td>1:{odds?.split}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.split)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSplit}
                                     </td>
                                 </tr>
                                 <tr>
@@ -695,7 +695,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td rowSpan={2}>3 số</td>
                                     <td rowSpan={2}>1:{odds?.street}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.street)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStreet}
                                     </td>
                                 </tr>
                                 <tr>
@@ -706,7 +706,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td rowSpan={2}>4 số</td>
                                     <td rowSpan={2}>1:{odds?.corner}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.corner)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetCorner}
                                     </td>
                                 </tr>
                                 <tr>
@@ -717,7 +717,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>6 số</td>
                                     <td>1:{odds?.line}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.line)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
                                     </td>
                                 </tr>
                                 <tr>
@@ -725,7 +725,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td rowSpan={2}>12 số</td>
                                     <td rowSpan={2}>1:{odds?.dozen}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.dozen)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDozen}
                                     </td>
                                 </tr>
                                 <tr>
@@ -736,7 +736,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td rowSpan={3}>18 số</td>
                                     <td rowSpan={3}>1:{odds?.redBlack}</td>
                                     <td rowSpan={3}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.redBlack)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRedBlack}
                                     </td>
                                 </tr>
                                 <tr>
@@ -754,9 +754,9 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
     );
 };
 
-const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -770,9 +770,9 @@ const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         lại.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 {renderBettingOptions()}
-                {renderPayouts(odds, minBet, maxBetPerChoices)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

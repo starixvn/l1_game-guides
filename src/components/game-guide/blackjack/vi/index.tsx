@@ -1,13 +1,12 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
 
-const renderGameRule = (maxBet: number, minBet: number) => {
+const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
     const optionsWidth = "options-width";
     return (
@@ -23,7 +22,7 @@ const renderGameRule = (maxBet: number, minBet: number) => {
                 </li>
                 <li>Bạn có thể chơi nhiều tay bài trong 1 phiên, bằng cách đặt chip vào nhiều ô khác nhau, mỗi ô ứng với 1 tay bài.</li>
                 <li>
-                    Số tiền cược cho mỗi tay bài phải nằm trong khoảng từ {numberWithCommas(minBet)} đến {numberWithCommas(maxBet)}.
+                    Số tiền cược cho mỗi tay bài phải nằm trong khoảng từ {minBet} đến {maxBet}.
                 </li>
                 <li>Khi bắt đầu ván chơi, tay bài của Người Chơi và Nhà Cái, mỗi bên sẽ được chia 2 lá bài. </li>
                 <li>Các lá bài tiếp theo sẽ được rút tùy vào điểm số của 2 lá bài đầu tiên.</li>
@@ -184,9 +183,9 @@ const renderPayouts = (odds: OddsProps | undefined) => {
     );
 };
 
-const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet } = gameConfigs;
+const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
@@ -200,7 +199,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         điểm nhưng không được vượt quá 21. Bên nào gần 21 điểm hơn thì bên đó giành chiến thắng.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBet, minBet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc tính điểm</h2>
                     <ul className="desc">

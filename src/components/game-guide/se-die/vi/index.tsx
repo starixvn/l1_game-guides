@@ -1,7 +1,7 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { SeDieMini } from "../index";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -19,7 +19,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxBetFollowChoice?.maxBetRound}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                    phiên là {maxBetFollowChoice?.maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được
@@ -111,12 +111,7 @@ const renderStatistical = () => {
     );
 };
 
-const renderPayoutTable = (
-    odds: OddsProps | undefined,
-    minBet: string,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    gameId: number
-) => {
+const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId: number) => {
     return (
         <>
             <div className="table-container">
@@ -133,7 +128,7 @@ const renderPayoutTable = (
                             <td>Chẵn</td>
                             <td rowSpan={2}>1:{odds?.even}</td>
                             <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetMain}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                             </td>
                         </tr>
                         <tr>
@@ -143,7 +138,7 @@ const renderPayoutTable = (
                             <td>4 đỏ</td>
                             <td rowSpan={2}>1:{odds?.red4}</td>
                             <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetRed4}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
                             </td>
                         </tr>
                         <tr>
@@ -153,7 +148,7 @@ const renderPayoutTable = (
                             <td> 3 đỏ, 1 trắng</td>
                             <td rowSpan={2}>1:{odds?.red3}</td>
                             <td rowSpan={2}>
-                                {minBet} - {maxBetFollowChoice?.maxBetRed3}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                             </td>
                         </tr>
                         <tr>
@@ -164,7 +159,7 @@ const renderPayoutTable = (
                                 <td> 2 đỏ, 2 trắng</td>
                                 <td>1:{odds?.red2}</td>
                                 <td rowSpan={2}>
-                                    {minBet} - {maxBetFollowChoice?.maxBetRed2}
+                                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                 </td>
                             </tr>
                         )}
@@ -176,9 +171,8 @@ const renderPayoutTable = (
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -209,7 +203,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
                             Tỷ lệ trả thưởng đã bao gồm tiền cược.
-                            {renderPayoutTable(odds, minBetStake, maxBetFollowChoice, props?.gameId ?? 0)}
+                            {renderPayoutTable(odds, maxBetFollowChoice, props?.gameId ?? 0)}
                         </li>
                     </ul>
                 </li>

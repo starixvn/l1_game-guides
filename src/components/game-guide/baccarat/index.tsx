@@ -11,12 +11,13 @@ import { GameConfigProps } from "./type";
 import { GameGuideBase } from "../type";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet } = gameConfigs;
-    const maxBetMainChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
+    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxBetPlayer = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
     const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
-    const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
 
-    return { maxBetMainChoice, maxBetSubChoice, maxBetRound };
+    return { maxBetPlayer, maxBetSubChoice, maxBetMain, minBetMain };
 };
 
 export const BaccaratVip = [27];

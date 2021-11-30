@@ -8,9 +8,8 @@ import { renderListIcon } from "../en";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { theme } = useTheme();
     return (
         <>
@@ -39,7 +38,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số
                             lần đặt cược. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                         </li>
-                        <li>Tổng tiền cược tối đa cho một phiên là {maxBetFollowChoice?.maxBetRound}</li>
+                        <li>Tổng tiền cược tối đa cho một phiên là {maxBetFollowChoice?.maxBetMain}</li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Xúc xắc sẽ được lắc khi bắt đầu
                             phiên, kết quả sẽ được hiển thị khi hết thời gian đặt cược.
@@ -68,7 +67,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả một lần.</td>
                                             <td>1: {odds?.single}</td>
                                             <td rowSpan={5}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetMain}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFish}
                                             </td>
                                         </tr>
                                         <tr>
@@ -100,7 +99,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
                                             <td>1: {odds?.anyTriple}</td>
                                             <td>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>
                                         </tr>
                                     </tbody>

@@ -1,12 +1,12 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../../shared";
-import { numberWithCommas } from "../../../../../helpers/number-helper";
-import { GameConfigProps } from "../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { GameGuideProps } from "../../../type";
-import { ChoicesMaxBetProMaxProps, OddsProMaxProps } from "../../../keno-pro-max/type";
+import { OddsProMaxProps } from "../../../keno-pro-max/type";
 import { FiveElements } from "../../../../shared/keno/vi";
 
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -18,7 +18,7 @@ const renderGameRule = (maxBet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là{" "}
-                    {numberWithCommas(maxBet)}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
+                    {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, hệ thống sẽ chọn
@@ -181,7 +181,7 @@ const bettingOptions = () => {
     );
 };
 
-export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProMaxProps) => {
+export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             Giới hạn cược và tỷ lệ trả thưởng:
@@ -199,7 +199,7 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, minBet: 
                             <td>Tài</td>
                             <td rowSpan={4}> 1: {odds?.big}</td>
                             <td rowSpan={4}>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                             </td>
                         </tr>
                         <tr>
@@ -215,35 +215,35 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, minBet: 
                             <td>Kim</td>
                             <td>1: {odds?.gold}</td>
                             <td>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.gold)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                             </td>
                         </tr>
                         <tr>
                             <td>Mộc</td>
                             <td>1: {odds?.wood}</td>
                             <td>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.wood)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                             </td>
                         </tr>
                         <tr>
                             <td>Thủy</td>
                             <td>1: {odds?.water}</td>
                             <td>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.water)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                             </td>
                         </tr>
                         <tr>
                             <td>Hỏa</td>
                             <td>1: {odds?.fire}</td>
                             <td>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.fire)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                             </td>
                         </tr>
                         <tr>
                             <td>Thổ</td>
                             <td>1: {odds?.earth}</td>
                             <td>
-                                {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.earth)}
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                             </td>
                         </tr>
                     </tbody>
@@ -253,19 +253,14 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, minBet: 
     );
 };
 
-export const renderContentKenoMaxOrMini = (
-    odds: OddsProMaxProps | undefined,
-    maxBet: number,
-    minBet: number,
-    choicesMaxBet: ChoicesMaxBetProMaxProps
-) => {
+export const renderContentKenoMaxOrMini = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <li className="guide-item">
                 <h2>Trả thưởng</h2>
                 <ul className="desc">
                     <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                    <li>{renderWinningOnTable(odds, minBet, choicesMaxBet)}</li>
+                    <li>{renderWinningOnTable(odds, maxBetFollowChoice)}</li>
                     <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                 </ul>
             </li>
@@ -274,9 +269,9 @@ export const renderContentKenoMaxOrMini = (
     );
 };
 
-const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, maxBet, minBet, maxBetPerChoices } = gameConfigs;
+const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -288,9 +283,9 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         20 quả bóng trong số 80 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 20 quả bóng này.
                     </p>
                 </li>
-                {renderGameRule(maxBet)}
+                {renderGameRule(maxBetFollowChoice?.maxBetMain)}
                 {bettingOptions()}
-                {renderContentKenoMaxOrMini(odds, maxBet, minBet, maxBetPerChoices)}
+                {renderContentKenoMaxOrMini(odds, maxBetFollowChoice)}
             </ul>
         </>
     );

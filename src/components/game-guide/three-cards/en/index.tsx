@@ -1,19 +1,17 @@
 import React from "react";
 import { useTheme } from "next-themes";
-
 import { useTranslation, TFunction } from "next-i18next";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
     const bet = 10;
-    const winRed = numberWithCommas(bet * (odds?.red ?? 0));
-    const winDiamonds = numberWithCommas(bet * (odds?.diamonds ?? 0));
+    const winRed = bet * (odds?.red ?? 0);
+    const winDiamonds = bet * (odds?.diamonds ?? 0);
     const imgRed = "img-red";
     return (
         <>
@@ -22,7 +20,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
                 <li>Players can bet on one or more betting options shown on the game table.</li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, cards will be turned up.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
+                <li>The maximum total stake per round is {maxBet}</li>
                 <li>
                     The standard deck with 52 cards (excluding Joker) is shuffled after every round.{" "}
                     <div className="table-container">
@@ -87,7 +85,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -110,7 +108,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>Red</td>
                                     <td rowSpan={2}>1:{odds?.red}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.red)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed}
                                     </td>
                                 </tr>
                                 <tr>
@@ -120,7 +118,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>Diamonds</td>
                                     <td rowSpan={4}>1:{odds?.diamonds}</td>
                                     <td rowSpan={4}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.diamonds)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDiamonds}
                                     </td>
                                 </tr>
                                 <tr>
@@ -204,9 +202,9 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
     );
 };
 
-const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
@@ -224,9 +222,9 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
+                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, minBet, maxBetPerChoices)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

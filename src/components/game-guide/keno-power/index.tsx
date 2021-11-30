@@ -12,12 +12,13 @@ import { GameGuideBase } from "../type";
 export const KenoPowerMD5 = [41];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet } = gameConfigs;
+    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetRound = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetBlueChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blue));
     const maxBetBlueRedChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blueBig));
 
-    return { maxBetRound, maxBetBlueChoice, maxBetBlueRedChoice };
+    return { maxBetRound, minBetRound, maxBetBlueChoice, maxBetBlueRedChoice };
 };
 
 const KenoPowerGuide = (props: GameGuideBase) => {

@@ -10,9 +10,10 @@ import KenoMaxGuideEN from "./en";
 import KenoMaxGuideVI from "./vi";
 import { GameGuideBase } from "../../type";
 import { locales } from "../../../../common/constants";
+import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel } = props;
     const getGameConfigs = () => {
         if (!dynamic) {
             switch (id) {
@@ -40,9 +41,11 @@ const KenoMaxGuide = (props: GameGuideBase) => {
 
         return gameConfigs;
     };
+    const maxBetFollowChoice = handleMaxBetChoiceKenoPro(userStakeLevel, getGameConfigs());
+
     if (locale === locales.en) {
-        return <KenoMaxGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+        return <KenoMaxGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
-    return <KenoMaxGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} />;
+    return <KenoMaxGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default KenoMaxGuide;

@@ -27,8 +27,9 @@ export interface GameConfigProps extends GameConfigsBaseProps {
 
 export interface MaxBetChoicesProps {
     maxBetMain?: number | string;
+    minBetMain?: number | string;
     maxBetRed4?: number | string;
     maxBetRed3?: number | string;
     maxBetRed2?: number | string;
-    maxBetRound?: number | string;
+    maxBetEven?: number | string;
 }

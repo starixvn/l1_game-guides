@@ -30,7 +30,12 @@ export interface GameConfigProps extends GameConfigsBaseProps {
 }
 
 export interface MaxBetChoicesProps {
-    maxBetMainChoice: string | number;
-    maxBetSubChoice: string | number;
-    maxBetRound: string | number;
+    maxBetMain: string;
+    minBetMain: string;
+    maxBetBig: string;
+    maxBetGold: string;
+    maxBetWood: string;
+    maxBetWater: string;
+    maxBetFire: string;
+    maxBetEarth: string;
 }

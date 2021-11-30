@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
+import {} from "../../../../helpers/number-helper";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps, maxBet: number) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -42,22 +42,22 @@ const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBe
                                     <td>Straight Up</td>
                                     <td>1:{odds?.straightUp}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.straightUp)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightUp}
                                     </td>
-                                    <td rowSpan={12}>{numberWithCommas(maxBet)}</td>
+                                    <td rowSpan={12}>{maxBetFollowChoice?.maxBetMain}</td>
                                 </tr>
                                 <tr>
                                     <td>Split</td>
                                     <td>1:{odds?.split}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.split)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSplit}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Street</td>
                                     <td rowSpan={2}>1:{odds?.street}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.street)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStreet}
                                     </td>
                                 </tr>
                                 <tr>
@@ -67,7 +67,7 @@ const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBe
                                     <td>Corner</td>
                                     <td rowSpan={2}>1:{odds?.corner}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.corner)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetCorner}
                                     </td>
                                 </tr>
                                 <tr>
@@ -77,14 +77,14 @@ const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBe
                                     <td>Line</td>
                                     <td>1:{odds?.line}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.line)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Column</td>
                                     <td rowSpan={2}>1:{odds?.dozen}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.dozen)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDozen}
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,7 +94,7 @@ const renderGameRule = (odds: OddsProps | undefined, minBet: number, choiceMaxBe
                                     <td>Red/Black</td>
                                     <td rowSpan={3}>1:{odds?.redBlack}</td>
                                     <td rowSpan={3}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.redBlack)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRedBlack}
                                     </td>
                                 </tr>
                                 <tr>
@@ -775,9 +775,9 @@ const renderCallBet = () => {
     );
 };
 
-const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -791,7 +791,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =
                         into the number you selected, you will win; otherwise, you lose.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, minBet, maxBetPerChoices, maxBet)}</li>
+                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice)}</li>
                 {renderBettingOptions()}
                 {renderCallBet()}
                 {renderTermsAndConditionsEN()}

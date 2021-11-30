@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { StatisticalTable } from "../../../shared/se-die/vi";
-import { GameConfigProps, ChoicesMaxBetProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 import { Themes } from "../../../../common/constants";
@@ -13,7 +13,7 @@ import { Themes } from "../../../../common/constants";
 const wrapperBankerPlayer = "wrapper-banker-player";
 const contentText = "content-text";
 
-const renderGameRule = (maxBet: string) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -182,7 +182,7 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
     );
 };
 
-const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, minBet: number) => {
+const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng </h2>
@@ -204,7 +204,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Con</td>
                                     <td rowSpan={2}>1:{odds?.player}</td>
                                     <td rowSpan={5}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.player)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                     </td>
                                 </tr>
                                 <tr>
@@ -225,7 +225,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Con chẵn</td>
                                     <td rowSpan={2}>1:{odds?.playerEven}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerEven)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerEven}
                                     </td>
                                 </tr>
                                 <tr>
@@ -235,7 +235,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Con 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.playerRed3}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed3)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerRed3}
                                     </td>
                                 </tr>
                                 <tr>
@@ -245,7 +245,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Con 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.playerRed4}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.playerRed4)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerRed4}
                                     </td>
                                 </tr>
                                 <tr>
@@ -255,7 +255,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Cái chẵn</td>
                                     <td rowSpan={2}>1:{odds?.bankerEven}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerEven)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerEven}
                                     </td>
                                 </tr>
                                 <tr>
@@ -265,7 +265,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Cái 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.bankerRed3}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed3)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerRed3}
                                     </td>
                                 </tr>
                                 <tr>
@@ -275,7 +275,7 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
                                     <td>Nhà Cái 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.bankerRed4}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.bankerRed4)}
+                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerRed4}
                                     </td>
                                 </tr>
                                 <tr>
@@ -290,9 +290,9 @@ const renderPayouts = (odds: object | any, choiceMaxBet: ChoicesMaxBetProps, min
     );
 };
 
-const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, userStakeLevel } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { theme } = useTheme();
     const pathImg = theme === Themes.light ? "dark/guide-stats-vi.png" : "guide-stats-vi.png?1";
     return (
@@ -307,9 +307,9 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         xu sau khi xóc.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)))}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, maxBetPerChoices, minBet)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 <li className="guide-item">
                     <h2>Bảng thống kê kết quả</h2>
                     <ul className="style-number-dot">

@@ -1,14 +1,14 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps, ChoicesMaxBetProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
 
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
 const textRedLight = "text-red-light";
-const renderHowToPLay = (maxBet: number) => {
+const renderHowToPLay = (maxBet: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -18,7 +18,7 @@ const renderHowToPLay = (maxBet: number) => {
                     Bạn có thể đặt cược vào nhiều lựa chọn và không bị giới hạn số lần đặt cược. <strong>Lưu ý</strong>, không thể hủy cược
                     sau khi đặt.
                 </li>
-                <li>Tổng tiền cược tối đa cho 1 phiên là {numberWithCommas(maxBet)}</li>
+                <li>Tổng tiền cược tối đa cho 1 phiên là {maxBet}</li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
                     hiển thị.
@@ -128,7 +128,7 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
-            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:{odds?.Sets4}</p>
+            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:{odds && odds["4Sets"]}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 20</li>
@@ -154,8 +154,8 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * {odds?.Sets4}) * 2 ={" "}
-                        {10 * (odds?.Sets4 ?? 0) * 2}
+                        Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * {odds ? odds["4Sets"] : 0}) * 2 ={" "}
+                        {10 * (odds ? odds["4Sets"] : 0 ?? 0) * 2}
                     </p>
                 </li>
             </ul>
@@ -279,7 +279,7 @@ const BettingOptions27Sets = (odds?: OddsProps) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) Cược Lô</div>
-            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:{odds?.Sets27}</p>
+            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:{odds && odds["27Sets"]}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 40</li>
@@ -406,11 +406,12 @@ const BettingOptions27Sets = (odds?: OddsProps) => {
                         </tbody>
                     </table>
                     <p>
-                        Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * {odds?.Sets27}) * 2 ={" "}
-                        {10 * (odds?.Sets27 ?? 0) * 2}
+                        Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * {odds ? odds["27Sets"] : 0}) * 2 ={" "}
+                        {10 * (odds ? odds["27Sets"] : 0) * 2}
                     </p>
                     <p>
-                        Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * {odds?.Sets27} = {10 * (odds?.Sets27 ?? 0)}
+                        Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * {odds ? odds["27Sets"] : 0} ={" "}
+                        {10 * (odds ? odds["27Sets"] : 0)}
                     </p>
                 </li>
             </ul>
@@ -418,7 +419,7 @@ const BettingOptions27Sets = (odds?: OddsProps) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetProps, minBet: number) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -438,37 +439,37 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                 <tbody>
                     <tr>
                         <td colSpan={2}>Đề Đầu</td>
-                        <td>1:{odds?.Sets4}</td>
+                        <td>1:{odds && odds["4Sets"]}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets4)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Đề Đặc Biệt</td>
                         <td>1:{odds?.special}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.special)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecial}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đầu</td>
                         <td>1:{odds?.head}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.head)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetHead}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đuôi</td>
                         <td>1:{odds?.tail}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.tail)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTail}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Lô</td>
-                        <td>1:{odds?.Sets27}</td>
+                        <td>1:{odds && odds["27Sets"]}</td>
                         <td>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.Sets27)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets27}
                         </td>
                     </tr>
                     <tr>
@@ -476,7 +477,7 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                         <td>Tài</td>
                         <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
                     </tr>
                     <tr>
@@ -486,7 +487,7 @@ const renderPayouts = (odds: OddsProps | undefined, choiceMaxBet: ChoicesMaxBetP
                         <td>Chẵn</td>
                         <td rowSpan={2}>1:{odds?.others}</td>
                         <td rowSpan={2}>
-                            {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.others)}
+                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
                     </tr>
                     <tr>
@@ -618,9 +619,9 @@ const renderViewStatistic = () => {
     );
 };
 
-const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -769,9 +770,9 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) =>
                         </li>
                     </ul>
                 </li>
-                {renderHowToPLay(maxBet)}
+                {renderHowToPLay(maxBetFollowChoice?.maxBetMain)}
                 {renderGameRule(odds)}
-                {renderPayouts(odds, maxBetPerChoices, minBet)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsVI()}
             </ul>

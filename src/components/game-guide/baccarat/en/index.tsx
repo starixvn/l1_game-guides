@@ -1,12 +1,12 @@
 import React from "react";
+
 import { BaccaratVip } from "..";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../baccarat.module.scss";
 
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRule = (maxBetMain: number | string) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -20,7 +20,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                     Small, Player Pair, or Banker Pair options.
                 </li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
-                <li>The maximum total stake per round is {maxBetRound}</li>
+                <li>The maximum total stake per round is {maxBetMain}</li>
                 <li>Once the betting time has expired, the dealer turns the cards face up.</li>
                 <li>Based on the total points of the first two cards, the dealer will determine whether either hand gets a third card.</li>
                 <li>
@@ -161,9 +161,8 @@ export const renderTBodyPointCalculationRules = () => {
 };
 
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, userStakeLevel } = props;
-    const { odds, minBet } = gameConfigs;
-    const minBetStake = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -178,7 +177,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         on one or more betting options shown on the game table.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Third Card Rules</h2>
@@ -304,7 +303,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Player</td>
                                             <td>1: {odds?.player}</td>
                                             <td rowSpan={4}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetMainChoice}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                             </td>
                                         </tr>
                                         <tr>
@@ -323,7 +322,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <td>Tie</td>
                                             <td>1: {odds?.tie}</td>
                                             <td rowSpan={3}>
-                                                {minBetStake} - {maxBetFollowChoice?.maxBetSubChoice}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>

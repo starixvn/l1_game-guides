@@ -1,7 +1,7 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 
 export const renderIconChoice = () => {
@@ -17,11 +17,9 @@ export const renderIconChoice = () => {
     );
 };
 
-const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
-    const maxChoiceRound = numberWithCommas(maxBetPerChoices.crab);
+const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -47,8 +45,9 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                     <ul className="desc">
                         <li>The dice will be shaken and the result will be shown. If the symbol you have bet on shows up, you win.</li>
                         <li>
-                            Min bet and Max bet must be between {numberWithCommas(minBet)} - {maxChoiceRound} and the maximum total stake
-                            per round is {maxBetRound}
+                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} -{" "}
+                            {maxBetFollowChoice?.maxBetMain} and the maximum total stake per round is{" "}
+                            {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             Payouts:

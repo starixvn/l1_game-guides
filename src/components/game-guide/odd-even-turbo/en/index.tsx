@@ -1,13 +1,12 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 
-const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
+const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -35,8 +34,8 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (prop
                             expires.
                         </li>
                         <li>
-                            Min bet and Max bet must be between {numberWithCommas(minBet)} - {numberWithCommas(maxBet)} and the maximum
-                            total stake per round is {maxBetRound}
+                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} and the
+                            maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             The dice will be shaken and the result will be shown. If the outcome of three dice matches your bet, you win.

@@ -3,17 +3,16 @@ import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderChoiceImage } from "../en";
-import { ChoicesMaxBetProps, GameConfigProps, OddsProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
     const bet = 10;
-    const winRed = numberWithCommas(bet * (odds?.red ?? 0));
-    const winDiamonds = numberWithCommas(bet * (odds?.diamonds ?? 0));
+    const winRed = bet * (odds?.red ?? 0);
+    const winDiamonds = bet * (odds?.diamonds ?? 0);
     return (
         <>
             <h2>Cách chơi</h2>
@@ -24,7 +23,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
                 </li>
                 <li>
                     Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho
-                    một phiên là <strong>{numberWithCommas(maxBet)}</strong>. Lưu ý, không thể hủy cược sau khi đặt.
+                    một phiên là <strong>{maxBet}</strong>. Lưu ý, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
@@ -90,7 +89,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet: ChoicesMaxBetProps) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -112,7 +111,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>Đỏ</td>
                                     <td rowSpan={2}>1:{odds?.red}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.red)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed}
                                     </td>
                                 </tr>
                                 <tr>
@@ -122,7 +121,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
                                     <td>Rô</td>
                                     <td rowSpan={4}>1:{odds?.diamonds}</td>
                                     <td rowSpan={4}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choiceMaxBet.diamonds)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDiamonds}
                                     </td>
                                 </tr>
                                 <tr>
@@ -143,9 +142,9 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choiceMaxBet
     );
 };
 
-const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
@@ -164,9 +163,9 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.vi, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBet)}</li>
+                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, minBet, maxBetPerChoices)}
+                {renderPayouts(odds, maxBetFollowChoice)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
