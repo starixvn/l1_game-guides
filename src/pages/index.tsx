@@ -4,28 +4,12 @@ import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import GameGuide from "../components/game-guide";
-import { GameConfigs } from "../components/game-guide/type";
 
 export interface UserStakeLevelProps {
     minBet?: number;
     maxBet?: number;
 }
 
-const CheckIsInteger = (number: string | number | object) => {
-    return Number.isInteger(+number) ? +number : 0;
-};
-
-const handleLocale = (queryParams: object | any, setLocale: Function) => {
-    if (language.includes(queryParams?.lang?.toString())) {
-        setLocale(languageMapper[queryParams.lang.toString()]);
-    }
-};
-
-const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Function) => {
-    if (queryParams?.minBet && queryParams?.maxBet) {
-        setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
-    }
-};
 export type GameConfigs = {
     maxBetPerChoices: any;
     enableFreeBet: boolean;
@@ -34,13 +18,15 @@ export type GameConfigs = {
     odds: any;
 };
 
-function bindEvent(element: any, eventName: any, eventHandler: any) {
-    if (element.addEventListener) {
-        element.addEventListener(eventName, eventHandler, false);
-    } else if (element.attachEvent) {
-        element.attachEvent("on" + eventName, eventHandler);
+const CheckIsInteger = (number: string | number | object) => {
+    return Number.isInteger(+number) ? +number : 0;
+};
+
+const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Function) => {
+    if (queryParams?.minBet && queryParams?.maxBet) {
+        setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
     }
-}
+};
 
 const Home = () => {
     const { setTheme } = useTheme();

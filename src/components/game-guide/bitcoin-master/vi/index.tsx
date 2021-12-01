@@ -165,8 +165,8 @@ const renderGameRule = (maxBetRound: string | undefined) => {
 
 const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName } = props;
-    const { odds, minbet, maxbet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxbet);
+    const { odds, minBet, maxBet } = gameConfigs;
+    const maxBetRound = numberWithCommas(maxBet);
     return (
         <>
             <ul className="game-guide">
@@ -203,7 +203,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                             <td>Tăng</td>
                                             <td rowSpan={2}>1: {odds.up}</td>
                                             <td rowSpan={4}>
-                                                {minbet} - {maxBetRound}
+                                                {minBet} - {maxBetRound}
                                             </td>
                                         </tr>
                                         <tr>

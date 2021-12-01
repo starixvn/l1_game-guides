@@ -4,14 +4,14 @@ import BitcoinMasterGuideEN from "./en";
 import BitcoinMasterGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
-import { locales, GameNameEN, GameNameVI } from "../../../common/constants";
+import { locales } from "../../../common/constants";
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { gameName, locale } = props;
+    const { locale, gameNameTranslate } = props;
     if (locale === locales.en) {
-        return <BitcoinMasterGuideEN gameConfigs={GameConfigs} gameName={GameNameEN[gameName.toLowerCase()]} />;
+        return <BitcoinMasterGuideEN gameConfigs={GameConfigs} gameName={gameNameTranslate} />;
     }
 
-    return <BitcoinMasterGuideVI gameConfigs={GameConfigs} gameName={GameNameVI[gameName.toLowerCase()]} />;
+    return <BitcoinMasterGuideVI gameConfigs={GameConfigs} gameName={gameNameTranslate} />;
 };
 export default BitcoinMasterGuide;
