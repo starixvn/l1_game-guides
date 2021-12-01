@@ -5,13 +5,26 @@ import BitcoinMasterGuideVI from "./vi";
 import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { numberWithCommas } from "../../../helpers/number-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { GameConfigProps } from "./type";
+
+export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
+    const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxBetUp = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.up));
+
+    return { maxBetMain, minBetMain, maxBetUp };
+};
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { locale, gameNameTranslate } = props;
+    const { locale, gameNameTranslate, userStakeLevel } = props;
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, GameConfigs);
     if (locale === locales.en) {
-        return <BitcoinMasterGuideEN gameConfigs={GameConfigs} gameName={gameNameTranslate} />;
+        return <BitcoinMasterGuideEN gameConfigs={GameConfigs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
 
-    return <BitcoinMasterGuideVI gameConfigs={GameConfigs} gameName={gameNameTranslate} />;
+    return <BitcoinMasterGuideVI gameConfigs={GameConfigs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default BitcoinMasterGuide;

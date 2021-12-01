@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../bitcoin-master.module.scss";
 
@@ -158,10 +157,9 @@ const renderGameRule = (maxBetRound: string | undefined) => {
     );
 };
 
-const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet } = gameConfigs;
-    const maxBetRound = numberWithCommas(maxBet);
+const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
@@ -172,7 +170,7 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         seconds. There are 4 options: Up, Down, Even, Odd.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetRound)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
@@ -199,7 +197,7 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                                             <td>Up</td>
                                             <td rowSpan={2}>1: {odds.up}</td>
                                             <td rowSpan={4}>
-                                                {minBet} - {maxBetRound}
+                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetUp}
                                             </td>
                                         </tr>
                                         <tr>

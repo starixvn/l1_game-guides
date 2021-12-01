@@ -13,7 +13,7 @@ const odds = {
 };
 
 const GameConfigs = {
-    choicesMaxbet: choicesMaxBet,
+    maxBetPerChoices: choicesMaxBet,
     enableFreeBet: false,
     maxBet: 2000,
     minBet: 1,
