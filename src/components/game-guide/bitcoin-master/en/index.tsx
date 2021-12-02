@@ -195,7 +195,7 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Up/Down</td>
                                             <td>Up</td>
-                                            <td rowSpan={2}>1: {odds.up}</td>
+                                            <td rowSpan={2}>1: {odds?.up}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetUp}
                                             </td>
@@ -206,7 +206,7 @@ const BitcoinMasterGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Even/Odd</td>
                                             <td>Even</td>
-                                            <td rowSpan={2}>1: {odds.odd}</td>
+                                            <td rowSpan={2}>1: {odds?.odd}</td>
                                         </tr>
                                         <tr>
                                             <td>Odd</td>

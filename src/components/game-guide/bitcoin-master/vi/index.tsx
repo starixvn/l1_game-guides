@@ -199,7 +199,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Tăng/Giảm</td>
                                             <td>Tăng</td>
-                                            <td rowSpan={2}>1: {odds.up}</td>
+                                            <td rowSpan={2}>1: {odds?.up}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetUp}
                                             </td>
@@ -210,7 +210,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Chẵn/Lẻ</td>
                                             <td>Chẵn</td>
-                                            <td rowSpan={2}>1: {odds.odd}</td>
+                                            <td rowSpan={2}>1: {odds?.odd}</td>
                                         </tr>
                                         <tr>
                                             <td>Lẻ</td>

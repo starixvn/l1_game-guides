@@ -19,12 +19,18 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { locale, gameNameTranslate, userStakeLevel } = props;
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, GameConfigs);
+    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic } = props;
+    const getGameConfigs = () => {
+        if (!dynamic) {
+            gameConfigs.odds = GameConfigs.odds;
+        }
+        return gameConfigs;
+    };
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
     if (locale === locales.en) {
-        return <BitcoinMasterGuideEN gameConfigs={GameConfigs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return <BitcoinMasterGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
 
-    return <BitcoinMasterGuideVI gameConfigs={GameConfigs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return <BitcoinMasterGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default BitcoinMasterGuide;
