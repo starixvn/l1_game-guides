@@ -5,6 +5,10 @@ import GameConfigsVIP from "../se-die-vip/game-configs";
 import GameConfigsMini from "../se-die-mini/game-configs";
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
+import SeDieGuideTH from "./th";
+import SeDieGuideID from "./id";
+import SeDieGuideZH_CN from "./zh_cn";
+import SeDieGuideZH_TW from "./zh_tw";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -29,46 +33,51 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 const SeDieGuide = (props: GameGuideBase) => {
     const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
     const getGameConfigs = () => {
-        if (dynamic) {
-            return gameConfigs;
-        } else {
-            switch (id) {
-                case 7:
-                    gameConfigs.odds = GameConfigsMini.odds;
-                    break;
-                case 22:
-                    gameConfigs.odds = GameConfigsVIP.odds;
-                    break;
+        // if (dynamic) {
+        //     return gameConfigs;
+        // } else {
+        //     switch (id) {
+        //         case 7:
+        //             gameConfigs.odds = GameConfigsMini.odds;
+        //             break;
+        //         case 22:
+        //             gameConfigs.odds = GameConfigsVIP.odds;
+        //             break;
 
-                default:
-                    gameConfigs.odds = GameConfigs.odds;
-                    break;
-            }
-            return gameConfigs;
+        //         default:
+        //             gameConfigs.odds = GameConfigs.odds;
+        //             break;
+        //     }
+        //     return gameConfigs;
+        // }
+        switch (id) {
+            case 7:
+                return GameConfigsMini;
+            case 22:
+                return GameConfigsVIP;
+
+            default:
+                return GameConfigs;
         }
     };
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+    const resource = { gameConfigs: getGameConfigs(), userStakeLevel, gameName: gameNameTranslate, gameId: id, maxBetFollowChoice };
 
-    if (locale === locales.en) {
-        return (
-            <SeDieGuideEN
-                gameConfigs={getGameConfigs()}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-                maxBetFollowChoice={maxBetFollowChoice}
-            />
-        );
+    switch (locale) {
+        case locales.vi:
+            return <SeDieGuideVI {...resource} />;
+        case locales.id:
+            return <SeDieGuideID {...resource} />;
+        case locales.th:
+            return <SeDieGuideTH {...resource} />;
+        case locales.zh_cn:
+            return <SeDieGuideZH_CN {...resource} />;
+        case locales.zh_tw:
+            return <SeDieGuideZH_TW {...resource} />;
+
+        default:
+            return <SeDieGuideEN {...resource} />;
     }
-    return (
-        <SeDieGuideVI
-            gameConfigs={getGameConfigs()}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-            maxBetFollowChoice={maxBetFollowChoice}
-        />
-    );
 };
 
 export default SeDieGuide;
