@@ -147,7 +147,7 @@ const ThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
-    const { t } = useTranslation(gameName.toLocaleLowerCase());
+    const { t } = useTranslation([gameName.toLocaleLowerCase(), "threecards"]);
     return (
         <>
             <ul className="game-guide">

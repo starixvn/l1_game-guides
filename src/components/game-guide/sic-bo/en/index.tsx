@@ -95,7 +95,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFoll
     return (
         <>
             <tr>
-                <td rowSpan={14}>{t("totalPoints")}</td>
+                <td rowSpan={14}>{t("sicbo:totalPoints")}</td>
                 <td>4</td>
                 <td rowSpan={2}>1:{odds?.total4}</td>
                 <td rowSpan={8}>
@@ -156,7 +156,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFoll
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds } = gameConfigs;
-    const { t } = useTranslation(gameName.toLocaleLowerCase());
+    const { t } = useTranslation([gameName.toLocaleLowerCase(), "sicbo"]);
 
     return (
         <>

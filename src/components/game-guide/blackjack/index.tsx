@@ -30,7 +30,7 @@ export const CardPointValuesTable = (t: TFunction) => {
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <th>{t("card")}</th>
+                        <th>{t("blackjack:card")}</th>
                         <th> A</th>
                         <th> 2</th>
                         <th> 3</th>
@@ -49,9 +49,9 @@ export const CardPointValuesTable = (t: TFunction) => {
                 <tbody>
                     <tr>
                         <td>
-                            <span className="font-weight-medium">{t("point")}</span>
+                            <span className="font-weight-medium">{t("blackjack:point")}</span>
                         </td>
-                        <td>1 {t("or")} 11</td>
+                        <td>1 {t("blackjack:or")} 11</td>
                         <td>2</td>
                         <td>3</td>
                         <td>4</td>
