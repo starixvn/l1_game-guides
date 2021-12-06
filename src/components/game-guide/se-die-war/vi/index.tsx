@@ -204,7 +204,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Con</td>
                                     <td rowSpan={2}>1:{odds?.player}</td>
                                     <td rowSpan={5}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayer}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                     </td>
                                 </tr>
                                 <tr>
@@ -225,7 +225,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Con chẵn</td>
                                     <td rowSpan={2}>1:{odds?.playerEven}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerEven}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerEven}
                                     </td>
                                 </tr>
                                 <tr>
@@ -235,7 +235,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Con 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.playerRed3}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerRed3}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerRed3}
                                     </td>
                                 </tr>
                                 <tr>
@@ -245,7 +245,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Con 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.playerRed4}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetPlayerRed4}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerRed4}
                                     </td>
                                 </tr>
                                 <tr>
@@ -255,7 +255,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Cái chẵn</td>
                                     <td rowSpan={2}>1:{odds?.bankerEven}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerEven}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerEven}
                                     </td>
                                 </tr>
                                 <tr>
@@ -265,7 +265,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Cái 3 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.bankerRed3}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerRed3}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerRed3}
                                     </td>
                                 </tr>
                                 <tr>
@@ -275,7 +275,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProp
                                     <td>Nhà Cái 4 đỏ</td>
                                     <td rowSpan={2}>1:{odds?.bankerRed4}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.maxBetMain} - {maxBetFollowChoice?.maxBetBankerRed4}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerRed4}
                                     </td>
                                 </tr>
                                 <tr>

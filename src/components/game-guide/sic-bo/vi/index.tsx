@@ -2,13 +2,12 @@ import React from "react";
 import { useTranslation, TFunction } from "next-i18next";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps, ChoicesMaxBetProps, MaxBetChoicesProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsTableOnBody } from "../en";
 import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -17,7 +16,7 @@ const renderGameRule = (maxBet: number) => {
                     Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
                     cược. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
-                <li>Tổng tiền cược tối đa cho một phiên là {numberWithCommas(maxBet)}</li>
+                <li>Tổng tiền cược tối đa cho một phiên là {maxBet}</li>
                 <li>
                     Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Xúc xắc sẽ được lắc khi bắt đầu phiên, kết
                     quả sẽ được hiển thị khi hết thời gian đặt cược.
@@ -31,7 +30,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -55,7 +54,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td>Tài</td>
                                     <td rowSpan={2}>1:{odds?.big}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
+                                        {maxBetFollowChoice?.minBetMain} -{maxBetFollowChoice?.maxBetBig}
                                     </td>
                                 </tr>
                                 <tr>
@@ -66,7 +65,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td>Bộ Ba Bất Kỳ</td>
                                     <td>1:{odds?.anyTriple}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.anyTriple)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                     </td>
                                 </tr>
                                 <tr>
@@ -74,7 +73,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td rowSpan={3}>Xúc xắc 1 đến 6</td>
                                     <td>Xuất hiện một lần 1:{odds?.single}</td>
                                     <td rowSpan={3}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.specific1)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                     </td>
                                 </tr>
                                 <tr>
@@ -83,7 +82,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                 <tr>
                                     <td>Xuất hiện ba lần 1:{odds?.triple}</td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
+                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t)}
                             </tbody>
                         </table>
                     </div>
@@ -95,7 +94,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const { odds } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
         <>
@@ -107,7 +106,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         dụng ba viên xúc xắc (xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 <li className="guide-item">
                     <h2>Điều kiện thắng</h2>
                     <ul className="desc">
@@ -164,7 +163,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minBet, maxBetPerChoices, t)}
+                {renderPayouts(odds, maxBetFollowChoice, t)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

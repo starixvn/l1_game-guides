@@ -2,12 +2,11 @@ import React from "react";
 import { useTranslation, TFunction } from "next-i18next";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { numberWithCommas } from "../../../../helpers/number-helper";
-import { GameConfigProps, OddsProps, ChoicesMaxBetProps, MaxBetChoicesProps } from "../type";
+import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../sic-bo.module.scss";
 
-const renderGameRule = (maxBet: number) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -15,7 +14,7 @@ const renderGameRule = (maxBet: number) => {
                 <li>Select the chip value you wish to play. Players can bet on one or more betting options shown on the game table.</li>
                 <li> All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
-                <li>The maximum total stake per round is {numberWithCommas(maxBet)}</li>
+                <li>The maximum total stake per round is {maxBet}</li>
                 <li>
                     The total stake amount of all players shown on each bet option is only for reference. For different markets and
                     currencies, the totals are converted based on the internal rates set by the company.
@@ -25,7 +24,7 @@ const renderGameRule = (maxBet: number) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -54,7 +53,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td>Big</td>
                                     <td rowSpan={2}>1:{odds?.big}</td>
                                     <td rowSpan={2}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.big)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
                                 </tr>
                                 <tr>
@@ -65,7 +64,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td>Any Triple</td>
                                     <td>1:{odds?.anyTriple}</td>
                                     <td>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.anyTriple)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,7 +72,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                     <td rowSpan={3}>Bet on any number from 1 to 6</td>
                                     <td className="text-start">1:{odds?.single} if the chosen number appears once.</td>
                                     <td rowSpan={3}>
-                                        {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.specific1)}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                     </td>
                                 </tr>
                                 <tr>
@@ -82,7 +81,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
                                 <tr>
                                     <td className="text-start">1:{odds?.triple} if the chosen number appears on all three dice.</td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, minBet, choicesMaxBet, t)}
+                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t)}
                             </tbody>
                         </table>
                     </div>
@@ -92,7 +91,7 @@ const renderPayouts = (odds: OddsProps | undefined, minBet: number, choicesMaxBe
     );
 };
 
-export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: number, choicesMaxBet: ChoicesMaxBetProps, t: TFunction) => {
+export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
     return (
         <>
             <tr>
@@ -100,7 +99,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: nu
                 <td>4</td>
                 <td rowSpan={2}>1:{odds?.total4}</td>
                 <td rowSpan={8}>
-                    {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total4)}
+                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal4}
                 </td>
             </tr>
             <tr>
@@ -131,7 +130,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: nu
                 <td>8</td>
                 <td rowSpan={2}>1:{odds?.total8}</td>
                 <td rowSpan={6}>
-                    {numberWithCommas(minBet)} - {numberWithCommas(choicesMaxBet.total8)}
+                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal8}
                 </td>
             </tr>
             <tr>
@@ -155,8 +154,8 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, minBet: nu
 };
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
 
     return (
@@ -170,7 +169,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         the total value of the dice.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBet)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 <li className="guide-item">
                     <h2>Betting Options</h2>
                     <ul className="desc">
@@ -231,7 +230,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, minBet, maxBetPerChoices, t)}
+                {renderPayouts(odds, maxBetFollowChoice, t)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
