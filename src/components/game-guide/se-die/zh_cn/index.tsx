@@ -1,29 +1,27 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsCN } from "../../../shared";
 import { SeDieMini } from "../index";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
+import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/cn";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>游戏规则</h2>
             <ul className="desc">
                 <li>
-                    Buttons are placed on the plate and covered with a bowl. The dealer will pick up the plate and shake it when the plate
-                    is still covered with the bowl. The players place their bets and the betting options are:
+                    纽扣放在盘子上并盖上碗。当盘子仍然被碗盖住时，庄家将拿起盘子并摇晃它。玩家下注，下注选项是：
                 </li>
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
-                <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
+                <li>下注时间结束后，庄家将碗从盘子上移开，结果将显示。</li>
                 <li>
-                    Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
-                    expires. Note, placed bets cannot be canceled.
+                    玩家可以在游戏桌上显示的一个或多个投注选项上下注。所有投注必须在投注时间结束前进行。请注意，下注不能取消。
                 </li>
-                <li>The maximum total stake per round is {maxBetMain}</li>
+                <li>每轮最大总赌注为 {maxBetMain}</li>
             </ul>
         </>
     );
@@ -35,39 +33,39 @@ const renderGameRuleTable = (gameId: number) => {
             <table className="table text-center table-small">
                 <thead>
                     <tr>
-                        <th>Options</th>
-                        <th>Winning Conditions</th>
-                        <th>Descriptions</th>
+                        <th>选项</th>
+                        <th>获胜条件</th>
+                        <th>说明</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2}>ODD</td>
-                        <td>3 red, 1 white</td>
+                        <td rowSpan={2}>单</td>
+                        <td>3 红，1 白</td>
                         {renderThreeRedOneWhite()}
                     </tr>
                     <tr>
-                        <td>1 red, 3 white</td>
+                        <td>1 红，3 白</td>
                         {renderOneRedThreeWhite()}
                     </tr>
                     <tr>
-                        <td rowSpan={3}>EVEN</td>
-                        <td>4 red</td>
+                        <td rowSpan={3}>双</td>
+                        <td>4 红</td>
                         {renderFourRed()}
                     </tr>
                     <tr>
-                        <td>4 white</td>
+                        <td>4 白</td>
                         {renderFourWhite()}
                     </tr>
                     <tr>
-                        <td>2 red, 2 white</td>
+                        <td>2 红，2 白</td>
                         {renderTwoRedTwoWhite()}
                     </tr>
                     {RedWhiteDataOnTable()}
                     {!SeDieMini.includes(gameId) && (
                         <tr>
-                            <td>2 red, 2 white</td>
-                            <td>2 red, 2 white</td>
+                            <td>2 红，2 白</td>
+                            <td>2 红，2 白</td>
                             {renderTwoRedTwoWhite()}
                         </tr>
                     )}
@@ -80,7 +78,7 @@ const renderGameRuleTable = (gameId: number) => {
 const renderStatistical = () => {
     return (
         <li className="guide-item">
-            <h2>Statistical Table</h2>
+            <h2>统计表</h2>
             <ul className="desc">
                 <li className="contentBeforeEmpty"> {StatisticalTable()}</li>
             </ul>
@@ -94,57 +92,56 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return " is a compact version of Se Die game with fewer betting options. ";
+                return "是色碟游戏的精简版，投注选项较少。 ";
             case 22:
-                return "is another version of the Se Die game with higher betting limits. ";
+                return "是色碟游戏的另一个版本，具有更高的投注限制。";
             default:
-                return "is a popular game in Asian countries. ";
+                return "是亚洲国家的流行游戏。";
         }
     };
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>简介</h2>
                     <p className="content">
                         {gameName} {gameDescription()}
-                        The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this
-                        game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
+                        游戏有 4 个彩色按钮，每个按钮有红白两色。这个游戏的目标是预测 4 个按钮的结果。如果结果与玩家的赌注相符，则玩家获胜。
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
-                    <h2>Payouts</h2>
+                    <h2>支付</h2>
                     <ul className="desc">
                         <li>
-                            The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.
+                            中奖金额根据派彩率计算。 支付包括初始本金。
                         </li>
                         <li>
-                            All winning amounts are instantly added to your account balance when bets are settled.
+                            投注结算后，所有中奖金额都会立即添加到您的账户余额中。
                             <div className="table-container">
                                 <table className="table text-center table-small">
                                     <thead>
                                         <tr>
-                                            <th>Options</th>
-                                            <th>Payouts</th>
+                                            <th>选项</th>
+                                            <th>支出</th>
                                             <th>
-                                                Bet Limit <br /> (Min - Max)
+                                                投注限额 <br />（最小 - 最大）
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>ODD</td>
+                                            <td>单</td>
                                             <td rowSpan={2}>1:{odds?.even}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>EVEN</td>
+                                            <td>双</td>
                                         </tr>
                                         <tr>
-                                            <td>4 red</td>
+                                            <td>4 红</td>
                                             <td rowSpan={2}>1:{odds?.red4}</td>
 
                                             <td rowSpan={2}>
@@ -152,21 +149,21 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>4 white</td>
+                                            <td>4 白</td>
                                         </tr>
                                         <tr>
-                                            <td>3 red, 1 white</td>
+                                            <td>3 红，1 白</td>
                                             <td rowSpan={2}>1:{odds?.red3}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>1 red, 3 white</td>
+                                            <td>1 红，3 白</td>
                                         </tr>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
-                                                <td>2 red, 2 white</td>
+                                                <td>2 红，2 白</td>
                                                 <td>1:{odds?.red2}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
@@ -180,7 +177,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsCN()}
             </ul>
         </>
     );

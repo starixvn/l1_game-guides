@@ -77,3 +77,60 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
         </li>
     );
 };
+
+export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
+    return (
+        <li className={`guide-item ${style}`}>
+            <h2>条款和条件</h2>
+            <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
+                        extended period of time or is canceled.
+                    </li>
+                )}
+                <li className="number-dot">
+                    本公司保留因不可抗力事件（包括但不限于任何技术错误、网络服务故障、电源故障）而取消或取消任何投注的权利。
+                </li>
+                <li className="number-dot">
+                    本公司保留取消或取消我们认为涉及欺诈、洗钱或任何其他形式的非法或可疑活动的玩家的任何投注的权利。
+                </li>
+                <li className="number-dot">
+                    当出现错误（由人为或任何其他因素引起）或系统故障导致支付率不正确时，本公司保留取消或取消任何投注的权利。
+                </li>
+                <li className="number-dot">
+                    即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。
+                </li>
+            </ul>
+        </li>
+    );
+};
+
+
+export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
+    return (
+        <li className={`guide-item ${style}`}>
+            <h2>條款和條件</h2>
+            <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
+                        extended period of time or is canceled.
+                    </li>
+                )}
+                <li className="number-dot">
+                    本公司保留因不可抗力事件（包括但不限於任何技術錯誤、網絡服務故障、電源故障）而取消或取消任何投注的權利。
+                </li>
+                <li className="number-dot">
+                    本公司保留取消或取消我們認為涉及欺詐、洗錢或任何其他形式的非法或可疑活動的玩家的任何投注的權利。
+                </li>
+                <li className="number-dot">
+                    當出現錯誤（由人為或任何其他因素引起）或系統故障導致支付率不正確時，本公司保留取消或取消任何投注的權利。
+                </li>
+                <li className="number-dot">
+                    即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。
+                </li>
+            </ul>
+        </li>
+    );
+};
