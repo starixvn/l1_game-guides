@@ -127,10 +127,6 @@ html {
     background-color: transparent;
     scroll-behavior: smooth;
 
-    --font-family: "Roboto", arial, sans-serif;
-    --font-money: "BebasNeue", Arial, sans-serif;
-    --font-number: "BinanceFlex", Arial, sans-serif;
-
     // z-index
     --header-index: 1071;
     --popup-guide-history-index: 100;
@@ -147,7 +143,6 @@ body {
     padding: 0;
     margin: 0;
     background-color: transparent;
-    font-family: var(--font-family);
     font-size: 1.4rem;
     color: var(--text-color);
     font-weight: 400;

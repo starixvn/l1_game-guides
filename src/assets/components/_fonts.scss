@@ -11,9 +11,57 @@
 }
 
 @font-face {
-    font-family: "CardFont";
-    src: url("/static/fonts/CardFont.woff2") format("woff2"), url("/static/fonts/CardFont.woff") format("woff"),
-        url("/static/fonts/CardFont.ttf") format("truetype");
+    font-family: "Noto";
+    src: url("/static/fonts/noto/NotoSerif-Regular.ttf") format("truetype");
     font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto";
+    src: url("/static/fonts/noto/NotoSerif-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-Thai";
+    src: url("/static/fonts/noto/NotoSerifThai-Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-Thai";
+    src: url("/static/fonts/noto/NotoSerifThai-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-ZH-CN";
+    src: url("/static/fonts/noto/NotoSerifZHCN-Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-ZH-CN";
+    src: url("/static/fonts/noto/NotoSerifZHCN-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-ZH-TW";
+    src: url("/static/fonts/noto/NotoSerifZHTW-Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto-ZH-TW";
+    src: url("/static/fonts/noto/NotoSerifZHTW-Bold.ttf") format("truetype");
+    font-weight: 700;
     font-display: swap;
 }

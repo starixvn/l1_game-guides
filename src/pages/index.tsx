@@ -28,6 +28,26 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
     }
 };
 
+const changeFontFamilyFollowLanguage = (locale: string) => {
+    let fontFamily = "";
+    switch (locale) {
+        case "th":
+            fontFamily = "Noto-Thai";
+            break;
+        case "zh_cn":
+            fontFamily = "Noto-ZH-CN";
+            break;
+        case "zh_tw":
+            fontFamily = "Noto-ZH-TW";
+            break;
+        default:
+            fontFamily = "Noto";
+            break;
+    }
+
+    document.documentElement.style.fontFamily = fontFamily;
+    document.body.style.fontFamily = fontFamily;
+};
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
@@ -56,6 +76,7 @@ const Home = () => {
         if (router.isReady) {
             const queryParams: object | any = router.query;
 
+            changeFontFamilyFollowLanguage(router?.locale ?? "en");
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
             setName(queryParams?.name);
