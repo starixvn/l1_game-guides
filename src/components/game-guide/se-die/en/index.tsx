@@ -117,7 +117,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <h2>Payouts</h2>
                     <ul className="desc">
                         <li>
-                            The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.
+                            The winning amount is calculated according to the payout ratio. The Payout includes the initial stake.
                         </li>
                         <li>
                             All winning amounts are instantly added to your account balance when bets are settled.

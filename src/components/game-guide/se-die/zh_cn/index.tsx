@@ -92,11 +92,11 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return "是色碟游戏的精简版，投注选项较少。 ";
+                return "Mini 色碟是色碟游戏的精简版，投注选项较少。";
             case 22:
-                return "是色碟游戏的另一个版本，具有更高的投注限制。";
+                return "VIP 色碟是色碟游戏的另一个版本，具有更高的投注限制。";
             default:
-                return "是亚洲国家的流行游戏。";
+                return "色碟是亚洲国家的流行游戏。";
         }
     };
     return (
@@ -105,7 +105,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameDescription()}
                         游戏有 4 个彩色按钮，每个按钮有红白两色。这个游戏的目标是预测 4 个按钮的结果。如果结果与玩家的赌注相符，则玩家获胜。
                     </p>
                 </li>

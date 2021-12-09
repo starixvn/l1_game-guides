@@ -92,11 +92,11 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return "是色碟遊戲的精簡版，投注選項較少。";
+                return "Mini 色碟是色碟遊戲的精簡版，投注選項較少。";
             case 22:
-                return "是色碟遊戲的另一個版本，具有更高的投注限制。";
+                return "VIP 色碟是色碟遊戲的另一個版本，具有更高的投注限制。";
             default:
-                return "是亞洲國家的流行遊戲。";
+                return "色碟是亞洲國家的流行遊戲。";
         }
     };
     return (
