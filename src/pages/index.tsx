@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import GameGuide from "../components/game-guide";
+import { environment } from "../common/constants";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -28,21 +29,23 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
     }
 };
 
-const changeFontFamilyFollowLanguage = (locale: string) => {
-    let fontFamily = "";
-    switch (locale) {
-        case "th":
-            fontFamily = "Noto-Thai";
-            break;
-        case "zh_cn":
-            fontFamily = "Noto-ZH-CN";
-            break;
-        case "zh_tw":
-            fontFamily = "Noto-ZH-TW";
-            break;
-        default:
-            fontFamily = "Noto";
-            break;
+const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
+    let fontFamily = "Roboto";
+    if (env === environment.c) {
+        switch (locale) {
+            case "th":
+                fontFamily = "Noto-Thai";
+                break;
+            case "zh_cn":
+                fontFamily = "Noto-ZH-CN";
+                break;
+            case "zh_tw":
+                fontFamily = "Noto-ZH-TW";
+                break;
+            default:
+                fontFamily = "Noto";
+                break;
+        }
     }
 
     document.documentElement.style.fontFamily = fontFamily;
@@ -76,7 +79,7 @@ const Home = () => {
         if (router.isReady) {
             const queryParams: object | any = router.query;
 
-            changeFontFamilyFollowLanguage(router?.locale ?? "en");
+            changeFontFamilyFollowLanguage(router?.locale ?? "en", queryParams?.f ? environment.c : environment.s);
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
             setName(queryParams?.name);

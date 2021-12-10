@@ -10,3 +10,5 @@ export const Themes = {
     ahcl: "ahcl",
     fourGuardians: "four-guardians",
 };
+
+export const environment = { s: "sm", c: "sc" };
