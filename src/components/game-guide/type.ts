@@ -17,6 +17,7 @@ export type GameGuideBase = {
     gameConfigs: GameConfigs;
     gameNameTranslate: string;
     dynamic: boolean;
+    isGetGameConfigs?: boolean;
 };
 
 export interface GameConfigsBaseProps {

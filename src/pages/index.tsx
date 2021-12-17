@@ -38,6 +38,7 @@ const Home = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
     const [dynamic, setDynamic] = useState<boolean>(true);
+    const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
 
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
@@ -63,6 +64,7 @@ const Home = () => {
             if (queryParams?.dy) {
                 +queryParams?.dy === 0 && setDynamic(false);
             }
+            queryParams?.c && +queryParams?.c === 0 && setIsGetGameConfigs(false);
         }
 
         bindEvent(window, "message", function (event: any) {
@@ -76,7 +78,7 @@ const Home = () => {
 
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {gameConfigs && (
+            {!isGetGameConfigs ? (
                 <GameGuide
                     gameId={gameId}
                     locale={router?.locale ?? "en"}
@@ -85,6 +87,17 @@ const Home = () => {
                     gameConfigs={gameConfigs}
                     dynamic={dynamic}
                 ></GameGuide>
+            ) : (
+                gameConfigs && (
+                    <GameGuide
+                        gameId={gameId}
+                        locale={router?.locale ?? "en"}
+                        userStakeLevel={userStakeLevel}
+                        name={name}
+                        gameConfigs={gameConfigs}
+                        dynamic={dynamic}
+                    ></GameGuide>
+                )
             )}
         </div>
     );

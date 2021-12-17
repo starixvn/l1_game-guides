@@ -34,11 +34,12 @@ type Props = {
     name: string;
     gameConfigs: any;
     dynamic: boolean;
+    isGetGameConfigs?: boolean;
 };
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic } = props;
+    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs } = props;
     const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
     const gameGuideProps = {
@@ -46,16 +47,19 @@ export const GameGuide: React.FC<Props> = (props) => {
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
         gameConfigs: gameConfigs,
-        gameNameTranslate: t(gameSettings[gameId].gameName.toLocaleLowerCase()),
+        gameNameTranslate: gameId ? t(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
         dynamic,
+        isGetGameConfigs,
     };
     const otherGuides = () => {
+        console.log("otherGuides");
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         } else {
             return <></>;
         }
     };
+    console.log(gameId, "gameId");
     const renderGuide = () => {
         switch (gameId) {
             case 1:
