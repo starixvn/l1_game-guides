@@ -1,6 +1,7 @@
 import React from "react";
 
-export const renderMD5VI = () => {
+const games = { casinoHoldem: 39 };
+export const renderMD5VI = (gameId?: number) => {
     return (
         <>
             <h2> MD5 (Message-Digest algorithm 5) </h2>
@@ -42,10 +43,31 @@ export const renderMD5VI = () => {
                     </ul>
                 </li>
             </ul>
-            <p>
-                Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước
-                khi đặt cược.
-            </p>
+            {gameId !== games.casinoHoldem && (
+                <div>
+                    Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước
+                    khi đặt cược.
+                </div>
+            )}
+            {gameId === games.casinoHoldem && (
+                <>
+                    <div className="content">
+                        Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi các lá bài được mở.
+                    </div>
+                    <div className="content"><strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả</div>
+                    <ul className="desc">
+                        <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút “Chia Bài”.</li>
+                        <li><strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Key sau khi bấm nút “Theo Bài”
+                            <div>Trong đó A, B là hai lá của Người Chơi và E, X là hai lá của Nhà Cái. Năm lá bài chung Z, T, R, W, L</div>
+                        </li>
+                        <li><strong>Bước 3:</strong> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                            https://md5.services/
+                        </a> và dán chuỗi Key vừa copy vào ô MD5.</li>
+                        <li><strong>Bước 4:</strong> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.</li>
+                    </ul>
+                    <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
+                </>
+            )}
         </>
     );
 };

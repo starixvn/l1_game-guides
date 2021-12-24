@@ -1,6 +1,6 @@
 import React from "react";
 
-const games = { bitcoinMaster: 43 };
+const games = { bitcoinMaster: 43, casinoHoldem: 39 };
 
 export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
@@ -11,6 +11,12 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                     <li className="number-dot">
                         The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
                         extended period of time or is canceled.
+                    </li>
+                )}
+                {gameId === games.casinoHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the "Deal" button.
+                        The unfinished game will be automatically settled after 24 hours. The player’s hand is considered as “FOLD”.
                     </li>
                 )}
                 <li className="number-dot">
@@ -43,6 +49,12 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                     <li className="number-dot">
                         Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp giá trị Bitcoin không thể có trong
                         thời gian dài.
+                    </li>
+                )}
+                {gameId === games.casinoHoldem && (
+                    <li className="number-dot">
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm nút “Chia Bài”.
+                        Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, đồng nghĩa với người chơi đã chấp nhận “Bỏ Bài”.
                     </li>
                 )}
                 <li className="number-dot">
