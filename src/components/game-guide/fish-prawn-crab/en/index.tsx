@@ -45,9 +45,8 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <ul className="desc">
                         <li>The dice will be shaken and the result will be shown. If the symbol you have bet on shows up, you win.</li>
                         <li>
-                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} -{" "}
-                            {maxBetFollowChoice?.maxBetMain} and the maximum total stake per round is{" "}
-                            {maxBetFollowChoice?.maxBetMain}
+                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice} and
+                            the maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             Payouts:

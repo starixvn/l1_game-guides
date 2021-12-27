@@ -35,9 +35,8 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
                         </li>
                         <li>
-                            Số tiền cược phải nằm trong khoảng từ {maxBetFollowChoice?.minBetMain} đến{" "}
-                            {maxBetFollowChoice?.maxBetMain} cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là{" "}
-                            {maxBetFollowChoice?.maxBetMain}
+                            Số tiền cược phải nằm trong khoảng từ {maxBetFollowChoice?.minBetMain} đến {maxBetFollowChoice?.maxBetChoice}{" "}
+                            cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc
