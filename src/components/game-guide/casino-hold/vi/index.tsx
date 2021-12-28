@@ -317,6 +317,7 @@ const renderGameRule = () => {
                                 </table>
                             </div>
                             <div>=&gt; Người Chơi thắng</div>
+                            <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -362,6 +363,7 @@ const renderGameRule = () => {
                                 </table>
                             </div>
                             <div>=&gt; Nhà Cái thắng</div>
+                            <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
