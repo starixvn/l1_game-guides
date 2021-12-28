@@ -318,7 +318,6 @@ const renderGameRule = () => {
                             </div>
                             <div>=&gt; Người Chơi thắng</div>
                             <br />
-                            <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -364,7 +363,6 @@ const renderGameRule = () => {
                                 </table>
                             </div>
                             <div>=&gt; Nhà Cái thắng</div>
-                            <br />
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
@@ -415,7 +413,6 @@ const renderGameRule = () => {
                                 </table>
                             </div>
                             <div>=&gt; Kết quả &quot;Hòa&quot;</div>
-                            <br />
                             <br />
                         </li>
                     </ul>
