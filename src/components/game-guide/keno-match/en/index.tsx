@@ -316,7 +316,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutBlue} - {odds?.liveFTBlue}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td> {maxBetFollowChoice?.minBetRound}</td>
                                                         <td rowSpan={4} className="text-start">
                                                             The maximum bet limit will change according to the payout ratio.
                                                         </td>
@@ -327,7 +327,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutRed} - {odds?.liveFTRed}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Over</td>
@@ -335,7 +335,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutOver} - {odds?.liveFTOver}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Under</td>
@@ -343,7 +343,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutUnder} - {odds?.liveFTUnder}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Even</td>
@@ -351,13 +351,13 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td rowSpan={2} className={Styles[classBetTeamWd]}>
                                                             1:{odds?.liveFTEven}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Odd</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                 </tbody>

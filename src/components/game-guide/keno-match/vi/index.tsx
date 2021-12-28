@@ -318,7 +318,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutBlue} - {odds?.liveFTBlue}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td> {maxBetFollowChoice?.minBetRound}</td>
                                                         <td rowSpan={4} className="text-start">
                                                             Mức cược tối đa sẽ thay đổi tùy vào tỷ lệ cược.
                                                         </td>
@@ -329,7 +329,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutRed} - {odds?.liveFTRed}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Tài</td>
@@ -337,7 +337,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutOver} - {odds?.liveFTOver}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Xỉu</td>
@@ -345,7 +345,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={Styles[classBetOddWd]}>
                                                             {minPayoutUnder} - {odds?.liveFTUnder}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Chẵn</td>
@@ -353,13 +353,13 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td rowSpan={2} className={Styles[classBetTeamWd]}>
                                                             1:{odds?.liveFTEven}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                     <tr>
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Lẻ</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Toàn trận (Live)</td>
-                                                        <td>1</td>
+                                                        <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                 </tbody>
