@@ -13,10 +13,11 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
     const minBetRound = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetBlueChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blue));
-    const maxBetBlueRedChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blueBig));
+    const maxBetAaBetChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.aaBet));
+    const maxBetAnteBetChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.anteBet));
+    const maxBetCallBetChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.callBet));
 
-    return { maxBetRound, minBetRound, maxBetBlueChoice, maxBetBlueRedChoice };
+    return { maxBetRound, minBetRound, maxBetAaBetChoice, maxBetAnteBetChoice, maxBetCallBetChoice };
 };
 
 const CasinoHoldGuide = (props: GameGuideBase) => {
@@ -27,7 +28,6 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
         }
         return gameConfigs;
     };
-
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
     if (locale === locales.en) {
         return (

@@ -7,38 +7,66 @@ import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5/en";
 import Styles from "../casino-hold.module.scss";
 
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRule = () => {
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>Select the chip with the value that suits you best and place the chip in the Ante bet or make an optional AA bonus bet.</li>
+                <li>
+                    Select the chip with the value that suits you best and place the chip in the Ante bet or make an optional AA bonus bet.
+                </li>
                 <li>Note, Ante bet is a mandatory bet that the player must make before any cards are dealt.</li>
-                <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two cards.
-                    The Dealer&apos;s cards will be face down, while the Player&apos;s card will not. </li>
-                <li>Three community cards (Flop card) are dealt face-up in the middle of the table.
+                <li>
+                    Click on the Deal button to start the game round, the Player and the Dealer each receive two cards. The Dealer&apos;s
+                    cards will be face down, while the Player&apos;s card will not.{" "}
+                </li>
+                <li>
+                    Three community cards (Flop card) are dealt face-up in the middle of the table.
                     <ul className="detail">
-                        <li><strong>FOLD:</strong> the Player will surrender his hand and lose both the Ante bet and optional AA bet. The game round is over. </li>
-                        <li><strong>CALL:</strong> the Player will continue playing with an additional Call bet, equal to twice the Ante bet.</li>
+                        <li>
+                            <strong>FOLD:</strong> the Player will surrender his hand and lose both the Ante bet and optional AA bet. The
+                            game round is over.{" "}
+                        </li>
+                        <li>
+                            <strong>CALL:</strong> the Player will continue playing with an additional Call bet, equal to twice the Ante
+                            bet.
+                        </li>
                     </ul>
                 </li>
 
                 <li>After the first three community cards are dealt, Player must decide whether to CALL or FOLD.</li>
-                <li>After clicking on the CALL button, the two remaining community cards are dealt and the Dealer reveals the value of the face-down cards.</li>
+                <li>
+                    After clicking on the CALL button, the two remaining community cards are dealt and the Dealer reveals the value of the
+                    face-down cards.
+                </li>
             </ul>
             <ul className="style-number-rule">
-                <li className="number-dot">Ranking Level
+                <li className="number-dot">
+                    Ranking Level
                     <ul className="game-guide-alpha">
-                        <li className="">a) Card Values
+                        <li className="">
+                            a) Card Values
                             <ul className="desc">
-                                <li>The card&apos;s value is ranked from the highest to the lowest in the following order: Ace (A), King (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.</li>
-                                <li>The Ace can be used as both the highest and lowest card, so can be used in a straight of A, K, Q, J, 10  as the highest value or 5, 4, 3, 2, A as the lowest value card.</li>
-                                <li>All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club (<span className={Styles["black"]}>♣</span>) have equal value.</li>
+                                <li>
+                                    The card&apos;s value is ranked from the highest to the lowest in the following order: Ace (A), King
+                                    (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.
+                                </li>
+                                <li>
+                                    The Ace can be used as both the highest and lowest card, so can be used in a straight of A, K, Q, J, 10
+                                    as the highest value or 5, 4, 3, 2, A as the lowest value card.
+                                </li>
+                                <li>
+                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (
+                                    <span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and
+                                    club (<span className={Styles["black"]}>♣</span>) have equal value.
+                                </li>
                             </ul>
                         </li>
-                        <li className="">b) Hand <span className={Styles["red"]}>Ranking</span>
+                        <li className="">
+                            b) Hand <span className={Styles["red"]}>Ranking</span>
                             <ul className="desc">
-                                <li>List of poker hand ranking levels from highest to lowest
+                                <li>
+                                    List of poker hand ranking levels from highest to lowest
                                     <div className="table-container text-center">
                                         <table className="table text-center table-medium">
                                             <thead>
@@ -50,7 +78,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><strong>Royal Flush</strong></td>
+                                                    <td>
+                                                        <strong>Royal Flush</strong>
+                                                    </td>
                                                     <td>Ace, King, Queen, Jack, and 10 in the same suit</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -66,7 +96,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Straight Flush</strong></td>
+                                                    <td>
+                                                        <strong>Straight Flush</strong>
+                                                    </td>
                                                     <td>Five cards in the same suit, all in a rank sequence</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -80,10 +112,11 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                             />
                                                         </span>
                                                     </td>
-
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Four of a Kind</strong></td>
+                                                    <td>
+                                                        <strong>Four of a Kind</strong>
+                                                    </td>
                                                     <td>Four cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -99,7 +132,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Full House</strong></td>
+                                                    <td>
+                                                        <strong>Full House</strong>
+                                                    </td>
                                                     <td>Three of a Kind and a Pair</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -115,7 +150,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Flush</strong></td>
+                                                    <td>
+                                                        <strong>Flush</strong>
+                                                    </td>
                                                     <td>Five cards in the same suit</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -131,7 +168,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Straight</strong></td>
+                                                    <td>
+                                                        <strong>Straight</strong>
+                                                    </td>
                                                     <td>Five cards a rank sequence</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -147,7 +186,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Three of a Kind</strong></td>
+                                                    <td>
+                                                        <strong>Three of a Kind</strong>
+                                                    </td>
                                                     <td>Three cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -163,7 +204,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Two Pair</strong></td>
+                                                    <td>
+                                                        <strong>Two Pair</strong>
+                                                    </td>
                                                     <td>Two pairs of different ranks</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -179,7 +222,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Pair</strong></td>
+                                                    <td>
+                                                        <strong>Pair</strong>
+                                                    </td>
                                                     <td>Two cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -195,7 +240,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>High card</strong></td>
+                                                    <td>
+                                                        <strong>High card</strong>
+                                                    </td>
                                                     <td>Highest card when no higher hand is available</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
@@ -214,9 +261,15 @@ const renderGameRule = (maxBetRound: number | string) => {
                                         </table>
                                     </div>
                                 </li>
-                                <li>The Poker hand consists of five cards. If the Player and the Dealer share a winning hand, then the individual cards will be used to break the Tie. If the highest card in Player’s hand is equal, the second-highest card should be compared, and so on. </li>
+                                <li>
+                                    The Poker hand consists of five cards. If the Player and the Dealer share a winning hand, then the
+                                    individual cards will be used to break the Tie. If the highest card in Player’s hand is equal, the
+                                    second-highest card should be compared, and so on.{" "}
+                                </li>
                             </ul>
-                            <p><strong>Example</strong></p>
+                            <p>
+                                <strong>Example</strong>
+                            </p>
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -230,26 +283,44 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     <tbody>
                                         <tr>
                                             <td>Player</td>
-                                            <td>A<span className={Styles["red"]}>♥</span>, J<span className={Styles["black"]}>♣</span></td>
-                                            <td>A<span className={Styles["red"]}>♥</span>, A<span className={Styles["black"]}>♠</span>, J<span className={Styles["black"]}>♣</span>, J<span className={Styles["red"]}>♥</span>, 10<span className={Styles["black"]}>♣</span></td>
+                                            <td>
+                                                A<span className={Styles["red"]}>♥</span>, J<span className={Styles["black"]}>♣</span>
+                                            </td>
+                                            <td>
+                                                A<span className={Styles["red"]}>♥</span>, A<span className={Styles["black"]}>♠</span>, J
+                                                <span className={Styles["black"]}>♣</span>, J<span className={Styles["red"]}>♥</span>, 10
+                                                <span className={Styles["black"]}>♣</span>
+                                            </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
-                                            <td>5<span className={Styles["red"]}>♦</span>, 7<span className={Styles["red"]}>♦</span></td>
-                                            <td>5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♠</span>, A<span className={Styles["black"]}>♠</span>, J<span className={Styles["red"]}>♥</span>, 10<span className={Styles["black"]}>♣</span></td>
+                                            <td>
+                                                5<span className={Styles["red"]}>♦</span>, 7<span className={Styles["red"]}>♦</span>
+                                            </td>
+                                            <td>
+                                                5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♠</span>, A
+                                                <span className={Styles["black"]}>♠</span>, J<span className={Styles["red"]}>♥</span>, 10
+                                                <span className={Styles["black"]}>♣</span>
+                                            </td>
                                             <td>Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
-                                            <td>A<span className={Styles["red"]}>♥</span>, 10<span className={Styles["black"]}>♣</span>, 5<span className={Styles["black"]}>♠</span>, 6<span className={Styles["red"]}>♥</span>, J<span className={Styles["red"]}>♥</span></td>
+                                            <td>
+                                                A<span className={Styles["red"]}>♥</span>, 10<span className={Styles["black"]}>♣</span>, 5
+                                                <span className={Styles["black"]}>♠</span>, 6<span className={Styles["red"]}>♥</span>, J
+                                                <span className={Styles["red"]}>♥</span>
+                                            </td>
                                             <td></td>
                                             <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; Player wins</div><br /><br />
+                            <div>=&gt; Player wins</div>
+                            <br />
+                            <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -263,14 +334,26 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     <tbody>
                                         <tr>
                                             <td>Player</td>
-                                            <td>5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♣</span></td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 5<span className={Styles["red"]}>♦</span></td>
+                                            <td>
+                                                5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♣</span>
+                                            </td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 5
+                                                <span className={Styles["red"]}>♦</span>
+                                            </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
-                                            <td>4<span className={Styles["black"]}>♠</span>, 10<span className={Styles["red"]}>♥</span></td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 10<span className={Styles["red"]}>♥</span></td>
+                                            <td>
+                                                4<span className={Styles["black"]}>♠</span>, 10<span className={Styles["red"]}>♥</span>
+                                            </td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 10
+                                                <span className={Styles["red"]}>♥</span>
+                                            </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
@@ -282,7 +365,9 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; Dealer wins</div><br /><br />
+                            <div>=&gt; Dealer wins</div>
+                            <br />
+                            <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -296,54 +381,96 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     <tbody>
                                         <tr>
                                             <td>Player</td>
-                                            <td>5<span className={Styles["red"]}>♦</span>, 6<span className={Styles["black"]}>♣</span></td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J<span className={Styles["red"]}>♦</span></td>
+                                            <td>
+                                                5<span className={Styles["red"]}>♦</span>, 6<span className={Styles["black"]}>♣</span>
+                                            </td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
+                                                <span className={Styles["red"]}>♦</span>
+                                            </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
-                                            <td>4<span className={Styles["black"]}>♠</span>, 2<span className={Styles["red"]}>♥</span></td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J<span className={Styles["red"]}>♦</span></td>
+                                            <td>
+                                                4<span className={Styles["black"]}>♠</span>, 2<span className={Styles["red"]}>♥</span>
+                                            </td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
+                                                <span className={Styles["red"]}>♦</span>
+                                            </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J<span className={Styles["red"]}>♦</span></td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
+                                                <span className={Styles["red"]}>♦</span>
+                                            </td>
                                             <td></td>
                                             <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt;  Result is &quot;Tie&quot;</div><br /><br />
+                            <div>=&gt; Result is &quot;Tie&quot;</div>
+                            <br />
+                            <br />
                         </li>
                     </ul>
                 </li>
-                <li className="number-dot">Betting Option
+                <li className="number-dot">
+                    Betting Option
                     <ul className="game-guide-alpha">
-                        <li>a)Ante Bet
+                        <li>
+                            a)Ante Bet
                             <ul className="desc">
                                 <li>&quot;Ante&quot; Bet is a mandatory bet that the player must make before any cards are dealt.</li>
-                                <li>The Player will win Ante Bet if he can make the best possible five-card poker hand using a combination of two hole cards and five community cards to beat the Dealer&apos;s hand.</li>
+                                <li>
+                                    The Player will win Ante Bet if he can make the best possible five-card poker hand using a combination
+                                    of two hole cards and five community cards to beat the Dealer&apos;s hand.
+                                </li>
                             </ul>
                         </li>
-                        <li>b)AA Bet
+                        <li>
+                            b)AA Bet
                             <ul className="desc">
-                                <li>A side bet known as the &quot;AA&quot; bet, is based on the poker value of the player&apos;s two cards and the first three community cards. The Player will win &quot;AA&quot; bet if he can achieve a pair of aces or better, no matter what Dealer has.</li>
-                                <li>&quot;AA&quot; Bet is not related to the Ante bet results. The Player might lose the game, but the &quot;AA&quot; Bet might win or vice versa.</li>
-                                <li>Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and optional &quot;AA&quot; bet. </li>
+                                <li>
+                                    A side bet known as the &quot;AA&quot; bet, is based on the poker value of the player&apos;s two cards
+                                    and the first three community cards. The Player will win &quot;AA&quot; bet if he can achieve a pair of
+                                    aces or better, no matter what Dealer has.
+                                </li>
+                                <li>
+                                    &quot;AA&quot; Bet is not related to the Ante bet results. The Player might lose the game, but the
+                                    &quot;AA&quot; Bet might win or vice versa.
+                                </li>
+                                <li>
+                                    Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and optional &quot;AA&quot;
+                                    bet.{" "}
+                                </li>
                             </ul>
                         </li>
-                        <li>c) Call Bet
+                        <li>
+                            c) Call Bet
                             <ul className="desc">
-                                <li>Call bet is an additional bet decided by the Player whether he wants to continue the game round. Call bet amount is twice the original Ante bet. </li>
+                                <li>
+                                    Call bet is an additional bet decided by the Player whether he wants to continue the game round. Call
+                                    bet amount is twice the original Ante bet.{" "}
+                                </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li className="number-dot">Hand Qualification
+                <li className="number-dot">
+                    Hand Qualification
                     <ul className="desc">
-                        <li>The Dealer must have <strong>at least a pair of fours</strong> to make a qualifying hand. If the Dealer fails to qualify, the Ante bet is paid out according to the payout table while the Call bet will be pushed.</li>
+                        <li>
+                            The Dealer must have <strong>at least a pair of fours</strong> to make a qualifying hand. If the Dealer fails to
+                            qualify, the Ante bet is paid out according to the payout table while the Call bet will be pushed.
+                        </li>
                     </ul>
                     <div className="table-container text-center">
                         <table className="table">
@@ -377,16 +504,20 @@ const renderGameRule = (maxBetRound: number | string) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined) => {
     return (
         <>
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the initial stake.</li>
+                <li>
+                    The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the initial
+                    stake.
+                </li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
             <ul className="style-number-rule">
-                <li className="number-dot">Ante bet
+                <li className="number-dot">
+                    Ante bet
                     <div className="table-container text-center">
                         <table className="table table-small">
                             <thead>
@@ -398,27 +529,27 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             <tbody>
                                 <tr>
                                     <td>Royal Flush</td>
-                                    <td>1:</td>
+                                    <td>1:{odds?.AnteBet_royalFlush}</td>
                                 </tr>
                                 <tr>
                                     <td>Straight Flush</td>
-                                    <td>1:</td>
+                                    <td>1:{odds?.AnteBet_straightFlush}</td>
                                 </tr>
                                 <tr>
                                     <td>Four of a Kind</td>
-                                    <td>1:</td>
+                                    <td>1:{odds?.AnteBet_fourKind}</td>
                                 </tr>
                                 <tr>
                                     <td>Full House</td>
-                                    <td>1:</td>
+                                    <td>1:{odds?.AnteBet_fullHouse}</td>
                                 </tr>
                                 <tr>
                                     <td>Flush</td>
-                                    <td>1:</td>
+                                    <td>1:{odds?.AnteBet_flush}</td>
                                 </tr>
                                 <tr>
                                     <td>Straight</td>
-                                    <td rowSpan={5}>1:</td>
+                                    <td rowSpan={5}>1:{odds?.AnteBet_straight}</td>
                                 </tr>
                                 <tr>
                                     <td>Three of a Kind</td>
@@ -436,13 +567,15 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         </table>
                     </div>
                 </li>
-                <li className="number-dot">Call bet
+                <li className="number-dot">
+                    Call bet
                     <ul className="desc">
                         <li>Player will win the Call bet only if the Dealer qualifies and you beat their hand. </li>
-                        <li>Payout  1:</li>
+                        <li>Payout 1:{odds?.CallBet_callBet}</li>
                     </ul>
                 </li>
-                <li className="number-dot">AA bet
+                <li className="number-dot">
+                    AA bet
                     <div className="table-container">
                         <div className="table-container text-center">
                             <table className="table table-small">
@@ -455,27 +588,27 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tbody>
                                     <tr>
                                         <td>Royal Flush</td>
-                                        <td>1:</td>
+                                        <td>1:{odds?.AABet_royalFlush}</td>
                                     </tr>
                                     <tr>
                                         <td>Straight Flush</td>
-                                        <td>1:</td>
+                                        <td>1:{odds?.AABet_straightFlush}</td>
                                     </tr>
                                     <tr>
                                         <td>Four of a Kind</td>
-                                        <td>1:</td>
+                                        <td>1:{odds?.AABet_fourKind}</td>
                                     </tr>
                                     <tr>
                                         <td>Full House</td>
-                                        <td>1:</td>
+                                        <td>1:{odds?.AABet_fullHouse}</td>
                                     </tr>
                                     <tr>
                                         <td>Flush</td>
-                                        <td>1:</td>
+                                        <td>1:{odds?.AABet_flush}</td>
                                     </tr>
                                     <tr>
                                         <td>Straight</td>
-                                        <td rowSpan={5}>1:</td>
+                                        <td rowSpan={5}>1:{odds?.AABet_straight}</td>
                                     </tr>
                                     <tr>
                                         <td>Three of a Kind</td>
@@ -512,23 +645,26 @@ const md5Title = () => {
 };
 
 const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, maxBetFollowChoice } = props;
     const { odds } = gameConfigs;
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
-                    <p className="content">Casino Hold’em is a variant of Texas Hold’em Poker.
-                        The game is played with a standard 52-card deck (excluding Joker), and the cards are shuffled after each round.
-                        The Player will play against the Dealer and the object of this game is to achieve the best possible five-card poker hand using a combination of two hole cards and five community cards to beat the Dealer’s hand.
+                    <p className="content">
+                        Casino Hold’em is a variant of Texas Hold’em Poker. The game is played with a standard 52-card deck (excluding
+                        Joker), and the cards are shuffled after each round. The Player will play against the Dealer and the object of this
+                        game is to achieve the best possible five-card poker hand using a combination of two hole cards and five community
+                        cards to beat the Dealer’s hand.
                     </p>
-                    <p className="content">In addition, a new feature - <span className={Styles["link"]}> MD5 (Message-Digest algorithm 5) </span>
+                    <p className="content">
+                        In addition, a new feature - <span className={Styles["link"]}> MD5 (Message-Digest algorithm 5) </span>
                         that allows the Player to check the fairness and authenticity of every game result.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderPayouts(odds)}</li>
                 <li className="guide-item">
                     <h2>Bet Limit</h2>
                     <table className="table table-small text-center">
@@ -541,15 +677,15 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         <tbody>
                             <tr>
                                 <td>Ante Bet</td>
-                                <td>1 - 600</td>
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                             </tr>
                             <tr>
                                 <td>Call Bet</td>
-                                <td>1 - 1,200</td>
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                             </tr>
                             <tr>
                                 <td>AA Bet</td>
-                                <td>1 - 200</td>
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAaBetChoice}
                             </tr>
                         </tbody>
                     </table>
