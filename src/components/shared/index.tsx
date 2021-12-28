@@ -15,8 +15,8 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the "Deal" button.
-                        The unfinished game will be automatically settled after 24 hours. The player’s hand is considered as “FOLD”.
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the &quot;Deal&quot; button.
+                        The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is considered as &quot;FOLD&quot;.
                     </li>
                 )}
                 <li className="number-dot">
@@ -53,8 +53,8 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm nút “Chia Bài”.
-                        Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, đồng nghĩa với người chơi đã chấp nhận “Bỏ Bài”.
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm nút &quot;Chia Bài&quot;.
+                        Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.
                     </li>
                 )}
                 <li className="number-dot">

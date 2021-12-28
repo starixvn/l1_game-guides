@@ -14,16 +14,16 @@ const renderGameRule = (maxBetRound: number | string) => {
             <ul className="desc">
                 <li>Người Chơi chọn mệnh giá chip muốn đặt cược.</li>
                 <li>Sẽ có 2 lựa chọn để đặt cược Ante và AA, trong đó Ante là lựa chọn bắt buộc để bắt đầu phiên chơi.</li>
-                <li>Phiên sẽ bắt đầu ngay sau khi bấm nút “Chia Bài”, Người Chơi và Nhà Cái mỗi bên sẽ được chia 2 lá bài, đồng thời 3 lá bài chung (Flop cards) sẽ được chia và lật ở giữa bàn. </li>
+                <li>Phiên sẽ bắt đầu ngay sau khi bấm nút &quot;Chia Bài&quot;, Người Chơi và Nhà Cái mỗi bên sẽ được chia 2 lá bài, đồng thời 3 lá bài chung (Flop cards) sẽ được chia và lật ở giữa bàn. </li>
                 <li>Sau khi 3 lá bài chung được chia, người chơi sẽ có 2 lựa chọn Theo Bài (Call) hoặc Bỏ Bài (Fold).
                     <ul className="detail">
-                        <li>Nếu chọn <strong>“Bỏ Bài”</strong>, Người Chơi chấp nhận mất tiền cược và phiên chơi kết thúc.</li>
-                        <li>Nếu chọn <strong>“Theo Bài”</strong>, 2 lá bài chung tiếp theo sẽ được chia và lật giữa bàn Người Chơi phải đặt thêm 1 khoản tiền cược (Call bet) bằng 2 lần số tiền đã đặt vào Ante.</li>
+                        <li>Nếu chọn <strong>&quot;Bỏ Bài&quot;</strong>, Người Chơi chấp nhận mất tiền cược và phiên chơi kết thúc.</li>
+                        <li>Nếu chọn <strong>&quot;Theo Bài&quot;</strong>, 2 lá bài chung tiếp theo sẽ được chia và lật giữa bàn Người Chơi phải đặt thêm 1 khoản tiền cược (Call bet) bằng 2 lần số tiền đã đặt vào Ante.</li>
                     </ul>
                 </li>
                 <li>Kết quả thắng thua được quyết định dựa trên 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung).</li>
                 <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái, Người Chơi thắng và ngược lại.</li>
-                <li>Tổng tiền cược tối đa của 1 phiên là 2,000. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm “Chia Bài”. </li>
+                <li>Tổng tiền cược tối đa của 1 phiên là 2,000. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm &quot;Chia Bài&quot;. </li>
                 <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
             </ul>
             <ul className="style-number-rule">
@@ -38,7 +38,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                         </li>
                         <li className="">b) Tay bài
                             <ul className="desc">
-                                <li>Xếp hạng tay bài trong Casino Hold’em từ mạnh đến yếu:
+                                <li>Xếp hạng tay bài trong Casino Hold&apos;em từ mạnh đến yếu:
                                     <div className="table-container text-center">
                                         <table className="table text-center table-medium">
                                             <thead>
@@ -215,7 +215,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     </div>
                                 </li>
                                 <li>Nếu tay bài của Người Chơi và Nhà Cái có cùng thang sức mạnh, khi đó các lá bài lẻ sẽ được dùng để phân định thắng thua.</li>
-                                <li>Nếu so lá bài lẻ có giá trị cao nhất, Người Chơi và Nhà Cái “Hòa” =&gt; So tiếp lá bài lẻ cao thứ hai, thứ ba ..cho đến khi phân định được kết quả.</li>
+                                <li>Nếu so lá bài lẻ có giá trị cao nhất, Người Chơi và Nhà Cái &quot;Hòa&quot; =&gt; So tiếp lá bài lẻ cao thứ hai, thứ ba ..cho đến khi phân định được kết quả.</li>
                             </ul>
                             <p><strong>Example</strong></p>
                             <div className="table-container text-center">
@@ -316,7 +316,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; Kết quả "Hòa"</div><br /><br />
+                            <div>=&gt; Kết quả &quot;Hòa&quot;</div><br /><br />
                         </li>
                     </ul>
                 </li>
@@ -326,7 +326,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                             <ul className="desc">
                                 <li><strong>Ante bet</strong> là cược chính, Người Chơi bắt buộc phải đặt cược vào Ante để có thể bắt đầu phiên chơi. </li>
                                 <li>Kết quả thắng thua được quyết định dựa trên 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung). </li>
-                                <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái => Người Chơi thắng và ngược lại.</li>
+                                <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái {'=>'} Người Chơi thắng và ngược lại.</li>
                             </ul>
                         </li>
                         <li>b)Cược AA
@@ -334,14 +334,14 @@ const renderGameRule = (maxBetRound: number | string) => {
                                 <li><strong>Cược AA</strong> là cược phụ, tùy chọn có thể đặt thêm nếu bạn muốn. </li>
                                 <li>Cược AA không phụ thuộc vào kết quả của ván bài chính, vì vậy bạn có thể thua cược chính nhưng vẫn thắng cược phụ.</li>
                                 <li>Thắng thua trên cược phụ AA sẽ được tính dựa trên 5 lá bài gồm 2 lá được chia cho Người Chơi và 3 lá bài bài chung (Flop cards), và Người Chơi không so bài với Nhà Cái. <br />
-                                    <strong>Lưu ý:</strong> cược phụ chỉ được tính khi Người Chơi chọn “Theo Bài”, nếu chọn “Bỏ Bài" thì cược phụ cũng bị tính thua.</li>
+                                    <strong>Lưu ý:</strong> cược phụ chỉ được tính khi Người Chơi chọn &quot;Theo Bài&quot;, nếu chọn &quot;Bỏ Bài&quot; thì cược phụ cũng bị tính thua.</li>
                                 <li>Điều kiện thắng cược phụ AA, nếu tay bài Người Chơi có đôi Ace hoặc cao hơn (Hai Đôi, Sám …)
                                 </li>
                             </ul>
                         </li>
                         <li>c) Call Bet
                             <ul className="desc">
-                                <li>Call Bet là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn “Theo Bài” và bằng 2 lần số tiền đã đặt vào Ante. </li>
+                                <li>Call Bet là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số tiền đã đặt vào Ante. </li>
                             </ul>
                         </li>
                     </ul>
@@ -521,7 +521,7 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
-                    <p className="content">Casino Hold’em là một trong những game bài trực tuyến được yêu thích nhất tại các sòng Casino.
+                    <p className="content">Casino Hold&apos;em là một trong những game bài trực tuyến được yêu thích nhất tại các sòng Casino.
                         Trò chơi có luật chơi rất đơn giản, sử dụng một bộ bài tây 52 lá (không bao gồm lá Joker) và Người Chơi sẽ so bài trực tiếp với Nhà Cái.
                         Thắng thua sẽ được quyết định dựa trên sức mạnh tay bài (5 lá) của mỗi bên.</p>
                     <p className="content">Ngoài ra trò chơi còn tích hợp tính năng xác thực <span className={Styles["link"]}>MD5 (Message-Digest algorithm 5)</span> cho phép Người Chơi tự kiểm tra tính minh bạch trong kết quả thắng thua.</p>

@@ -15,7 +15,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                 <li>Select the chip with the value that suits you best and place the chip in the Ante bet or make an optional AA bonus bet.</li>
                 <li>Note, Ante bet is a mandatory bet that the player must make before any cards are dealt.</li>
                 <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two cards.
-                    The Dealer’s cards will be face down, while the Player’s card will not. </li>
+                    The Dealer&apos;s cards will be face down, while the Player&apos;s card will not. </li>
                 <li>Three community cards (Flop card) are dealt face-up in the middle of the table.
                     <ul className="detail">
                         <li><strong>FOLD:</strong> the Player will surrender his hand and lose both the Ante bet and optional AA bet. The game round is over. </li>
@@ -31,7 +31,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                     <ul className="game-guide-alpha">
                         <li className="">a) Card Values
                             <ul className="desc">
-                                <li>The card's value is ranked from the highest to the lowest in the following order: Ace (A), King (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.</li>
+                                <li>The card&apos;s value is ranked from the highest to the lowest in the following order: Ace (A), King (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.</li>
                                 <li>The Ace can be used as both the highest and lowest card, so can be used in a straight of A, K, Q, J, 10  as the highest value or 5, 4, 3, 2, A as the lowest value card.</li>
                                 <li>All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club (<span className={Styles["black"]}>♣</span>) have equal value.</li>
                             </ul>
@@ -315,7 +315,7 @@ const renderGameRule = (maxBetRound: number | string) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt;  Result is “Tie”</div><br /><br />
+                            <div>=&gt;  Result is &quot;Tie&quot;</div><br /><br />
                         </li>
                     </ul>
                 </li>
@@ -323,15 +323,15 @@ const renderGameRule = (maxBetRound: number | string) => {
                     <ul className="game-guide-alpha">
                         <li>a)Ante Bet
                             <ul className="desc">
-                                <li>“Ante” Bet is a mandatory bet that the player must make before any cards are dealt.</li>
-                                <li>The Player will win Ante Bet if he can make the best possible five-card poker hand using a combination of two hole cards and five community cards to beat the Dealer’s hand.</li>
+                                <li>&quot;Ante&quot; Bet is a mandatory bet that the player must make before any cards are dealt.</li>
+                                <li>The Player will win Ante Bet if he can make the best possible five-card poker hand using a combination of two hole cards and five community cards to beat the Dealer&apos;s hand.</li>
                             </ul>
                         </li>
                         <li>b)AA Bet
                             <ul className="desc">
-                                <li>A side bet known as the “AA” bet, is based on the poker value of the player's two cards and the first three community cards. The Player will win “AA” bet if he can achieve a pair of aces or better, no matter what Dealer has.</li>
-                                <li>“AA” Bet is not related to the Ante bet results. The Player might lose the game, but the “AA” Bet might win or vice versa.</li>
-                                <li>Note, if the Player selects “FOLD”, he will lose both the Ante bet and optional “AA” bet. </li>
+                                <li>A side bet known as the &quot;AA&quot; bet, is based on the poker value of the player&apos;s two cards and the first three community cards. The Player will win &quot;AA&quot; bet if he can achieve a pair of aces or better, no matter what Dealer has.</li>
+                                <li>&quot;AA&quot; Bet is not related to the Ante bet results. The Player might lose the game, but the &quot;AA&quot; Bet might win or vice versa.</li>
+                                <li>Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and optional &quot;AA&quot; bet. </li>
                             </ul>
                         </li>
                         <li>c) Call Bet
