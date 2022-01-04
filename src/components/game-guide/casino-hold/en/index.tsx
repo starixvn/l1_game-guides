@@ -42,7 +42,7 @@ const renderGameRule = () => {
             </ul>
             <ul className="style-number-rule">
                 <li className="number-dot">
-                    Ranking Level
+                    <span className="font-weight-medium title-text">Ranking Level</span>
                     <ul className="game-guide-alpha">
                         <li className="">
                             a) Card Values
@@ -419,7 +419,7 @@ const renderGameRule = () => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    Betting Option
+                    <span className="font-weight-medium title-text">Betting Option</span>
                     <ul className="game-guide-alpha">
                         <li>
                             a)Ante Bet
@@ -461,7 +461,7 @@ const renderGameRule = () => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    Hand Qualification
+                    <span className="font-weight-medium title-text">Hand Qualification</span>
                     <ul className="desc">
                         <li>
                             The Dealer must have <strong>at least a pair of fours</strong> to make a qualifying hand. If the Dealer fails to
@@ -513,7 +513,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
             </ul>
             <ul className="style-number-rule">
                 <li className="number-dot">
-                    Ante bet
+                    <span className="font-weight-medium title-text">Ante bet</span>
                     <div className="table-container text-center">
                         <table className="table table-small">
                             <thead>
@@ -564,14 +564,14 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    Call bet
+                    <span className="font-weight-medium title-text">Call bet</span>
                     <ul className="desc">
                         <li>Player will win the Call bet only if the Dealer qualifies and you beat their hand. </li>
                         <li>Payout 1:{odds?.CallBet_callBet}</li>
                     </ul>
                 </li>
                 <li className="number-dot">
-                    AA bet
+                    <span className="font-weight-medium title-text">AA bet</span>
                     <div className="table-container">
                         <div className="table-container text-center">
                             <table className="table table-small">

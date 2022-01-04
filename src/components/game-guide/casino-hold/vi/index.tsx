@@ -42,7 +42,7 @@ const renderGameRule = () => {
             </ul>
             <ul className="style-number-rule">
                 <li className="number-dot">
-                    Thang sức mạnh
+                    <span className="font-weight-medium title-text">Thang sức mạnh</span>
                     <ul className="game-guide-alpha">
                         <li className="">
                             a) Lá bài
@@ -417,7 +417,7 @@ const renderGameRule = () => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    Đặt cược
+                    <span className="font-weight-medium title-text">Đặt cược</span>
                     <ul className="game-guide-alpha">
                         <li>
                             a)Ante Bet
@@ -464,7 +464,7 @@ const renderGameRule = () => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    So bài
+                    <span className="font-weight-medium title-text">So bài</span>
                     <ul className="desc">
                         <li>
                             Tay bài của Nhà Cái phải có tối thiểu một đôi 4 hoặc cao hơn (Đôi 5, Hai Đôi, Sảnh, Thùng ....) để thỏa điều
@@ -515,7 +515,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
             </ul>
             <ul className="style-number-rule">
                 <li className="number-dot">
-                    Ante bet
+                    <span className="font-weight-medium title-text">Ante bet</span>
                     <div className="table-container text-center">
                         <table className="table table-small">
                             <thead>
@@ -566,13 +566,13 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    Call bet
+                    <span className="font-weight-medium title-text">Call bet</span>
                     <ul className="desc">
                         <li>Tỷ lệ cược cho Call bet là 1:{odds?.CallBet_callBet}</li>
                     </ul>
                 </li>
                 <li className="number-dot">
-                    Cược AA
+                    <span className="font-weight-medium title-text">Cược AA</span>
                     <div className="table-container">
                         <div className="table-container text-center">
                             <table className="table table-small">
