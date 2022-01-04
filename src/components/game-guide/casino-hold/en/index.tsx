@@ -68,7 +68,7 @@ const renderGameRule = () => {
                                 <li>
                                     List of poker hand ranking levels from highest to lowest
                                     <div className="table-container text-center">
-                                        <table className="table text-center table-medium">
+                                        <table className="table text-center">
                                             <thead>
                                                 <tr>
                                                     <td>Hand</td>

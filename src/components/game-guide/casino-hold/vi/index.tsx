@@ -63,7 +63,7 @@ const renderGameRule = () => {
                                 <li>
                                     Xếp hạng tay bài trong Casino Hold&apos;em từ mạnh đến yếu:
                                     <div className="table-container text-center">
-                                        <table className="table text-center table-medium">
+                                        <table className="table text-center">
                                             <thead>
                                                 <tr>
                                                     <td>Tay Bài</td>
