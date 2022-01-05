@@ -357,7 +357,7 @@ const renderGameRule = () => {
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
-                                            <td>A♣, A♠, 7♣, 7♥, 3♦</td>
+                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 3<span className={Styles["red"]}>♦</span></td>
                                             <td></td>
                                             <td></td>
                                         </tr>
@@ -655,7 +655,7 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         cards to beat the Dealer’s hand.
                     </p>
                     <p className="content">
-                        In addition, a new feature - <span className={Styles["link"]}> MD5 (Message-Digest algorithm 5) </span>
+                        In addition, a new feature - <a href="#md5" className={Styles["link"]}> MD5 (Message-Digest algorithm 5) </a>
                         that allows the Player to check the fairness and authenticity of every game result.
                     </p>
                 </li>

@@ -355,7 +355,7 @@ const renderGameRule = () => {
                                         </tr>
                                         <tr>
                                             <td>5 Lá bài chung</td>
-                                            <td>A♣, A♠, 7♣, 7♥, 3♦</td>
+                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 3<span className={Styles["red"]}>♦</span></td>
                                             <td></td>
                                             <td></td>
                                         </tr>
@@ -654,7 +654,7 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     </p>
                     <p className="content">
                         Ngoài ra trò chơi còn tích hợp tính năng xác thực{" "}
-                        <span className={Styles["link"]}>MD5 (Message-Digest algorithm 5)</span> cho phép Người Chơi tự kiểm tra tính minh
+                        <a href="#md5" className={Styles["link"]}>MD5 (Message-Digest algorithm 5)</a> cho phép Người Chơi tự kiểm tra tính minh
                         bạch trong kết quả thắng thua.
                     </p>
                 </li>
