@@ -53,14 +53,12 @@ export const GameGuide: React.FC<Props> = (props) => {
         isGetGameConfigs,
     };
     const otherGuides = () => {
-        console.log("otherGuides");
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         } else {
             return <></>;
         }
     };
-    console.log(gameId, "gameId");
     const renderGuide = () => {
         switch (gameId) {
             case 1:

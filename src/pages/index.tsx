@@ -62,6 +62,7 @@ const Home = () => {
     const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
     const [dynamic, setDynamic] = useState<boolean>(true);
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
+    const [isMD5, setIsMD5] = useState<boolean>(false);
 
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
@@ -89,12 +90,22 @@ const Home = () => {
                 +queryParams?.dy === 0 && setDynamic(false);
             }
             queryParams?.c && +queryParams?.c === 0 && setIsGetGameConfigs(false);
+            queryParams?.md5 && +queryParams?.md5 === 1 && setIsMD5(true);
         }
 
         bindEvent(window, "message", function (event: any) {
             event?.data && typeof event?.data === "string" && setGameConfigs(JSON.parse(event.data));
         });
     }, [router.isReady]);
+
+    useEffect(() => {
+        if (isMD5) {
+            const yOffset = 110;
+            const md5Scope: any = document.querySelector("#md5");
+            const yToTop = md5Scope.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: yToTop, behavior: "smooth" });
+        }
+    }, [router.isReady, isMD5]);
 
     if (isLoading) {
         return <></>;
