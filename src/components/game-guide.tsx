@@ -36,11 +36,12 @@ type Props = {
     gameConfigs: any;
     dynamic: boolean;
     isGetGameConfigs?: boolean;
+    isScrollMD5?: boolean;
 };
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs } = props;
+    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5 } = props;
     const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
     const gameGuideProps = {
@@ -51,6 +52,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         gameNameTranslate: gameId ? t(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
         dynamic,
         isGetGameConfigs,
+        isScrollMD5,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {

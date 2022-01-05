@@ -7,6 +7,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     gameId?: number;
     locale?: string;
     maxBetFollowChoice?: MaxBetChoicesProps;
+    isScrollMD5?: boolean;
 };
 
 export type GameGuideBase = {
@@ -18,6 +19,7 @@ export type GameGuideBase = {
     gameNameTranslate: string;
     dynamic: boolean;
     isGetGameConfigs?: boolean;
+    isScrollMD5?: boolean;
 };
 
 export interface GameConfigsBaseProps {

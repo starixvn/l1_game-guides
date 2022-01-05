@@ -21,7 +21,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const CasinoHoldGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isScrollMD5 } = props;
     const getGameConfigs = () => {
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
@@ -37,6 +37,7 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
                 gameName={gameNameTranslate}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
+                isScrollMD5={isScrollMD5}
             />
         );
     }
@@ -47,6 +48,7 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
             gameName={gameNameTranslate}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
+            isScrollMD5={isScrollMD5}
         />
     );
 };

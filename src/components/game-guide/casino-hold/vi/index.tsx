@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5VI } from "../../../shared/md5/vi";
+import ScrollToMD5 from "../../../shared/md5";
 import Styles from "../casino-hold.module.scss";
 
 const renderGameRule = () => {
@@ -355,7 +356,11 @@ const renderGameRule = () => {
                                         </tr>
                                         <tr>
                                             <td>5 Lá bài chung</td>
-                                            <td>A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7<span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 3<span className={Styles["red"]}>♦</span></td>
+                                            <td>
+                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
+                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 3
+                                                <span className={Styles["red"]}>♦</span>
+                                            </td>
                                             <td></td>
                                             <td></td>
                                         </tr>
@@ -639,8 +644,12 @@ const md5Title = () => {
 };
 
 const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice } = props;
+    const { gameConfigs, maxBetFollowChoice, isScrollMD5 } = props;
     const { odds } = gameConfigs;
+
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
 
     return (
         <div>
@@ -654,8 +663,10 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     </p>
                     <p className="content">
                         Ngoài ra trò chơi còn tích hợp tính năng xác thực{" "}
-                        <a href="#md5" className={Styles["link"]}>MD5 (Message-Digest algorithm 5)</a> cho phép Người Chơi tự kiểm tra tính minh
-                        bạch trong kết quả thắng thua.
+                        <a href="#md5" className={Styles["link"]}>
+                            MD5 (Message-Digest algorithm 5)
+                        </a>{" "}
+                        cho phép Người Chơi tự kiểm tra tính minh bạch trong kết quả thắng thua.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
