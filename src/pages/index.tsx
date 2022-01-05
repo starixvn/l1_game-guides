@@ -99,11 +99,10 @@ const Home = () => {
     }, [router.isReady]);
 
     useEffect(() => {
+        const md5Scope: any = document.querySelector("#md5");
         if (isMD5) {
             const yOffset = 110;
-            const md5Scope: any = document.querySelector("#md5");
-            const yToTop = md5Scope.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: yToTop, behavior: "smooth" });
+            md5Scope && window.scrollTo({ top: md5Scope.offsetTop + yOffset, behavior: "smooth" });
         }
     }, [router.isReady, isMD5]);
 
