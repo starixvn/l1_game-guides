@@ -8,7 +8,7 @@ import { renderMD5EN } from "../../../shared/md5/en";
 import ScrollToMD5 from "../../../shared/md5";
 import Styles from "../casino-hold.module.scss";
 
-const renderGameRule = () => {
+const renderGameRule = (maxBet: string | number | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -673,7 +673,7 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         that allows the Player to check the fairness and authenticity of every game result.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
                 <li className="guide-item">{renderPayouts(odds)}</li>
                 <li className="guide-item">
                     <h2>Bet Limit</h2>

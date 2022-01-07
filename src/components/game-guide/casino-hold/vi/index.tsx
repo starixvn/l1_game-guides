@@ -8,7 +8,7 @@ import { renderMD5VI } from "../../../shared/md5/vi";
 import ScrollToMD5 from "../../../shared/md5";
 import Styles from "../casino-hold.module.scss";
 
-const renderGameRule = () => {
+const renderGameRule = (maxBet: string | number | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -37,7 +37,7 @@ const renderGameRule = () => {
                 </li>
                 <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái, Người Chơi thắng và ngược lại.</li>
                 <li>
-                    Tổng tiền cược tối đa của 1 phiên là 2,000. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm &quot;Chia Bài&quot;.{" "}
+                    Tổng tiền cược tối đa của 1 phiên là {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm &quot;Chia Bài&quot;.{" "}
                 </li>
                 <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
             </ul>
@@ -669,7 +669,7 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         cho phép Người Chơi tự kiểm tra tính minh bạch trong kết quả thắng thua.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
                 <li className="guide-item">{renderPayouts(odds)}</li>
                 <li className="guide-item">
                     <h2>Hạn Mức Cược</h2>
