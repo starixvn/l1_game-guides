@@ -23,10 +23,10 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 const CasinoHoldGuide = (props: GameGuideBase) => {
     const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isScrollMD5 } = props;
     const getGameConfigs = () => {
-        // if (!dynamic) {
-        //     gameConfigs.odds = GameConfigs.odds;
-        // }
-        return GameConfigs;
+        if (!dynamic) {
+            gameConfigs.odds = GameConfigs.odds;
+        }
+        return gameConfigs;
     };
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
     if (locale === locales.en) {

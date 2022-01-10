@@ -104,7 +104,7 @@ const Home = () => {
 
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {/* {!isGetGameConfigs ? (
+            {!isGetGameConfigs ? (
                 <GameGuide
                     gameId={gameId}
                     locale={router?.locale ?? "en"}
@@ -115,26 +115,17 @@ const Home = () => {
                     isScrollMD5={isScrollMD5}
                 ></GameGuide>
             ) : (
-                    <GameGuide
-                        gameId={gameId}
-                        locale={router?.locale ?? "en"}
-                        userStakeLevel={userStakeLevel}
-                        name={name}
-                        gameConfigs={gameConfigs}
-                        dynamic={dynamic}
-                        isScrollMD5={isScrollMD5}
-                    ></GameGuide>
-                )
-            } */}
-            <GameGuide
-                gameId={gameId}
-                locale={router?.locale ?? "en"}
-                userStakeLevel={userStakeLevel}
-                name={name}
-                gameConfigs={gameConfigs}
-                dynamic={dynamic}
-                isScrollMD5={isScrollMD5}
-            ></GameGuide>
+                <GameGuide
+                    gameId={gameId}
+                    locale={router?.locale ?? "en"}
+                    userStakeLevel={userStakeLevel}
+                    name={name}
+                    gameConfigs={gameConfigs}
+                    dynamic={dynamic}
+                    isScrollMD5={isScrollMD5}
+                ></GameGuide>
+            )
+            }
         </div>
     );
 };
