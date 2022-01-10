@@ -27,12 +27,12 @@ export const renderMD5VI = (gameId?: number) => {
                         <li>
                             <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game 
                             {gameId !== games.casinoHoldem && <span> trước khi kết quả được công bố.</span>}
-                            {gameId === games.casinoHoldem && <span> sau khi bấm nút "Chia Bài".</span>}
+                            {gameId === games.casinoHoldem && <span> sau khi bấm nút &quot;Chia Bài&quot;.</span>}
                         </li>
                         <li>
                             <strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong>
                             {gameId !== games.casinoHoldem && <span> sau khi hệ thống công bố kết quả.</span>}
-                            {gameId === games.casinoHoldem && <span> sau khi bấm nút "Theo Bài".</span>}
+                            {gameId === games.casinoHoldem && <span> sau khi bấm nút &quot;Theo Bài&quot;.</span>}
                         </li>
                         <li>
                             <strong>Bước 3</strong>: Truy cập{" "}
@@ -61,8 +61,8 @@ export const renderMD5VI = (gameId?: number) => {
                     </div>
                     <div className="content"><strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả</div>
                     <ul className="desc">
-                        <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút “Chia Bài”.</li>
-                        <li><strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Key sau khi bấm nút “Theo Bài”
+                        <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.</li>
+                        <li><strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Key sau khi bấm nút &quot;Theo Bài&quot;
                             <div>Trong đó A, B là hai lá của Người Chơi và E, X là hai lá của Nhà Cái. Năm lá bài chung Z, T, R, W, L</div>
                         </li>
                         <li><strong>Bước 3:</strong> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
