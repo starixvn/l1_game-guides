@@ -4,8 +4,8 @@ import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5/vi";
-import ScrollToMD5 from "../../../shared/md5";
+import { renderMD5VI } from "../../../shared/md5-number/vi";
+import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../casino-hold.module.scss";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
@@ -41,12 +41,12 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 </li>
                 <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
             </ul>
-            <ul className="style-number-rule">
+            <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Thang sức mạnh</span>
-                    <ul className="game-guide-alpha">
-                        <li className="">
-                            a) Lá bài
+                    <ul className="style-number-dot-number">
+                        <li className="number-dot-number">
+                            <span className="title-text">Lá bài</span>
                             <ul className="desc">
                                 <li>
                                     Thứ tự các lá bài từ lớn đến nhỏ: Ace (A), King (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3, 2
@@ -57,9 +57,15 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <span className={Styles["red"]}>♦</span>, <span className={Styles["red"]}>♥</span>) của lá bài.
                                 </li>
                             </ul>
+                            <div className="desc"><strong>Ví dụ:</strong>
+                                <ul className="desc">
+                                    <li>Ace, 2, 3, 4, 5 {'=>'} Ace nhỏ nhất</li>
+                                    <li>10, J, Q, K, Ace {'=>'} Ace lớn nhất</li>
+                                </ul>
+                            </div>
                         </li>
-                        <li className="">
-                            b) Tay bài
+                        <li className="number-dot-number">
+                            <span className="title-text">Tay bài</span>
                             <ul className="desc">
                                 <li>
                                     Xếp hạng tay bài trong Casino Hold&apos;em từ mạnh đến yếu:
@@ -423,9 +429,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 </li>
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Đặt cược</span>
-                    <ul className="game-guide-alpha">
-                        <li>
-                            a)Ante Bet
+                    <ul className="style-number-dot-number">
+                        <li className="number-dot-number">
+                            <span className="title-text">Ante Bet</span>
                             <ul className="desc">
                                 <li>
                                     <strong>Ante bet</strong> là cược chính, Người Chơi bắt buộc phải đặt cược vào Ante để có thể bắt đầu
@@ -438,8 +444,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái {"=>"} Người Chơi thắng và ngược lại.</li>
                             </ul>
                         </li>
-                        <li>
-                            b)Cược AA
+                        <li className="number-dot-number">
+                            <span className="title-text">Cược AA</span>
                             <ul className="desc">
                                 <li>
                                     <strong>Cược AA</strong> là cược phụ, tùy chọn có thể đặt thêm nếu bạn muốn.{" "}
@@ -457,8 +463,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 <li>Điều kiện thắng cược phụ AA, nếu tay bài Người Chơi có đôi Ace hoặc cao hơn (Hai Đôi, Sám …)</li>
                             </ul>
                         </li>
-                        <li>
-                            c) Call Bet
+                        <li className="number-dot-number">
+                            <span className="title-text">Call Bet</span>
                             <ul className="desc">
                                 <li>
                                     Call Bet là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số
@@ -518,7 +524,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                 <li>Tiền cược vào Ante bet, AA, Call bet sẽ có mức trả thưởng tương ứng khác nhau.</li>
                 <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>
             </ul>
-            <ul className="style-number-rule">
+            <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Ante bet</span>
                     <div className="table-container text-center">

@@ -6,7 +6,7 @@ export const renderMD5VI = (gameId?: number) => {
         <>
             <h2> MD5 (Message-Digest algorithm 5) </h2>
             <ul className="game-guide-alpha">
-                <li>
+                <li className="number-dot">
                     <strong>a) Công nghệ MD5</strong>
                     <ul className="desc">
                         <li>
@@ -20,7 +20,7 @@ export const renderMD5VI = (gameId?: number) => {
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li className="number-dot">
                     <strong>b) Các bước kiểm tra</strong>
                     <ul className="desc">
                         <li>

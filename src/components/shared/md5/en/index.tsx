@@ -6,7 +6,7 @@ export const renderMD5EN = (gameId?: number) => {
     return (
         <>
             <h2> MD5 (Message-Digest algorithm 5) </h2>
-            <ul className="style-number-rule">
+            <ul className="game-guide-alpha">
                 <li className="number-dot">
                     <strong>MD5 technology</strong>
                     <ul className="desc">

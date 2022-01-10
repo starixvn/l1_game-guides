@@ -4,8 +4,8 @@ import Image from "next/image";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5/en";
-import ScrollToMD5 from "../../../shared/md5";
+import { renderMD5EN } from "../../../shared/md5-number/en";
+import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../casino-hold.module.scss";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
@@ -41,12 +41,12 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                     face-down cards.
                 </li>
             </ul>
-            <ul className="style-number-rule">
+            <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Ranking Level</span>
-                    <ul className="game-guide-alpha">
-                        <li className="">
-                            a) Card Values
+                    <ul className="style-number-dot-number">
+                        <li className="number-dot-number">
+                            <span className="title-text">Card Values</span>
                             <ul className="desc">
                                 <li>
                                     The card&apos;s value is ranked from the highest to the lowest in the following order: Ace (A), King
@@ -63,8 +63,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 </li>
                             </ul>
                         </li>
-                        <li className="">
-                            b) Hand <span className={Styles["red"]}>Ranking</span>
+                        <li className="number-dot-number">
+                            <span className="title-text">Hand <span className={Styles["red"]}>Ranking</span></span>
                             <ul className="desc">
                                 <li>
                                     List of poker hand ranking levels from highest to lowest
@@ -425,9 +425,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 </li>
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Betting Option</span>
-                    <ul className="game-guide-alpha">
-                        <li>
-                            a)Ante Bet
+                    <ul className="style-number-dot-number ">
+                        <li className="number-dot-number">
+                            <span className="title-text">Ante Bet</span>
                             <ul className="desc">
                                 <li>&quot;Ante&quot; Bet is a mandatory bet that the player must make before any cards are dealt.</li>
                                 <li>
@@ -436,8 +436,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            b)AA Bet
+                        <li className="number-dot-number">
+                            <span className="title-text">AA Bet</span>
                             <ul className="desc">
                                 <li>
                                     A side bet known as the &quot;AA&quot; bet, is based on the poker value of the player&apos;s two cards
@@ -454,8 +454,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            c) Call Bet
+                        <li className="number-dot-number">
+                            <span className="title-text">Call Bet</span>
                             <ul className="desc">
                                 <li>
                                     Call bet is an additional bet decided by the Player whether he wants to continue the game round. Call
@@ -516,7 +516,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                 </li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
-            <ul className="style-number-rule">
+            <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Ante bet</span>
                     <div className="table-container text-center">
