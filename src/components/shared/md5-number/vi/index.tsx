@@ -2,6 +2,7 @@ import React from "react";
 
 const games = { casinoHoldem: 39 };
 export const renderMD5VI = (gameId?: number) => {
+    let bettingText = gameId === games.casinoHoldem ? "mở bài" : "đặt cược";
     return (
         <>
             <h2> MD5 (Message-Digest algorithm 5) </h2>
@@ -13,9 +14,9 @@ export const renderMD5VI = (gameId?: number) => {
                             <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
                             thông qua bên thứ ba.
                         </li>
-                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi đặt cược. </li>
+                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi {bettingText}. </li>
                         <li>
-                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược (Chuỗi{" "}
+                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi {bettingText} (Chuỗi{" "}
                             <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (Chuỗi <strong>Key</strong>).
                         </li>
                     </ul>
@@ -24,10 +25,14 @@ export const renderMD5VI = (gameId?: number) => {
                     <span className="title-text"> Các bước kiểm tra</span>
                     <ul className="desc">
                         <li>
-                            <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.
+                            <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game 
+                            {gameId !== games.casinoHoldem && <span> trước khi kết quả được công bố.</span>}
+                            {gameId === games.casinoHoldem && <span> sau khi bấm nút "Chia Bài".</span>}
                         </li>
                         <li>
-                            <strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong> sau khi hệ thống công bố kết quả.
+                            <strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong>
+                            {gameId !== games.casinoHoldem && <span> sau khi hệ thống công bố kết quả.</span>}
+                            {gameId === games.casinoHoldem && <span> sau khi bấm nút "Theo Bài".</span>}
                         </li>
                         <li>
                             <strong>Bước 3</strong>: Truy cập{" "}

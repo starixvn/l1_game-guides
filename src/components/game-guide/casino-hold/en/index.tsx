@@ -22,7 +22,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                     cards will be face down, while the Player&apos;s card will not.{" "}
                 </li>
                 <li>
-                    Three community cards (Flop card) are dealt face-up in the middle of the table.
+                    Three community cards (Flop card) are dealt face-up in the middle of the table.                    
+                </li>
+
+                <li>After the first three community cards are dealt, Player must decide whether to CALL or FOLD.
                     <ul className="detail">
                         <li>
                             <strong>FOLD:</strong> the Player will surrender his hand and lose both the Ante bet and optional AA bet. The
@@ -34,11 +37,12 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                         </li>
                     </ul>
                 </li>
-
-                <li>After the first three community cards are dealt, Player must decide whether to CALL or FOLD.</li>
                 <li>
                     After clicking on the CALL button, the two remaining community cards are dealt and the Dealer reveals the value of the
                     face-down cards.
+                </li>
+                <li>
+                    The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win the Ante bet if the Player has a better hand than the Dealer.
                 </li>
             </ul>
             <ul className="style-number-dot">
@@ -618,10 +622,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                                         <td>Two Pair</td>
                                     </tr>
                                     <tr>
-                                        <td>Pair</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hight card</td>
+                                        <td>Pair of Aces</td>
                                     </tr>
                                 </tbody>
                             </table>

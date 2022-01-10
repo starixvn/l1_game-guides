@@ -51,18 +51,19 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 <li>
                                     Thứ tự các lá bài từ lớn đến nhỏ: Ace (A), King (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3, 2
                                 </li>
-                                <li>Trong đó Ace (A) có thể tính như 1 lá lớn nhất hoặc nhỏ nhất.</li>
+                                <li>Trong đó Ace (A) có thể tính như 1 lá lớn nhất hoặc nhỏ nhất.
+                                    <div className="desc"><strong>Ví dụ:</strong>
+                                        <ul className="desc">
+                                            <li>Ace, 2, 3, 4, 5 {'=>'} Ace nhỏ nhất</li>
+                                            <li>10, J, Q, K, Ace {'=>'} Ace lớn nhất</li>
+                                        </ul>
+                                    </div>
+                                </li>
                                 <li>
                                     Không so chất (<span className={Styles["black"]}>♠</span>, <span className={Styles["black"]}>♣</span>,{" "}
                                     <span className={Styles["red"]}>♦</span>, <span className={Styles["red"]}>♥</span>) của lá bài.
                                 </li>
-                            </ul>
-                            <div className="desc"><strong>Ví dụ:</strong>
-                                <ul className="desc">
-                                    <li>Ace, 2, 3, 4, 5 {'=>'} Ace nhỏ nhất</li>
-                                    <li>10, J, Q, K, Ace {'=>'} Ace lớn nhất</li>
-                                </ul>
-                            </div>
+                            </ul>                            
                         </li>
                         <li className="number-dot-number">
                             <span className="title-text">Tay bài</span>
