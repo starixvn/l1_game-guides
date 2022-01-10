@@ -35,8 +35,12 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieWarGuide = (props: GameGuideBase) => {
-    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            return GameConfigs;
+        }
+
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
         }

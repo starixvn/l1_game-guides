@@ -19,8 +19,12 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic } = props;
+    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            return GameConfigs;
+        }
+
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
         }

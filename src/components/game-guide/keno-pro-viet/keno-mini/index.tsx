@@ -10,8 +10,15 @@ import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 
 const gameMini2Id = [15];
 const KenoMiniGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel } = props;
+    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            if (gameMini2Id.includes(id ?? gameMini2Id[0])) {
+                return GameConfigsMini2;
+            }
+            return GameConfigsMini;
+        }
+
         if (!dynamic) {
             if (gameMini2Id.includes(id ?? gameMini2Id[0])) {
                 gameConfigs.odds = GameConfigsMini2.odds;

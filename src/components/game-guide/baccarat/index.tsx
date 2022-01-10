@@ -22,8 +22,14 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 
 export const BaccaratVip = [27];
 const BaccaratGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            if (BaccaratVip.includes(id ? id : BaccaratVip[0])) {
+                return GameConfigsVIP;
+            }
+            return GameConfigs;
+        }
         if (!dynamic) {
             if (BaccaratVip.includes(id ? id : BaccaratVip[0])) {
                 gameConfigs.odds = GameConfigsVIP.odds;
@@ -33,7 +39,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
         return gameConfigs;
     };
 
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, gameConfigs);
+    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
     if (locale === locales.en) {
         return (
             <BaccaratGuideEN

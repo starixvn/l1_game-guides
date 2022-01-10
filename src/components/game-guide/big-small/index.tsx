@@ -10,8 +10,15 @@ import { handleMaxBetChoice } from "../index.helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName, userStakeLevel } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName, userStakeLevel, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            if (gameName === BigSmallName.TXTurbo) {
+                return GameConfigsTurbo;
+            }
+            return GameConfigs;
+        }
+
         if (dynamic) {
             return gameConfigs;
         } else {

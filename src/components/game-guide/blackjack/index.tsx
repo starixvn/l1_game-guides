@@ -9,8 +9,12 @@ import { locales } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 
 const BlackjackGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            return GameConfigs;
+        }
+
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
         }

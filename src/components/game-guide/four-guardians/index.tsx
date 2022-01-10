@@ -7,8 +7,12 @@ import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            return GameConfigs;
+        }
+
         if (!dynamic) {
             gameConfigs.odds = GameConfigs.odds;
         }

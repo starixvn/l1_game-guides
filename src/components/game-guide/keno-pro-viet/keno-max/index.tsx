@@ -13,8 +13,26 @@ import { locales } from "../../../../common/constants";
 import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel } = props;
+    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
     const getGameConfigs = () => {
+        if (!isGetGameConfigs) {
+            switch (id) {
+                case 13:
+                    return GameConfigsMax2;
+                case 16:
+                    return GameConfigsEast;
+                case 17:
+                    return GameConfigsWest;
+                case 18:
+                    return GameConfigsSouth;
+                case 19:
+                    return GameConfigsNorth;
+
+                default:
+                    return GameConfigsMax;
+            }
+        }
+
         if (!dynamic) {
             switch (id) {
                 case 13:

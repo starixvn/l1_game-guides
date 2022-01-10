@@ -31,33 +31,36 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
-        // if (dynamic) {
-        //     return gameConfigs;
-        // } else {
-        //     switch (id) {
-        //         case 7:
-        //             gameConfigs.odds = GameConfigsMini.odds;
-        //             break;
-        //         case 22:
-        //             gameConfigs.odds = GameConfigsVIP.odds;
-        //             break;
+        if (!isGetGameConfigs) {
+            switch (id) {
+                case 7:
+                    return GameConfigsMini;
+                case 22:
+                    return GameConfigsVIP;
 
-        //         default:
-        //             gameConfigs.odds = GameConfigs.odds;
-        //             break;
-        //     }
-        //     return gameConfigs;
-        // }
-        switch (id) {
-            case 7:
-                return GameConfigsMini;
-            case 22:
-                return GameConfigsVIP;
+                default:
+                    return GameConfigs;
+            }
+        }
 
-            default:
-                return GameConfigs;
+        if (dynamic) {
+            return gameConfigs;
+        } else {
+            switch (id) {
+                case 7:
+                    gameConfigs.odds = GameConfigsMini.odds;
+                    break;
+                case 22:
+                    gameConfigs.odds = GameConfigsVIP.odds;
+                    break;
+
+                default:
+                    gameConfigs.odds = GameConfigs.odds;
+                    break;
+            }
+            return gameConfigs;
         }
     };
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
