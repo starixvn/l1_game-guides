@@ -127,14 +127,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/A-X.png"
-                                    alt="A-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Straight Up: </strong>a bet on a specific number.<br></br>+ Place your chips directly on any
                                     single number (including Zero)
@@ -143,14 +136,7 @@ const renderBetChipsNotice = () => {
                         </td>
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/H-X.png"
-                                    alt="H-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one
                                     the areas marked {`"1:3"`} at the end of the columns.
@@ -161,14 +147,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/B-X.png"
-                                    alt="B-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Split: </strong>a bet on two adjoining numbers, either horizontal or vertical.<br></br>+ Place
                                     your chips on the line between any two numbers.
@@ -177,14 +156,7 @@ const renderBetChipsNotice = () => {
                         </td>
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/I-X.png"
-                                    alt="I-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Dozen: </strong>a bet on twelve consecutive numbers.<br></br>+ Place your chips in one of the
                                     three areas marked {`"1-12", "13-24" or "25-36"`}.
@@ -195,14 +167,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/C-X.png"
-                                    alt="C-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Street: </strong>a bet on three consecutive numbers located on the same line.<br></br>+ Place
                                     your chips on the outside border of the three numbers.
@@ -211,14 +176,7 @@ const renderBetChipsNotice = () => {
                         </td>
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/J-X.png"
-                                    alt="J-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Red/Black: </strong>bet on whether the final result is Red or Black colour.
                                 </div>
@@ -228,14 +186,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/D-X.png"
-                                    alt="D-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Triangle: </strong>a bet on three adjoining numbers 0, 1, 2 or 0, 2, 3.<br></br>+ Place your
                                     chips on the intersecting corner of (0, 1, and 2) or (0, 2, and 3).
@@ -244,14 +195,7 @@ const renderBetChipsNotice = () => {
                         </td>
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/K-X.png"
-                                    alt="K-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Odd/Even: </strong>bet on whether the final result is Odd or Even number (excluding Zero).
                                 </div>
@@ -261,14 +205,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/E-X.png"
-                                    alt="E-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Corner: </strong>a bet on four numbers
                                     <br></br>+ Place your chips on the intersection where all four numbers meet.
@@ -277,14 +214,7 @@ const renderBetChipsNotice = () => {
                         </td>
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/L-X.png"
-                                    alt="L-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Big/Small: </strong>bet on whether the final result is Big (19-36) or Small (1-18).
                                 </div>
@@ -294,14 +224,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/F-X.png"
-                                    alt="F-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Four numbers: </strong>a bet on four numbers 0, 1, 2, 3.<br></br>+ Place your chips on the
                                     intersecting corner of 0 and the row of 1, 2, 3.
@@ -313,14 +236,7 @@ const renderBetChipsNotice = () => {
                     <tr className="text-start">
                         <td>
                             <div className={Styles["img-chip"]}>
-                                <Image
-                                    src="/static/images/roulette/G-X.png"
-                                    alt="G-X"
-                                    width={37}
-                                    height={37}
-                                    layout="fixed"
-                                    loading="lazy"
-                                />
+                                <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Line: </strong>a bet on two adjoining rows.<br></br>+ Place your chips at the end of two rows on
                                     the intersection between them.
@@ -350,14 +266,7 @@ const renderCallBetTiers = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Tiers option, it will cost 6 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
-                    src="/static/images/roulette/game_guide-tiers_ex.png"
-                    alt="game_guide-tiers"
-                    width={886}
-                    height={221}
-                    layout="responsive"
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" width={886} height={221} loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -426,12 +335,11 @@ const renderCallBetOrphelins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-orphelins_ex.png"
                     alt="game_guide-orphelins_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -500,12 +408,11 @@ const renderCallBetVoisins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-voisins_ex.png"
                     alt="game_guide-voisins_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -582,12 +489,11 @@ const renderCallBetZero = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-zero_ex.png"
                     alt="game_guide-zero_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -647,12 +553,11 @@ const renderCallBetNeighbors = () => {
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-neighbors_1.png"
                     alt="game_guide-neighbors_1"
                     width={713}
                     height={198}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -661,12 +566,11 @@ const renderCallBetNeighbors = () => {
                 for five Straight bets: (36), (13), (27), (6), (34).
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide_neighbors_ex.png"
                     alt="game_guide_neighbors_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -724,14 +628,7 @@ const renderBettingOptions = () => {
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
             <div className={Styles["wrapper-img-rule"]}>
-                <Image
-                    src="/static/images/roulette/en/game_guide-luat_choi.png"
-                    alt="luat-choi"
-                    width={886}
-                    height={475}
-                    layout="responsive"
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" width={886} height={475} loading="lazy" />
             </div>
             {renderBetChipsNotice()}
         </li>
@@ -748,12 +645,11 @@ const renderCallBet = () => {
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
-                    <Image
+                    <img
                         src="/static/images/roulette/game_guide-cuoc_nhanh.png"
                         alt="game_guide-cuoc_nhanh"
                         width={713}
                         height={221}
-                        layout="responsive"
                         loading="lazy"
                     />
                 </div>

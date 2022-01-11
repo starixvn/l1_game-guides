@@ -249,12 +249,11 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </a>{" "}
                                     and paste the key string into the MD5 box
                                     <div className={Styles["wrapper-img-hash"]}>
-                                        <Image
+                                        <img
                                             src={`/static/images/keno-power/md5-hash.png`}
                                             alt="md5-copy"
                                             width={387}
                                             height={120}
-                                            layout="responsive"
                                             loading="eager"
                                         />
                                     </div>
@@ -263,12 +262,11 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Step 4</strong>: Press the “hash, darling hash!” button and compare the newly generated checksum
                                     MD5 string with the MD5 string in Step 1
                                     <div className={Styles["wrapper-img"]}>
-                                        <Image
+                                        <img
                                             src={`/static/images/keno-power/md5.png`}
                                             alt="md5-copy"
                                             width={362}
                                             height={98}
-                                            layout="responsive"
                                             loading="eager"
                                         />
                                     </div>

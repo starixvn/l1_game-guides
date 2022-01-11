@@ -26,12 +26,11 @@ const renderGameRule = () => {
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
                 <div className={Styles["wrapper-img-rectangle"]}>
-                    <Image
+                    <img
                         src={`/static/images/four-guardians/guide_payline.png`}
                         alt="guide_payline"
                         width={844}
                         height={165}
-                        layout="responsive"
                         loading="eager"
                     />
                 </div>
@@ -68,11 +67,10 @@ export const renderIconContent = (
     const pathSrc = itemName === "item10" ? "./static/images/four-guardians/L1/" : "./static/images/four-guardians/";
     return (
         <span className={Styles["wrapper-icon"]}>
-            <Image
+            <img
                 src={`/static/images/four-guardians/${isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}.png?v1`}
                 width={200}
                 height={132}
-                layout="fixed"
                 alt={isBgBlack ? "guide_item_symbol_bg-dark" : "guide_item_symbol_bg"}
                 loading="eager"
             />
@@ -227,12 +225,11 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
 export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
     return (
         <span className={Styles["wrapper-icon-dark"]}>
-            <Image
+            <img
                 className={`${Styles[iconBox]}`}
                 src="/static/images/four-guardians/guide_item_symbol_bg-dark.png?v1"
                 width={269}
                 height={132}
-                layout="fixed"
                 alt="guide_item_symbol_bg"
                 loading="eager"
             />
@@ -364,12 +361,11 @@ const renderFreeSpin = (odds: number[][]) => {
                     symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <Image
+                            <img
                                 src="/static/images/four-guardians/L1/guide_example_free_spin.png?v1"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
-                                layout="fixed"
                                 loading="eager"
                             />
                         </div>
@@ -444,12 +440,11 @@ const renderBonus = (odds: number[][]) => {
                     on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <Image
+                            <img
                                 src="/static/images/four-guardians/L1/guide_example_bonus.png?v1"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
-                                layout="fixed"
                                 loading="eager"
                             />
                         </div>
@@ -477,12 +472,11 @@ const renderWild = (odds: number[][]) => {
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
-                    <Image
+                    <img
                         src="/static/images/four-guardians/guide_example_wild.png"
                         alt="guide_example_wild"
                         width={245}
                         height={160}
-                        layout="fixed"
                         loading="eager"
                     />
                 </span>
@@ -516,54 +510,19 @@ const renderWild = (odds: number[][]) => {
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item2.png"
-                                alt="item2"
-                                width={77}
-                                height={67}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item2.png"
-                                alt="item2"
-                                width={77}
-                                height={67}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item9.png?v1"
-                                alt="item9"
-                                width={74}
-                                height={50}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item9.png?v1" alt="item9" width={74} height={50} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item5.png"
-                                alt="item5"
-                                width={85}
-                                height={86}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item5.png" alt="item5" width={85} height={86} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item5.png"
-                                alt="item5"
-                                width={85}
-                                height={86}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item5.png" alt="item5" width={85} height={86} loading="eager" />
                         </div>
                     </div>
                     <ul className="desc">
@@ -609,13 +568,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <Image
-                            src={`/static/images/four-guardians/L1/list_icon.png?v1`}
-                            alt="guide_item_symbol_bg"
-                            width={38}
-                            height={38}
-                            layout="responsive"
-                        />
+                        <img src={`/static/images/four-guardians/L1/list_icon.png?v1`} alt="guide_item_symbol_bg" width={38} height={38} />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

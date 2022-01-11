@@ -13,55 +13,19 @@ export const renderListIcon = (theme: string | undefined) => {
     const widthIcon2 = theme === Themes.blue ? 95 : 70;
     return (
         <>
-            <Image
-                src={`/static/images/fish-prawn-crab-vip/stag.png`}
-                alt="stag"
-                width={widthIcon2}
-                height={widthIcon2}
-                layout="fixed"
-                loading="lazy"
-            />
-            <Image
-                src={`/static/images/fish-prawn-crab-vip/gourd.png`}
-                alt="gourd"
-                width={widthIcon1}
-                height={widthIcon1}
-                layout="fixed"
-                loading="lazy"
-            />
+            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
+            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
 
-            <Image
+            <img
                 src={`/static/images/fish-prawn-crab-vip/crooster.png`}
                 alt="crooster"
                 width={widthIcon2}
                 height={widthIcon2}
-                layout="fixed"
                 loading="lazy"
             />
-            <Image
-                src={`/static/images/fish-prawn-crab-vip/fish.png`}
-                alt="fish"
-                width={widthIcon1}
-                height={widthIcon1}
-                layout="fixed"
-                loading="lazy"
-            />
-            <Image
-                src={`/static/images/fish-prawn-crab-vip/crab.png`}
-                alt="crab"
-                width={widthIcon1}
-                height={widthIcon1}
-                layout="fixed"
-                loading="lazy"
-            />
-            <Image
-                src={`/static/images/fish-prawn-crab-vip/prawn.png`}
-                alt="prawn"
-                width={widthIcon1}
-                height={widthIcon1}
-                layout="fixed"
-                loading="lazy"
-            />
+            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
+            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
+            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
         </>
     );
 };

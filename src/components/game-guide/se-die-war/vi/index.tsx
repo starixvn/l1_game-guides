@@ -320,12 +320,11 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li className="number-dot">
                             <span className="font-weight-medium title-text">Dãy Số Thống Kê</span>
                             <div className={Styles["wrapper-guide-stats"]}>
-                                <Image
+                                <img
                                     src={`/static/images/sedie-war/${pathImg}`}
                                     alt="guide-stats-vi"
                                     width={718}
                                     height={150}
-                                    layout="responsive"
                                     loading="eager"
                                 />
                             </div>

@@ -38,37 +38,37 @@ const renderBetChipsNotice = () => {
         <div className={Styles["wrapper-chips"]}>
             <div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Đơn<br></br> (Cược vào 1 số cụ thể)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Đôi<br></br> (Cược vào 2 số kế nhau)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Hàng<br></br> (Cược vào 3 số cùng một hàng)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Bộ Ba<br></br> (Cược vào tổ hợp ba số 0, 1, 2 hoặc 0, 2, 3)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Góc<br></br> (Cược vào 4 số cùng giao nhau tại một góc)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Bộ Bốn<br></br> (Cược vào tổ hợp bốn số 0, 1, 2, 3)
                     </div>
@@ -76,37 +76,37 @@ const renderBetChipsNotice = () => {
             </div>
             <div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược 2 Hàng<br></br> (Cược vào 2 hàng liền kề)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Cột<br></br> (Cược vào 12 số trong một cột)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                     <div>
                         Cược Tá<br></br> (Cược vào nhóm 12 số)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} loading="lazy" />
                     <div>
                         Đỏ/Đen<br></br> (Cược viên bi sẽ dừng ở ô số Đỏ hay Đen)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} loading="lazy" />
                     <div>
                         Chẵn/Lẻ<br></br> (Cược viên bi sẽ dừng ở ô số Chẵn hay Lẻ)
                     </div>
                 </div>
                 <div className={Styles["img-chip"]}>
-                    <Image src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} layout="fixed" loading="lazy" />
+                    <img src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} loading="lazy" />
                     <div>
                         Tài/Xỉu<br></br> (Cược kết quả Tài 19-36 hay Xỉu 1-18)
                     </div>
@@ -127,14 +127,7 @@ const renderCallBetTiers = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Tiers, mức cược tương ứng cho từng cược đôi sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <Image
-                    src="/static/images/roulette/game_guide-tiers_ex.png"
-                    alt="game_guide-tiers"
-                    width={886}
-                    height={221}
-                    layout="responsive"
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" width={886} height={221} loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -201,12 +194,11 @@ const renderCallBetOrphelins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Orphelins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-orphelins_ex.png"
                     alt="game_guide-orphelins_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -280,12 +272,11 @@ const renderCallBetVoisins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Voisins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-voisins_ex.png"
                     alt="game_guide-voisins_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -360,12 +351,11 @@ const renderCallBetZero = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Zero, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-zero_ex.png"
                     alt="game_guide-zero_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -423,12 +413,11 @@ const renderCallBetNeighbors = () => {
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide-neighbors_1.png"
                     alt="game_guide-neighbors_1"
                     width={713}
                     height={198}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -437,12 +426,11 @@ const renderCallBetNeighbors = () => {
                 36-13-27-6-34 (27 là con số ở giữa).
             </p>
             <div className={Styles[wrapperImg]}>
-                <Image
+                <img
                     src="/static/images/roulette/game_guide_neighbors_ex.png"
                     alt="game_guide_neighbors_ex"
                     width={886}
                     height={221}
-                    layout="responsive"
                     loading="lazy"
                 />
             </div>
@@ -500,14 +488,7 @@ const renderBettingOptions = () => {
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
             <div className={Styles["wrapper-img-rule"]}>
-                <Image
-                    src="/static/images/roulette/vi/game_guide-luat_choi.png"
-                    alt="luat-choi"
-                    width={886}
-                    height={475}
-                    layout="responsive"
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/vi/game_guide-luat_choi.png" alt="luat-choi" width={886} height={475} loading="lazy" />
             </div>
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
@@ -631,12 +612,11 @@ const renderBettingOptions = () => {
                     </p>
                     <div className={Styles[wrapperImg]}>
                         <div className={Styles["wrapper-img-circle"]}>
-                            <Image
+                            <img
                                 src="/static/images/roulette/game_guide-cuoc_nhanh.png"
                                 alt="game_guide-cuoc_nhanh"
                                 width={713}
                                 height={221}
-                                layout="responsive"
                                 loading="lazy"
                             />
                         </div>
