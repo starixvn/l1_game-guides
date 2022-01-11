@@ -274,7 +274,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 </li>
                             </ul>
                             <p>
-                                <strong>Example</strong>
+                                <strong>Ví dụ</strong>
                             </p>
                             <div className="table-container text-center">
                                 <table className="table">
