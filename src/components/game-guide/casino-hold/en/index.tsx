@@ -44,6 +44,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 <li>
                     The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win the Ante bet if the Player has a better hand than the Dealer.
                 </li>
+                <li>The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled after cards are dealt. </li>
             </ul>
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -687,15 +688,15 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Ante Bet</td>
+                                <td>Ante</td>
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                             </tr>
                             <tr>
-                                <td>Call Bet</td>
+                                <td>Call</td>
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                             </tr>
                             <tr>
-                                <td>AA Bet</td>
+                                <td>AA</td>
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAaBetChoice}
                             </tr>
                         </tbody>

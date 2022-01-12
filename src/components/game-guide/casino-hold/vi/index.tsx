@@ -468,7 +468,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             <span className="title-text">Call</span>
                             <ul className="desc">
                                 <li>
-                                    Call Bet là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số
+                                    Call là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số
                                     tiền đã đặt vào Ante.{" "}
                                 </li>
                             </ul>
