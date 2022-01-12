@@ -27,7 +27,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                         </li>
                         <li>
                             Nếu chọn <strong>&quot;Theo Bài&quot;</strong>, 2 lá bài chung tiếp theo sẽ được chia và lật giữa bàn Người Chơi
-                            phải đặt thêm 1 khoản tiền cược (Call bet) bằng 2 lần số tiền đã đặt vào Ante.
+                            phải đặt thêm 1 khoản tiền cược Call bằng 2 lần số tiền đã đặt vào Ante.
                         </li>
                     </ul>
                 </li>
@@ -432,10 +432,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                     <span className="font-weight-medium title-text">Đặt cược</span>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">
-                            <span className="title-text">Ante Bet</span>
+                            <span className="title-text">Cược Ante</span>
                             <ul className="desc">
                                 <li>
-                                    <strong>Ante bet</strong> là cược chính, Người Chơi bắt buộc phải đặt cược vào Ante để có thể bắt đầu
+                                    <strong>Ante</strong> là cược chính, Người Chơi bắt buộc phải đặt cược vào Ante để có thể bắt đầu
                                     phiên chơi.{" "}
                                 </li>
                                 <li>
@@ -465,7 +465,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             </ul>
                         </li>
                         <li className="number-dot-number">
-                            <span className="title-text">Call Bet</span>
+                            <span className="title-text">Call</span>
                             <ul className="desc">
                                 <li>
                                     Call Bet là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số
@@ -495,18 +495,18 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             <tbody>
                                 <tr>
                                     <td>Tay bài Người Chơi cao hơn Nhà Cái</td>
-                                    <td>Người Chơi thắng Ante bet và Call bet</td>
+                                    <td>Người Chơi thắng cược Ante và Call</td>
                                     <td rowSpan={3}>
-                                        Người Chơi thắng <strong>Ante bet</strong> và <strong>Call bet</strong> được hoàn trả.
+                                        Người Chơi thắng <strong>cược Ante;</strong> tiền cược vào <strong>Call</strong> được hoàn trả
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Tay bài Người Chơi thấp hơn Nhà Cái</td>
-                                    <td>Người Chơi thua Ante bet và Call bet</td>
+                                    <td>Người Chơi thua cược Ante và Call</td>
                                 </tr>
                                 <tr>
                                     <td>Tay bài Người Chơi bằng Nhà Cái</td>
-                                    <td>Ante bet và Call bet đều được hoàn trả</td>
+                                    <td>Cược Ante và Call đều được hoàn trả</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -522,12 +522,12 @@ const renderPayouts = (odds: OddsProps | undefined) => {
         <>
             <h2>Trả thưởng</h2>
             <ul className="desc">
-                <li>Tiền cược vào Ante bet, AA, Call bet sẽ có mức trả thưởng tương ứng khác nhau.</li>
+                <li>Tiền cược vào Ante, AA, Call sẽ có mức trả thưởng tương ứng khác nhau.</li>
                 <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>
             </ul>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Ante bet</span>
+                    <span className="font-weight-medium title-text">Cược Ante</span>
                     <div className="table-container text-center">
                         <table className="table table-small">
                             <thead>
@@ -578,9 +578,9 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Call bet</span>
+                    <span className="font-weight-medium title-text">Call</span>
                     <ul className="desc">
-                        <li>Tỷ lệ cược cho Call bet là 1:{odds?.CallBet_callBet}</li>
+                        <li>Tỷ lệ cược cho Call là 1:{odds?.CallBet_callBet}</li>
                     </ul>
                 </li>
                 <li className="number-dot">
@@ -689,19 +689,19 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Ante Bet</td>
+                                <td>Ante</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                                 </td>
                             </tr>
                             <tr>
-                                <td>Call Bet</td>
+                                <td>Call</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                                 </td>
                             </tr>
                             <tr>
-                                <td>AA Bet</td>
+                                <td>AA</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAaBetChoice}
                                 </td>
