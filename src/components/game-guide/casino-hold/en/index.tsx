@@ -512,7 +512,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
 const renderPayouts = (odds: OddsProps | undefined) => {
     return (
         <>
-            <h2>Payouts</h2>
+            <h2>Payout</h2>
             <ul className="desc">
                 <li>
                     The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the initial
@@ -682,7 +682,7 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         <thead>
                             <tr>
                                 <td>Options</td>
-                                <td>Bet Limit(Min/Max)</td>
+                                <td>Bet Limit(Min-Max)</td>
                             </tr>
                         </thead>
                         <tbody>
