@@ -113,6 +113,7 @@ const Home = () => {
                     gameConfigs={gameConfigs}
                     dynamic={dynamic}
                     isScrollMD5={isScrollMD5}
+                    isGetGameConfigs={isGetGameConfigs}
                 ></GameGuide>
             ) : (
                 gameConfigs && (
@@ -124,6 +125,7 @@ const Home = () => {
                         gameConfigs={gameConfigs}
                         dynamic={dynamic}
                         isScrollMD5={isScrollMD5}
+                        isGetGameConfigs={isGetGameConfigs}
                     ></GameGuide>
                 )
             )}
