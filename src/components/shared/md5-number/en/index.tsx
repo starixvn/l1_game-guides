@@ -61,14 +61,21 @@ export const renderMD5EN = (gameId?: number) => {
                     </div>
                     <div className="content"><strong>Example:</strong> check the authenticity and transparency of Poker game results.</div>
                     <ul className="desc">
-                        <li><strong>Step 1:</strong> Copy the MD5 string after pressing the DEAL button.</li>
+                        <li><strong>Step 1:</strong> Copy the MD5 string after pressing the DEAL button.
+                            <img className="format-img" src="/static/images/casino-holdem/md5-final.png"/>
+                        </li>
                         <li><strong>Step 2:</strong> Copy key string after pressing the CALL button.
-                            <div>Noted: A, B are hole cards for Player, and E, X are the first two cards for Dealer. Five community cards T, D, B, Q. L</div>
+                            <img className="format-img"  src="/static/images/casino-holdem/key-string-final.png"/>
+                            <div>Noted: 9, 7 are hole cards for Player, and A, 8 are the first two cards for Dealer. Five community cards: 5, 5, 2, 10, 6</div>
                         </li>
                         <li><strong>Step 3:</strong> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                             https://md5.services/
-                        </a> and paste the key string into the MD5 box</li>
-                        <li><strong>Step4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with the MD5 string in <strong>Step 1</strong>.</li>
+                        </a> and paste the key string into the MD5 box
+                            <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png"/>
+                        </li>
+                        <li><strong>Step4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with the MD5 string in <strong>Step 1</strong>.
+                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png"/>
+                        </li>
                     </ul>
                 </>
             )}

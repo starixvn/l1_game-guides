@@ -365,3 +365,14 @@ ul {
         color: initial;
     }
 }
+
+.format-img {
+    margin: 8px 0;
+    display: block;
+}
+
+.auto-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

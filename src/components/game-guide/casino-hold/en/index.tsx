@@ -567,7 +567,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                                     <td>Pair</td>
                                 </tr>
                                 <tr>
-                                    <td>Hight card</td>
+                                    <td>High card</td>
                                 </tr>
                             </tbody>
                         </table>
