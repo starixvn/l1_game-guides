@@ -66,11 +66,11 @@ export const renderMD5VI = (gameId?: number) => {
                     <div className="content"><strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả</div>
                     <ul className="desc">
                         <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.
-                            <img className="format-img" src="/static/images/casino-holdem/md5-final.png"/>
+                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-final.png"/>
                         </li>
                         <li><strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Key sau khi bấm nút &quot;Theo Bài&quot;
-                            <img className="format-img"  src="/static/images/casino-holdem/key-string-final.png"/>
-                            <div>Trong đó 9, 7 là hai lá của Người Chơi và A, 8 là hai lá của Nhà Cái. Năm lá bài chung 5, 5, 2, 10, 6</div>
+                            <img className="format-img auto-center"  src="/static/images/casino-holdem/key-string-final.png"/>
+                            <div>Trong đó 9, <span className="red">7</span> là hai lá của Người Chơi và <span className="red">A</span>, <span className="red">8</span> là hai lá của Nhà Cái. Năm lá bài chung <span className="red">5</span>, 5, 2, <span className="red">10</span>, 6</div>
                         </li>
                         <li><strong>Bước 3:</strong> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                             https://md5.services/

@@ -62,11 +62,11 @@ export const renderMD5EN = (gameId?: number) => {
                     <div className="content"><strong>Example:</strong> check the authenticity and transparency of Poker game results.</div>
                     <ul className="desc">
                         <li><strong>Step 1:</strong> Copy the MD5 string after pressing the DEAL button.
-                            <img className="format-img" src="/static/images/casino-holdem/md5-final.png"/>
+                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-final.png"/>
                         </li>
                         <li><strong>Step 2:</strong> Copy key string after pressing the CALL button.
-                            <img className="format-img"  src="/static/images/casino-holdem/key-string-final.png"/>
-                            <div>Noted: 9, 7 are hole cards for Player, and A, 8 are the first two cards for Dealer. Five community cards: 5, 5, 2, 10, 6</div>
+                            <img className="format-img auto-center"  src="/static/images/casino-holdem/key-string-final.png"/>
+                            <div>Noted: 9, <span className="red">7</span>are hole cards for Player, and <span className="red">A</span>, <span className="red">8</span> are the first two cards for Dealer. Five community cards: <span className="red">5</span>, 5, 2, <span className="red">10</span>, 6</div>
                         </li>
                         <li><strong>Step 3:</strong> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                             https://md5.services/

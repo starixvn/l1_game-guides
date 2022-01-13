@@ -69,7 +69,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             </ul>
                         </li>
                         <li className="number-dot-number">
-                            <span className="title-text">Hand <span className={Styles["red"]}>Ranking</span></span>
+                            <span className="title-text">Hand Ranking</span>
                             <ul className="desc">
                                 <li>
                                     List of poker hand ranking levels from highest to lowest
