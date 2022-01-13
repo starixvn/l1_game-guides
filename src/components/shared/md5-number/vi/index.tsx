@@ -28,20 +28,13 @@ export const renderMD5VI = (gameId?: number) => {
                             
                             {gameId !== games.casinoHoldem && <span><strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.</span>}
                             {gameId === games.casinoHoldem && 
-                                <div>
-                                    <div><strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.</div>
-                                    <img className="format-img" src="/static/images/casino-holdem/md5-final.png" />
-                                </div>
+                                    <span><strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.</span>
                             }
                         </li>
                         <li>                            
                             {gameId !== games.casinoHoldem && <span> <strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong> sau khi hệ thống công bố kết quả.</span>}
                             {gameId === games.casinoHoldem && 
-                                <div>
-                                    <div><strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong> sau khi bấm nút &quot;Theo Bài&quot;.</div>
-                                    <img className="format-img" src="/static/images/casino-holdem/key-string-final.png" />
-                                    <div>Trong đó 9, 7 là hai lá của Người Chơi và A, 8 là hai lá của Nhà Cái. Năm lá bài chung 5, 5, 2, 10, 6</div>
-                                </div>
+                                <span><strong>Bước 2</strong>: Copy chuỗi <strong>Key</strong> sau khi bấm nút &quot;Theo Bài&quot;.</span>
                                 
                             }
                         </li>
@@ -51,12 +44,10 @@ export const renderMD5VI = (gameId?: number) => {
                                 https://md5.services/
                             </a>{" "}
                             và dán chuỗi <strong>Key</strong> vừa copy vào ô MD5.
-                            {gameId === games.casinoHoldem && <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png" />}
                         </li>
                         <li>
                             <strong>Bước 4</strong>: Bấm nút <strong>“hash, darling hash!”</strong>. So sánh chuỗi{" "}
                             <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>
-                            {gameId === games.casinoHoldem && <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png" />}
                         </li>
                     </ul>
                 </li>
@@ -74,14 +65,19 @@ export const renderMD5VI = (gameId?: number) => {
                     </div>
                     <div className="content"><strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả</div>
                     <ul className="desc">
-                        <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.</li>
+                        <li><strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.
+                            <img className="format-img" src="/static/images/casino-holdem/md5-final.png"/>
+                        </li>
                         <li><strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Key sau khi bấm nút &quot;Theo Bài&quot;
-                            <div>Trong đó A, B là hai lá của Người Chơi và E, X là hai lá của Nhà Cái. Năm lá bài chung Z, T, R, W, L</div>
+                            <img className="format-img"  src="/static/images/casino-holdem/key-string-final.png"/>
+                            <div>Trong đó 9, 7 là hai lá của Người Chơi và A, 8 là hai lá của Nhà Cái. Năm lá bài chung 5, 5, 2, 10, 6</div>
                         </li>
                         <li><strong>Bước 3:</strong> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                             https://md5.services/
-                        </a> và dán chuỗi Key vừa copy vào ô MD5.</li>
-                        <li><strong>Bước 4:</strong> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.</li>
+                        </a> và dán chuỗi Key vừa copy vào ô MD5.
+                        <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png"/></li>
+                        <li><strong>Bước 4:</strong> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.
+                        <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png"/></li>
                     </ul>
                     <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
                 </>
