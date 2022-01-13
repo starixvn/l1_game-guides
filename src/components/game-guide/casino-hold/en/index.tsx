@@ -290,33 +290,33 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                         <tr>
                                             <td>Player</td>
                                             <td>
-                                                A<span className={Styles["red"]}>♥</span>, J<span className={Styles["black"]}>♣</span>
+                                                <span className={Styles["red"]}>A<span className={Styles["font-large"]}>♥</span></span>, <span className={Styles["black"]}>J<span className={Styles["font-large"]}>♣</span></span>
                                             </td>
                                             <td>
-                                                A<span className={Styles["red"]}>♥</span>, A<span className={Styles["black"]}>♠</span>, J
-                                                <span className={Styles["black"]}>♣</span>, J<span className={Styles["red"]}>♥</span>, 10
-                                                <span className={Styles["black"]}>♣</span>
+                                                <span className={Styles["red"]}>A<span className={Styles["font-large"]}>♥</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>J<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["black"]}>10<span className={Styles["font-large"]}>♣</span></span>
                                             </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
                                             <td>
-                                                5<span className={Styles["red"]}>♦</span>, 7<span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["red"]}>5<span className={Styles["font-large"]}>♦</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td>
-                                                5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♠</span>, A
-                                                <span className={Styles["black"]}>♠</span>, J<span className={Styles["red"]}>♥</span>, 10
-                                                <span className={Styles["black"]}>♣</span>
+                                                <span className={Styles["red"]}>5<span className={Styles["font-large"]}>♦</span></span>, <span className={Styles["black"]}>5<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["black"]}>10<span className={Styles["font-large"]}>♣</span></span>
                                             </td>
                                             <td>Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
                                             <td>
-                                                A<span className={Styles["red"]}>♥</span>, 10<span className={Styles["black"]}>♣</span>, 5
-                                                <span className={Styles["black"]}>♠</span>, 6<span className={Styles["red"]}>♥</span>, J
-                                                <span className={Styles["red"]}>♥</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, <span className={Styles["black"]}>10<span className={Styles["font-large"]}>♣</span></span>, 
+                                                <span className={Styles["black"]}>5<span className={Styles["font-large"]}>♠</span></span>, <span className={Styles["red"]}>6<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♥</span></span>
                                             </td>
                                             <td></td>
                                             <td></td>
@@ -340,33 +340,33 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                         <tr>
                                             <td>Player</td>
                                             <td>
-                                                5<span className={Styles["red"]}>♦</span>, 5<span className={Styles["black"]}>♣</span>
+                                                <span className={Styles["red"]}>5<span className={Styles["font-large"]}>♦</span></span>, <span className={Styles["black"]}>5<span className={Styles["font-large"]}>♣</span></span>
                                             </td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 5
-                                                <span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>5<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
                                             <td>
-                                                4<span className={Styles["black"]}>♠</span>, 10<span className={Styles["red"]}>♥</span>
+                                                <span className={Styles["black"]}>4<span className={Styles["font-large"]}>♠</span></span>, <span className={Styles["red"]}>10<span className={Styles["font-large"]}>♥</span></span>
                                             </td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 10
-                                                <span className={Styles["red"]}>♥</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>10<span className={Styles["font-large"]}>♥</span></span>
                                             </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, 3
-                                                <span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>3<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td></td>
                                             <td></td>
@@ -390,33 +390,33 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                         <tr>
                                             <td>Player</td>
                                             <td>
-                                                5<span className={Styles["red"]}>♦</span>, 6<span className={Styles["black"]}>♣</span>
+                                                <span className={Styles["red"]}>5<span className={Styles["font-large"]}>♦</span></span>, <span className={Styles["black"]}>6<span className={Styles["font-large"]}>♣</span></span>
                                             </td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
-                                                <span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Dealer</td>
                                             <td>
-                                                4<span className={Styles["black"]}>♠</span>, 2<span className={Styles["red"]}>♥</span>
+                                                <span className={Styles["black"]}>4<span className={Styles["font-large"]}>♠</span></span>, <span className={Styles["red"]}>2<span className={Styles["font-large"]}>♥</span></span>
                                             </td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
-                                                <span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td>Two Pair</td>
                                         </tr>
                                         <tr>
                                             <td>Community Cards</td>
                                             <td>
-                                                A<span className={Styles["black"]}>♣</span>, A<span className={Styles["black"]}>♠</span>, 7
-                                                <span className={Styles["black"]}>♣</span>, 7<span className={Styles["red"]}>♥</span>, J
-                                                <span className={Styles["red"]}>♦</span>
+                                                <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["black"]}>A<span className={Styles["font-large"]}>♠</span></span>, 
+                                                <span className={Styles["black"]}>7<span className={Styles["font-large"]}>♣</span></span>, <span className={Styles["red"]}>7<span className={Styles["font-large"]}>♥</span></span>, 
+                                                <span className={Styles["red"]}>J<span className={Styles["font-large"]}>♦</span></span>
                                             </td>
                                             <td></td>
                                             <td></td>
@@ -631,18 +631,6 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                     </div>
                 </li>
             </ul>
-        </>
-    );
-};
-
-const md5Title = () => {
-    return (
-        <>
-            is a different version of Keno Power, with a new feature
-            <a href="#md5" className="md5-title">
-                <strong> MD5 (Message-Digest algorithm 5) </strong>
-            </a>
-            that allows players to check the fairness and authenticity of every game result. The game
         </>
     );
 };
