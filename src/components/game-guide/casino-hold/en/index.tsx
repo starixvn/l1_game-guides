@@ -516,9 +516,9 @@ const renderPayouts = (odds: OddsProps | undefined) => {
             <h2>Payout</h2>
             <ul className="desc">
                 <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the initial
-                    stake.
+                    The winning amount is calculated according to the payout ratio. 
                 </li>
+                <li><strong>Note</strong>, the Payout includes the initial stake.</li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
             <ul className="style-number-dot">
@@ -677,15 +677,15 @@ const CasinoHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                         <tbody>
                             <tr>
                                 <td>Ante</td>
-                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
+                                <td>{maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
                             </tr>
                             <tr>
                                 <td>Call</td>
-                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
+                                <td>{maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}</td>
                             </tr>
                             <tr>
                                 <td>AA</td>
-                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAaBetChoice}
+                                <td>{maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAaBetChoice}</td>
                             </tr>
                         </tbody>
                     </table>
