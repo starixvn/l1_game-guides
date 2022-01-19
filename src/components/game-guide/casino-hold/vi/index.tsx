@@ -649,7 +649,7 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
                 <li className="guide-item">{renderPayouts(odds)}</li>
                 <li className="guide-item">
-                    <h2>Hạn Mức Cược</h2>
+                    <h2>Hạn mức cược</h2>
                     <table className="table table-small text-center">
                         <thead>
                             <tr>

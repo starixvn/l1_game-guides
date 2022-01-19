@@ -34,7 +34,7 @@ export const renderMD5EN = (gameId?: number) => {
                             {gameId === games.casinoHoldem && <span> string after pressing the Call button.</span>}
                         </li>
                         <li>
-                            <strong>Step 3</strong>: go to{" "}
+                            <strong>Step 3</strong>: Go to{" "}
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
