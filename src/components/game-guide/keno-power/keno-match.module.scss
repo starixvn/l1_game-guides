@@ -14,16 +14,22 @@
     min-width: 8.5rem;
 }
 
+.wrapper-img,
+.wrapper-img-hash {
+    img {
+        width: 100%;
+    }
+}
 .wrapper-img {
     border: 1px solid #000;
     margin: 0 auto;
-    max-width: 36.2rem;
-    max-height: 10rem;
+    max-width: 37.2rem;
+    max-height: 11rem;
 }
 
 .wrapper-img-hash {
     border: 1px solid #000;
     margin: 0 auto;
-    max-width: 38.7rem;
-    max-height: 12.2rem;
+    max-width: 39.7rem;
+    max-height: 13.2rem;
 }

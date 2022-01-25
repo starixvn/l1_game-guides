@@ -24,8 +24,11 @@
 .wrapper-img {
     border: 1px solid #000;
     margin: 0 auto;
-    max-width: 38.7rem;
-    max-height: 11.3rem;
+    max-width: 39.7rem;
+    max-height: 12.3rem;
+    img {
+        width: 100%;
+    }
 }
 
 .payouts-min-wd {
