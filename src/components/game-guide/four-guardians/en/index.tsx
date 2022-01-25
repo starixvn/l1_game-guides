@@ -568,7 +568,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/four-guardians/L1/list_icon.png?v1`} alt="guide_item_symbol_bg" width={38} height={38} />
+                        <img src={`/static/images/four-guardians/L1/list_icon.png?v1`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
