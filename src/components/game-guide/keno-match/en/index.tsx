@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";

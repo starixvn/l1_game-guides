@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
@@ -90,12 +89,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Ace, King, Queen, Jack, and 10 in the same suit</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanhrong.png"
                                                                 alt="sanhrong"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -108,12 +106,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Five cards in the same suit, all in a rank sequence</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanhthung.png"
                                                                 alt="sanhthung"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -126,12 +123,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Four cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/tuquyfull.png"
                                                                 alt="tuquy"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -144,12 +140,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Three of a Kind and a Pair</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/culu.png"
                                                                 alt="culu"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -162,12 +157,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Five cards in the same suit</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/thung.png"
                                                                 alt="thung"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -180,12 +174,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Five cards a rank sequence</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanh.png"
                                                                 alt="sanh"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -198,12 +191,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Three cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sam.png"
                                                                 alt="sam"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -216,12 +208,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Two pairs of different ranks</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/2doi.png"
                                                                 alt="haidoi"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -234,12 +225,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Two cards of the same rank</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/doi.png"
                                                                 alt="doi"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -252,12 +242,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Highest card when no higher hand is available</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/mauthau.png"
                                                                 alt="mauthau"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
@@ -87,12 +86,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Ace, K, Q, J, 10 đồng chất</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanhrong.png"
                                                                 alt="sanhrong"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -105,12 +103,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Tay bài gồm 5 lá đồng chất theo thứ tự</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanhthung.png"
                                                                 alt="sanhthung"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -123,12 +120,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Tay bài gồm 4 lá giống nhau</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/tuquyfull.png"
                                                                 alt="tuquy"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -141,12 +137,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Tay bài có 3 lá giống nhau và một đôi</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/culu.png"
                                                                 alt="culu"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -159,12 +154,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Tay bài gồm 5 lá đồng chất</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/thung.png"
                                                                 alt="thung"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -177,12 +171,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>5 lá bài tạo thành một dãy liên tiếp</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sanh.png"
                                                                 alt="sanh"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -195,12 +188,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Có 3 lá giống nhau về giá trị</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/sam.png"
                                                                 alt="sam"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -213,12 +205,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Có 2 đôi trong tổng số 5 lá</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/2doi.png"
                                                                 alt="haidoi"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -231,12 +222,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Tay bài có 1 đôi bất kỳ</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/doi.png"
                                                                 alt="doi"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>
@@ -249,12 +239,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     <td>Khi tay bài không có đôi hoặc cao hơn</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
-                                                            <Image
+                                                            <img
                                                                 src="/static/images/casino-holdem/mauthau.png"
                                                                 alt="mauthau"
                                                                 width={275}
                                                                 height={65}
-                                                                layout="responsive"
                                                                 loading="eager"
                                                             />
                                                         </span>

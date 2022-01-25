@@ -1,10 +1,8 @@
 import React from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 import { Themes } from "../../../../common/constants";
 
