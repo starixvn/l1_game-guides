@@ -300,8 +300,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 <img
                                     src={`/static/images/sedie-war/${pathImg}`}
                                     alt="guide-stats-en"
-                                    width={718}
-                                    height={150}
+                                 
                                     loading="eager"
                                 />
                             </div>
