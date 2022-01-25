@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
@@ -297,12 +296,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li className="number-dot">
                             <strong className="title-text">Statistical Round result</strong>
                             <div className={Styles["wrapper-guide-stats"]}>
-                                <Image
+                                <img
                                     src={`/static/images/sedie-war/${pathImg}`}
                                     alt="guide-stats-en"
-                                    width={718}
-                                    height={150}
-                                    layout="responsive"
+                                 
                                     loading="eager"
                                 />
                             </div>

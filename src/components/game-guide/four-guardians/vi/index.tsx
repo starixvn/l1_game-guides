@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -22,12 +21,11 @@ const renderGameRule = () => {
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
                     <div className={Styles["wrapper-img-rectangle"]}>
-                        <Image
+                        <img
                             src={`/static/images/four-guardians/guide_payline.png`}
                             alt="guide_payline"
                             width={844}
                             height={165}
-                            layout="responsive"
                             loading="eager"
                         />
                     </div>
@@ -79,17 +77,20 @@ const renderExamplePayouts = (odds: number[][]) => {
                                 ])}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
+                                Nếu có <strong>5</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược *{" "}
+                                {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
+                                Nếu có <strong>4</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược *{" "}
+                                {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
+                                Nếu có <strong>3</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược *{" "}
+                                {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -160,12 +161,11 @@ const renderFreeSpin = (odds: number[][]) => {
                     cột, hệ thống sẽ tính là 1 biểu tượng.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <Image
+                            <img
                                 src="/static/images/four-guardians/L1/guide_example_free_spin.png"
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
-                                layout="fixed"
                                 loading="eager"
                             />
                         </div>
@@ -251,12 +251,11 @@ const renderBonus = (odds: number[][]) => {
                     thống sẽ tính là 1 biểu tượng.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <Image
+                            <img
                                 src="/static/images/four-guardians/L1/guide_example_bonus.png"
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
-                                layout="fixed"
                                 loading="eager"
                             />
                         </div>
@@ -283,12 +282,11 @@ const renderWild = (odds: number[][]) => {
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
-                    <Image
+                    <img
                         src="/static/images/four-guardians/guide_example_wild.png"
                         alt="guide_example_wild"
                         width={245}
                         height={160}
-                        layout="fixed"
                         loading="eager"
                     />
                 </span>
@@ -325,54 +323,19 @@ const renderWild = (odds: number[][]) => {
                     <p>Người chơi chọn mức cược {betValue}, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item2.png"
-                                alt="item2"
-                                width={77}
-                                height={67}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item2.png"
-                                alt="item2"
-                                width={77}
-                                height={67}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item9.png"
-                                alt="item9"
-                                width={74}
-                                height={50}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item9.png" alt="item9" width={74} height={50} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item5.png"
-                                alt="item5"
-                                width={85}
-                                height={86}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item5.png" alt="item5" width={85} height={86} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <Image
-                                src="/static/images/four-guardians/item5.png"
-                                alt="item5"
-                                width={85}
-                                height={86}
-                                layout="fixed"
-                                loading="eager"
-                            />
+                            <img src="/static/images/four-guardians/item5.png" alt="item5" width={85} height={86} loading="eager" />
                         </div>
                     </div>
                     <ul className="plus">
@@ -416,13 +379,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <Image
-                            src={`/static/images/four-guardians/L1/list_icon.png`}
-                            alt="guide_item_symbol_bg"
-                            width={38}
-                            height={38}
-                            layout="responsive"
-                        />
+                        <img src={`/static/images/four-guardians/L1/list_icon.png`} alt="guide_item_symbol_bg" width={38} height={38} />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

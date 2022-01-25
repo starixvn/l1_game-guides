@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
@@ -320,14 +319,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li className="number-dot">
                             <span className="font-weight-medium title-text">Dãy Số Thống Kê</span>
                             <div className={Styles["wrapper-guide-stats"]}>
-                                <Image
-                                    src={`/static/images/sedie-war/${pathImg}`}
-                                    alt="guide-stats-vi"
-                                    width={718}
-                                    height={150}
-                                    layout="responsive"
-                                    loading="eager"
-                                />
+                                <img src={`/static/images/sedie-war/${pathImg}`} alt="guide-stats-vi" loading="eager" />
                             </div>
 
                             <p>

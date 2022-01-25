@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
@@ -256,28 +255,14 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </a>{" "}
                                     và dán chuỗi Key vừa copy vào ô MD5.
                                     <div className={Styles["wrapper-img-hash"]}>
-                                        <Image
-                                            src={`/static/images/keno-power/md5-hash.png`}
-                                            alt="md5-copy"
-                                            width={387}
-                                            height={120}
-                                            layout="responsive"
-                                            loading="eager"
-                                        />
+                                        <img src={`/static/images/keno-power/md5-hash.png`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                                 <li>
                                     <strong>Bước 4</strong>: Bấm nút <i>“hash, darling hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo
                                     ra và chuỗi MD5 ở Bước 1.
                                     <div className={Styles["wrapper-img"]}>
-                                        <Image
-                                            src={`/static/images/keno-power/md5.png`}
-                                            alt="md5-copy"
-                                            width={362}
-                                            height={98}
-                                            layout="responsive"
-                                            loading="eager"
-                                        />
+                                        <img src={`/static/images/keno-power/md5.png`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                             </ul>

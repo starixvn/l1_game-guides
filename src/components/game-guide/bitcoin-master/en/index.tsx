@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
@@ -73,51 +72,16 @@ const renderGameRule = (maxBetRound: string | undefined) => {
                     The Bitcoin (USD) value shown in the game is the average of real-time data from 4 exchanges:
                     <div className={Styles["wrapper"]}>
                         <div className={Styles["wrapper-binance"]}>
-                            <Image
-                                src={`/static/images/bitcoin-master/Binance.png`}
-                                alt="Binance"
-                                width={1856}
-                                height={400}
-                                layout="responsive"
-                                loading="eager"
-                                quality={100}
-                                priority
-                            />
+                            <img src={`/static/images/bitcoin-master/Binance.png`} alt="Binance" loading="eager" />
                         </div>
                         <div className={Styles["wrapper-huobi"]}>
-                            <Image
-                                src={`/static/images/bitcoin-master/Huobi.png`}
-                                alt="Huobi"
-                                width={1600}
-                                height={397}
-                                layout="responsive"
-                                loading="eager"
-                                quality={100}
-                                priority
-                            />
+                            <img src={`/static/images/bitcoin-master/Huobi.png`} alt="Huobi" loading="eager" />
                         </div>
                         <div className={Styles["wrapper-okex"]}>
-                            <Image
-                                src={`/static/images/bitcoin-master/OKEX.png`}
-                                alt="OKEX"
-                                width={2669}
-                                height={946}
-                                layout="responsive"
-                                loading="eager"
-                                quality={100}
-                                priority
-                            />
+                            <img src={`/static/images/bitcoin-master/OKEX.png`} alt="OKEX" loading="eager" />
                         </div>
                         <div className={Styles["wrapper-mexc"]}>
-                            <Image
-                                src={`/static/images/bitcoin-master/mexc_global.png`}
-                                alt="mexc_global"
-                                width={697}
-                                height={154}
-                                layout="responsive"
-                                loading="eager"
-                                quality={100}
-                            />
+                            <img src={`/static/images/bitcoin-master/mexc_global.png`} alt="mexc_global" loading="eager" />
                         </div>
                     </div>
                 </li>
