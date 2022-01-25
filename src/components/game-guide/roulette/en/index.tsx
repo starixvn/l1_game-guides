@@ -266,7 +266,7 @@ const renderCallBetTiers = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Tiers option, it will cost 6 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" width={886} height={221} loading="lazy" />
+                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -335,13 +335,7 @@ const renderCallBetOrphelins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    src="/static/images/roulette/game_guide-orphelins_ex.png"
-                    alt="game_guide-orphelins_ex"
-                    width={886}
-                    height={221}
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-orphelins_ex.png" alt="game_guide-orphelins_ex" loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -408,13 +402,7 @@ const renderCallBetVoisins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    src="/static/images/roulette/game_guide-voisins_ex.png"
-                    alt="game_guide-voisins_ex"
-                    width={886}
-                    height={221}
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-voisins_ex.png" alt="game_guide-voisins_ex" loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -489,13 +477,7 @@ const renderCallBetZero = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    src="/static/images/roulette/game_guide-zero_ex.png"
-                    alt="game_guide-zero_ex"
-                    width={886}
-                    height={221}
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -553,26 +535,14 @@ const renderCallBetNeighbors = () => {
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
-                <img
-                    src="/static/images/roulette/game_guide-neighbors_1.png"
-                    alt="game_guide-neighbors_1"
-                    width={713}
-                    height={198}
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
             </div>
             <p>
                 <strong>Example: </strong>Player selects the chip value 10, and click on number 27 for a Neighbors bet, it will cost 5 chips
                 for five Straight bets: (36), (13), (27), (6), (34).
             </p>
             <div className={Styles[wrapperImg]}>
-                <img
-                    src="/static/images/roulette/game_guide_neighbors_ex.png"
-                    alt="game_guide_neighbors_ex"
-                    width={886}
-                    height={221}
-                    loading="lazy"
-                />
+                <img src="/static/images/roulette/game_guide_neighbors_ex.png" alt="game_guide_neighbors_ex" loading="lazy" />
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -628,7 +598,7 @@ const renderBettingOptions = () => {
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
             <div className={Styles["wrapper-img-rule"]}>
-                <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" width={886} height={475} loading="lazy" />
+                <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
             </div>
             {renderBetChipsNotice()}
         </li>
@@ -645,13 +615,7 @@ const renderCallBet = () => {
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
-                    <img
-                        src="/static/images/roulette/game_guide-cuoc_nhanh.png"
-                        alt="game_guide-cuoc_nhanh"
-                        width={713}
-                        height={221}
-                        loading="lazy"
-                    />
+                    <img src="/static/images/roulette/game_guide-cuoc_nhanh.png" alt="game_guide-cuoc_nhanh" loading="lazy" />
                 </div>
             </div>
 
