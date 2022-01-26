@@ -116,7 +116,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                         </div>
                     </li>
                     <li>
-                        <strong>c )Cược Tổng Lẻ</strong>
+                        <strong>c) Cược Tổng Lẻ</strong>
                         <div className={Styles[wrapperBankerPlayer]}>
                             <div>+ Kết Quả </div>
                             <div>Nhà Con: 2 đỏ, 2 trắng</div>
