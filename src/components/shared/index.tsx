@@ -1,6 +1,6 @@
 import React from "react";
 
-const games = { bitcoinMaster: 43, casinoHoldem: 39 };
+const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42 };
 
 export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
@@ -15,8 +15,18 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the &quot;Deal&quot; button.
-                        The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is considered as &quot;FOLD&quot;.
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        &quot;Deal&quot; button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
+                        considered as &quot;FOLD&quot;.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        If your game round is disrupted, all game information and placed bets are kept until you reopen the game. Within 24
+                        hours from confirming on the Deal button, you may continue your unfinished game from the point of interruption. The
+                        unfinished game will be automatically settled after 24 hours, and the winning results are determined by the game
+                        rules. If the game is disrupted at Call, the Player is considered as Fold. Otherwise, the Player is considered as
+                        Check until all bets are completed.
                     </li>
                 )}
                 <li className="number-dot">
@@ -53,8 +63,18 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm nút &quot;Chia Bài&quot;.
-                        Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm
+                        nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24
+                        tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm
+                        nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, hệ thống
+                        xử lý theo luật sau đây. Nếu Người Chơi đang ở vòng Cược Call, hệ thống xử Người Chơi “Bỏ Bài” và Người Chơi thua
+                        ván đó. Nếu Người Chơi đang ở vòng Cược Turn hoặc Cược River, hệ thống sẽ tự động chọn “Xem” và kết thúc ván chơi
+                        dựa theo lá bài của Người Chơi và Nhà Cái.
                     </li>
                 )}
                 <li className="number-dot">
@@ -98,14 +118,11 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                 <li className="number-dot">
                     当出现错误（由人为或任何其他因素引起）或系统故障导致支付率不正确时，本公司保留取消或取消任何投注的权利。
                 </li>
-                <li className="number-dot">
-                    即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。
-                </li>
+                <li className="number-dot">即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。</li>
             </ul>
         </li>
     );
 };
-
 
 export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
     return (
@@ -127,9 +144,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                 <li className="number-dot">
                     當出現錯誤（由人為或任何其他因素引起）或系統故障導致支付率不正確時，本公司保留取消或取消任何投注的權利。
                 </li>
-                <li className="number-dot">
-                    即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。
-                </li>
+                <li className="number-dot">即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。</li>
             </ul>
         </li>
     );
