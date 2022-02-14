@@ -26,6 +26,8 @@ import KenoMatchGuide from "./game-guide/keno-match";
 import KenoPowerGuide from "./game-guide/keno-power";
 import BitCoinMasterGuide from "./game-guide/bitcoin-master";
 import CasinoHoldGuide from "./game-guide/casino-hold";
+import HiLoGuide from "./game-guide/hi-lo";
+
 import { UserStakeLevelProps } from "../pages";
 
 type Props = {
@@ -121,6 +123,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <KenoPowerGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 43:
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case 45:
+                return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />
             default:
                 return otherGuides();
         }
