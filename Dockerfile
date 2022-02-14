@@ -2,11 +2,11 @@ FROM registry.nexdev.net:5050/docker/node:14.16-alpine AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm install --frozen-lockfile
 
 COPY . .
-RUN yarn build
+RUN npm run build
 
 FROM registry.nexdev.net:5050/docker/node:14.16-alpine AS runner
 WORKDIR /app
@@ -27,4 +27,4 @@ RUN chown -R nextjs:nodejs /app/.next
 USER nextjs
 
 EXPOSE 5000
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
