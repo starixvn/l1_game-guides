@@ -67,7 +67,7 @@ const HiLoGuideEN: React.FC<GameGuideProps<{}, {}>> = (props) => {
                 <li className="guide-item">
                     <h2>Card Values</h2>
                     <ul className="desc">
-                        <li>The card's value is ranked from the lowest to the highest in the following order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), and Ace (A)</li>
+                        <li>The card&apos;s value is ranked from the lowest to the highest in the following order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), and Ace (A)</li>
                         <li>All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club (<span className={Styles["black"]}>♣</span>) have equal value.</li>
                     </ul>
                     <p><strong>Noted:</strong></p>
