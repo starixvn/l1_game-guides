@@ -9,7 +9,7 @@ const renderGameRule = () => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Người chơi chọn mức tiền cược mong muốn, và bấm         để bắt đầu chơi.</li>
+                <li>Người chơi chọn mức tiền cược mong muốn, và bấm <img src="/static/images/hi-lo/play.png" alt="play icon" width="30" height="30" className={Styles["play"]}/> để bắt đầu chơi.</li>
                 <li>Hệ thống sẽ chọn ngẫu nhiên 1 lá bài và người chơi dự đoán lá bài xuất hiện tiếp theo sẽ Cao hơn hay Thấp hơn lá bài hiện tại.</li>
                 <li>Sau mỗi lượt dự đoán, nếu thắng người chơi sẽ có 2 lựa chọn 
                     <ul className="detail">
@@ -22,11 +22,11 @@ const renderGameRule = () => {
                         </li>
                     </ul>
                     <div><strong>Ví dụ:</strong></div>
-                    <div>Hệ thống chọn ngẫu nhiên lá bài đầu tiên <span className={Styles["red"]}>9♥</span>. Người chơi cược 100 cho lựa chọn &quot;Thấp&quot;</div>
-                    <p>Kết quả: 4<span className={Styles["black"]}>♠</span>. Người chơi thắng 123, và sẽ có 2 lựa chọn:
+                    <div>Hệ thống chọn ngẫu nhiên lá bài đầu tiên <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Người chơi cược 100 cho lựa chọn &quot;Thấp&quot;</div>
+                    <p>Kết quả: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>. Người chơi thắng 123, và sẽ có 2 lựa chọn:
                         <ul className="detail">
                             <li>Bấm &quot;Ăn Non&quot; để nhận 123 tiền thắng vào tài khoản và phiên chơi kết thúc.</li>
-                            <li>Tiếp tục dự đoán lá bài được rút kế tiếp sẽ Cao hay Thấp hơn lá hiện tại (4<span className={Styles["black"]}>♠</span>), với mức tiền cược 123</li>
+                            <li>Tiếp tục dự đoán lá bài được rút kế tiếp sẽ Cao hay Thấp hơn lá hiện tại (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), với mức tiền cược 123</li>
                             <li>Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:
                                 <ul className="detail">
                                     <li>Với lượt chơi đầu tiên sau khi bấm &quot;Play&quot;, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.</li>
@@ -71,7 +71,7 @@ const HiLoGuideVI: React.FC<GameGuideProps<{}, {}>> = () => {
                     <h2>Thang sức mạnh</h2>
                     <ul className="desc">
                         <li>Thứ tự các lá bài từ nhỏ đến lớn: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), Ace (A)</li>
-                        <li>Không so chất (<span className={Styles["black"]}>♠ ♣</span><span className={Styles["red"]}> ♦ ♥</span>) của lá bài.</li>
+                        <li>Không so chất (<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠ ♣</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}> ♦ ♥</span>) của lá bài.</li>
                     </ul>
                     <div><strong>Lưu ý:</strong></div>
                     <ul className="desc">

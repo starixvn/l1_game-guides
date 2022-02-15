@@ -10,7 +10,7 @@ const renderGameRule = () => {
             <h2>Game Rules</h2>
             <ul className="desc">
                 <li>
-                    Select the bet amount that suits you best. Click         to start the game.        
+                    Select the bet amount that suits you best. Click <img src="/static/images/hi-lo/play.png" alt="play icon" width="30" height="30" className={Styles["play"]}/> to start the game.        
                 </li>
                 <li>The system will randomly pick up the first card (base card) and the Player will choose whether the next card (result card) will be higher (Hi) or lower (Lo). </li>
                 <li>
@@ -22,11 +22,11 @@ const renderGameRule = () => {
                 </li>
             </ul>
             <div>Example:</div>
-            <p>The system randomly picks up the first card (base card) = <span className={Styles["red"]}>9♥</span>. Player places bet 100 on &quot;Low&quot; option. </p>
-            <p>Result card: 4<span className={Styles["black"]}>♠</span> ={'>'} Player wins and payout = 123. There are 2 options:</p>
+            <p>The system randomly picks up the first card (base card) = <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Player places bet 100 on &quot;Low&quot; option. </p>
+            <p>Result card: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span> ={'>'} Player wins and payout = 123. There are 2 options:</p>
             <ul className="desc">
                 <li>Click the &quot;Collect&quot; button to stop playing ={'>'} Player gets 123 into the balance account.</li>
-                <li>Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4♠), with a bet amount = 123</li>
+                <li>Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), with a bet amount = 123</li>
                 <li>The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).</li>
                 <li>If the Player can not complete a turn within 2 minutes: 
                     <ul className="detail">
@@ -68,7 +68,7 @@ const HiLoGuideEN: React.FC<GameGuideProps<{}, {}>> = (props) => {
                     <h2>Card Values</h2>
                     <ul className="desc">
                         <li>The card&apos;s value is ranked from the lowest to the highest in the following order: 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), King (K), and Ace (A)</li>
-                        <li>All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club (<span className={Styles["black"]}>♣</span>) have equal value.</li>
+                        <li>All the suits - heart (<span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>), spade (<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), diamond (<span className={`${Styles["red"]} ${Styles["large-font"]}`}>♦</span>), and club (<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♣</span>) have equal value.</li>
                     </ul>
                     <p><strong>Noted:</strong></p>
                     <ul className="desc">
