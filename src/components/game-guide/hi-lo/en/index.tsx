@@ -16,7 +16,7 @@ const renderGameRule = () => {
                 <li>
                     After each turn, if the result is a win, the Player can decide whether to stop or continue playing the next turn.
                     <ul className="detail">
-                        <li>Click the button Collect to stop playing and get the payout.</li>
+                        <li>Click the button &quot;Collect&quot; to stop playing and get the payout.</li>
                         <li>Continue playing the next turn, the result card for the turn will become the base card for the next turn, and the payout of the turn will be the bet amount for the next turn.</li>
                     </ul>
                 </li>
@@ -24,16 +24,17 @@ const renderGameRule = () => {
             <div>Example:</div>
             <p>The system randomly picks up the first card (base card) = <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Player places bet 100 on &quot;Low&quot; option. </p>
             <p>Result card: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span> ={'>'} Player wins and payout = 123. There are 2 options:</p>
+            <ul>
+                <li>+ Click the button &quot;Collect&quot; to stop playing ={'>'} Player gets 123 into the balance account.</li>
+                <li>+ Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), with a bet amount = 123</li>
+                
+            </ul>
             <ul className="desc">
-                <li>Click the &quot;Collect&quot; button to stop playing ={'>'} Player gets 123 into the balance account.</li>
-                <li>Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), with a bet amount = 123</li>
                 <li>The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).</li>
                 <li>If the Player can not complete a turn within 2 minutes: 
                     <ul className="detail">
-                        <ul>
-                            <li>The system will randomly select the Hi or Lo for the first turn that the User has clicked &quot;Play&quot; button.</li>
-                            <li>Other turns will be treated as &quot;Collect&quot;</li>
-                        </ul>
+                        <li>The system will randomly select the Hi or Lo for the first turn that the User has clicked &quot;Play&quot; button.</li>
+                        <li>Other turns will be treated as &quot;Collect&quot;</li>
                     </ul>
                 </li>
             </ul>
