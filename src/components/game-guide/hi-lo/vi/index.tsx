@@ -24,19 +24,22 @@ const renderGameRule = () => {
                     <div><strong>Ví dụ:</strong></div>
                     <div>Hệ thống chọn ngẫu nhiên lá bài đầu tiên <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Người chơi cược 100 cho lựa chọn &quot;Thấp&quot;</div>
                     <p>Kết quả: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>. Người chơi thắng 123, và sẽ có 2 lựa chọn:
-                        <ul className="detail">
+                        <ul className="plus">
                             <li>Bấm &quot;Ăn Non&quot; để nhận 123 tiền thắng vào tài khoản và phiên chơi kết thúc.</li>
                             <li>Tiếp tục dự đoán lá bài được rút kế tiếp sẽ Cao hay Thấp hơn lá hiện tại (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), với mức tiền cược 123</li>
-                            <li>Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:
-                                <ul className="detail">
-                                    <li>Với lượt chơi đầu tiên sau khi bấm &quot;Play&quot;, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.</li>
-                                    <li>Với những lượt chơi khác, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tính như người chơi chọn &quot;Ăn Non&quot;.</li>
-                                </ul>
-                            </li>
-                            <li>Phiên chơi chỉ kết thúc khi người chơi bấm nút Ăn Non hoặc Thua.</li>
-                            <li>Bài sẽ được xào lại sau mỗi lượt dự đoán.</li>
+                            
                         </ul>
                     </p>
+                    <ul className="desc">
+                        <li>Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:
+                            <ul className="detail">
+                                <li>Với lượt chơi đầu tiên sau khi bấm &quot;Play&quot;, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.</li>
+                                <li>Với những lượt chơi khác, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tính như người chơi chọn &quot;Ăn Non&quot;.</li>
+                            </ul>
+                        </li>
+                        <li>Phiên chơi chỉ kết thúc khi người chơi bấm nút Ăn Non hoặc Thua.</li>
+                        <li>Bài sẽ được xào lại sau mỗi lượt dự đoán.</li>
+                    </ul>
                 </li>
             </ul>
         </>

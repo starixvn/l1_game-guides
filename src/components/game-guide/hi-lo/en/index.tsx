@@ -24,9 +24,9 @@ const renderGameRule = () => {
             <div>Example:</div>
             <p>The system randomly picks up the first card (base card) = <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Player places bet 100 on &quot;Low&quot; option. </p>
             <p>Result card: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span> ={'>'} Player wins and payout = 123. There are 2 options:</p>
-            <ul>
-                <li>+ Click the button &quot;Collect&quot; to stop playing ={'>'} Player gets 123 into the balance account.</li>
-                <li>+ Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), with a bet amount = 123</li>
+            <ul className="plus">
+                <li>Click the button &quot;Collect&quot; to stop playing ={'>'} Player gets 123 into the balance account.</li>
+                <li>Continue playing the next turn, then the Player guesses whether the next card will be higher or lower than the current card (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), with a bet amount = 123</li>
                 
             </ul>
             <ul className="desc">
