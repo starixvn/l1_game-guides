@@ -37,7 +37,7 @@ const renderGameRule = () => {
                         <li>Other turns will be treated as &quot;Collect&quot;</li>
                     </ul>
                 </li>
-                <li>The cards will be shuffled after each turns</li>
+                <li>The cards will be shuffled after each turns.</li>
             </ul>
         </>
     );
