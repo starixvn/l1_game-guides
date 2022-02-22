@@ -33,7 +33,7 @@ const renderGameRule = () => {
                     <ul className="desc">
                         <li>Mỗi lượt dự đoán sẽ diễn ra trong vòng 2 phút. Hết thời gian mà người chơi không đưa ra dự đoán thì hệ thống sẽ:
                             <ul className="detail">
-                                <li>Với lượt chơi đầu tiên sau khi bấm &quot;Play&quot;, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.</li>
+                                <li>Với lượt chơi đầu tiên sau khi bấm <img src="/static/images/hi-lo/play.png" alt="play icon" width="30" height="30" className={Styles["play"]}/>, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tự động chọn kết quả ngẫu nhiên Cao hoặc Thấp và phiên chơi kết thúc.</li>
                                 <li>Với những lượt chơi khác, nếu người chơi không đưa ra lựa chọn sau 2 phút, hệ thống sẽ tính như người chơi chọn &quot;Ăn Non&quot;.</li>
                             </ul>
                         </li>

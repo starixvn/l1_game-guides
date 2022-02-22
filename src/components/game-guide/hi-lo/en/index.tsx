@@ -31,12 +31,13 @@ const renderGameRule = () => {
             </ul>
             <ul className="desc">
                 <li>The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).</li>
-                <li>If the Player can not complete a turn within 2 minutes: 
+                <li>If the Player cannot complete a turn within 2 minutes: 
                     <ul className="detail">
-                        <li>The system will randomly select the Hi or Lo for the first turn that the User has clicked &quot;Play&quot; button.</li>
+                        <li>The system will randomly select the Hi or Lo for the first turn that the User has clicked <img src="/static/images/hi-lo/play.png" alt="play icon" width="30" height="30" className={Styles["play"]}/> button.</li>
                         <li>Other turns will be treated as &quot;Collect&quot;</li>
                     </ul>
                 </li>
+                <li>The cards will be shuffled after each turns</li>
             </ul>
         </>
     );
