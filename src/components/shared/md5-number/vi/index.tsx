@@ -88,9 +88,9 @@ export const renderMD5VI = (gameId?: number) => {
                             <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi bấm nút &quot;Theo Bài&quot;
                             <img className="format-img auto-center" src="/static/images/casino-holdem/result-vi.png" />
                             <div>
-                                Trong đó 9, <span className="red">7</span> là hai lá của Người Chơi và <span className="red">A</span>,{" "}
-                                <span className="red">8</span> là hai lá của Nhà Cái. Năm lá bài chung <span className="red">5</span>, 5, 2,{" "}
-                                <span className="red">10</span>, 6
+                                Trong đó <span className="red">4</span>, A là hai lá của Người Chơi và <span className="red">J</span>,{" "}
+                                <span className="red">2</span> là hai lá của Nhà Cái. Năm lá bài chung 4, <span className="red">3</span>, 9,{" "}
+                                5, 10
                             </div>
                         </li>
                         <li>
@@ -102,7 +102,7 @@ export const renderMD5VI = (gameId?: number) => {
                             <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png" />
                         </li>
                         <li>
-                            <strong>Bước 4:</strong> Bấm nút “hash, darling hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
+                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
                             ở Bước 1.
                             <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png" />
                         </li>

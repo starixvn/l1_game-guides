@@ -81,9 +81,9 @@ export const renderMD5EN = (gameId?: number) => {
                             <strong>Step 2:</strong> Copy the string result after pressing the CALL button.
                             <img className="format-img auto-center" src="/static/images/casino-holdem/result-en.png" />
                             <div>
-                                Noted: 9, <span className="red">7</span> are hole cards for Player, and <span className="red">A</span>,{" "}
-                                <span className="red">8</span> are the first two cards for Dealer. Five community cards:{" "}
-                                <span className="red">5</span>, 5, 2, <span className="red">10</span>, 6
+                                Noted: <span className="red">4</span>, A are hole cards for Player, and <span className="red">J</span>,{" "}
+                                <span className="red">2</span> are the first two cards for Dealer. Five community cards:{" "}
+                                4, <span className="red">3</span>, 9, 5, 10
                             </div>
                         </li>
                         <li>
@@ -95,7 +95,7 @@ export const renderMD5EN = (gameId?: number) => {
                             <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png" />
                         </li>
                         <li>
-                            <strong>Step4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5
+                            <strong>Step4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
                             string with the MD5 string in <strong>Step 1</strong>.
                             <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png" />
                         </li>
