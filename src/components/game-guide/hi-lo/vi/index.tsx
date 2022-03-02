@@ -11,7 +11,7 @@ const renderGameRule = () => {
             <ul className="desc">
                 <li>Người chơi chọn mức tiền cược mong muốn, và bấm &quot;Bắt Đầu&quot; để chơi.</li>
                 <li>Hệ thống sẽ chọn ngẫu nhiên 1 lá bài và người chơi dự đoán lá bài xuất hiện tiếp theo sẽ Cao hơn hay Thấp hơn lá bài hiện tại.</li>
-                <li>Sau mỗi lượt dự đoán, nếu thắng người chơi sẽ có 2 lựa chọn 
+                <li>Sau mỗi lượt dự đoán, nếu thắng người chơi sẽ có 2 lựa chọn: 
                     <ul className="detail">
                         <li>
                             Bấm nút <strong>&quot;Ăn Non&quot;</strong> để nhận tiền thắng và phiên chơi kết thúc.
@@ -23,10 +23,10 @@ const renderGameRule = () => {
                     </ul>
                     <div><strong>Ví dụ:</strong></div>
                     <div>Hệ thống chọn ngẫu nhiên lá bài đầu tiên <span className={Styles["red"]}>9</span><span className={`${Styles["red"]} ${Styles["large-font"]}`}>♥</span>. Người chơi cược 100 cho lựa chọn &quot;Thấp&quot;</div>
-                    <p>Kết quả: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>. Người chơi thắng 123, và sẽ có 2 lựa chọn:
+                    <p>Kết quả: 4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>. Người chơi thắng 163, và sẽ có 2 lựa chọn:
                         <ul className="plus">
-                            <li>Bấm &quot;Ăn Non&quot; để nhận 123 tiền thắng vào tài khoản và phiên chơi kết thúc.</li>
-                            <li>Tiếp tục dự đoán lá bài được rút kế tiếp sẽ Cao hay Thấp hơn lá hiện tại (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), với mức tiền cược 123</li>
+                            <li>Bấm &quot;Ăn Non&quot; để nhận 163 tiền thắng vào tài khoản và phiên chơi kết thúc.</li>
+                            <li>Tiếp tục dự đoán lá bài được rút kế tiếp sẽ Cao hay Thấp hơn lá hiện tại (4<span className={`${Styles["black"]} ${Styles["large-font"]}`}>♠</span>), với mức tiền cược 163</li>
                             
                         </ul>
                     </p>
