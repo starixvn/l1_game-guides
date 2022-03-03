@@ -138,5 +138,9 @@
     "43": {
         "id": 43,
         "gameName": "BitcoinMaster"
+    },
+    "45": {
+        "id": 45,
+        "gameName": "HiLo"
     }
 }
