@@ -12,16 +12,17 @@ const renderGameRule = () => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.</li>
-                <li>
-                    <strong>Lưu ý: </strong>Tổng tiền cược = Mức Cược * Số Dòng Cược
-                </li>
+                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.
+                    <div>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
+                    <div><strong>Lưu ý:</strong>có thể sử dụng phím “Spacebar” trên PC, thay cho nút “Quay” để đem lại trải nghiệm mới.
+</div>
+                </li> 
                 <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
                 <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
                     <div className={Styles["wrapper-img-rectangle"]}>
-                        <img src={`/static/images/heroes/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
+                        <img src={`/static/images/nightclub/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
                     </div>
                 </li>
             </ul>
@@ -153,7 +154,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/heroes/L1/guide_example_free_spin.png#v2"
+                                src="/static/images/nightclub/guide_example_freespin.png#v2"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
@@ -186,7 +187,7 @@ const renderBonus = (odds: number[][]) => {
             <ul className="desc">
                 <li>
                     Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
-                    <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>
+                    <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png" alt="item8"></img>
                     quay được.
                 </li>
                 <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
@@ -239,7 +240,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/heroes/L1/guide_example_bonus.png#v3"
+                                src="/static/images/nightclub/guide_example_bonus.png#v3"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}
@@ -270,7 +271,7 @@ const renderWild = (odds: number[][]) => {
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <img
-                        src="/static/images/heroes/guide_example_wild.png"
+                        src="/static/images/nightclub/guide_example_wild.png"
                         alt="guide_example_wild"
                         width={128}
                         height={143}
@@ -280,9 +281,9 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png#v2" alt="item7"></img>
+                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/nightclub/item7.png#v2" alt="item7"></img>
                         , Bonus
-                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png#v2" alt="item8"></img>
+                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png#v2" alt="item8"></img>
                         và
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
@@ -302,19 +303,19 @@ const renderWild = (odds: number[][]) => {
                     <p>Người chơi chọn mức cược {betValue}, dòng cược số 1. Kết quả như sau:</p>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item2.png" alt="item2" width={70} height={60} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={70} height={60} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item2.png" alt="item2" width={70} height={60} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={70} height={60} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item9.png" alt="item9" width={45} height={55} loading="eager" />
+                            <img src="/static/images/nightclub/item9.png" alt="item9" width={45} height={55} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item5.png" alt="item5" width={62} height={63} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={62} height={63} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item5.png" alt="item5" width={62} height={63} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={62} height={63} loading="eager" />
                         </div>
                     </div>
                     <ul className="plus">
@@ -322,7 +323,7 @@ const renderWild = (odds: number[][]) => {
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
-                                src="./static/images/heroes/item2.png"
+                                src="./static/images/nightclub/item2.png"
                                 alt="item2-mini"
                             ></img>
                             . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
@@ -331,7 +332,7 @@ const renderWild = (odds: number[][]) => {
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
-                                src="./static/images/heroes/item5.png"
+                                src="./static/images/nightclub/item5.png"
                                 alt="item5-mini"
                             ></img>
                             . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
@@ -353,11 +354,10 @@ const NightClubGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là thể loại Slot game (game xèng), trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người
-                        chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
+                        Night Club là thể loại Slot game (game xèng), được xây dựng với giao diện hấp dẫn, với chủ đề Hot Girls & Dance Club. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/heroes/L1/list_icon.png#v3`} alt="guide_item_symbol_bg" width={396} height={380} />
+                        <img src={`/static/images/nightclub/list_icon.png#v3`} alt="guide_item_symbol_bg" width={396} height={380} />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
