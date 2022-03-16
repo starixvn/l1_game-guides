@@ -3,7 +3,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
-import Styles from "../heroes-slot.module.scss";
+import Styles from "../nightclub.module.scss";
 import { locales } from "../../../../common/constants";
 
 const freeSpinContentEX = "free-spin-content-ex";
@@ -13,8 +13,8 @@ const renderGameRule = () => {
             <h2>Cách chơi</h2>
             <ul className="desc">
                 <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.
-                    <div>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
-                    <div><strong>Lưu ý:</strong>có thể sử dụng phím “Spacebar” trên PC, thay cho nút “Quay” để đem lại trải nghiệm mới.
+                    <div className={Styles["center"]}>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
+                    <div><strong>Lưu ý:</strong> có thể sử dụng phím “Spacebar” trên PC, thay cho nút “Quay” để đem lại trải nghiệm mới.
 </div>
                 </li> 
                 <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
@@ -273,8 +273,8 @@ const renderWild = (odds: number[][]) => {
                     <img
                         src="/static/images/nightclub/guide_example_wild.png"
                         alt="guide_example_wild"
-                        width={128}
-                        height={143}
+                        width={200}
+                        height={200}
                         loading="eager"
                     />
                 </span>
@@ -287,7 +287,7 @@ const renderWild = (odds: number[][]) => {
                         và
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/heroes/L1/item10.png"
+                            src="./static/images/nightclub/item10.png"
                             alt="item10"
                         ></img>
                     </li>

@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../heroes-slot.module.scss";
+import Styles from "../nightclub.module.scss";
 import { locales } from "../../../../common/constants";
 
 const number = "number";
@@ -57,11 +57,11 @@ export const renderIconContent = (
     dataContent: number[][],
     locale = "en"
 ) => {
-    const pathSrc = itemName === "item10" ? "./static/images/heroes/L1/" : "./static/images/heroes/";
+    const pathSrc = itemName === "item10" ? "./static/images/nightclub/" : "./static/images/nightclub/";
     return (
         <span className={Styles["wrapper-icon"]}>
             <img
-                src={`/static/images/heroes/guide_item_symbol_bg.png?v1`}
+                src={`/static/images/nightclub/guide_item_symbol_bg.png?v1`}
                 width={200}
                 height={132}
                 alt={"guide_item_symbol_bg"}
@@ -220,14 +220,14 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         <span className={Styles["wrapper-icon-dark"]}>
             <img
                 className={`${Styles[iconBox]}`}
-                src="/static/images/heroes/guide_item_symbol_bg.png#v2"
+                src="/static/images/nightclub/guide_item_symbol_bg.png#v2"
                 width={269}
                 height={132}
                 alt="guide_item_symbol_bg"
                 loading="eager"
             />
 
-            <img className={`${Styles[itemName]} ${Styles["dark"]}`} src={`./static/images/heroes/${itemName}.png`} alt={itemName}></img>
+            <img className={`${Styles[itemName]} ${Styles["dark"]}`} src={`./static/images/nightclub/${itemName}.png`} alt={itemName}></img>
             <div
                 className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
             >
@@ -350,7 +350,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/heroes/L1/guide_example_free_spin.png#v2"
+                                src="/static/images/nightclub/guide_example_freespin.png#v2"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
@@ -429,7 +429,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/heroes/L1/guide_example_bonus.png#v3"
+                                src="/static/images/nightclub/guide_example_bonus.png#v3"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}
@@ -461,7 +461,7 @@ const renderWild = (odds: number[][]) => {
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <img
-                        src="/static/images/heroes/guide_example_wild.png"
+                        src="/static/images/nightclub/guide_example_wild.png"
                         alt="guide_example_wild"
                         width={128}
                         height={143}
@@ -472,12 +472,12 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         “Wild” symbol can substitute for all symbols except
-                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/heroes/item8.png" alt="item8"></img>,
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/heroes/item7.png#v2" alt="item7"></img>
+                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png" alt="item8"></img>,
+                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/nightclub/item7.png#v2" alt="item7"></img>
                         and
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
-                            src="./static/images/heroes/L1/item10.png"
+                            src="./static/images/nightclub/item10.png"
                             alt="item10"
                         ></img>
                     </li>
@@ -489,19 +489,19 @@ const renderWild = (odds: number[][]) => {
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item2.png" alt="item2" width={77} height={67} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item2.png" alt="item2" width={77} height={67} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={77} height={67} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item9.png?v1" alt="item9" width={54} height={64} loading="eager" />
+                            <img src="/static/images/nightclub/item9.png?v1" alt="item9" width={54} height={64} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item5.png" alt="item5" width={72} height={73} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={72} height={73} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/heroes/item5.png" alt="item5" width={72} height={73} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={72} height={73} loading="eager" />
                         </div>
                     </div>
                     <ul className="desc">
@@ -509,7 +509,7 @@ const renderWild = (odds: number[][]) => {
                             If Wild symbol is
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
-                                src="./static/images/heroes/item2.png"
+                                src="./static/images/nightclub/item2.png"
                                 alt="item2-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[2][3]}
@@ -518,7 +518,7 @@ const renderWild = (odds: number[][]) => {
                             If Wild symbol is
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
-                                src="./static/images/heroes/item5.png"
+                                src="./static/images/nightclub/item5.png"
                                 alt="item5-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[5][3]}
@@ -546,7 +546,7 @@ const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                         different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/heroes/L1/list_icon.png#v3`} alt="guide_item_symbol_bg" width={396} height={380} />
+                        <img src={`/static/images/nightclub/list_icon.png#v3`} alt="guide_item_symbol_bg" width={396} height={380} />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
