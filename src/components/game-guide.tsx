@@ -28,6 +28,7 @@ import BitCoinMasterGuide from "./game-guide/bitcoin-master";
 import CasinoHoldGuide from "./game-guide/casino-hold";
 import HiLoGuide from "./game-guide/hi-lo";
 import TexasHoldGuide from "./game-guide/texas-hold";
+import NightClubGuide from "./game-guide/NightClub";
 
 import { UserStakeLevelProps } from "../pages";
 import { GAMES } from "../common/constants";
@@ -131,6 +132,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.HILO:
                 return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.NightClubGuide:
+                return <NightClubGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }
