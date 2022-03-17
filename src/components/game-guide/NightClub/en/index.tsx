@@ -25,7 +25,7 @@ const renderGameRule = () => {
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
                 <div className={Styles["wrapper-img-rectangle"]}>
-                    <img src={`/static/images/heroes/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
+                    <img src={`/static/images/nightclub/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
                 </div>
             </ul>
         </>
@@ -489,19 +489,19 @@ const renderWild = (odds: number[][]) => {
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/nightclub/item2.png" alt="item2" width={77} height={67} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={100} height={100} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/nightclub/item2.png" alt="item2" width={77} height={67} loading="eager" />
+                            <img src="/static/images/nightclub/item2.png" alt="item2" width={100} height={100} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/nightclub/item9.png?v1" alt="item9" width={54} height={64} loading="eager" />
+                            <img src="/static/images/nightclub/item9.png?v1" alt="item9" width={100} height={100} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/nightclub/item5.png" alt="item5" width={72} height={73} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={100} height={100} loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/nightclub/item5.png" alt="item5" width={72} height={73} loading="eager" />
+                            <img src="/static/images/nightclub/item5.png" alt="item5" width={100} height={100} loading="eager" />
                         </div>
                     </div>
                     <ul className="desc">
