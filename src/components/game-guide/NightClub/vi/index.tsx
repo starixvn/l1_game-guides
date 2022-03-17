@@ -271,7 +271,7 @@ const renderWild = (odds: number[][]) => {
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <img
-                        src="/static/images/nightclub/guide_example_wild.png"
+                        src="/static/images/nightclub/guide_example_wild.png#v3"
                         alt="guide_example_wild"
                         width={100}
                         height={54}
