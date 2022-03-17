@@ -149,7 +149,11 @@
 }
 
 .wild-content-ex {
-    grid-template-columns: 14.6rem 1fr;
+    grid-template-columns: 12.6rem 1fr;
+    align-items: center;
+    .wrapper-wild {
+        transform: unset;
+    }
 }
 
 .center {

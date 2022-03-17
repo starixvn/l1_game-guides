@@ -463,8 +463,8 @@ const renderWild = (odds: number[][]) => {
                     <img
                         src="/static/images/nightclub/guide_example_wild.png"
                         alt="guide_example_wild"
-                        width={128}
-                        height={143}
+                        width={117}
+                        height={54}
                         loading="eager"
                     />
                 </span>
