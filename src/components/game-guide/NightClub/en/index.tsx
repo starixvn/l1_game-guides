@@ -542,7 +542,7 @@ const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} is an online slot game, with high quality graphics. The game includes 5 reels and 3 rows, with 11
+                        Night Club is an online slot game, with high quality graphics. The game includes 5 reels and 3 rows, with 11
                         different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>

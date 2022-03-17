@@ -141,3 +141,19 @@
 .center {
     text-align: center;
 }
+
+.wrapper-icon-dark {
+    [class*="item"] {
+        width: 8rem;
+        height: 8rem;
+    }
+    .spin-position {
+        right: 3.1rem;
+        top: 3.1rem;
+    }
+
+    .bonus-position {
+        right: 3.1rem;
+        top: 3.4rem;
+    }
+}
