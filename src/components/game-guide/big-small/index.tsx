@@ -10,7 +10,7 @@ import { handleMaxBetChoice } from "../index.helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName, userStakeLevel, isGetGameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, gameName, userStakeLevel, isGetGameConfigs, isScrollMD5 } = props;
     const getGameConfigs = () => {
         if (!isGetGameConfigs) {
             if (gameName === BigSmallName.TXTurbo) {
@@ -33,9 +33,9 @@ const BigSmallGuide = (props: GameGuideBase) => {
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
 
     if (locale === locales.en) {
-        return <BigSmallGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return <BigSmallGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} isScrollMD5={isScrollMD5} />;
     }
 
-    return <BigSmallGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return <BigSmallGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} isScrollMD5={isScrollMD5} />;
 };
 export default BigSmallGuide;

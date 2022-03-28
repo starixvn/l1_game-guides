@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { SeDieMini } from "../index";
@@ -7,6 +7,8 @@ import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable } from "../../../shared/se-die/vi";
 import Styles from "../se-die.module.scss";
+import { renderMD5VI } from "../../../shared/md5-number/vi";
+import ScrollToMD5 from "../../../shared/md5-number";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -170,9 +172,49 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
     );
 };
 
+const renderMD5Example = () => {
+    return (
+        <>
+            <div className="content">
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-vi.png?v=1" />
+                </li>
+                <li>
+                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/result-vi.png?v=1" />
+                    <div>
+                        Trong đó <span className="red">1</span> là mặt đỏ và 0 là mặt trắng của đồng xu.
+                    </div>
+                </li>
+                <li>
+                    <strong>Bước 3:</strong> Truy cập{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png?v=1" />
+                </li>
+                <li>
+                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
+                    ở Bước 1.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png?v=1" />
+                </li>
+            </ul>
+            <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
+        </>
+    );
+}
+
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5 } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -208,6 +250,10 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
+                <li id="md5" className="guide-item">
+                    {renderMD5VI(2)}
+                    {renderMD5Example()}
+                </li>
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

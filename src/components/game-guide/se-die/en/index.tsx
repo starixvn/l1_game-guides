@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect}  from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
@@ -6,6 +6,8 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { renderMD5EN } from "../../../shared/md5-number/en";
+import ScrollToMD5 from "../../../shared/md5-number";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -88,9 +90,47 @@ const renderStatistical = () => {
     );
 };
 
+const renderMD5Example = () => {
+    return (
+        <>
+            <div className="content">
+                <strong> Example:</strong> check the authenticity and transparency of Se Die game results
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-vi.png?v=1" />
+                </li>
+                <li>
+                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/result-vi.png?v=1" />
+                    <div>
+                        Note: <span className="red">1</span> is the red side and 0 is the white side of the button.
+                    </div>
+                </li>
+                <li>
+                    <strong>Step 3:</strong> Go to{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    and paste the Result into the MD5 box.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png?v=1" />
+                </li>
+                <li>
+                    <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with the MD5 string in Step 1
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png?v=1" />
+                </li>
+            </ul>            
+        </>
+    );
+}
+
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5 } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -180,6 +220,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
+                <li id="md5" className="guide-item">
+                    {renderMD5EN(2)}
+                    {renderMD5Example()}
+                </li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

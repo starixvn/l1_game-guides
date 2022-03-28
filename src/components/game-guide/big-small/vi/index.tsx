@@ -1,12 +1,52 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderMD5VI } from "../../../shared/md5-number/vi";
+import ScrollToMD5 from "../../../shared/md5-number";
+
+const renderMD5Example = () => {
+    return (
+        <>
+            <div className="content">
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả của trò chơi Tài Xỉu
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                </li>
+                <li>
+                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả                    
+                    <div>
+                    Từ trái sang phải, &#123;6, 2, 1&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.
+                    </div>
+                </li>
+                <li>
+                    <strong>Bước 3:</strong> Truy cập{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png?v=1" />
+                </li>
+                <li>
+                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
+                    ở Bước 1.
+                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png?v=1" />
+                </li>
+            </ul>
+            <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
+        </>
+    );
+}
 
 const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5 } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     return (
         <>
             <ul className="game-guide">
@@ -56,6 +96,10 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là 1 ăn {odds?.big}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
+                </li>
+                <li id="md5" className="guide-item">
+                    {renderMD5VI(1)}
+                    {renderMD5Example()}
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
