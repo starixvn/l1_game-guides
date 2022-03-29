@@ -1,12 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 import { BaccaratVip } from "..";
 import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5-number/vi";
-import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../baccarat.module.scss";
 
 const renderGameRule = (maxBetMain: number | string) => {
@@ -113,47 +111,9 @@ const renderPointCalculationRules = (gameName: string) => {
     );
 };
 
-const renderMD5Example = () => {
-    return (
-        <>
-            <div className="content">
-                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả của trò chơi Baccarat
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
-                </li>
-                <li>
-                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả                    
-                    <div>
-                    Từ trái sang phải, J 9 là giá trị lá bài của Nhà Con và 8, 9 là giá trị lá bài của Nhà Cái.
-                    </div>
-                </li>
-                <li>
-                    <strong>Bước 3:</strong> Truy cập{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.
-                    <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png?v=1" />
-                </li>
-                <li>
-                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
-                    ở Bước 1.
-                    <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png?v=1" />
-                </li>
-            </ul>
-            <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
-        </>
-    );
-}
-
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5 } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
     const { odds } = gameConfigs;
-    useEffect(() => {
-        isScrollMD5 && ScrollToMD5();
-    });
     return (
         <div>
             <ul className="game-guide">
@@ -336,10 +296,6 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Trong trường hợp kết quả Hòa, người chơi sẽ được hoàn lại số tiền cược đặt vào 2 cửa Nhà Con, Nhà Cái.</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
-                </li>
-                <li id="md5" className="guide-item">
-                    {renderMD5VI(10)}
-                    {renderMD5Example()}
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
