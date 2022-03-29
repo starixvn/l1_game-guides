@@ -40,11 +40,12 @@ type Props = {
     dynamic: boolean;
     isGetGameConfigs?: boolean;
     isScrollMD5?: boolean;
+    environment?: string;
 };
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5 } = props;
+    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
     const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
     const gameGuideProps = {
@@ -56,6 +57,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         dynamic,
         isGetGameConfigs,
         isScrollMD5,
+        environment,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {
@@ -127,7 +129,7 @@ export const GameGuide: React.FC<Props> = (props) => {
             case 43:
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case 45:
-                return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />
+                return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }

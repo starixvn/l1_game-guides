@@ -5,13 +5,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-number/en";
 import ScrollToMD5 from "../../../shared/md5-number";
-import { GAMES } from "../../../../common/constants";
+import { ENVIRONMENT, GAMES } from "../../../../common/constants";
 
-const renderMD5Example = () => {
+const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of Big Small game results
+                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
             </div>
             <ul className="desc">
                 <li>
@@ -42,7 +42,7 @@ const renderMD5Example = () => {
 };
 
 const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5 } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -99,10 +99,12 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>
                 </li>
-                <li id="md5" className="guide-item">
-                    {renderMD5EN(GAMES.BIG_SMALL)}
-                    {renderMD5Example()}
-                </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN(GAMES.BIG_SMALL)}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

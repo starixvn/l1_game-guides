@@ -11,7 +11,7 @@ export const Themes = {
     fourGuardians: "four-guardians",
 };
 
-export const environment = { s: "sm", c: "sc" };
+export const ENVIRONMENT = { sm: "sm", sc: "sc" };
 
 export const GAMES = {
     BIG_SMALL: 1,

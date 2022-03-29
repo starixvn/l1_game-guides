@@ -9,7 +9,7 @@ import { StatisticalTable } from "../../../shared/se-die/vi";
 import Styles from "../se-die.module.scss";
 import { renderMD5VI } from "../../../shared/md5-number/vi";
 import ScrollToMD5 from "../../../shared/md5-number";
-import { GAMES } from "../../../../common/constants";
+import { ENVIRONMENT, GAMES } from "../../../../common/constants";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -174,11 +174,11 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
     );
 };
 
-const renderMD5Example = () => {
+const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi Xóc Đĩa
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
             </div>
             <ul className="desc">
                 <li>
@@ -210,7 +210,7 @@ const renderMD5Example = () => {
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5 } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -250,10 +250,13 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                <li id="md5" className="guide-item">
-                    {renderMD5VI(GAMES.SE_DIE)}
-                    {renderMD5Example()}
-                </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5VI(GAMES.SE_DIE)}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
+
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

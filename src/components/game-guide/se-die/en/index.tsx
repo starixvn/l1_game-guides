@@ -8,7 +8,7 @@ import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { renderMD5EN } from "../../../shared/md5-number/en";
 import ScrollToMD5 from "../../../shared/md5-number";
-import { GAMES } from "../../../../common/constants";
+import { ENVIRONMENT, GAMES } from "../../../../common/constants";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -91,11 +91,11 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = () => {
+const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of Se Die game results
+                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
             </div>
             <ul className="desc">
                 <li>
@@ -126,7 +126,7 @@ const renderMD5Example = () => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5 } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -218,10 +218,13 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                <li id="md5" className="guide-item">
-                    {renderMD5EN(GAMES.SE_DIE)}
-                    {renderMD5Example()}
-                </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN(GAMES.SE_DIE)}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
+
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

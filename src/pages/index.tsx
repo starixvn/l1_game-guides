@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import GameGuide from "../components/game-guide";
-import { environment } from "../common/constants";
+import { ENVIRONMENT } from "../common/constants";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -31,7 +31,7 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
     let fontFamily = "Roboto";
-    if (env === environment.c) {
+    if (env === ENVIRONMENT.sc) {
         switch (locale) {
             case "th":
                 fontFamily = "Noto-Thai";
@@ -63,6 +63,7 @@ const Home = () => {
     const [dynamic, setDynamic] = useState<boolean>(true);
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
+    const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
 
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
@@ -80,9 +81,11 @@ const Home = () => {
         if (router.isReady) {
             const queryParams: object | any = router.query;
 
-            changeFontFamilyFollowLanguage(router?.locale ?? "en", queryParams?.f ? environment.c : environment.s);
+            const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
+            changeFontFamilyFollowLanguage(router?.locale ?? "en", env);
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
+            setEnvironment(env);
             setName(queryParams?.name);
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
@@ -114,6 +117,7 @@ const Home = () => {
                     dynamic={dynamic}
                     isScrollMD5={isScrollMD5}
                     isGetGameConfigs={isGetGameConfigs}
+                    environment={environment}
                 ></GameGuide>
             ) : (
                 gameConfigs && (
@@ -126,6 +130,7 @@ const Home = () => {
                         dynamic={dynamic}
                         isScrollMD5={isScrollMD5}
                         isGetGameConfigs={isGetGameConfigs}
+                        environment={environment}
                     ></GameGuide>
                 )
             )}

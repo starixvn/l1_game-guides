@@ -5,13 +5,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5VI } from "../../../shared/md5-number/vi";
 import ScrollToMD5 from "../../../shared/md5-number";
-import { GAMES } from "../../../../common/constants";
+import { ENVIRONMENT, GAMES } from "../../../../common/constants";
 
-const renderMD5Example = () => {
+const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi Tài Xỉu
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
             </div>
             <ul className="desc">
                 <li>
@@ -43,7 +43,7 @@ const renderMD5Example = () => {
 };
 
 const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5 } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -99,10 +99,12 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
-                <li id="md5" className="guide-item">
-                    {renderMD5VI(GAMES.BIG_SMALL)}
-                    {renderMD5Example()}
-                </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5VI(GAMES.BIG_SMALL)}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
