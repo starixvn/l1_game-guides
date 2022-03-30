@@ -1,6 +1,6 @@
 import React from "react";
 
-const games = { casinoHoldem: 39, TexasHoldem: 42 };
+const games = { casinoHoldem: 39 };
 
 export const renderMD5EN = (gameId?: number) => {
     return (
@@ -78,38 +78,6 @@ export const renderMD5EN = (gameId?: number) => {
                             <strong>Step4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5
                             string with the MD5 string in <strong>Step 1</strong>.
                             <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png" />
-                        </li>
-                    </ul>
-                </>
-            )}
-
-            {gameId === games.TexasHoldem && (
-                <>
-                    <ul className="desc">
-                        <li>
-                            <strong>Step 1:</strong> Copy the MD5 string.
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-en.png" />
-                        </li>
-                        <li>
-                            <strong>Step 2:</strong> Copy the Key string.
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/result-en.png" />
-                        </li>
-                        <li>
-                            Notes: From left to right, the Key string shows the cards in this order: Player’s cards, Dealer’s cards, and the
-                            five community cards.
-                        </li>
-                        <li>
-                            <strong>Step 3:</strong> Go to{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            and paste the string result into the MD5 box
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/hash-darling.png" />
-                        </li>
-                        <li>
-                            <strong>Step4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                            string with the MD5 string in <strong>Step 1</strong>.
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-checksum.png?v=1" />
                         </li>
                     </ul>
                 </>

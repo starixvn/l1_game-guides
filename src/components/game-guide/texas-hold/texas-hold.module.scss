@@ -3,6 +3,7 @@
 .link {
     color: #0d6efd;
 }
+
 .wrapper-card {
     width: 275px;
     height: 65px;
@@ -25,4 +26,10 @@
 .black {
     color: #000;
     text-shadow: 0 0 0.3rem #ffd69d;
+}
+
+@media (max-width: 768px) {
+    .format-mobile {
+        width: 100%;
+    }
 }

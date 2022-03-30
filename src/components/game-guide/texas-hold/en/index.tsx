@@ -12,77 +12,66 @@ const renderGameRule = (maxBet: string | number | undefined) => {
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>Select the desired chip with the value that suits you best and place it on Ante.</li>
+                <li>Select the desired chip with the value that suits you best and place bet on Ante.</li>
+                <li>Note, Ante bet is a mandatory option that the Player must place bet before any cards are dealt.</li>
+                <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two hole cards.</li>
                 <li>
-                    <strong>Ante bet:</strong> To start a new game round, the Player clicks on the DEAL button for the cards to be dealt.
-                    The Player is dealt two cards face-up (the “Hole cards”), and the Dealer is dealt two cards face-down.
-                </li>
-
-                <li>
-                    <strong>Call bet:</strong> After the two cards are dealt, the Player has to evaluate their hand strength and decide to
-                    CALL or FOLD.
+                    <strong>Swap Card</strong>
                     <ul className="detail">
                         <li>
-                            <strong>CALL:</strong> The Player continue playing with an additional Call bet that equals twice the Ante bet.
-                            The 3 community cards (the Flop) are dealt face-up in the middle of the table.
+                            Swap Card is an optional feature and can be turned ON/ OFF. It allows player to choose either to swap his
+                            two-hole cards with Dealer’s cards before cards are face-up or keep the cards without changing.
+                        </li>
+                    </ul>
+                </li>
+                <li>Note: The Swap feature can only be ON/OFF before the game round is started.</li>
+                <li>
+                    After the two hole cards are dealt and face up, the Player must decide whether to CALL or FOLD.
+                    <ul className="detail">
+                        <li>
+                            <strong>FOLD: </strong> the Player will surrender his hand and lose the Ante bet. The game round is over.
                         </li>
                         <li>
-                            <strong>FOLD:</strong> The Player forfeits the Call bet and loses the Ante bet. The game round ends.
+                            <strong>CALL: </strong>the Player will continue playing with an additional Call bet, equal to twice the Ante
+                            bet, and three community cards (Flop card) are dealt face-up in the middle of the table.
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Turn and River bets:</strong> The Player sequentially is offered two additional bets Turn bet and River bet that
-                    equals the stake of the Ante bet.
+                    <strong>Turn {`&`} River bet</strong>: are additional bets decided by Player whether he wants to raise his bet.
                     <ul className="detail">
                         <li>
-                            <strong>BET TURN </strong>and <strong>BET RIVER:</strong> If you are confident about your hand’s potential,
-                            click on the appropriate button, otherwise click on the CHECK button. The last two community cards the fourth
-                            card (the Turn) and the fifth card (the River) are dealt.
+                            <strong>Turn bet: </strong>before a fourth community card is dealt face up (the Turn), Player can increase the
+                            stake by placing bet on “Turn” option with the same bet amount placed on Ante.
                         </li>
                         <li>
-                            <strong>CHECK:</strong> The Player continues playing without placing additional bets. The last two community
-                            cards are dealt.
+                            <strong>River bet: </strong>the River is the fifth and final community card. Similar to the Turn bet, before the
+                            River card is dealt, Player will have the option of placing an additional River bet.
                         </li>
                     </ul>
                 </li>
                 <li>
-                    After the 5 community cards are dealt, the Player and the Dealer use their hole cards and combine them with the five
-                    community cards to create the best possible five-card Poker hand.
-                    <ul className="detail">
-                        <li>
-                            If the Dealer’s hand beats the Player’s hand, the Player loses the game and all the bets on Ante, Call, Turn and
-                            River lose.
-                        </li>
-                        <li>If the Player’s hand and the Dealer’s hand tie, it is a push and all bets return to Players.</li>
-                        <li>
-                            If Player’s hand beats Dealer’s hand:
-                            <ul>
-                                <li>+ With a hand lower than a Straight, the Call, Turn and River bets win. The Ante return to Players.</li>
-                                <li>+ With a Straight or higher, all the bets Ante, Call, Turn, and River bets win.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <strong>Check: </strong>To skip placing bets on Turn or River, simply click on “Check” button.
                 </li>
                 <li>
-                    To start a new game round, the available account balance must be ≥ 3 times (greater than or equal) the stake of the Ante
-                    bet.
+                    The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win if
+                    the Player has a better hand than the Dealer
                 </li>
-                <li>The maximum total stake per round is {maxBet}.</li>
+                <li>The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled after cards are dealt.</li>
             </ul>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Ranking Level</span>
+                    <span className="font-weight-medium title-text"> Ranking Level</span>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">
                             <span className="title-text">Card Values</span>
                             <ul className="desc">
                                 <li>
-                                    The card&apos;s value is ranked from the highest to the lowest in the following order: Ace (A), King
-                                    (K), Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.
+                                    The card’s value is ranked from the highest to the lowest in the following order: Ace (A), King (K),
+                                    Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.
                                 </li>
                                 <li>
-                                    The Ace can be used as both the highest and lowest card.{" "}
+                                    The Ace can be used as both the highest and lowest card.
                                     <ul className="detail">
                                         <li>
                                             For example: In a straight, the A can be used as A, K, Q, J, 10 as the highest value or 5, 4, 3,
@@ -91,9 +80,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </ul>
                                 </li>
                                 <li>
-                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (
-                                    <span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and
-                                    club (<span className={Styles["black"]}>♣</span>) have equal value.
+                                    All the suits - heart (<span className={Styles["red"]}>♥</span>, spade
+                                    <span className={Styles["black"]}>♠</span>, diamond <span className={Styles["red"]}>♦</span>, and club
+                                    <span className={Styles["black"]}>♣</span>) have equal value.
                                 </li>
                             </ul>
                         </li>
@@ -114,7 +103,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <strong>Royal Flush</strong>
+                                                        <strong>Royal Flush </strong>
                                                     </td>
                                                     <td>Ace, King, Queen, Jack, and 10 in the same suit</td>
                                                     <td>
@@ -131,7 +120,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Straight Flush</strong>
+                                                        <strong> Straight Flush </strong>
                                                     </td>
                                                     <td>Five cards in the same suit, all in a rank sequence</td>
                                                     <td>
@@ -148,7 +137,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Four of a Kind</strong>
+                                                        <strong> Four of a Kind </strong>
                                                     </td>
                                                     <td>Four cards of the same rank</td>
                                                     <td>
@@ -165,9 +154,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Full House</strong>
+                                                        <strong>Full House </strong>
                                                     </td>
-                                                    <td>Three of a Kind and a Pair</td>
+                                                    <td>Three of a Kind and a Pair </td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -182,7 +171,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Flush</strong>
+                                                        <strong>Flush </strong>
                                                     </td>
                                                     <td>Five cards in the same suit</td>
                                                     <td>
@@ -216,7 +205,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Three of a Kind</strong>
+                                                        <strong>Three of a Kind </strong>
                                                     </td>
                                                     <td>Three cards of the same rank</td>
                                                     <td>
@@ -233,7 +222,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Two Pair</strong>
+                                                        <strong>Two Pair </strong>
                                                     </td>
                                                     <td>Two pairs of different ranks</td>
                                                     <td>
@@ -267,7 +256,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>High card</strong>
+                                                        <strong>High Card</strong>
                                                     </td>
                                                     <td>Highest card when no higher hand is available</td>
                                                     <td>
@@ -403,10 +392,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; The Player wins because the Player’s hand has Two Pair which is higher than a pair of the Dealer’s
-                                hand.
-                            </div>
+                            <div>=&gt; The Player wins.</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
@@ -516,10 +502,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; The Dealer wins because the Dealer has a pair of J which is higher than a pair of 5 of the Player’s
-                                hand.
-                            </div>
+                            <div>=&gt; The Dealer wins.</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
@@ -629,10 +612,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; The Dealer wins. The Player’s hand and Dealer’s hand have two pair (a pair of A and a pair of 7, but
-                                the individual card of the Dealer’s hand (10) is higher than the Player’s hand (5).
-                            </div>
+                            <div>=&gt; The Dealer wins.</div>
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
@@ -741,10 +721,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; The Player and Dealer tie because the combination cards of the Player’s hand and the Dealer’s hand are
-                                the same.
-                            </div>
+                            <div>=&gt; Result is a “Tie”.</div>
                         </li>
                     </ul>
                 </li>
@@ -763,14 +740,14 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <li>
                     If Player’s hand beats Dealer’s hand:
                     <ul className="detail">
-                        <li>With a hand lower than a Straight, the Call, Turn and River bets are won, and Ante pushes (Tie).</li>
-                        <li>With a Straight or higher, all the bets Ante, Call, Turn, and River bets won</li>
+                        <li>With a Three of a Kind or lower {`=>`} the Call, Turn and River bets are won, and Ante is pushed.</li>
+                        <li>With a Straight or higher {`=>`} All bets (Ante, Call, Turn, and River) will win.</li>
                     </ul>
                 </li>
                 <li>
                     Payout and Bet Limit{" "}
                     <div className="table-container text-center">
-                        <table className="table table-small">
+                        <table className="table table-medium">
                             <thead>
                                 <tr>
                                     <td>Option</td>
@@ -780,28 +757,28 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Ante (with a hand lower than Straight)</td>
+                                    <td>Ante (win with Three of a Kind or lower)</td>
                                     <td>Push</td>
                                     <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
                                 </tr>
                                 <tr>
-                                    <td>Ante (with a hand of Straight or higher) </td>
-                                    <td>1 - {odds?.AnteBet_flush}</td>
+                                    <td>Ante (win with Straight or higher) </td>
+                                    <td>1 : {odds?.AnteBet_flush}</td>
                                     <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
                                 </tr>
                                 <tr>
                                     <td>Call</td>
-                                    <td>1 - {odds?.call}</td>
+                                    <td>1 : {odds?.call}</td>
                                     <td>1 - {maxBetFollowChoice?.maxBetCallBetChoice}</td>
                                 </tr>
                                 <tr>
                                     <td>Turn</td>
-                                    <td>1 - {odds?.turn}</td>
+                                    <td>1 : {odds?.turn}</td>
                                     <td>1 - {maxBetFollowChoice?.maxBetTurnBetChoice}</td>
                                 </tr>
                                 <tr>
                                     <td>River</td>
-                                    <td>1 - {odds?.river}</td>
+                                    <td>1 : {odds?.river}</td>
                                     <td>1 - {maxBetFollowChoice?.maxBetRiverBetChoice}</td>
                                 </tr>
                             </tbody>
@@ -809,6 +786,105 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </div>
                 </li>
             </ul>
+        </>
+    );
+};
+
+export const renderMD5 = () => {
+    return (
+        <>
+            <h2> MD5 (Message-Digest algorithm 5) </h2>
+            <ul className="style-number-dot">
+                <li className="number-dot">
+                    <span className="title-text">Md5 Technology</span>
+                    <ul className="desc">
+                        <li>MD5 allows Players to check the authenticity and transparency of game results through 3rd parties.</li>
+                        <li>The game results will be randomly generated by the system before the cards are revealed.</li>
+                        <li>
+                            Players can manually check whether or not the results generated before the cards are revealed (
+                            <strong>MD5</strong> string) and the publishing results (String <strong>Result</strong>) are matched.
+                        </li>
+                    </ul>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text"> Steps for Checking</span>
+                    <ul className="desc">
+                        <li>
+                            <span>
+                                <strong>Step 1</strong>: Copy the <strong>MD5</strong> key after pressing the Deal button.
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <strong>Step 2</strong>: Copy <strong> the String Result</strong> after the fifth community card (River) is
+                                dealt.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Step 3</strong>: Go to{" "}
+                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                https://md5.services/
+                            </a>{" "}
+                            and paste the String Result into the MD5 box.
+                        </li>
+                        <li>
+                            <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated{" "}
+                            <strong>checksum MD5</strong> string with the MD5 string in <strong>Step 1.</strong>
+                        </li>
+                        <li>
+                            If two strings are matching, prove that the outcome of that game round is transparent and the game result is
+                            unchanged from the random result generated by the system before the cards are revealed.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div className="content">
+                <strong> Example:</strong> check the authenticity and transparency of Poker game results.
+                <ul className="desc">
+                    <li>
+                        <strong>Step 1:</strong>Copy the MD5 key after pressing the DEAL button.
+                        <img className={`format-img auto-center ${Styles["format-mobile"]}`} src="/static/images/texas-hold/md5-en.png" />
+                    </li>
+                    <li>
+                        <strong>Step 2:</strong> Copy the string Result after the fifth community card (River) is dealt.
+                        <img
+                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            src="/static/images/texas-hold/result-en.png"
+                        />
+                    </li>
+                    <li>
+                        <strong>Note</strong>
+                        <ul className="detail">
+                            <li>
+                                From left to right, the cards are displayed in the order: Player’s cards (A, B), Dealer’s cards (C, D), and
+                                the five community cards (L, M, N, O)
+                            </li>
+                            <li>
+                                If the Player has swapped his cards with Dealer then the display order will be: Dealer’s cards (A, B),
+                                Player’s cards (C, D), and the five community cards (L, M, N, O)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Step 3:</strong> Go to{" "}
+                        <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                            https://md5.services/
+                        </a>{" "}
+                        and paste the Key string into the MD5 box
+                        <div className="wrapper-md5-img-hash">
+                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string
+                        with the MD5 string in <strong>Step 1</strong>.
+                        <div className="wrapper-md5-img">
+                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </>
     );
 };
@@ -827,9 +903,9 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        Texas Hold’em is one of the world’s most popular Poker games. The game is played with a standard 52-card deck
+                        Texas Hold’em is one of the world’s most popular poker games. The game is played with a standard 52-card deck
                         (excluding Joker), and the cards are reshuffled after each round. The objective of this game is to obtain a higher
-                        ranking Poker hand than the Dealer. Using your own hole cards combines with the five community cards to create the
+                        ranking Poker hand than the Dealer. Using your two hole cards combines with the five community cards to create the
                         best possible five-card Poker hand.
                     </p>
                     <p className="content">
@@ -844,7 +920,7 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
                 <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
                 <li id="md5" className="guide-item">
-                    {renderMD5EN(42)}
+                    {renderMD5()}
                 </li>
 
                 {renderTermsAndConditionsEN("", 42)}

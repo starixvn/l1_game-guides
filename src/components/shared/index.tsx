@@ -22,11 +22,21 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.texasHoldem && (
                     <li className="number-dot">
-                        If your game round is disrupted, all game information and placed bets are kept until you reopen the game. Within 24
-                        hours from confirming on the Deal button, you may continue your unfinished game from the point of interruption. The
-                        unfinished game will be automatically settled after 24 hours, and the winning results are determined by the game
-                        rules. If the game is disrupted at Call, the Player is considered as Fold. Otherwise, the Player is considered as
-                        Check until all bets are completed.
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal“ button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
+                        determined by the following rules:
+                        <ul className="detail">
+                            <li>
+                                If the game round is disrupted before the Player can decide to select either “CALL” or “FOLD {`=>`} The
+                                Player’s hand is considered as “FOLD”.
+                            </li>
+                            <ul>
+                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
+                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal. Turn và River. Thắng thua
+                                sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia
+                                cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
+                            </ul>
+                        </ul>
                     </li>
                 )}
                 <li className="number-dot">
@@ -72,9 +82,17 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                     <li className="number-dot">
                         Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm
                         nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, hệ thống
-                        xử lý theo luật sau đây. Nếu Người Chơi đang ở vòng Cược Call, hệ thống xử Người Chơi “Bỏ Bài” và Người Chơi thua
-                        ván đó. Nếu Người Chơi đang ở vòng Cược Turn hoặc Cược River, hệ thống sẽ tự động chọn “Xem” và kết thúc ván chơi
-                        dựa theo lá bài của Người Chơi và Nhà Cái.
+                        xử lý theo các quy định sau:
+                        <ul className="detail">
+                            <li>
+                                Nếu phiên bị gián đoạn trước khi Người Chơi bấm nút “Theo Bài” đồng nghĩa với Người Chơi chấp nhận “Bỏ Bài”.{" "}
+                            </li>
+                            <ul>
+                                Nếu phiên bị gián đoạn sau khi Người Chơi bấm nút “Theo Bài”, hệ thống sẽ mặc định chọn “Xem” cho các vòng
+                                Turn và River. Thắng thua sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số
+                                7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
+                            </ul>
+                        </ul>
                     </li>
                 )}
                 <li className="number-dot">

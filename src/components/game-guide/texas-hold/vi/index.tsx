@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5-number/vi";
 import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../texas-hold.module.scss";
 
@@ -12,55 +11,57 @@ const renderGameRule = (maxBet: string | number | undefined) => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Chọn mệnh giá chip muốn đặt cược và đặt vào cược Ante.</li>
+                <li>Chọn mệnh giá chip muốn đặt cược.</li>
                 <li>
-                    <strong>Cược Ante:</strong> để bắt đầu phiên mới, Người Chơi bắt buộc phải đặt cược vào Ante. Phiên sẽ bắt đầu ngay sau
-                    khi bấm nút “Chia Bài”, Người Chơi và Nhà Cái mỗi bên sẽ được chia 2 lá bài.
+                    Người Chơi đặt cược vào Ante để bắt đầu phiên chơi. Phiên sẽ bắt đầu ngay sau khi bấm nút “Chia Bài”, Người Chơi và Nhà
+                    Cái mỗi bên sẽ được chia 2 lá bài.
                 </li>
 
                 <li>
-                    <strong>Cược Call:</strong> sau khi 2 lá bài được chia, Người Chơi sẽ quyết định chơi tiếp THEO BÀI hoặc dừng lại BỎ
-                    BÀI.
+                    Hoán đổi bài
                     <ul className="detail">
                         <li>
-                            <strong>THEO BÀI:</strong> Người Chơi chấp nhận cược Call và mất tiền cược với số tiền gấp đôi ở cược Ante và 3
-                            là bài chung sẽ được chia ngửa ở giữa bàn.
+                            Tính năng tùy chọn, có thể Bật/Tắt, cho phép Người Chơi hoán đổi 2 lá bài tẩy với Nhà Cái, trước khi các lá bài
+                            tẩy của Người Chơi được lật.
+                        </li>
+                    </ul>
+                </li>
+                <li>Lưu ý: Chỉ có thể Bật/Tắt tính năng “Hoán đổi bài” trước khi phiên bắt đầu.</li>
+                <li>
+                    Sau khi 2 lá bài tẩy được chia và lật, Người Chơi sẽ có 2 lựa chọn Theo Bài (Call) hoặc Bỏ Bài (Fold).
+                    <ul className="detail">
+                        <li>
+                            Nếu chọn <strong>“Bỏ Bài”</strong>, Người Chơi chấp nhận mất tiền cược và phiên chơi kết thúc.
                         </li>
                         <li>
-                            <strong>BỎ BÀI:</strong> Người Chơi chấp nhận mất tiền cược Ante và phiên chơi kết thúc.
+                            Nếu chọn <strong>“Theo Bài”</strong>, 3 lá bài chung sẽ được chia và lật giữa bàn, Người Chơi phải đặt thêm 1
+                            khoản tiền cược vào Call bằng 2 lần số tiền đã đặt vào Ante.
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Cược Turn và Cược River:</strong> Người Chơi lần lượt được phép đặt thêm Cược Turn và Cược River
+                    <strong>Cược Turn, Cược River</strong>
                     <ul className="detail">
                         <li>
-                            <strong>CƯỢC TURN </strong>và <strong>CƯỢC RIVER:</strong> Nếu cho rằng tay bài có tiềm năng, Người Chơi lần
-                            lượt có quyền đặt thêm vào cược Turn và cược River tương ứng với số tiền ở cược Ante. Các lá bài chung thứ 4 và
-                            thứ 5 sẽ lần lượt được mở.
+                            <strong>Cược Turn: </strong>Trước khi lá bài chung thứ tư (lá Turn) được chia, nếu thấy tay bài có tiềm năng,
+                            Người Chơi có thể tăng lượng tiền cược bằng cách đặt thêm vào cược Turn, với số tiền đã đặt vào Ante trước đó.
                         </li>
                         <li>
-                            <strong>XEM:</strong> Nếu không đặt cược, Người Chơi có thể chọn XEM để lần lượt mở các lá bài chung.
+                            <strong>Cược River: </strong>Tương tự với lá bài chung thứ năm (lá River).
                         </li>
                     </ul>
                 </li>
+                <li>Người Chơi có thể bấm “Xem” nếu không muốn đặt thêm cược Turn hoặc River.</li>
                 <li>
-                    Kết quả thắng thua của các loại cược được quyết định dựa trên 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2
-                    lá được chia cho mỗi bên và 5 lá bài chung).
-                    <ul className="detail">
-                        <li>Nếu tay bài Nhà Cái thắng tay bài Người Chơi, Người Chơi thua và mất toàn bộ tiền cược.</li>
-                        <li>Nếu tay bài của Người Chơi và Nhà Cái hòa, tất cả tiền cược sẽ được hoàn trả cho Người Chơi.</li>
-                        <li>
-                            Nếu tay bài của Người Chơi thắng tay bài Nhà Cái:
-                            <ul>
-                                <li>+ Với tay bài nhỏ hơn Sảnh, thì Cược Call, Cược Turn và Cược River thắng. Cược Ante hoàn tiền.</li>
-                                <li>+ Với tay bài là Sảnh hoặc lớn hơn, tất cả các cửa cược đều thắng.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    Kết quả thắng thua được quyết định dựa trên 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia cho
+                    mỗi bên và 5 lá bài chung).
                 </li>
-                <li>Để bắt đầu phiên chơi, số tiền còn lại trong tài khoản ≥ 3 lần (lớn hơn hoặc bằng) tiền cược Ante.</li>
-                <li>Tổng tiền cược tối đa của 1 phiên là {maxBet}.</li>
+                <li>Nếu tổ hợp 5 lá bài của Người Chơi lớn hơn Nhà Cái, Người Chơi thắng và ngược lại.</li>
+
+                <li>
+                    Tổng tiền cược tối đa của 1 phiên là {maxBet}. <strong>Lưu ý</strong>, không thể hủy cược sau khi bấm “Chia Bài”.
+                </li>
+                <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được xào lại sau mỗi phiên.</li>
             </ul>
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -277,8 +278,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                 </li>
                                 <li>
                                     Nếu tay bài của Người Chơi và Nhà Cái có cùng thang sức mạnh, khi đó các lá bài lẻ sẽ được dùng để phân
-                                    định thắng thua. Nếu lá bài lẻ lớn nhất của 2 bên là bằng nhau, tiếp tục so sánh lá bài lẻ cao thứ 2, và
-                                    tiếp tục như vậy với các lá còn lại cho đến khi phân định được kết quả.
+                                    định thắng thua.
+                                </li>
+                                <li>
+                                    Nếu lá bài lẻ lớn nhất của 2 bên là bằng nhau, tiếp tục so sánh lá bài lẻ cao thứ 2, và tiếp tục như vậy
+                                    với các lá còn lại cho đến khi phân định được kết quả.
                                 </li>
                             </ul>
                             <p>
@@ -392,10 +396,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; Người Chơi thắng. Tay bài Người Chơi có hai đôi (đôi A và đôi J), tay bài Nhà Cái chỉ có một đôi (đôi
-                                5).
-                            </div>
+                            <div>=&gt; Người Chơi thắng.</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
@@ -505,7 +506,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; Nhà Cái thắng. Cả 2 tay bài đều đôi, tay bài của Nhà Cái có đôi J lớn hơn đôi 5.</div>
+                            <div>=&gt; Nhà Cái thắng.</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
@@ -728,10 +729,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; Người Chơi và Nhà Cái hòa. Cả 2 tay bài đều có 2 đôi giống nhau (đôi A và đôi 7), lá bài lẻ (J) cũng
-                                như nhau.
-                            </div>
+                            <div>=&gt; Người Chơi và Nhà Cái hòa.</div>
                         </li>
                     </ul>
                 </li>
@@ -748,15 +746,15 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                 <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                 <li>
-                    Khi tay bài của Người Chơi thắng tay bài của Nhà Cái:
+                    Nếu Người Chơi thắng Nhà Cái:
                     <ul className="detail">
-                        <li>Với tay bài nhỏ hơn Sảnh, thì Cược Call, Cược Turn và Cược River thắng. Cược Ante hoàn tiền.</li>
-                        <li>Với tay bài là Sảnh hoặc lớn hơn, tất cả các cửa cược đều thắng.</li>
+                        <li>Thắng với tay bài là Sám hoặc nhỏ hơn {`=>`} Cược Call, Turn và River thắng. Cược Ante hoàn tiền.</li>
+                        <li>Thắng với tay bài là Sảnh hoặc lớn hơn {`=>`} Tất cả các cửa cược đều thắng.</li>
                     </ul>
                 </li>
             </ul>
             <div className="table-container text-center">
-                <table className="table table-small">
+                <table className="table table-medium">
                     <thead>
                         <tr>
                             <td>Lựa Chọn</td>
@@ -766,32 +764,136 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Ante (Tay bài nhỏ hơn Sảnh)</td>
-                            <td>Push</td>
+                            <td>Ante (thắng với Sám hoặc nhỏ hơn)</td>
+                            <td>Hoàn Tiền</td>
                             <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
                         </tr>
                         <tr>
-                            <td>Ante (Tay bài có Sảnh hoặc lớn hơn) </td>
-                            <td>1 - {odds?.AnteBet_flush}</td>
+                            <td>Ante (thắng với Sảnh hoặc lớn hơn) </td>
+                            <td>1 : {odds?.AnteBet_flush}</td>
                             <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
                         </tr>
                         <tr>
                             <td>Call</td>
-                            <td>1 - {odds?.call}</td>
+                            <td>1 : {odds?.call}</td>
                             <td>1 - {maxBetFollowChoice?.maxBetCallBetChoice}</td>
                         </tr>
                         <tr>
                             <td>Turn</td>
-                            <td>1 - {odds?.turn}</td>
+                            <td>1 : {odds?.turn}</td>
                             <td>1 - {maxBetFollowChoice?.maxBetTurnBetChoice}</td>
                         </tr>
                         <tr>
                             <td>River</td>
-                            <td>1 - {odds?.river}</td>
+                            <td>1 : {odds?.river}</td>
                             <td>1 - {maxBetFollowChoice?.maxBetRiverBetChoice}</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </>
+    );
+};
+
+export const renderMD5 = () => {
+    return (
+        <>
+            <h2> MD5 (Message-Digest algorithm 5) </h2>
+            <ul className="style-number-dot">
+                <li className="number-dot">
+                    <span className="title-text">Công nghệ MD5</span>
+                    <ul className="desc">
+                        <li>
+                            <strong>MD5</strong>là công nghệ cho phép Người Chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
+                            thông qua bên thứ ba.
+                        </li>
+                        <li>
+                            Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên ngay khi Người Chơi bấm nút chia bài (Chuỗi{" "}
+                            <strong>MD5</strong>)
+                        </li>
+                        <li>
+                            Người Chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên (Chuỗi <strong>MD5</strong>) và
+                            kết quả cuối cùng sau khi được công bố (Chuỗi <strong>Kết Quả</strong>).
+                        </li>
+                    </ul>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text"> Các bước kiểm tra</span>
+                    <ul className="desc">
+                        <li>
+                            <span>
+                                <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút “Chia Bài” .
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi lá bài chung thứ 5 (lá River) được
+                                chia.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Bước 3</strong>: Truy cập{" "}
+                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                https://md5.services/
+                            </a>{" "}
+                            và dán Key vừa copy vào ô MD5.
+                        </li>
+                        <li>
+                            <strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi{" "}
+                            <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div className="content">
+                Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước
+                khi các lá bài được mở.
+            </div>
+            <div className="content">
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả
+                <ul className="desc">
+                    <li>
+                        <strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.
+                        <img className={`format-img auto-center ${Styles["format-mobile"]}`} src="/static/images/texas-hold/md5-vi.png" />
+                    </li>
+                    <li>
+                        <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi sau khi lá bài chung thứ 5 được chia.
+                        <img
+                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            src="/static/images/texas-hold/result-vi.png"
+                        />
+                        <ul className="detail">
+                            <li>
+                                Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (A, B), 2 lá của Nhà Cái (X, Y) và 5 lá bài
+                                Chung (L, M, N, P, Q)
+                            </li>
+                            <li>
+                                Lưu ý: trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà
+                                Cái (A, B), 2 lá của Người Chơi (X, Y) và 5 lá bài Chung.{" "}
+                            </li>
+                        </ul>
+                        <div>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước ngay khi Người Chơi bấm nút Chia Bài.</div>
+                    </li>
+                    <li>
+                        <strong>Bước 3:</strong> Truy cập{" "}
+                        <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                            https://md5.services/
+                        </a>{" "}
+                        và dán Kết Quả vừa copy vào ô MD5.
+                        <div className="wrapper-md5-img-hash">
+                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Bước 4:</strong> Bấm nút “hash, darling hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở{" "}
+                        <strong>Bước 1</strong>.
+                        <div className="wrapper-md5-img">
+                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png" />
+                        </div>
+                    </li>
+                </ul>
+                <div>Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
             </div>
         </>
     );
@@ -811,22 +913,22 @@ const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        Texas Hold&apos;em là một trong những game Poker nổi tiếng thế giới. Trò chơi sử dụng một bộ bài tây 52 lá (không
-                        bao gồm lá Joker) và được xào lại mỗi phiên. Người Chơi sẽ so sánh bài trực tiếp với Nhà Cái, kết quả thắng thua
-                        được quyết định dựa trên sức mạnh của tay bài (5 lá) của mỗi bên.
+                        Texas Hold&apos;em là một trong top 10 game Poker nổi tiếng thế giới. Trò chơi sử dụng một bộ bài tây 52 lá (không
+                        bao gồm lá Joker) và Người Chơi sẽ so bài trực tiếp với Nhà Cái. Kết quả thắng thua sẽ được quyết định dựa trên sức
+                        mạnh của tay bài (5 lá) của mỗi bên.
                     </p>
                     <p className="content">
                         Ngoài ra trò chơi còn tích hợp tính năng xác thực{" "}
                         <a href="#md5" className={Styles["link"]}>
                             MD5 (Message-Digest algorithm 5)
                         </a>{" "}
-                        cho phép Người Chơi tự kiểm tra tính minh bạch trong kết quả thắng thua.
+                        cho phép người chơi tự kiểm tra tính minh bạch trong kết quả thắng thua.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
                 <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
                 <li id="md5" className="guide-item">
-                    {renderMD5VI(42)}
+                    {renderMD5()}
                 </li>
 
                 {renderTermsAndConditionsVI("", 42)}
