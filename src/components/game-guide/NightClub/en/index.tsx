@@ -20,6 +20,7 @@ const renderGameRule = () => {
                     <div className="text-center">
                         <strong>Total Bet</strong> = Paylines * Bet Level
                     </div>
+                    <div><strong>Note:</strong> Player can use the “Spacebar” key on PC, instead of the "Spin" button to have a new experience.</div>
                 </li>
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
