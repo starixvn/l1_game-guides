@@ -19,7 +19,7 @@ export const renderMD5EN = (gameId?: number) => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text">Steps for checking</span>
+                    <span className="title-text">MD5 Validation</span>
                     <ul className="desc">
                         <li>
                             <strong>Step 1</strong>: Copy the <strong>MD5.</strong> The MD5 string displays after pressing the DEAL button.

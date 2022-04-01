@@ -21,7 +21,7 @@ export const renderMD5VI = (gameId?: number) => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text"> Các bước kiểm tra</span>
+                    <span className="title-text">Tra Cứu MD5</span>
                     <ul className="desc">
                         <li>
                             <span>
