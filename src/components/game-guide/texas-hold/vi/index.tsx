@@ -766,27 +766,42 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <tr>
                             <td>Ante (thắng với Sám hoặc nhỏ hơn)</td>
                             <td>Hoàn Tiền</td>
-                            <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
+                            <td>
+                                {" "}
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
+                            </td>
                         </tr>
                         <tr>
                             <td>Ante (thắng với Sảnh hoặc lớn hơn) </td>
                             <td>1 : {odds?.AnteBet_flush}</td>
-                            <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
+                            <td>
+                                {" "}
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
+                            </td>
                         </tr>
                         <tr>
                             <td>Call</td>
                             <td>1 : {odds?.call}</td>
-                            <td>1 - {maxBetFollowChoice?.maxBetCallBetChoice}</td>
+                            <td>
+                                {" "}
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
+                            </td>
                         </tr>
                         <tr>
                             <td>Turn</td>
                             <td>1 : {odds?.turn}</td>
-                            <td>1 - {maxBetFollowChoice?.maxBetTurnBetChoice}</td>
+                            <td>
+                                {" "}
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetTurnBetChoice}
+                            </td>
                         </tr>
                         <tr>
                             <td>River</td>
                             <td>1 : {odds?.river}</td>
-                            <td>1 - {maxBetFollowChoice?.maxBetRiverBetChoice}</td>
+                            <td>
+                                {" "}
+                                {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRiverBetChoice}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -804,7 +819,7 @@ export const renderMD5 = () => {
                     <span className="title-text">Công nghệ MD5</span>
                     <ul className="desc">
                         <li>
-                            <strong>MD5</strong>là công nghệ cho phép Người Chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
+                            <strong>MD5 </strong>là công nghệ cho phép Người Chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
                             thông qua bên thứ ba.
                         </li>
                         <li>

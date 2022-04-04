@@ -759,27 +759,37 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Ante (win with Three of a Kind or lower)</td>
                                     <td>Push</td>
-                                    <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
+                                    <td>
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Ante (win with Straight or higher) </td>
                                     <td>1 : {odds?.AnteBet_flush}</td>
-                                    <td>1 - {maxBetFollowChoice?.maxBetAnteBetChoice}</td>
+                                    <td>
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Call</td>
                                     <td>1 : {odds?.call}</td>
-                                    <td>1 - {maxBetFollowChoice?.maxBetCallBetChoice}</td>
+                                    <td>
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Turn</td>
                                     <td>1 : {odds?.turn}</td>
-                                    <td>1 - {maxBetFollowChoice?.maxBetTurnBetChoice}</td>
+                                    <td>
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetTurnBetChoice}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>River</td>
                                     <td>1 : {odds?.river}</td>
-                                    <td>1 - {maxBetFollowChoice?.maxBetRiverBetChoice}</td>
+                                    <td>
+                                        {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRiverBetChoice}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
