@@ -87,11 +87,11 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                             <li>
                                 Nếu phiên bị gián đoạn trước khi Người Chơi bấm nút “Theo Bài” đồng nghĩa với Người Chơi chấp nhận “Bỏ Bài”.{" "}
                             </li>
-                            <ul>
+                            <li>
                                 Nếu phiên bị gián đoạn sau khi Người Chơi bấm nút “Theo Bài”, hệ thống sẽ mặc định chọn “Xem” cho các vòng
                                 Turn và River. Thắng thua sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số
                                 7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
-                            </ul>
+                            </li>
                         </ul>
                     </li>
                 )}

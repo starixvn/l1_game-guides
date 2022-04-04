@@ -77,7 +77,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                         <li>Ví dụ: Khi tay bài có Sảnh</li>
                                         <ul>
                                             <li>+ A, 2, 3, 4, 5 {"=>"} Lá A nhỏ nhất.</li>
-                                            <li>+ 10, J, Q, K, A {"=>"} Lá A lón nhất.</li>
+                                            <li>+ 10, J, Q, K, A {"=>"} Lá A lớn nhất.</li>
                                         </ul>
                                     </ul>
                                 </li>
@@ -890,13 +890,15 @@ export const renderMD5 = () => {
                                 <span className={Styles["red"]}>10♦</span>, <span className={Styles["black"]}>10♣</span>)
                             </li>
                             <li>
-                                Lưu ý: trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà
-                                Cái ( <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>), 2 lá của
-                                Người Chơi (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>) và 5 lá
-                                bài Chung.{" "}
+                                Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái ({" "}
+                                <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>), 2 lá của Người
+                                Chơi (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>) và 5 lá bài
+                                Chung.
                             </li>
                         </ul>
-                        <div>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước ngay khi Người Chơi bấm nút Chia Bài.</div>
+                        <div>
+                            <strong>Lưu ý</strong>: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước khi Người Chơi bấm nút Chia Bài.
+                        </div>
                     </li>
                     <li>
                         <strong>Bước 3:</strong> Truy cập{" "}
