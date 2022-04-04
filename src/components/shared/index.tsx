@@ -27,8 +27,8 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                         determined by the following rules:
                         <ul className="detail">
                             <li>
-                                If the game round is disrupted before the Player can decide to select either “CALL” or “FOLD {`=>`} The
-                                Player’s hand is considered as “FOLD”.
+                                If the game round is disrupted before the Player selects either “CALL” or “FOLD {`=>`} The Player’s hand is
+                                considered as “FOLD”.
                             </li>
                             <ul>
                                 If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered

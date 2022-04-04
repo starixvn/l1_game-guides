@@ -818,7 +818,7 @@ export const renderMD5 = () => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text"> Các bước kiểm tra</span>
+                    <span className="title-text">Tra cứu MD5</span>
                     <ul className="desc">
                         <li>
                             <span>
@@ -865,12 +865,17 @@ export const renderMD5 = () => {
                         />
                         <ul className="detail">
                             <li>
-                                Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (A, B), 2 lá của Nhà Cái (X, Y) và 5 lá bài
-                                Chung (L, M, N, P, Q)
+                                Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi ( <span className={Styles["black"]}>J♣</span>,{" "}
+                                <span className={Styles["black"]}>3♠</span>), 2 lá của Nhà Cái (<span className={Styles["red"]}>2♥</span>,{" "}
+                                <span className={Styles["red"]}>Q♥</span>) và 5 lá bài Chung (<span className={Styles["red"]}>4♦</span>,{" "}
+                                <span className={Styles["black"]}>6♠</span>, <span className={Styles["red"]}>10♥</span>,{" "}
+                                <span className={Styles["red"]}>10♦</span>, <span className={Styles["black"]}>10♣</span>)
                             </li>
                             <li>
                                 Lưu ý: trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà
-                                Cái (A, B), 2 lá của Người Chơi (X, Y) và 5 lá bài Chung.{" "}
+                                Cái ( <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>), 2 lá của
+                                Người Chơi (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>) và 5 lá
+                                bài Chung.{" "}
                             </li>
                         </ul>
                         <div>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước ngay khi Người Chơi bấm nút Chia Bài.</div>
