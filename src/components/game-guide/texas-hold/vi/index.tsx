@@ -870,13 +870,16 @@ export const renderMD5 = () => {
                 <ul className="desc">
                     <li>
                         <strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.
-                        <img className={`format-img auto-center ${Styles["format-mobile"]}`} src="/static/images/texas-hold/md5-vi.png" />
+                        <img
+                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            src="/static/images/texas-hold/md5-vi.png#v1"
+                        />
                     </li>
                     <li>
                         <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi sau khi lá bài chung thứ 5 được chia.
                         <img
                             className={`format-img auto-center ${Styles["format-mobile"]}`}
-                            src="/static/images/texas-hold/result-vi.png"
+                            src="/static/images/texas-hold/result-vi.png#v1"
                         />
                         <ul className="detail">
                             <li>
@@ -902,14 +905,14 @@ export const renderMD5 = () => {
                         </a>{" "}
                         và dán Kết Quả vừa copy vào ô MD5.
                         <div className="wrapper-md5-img-hash">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png" />
+                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png#v1" />
                         </div>
                     </li>
                     <li>
                         <strong>Bước 4:</strong> Bấm nút “hash, darling hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở{" "}
                         <strong>Bước 1</strong>.
                         <div className="wrapper-md5-img">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png" />
+                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png#v1" />
                         </div>
                     </li>
                 </ul>

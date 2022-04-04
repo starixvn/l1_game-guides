@@ -80,9 +80,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </ul>
                                 </li>
                                 <li>
-                                    All the suits - heart (<span className={Styles["red"]}>♥</span>, spade
-                                    <span className={Styles["black"]}>♠</span>, diamond <span className={Styles["red"]}>♦</span>, and club
-                                    <span className={Styles["black"]}>♣</span>) have equal value.
+                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade
+                                    (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club
+                                    (<span className={Styles["black"]}>♣</span>) have equal value.
                                 </li>
                             </ul>
                         </li>
@@ -853,13 +853,16 @@ export const renderMD5 = () => {
                 <ul className="desc">
                     <li>
                         <strong>Step 1:</strong>Copy the MD5 key after pressing the DEAL button.
-                        <img className={`format-img auto-center ${Styles["format-mobile"]}`} src="/static/images/texas-hold/md5-en.png" />
+                        <img
+                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            src="/static/images/texas-hold/md5-en.png#v1"
+                        />
                     </li>
                     <li>
                         <strong>Step 2:</strong> Copy the Result after the fifth community card (River) is dealt.
                         <img
                             className={`format-img auto-center ${Styles["format-mobile"]}`}
-                            src="/static/images/texas-hold/result-en.png"
+                            src="/static/images/texas-hold/result-en.png#v1"
                         />
                     </li>
                     <li>
@@ -888,14 +891,14 @@ export const renderMD5 = () => {
                         </a>{" "}
                         and paste the Key string into the MD5 box
                         <div className="wrapper-md5-img-hash">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png" />
+                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png#v1" />
                         </div>
                     </li>
                     <li>
                         <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string
                         with the MD5 string in <strong>Step 1</strong>.
                         <div className="wrapper-md5-img">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png" />
+                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png#v1" />
                         </div>
                     </li>
                 </ul>
