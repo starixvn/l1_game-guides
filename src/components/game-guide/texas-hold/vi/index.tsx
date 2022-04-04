@@ -748,8 +748,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <li>
                     Nếu Người Chơi thắng Nhà Cái:
                     <ul className="detail">
-                        <li>Thắng với tay bài là Sám hoặc nhỏ hơn {`=>`} Cược Call, Turn và River thắng. Cược Ante hoàn tiền.</li>
-                        <li>Thắng với tay bài là Sảnh hoặc lớn hơn {`=>`} Tất cả các cửa cược đều thắng.</li>
+                        <li>Thắng với tay bài là Sám hoặc thấp hơn {`=>`} Cược Call, Turn và River thắng. Cược Ante hoàn tiền.</li>
+                        <li>Thắng với tay bài là Sảnh hoặc cao hơn {`=>`} Tất cả các cửa cược đều thắng.</li>
                     </ul>
                 </li>
             </ul>
@@ -764,7 +764,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Ante (thắng với Sám hoặc nhỏ hơn)</td>
+                            <td>Ante (thắng với Sám hoặc thấp hơn)</td>
                             <td>Hoàn Tiền</td>
                             <td>
                                 {" "}
@@ -772,7 +772,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             </td>
                         </tr>
                         <tr>
-                            <td>Ante (thắng với Sảnh hoặc lớn hơn) </td>
+                            <td>Ante (thắng với Sảnh hoặc cao hơn) </td>
                             <td>1 : {odds?.AnteBet_flush}</td>
                             <td>
                                 {" "}
