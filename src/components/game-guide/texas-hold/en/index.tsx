@@ -929,9 +929,8 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <p className="content">
                         In addition, a new feature -{" "}
                         <a href="#md5" className={Styles["link"]}>
-                            {" "}
                             MD5 (Message-Digest algorithm 5)
-                        </a>
+                        </a>{" "}
                         that allows the Player to check the fairness and authenticity of every game result.
                     </p>
                 </li>
