@@ -16,15 +16,15 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 <li>Note, Ante bet is a mandatory option that the Player must place bet before any cards are dealt.</li>
                 <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two hole cards.</li>
                 <li>
-                    <strong>Swap Card</strong>
+                    <strong>Swap Cards</strong>
                     <ul className="detail">
                         <li>
-                            Swap Card is an optional feature and can be turned ON/ OFF. It allows player to choose either to swap his
+                            Swap Cards is an optional feature and can be turned ON/ OFF. It allows player to choose either to swap his
                             two-hole cards with Dealer’s cards before cards are face-up or keep the cards without changing.
                         </li>
                     </ul>
                 </li>
-                <li>Note: The Swap feature can only be ON/OFF before the game round is started.</li>
+                <li>Note: The Swap cards feature can only be ON/OFF before the game round is started.</li>
                 <li>
                     After the two hole cards are dealt and face up, the Player must decide whether to CALL or FOLD.
                     <ul className="detail">
@@ -80,9 +80,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </ul>
                                 </li>
                                 <li>
-                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade
-                                    (<span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and club
-                                    (<span className={Styles["black"]}>♣</span>) have equal value.
+                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (
+                                    <span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and
+                                    club (<span className={Styles["black"]}>♣</span>) have equal value.
                                 </li>
                             </ul>
                         </li>
@@ -757,14 +757,14 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Ante (win with Three of a Kind or lower)</td>
+                                    <td>Ante (with Three of a Kind or lower)</td>
                                     <td>Push</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ante (win with Straight or higher) </td>
+                                    <td>Ante (with Straight or higher) </td>
                                     <td>1 : {odds?.AnteBet_flush}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
@@ -930,7 +930,7 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         In addition, a new feature -{" "}
                         <a href="#md5" className={Styles["link"]}>
                             {" "}
-                            MD5 (Message-Digest algorithm 5){" "}
+                            MD5 (Message-Digest algorithm 5)
                         </a>
                         that allows the Player to check the fairness and authenticity of every game result.
                     </p>

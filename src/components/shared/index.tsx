@@ -16,8 +16,8 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
                         The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
-                        &quot;Deal&quot; button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
-                        considered as &quot;FOLD&quot;.
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
+                        considered as “FOLD”.
                     </li>
                 )}
                 {gameId === games.texasHoldem && (
@@ -27,15 +27,13 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                         determined by the following rules:
                         <ul className="detail">
                             <li>
-                                If the game round is disrupted before the Player selects either “CALL” or “FOLD {`=>`} The Player’s hand is
+                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
                                 considered as “FOLD”.
                             </li>
-                            <ul>
+                            <li>
                                 If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
-                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal. Turn và River. Thắng thua
-                                sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia
-                                cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
-                            </ul>
+                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                            </li>
                         </ul>
                     </li>
                 )}

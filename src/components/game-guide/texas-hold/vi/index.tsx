@@ -764,7 +764,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Ante (thắng với Sám hoặc thấp hơn)</td>
+                            <td>Ante (Sám hoặc thấp hơn)</td>
                             <td>Hoàn Tiền</td>
                             <td>
                                 {" "}
@@ -772,7 +772,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             </td>
                         </tr>
                         <tr>
-                            <td>Ante (thắng với Sảnh hoặc cao hơn) </td>
+                            <td>Ante (Sảnh hoặc cao hơn) </td>
                             <td>1 : {odds?.AnteBet_flush}</td>
                             <td>
                                 {" "}
