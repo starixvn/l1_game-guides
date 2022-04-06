@@ -33,11 +33,11 @@ export const renderMD5EN = (gameId?: number) => {
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
-                            and paste the key string into the MD5 box.
+                            and paste the Result into the MD5 box.
                         </li>
                         <li>
                             <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated
-                            <strong> checksum MD5</strong> string with the MD5 string in <strong>Step 1</strong>
+                            <strong> checksum MD5</strong> string with the MD5 string in <strong>Step 1</strong>.
                         </li>
                     </ul>
                 </li>
