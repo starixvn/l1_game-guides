@@ -7,9 +7,9 @@ import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable } from "../../../shared/se-die/vi";
 import Styles from "../se-die.module.scss";
-import { renderMD5VI } from "../../../shared/md5-number/vi";
-import ScrollToMD5 from "../../../shared/md5-number";
-import { ENVIRONMENT, GAMES } from "../../../../common/constants";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -252,7 +252,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5VI(GAMES.SE_DIE)}
+                        {renderMD5VI()}
                         {renderMD5Example(gameName)}
                     </li>
                 )}

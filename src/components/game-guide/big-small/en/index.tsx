@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-number/en";
-import ScrollToMD5 from "../../../shared/md5-number";
-import { ENVIRONMENT, GAMES } from "../../../../common/constants";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const renderMD5Example = (gameName: string) => {
     return (
@@ -101,7 +101,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 </li>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN(GAMES.BIG_SMALL)}
+                        {renderMD5EN()}
                         {renderMD5Example(gameName)}
                     </li>
                 )}

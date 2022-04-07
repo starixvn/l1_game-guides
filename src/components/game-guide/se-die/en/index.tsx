@@ -6,9 +6,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
-import { renderMD5EN } from "../../../shared/md5-number/en";
-import ScrollToMD5 from "../../../shared/md5-number";
-import { ENVIRONMENT, GAMES } from "../../../../common/constants";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -221,7 +221,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN(GAMES.SE_DIE)}
+                        {renderMD5EN()}
                         {renderMD5Example(gameName)}
                     </li>
                 )}
