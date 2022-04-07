@@ -1,6 +1,6 @@
 import React from "react";
 
-const games = { bitcoinMaster: 43, casinoHoldem: 39 };
+const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42 };
 
 export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
@@ -15,8 +15,26 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the &quot;Deal&quot; button.
-                        The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is considered as &quot;FOLD&quot;.
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
+                        considered as “FOLD”.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
+                        determined by the following rules:
+                        <ul className="detail">
+                            <li>
+                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
+                                considered as “FOLD”.
+                            </li>
+                            <li>
+                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
+                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                            </li>
+                        </ul>
                     </li>
                 )}
                 <li className="number-dot">
@@ -53,8 +71,26 @@ export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm nút &quot;Chia Bài&quot;.
-                        Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm
+                        nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24
+                        tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm
+                        nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, hệ thống
+                        xử lý theo các quy định sau:
+                        <ul className="detail">
+                            <li>
+                                Nếu phiên bị gián đoạn trước khi Người Chơi bấm nút “Theo Bài” đồng nghĩa với Người Chơi chấp nhận “Bỏ Bài”.{" "}
+                            </li>
+                            <li>
+                                Nếu phiên bị gián đoạn sau khi Người Chơi bấm nút “Theo Bài”, hệ thống sẽ mặc định chọn “Xem” cho các vòng
+                                Turn và River. Thắng thua sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số
+                                7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
+                            </li>
+                        </ul>
                     </li>
                 )}
                 <li className="number-dot">
@@ -98,14 +134,11 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                 <li className="number-dot">
                     当出现错误（由人为或任何其他因素引起）或系统故障导致支付率不正确时，本公司保留取消或取消任何投注的权利。
                 </li>
-                <li className="number-dot">
-                    即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。
-                </li>
+                <li className="number-dot">即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。</li>
             </ul>
         </li>
     );
 };
-
 
 export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
     return (
@@ -127,9 +160,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                 <li className="number-dot">
                     當出現錯誤（由人為或任何其他因素引起）或系統故障導致支付率不正確時，本公司保留取消或取消任何投注的權利。
                 </li>
-                <li className="number-dot">
-                    即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。
-                </li>
+                <li className="number-dot">即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。</li>
             </ul>
         </li>
     );
