@@ -21,7 +21,7 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_vi.png?v=1" />
-                    <div>Từ trái sang phải, &#123;6, 4, 2&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
+                    <div>Từ trái sang phải, &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}

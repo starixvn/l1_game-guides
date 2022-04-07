@@ -26,7 +26,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, game
                     phiên là {maxBetFollowChoice?.maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
                 </li>
                 <li>
-                    Kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm
+                    Kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm
                     ngược trên bàn chơi.
                 </li>
                 {renderGameRuleOrPayoutTable(gameId)}
