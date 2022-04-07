@@ -21,7 +21,7 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_en.png?v=1" />
-                    <div>Note: From the left to right, &#123;6, 3, 3&#125; correspond to the the value of three dice.</div>
+                    <div>Note: From the left to right, &#123;5, 1, 3&#125; correspond to the the value of three dice.</div>
                 </li>
                 <li>
                     <strong>Step 3:</strong> Go to{" "}
