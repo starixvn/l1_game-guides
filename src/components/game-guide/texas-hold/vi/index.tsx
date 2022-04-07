@@ -616,10 +616,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                =&gt; Nhà Cái thắng. Cả 2 tay bài đều có Hai Đôi giống nhau (Đôi A và Đôi 7), lá bài lẻ của Nhà Cái (10) lớn
-                                hơn (5).
-                            </div>
+                            <div>=&gt; Nhà Cái thắng.</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
