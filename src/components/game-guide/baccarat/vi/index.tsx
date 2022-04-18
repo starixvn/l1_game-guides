@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { BaccaratVip } from "..";
 import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import Styles from "../baccarat.module.scss";
+import { ENVIRONMENT } from "../../../../common/constants";
 
-const renderGameRule = (maxBetMain: number | string) => {
+const renderGameRule = (maxBetMain: number | string, environment: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>
-                    Hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia trước 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước. Người chơi
-                    đặt cược và dự đoán cửa nào sẽ thắng.
-                </li>
+                <li>Hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia trước 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước.</li>
+                {environment === ENVIRONMENT.sc && (
+                    <>
+                        <li>Hai lá bài thứ ba cũng sẽ được rút sẵn sau khi kết thúc chia hai lá bài cho Nhà Con và Nhà Cái.</li>
+                        <li>Các lá bài được chia được đánh số từ một đến sáu tương ứng với thứ tự được chia của mỗi lá bài.</li>
+                    </>
+                )}
+                <li>Người chơi đặt cược và dự đoán cửa nào sẽ thắng.</li>
                 <li>
                     Người chơi cũng có thể đặt cược vào lựa chọn Hòa nếu dự đoán 2 cửa Nhà Con và Nhà Cái có kết quả bằng nhau hoặc có thể
                     đặt vào các cửa phụ như Tài, Xỉu, Con Đôi, Cái Đôi.
                 </li>
                 <li>
-                    Tùy thuộc vào tổng điểm của 2 lá bài được chia ban đầu, mỗi bên sẽ giữ nguyên các lá bài hoặc rút thêm lá bài thứ ba.
+                    Tùy thuộc vào tổng điểm của 2 lá bài được chia ban đầu, mỗi bên sẽ giữ nguyên các lá bài hoặc{" "}
+                    {environment === ENVIRONMENT.sc ? "mở" : "rút"} thêm lá bài thứ ba.
                 </li>
-                <li>Lá bài thứ ba sẽ được rút sau khi hết thời gian đặt cược.</li>
+                {environment === ENVIRONMENT.sm && <li>Lá bài thứ ba sẽ được rút sau khi hết thời gian đặt cược.</li>}
                 <li>
                     Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và
                     0 là điểm số thấp nhất.
@@ -111,9 +119,47 @@ const renderPointCalculationRules = (gameName: string) => {
     );
 };
 
+const renderMD5Example = (gameName: string) => {
+    return (
+        <>
+            <div className="content">
+                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step1_vi.png?v=1" alt="md5-string" />
+                </li>
+                <li>
+                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_vi.png?v=1" alt="md5-result" />
+                    <div>Từ trái sang phải, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
+                </li>
+                <li>
+                    <strong>Bước 3:</strong> Truy cập{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step3_vi.png?v=1" alt="hash-darling" />
+                </li>
+                <li>
+                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
+                    1.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step4_vi.png?v=1" alt="md5-checksum" />
+                </li>
+            </ul>
+            <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
+        </>
+    );
+};
+
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     return (
         <div>
             <ul className="game-guide">
@@ -129,7 +175,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         vào lựa chọn mong muốn.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
@@ -297,6 +343,12 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5VI()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

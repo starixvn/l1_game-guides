@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { BaccaratVip } from "..";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../baccarat.module.scss";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
 
-const renderGameRule = (maxBetMain: number | string) => {
+const renderGameRule = (maxBetMain: number | string, environment: string | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>
-                    Player and Banker, each hand will start with 2 cards face down. The Punters place bet on either of two hands which one
-                    will win.
-                </li>
+                <li>Player and Banker, each hand will start with 2 cards face down.</li>
+                {environment === ENVIRONMENT.sc && (
+                    <>
+                        <li>
+                            The third card also will be drawn after finishing dealing 2 initial face-down cards for Player and Dealer’s
+                            hands.
+                        </li>
+                        <li>
+                            The cards are numbered from one to six that correspond to the sequence of dealt cards at the beginning at the
+                            game round.
+                        </li>
+                    </>
+                )}
+                <li>The Punter predicts which one in two hands will win.</li>
                 <li>
                     Another betting option is “Tie” if the Punters predict two hands will end in equal totals or they can also bet on Big,
                     Small, Player Pair, or Banker Pair options.
@@ -22,6 +35,12 @@ const renderGameRule = (maxBetMain: number | string) => {
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>The maximum total stake per round is {maxBetMain}</li>
                 <li>Once the betting time has expired, the dealer turns the cards face up.</li>
+                {environment === ENVIRONMENT.sm && (
+                    <li>
+                        Based on the total points of the first two cards, the dealer will determine whether either hand reveals a third
+                        card.
+                    </li>
+                )}
                 <li>Based on the total points of the first two cards, the dealer will determine whether either hand gets a third card.</li>
                 <li>
                     The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the
@@ -160,9 +179,49 @@ export const renderTBodyPointCalculationRules = () => {
     );
 };
 
+const renderMD5Example = (gameName: string) => {
+    return (
+        <>
+            <div className="content">
+                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step1_en.png?v=1" alt="md5-string" />
+                </li>
+                <li>
+                    <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_en.png?v=1" alt="md5-result" />
+                    <div>
+                        Note: From the left to right, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ corresponds to the order of dealt cards at the beginning of
+                        the game round.
+                    </div>
+                </li>
+                <li>
+                    <strong>Step 3:</strong> Go to{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    and paste the Result into the MD5 box.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step3_en.png?v=1" alt="hash-darling" />
+                </li>
+                <li>
+                    <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with
+                    the MD5 string in Step 1.
+                    <img className="format-img auto-center" src="/static/images/baccarat/md5_step4_en.png?v=1" alt="md5-checksum" />
+                </li>
+            </ul>
+        </>
+    );
+};
+
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     return (
         <>
             <ul className="game-guide">
@@ -177,7 +236,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         on one or more betting options shown on the game table.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Third Card Rules</h2>
@@ -338,6 +397,12 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         </li>
                     </ul>
                 </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
