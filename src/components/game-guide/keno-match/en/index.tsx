@@ -417,7 +417,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Step 1</strong>: Copy the MD5 string before the First Haft’s result is announced.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>MD5:</strong> e3a900200600b4fb0e596a412a9d7ac3
+                                            <strong>MD5:</strong> 8489717e21867fa5420b055e5abd2b46
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -428,8 +428,9 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Step 2</strong>: Copy key string after the system publishes the Frist Half’s result.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>Key:</strong> [<span className={Styles["blue"]}>406</span>;
-                                            <span className={Styles["red"]}>309</span>]c6b8e3282ceb68274d49c83ac
+                                            <strong>Key:</strong> {`{`}
+                                            <span className={Styles["blue"]}>363</span>;<span className={Styles["red"]}>467</span>
+                                            {`}_{#26907421fad9b51da1169691982}`}
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -439,7 +440,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             </ul>
                         </div>
                         <div>
-                            Noted: <span className={Styles["blue"]}>406</span> and <span className={Styles["red"]}>309</span> are first haft
+                            Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are first haft
                             result of Team Blue and Team Red respectively
                             <ul className="desc">
                                 <li>
@@ -449,14 +450,14 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </a>{" "}
                                     and paste the key string into the MD5 box
                                     <div className={Styles["wrapper-img"]}>
-                                        <img src={`/static/images/keno-match/md5-hash.png`} alt="md5-copy" loading="eager" />
+                                        <img src={`/static/images/keno-match/md5-hash.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                                 <li>
                                     <strong>Step 4</strong>: Press the “hash, darling hash!” button and compare the newly generated checksum
                                     MD5 string with the MD5 string in Step 1
                                     <div className={Styles["wrapper-img"]}>
-                                        <img src={`/static/images/keno-match/md5.png`} alt="md5-copy" loading="eager" />
+                                        <img src={`/static/images/keno-match/md5.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                             </ul>

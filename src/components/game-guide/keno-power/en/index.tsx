@@ -216,7 +216,7 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Step 1</strong>: Copy the MD5 string before the result is announced.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>MD5:</strong> 0117dd60c97979c91700a94136c9cf3c
+                                            <strong>MD5:</strong> 96f67fca97c5ed9547ac67fd4a428747
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -227,8 +227,9 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Step 2</strong>: Copy key string after the system publishes the result.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>Key:</strong> [<span className={Styles["blue"]}>684</span>;
-                                            <span className={Styles["red"]}>778</span>]6a158a9ecb9d4eba0e67c0b6a
+                                            <strong>Key:</strong> {`{`}
+                                            <span className={Styles["blue"]}>899</span>;<span className={Styles["red"]}>807</span>
+                                            {`}_{#336772f6b52eadd147e9c5ceeaa}`}
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -238,7 +239,7 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             </ul>
                         </div>
                         <div>
-                            Noted: <span className={Styles["blue"]}>684</span> and <span className={Styles["red"]}>778</span> are results of
+                            Noted: <span className={Styles["blue"]}>899</span> and <span className={Styles["red"]}>807</span> are results of
                             Team Blue and Team Red respectively.
                             <ul className="desc">
                                 <li>
@@ -248,26 +249,14 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </a>{" "}
                                     and paste the key string into the MD5 box
                                     <div className={Styles["wrapper-img-hash"]}>
-                                        <img
-                                            src={`/static/images/keno-power/md5-hash.png`}
-                                            alt="md5-copy"
-                                            width={387}
-                                            height={120}
-                                            loading="eager"
-                                        />
+                                        <img src={`/static/images/keno-power/md5-hash.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                                 <li>
                                     <strong>Step 4</strong>: Press the “hash, darling hash!” button and compare the newly generated checksum
                                     MD5 string with the MD5 string in Step 1
                                     <div className={Styles["wrapper-img"]}>
-                                        <img
-                                            src={`/static/images/keno-power/md5.png`}
-                                            alt="md5-copy"
-                                            width={362}
-                                            height={98}
-                                            loading="eager"
-                                        />
+                                        <img src={`/static/images/keno-power/md5.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                             </ul>

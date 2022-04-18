@@ -223,7 +223,7 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Bước 1</strong>: Copy chuỗi MD5 trước khi kết quả được công bố.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>MD5:</strong> 0117dd60c97979c91700a94136c9cf3c
+                                            <strong>MD5:</strong> 96f67fca97c5ed9547ac67fd4a428747
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -234,8 +234,9 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     <strong>Bước 2</strong>: Copy chuỗi dữ liệu trong mục Key sau khi kết quả được công bố.
                                     <div className={Styles["md5-section"]}>
                                         <span className={`${Styles["text"]}`}>
-                                            <strong>Key:</strong> [<span className={Styles["blue"]}>684</span>;
-                                            <span className={Styles["red"]}>778</span>]6a158a9ecb9d4eba0e67c0b6a
+                                            <strong>Key:</strong> {`{`}
+                                            <span className={Styles["blue"]}>899</span>;<span className={Styles["red"]}>807</span>
+                                            {`}_{#336772f6b52eadd147e9c5ceeaa}`}
                                         </span>
                                         <div className={Styles["copy-box"]}>
                                             <span className={Styles["copy-text"]}>Copy</span>
@@ -245,8 +246,8 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             </ul>
                         </div>
                         <div>
-                            Trong đó <span className={Styles["blue"]}>684</span> là kết quả của Đội Xanh và{" "}
-                            <span className={Styles["red"]}>778</span> là kết quả Đội Đỏ
+                            Trong đó <span className={Styles["blue"]}>899</span> là kết quả của Đội Xanh và{" "}
+                            <span className={Styles["red"]}>807</span> là kết quả Đội Đỏ
                             <ul className="desc">
                                 <li>
                                     <strong>Bước 3</strong>: Truy cập{" "}
@@ -255,14 +256,14 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </a>{" "}
                                     và dán chuỗi Key vừa copy vào ô MD5.
                                     <div className={Styles["wrapper-img-hash"]}>
-                                        <img src={`/static/images/keno-power/md5-hash.png`} alt="md5-copy" loading="eager" />
+                                        <img src={`/static/images/keno-power/md5-hash.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                                 <li>
                                     <strong>Bước 4</strong>: Bấm nút <i>“hash, darling hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo
                                     ra và chuỗi MD5 ở Bước 1.
                                     <div className={Styles["wrapper-img"]}>
-                                        <img src={`/static/images/keno-power/md5.png`} alt="md5-copy" loading="eager" />
+                                        <img src={`/static/images/keno-power/md5.png#1`} alt="md5-copy" loading="eager" />
                                     </div>
                                 </li>
                             </ul>
