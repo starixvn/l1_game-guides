@@ -31,7 +31,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
     const getGameConfigs = () => {
         if (!isGetGameConfigs) {
             switch (id) {
@@ -64,7 +64,15 @@ const SeDieGuide = (props: GameGuideBase) => {
         }
     };
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
-    const resource = { gameConfigs: getGameConfigs(), userStakeLevel, gameName: gameNameTranslate, gameId: id, maxBetFollowChoice };
+    const resource = {
+        gameConfigs: getGameConfigs(),
+        userStakeLevel,
+        gameName: gameNameTranslate,
+        gameId: id,
+        maxBetFollowChoice,
+        isScrollMD5: isScrollMD5,
+        environment,
+    };
 
     switch (locale) {
         case locales.vi:

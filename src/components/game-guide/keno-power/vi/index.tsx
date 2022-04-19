@@ -4,7 +4,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { KenoPowerMD5 } from "../index";
-import { renderMD5VI } from "../../../shared/md5/vi";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import Styles from "../keno-match.module.scss";
 
 const classBetTeamWd = "bet-team-wd";

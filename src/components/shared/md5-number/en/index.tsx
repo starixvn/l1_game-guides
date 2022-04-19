@@ -19,7 +19,7 @@ export const renderMD5EN = (gameId?: number) => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text">Steps for checking</span>
+                    <span className="title-text">MD5 Validation</span>
                     <ul className="desc">
                         <li>
                             <strong>Step 1</strong>: Copy the <strong>MD5.</strong> The MD5 string displays after pressing the DEAL button.
@@ -33,11 +33,11 @@ export const renderMD5EN = (gameId?: number) => {
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
-                            and paste the key string into the MD5 box.
+                            and paste the Result into the MD5 box.
                         </li>
                         <li>
                             <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated
-                            <strong> checksum MD5</strong> string with the MD5 string in <strong>Step 1</strong>
+                            <strong> checksum MD5</strong> string with the MD5 string in <strong>Step 1</strong>.
                         </li>
                     </ul>
                 </li>

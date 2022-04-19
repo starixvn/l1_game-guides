@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { SeDieMini } from "../index";
@@ -6,6 +6,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -88,9 +91,46 @@ const renderStatistical = () => {
     );
 };
 
+const renderMD5Example = (gameName: string) => {
+    return (
+        <>
+            <div className="content">
+                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <img className="format-img auto-center" src="/static/images/sedie/md5_step1_en.png?v=3" alt="md5-string" />
+                </li>
+                <li>
+                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <img className="format-img auto-center" src="/static/images/sedie/md5_step2_en.png?v=3" alt="md5-result" />
+                    <div>Note: Red and white correspond to two sides of the button.</div>
+                </li>
+                <li>
+                    <strong>Step 3:</strong> Go to{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    and paste the Result into the MD5 box.
+                    <img className="format-img auto-center" src="/static/images/sedie/md5_step3_en.png?v=1" alt="hash-darling" />
+                </li>
+                <li>
+                    <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with
+                    the MD5 string in Step 1.
+                    <img className="format-img auto-center" src="/static/images/sedie/md5_step4_en.png?v=1" alt="md5-checksum" />
+                </li>
+            </ul>
+        </>
+    );
+};
+
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
     const gameDescription = () => {
         switch (gameId) {
             case 9:
@@ -116,9 +156,8 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>
-                            The winning amount is calculated according to the payout ratio. The Payout includes the initial stake.
-                        </li>
+                        <li>The winning amount is calculated according to the payout ratio.</li>
+                        <li>The Payout includes the initial stake.</li>
                         <li>
                             All winning amounts are instantly added to your account balance when bets are settled.
                             <div className="table-container">
@@ -180,6 +219,13 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
+
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
