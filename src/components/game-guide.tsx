@@ -30,6 +30,7 @@ import HiLoGuide from "./game-guide/hi-lo";
 import TexasHoldGuide from "./game-guide/texas-hold";
 
 import { UserStakeLevelProps } from "../pages";
+import { GAMES } from "../common/constants";
 
 type Props = {
     gameId: number;
@@ -68,67 +69,67 @@ export const GameGuide: React.FC<Props> = (props) => {
     };
     const renderGuide = () => {
         switch (gameId) {
-            case 1:
-            case 4:
+            case GAMES.BIG_SMALL:
+            case GAMES.TURBO_BIG_SMALL:
                 return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 2:
-            case 9:
-            case 22:
+            case GAMES.SE_DIE:
+            case GAMES.MINI_SE_DIE:
+            case GAMES.VIP_SE_DIE:
                 return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 3:
+            case GAMES.FISH_PRAWN_CRAB:
                 return <FishPrawnCrabGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 6:
+            case GAMES.TURBO_ODD_EVEN:
                 return <OddEvenTurboGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 7:
+            case GAMES.DRAGON_TIGER:
                 return <DragonTigerGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 8:
+            case GAMES.KENO_PRO_MAX:
                 return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 10:
-            case 27:
+            case GAMES.BACCARAT:
+            case GAMES.VIP_BACCARAT:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 12:
-            case 13:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
+            case GAMES.KENO_MAX:
+            case GAMES.KENO_MAX_2:
+            case GAMES.KENO_EAST:
+            case GAMES.KENO_WEST:
+            case GAMES.KENO_SOUTH:
+            case GAMES.KENO_NORTH:
                 return <KenoMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 14:
-            case 15:
+            case GAMES.KENO_MINI:
+            case GAMES.KENO_MINI_2:
                 return <KenoMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 21:
+            case GAMES.ROULETTE:
                 return <RouletteGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 23:
+            case GAMES.BLACK_JACK:
                 return <BlackjackGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 24:
+            case GAMES.SPECIAL_SE_DIE:
                 return <SeDieSpecialGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 25:
+            case GAMES.SIC_BO:
                 return <SicBoGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 26:
+            case GAMES.VIP_FISH_PRAWN_CRAB:
                 return <FishPrawnCrabVIPGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 28:
+            case GAMES.VIP_SE_DIE_WAR:
                 return <SeDieWarGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 29:
+            case GAMES.FOUR_GUARDIANS:
                 return <FourGuardiansGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 31:
+            case GAMES.LOTTERY:
                 return <LotteryGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 35:
+            case GAMES.THREE_CARDS:
                 return <ThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 36:
-            case 37:
+            case GAMES.KENO_MATCH_1:
+            case GAMES.KENO_MATCH_2:
                 return <KenoMatchGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 38:
+            case GAMES.HEROES_SLOT:
                 return <HeroesSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 39:
+            case GAMES.CASINO_HOLDEM_POKER:
                 return <CasinoHoldGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 40:
-            case 41:
+            case GAMES.KENO_POWER_1:
+            case GAMES.KENO_POWER_2:
                 return <KenoPowerGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 42:
+            case GAMES.TEXAS_HOLDEM_POKER:
                 return <TexasHoldGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 43:
+            case GAMES.BITCOIN_MASTER:
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case 45:
+            case GAMES.HILO:
                 return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
