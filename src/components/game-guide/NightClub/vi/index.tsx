@@ -12,9 +12,9 @@ const renderGameRule = () => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.
+                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm `&quot;`Quay`&quot;`.
                     <div className={Styles["center"]}>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
-                    <div><strong>Lưu ý:</strong> có thể sử dụng phím “Spacebar” trên PC, thay cho nút “Quay” để đem lại trải nghiệm mới.
+                    <div><strong>Lưu ý:</strong> có thể sử dụng phím “Spacebar” trên PC, thay cho nút `&quot;`Quay`&quot;` để đem lại trải nghiệm mới.
 </div>
                 </li> 
                 <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
