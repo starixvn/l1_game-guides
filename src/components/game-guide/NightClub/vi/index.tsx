@@ -22,7 +22,13 @@ const renderGameRule = () => {
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
                     <div className={Styles["wrapper-img-rectangle"]}>
-                        <img src={`/static/images/nightclub/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
+                        <img
+                            src={`/static/images/nightclub/guide_payline.png`}
+                            alt="guide_payline"
+                            width={834}
+                            height={159}
+                            loading="eager"
+                        />
                     </div>
                 </li>
             </ul>
@@ -281,9 +287,17 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/nightclub/item7.png#v2" alt="item7"></img>
+                        <img
+                            className={`${Styles["item7"]} ${Styles["mini"]}`}
+                            src="./static/images/nightclub/item7.png#v2"
+                            alt="item7"
+                        ></img>
                         , Bonus
-                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png#v2" alt="item8"></img>
+                        <img
+                            className={`${Styles["item8"]} ${Styles["mini"]}`}
+                            src="./static/images/nightclub/item8.png#v2"
+                            alt="item8"
+                        ></img>
                         và
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
@@ -346,7 +360,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const NightClubGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { gameConfigs } = props;
     const { odds } = gameConfigs;
     return (
         <>

@@ -473,8 +473,13 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         “Wild” symbol can substitute for all symbols except
-                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png" alt="item8"></img>,
-                        <img className={`${Styles["item7"]} ${Styles["mini"]}`} src="./static/images/nightclub/item7.png#v2" alt="item7"></img>
+                        <img className={`${Styles["item8"]} ${Styles["mini"]}`} src="./static/images/nightclub/item8.png" alt="item8"></img>
+                        ,
+                        <img
+                            className={`${Styles["item7"]} ${Styles["mini"]}`}
+                            src="./static/images/nightclub/item7.png#v2"
+                            alt="item7"
+                        ></img>
                         and
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
@@ -535,7 +540,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameName, gameConfigs } = props;
+    const { gameConfigs } = props;
     const { odds } = gameConfigs;
     return (
         <>
