@@ -12,9 +12,9 @@ const renderGameRule = () => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm `&quot;`Quay`&quot;`.
+                <li>Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.
                     <div className={Styles["center"]}>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
-                    <div><strong>Lưu ý:</strong> có thể sử dụng phím “Spacebar” trên PC, thay cho nút `&quot;`Quay`&quot;` để đem lại trải nghiệm mới.
+                    <div><strong>Lưu ý:</strong> có thể sử dụng phím “Spacebar” trên PC, thay cho nút “Quay” để đem lại trải nghiệm mới.
 </div>
                 </li> 
                 <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
@@ -354,7 +354,7 @@ const NightClubGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        Night Club là thể loại Slot game (game xèng), được xây dựng với giao diện hấp dẫn, với chủ đề Hot Girls & Dance Club. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
+                        “Gái Nhảy” là thể loại Slot game (game xèng), được xây dựng với giao diện hấp dẫn, với chủ đề Hot Girls & Dance Club. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img src={`/static/images/nightclub/list_icon.png#v3`} alt="guide_item_symbol_bg" width={228} height={380} />

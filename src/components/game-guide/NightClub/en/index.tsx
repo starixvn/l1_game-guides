@@ -16,11 +16,11 @@ const renderGameRule = () => {
             <h2>Game Rules</h2>
             <ul className="desc">
                 <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
+                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`“Spin”`}.
                     <div className="text-center">
                         <strong>Total Bet</strong> = Paylines * Bet Level
                     </div>
-                    <div><strong>Note:</strong> Player can use the `&quot;`Spacebar`&quot;` key on PC, instead of the `&quot;`Spin`&quot;` button to have a new experience.</div>
+                    <div><strong>Note:</strong> Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.</div>
                 </li>
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
@@ -346,8 +346,8 @@ const renderFreeSpin = (odds: number[][]) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
-                    {`"Free Spin"`} symbols on the same reel, the system will count as one symbol.
+                    <strong> Note:</strong> The “Free Spin” symbols must appear in different reels. For example, if there are 3{" "}
+                    {`“Free Spin”`} symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -360,7 +360,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols are located on the same reel. The player is not
+                            There are 4 {`“Free Spin”`} symbols in the result, but 3 symbols are located on the same reel. The player is not
                             eligible for the Free spins bonus.
                         </span>
                     </div>
@@ -439,7 +439,7 @@ const renderBonus = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Bonus"`} symbols in the result, but 2 symbols are located on the same reel. The player is only
+                            There are 4 {`“Bonus”`} symbols in the result, but 2 symbols are located on the same reel. The player is only
                             eligible for 3 Treasure Chests.
                         </span>
                     </div>
@@ -543,7 +543,7 @@ const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                    “Night Club” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels and 3 rows, with 11 different symbols. 
+                    “NightClub Lady” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels and 3 rows, with 11 different symbols. 
                     Players will win if there are the same symbols located on the same payline that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
