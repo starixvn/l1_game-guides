@@ -856,6 +856,7 @@ export const renderMD5 = () => {
                         <img
                             className={`format-img auto-center ${Styles["format-mobile"]}`}
                             src="/static/images/texas-hold/md5-en.png#v1"
+                            alt="md5-en"
                         />
                     </li>
                     <li>
@@ -863,6 +864,7 @@ export const renderMD5 = () => {
                         <img
                             className={`format-img auto-center ${Styles["format-mobile"]}`}
                             src="/static/images/texas-hold/result-en.png#v1"
+                            alt="md5-result"
                         />
                     </li>
                     <li>
@@ -891,14 +893,22 @@ export const renderMD5 = () => {
                         </a>{" "}
                         and paste the Key string into the MD5 box
                         <div className="wrapper-md5-img-hash">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/hash-darling.png#v1" />
+                            <img
+                                className="format-img auto-center"
+                                src="/static/images/texas-hold/hash-darling.png#v1"
+                                alt="hash-darling"
+                            />
                         </div>
                     </li>
                     <li>
                         <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string
                         with the MD5 string in <strong>Step 1</strong>.
                         <div className="wrapper-md5-img">
-                            <img className="format-img auto-center" src="/static/images/texas-hold/md5-checksum.png#v1" />
+                            <img
+                                className="format-img auto-center"
+                                src="/static/images/texas-hold/md5-checksum.png#v1"
+                                alt="md5-checksum"
+                            />
                         </div>
                     </li>
                 </ul>
