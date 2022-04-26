@@ -446,7 +446,7 @@ const renderBonus = (odds: number[][]) => {
 
                         <span>
                             There are 4 {`“Bonus”`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 items .
+                            eligible for 3 items.
                         </span>
                     </div>
                 </li>
