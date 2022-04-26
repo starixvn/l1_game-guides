@@ -20,7 +20,10 @@ const renderGameRule = () => {
                     <div className="text-center">
                         <strong>Total Bet</strong> = Paylines * Bet Level
                     </div>
-                    <div><strong>Note:</strong> Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.</div>
+                    <div>
+                        <strong>Note:</strong> Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new
+                        experience.
+                    </div>
                 </li>
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
@@ -274,19 +277,22 @@ const renderExamplePayout = (odds: number[][]) => {
                                 ])}
                             </td>
                             <td>
-                                Having 5 Ocean symbols located on the same payline
+                                Having 5 symbols <img src="./static/images/nightclub/item1.png" width={50} height={50} alt="item1" />{" "}
+                                located on the same payline
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Ocean symbols located on the same payline
+                                Having 4 symbols <img src="./static/images/nightclub/item1.png" width={50} height={50} alt="item1" />{" "}
+                                located on the same payline
                                 <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Ocean symbols located on the same payline
+                                Having 3 symbols <img src="./static/images/nightclub/item1.png" width={50} height={50} alt="item1" />{" "}
+                                located on the same payline
                                 <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
                         </tr>
@@ -548,8 +554,9 @@ const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                    “NightClub Lady” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels and 3 rows, with 11 different symbols. 
-                    Players will win if there are the same symbols located on the same payline that you have chosen.
+                        “NightClub Lady” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels
+                        and 3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline
+                        that you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img src={`/static/images/nightclub/list_icon.png#v3`} alt="guide_item_symbol_bg" width={412} height={374} />
