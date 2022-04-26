@@ -411,18 +411,18 @@ const renderBonus = (odds: number[][]) => {
                                 )}
                             </td>
                             <td>
-                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} Treasure Chests in Bonus Game.
+                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} items in Bonus Game.
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 4 Bonus symbols in the result.
-                                <br></br> Can open {odds[8][4]} Treasure Chests in Bonus Game.
+                                <br></br> Can open {odds[8][4]} items in Bonus Game.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} Treasure Chests in Bonus Game.
+                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} items in Bonus Game.
                             </td>
                         </tr>
                     </tbody>
@@ -446,14 +446,14 @@ const renderBonus = (odds: number[][]) => {
 
                         <span>
                             There are 4 {`“Bonus”`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 Treasure Chests.
+                            eligible for 3 items .
                         </span>
                     </div>
                 </li>
                 <li>
                     {" "}
                     Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
-                    Chests and settle the game round.
+                    items and settle the game round.
                 </li>
             </ul>
         </li>
@@ -546,7 +546,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs } = props;
+    const { gameConfigs, gameName } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -554,9 +554,9 @@ const NightClubGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) 
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        “NightClub Lady” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels
-                        and 3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline
-                        that you have chosen.
+                        “{gameName}” is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels and
+                        3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline that
+                        you have chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img src={`/static/images/nightclub/list_icon.png#v3`} alt="guide_item_symbol_bg" width={412} height={374} />
