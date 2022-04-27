@@ -30,17 +30,17 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Cách chơi</h2>
                     <ul className="desc">
+                        <li>Xúc xắc sẽ được lắc trước khi phiên đặt cược bắt đầu.</li>
                         <li>
-                            Người chơi có thể đặt cược vào 1 hoặc nhiều linh vật cùng lúc trong cùng 1 lượt chơi và không bị giới hạn số lần
-                            đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
+                        Người chơi có thể đặt cược vào 1 hoặc nhiều linh vật cùng lúc trong cùng 1 lượt chơi và không bị giới hạn số lần đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
                         </li>
                         <li>
                             Số tiền cược phải nằm trong khoảng từ {maxBetFollowChoice?.minBetMain} đến {maxBetFollowChoice?.maxBetChoice}{" "}
                             cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc
-                            sẽ bắt đầu lắc và kết quả sẽ được hiển thị.
+                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được hiển thị.
+
                         </li>
                         <li>
                             Người chơi sẽ thắng nếu trong ba viên xúc xắc xuất hiện linh vật mà người chơi đã đặt cược.
@@ -70,6 +70,79 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </div>
                         </li>
                     </ul>
+                </li>
+                <li className="guide-item">
+                    <h2> MD5 (Message-Digest algorithm 5) </h2>
+                    <ul className="style-number-dot">
+                        <li className="number-dot">
+                            <span className="title-text">Công nghệ MD5</span>
+                            <ul className="desc">
+                                <li>
+                                    <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
+                                    thông qua bên thứ ba.
+                                </li>
+                                <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi đặt cược. </li>
+                                <li>
+                                    Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược (Chuỗi{" "}
+                                    <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (<strong>Kết Quả</strong>).
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="number-dot">
+                            <span className="title-text">Tra Cứu MD5</span>
+                            <ul className="desc">
+                                <li>
+                                    <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.
+                                </li>
+                                <li>
+                                    <strong>Bước 2</strong>: Copy <strong>Kết Quả</strong> sau khi kết quả được công bố.
+                                </li>
+                                <li>
+                                    <strong>Bước 3</strong>: Truy cập{" "}
+                                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                        https://md5.services/
+                                    </a>{" "}
+                                    và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                                </li>
+                                <li>
+                                    <strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi{" "}
+                                    <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div className="content">
+                        Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước
+                        khi đặt cược.
+                    </div>
+                    <div className="content">
+                        <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
+                    </div>
+                    <ul className="desc">
+                        <li>
+                            <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step1_vi.png?v=3" alt="md5-string" />
+                        </li>
+                        <li>
+                            <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step2_vi.png?v=3" alt="md5-result" />
+                            <div>Từ trái sang phải, &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
+                        </li>
+                        <li>
+                            <strong>Bước 3:</strong> Truy cập{" "}
+                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                https://md5.services/
+                            </a>{" "}
+                            và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step3_vi.png?v=1" alt="hash-darling" />
+                        </li>
+                        <li>
+                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
+                            1.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step4_vi.png?v=1" alt="md5-checksum" />
+                        </li>
+                    </ul>
+                    <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
                 </li>
                 {renderTermsAndConditionsVI()}
             </ul>
