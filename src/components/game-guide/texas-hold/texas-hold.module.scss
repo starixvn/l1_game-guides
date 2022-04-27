@@ -9,9 +9,9 @@
     height: 65px;
     margin: 0 auto;
     display: block;
-    @media (max-device-width: 767px) {
-        width: 135px;
-        height: 32px;
+    @media (max-width: 767px) {
+        width: auto;
+        height: auto;
     }
 }
 
@@ -26,10 +26,4 @@
 .black {
     color: #000;
     text-shadow: 0 0 0.3rem #ffd69d;
-}
-
-@media (max-width: 768px) {
-    .format-mobile {
-        width: 100%;
-    }
 }

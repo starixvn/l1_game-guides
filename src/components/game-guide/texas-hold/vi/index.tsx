@@ -867,16 +867,12 @@ export const renderMD5 = () => {
                 <ul className="desc">
                     <li>
                         <strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.
-                        <img
-                            className={`format-img auto-center ${Styles["format-mobile"]}`}
-                            src="/static/images/texas-hold/md5-vi.png#v1"
-                            alt="md5"
-                        />
+                        <img className="format-img auto-center format-mobile" src="/static/images/texas-hold/md5-vi.png#v1" alt="md5" />
                     </li>
                     <li>
                         <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi sau khi lá bài chung thứ 5 được chia.
                         <img
-                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            className="format-img auto-center format-mobile"
                             src="/static/images/texas-hold/result-vi.png#v1"
                             alt="md5-result"
                         />

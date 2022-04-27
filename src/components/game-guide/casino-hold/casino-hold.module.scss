@@ -8,9 +8,9 @@
     height: 65px;
     margin: 0 auto;
     display: block;
-    @media (max-device-width: 767px) {
-        width: 135px;
-        height: 32px;
+    @media (max-width: 767px) {
+        width: auto;
+        height: auto;
     }
 }
 

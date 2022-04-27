@@ -55,11 +55,19 @@ export const renderMD5EN = (gameId?: number) => {
                     <ul className="desc">
                         <li>
                             <strong>Step 1:</strong> Copy the MD5 string after pressing the DEAL button.
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/md5-en.png?v=1" alt="md5" />
+                            <img
+                                className="format-img auto-center format-mobile"
+                                src="/static/images/casino-holdem/md5-en.png?v=1"
+                                alt="md5"
+                            />
                         </li>
                         <li>
                             <strong>Step 2:</strong> Copy the string result after pressing the CALL button.
-                            <img className="format-img auto-center" src="/static/images/casino-holdem/result-en.png?v=1" alt="md5-result" />
+                            <img
+                                className="format-img auto-center format-mobile"
+                                src="/static/images/casino-holdem/result-en.png?v=1"
+                                alt="md5-result"
+                            />
                             <div>
                                 Noted: <span className="red">4</span>, A are hole cards for Player, and <span className="red">J</span>,{" "}
                                 <span className="red">2</span> are the first two cards for Dealer. Five community cards: 4,{" "}
