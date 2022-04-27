@@ -146,5 +146,9 @@
     "45": {
         "id": 45,
         "gameName": "HiLo"
+    },
+    "46": {
+        "id": 46,
+        "gameName": "NightClub"
     }
 }

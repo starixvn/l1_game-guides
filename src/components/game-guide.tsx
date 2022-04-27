@@ -1,34 +1,8 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 
 import appSettings from "../common/app-settings";
-import BigSmallGuide from "./game-guide/big-small";
-import DragonTigerGuide from "./game-guide/dragon-tiger";
-import FishPrawnCrabGuide from "./game-guide/fish-prawn-crab";
-import FishPrawnCrabVIPGuide from "./game-guide/fish-prawn-crab-vip";
-import SeDieGuide from "./game-guide/se-die";
-import SeDieSpecialGuide from "./game-guide/se-die-special";
-import SeDieWarGuide from "./game-guide/se-die-war";
-import BaccaratGuide from "./game-guide/baccarat";
-import KenoProMaxGuide from "./game-guide/keno-pro-max";
-import OddEvenTurboGuide from "./game-guide/odd-even-turbo";
-import BlackjackGuide from "./game-guide/blackjack";
-import SicBoGuide from "./game-guide/sic-bo";
-import FourGuardiansGuide from "./game-guide/four-guardians";
-import LotteryGuide from "./game-guide/lottery";
-import ThreeCardsGuide from "./game-guide/three-cards";
-import KenoMaxGuide from "./game-guide/keno-pro-viet/keno-max";
-import KenoMiniGuide from "./game-guide/keno-pro-viet/keno-mini";
-import RouletteGuide from "./game-guide/roulette";
-import LuckyWheelGuide from "./game-guide/lucky-wheel";
-import HeroesSlotGuide from "./game-guide/AHCL";
-import KenoMatchGuide from "./game-guide/keno-match";
-import KenoPowerGuide from "./game-guide/keno-power";
-import BitCoinMasterGuide from "./game-guide/bitcoin-master";
-import CasinoHoldGuide from "./game-guide/casino-hold";
-import HiLoGuide from "./game-guide/hi-lo";
-import TexasHoldGuide from "./game-guide/texas-hold";
-
 import { UserStakeLevelProps } from "../pages";
 import { GAMES } from "../common/constants";
 
@@ -44,7 +18,35 @@ type Props = {
     environment?: string;
 };
 
+const BigSmallGuide = dynamic(() => import("./game-guide/big-small"));
+const DragonTigerGuide = dynamic(() => import("./game-guide/dragon-tiger"));
+const FishPrawnCrabGuide = dynamic(() => import("./game-guide/fish-prawn-crab"));
+const FishPrawnCrabVIPGuide = dynamic(() => import("./game-guide/fish-prawn-crab-vip"));
+const SeDieGuide = dynamic(() => import("./game-guide/se-die"));
+const SeDieSpecialGuide = dynamic(() => import("./game-guide/se-die-special"));
+const SeDieWarGuide = dynamic(() => import("./game-guide/se-die-war"));
+const BaccaratGuide = dynamic(() => import("./game-guide/baccarat"));
+const KenoProMaxGuide = dynamic(() => import("./game-guide/keno-pro-max"));
+const OddEvenTurboGuide = dynamic(() => import("./game-guide/odd-even-turbo"));
+const BlackjackGuide = dynamic(() => import("./game-guide/blackjack"));
+const SicBoGuide = dynamic(() => import("./game-guide/sic-bo"));
+const FourGuardiansGuide = dynamic(() => import("./game-guide/four-guardians"));
+const LotteryGuide = dynamic(() => import("./game-guide/lottery"));
+const ThreeCardsGuide = dynamic(() => import("./game-guide/three-cards"));
+const KenoMaxGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-max"));
+const KenoMiniGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-mini"));
+const RouletteGuide = dynamic(() => import("./game-guide/roulette"));
+const LuckyWheelGuide = dynamic(() => import("./game-guide/lucky-wheel"));
+const HeroesSlotGuide = dynamic(() => import("./game-guide/AHCL"));
+const KenoMatchGuide = dynamic(() => import("./game-guide/keno-match"));
+const KenoPowerGuide = dynamic(() => import("./game-guide/keno-power"));
+const BitCoinMasterGuide = dynamic(() => import("./game-guide/bitcoin-master"));
+const CasinoHoldGuide = dynamic(() => import("./game-guide/casino-hold"));
+const HiLoGuide = dynamic(() => import("./game-guide/hi-lo"));
+const TexasHoldGuide = dynamic(() => import("./game-guide/texas-hold"));
+const NightClubGuide = dynamic(() => import("./game-guide/NightClub"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
+
 export const GameGuide: React.FC<Props> = (props) => {
     const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
     const { t } = useTranslation(["common"]);
@@ -131,6 +133,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.HILO:
                 return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.NightClubGuide:
+                return <NightClubGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }

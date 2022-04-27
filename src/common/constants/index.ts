@@ -51,4 +51,5 @@ export const GAMES = {
     TEXAS_HOLDEM_POKER: 42,
     BITCOIN_MASTER: 43,
     HILO: 45,
+    NightClubGuide: 46,
 };
