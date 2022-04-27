@@ -194,7 +194,7 @@ const renderMD5Example = (gameName: string) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_en.png?v=1" alt="md5-result" />
                     <div>
-                        Note: From the left to right, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ corresponds to the order of dealt cards at the beginning of
+                        Note: From the left to right, 7♠️ 3♠️ 7♦️ K♣️ 2♠️ Q♦️ corresponds to the order of dealt cards at the beginning of
                         the game round.
                     </div>
                 </li>

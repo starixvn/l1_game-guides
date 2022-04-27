@@ -133,7 +133,7 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_vi.png?v=1" alt="md5-result" />
-                    <div>Từ trái sang phải, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
+                    <div>Từ trái sang phải, Q♠️ A♠️ 8♦️ 4♠️ 6♥️ J♥️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}
