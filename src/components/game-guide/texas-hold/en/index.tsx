@@ -854,7 +854,7 @@ export const renderMD5 = () => {
                     <li>
                         <strong>Step 1:</strong>Copy the MD5 key after pressing the DEAL button.
                         <img
-                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            className="format-img auto-center format-mobile"
                             src="/static/images/texas-hold/md5-en.png#v1"
                             alt="md5-en"
                         />
@@ -862,7 +862,7 @@ export const renderMD5 = () => {
                     <li>
                         <strong>Step 2:</strong> Copy the Result after the fifth community card (River) is dealt.
                         <img
-                            className={`format-img auto-center ${Styles["format-mobile"]}`}
+                            className="format-img auto-center format-mobile"
                             src="/static/images/texas-hold/result-en.png#v1"
                             alt="md5-result"
                         />

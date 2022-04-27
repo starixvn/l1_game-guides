@@ -400,3 +400,9 @@ ul {
     max-width: 39.7rem;
     max-height: 18.2rem;
 }
+
+@media (max-width: 768px) {
+    .format-mobile {
+        width: 100%;
+    }
+}
