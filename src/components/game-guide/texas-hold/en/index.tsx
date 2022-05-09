@@ -901,7 +901,7 @@ export const renderMD5 = () => {
                         </div>
                     </li>
                     <li>
-                        <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string
+                        <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string
                         with the MD5 string in <strong>Step 1</strong>.
                         <div className="wrapper-md5-img">
                             <img

@@ -456,7 +456,7 @@ const KenoMatchGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                     </div>
                                 </li>
                                 <li>
-                                    <strong>Bước 4</strong>: Bấm nút <i>“hash, darling hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo
+                                    <strong>Bước 4</strong>: Bấm nút <i>“hash darling, hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo
                                     ra và chuỗi MD5 ở Bước 1.
                                     <div className={Styles["wrapper-img"]}>
                                         <img src={`/static/images/keno-match/md5.png#1`} alt="md5-copy" loading="eager" />

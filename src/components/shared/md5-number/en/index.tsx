@@ -87,7 +87,7 @@ export const renderMD5EN = (gameId?: number) => {
                             />
                         </li>
                         <li>
-                            <strong>Step4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5
+                            <strong>Step4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
                             string with the MD5 string in <strong>Step 1</strong>.
                             <img
                                 className="format-img auto-center"

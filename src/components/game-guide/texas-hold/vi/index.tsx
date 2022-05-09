@@ -910,7 +910,7 @@ export const renderMD5 = () => {
                         </div>
                     </li>
                     <li>
-                        <strong>Bước 4:</strong> Bấm nút “hash, darling hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở{" "}
+                        <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở{" "}
                         <strong>Bước 1</strong>.
                         <div className="wrapper-md5-img">
                             <img

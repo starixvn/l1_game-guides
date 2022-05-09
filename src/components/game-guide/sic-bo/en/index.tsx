@@ -256,12 +256,12 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                             <img className="format-img auto-center" src="/static/images/sicbo/md5_step3_en.png?v=1" alt="hash-darling" />
                         </li>
                         <li>
-                            <strong>Step 4:</strong> Press the “hash, darling hash!” button and compare the newly generated checksum MD5 string with
-                            the MD5 string in Step 1.
+                            <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
+                            string with the MD5 string in Step 1.
                             <img className="format-img auto-center" src="/static/images/sicbo/md5_step4_en.png?v=1" alt="md5-checksum" />
                         </li>
                     </ul>
-                </li>                
+                </li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
