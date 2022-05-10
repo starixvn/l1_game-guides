@@ -1,31 +1,30 @@
 @import "../../../assets/components/base-slot-game";
 
+[class*="item"].customize {    
+    top: 14%;
+    left: 1%;
+}
+
+.scatter {
+    top: -5%;
+    left: -7%;
+}
+
 .item0 {
     @extend %item;
     max-width: 10.4rem;
     max-height: 8.9rem;
-    &.customize {
-        top: 13%;
-        left: 5%;
-    }
 }
 .item1 {
     @extend %item;
     max-width: 9.2rem;
     max-height: 9.4rem;
-    &.customize {
-        top: 13%;
-        left: 7%;
-    }
 }
+
 .item2 {
     @extend %item;
     max-width: 10rem;
     max-height: 9.1rem;
-    &.customize {
-        top: 14%;
-        left: 5%;
-    }
     &.mini {
         max-width: 4.5rem;
         max-height: 3.6rem;
@@ -36,28 +35,16 @@
     @extend %item;
     max-width: 9.8rem;
     max-height: 10rem;
-    &.customize {
-        top: 13%;
-        left: 6%;
-    }
 }
 .item4 {
     @extend %item;
     max-width: 9.1rem;
     max-width: 9.3rem;
-    &.customize {
-        top: 13%;
-        left: 8%;
-    }
 }
 .item5 {
     @extend %item;
     max-width: 10rem;
     max-height: 10.1rem;
-    &.customize {
-        top: 12%;
-        left: 6%;
-    }
     &.mini {
         max-width: 4rem;
         max-height: 4.1rem;
@@ -68,19 +55,11 @@
     @extend %item;
     max-width: 9.2rem;
     max-height: 9.5rem;
-    &.customize {
-        top: 13%;
-        left: 9%;
-    }
 }
 .item7 {
     @extend %item;
     max-width: 10.6rem;
     max-height: 8.3rem;
-    &.customize {
-        top: 13%;
-        left: 5%;
-    }
     &.dark {
         top: 17%;
         left: 6%;
@@ -95,10 +74,6 @@
     @extend %item;
     max-width: 10.7rem;
     max-height: 8.7rem;
-    &.customize {
-        top: 13%;
-        left: 5%;
-    }
     &.mini {
         max-height: 3.7rem;
         max-width: 4.7rem;
@@ -107,31 +82,6 @@
     &.dark {
         top: 17%;
         left: 7%;
-    }
-}
-.item9 {
-    @extend %item;
-    max-width: 8.4rem;
-    max-height: 9.4rem;
-    &.customize {
-        top: 13%;
-        left: 9%;
-    }
-}
-.item10 {
-    @extend %item;
-    max-width: 10.3rem;
-    max-height: 8.9rem;
-
-    &.customize {
-        top: 14%;
-        left: 5%;
-    }
-
-    &.mini {
-        max-width: 4.8rem;
-        max-height: 5.4rem;
-        margin: 0 1rem;
     }
 }
 
@@ -150,4 +100,14 @@
 
 .wild-content-ex {
     grid-template-columns: 14.6rem 1fr;
+}
+
+.wrapper-icon {
+    .customize {
+        transform: scale(0.8);
+    }
+    &-dark .scatter {
+        transform: scale(0.54);
+        position: absolute;
+    }
 }

@@ -1,23 +1,130 @@
 import React from "react";
+
+import { locales } from "../../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../treasure-island.module.scss";
+import { GameConfigProps } from "../type";
+import { renderIconContent, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "../vi";
 
 const renderGameRule = () => {
     return (
         <>
             <h2>Game Rules</h2>
-            <ul className="desc"></ul>
+            <ul className="desc">
+                <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
+                    <div><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
+                </li>
+                <li>Instead of pressing the “Spin” button, the players can use the Space and Enter key on the keyboard to start the spin.</li>
+                <li>The Win-loss of each combination will be calculated based on the base bet.
+                    <div><strong>Base bet</strong> = Bet level * Coin Value</div>
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderTumbling = () => {
+    return(
+        <>
+            <h2>Tumbling Feature</h2>
+            <ul className="desc">
+                <li>After every spin, the winning combinations get paid, and all of the winning symbols will be removed from the reels, allowing new symbols to drop into the empty position.</li>
+                <li>The tumbling will continue until no more winning combinations appear as a result of a tumble.</li>
+                <li>There is no limit to the number of possible tumbles.</li>
+            </ul>
         </>
     );
 };
 
 const renderPayouts = (odds: number[][]) => {
     return (
-        <li className="guide-item">
-            <h2>Paytable</h2>
-        </li>
+       <>
+        <h2>Payouts</h2>
+        <ul className="desc">
+            <li>The payouts table will be updated according to the value of the base bet that you have selected.</li>
+            <li>All winning amounts are instantly added to your account balance when all of the tumbles resulting from a base spin have been played.</li>
+            <li>When winning with Multiplier symbols, the value of all multiplier symbols on the screen are added together at the end of the tumbling sequence. And the total win of a game round is equal to the total multiplier value multiplies the total win of tumbles.</li>
+        </ul>
+        {renderPayoutsIconFirstLine(odds, locales.vi)}
+        {renderPayoutsIconSecondLine(odds, locales.vi)}
+        {renderExamplePayouts(odds)}
+       </>
+    );
+};
+
+const renderExamplePayouts = (odds: number[][]) => {
+    return (
+        <>
+            <p>
+                <strong> Example:</strong>Your base bet value is “n”
+            </p>
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowSpan={3}>
+                                {renderIconContent(true, "item8", true, true, [
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
+                                ])}
+                            </td>
+                            <td>
+                                Having 8-9 symbols{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
+                                appear on the result board.<br></br>Payout = Win value
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Having 10-11 symbols {" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
+                                <br></br>Payout = Win value * {odds[1][4]}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Having 12-30 symbols{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
+                                <br></br>Payout = Win value * {odds[1][3]}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+};
+
+const renderMultipliers = () => {
+    return(
+        <>
+        <h2>Multipliers</h2>
+        <ul className="desc">
+            <li>The Multiplier symbols are present on all reels and can hit randomly during spins, and tumbles in both base game and free spins.</li>
+            <li>Whenever a Multiplier symbol hits, it takes a random multiplier value from <strong>Min</strong> to <strong>Max</strong>.</li>
+        </ul>
+        </>
+    );
+};
+
+const renderFreeSpins = () => {
+    return(
+        <>
+            <h2>Free Spins Feature</h2>
+            <ul className="desc">
+                <li>The Free Spins feature is awarded when 4 or more SCATTER symbols appear anywhere on the screen.</li>
+                <li>For the whole duration of Free Spins rounds, whenever any new Multiplier symbols appear and the spinning result in a win, the Multiplier value is added to the total multiplier.</li>
+                <li>Whenever <i>“count”</i> or more SCATTER symbols appear during the Free Spins round, <i>“n”</i> additional free spins are awarded.</li>
+            </ul>
+        </>
     );
 };
 
@@ -35,11 +142,16 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                         and ten different symbols. Symbols pay anywhere on the screen. The total number of the same symbols on the screen at
                         the end of a spin determines the value of the win.
                     </p>
+                    <div className={Styles["wrapper-list-icon"]}>
+                        <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={426} height={443} />
+                    </div>
                 </li>
+                <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderGameRule()}</li>
 
-                {renderPayouts(odds)}
-
+                <li className="guide-item">{renderPayouts(odds)}</li>
+                <li className="guide-item">{renderMultipliers()}</li>
+                <li className="guide-item">{renderFreeSpins()}</li>
                 {renderTermsAndConditionsEN(Styles["guide-item"])}
             </ul>
         </>
