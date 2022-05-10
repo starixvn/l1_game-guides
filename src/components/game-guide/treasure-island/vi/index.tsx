@@ -309,6 +309,7 @@ const renderMultipliers = () => {
     return(
         <>
         <h2>Số Nhân</h2>
+        <div className={Styles["center"]}><img src={`/static/images/treasure-island/multiplier.jpg#v3`} alt="multiplier" width={486} height={101} /></div>
         <ul className="desc">
             <li>Các biểu tượng Số Nhân xuất hiện trên tất cả các cột, và có thể xuất hiện ngẫu nhiên trong suốt các vòng quay và tumbling trong vòng quay cơ bản và Free Spin.</li>
             <li>Bất cứ khi nào một biểu tượng Số Nhân nào xuất hiện, nó sẽ nhận một giá trị nhân ngẫu nhiên từ Min đến Max.</li>

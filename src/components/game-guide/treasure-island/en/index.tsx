@@ -5,7 +5,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
-import { renderIconContent, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "../vi";
+import { renderIconContent, renderIconContentBlack, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "../vi";
 
 const renderGameRule = () => {
     return (
@@ -107,6 +107,7 @@ const renderMultipliers = () => {
     return(
         <>
         <h2>Multipliers</h2>
+        <div className={Styles["center"]}><img src={`/static/images/treasure-island/multiplier.jpg#v3`} alt="multiplier" width={486} height={101} /></div>
         <ul className="desc">
             <li>The Multiplier symbols are present on all reels and can hit randomly during spins, and tumbles in both base game and free spins.</li>
             <li>Whenever a Multiplier symbol hits, it takes a random multiplier value from <strong>Min</strong> to <strong>Max</strong>.</li>
@@ -115,7 +116,7 @@ const renderMultipliers = () => {
     );
 };
 
-const renderFreeSpins = () => {
+const renderFreeSpins = (odds: number[][]) => {
     return(
         <>
             <h2>Free Spins Feature</h2>
@@ -124,6 +125,44 @@ const renderFreeSpins = () => {
                 <li>For the whole duration of Free Spins rounds, whenever any new Multiplier symbols appear and the spinning result in a win, the Multiplier value is added to the total multiplier.</li>
                 <li>Whenever <i>“count”</i> or more SCATTER symbols appear during the Free Spins round, <i>“n”</i> additional free spins are awarded.</li>
             </ul>
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowSpan={3}>
+                                {renderIconContentBlack(
+                                    "scatter",
+                                    [
+                                        [5, odds[7][5]],
+                                        [4, odds[7][4]],
+                                        [3, odds[7][3]],
+                                    ],
+                                    " FREE SPINS"
+                                )}
+                            </td>
+                            <td>
+                                Having 4 Free Spin symbols in the result.<br></br> Get “n” Free Spins Bonus.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Having 5 Free Spin symbols in the result.<br></br>Get “n” Free Spins Bonus.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Having 6 Free Spin symbols in the result.<br></br>Get “n” Free Spins Bonus.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 };
@@ -151,7 +190,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
 
                 <li className="guide-item">{renderPayouts(odds)}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
-                <li className="guide-item">{renderFreeSpins()}</li>
+                <li className="guide-item">{renderFreeSpins(odds)}</li>
                 {renderTermsAndConditionsEN(Styles["guide-item"])}
             </ul>
         </>
