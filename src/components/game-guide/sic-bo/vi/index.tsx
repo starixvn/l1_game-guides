@@ -13,6 +13,7 @@ const renderGameRule = (maxBet: string | undefined) => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
+                <li>Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi hết thời gian quy định. Nếu kết quả mở ra trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.</li>
                 <li>
                     Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
                     cược. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.

@@ -18,11 +18,10 @@ const renderGameRule = (maxBetMain: number | string, environment: string | undef
                 {environment === ENVIRONMENT.sc && (
                     <>
                         <li>
-                            The third card also will be drawn after finishing dealing 2 initial face-down cards for Player and Dealer’s
-                            hands.
+                        The third card also will be drawn after finishing dealing 2 initial face-down cards for Player and Dealer’s hands.
                         </li>
                         <li>
-                            The cards are numbered from one to six that correspond to the sequence of dealt cards at the beginning at the
+                            The cards are numbered from one to six that correspond to the sequence of dealt cards at the beginning of the
                             game round.
                         </li>
                     </>
@@ -34,14 +33,8 @@ const renderGameRule = (maxBetMain: number | string, environment: string | undef
                 </li>
                 <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
                 <li>The maximum total stake per round is {maxBetMain}</li>
-                <li>Once the betting time has expired, the dealer turns the cards face up.</li>
-                {environment === ENVIRONMENT.sm && (
-                    <li>
-                        Based on the total points of the first two cards, the dealer will determine whether either hand reveals a third
-                        card.
-                    </li>
-                )}
-                <li>Based on the total points of the first two cards, the dealer will determine whether either hand gets a third card.</li>
+                <li>Once the betting time has expired, the dealer turns the cards face up.</li>                
+                <li>Based on the total points of the first two cards, the dealer will determine whether either hand reveals a third card. </li>
                 <li>
                     The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the
                     one closest to a total of 9 points.
@@ -194,7 +187,7 @@ const renderMD5Example = (gameName: string) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_en.png?v=1" alt="md5-result" />
                     <div>
-                        Note: From the left to right, 7♠️ 3♠️ 7♦️ K♣️ 2♠️ Q♦️ corresponds to the order of dealt cards at the beginning of
+                        Note: From the left to right, <span className={Styles["black"]}>7♠️</span> <span className={Styles["black"]}>3♠️</span> <span className={Styles["red"]}>7♦️</span> <span className={Styles["black"]}>K♣️</span> <span className={Styles["black"]}>2♠️</span> <span className={Styles["red"]}>Q♦️</span> corresponds to the order of dealt cards at the beginning of
                         the game round.
                     </div>
                 </li>
