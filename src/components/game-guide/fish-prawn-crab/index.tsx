@@ -19,7 +19,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const FishPrawnCrab = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, environment } = props;
     const getGameConfigs = () => {
         if (!isGetGameConfigs) {
             return GameConfigs;
@@ -33,9 +33,9 @@ const FishPrawnCrab = (props: GameGuideBase) => {
     const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
 
     if (locale === locales.en) {
-        return <FishPrawnCrabGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return <FishPrawnCrabGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} environment={environment} />;
     }
 
-    return <FishPrawnCrabGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return <FishPrawnCrabGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} environment={environment} />;
 };
 export default FishPrawnCrab;

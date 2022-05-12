@@ -5,9 +5,10 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderIconChoice } from "../en";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -72,9 +73,10 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                <li className="guide-item">
-                    {renderMD5VI()}
-                    <div className="content">
+                {environment === ENVIRONMENT.sc && (
+                    <li className="guide-item">
+                         {renderMD5VI()}
+                         <div className="content">
                         <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
                     </div>
                     <ul className="desc">
@@ -102,7 +104,8 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                     <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
-                </li>
+                    </li>
+                )}                
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

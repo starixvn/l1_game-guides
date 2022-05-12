@@ -4,6 +4,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 export const renderIconChoice = () => {
     return (
@@ -19,7 +20,7 @@ export const renderIconChoice = () => {
 };
 
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -89,6 +90,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
+                {environment === ENVIRONMENT.sc && (
                 <li className="guide-item">
                     {renderMD5EN()}
                     <div className="content">
@@ -138,6 +140,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
+                )} 
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

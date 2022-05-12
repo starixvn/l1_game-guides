@@ -14,19 +14,19 @@ const renderGameRule = (maxBetMain: number | string, environment: string | undef
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>Player and Banker, each hand will start with 2 cards face down.</li>
+                <li>Player and Banker, each hand will start with 2 face - down cards.</li>
                 {environment === ENVIRONMENT.sc && (
                     <>
                         <li>
-                        The third card also will be drawn after finishing dealing 2 initial face-down cards for Player and Dealer’s hands.
+                        The Punter predicts which one in two hands will win.
                         </li>
                         <li>
-                            The cards are numbered from one to six that correspond to the sequence of dealt cards at the beginning of the
-                            game round.
+                        The third card also will be drawn after finishing dealing 2 initial face-down cards for Player and Dealer’s hands.
                         </li>
+                        <li>The cards are numbered from one to six that correspond to the sequence of dealt cards at the beginning of the game round.</li>
                     </>
-                )}
-                <li>The Punter predicts which one in two hands will win.</li>
+                )}     
+                {environment === ENVIRONMENT.sm && <li>The Punter predicts which one in two hands will win.</li>}          
                 <li>
                     Another betting option is “Tie” if the Punters predict two hands will end in equal totals or they can also bet on Big,
                     Small, Player Pair, or Banker Pair options.
