@@ -4,9 +4,11 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderIconChoice } from "../en";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { ENVIRONMENT } from "../../../../common/constants";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -30,17 +32,17 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Cách chơi</h2>
                     <ul className="desc">
+                        <li>Xúc xắc sẽ được lắc trước khi phiên đặt cược bắt đầu.</li>
                         <li>
-                            Người chơi có thể đặt cược vào 1 hoặc nhiều linh vật cùng lúc trong cùng 1 lượt chơi và không bị giới hạn số lần
-                            đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
+                        Người chơi có thể đặt cược vào 1 hoặc nhiều linh vật cùng lúc trong cùng 1 lượt chơi và không bị giới hạn số lần đặt cược. Lưu ý, không thể hủy cược sau khi đặt.
                         </li>
                         <li>
                             Số tiền cược phải nằm trong khoảng từ {maxBetFollowChoice?.minBetMain} đến {maxBetFollowChoice?.maxBetChoice}{" "}
                             cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc
-                            sẽ bắt đầu lắc và kết quả sẽ được hiển thị.
+                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được hiển thị.
+
                         </li>
                         <li>
                             Người chơi sẽ thắng nếu trong ba viên xúc xắc xuất hiện linh vật mà người chơi đã đặt cược.
@@ -71,6 +73,39 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
+                {environment === ENVIRONMENT.sc && (
+                    <li className="guide-item">
+                         {renderMD5VI()}
+                         <div className="content">
+                        <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
+                    </div>
+                    <ul className="desc">
+                        <li>
+                            <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step1_vi.png?v=3" alt="md5-string" />
+                        </li>
+                        <li>
+                            <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step2_vi.png?v=3" alt="md5-result" />
+                            <div>Từ trái sang phải, &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
+                        </li>
+                        <li>
+                            <strong>Bước 3:</strong> Truy cập{" "}
+                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                https://md5.services/
+                            </a>{" "}
+                            và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step3_vi.png?v=1" alt="hash-darling" />
+                        </li>
+                        <li>
+                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
+                            1.
+                            <img className="format-img auto-center" src="/static/images/fish-prawn-crab/md5_step4_vi.png?v=1" alt="md5-checksum" />
+                        </li>
+                    </ul>
+                    <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
+                    </li>
+                )}                
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
