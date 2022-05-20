@@ -76,17 +76,16 @@ export const renderMD5VI = (gameId?: number) => {
                             />
                             <ul className="detail">
                                 <li>
-                                    Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (<span className="black">J♣</span>,{" "}
+                                    Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (<span className="casino-black">J♣</span>,{" "}
                                     <span className="red">10♥</span>), 2 lá của Nhà Cái (<span className="red">3♦</span>,{" "}
-                                    <span className="black">2♠</span>) và 5 lá bài Chung (<span className="black">K♣</span>,{" "}
-                                    <span className="red">5♥</span>, <span className="black">3♠</span>, <span className="red">10♦</span>,{" "}
-                                    <span className="red">4♦</span>)
+                                    <span className="casino-black">2♠</span>) và 5 lá bài Chung (<span className="casino-black">K♣</span>,{" "}
+                                    <span className="red">5♥</span>, <span className="casino-black">3♠</span>,{" "}
+                                    <span className="red">10♦</span>, <span className="red">4♦</span>)
                                 </li>
                                 <li>
-                                    Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái
-                                    ((
-                                    <span className="black">J♣</span>, <span className="red">10♥</span>), 2 lá của Người Chơi (
-                                    <span className="red">3♦</span>, <span className="black">2♠</span>) và 5 lá bài Chung.
+                                    Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái (
+                                    <span className="casino-black">J♣</span>, <span className="red">10♥</span>), 2 lá của Người Chơi (
+                                    <span className="red">3♦</span>, <span className="casino-black">2♠</span>) và 5 lá bài Chung.
                                 </li>
                                 <li>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước khi Người Chơi bấm nút Chia Bài.</li>
                             </ul>

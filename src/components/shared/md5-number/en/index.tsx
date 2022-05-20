@@ -72,16 +72,17 @@ export const renderMD5EN = (gameId?: number) => {
                                 <ul className="detail">
                                     <li>
                                         From left to right, the cards are displayed in the order: Player’s cards (
-                                        <span className="black">J♣</span>, <span className="red">10♥</span>), Dealer’s cards (
-                                        <span className="red">3♦</span>, <span className="black">2♠</span>), and the five community cards (
-                                        <span className="black">K♣</span>, <span className="red">5♥</span>,{" "}
-                                        <span className="black">3♠</span>, <span className="red">10♦</span>, <span className="red">4♦</span>
-                                        )
+                                        <span className="casino-black">J♣</span>, <span className="red">10♥</span>), Dealer’s cards (
+                                        <span className="red">3♦</span>, <span className="casino-black">2♠</span>), and the five community
+                                        cards (<span className="casino-black">K♣</span>, <span className="red">5♥</span>,{" "}
+                                        <span className="casino-black">3♠</span>, <span className="red">10♦</span>,{" "}
+                                        <span className="red">4♦</span>)
                                     </li>
                                     <li>
                                         If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards (
-                                        <span className="black">J♣</span>, <span className="red">10♥</span>), Player’s cards (
-                                        <span className="red">3♦</span>, <span className="black">2♠</span>), and the five community cards.
+                                        <span className="casino-black">J♣</span>, <span className="red">10♥</span>), Player’s cards (
+                                        <span className="red">3♦</span>, <span className="casino-black">2♠</span>), and the five community
+                                        cards.
                                     </li>
                                 </ul>
                             </div>
