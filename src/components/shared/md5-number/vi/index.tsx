@@ -21,7 +21,7 @@ export const renderMD5VI = (gameId?: number) => {
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text">Tra Cứu MD5</span>
+                    <span className="title-text">Tra cứu MD5</span>
                     <ul className="desc">
                         <li>
                             <span>
@@ -63,7 +63,7 @@ export const renderMD5VI = (gameId?: number) => {
                             <strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.
                             <img
                                 className="format-img auto-center format-mobile"
-                                src="/static/images/casino-holdem/md5-vi.png?v=1"
+                                src="/static/images/casino-holdem/md5-vi.png?v=2"
                                 alt="md5"
                             />
                         </li>
@@ -71,14 +71,25 @@ export const renderMD5VI = (gameId?: number) => {
                             <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi bấm nút &quot;Theo Bài&quot;
                             <img
                                 className="format-img auto-center format-mobile"
-                                src="/static/images/casino-holdem/result-vi.png?v=1"
+                                src="/static/images/casino-holdem/result-vi.png?v=2"
                                 alt="md5-result"
                             />
-                            <div>
-                                Trong đó <span className="red">4</span>, A là hai lá của Người Chơi và <span className="red">J</span>,{" "}
-                                <span className="red">2</span> là hai lá của Nhà Cái. Năm lá bài chung 4, <span className="red">3</span>, 9,{" "}
-                                5, 10
-                            </div>
+                            <ul className="detail">
+                                <li>
+                                    Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (<span className="black">J♣</span>,{" "}
+                                    <span className="red">10♥</span>), 2 lá của Nhà Cái (<span className="red">3♦</span>,{" "}
+                                    <span className="black">2♠</span>) và 5 lá bài Chung (<span className="black">K♣</span>,{" "}
+                                    <span className="red">5♥</span>, <span className="black">3♠</span>, <span className="red">10♦</span>,{" "}
+                                    <span className="red">4♦</span>)
+                                </li>
+                                <li>
+                                    Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái
+                                    ((
+                                    <span className="black">J♣</span>, <span className="red">10♥</span>), 2 lá của Người Chơi (
+                                    <span className="red">3♦</span>, <span className="black">2♠</span>) và 5 lá bài Chung.
+                                </li>
+                                <li>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước khi Người Chơi bấm nút Chia Bài.</li>
+                            </ul>
                         </li>
                         <li>
                             <strong>Bước 3:</strong> Truy cập{" "}

@@ -22,11 +22,10 @@ export const renderMD5EN = (gameId?: number) => {
                     <span className="title-text">MD5 Validation</span>
                     <ul className="desc">
                         <li>
-                            <strong>Step 1</strong>: Copy the <strong>MD5.</strong> The MD5 string displays after pressing the DEAL button.
+                            <strong>Step 1</strong>: Copy the <strong>MD5</strong> key after pressing the Deal button.
                         </li>
                         <li>
-                            <strong>Step 2</strong>: Copy <strong>Key.</strong> The Key string displays after the Player and Dealer compare
-                            hands.
+                            <strong>Step 2</strong>: Copy the <strong>Result</strong> after pressing the Call button.
                         </li>
                         <li>
                             <strong>Step 3</strong>: Go to{" "}
@@ -57,7 +56,7 @@ export const renderMD5EN = (gameId?: number) => {
                             <strong>Step 1:</strong> Copy the MD5 string after pressing the DEAL button.
                             <img
                                 className="format-img auto-center format-mobile"
-                                src="/static/images/casino-holdem/md5-en.png?v=1"
+                                src="/static/images/casino-holdem/md5-en.png?v=2"
                                 alt="md5"
                             />
                         </li>
@@ -65,13 +64,26 @@ export const renderMD5EN = (gameId?: number) => {
                             <strong>Step 2:</strong> Copy the string result after pressing the CALL button.
                             <img
                                 className="format-img auto-center format-mobile"
-                                src="/static/images/casino-holdem/result-en.png?v=1"
+                                src="/static/images/casino-holdem/result-en.png?v=2"
                                 alt="md5-result"
                             />
                             <div>
-                                Noted: <span className="red">4</span>, A are hole cards for Player, and <span className="red">J</span>,{" "}
-                                <span className="red">2</span> are the first two cards for Dealer. Five community cards: 4,{" "}
-                                <span className="red">3</span>, 9, 5, 10
+                                Noted:
+                                <ul className="detail">
+                                    <li>
+                                        From left to right, the cards are displayed in the order: Player’s cards (
+                                        <span className="black">J♣</span>, <span className="red">10♥</span>), Dealer’s cards (
+                                        <span className="red">3♦</span>, <span className="black">2♠</span>), and the five community cards (
+                                        <span className="black">K♣</span>, <span className="red">5♥</span>,{" "}
+                                        <span className="black">3♠</span>, <span className="red">10♦</span>, <span className="red">4♦</span>
+                                        )
+                                    </li>
+                                    <li>
+                                        If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards (
+                                        <span className="black">J♣</span>, <span className="red">10♥</span>), Player’s cards (
+                                        <span className="red">3♦</span>, <span className="black">2♠</span>), and the five community cards.
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <li>
@@ -79,7 +91,7 @@ export const renderMD5EN = (gameId?: number) => {
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
-                            and paste the key string into the MD5 box
+                            and paste the Result string into the MD5 box
                             <img
                                 className="format-img auto-center"
                                 src="/static/images/casino-holdem/hash-darling.png?v=1"
