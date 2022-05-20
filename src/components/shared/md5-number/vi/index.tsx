@@ -98,7 +98,7 @@ export const renderMD5VI = (gameId?: number) => {
                             và dán chuỗi Kết Quả vừa copy vào ô MD5.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/casino-holdem/hash-darling.png?v=1"
+                                src="/static/images/casino-holdem/hash-darling.png?v=2"
                                 alt="hash-darling"
                             />
                         </li>
@@ -107,7 +107,7 @@ export const renderMD5VI = (gameId?: number) => {
                             ở Bước 1.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/casino-holdem/md5-checksum.png?v=1"
+                                src="/static/images/casino-holdem/md5-checksum.png?v=2"
                                 alt="md5-checksum"
                             />
                         </li>

@@ -95,7 +95,7 @@ export const renderMD5EN = (gameId?: number) => {
                             and paste the Result string into the MD5 box
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/casino-holdem/hash-darling.png?v=1"
+                                src="/static/images/casino-holdem/hash-darling.png?v=2"
                                 alt="hash-darling"
                             />
                         </li>
@@ -104,7 +104,7 @@ export const renderMD5EN = (gameId?: number) => {
                             string with the MD5 string in <strong>Step 1</strong>.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/casino-holdem/md5-checksum.png"
+                                src="/static/images/casino-holdem/md5-checksum.png?v=1"
                                 alt="md5-checksum"
                             />
                         </li>

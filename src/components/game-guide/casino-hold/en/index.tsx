@@ -12,9 +12,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>
-                    Select the chip with the value that suits you best and place the chip on the Ante bet or make an optional AA bonus bet.
-                </li>
+                <li>Select the chip with the value that suits you best and place the chip on the Ante bet or AA bonus bet.</li>
                 <li>Note, Ante bet is a mandatory option that the player must place bet before any cards are dealt.</li>
                 <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two hole cards.</li>
                 <li>Three community cards (Flop cards) are dealt face-up in the middle of the table.</li>
