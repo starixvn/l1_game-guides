@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-number/en";
 import ScrollToMD5 from "../../../shared/md5-number";
+import { renderMD5EN } from "../../../shared/md5-number/en";
+import { GameGuideProps } from "../../type";
 import Styles from "../casino-hold.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
@@ -20,7 +20,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                     Swap Cards
                     <ul className="detail">
                         <li>
-                            Swap Cards is an optional feature and can be turned ON/ OFF. It allows the player to choose either to swap his
+                            Swap Cards is an optional feature and can be turned ON/OFF. It allows the player to choose either to swap his
                             two hole cards with Dealer’s cards before cards are face-up or keep the cards without changing.
                         </li>
                     </ul>

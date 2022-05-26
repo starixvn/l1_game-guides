@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5-number/vi";
 import ScrollToMD5 from "../../../shared/md5-number";
+import { renderMD5VI } from "../../../shared/md5-number/vi";
+import { GameGuideProps } from "../../type";
 import Styles from "../casino-hold.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
@@ -647,7 +647,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             </ul>
                         </li>
                         <li className="number-dot-number">
-                            <span className="title-text">Call</span>
+                            <span className="title-text">Cược Call</span>
                             <ul className="desc">
                                 <li>
                                     Call là khoản tiền cược mà Người Chơi phải đặt thêm khi chọn &quot;Theo Bài&quot; và bằng 2 lần số tiền

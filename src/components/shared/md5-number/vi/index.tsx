@@ -10,12 +10,12 @@ export const renderMD5VI = (gameId?: number) => {
                     <span className="title-text">Công nghệ MD5</span>
                     <ul className="desc">
                         <li>
-                            <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
+                            <strong>MD5</strong> là công nghệ cho phép Người Chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
                             thông qua bên thứ ba.
                         </li>
-                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi mở bài. </li>
+                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi Người Chơi mở bài. </li>
                         <li>
-                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi mở bài (Chuỗi{" "}
+                            Người Chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi mở bài (Chuỗi{" "}
                             <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (Chuỗi <strong>Kết Quả</strong>).
                         </li>
                     </ul>
