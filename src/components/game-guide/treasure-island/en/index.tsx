@@ -12,13 +12,17 @@ const renderGameRule = () => {
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
+                <li>Symbols pay anywhere on the screen. </li>
+                <li>The total number of the same symbols on the screen at the end of a spin determines the value of the win.</li>
                 <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
                     <div><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
                 </li>
+                <li>Bet Multiplier is “value”.</li>
                 <li>Instead of pressing the “Spin” button, the players can use the Space and Enter key on the keyboard to start the spin.</li>
                 <li>The Win-loss of each combination will be calculated based on the base bet.
                     <div><strong>Base bet</strong> = Bet level * Coin Value</div>
                 </li>
+                <li>Bet Limit: “Min Value” - “Max Value”.</li>
             </ul>
         </>
     );
@@ -45,6 +49,7 @@ const renderPayouts = (odds: number[][]) => {
             <li>The payouts table will be updated according to the value of the base bet that you have selected.</li>
             <li>All winning amounts are instantly added to your account balance when all of the tumbles resulting from a base spin have been played.</li>
             <li>When winning with Multiplier symbols, the value of all multiplier symbols on the screen are added together at the end of the tumbling sequence. And the total win of a game round is equal to the total multiplier value multiplies the total win of tumbles.</li>
+            <li>The maximum win amount is limited to “value”. If the total win of a round reaches the max win value, the game round immediately ends, the win is awarded up to the limitation and all remaining features are forfeited.</li>
         </ul>
         {renderPayoutsIconFirstLine(odds, locales.vi)}
         {renderPayoutsIconSecondLine(odds, locales.vi)}
@@ -57,7 +62,7 @@ const renderExamplePayouts = (odds: number[][]) => {
     return (
         <>
             <p>
-                <strong> Example:</strong>Your base bet value is “n”
+                <strong> Example:</strong> Your base bet value is “n”
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
@@ -71,9 +76,9 @@ const renderExamplePayouts = (odds: number[][]) => {
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContent(true, "item8", true, true, [
-                                    [5, odds[1][5]],
-                                    [4, odds[1][4]],
-                                    [3, odds[1][3]],
+                                    [0, odds[1][5]],
+                                    [1, odds[1][4]],
+                                    [2, odds[1][3]],
                                 ])}
                             </td>
                             <td>
@@ -139,9 +144,9 @@ const renderFreeSpins = (odds: number[][]) => {
                                 {renderIconContentBlack(
                                     "scatter",
                                     [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
+                                        [4, odds[7][5]],
+                                        [5, odds[7][4]],
+                                        [6, odds[7][3]],
                                     ],
                                     " FREE SPINS"
                                 )}
@@ -178,8 +183,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                     <p className="content">
                         {gameName} is an online cascading slot game that has become extremely popular with the online gamer as it offers
                         multiple chances to win when compared to the older-style slot machines. The game consists of six reels, five rows,
-                        and ten different symbols. Symbols pay anywhere on the screen. The total number of the same symbols on the screen at
-                        the end of a spin determines the value of the win.
+                        and ten different symbols.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={426} height={443} />

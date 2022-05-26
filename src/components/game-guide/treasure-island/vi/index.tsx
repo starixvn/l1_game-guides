@@ -15,13 +15,17 @@ const renderGameRule = () => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
+                <li>Biểu tượng được thanh toán ở bất kỳ vị trí nào trên màn hình. </li>
+                <li>Tổng số các biểu tượng giống nhau trên màn hình khi kết thúc một vòng quay sẽ xác định giá trị của tiền thắng.</li>
                 <li>Người chơi chọn hoặc điều chỉnh số tiền đặt cược phù hợp với mình trước khi nhấn nút “Quay”.
                     <div>Tổng tiền cược = Mức cược * Giá trị cược * Hệ số cược</div>
                 </li>
+                <li>Hệ số cược = “Value”</li>
                 <li>Thay vì nhấn nút “Quay”, người chơi có thể sử dụng phím Space hoặc Enter trên bàn phím để bắt đầu vòng quay.</li>
                 <li>Thắng-thua của mỗi tổ hợp sẽ được tính dựa trên mức cược cơ bản.
                     <div>Cược cơ bản = Mức cược * Giá trị cược</div>
                 </li>
+                <li>Giới hạn cược: “Min value” - “Max Value”</li>
             </ul>
         </>
     );
@@ -47,6 +51,7 @@ const renderPayouts = (odds: number[][]) => {
             <li>Bảng trả thưởng sẽ được cập nhật theo giá trị của mức cược cơ bản mà bạn đã chọn.</li>
             <li>Tổng số tiền thắng cược sẽ được cộng ngay vào tài khoản của người chơi khi phiên kết thúc.</li>
             <li>Khi chiến thắng với biểu tượng HỆ SỐ NHÂN, giá trị của tất cả các biểu tượng hệ số nhân trên màn hình sẽ được cộng lại với nhau vào cuối chuỗi tumbe. Và tổng số tiền thắng của một vòng trò chơi được tính bằng tổng giá trị của hệ số nhân nhân với tổng số tiền thắng của các tumblig.</li>
+            <li>Số tiền thắng tối đa của một phiên là “value”. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì vòng trò chơi sẽ ngay lập tức kết thúc. Tổng số tiền thắng sẽ được trả đến mức thắng tôi đa, các tính năng còn lại sẽ bị mất và không đướng tính vào số tiền thắng cuối cùng.</li>
         </ul>
         {renderPayoutsIconFirstLine(odds, locales.vi)}
         {renderPayoutsIconSecondLine(odds, locales.vi)}
@@ -64,6 +69,7 @@ export const renderIconContent = (
     locale = "en"
 ) => {
     const pathSrc = itemName === "item10" ? "./static/images/treasure-island/" : "./static/images/treasure-island/";
+    const dictNumber = ["12-30", "10-11", "8-9"];
     return (
         <div className={Styles["wrapper-icon"]}>
             <img
@@ -80,10 +86,12 @@ export const renderIconContent = (
                     isGem && Styles["gem-position"]
                 }`}
             >
+            
                 {dataContent.map((data, index) => {
+
                     return (
                         <div key={index} className={Styles["icon-content"]}>
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{dictNumber[data[0]]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1]}</span>
                         </div>
                     );
@@ -103,10 +111,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     false,
                     false,
                     [
-                        [5, odds[10][5]],
-                        [4, odds[10][4]],
-                        [3, odds[10][3]],
-                        [2, odds[10][2]],
+                        [0, odds[10][5]],
+                        [1, odds[10][4]],
+                        [2, odds[10][3]]
                     ],
                     locale
                 )}
@@ -116,9 +123,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     true,
                     false,
                     [
-                        [5, odds[6][5]],
-                        [4, odds[6][4]],
-                        [3, odds[6][3]],
+                        [0, odds[6][5]],
+                        [1, odds[6][4]],
+                        [2, odds[6][3]]
                     ],
                     locale
                 )}
@@ -128,9 +135,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     true,
                     false,
                     [
-                        [5, odds[5][5]],
-                        [4, odds[5][4]],
-                        [3, odds[5][3]],
+                        [0, odds[5][5]],
+                        [1, odds[5][4]],
+                        [2, odds[5][3]]
                     ],
                     locale
                 )}
@@ -140,9 +147,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     true,
                     false,
                     [
-                        [5, odds[4][5]],
-                        [4, odds[4][4]],
-                        [3, odds[4][3]],
+                        [0, odds[4][5]],
+                        [1, odds[4][4]],
+                        [2, odds[4][3]]
                     ],
                     locale
                 )}
@@ -161,9 +168,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     true,
                     false,
                     [
-                        [5, odds[3][5]],
-                        [4, odds[3][4]],
-                        [3, odds[3][3]],
+                        [0, odds[3][5]],
+                        [1, odds[3][4]],
+                        [2, odds[3][3]]
                     ],
                     locale
                 )}
@@ -173,9 +180,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     true,
                     true,
                     [
-                        [5, odds[2][5]],
-                        [4, odds[2][4]],
-                        [3, odds[2][3]],
+                        [0, odds[2][5]],
+                        [1, odds[2][4]],
+                        [2, odds[2][3]]
                     ],
                     locale
                 )}
@@ -185,9 +192,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     true,
                     true,
                     [
-                        [5, odds[1][5]],
-                        [4, odds[1][4]],
-                        [3, odds[1][3]],
+                        [0, odds[1][5]],
+                        [1, odds[1][4]],
+                        [2, odds[1][3]]
                     ],
                     locale
                 )}
@@ -197,9 +204,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     true,
                     true,
                     [
-                        [5, odds[0][5]],
-                        [4, odds[0][4]],
-                        [3, odds[0][3]],
+                        [0, odds[0][5]],
+                        [1, odds[0][4]],
+                        [2, odds[0][3]]
                     ],
                     locale
                 )}
@@ -209,10 +216,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     false,
                     false,
                     [
-                        [5, odds[9][5]],
-                        [4, odds[9][4]],
-                        [3, odds[9][3]],
-                        [2, odds[9][2]],
+                        [0, odds[9][5]],
+                        [1, odds[9][4]],
+                        [2, odds[9][3]]
                     ],
                     locale
                 )}
@@ -383,8 +389,7 @@ const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                     <p className="content">
                         {gameName} là một thể loại Slot game xếp tầng (Game xèng xếp tầng) trực tuyến đã trở nên cực kỳ phổ biến với người
                         chơi vì nó mang lại nhiều cơ hội chiến thắng hơn so với các Slot game kiểu cũ. Trò chơi bao gồm sáu cột, năm hàng và
-                        mười biểu tượng khác nhau. Biểu tượng được thanh toán ở bất kỳ vị trí nào trên màn hình. Tổng số các biểu tượng
-                        giống nhau trên màn hình khi kết thúc một vòng quay sẽ xác định giá trị của chiến thắng.
+                        mười biểu tượng khác nhau.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={426} height={443} />

@@ -110,6 +110,12 @@
         transform: scale(0.54);
         position: absolute;
     }
+    .icon-content{
+        grid-template-columns: 5rem 2rem;
+    }
+    .icon-content-wrapper {
+        right: 2rem;
+    }
 }
 
 .center{
