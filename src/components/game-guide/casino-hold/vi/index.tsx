@@ -760,7 +760,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Call</span>
+                    <span className="font-weight-medium title-text">Cược Call</span>
                     <ul className="desc">
                         <li>Tỷ lệ cược cho Call là 1:{odds?.CallBet_callBet}</li>
                     </ul>
