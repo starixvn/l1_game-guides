@@ -1,33 +1,37 @@
 import React, { useEffect } from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-number/en";
 import ScrollToMD5 from "../../../shared/md5-number";
+import { renderMD5EN } from "../../../shared/md5-number/en";
+import { GameGuideProps } from "../../type";
 import Styles from "../casino-hold.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
+                <li>Select the chip with the value that suits you best and place the chip on the Ante bet or AA bonus bet.</li>
+                <li>Note, Ante bet is a mandatory option that the player must place bet before any cards are dealt.</li>
+                <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two hole cards.</li>
+                <li>Three community cards (Flop cards) are dealt face-up in the middle of the table.</li>
                 <li>
-                    Select the chip with the value that suits you best and place the chip in the Ante bet or make an optional AA bonus bet.
+                    Swap Cards
+                    <ul className="detail">
+                        <li>
+                            Swap Cards is an optional feature and can be turned ON/OFF. It allows the player to choose either to swap his
+                            two hole cards with Dealer’s cards before cards are face-up or keep the cards without changing.
+                        </li>
+                    </ul>
                 </li>
-                <li>Note, Ante bet is a mandatory bet that the player must make before any cards are dealt.</li>
-                <li>
-                    Click on the Deal button to start the game round, the Player and the Dealer each receive two cards. The Dealer&apos;s
-                    cards will be face down, while the Player&apos;s card will not.{" "}
-                </li>
-                <li>Three community cards (Flop card) are dealt face-up in the middle of the table.</li>
-
+                <li>Note: The Swap cards feature can only be ON/OFF before the game round is started.</li>
                 <li>
                     After the first three community cards are dealt, Player must decide whether to CALL or FOLD.
                     <ul className="detail">
                         <li>
                             <strong>FOLD:</strong> the Player will surrender his hand and lose both the Ante bet and optional AA bet. The
-                            game round is over.{" "}
+                            game round is over.
                         </li>
                         <li>
                             <strong>CALL:</strong> the Player will continue playing with an additional Call bet, equal to twice the Ante
@@ -36,8 +40,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                     </ul>
                 </li>
                 <li>
-                    After clicking on the CALL button, the two remaining community cards are dealt and the Dealer reveals the value of the
-                    face-down cards.
+                    After clicking on the CALL button, the last two community cards are dealt and both Player and Dealer will reveal the
+                    value of their cards.
                 </li>
                 <li>
                     The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win
@@ -603,7 +607,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                         <li className="number-dot-number">
                             <span className="title-text">Ante Bet</span>
                             <ul className="desc">
-                                <li>&quot;Ante&quot; Bet is a mandatory bet that the player must make before any cards are dealt.</li>
+                                <li>
+                                    &quot;Ante&quot; Bet is a mandatory option that the player must place bet before any cards are dealt.
+                                </li>
                                 <li>
                                     The Player will win Ante Bet if he can make the best possible five-card poker hand using a combination
                                     of two hole cards and five community cards to beat the Dealer&apos;s hand.
@@ -623,8 +629,8 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     &quot;AA&quot; Bet might win or vice versa.
                                 </li>
                                 <li>
-                                    Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and optional &quot;AA&quot;
-                                    bet.{" "}
+                                    Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and the optional
+                                    &quot;AA&quot; bet.
                                 </li>
                             </ul>
                         </li>

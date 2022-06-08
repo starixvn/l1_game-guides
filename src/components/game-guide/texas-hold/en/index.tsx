@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-number/en";
 import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../texas-hold.module.scss";
 
@@ -853,11 +852,7 @@ export const renderMD5 = () => {
                 <ul className="desc">
                     <li>
                         <strong>Step 1:</strong>Copy the MD5 key after pressing the DEAL button.
-                        <img
-                            className="format-img auto-center format-mobile"
-                            src="/static/images/texas-hold/md5-en.png#v1"
-                            alt="md5-en"
-                        />
+                        <img className="format-img auto-center format-mobile" src="/static/images/texas-hold/md5-en.png#v1" alt="md5-en" />
                     </li>
                     <li>
                         <strong>Step 2:</strong> Copy the Result after the fifth community card (River) is dealt.
