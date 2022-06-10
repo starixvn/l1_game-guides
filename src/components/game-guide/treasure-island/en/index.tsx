@@ -84,7 +84,7 @@ const renderExamplePayouts = (symbol: OddDetailList) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true, symbol.oddItem.reverse())}
+                                {renderIconContent(true, "item8", true, true, symbol)}
                             </td>
                             <td>
                                 Having {symbol.oddItem[0].countString} symbols{" "}

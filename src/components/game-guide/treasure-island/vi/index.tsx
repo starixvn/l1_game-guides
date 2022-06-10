@@ -96,7 +96,7 @@ export const renderIconContent = (
     itemName = "item10",
     isContentTop = false,
     isGem = false,
-    dataContent: OddDetail[],
+    dataContent: OddDetailList,
     locale = "en"
 ) => {
     const pathSrc = itemName === "item10" ? "./static/images/treasure-island/" : "./static/images/treasure-island/";
@@ -118,7 +118,7 @@ export const renderIconContent = (
                 }`}
             >
             
-                {dataContent.reverse().map((data, index) => {
+                {dataContent.oddItem.reverse().map((data, index) => {
 
                     return (
                         <div key={index} className={Styles["icon-content"]}>
@@ -141,7 +141,7 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
                     "item8",
                     false,
                     false,
-                    symbols[8].oddItem,
+                    symbols[8],
                     locale
                 )}
                 {renderIconContent(
@@ -149,7 +149,7 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
                     "item7",
                     true,
                     false,
-                    symbols[7].oddItem,
+                    symbols[7],
                     locale
                 )}
                 {renderIconContent(
@@ -157,7 +157,7 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
                     "item6",
                     true,
                     false,
-                    symbols[6].oddItem,
+                    symbols[6],
                     locale
                 )}
                 {renderIconContent(
@@ -165,7 +165,7 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
                     "item5",
                     true,
                     false,
-                    symbols[5].oddItem,
+                    symbols[5],
                     locale
                 )}
             </div>
@@ -182,7 +182,7 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                     "item4",
                     true,
                     false,
-                    symbols[4].oddItem,
+                    symbols[4],
                     locale
                 )}
                 {renderIconContent(
@@ -190,7 +190,7 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                     "item3",
                     true,
                     true,
-                    symbols[3].oddItem,
+                    symbols[3],
                     locale
                 )}
                 {renderIconContent(
@@ -198,7 +198,7 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                     "item2",
                     true,
                     true,
-                    symbols[2].oddItem,
+                    symbols[2],
                     locale
                 )}
                 {renderIconContent(
@@ -206,7 +206,7 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                     "item1",
                     true,
                     true,
-                    symbols[1].oddItem,
+                    symbols[1],
                     locale
                 )}
                 {renderIconContent(
@@ -214,7 +214,7 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                     "item0",
                     false,
                     false,
-                    symbols[0].oddItem,
+                    symbols[0],
                     locale
                 )}
             </div>
@@ -273,7 +273,7 @@ const renderExamplePayouts = (symbol: OddDetailList) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true,symbol.oddItem.reverse())}
+                                {renderIconContent(true, "item8", true, true,symbol)}
                             </td>
                             <td>
                                 Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
