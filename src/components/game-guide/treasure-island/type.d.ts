@@ -3,7 +3,7 @@ export type JackpotProps = {
 };
 
 export interface GameConfigProps {
-    odds: object[number];
+    odds: object;
     jackpot: JackpotProps;
     stakeLevels: number[];
 }

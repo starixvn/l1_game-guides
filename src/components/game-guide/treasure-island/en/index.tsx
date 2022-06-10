@@ -3,9 +3,16 @@ import React from "react";
 import { locales } from "../../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameGuideProps } from "../../type";
+import OddDetailList from "../OddDetail";
 import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
-import { renderIconContent, renderIconContentBlack, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "../vi";
+import {
+    convertOddDetail,
+    renderIconContent,
+    renderIconContentBlack,
+    renderPayoutsIconFirstLine,
+    renderPayoutsIconSecondLine,
+} from "../vi";
 
 const renderGameRule = () => {
     return (
@@ -41,7 +48,9 @@ const renderTumbling = () => {
     );
 };
 
-const renderPayouts = (odds: number[][]) => {
+const renderPayouts = (odds: any) => {
+    const {symbols} = odds;
+    let oddDetail = convertOddDetail(symbols, false);
     return (
        <>
         <h2>Payouts</h2>
@@ -51,14 +60,14 @@ const renderPayouts = (odds: number[][]) => {
             <li>When winning with Multiplier symbols, the value of all multiplier symbols on the screen are added together at the end of the tumbling sequence. And the total win of a game round is equal to the total multiplier value multiplies the total win of tumbles.</li>
             <li>The maximum win amount is limited to “value”. If the total win of a round reaches the max win value, the game round immediately ends, the win is awarded up to the limitation and all remaining features are forfeited.</li>
         </ul>
-        {renderPayoutsIconFirstLine(odds, locales.vi)}
-        {renderPayoutsIconSecondLine(odds, locales.vi)}
-        {renderExamplePayouts(odds)}
+        {renderPayoutsIconFirstLine(oddDetail, locales.vi)}
+        {renderPayoutsIconSecondLine(oddDetail, locales.vi)}
+        {renderExamplePayouts(oddDetail[8])}
        </>
     );
 };
 
-const renderExamplePayouts = (odds: number[][]) => {
+const renderExamplePayouts = (symbol: OddDetailList) => {
     return (
         <>
             <p>
@@ -75,30 +84,26 @@ const renderExamplePayouts = (odds: number[][]) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true, [
-                                    [0, odds[1][5]],
-                                    [1, odds[1][4]],
-                                    [2, odds[1][3]],
-                                ])}
+                                {renderIconContent(true, "item8", true, true, symbol.oddItem.reverse())}
                             </td>
                             <td>
-                                Having 8-9 symbols{" "}
+                                Having {symbol.oddItem[0].countString} symbols{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
-                                appear on the result board.<br></br>Payout = Win value
+                                appear on the result board.<br></br>Payout = {symbol.oddItem[0].count}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 10-11 symbols {" "}
+                                Having {symbol.oddItem[1].countString} symbols {" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
-                                <br></br>Payout = Win value * {odds[1][4]}
+                                <br></br>Payout = {symbol.oddItem[1].count}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 12-30 symbols{" "}
+                                Having {symbol.oddItem[2].countString} symbols{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
-                                <br></br>Payout = Win value * {odds[1][3]}
+                                <br></br>Payout = {symbol.oddItem[2].count}
                             </td>
                         </tr>
                     </tbody>
@@ -121,7 +126,9 @@ const renderMultipliers = () => {
     );
 };
 
-const renderFreeSpins = (odds: number[][]) => {
+const renderFreeSpins = (odds: any) => {
+    const {freeSpins} = odds;
+    const oddDetail = convertOddDetail(freeSpins, true)
     return(
         <>
             <h2>Free Spins Feature</h2>
@@ -143,26 +150,22 @@ const renderFreeSpins = (odds: number[][]) => {
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
                                     "scatter",
-                                    [
-                                        [4, odds[7][5]],
-                                        [5, odds[7][4]],
-                                        [6, odds[7][3]],
-                                    ],
+                                    oddDetail[0],
                                     " FREE SPINS"
                                 )}
                             </td>
                             <td>
-                                Having 4 Free Spin symbols in the result.<br></br> Get “n” Free Spins Bonus.
+                                Having {oddDetail[0].oddItem[0].countString} Free Spin symbols in the result.<br></br> Get “{oddDetail[0].oddItem[0].count}” Free Spins Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 5 Free Spin symbols in the result.<br></br>Get “n” Free Spins Bonus.
+                                Having {oddDetail[0].oddItem[1].countString} Free Spin symbols in the result.<br></br>Get “{oddDetail[0].oddItem[1].count}” Free Spins Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 6 Free Spin symbols in the result.<br></br>Get “n” Free Spins Bonus.
+                                Having {oddDetail[0].oddItem[2].countString} Free Spin symbols in the result.<br></br>Get “{oddDetail[0].oddItem[2].count}” Free Spins Bonus.
                             </td>
                         </tr>
                     </tbody>
@@ -171,6 +174,8 @@ const renderFreeSpins = (odds: number[][]) => {
         </>
     );
 };
+
+
 
 const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName, gameConfigs } = props;
@@ -201,3 +206,5 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
     );
 };
 export default TreasureIslandGuideEN;
+
+

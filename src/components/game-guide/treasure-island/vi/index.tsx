@@ -3,6 +3,7 @@ import React from "react";
 import { locales } from "../../../../common/constants";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameGuideProps } from "../../type";
+import OddDetailList from "../OddDetail";
 import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
 
@@ -43,7 +44,37 @@ const renderTumbling = () => {
     );
 };
 
-const renderPayouts = (odds: number[][]) => {
+export const convertOddDetail = (odd: any, isFreeSpin: boolean ):OddDetailList[] => {
+    let oddList: OddDetailList[] = [];
+    for(const item in odd) {
+        const symbol = odd[item]
+        let oddDetail: OddDetailList = {oddItem: []};
+        for(const sub in symbol) {
+            if(!isFreeSpin) {
+                const from = symbol[sub].from;
+                const to = symbol[sub].to;
+                const oddValue = symbol[sub].odds;
+                oddDetail.oddItem.push({
+                    countString: from + "-" + to,
+                    count: oddValue
+                });
+            }
+            else {
+                oddDetail.oddItem.push({
+                    countString: symbol[sub].count,
+                    count: symbol[sub].odds
+                });
+            }
+           
+        }
+        oddList.push(oddDetail);
+    }
+    return  oddList;
+}
+
+const renderPayouts = (odds: any) => {
+    const {symbols} = odds;
+    let oddDetail = convertOddDetail(symbols, false);
     return (
        <>
         <h2>Trả Thưởng</h2>
@@ -53,9 +84,9 @@ const renderPayouts = (odds: number[][]) => {
             <li>Khi chiến thắng với biểu tượng HỆ SỐ NHÂN, giá trị của tất cả các biểu tượng hệ số nhân trên màn hình sẽ được cộng lại với nhau vào cuối chuỗi tumbe. Và tổng số tiền thắng của một vòng trò chơi được tính bằng tổng giá trị của hệ số nhân nhân với tổng số tiền thắng của các tumblig.</li>
             <li>Số tiền thắng tối đa của một phiên là “value”. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì vòng trò chơi sẽ ngay lập tức kết thúc. Tổng số tiền thắng sẽ được trả đến mức thắng tôi đa, các tính năng còn lại sẽ bị mất và không đướng tính vào số tiền thắng cuối cùng.</li>
         </ul>
-        {renderPayoutsIconFirstLine(odds, locales.vi)}
-        {renderPayoutsIconSecondLine(odds, locales.vi)}
-        {renderExamplePayouts(odds)}
+        {renderPayoutsIconFirstLine(oddDetail, locales.vi)}
+        {renderPayoutsIconSecondLine(oddDetail, locales.vi)}
+        {renderExamplePayouts(oddDetail[8])}
        </>
     );
 };
@@ -65,7 +96,7 @@ export const renderIconContent = (
     itemName = "item10",
     isContentTop = false,
     isGem = false,
-    dataContent: number[][],
+    dataContent: OddDetail[],
     locale = "en"
 ) => {
     const pathSrc = itemName === "item10" ? "./static/images/treasure-island/" : "./static/images/treasure-island/";
@@ -87,12 +118,12 @@ export const renderIconContent = (
                 }`}
             >
             
-                {dataContent.map((data, index) => {
+                {dataContent.reverse().map((data, index) => {
 
                     return (
                         <div key={index} className={Styles["icon-content"]}>
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{dictNumber[data[0]]}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data.count}</span>
                         </div>
                     );
                 })}
@@ -101,7 +132,7 @@ export const renderIconContent = (
     );
 };
 
-export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
+export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
@@ -110,11 +141,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     "item8",
                     false,
                     false,
-                    [
-                        [0, odds[10][5]],
-                        [1, odds[10][4]],
-                        [2, odds[10][3]]
-                    ],
+                    symbols[8].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -122,11 +149,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     "item7",
                     true,
                     false,
-                    [
-                        [0, odds[6][5]],
-                        [1, odds[6][4]],
-                        [2, odds[6][3]]
-                    ],
+                    symbols[7].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -134,11 +157,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     "item6",
                     true,
                     false,
-                    [
-                        [0, odds[5][5]],
-                        [1, odds[5][4]],
-                        [2, odds[5][3]]
-                    ],
+                    symbols[6].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -146,11 +165,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
                     "item5",
                     true,
                     false,
-                    [
-                        [0, odds[4][5]],
-                        [1, odds[4][4]],
-                        [2, odds[4][3]]
-                    ],
+                    symbols[5].oddItem,
                     locale
                 )}
             </div>
@@ -158,7 +173,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
     );
 };
 
-export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => {
+export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "en") => {
     return (
         <>
             <div className={Styles["icon-container"]}>
@@ -167,11 +182,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     "item4",
                     true,
                     false,
-                    [
-                        [0, odds[3][5]],
-                        [1, odds[3][4]],
-                        [2, odds[3][3]]
-                    ],
+                    symbols[4].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -179,11 +190,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     "item3",
                     true,
                     true,
-                    [
-                        [0, odds[2][5]],
-                        [1, odds[2][4]],
-                        [2, odds[2][3]]
-                    ],
+                    symbols[3].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -191,11 +198,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     "item2",
                     true,
                     true,
-                    [
-                        [0, odds[1][5]],
-                        [1, odds[1][4]],
-                        [2, odds[1][3]]
-                    ],
+                    symbols[2].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -203,11 +206,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     "item1",
                     true,
                     true,
-                    [
-                        [0, odds[0][5]],
-                        [1, odds[0][4]],
-                        [2, odds[0][3]]
-                    ],
+                    symbols[1].oddItem,
                     locale
                 )}
                 {renderIconContent(
@@ -215,11 +214,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
                     "item0",
                     false,
                     false,
-                    [
-                        [0, odds[9][5]],
-                        [1, odds[9][4]],
-                        [2, odds[9][3]]
-                    ],
+                    symbols[0].oddItem,
                     locale
                 )}
             </div>
@@ -227,7 +222,7 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
     );
 };
 
-export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
+export const renderIconContentBlack = (itemName: string, dataContent: OddDetailList, textAfterNumber: string) => {
     return (
         <span className={Styles["wrapper-icon-dark"]}>
             <img
@@ -243,15 +238,15 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
             <div
                 className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
             >
-                {dataContent.map((data, index) => {
+                {dataContent.oddItem.map((data, index) => {
                     return (
                         <div
                             key={index}
                             className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
                         >
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
-                                {data[1]} {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
+                                {data.count} {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
                             </span>
                         </div>
                     );
@@ -260,7 +255,8 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
         </span>
     );
 };
-const renderExamplePayouts = (odds: number[][]) => {
+
+const renderExamplePayouts = (symbol: OddDetailList) => {
     return (
         <>
             <p>
@@ -277,30 +273,26 @@ const renderExamplePayouts = (odds: number[][]) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true, [
-                                    [5, odds[1][5]],
-                                    [4, odds[1][4]],
-                                    [3, odds[1][3]],
-                                ])}
+                                {renderIconContent(true, "item8", true, true,symbol.oddItem.reverse())}
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng{" "}
+                                Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
-                                trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
+                                trên cùng Dòng Cược.<br></br>Tiền thắng = {symbol.oddItem[0].count}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng{" "}
+                                Nếu có <strong>{symbol.oddItem[1].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> trên cùng Dòng Cược.{" "}
-                                <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
+                                <br></br>Tiền thắng = {symbol.oddItem[1].count}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng{" "}
+                                Nếu có <strong>{symbol.oddItem[2].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> trên cùng Dòng Cược.{" "}
-                                <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
+                                <br></br>Tiền thắng = {symbol.oddItem[2].count}
                             </td>
                         </tr>
                     </tbody>
@@ -324,7 +316,9 @@ const renderMultipliers = () => {
     );
 };
 
-const renderFreeSpins = (odds: number[][]) => {
+const renderFreeSpins = (odds: any) => {
+    const {freeSpins} = odds;
+    const oddDetail = convertOddDetail(freeSpins, true)
     return(
         <>
             <h2>Free Spin</h2>
@@ -346,28 +340,24 @@ const renderFreeSpins = (odds: number[][]) => {
                             <td rowSpan={3}>
                                 {renderIconContentBlack(
                                     "scatter",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
+                                    oddDetail[0],
                                     " FREE SPINS"
                                 )}
                             </td>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {odds[7][5]} lượt quay miễn
+                                Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
                                 phí.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {odds[7][4]} lượt quay miễn
+                                Nếu có <strong>{oddDetail[0].oddItem[1].countString}</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {oddDetail[0].oddItem[1].count} lượt quay miễn
                                 phí.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>6</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {odds[7][3]} lượt quay miễn
+                                Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
                                 phí.
                             </td>
                         </tr>

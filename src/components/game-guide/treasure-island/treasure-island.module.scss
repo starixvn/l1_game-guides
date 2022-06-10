@@ -2,7 +2,7 @@
 
 [class*="item"].customize {    
     top: 14%;
-    left: 1%;
+    left: 0%;
 }
 
 .scatter {
@@ -104,7 +104,7 @@
 
 .wrapper-icon {
     .customize {
-        transform: scale(0.8);
+        transform: scale(0.7);
     }
     &-dark .scatter {
         transform: scale(0.54);
@@ -114,7 +114,7 @@
         grid-template-columns: 5rem 2rem;
     }
     .icon-content-wrapper {
-        right: 2rem;
+        right: 2.8rem;
     }
 }
 
