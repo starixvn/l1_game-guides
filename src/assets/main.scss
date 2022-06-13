@@ -157,8 +157,8 @@
     --page-background: transparent;
 
     // scrollbar
-    --scrollbar-background: rgba(185, 122, 69, 0.3);
-    --scrollbar-thumb-background: #b97a45;
+    --scrollbar-background: #3a3a3a;
+    --scrollbar-thumb-background: #a15900;
 
     // font-size
     --font-size: 2.2rem;
@@ -171,12 +171,12 @@
     --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 1);
 
     // table
-    --table-background: #100001;
-    --table-border: #0089c5;
+    --table-background: #021637;
+    --table-border: #4d3722;
     --table-color: #fff;
-    --table-header-background: #03161d;
-    --table-header-color: #ffc634;
-    --border-line: #0089c5 1px solid;
+    --table-header-background: #021637;
+    --table-header-color: #fffc00;
+    --border-line: #4d3722 1px solid;
 }
 
 html {
