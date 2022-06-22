@@ -22,7 +22,7 @@ const renderGameRule = (minValue: number, maxValue: number) => {
                 <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
                     <div className="sub-section">
                         <div className="center"><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
-                        <img src={`/static/images/treasure-island/betcontrol-vn.jpg?v1`}
+                        <img src={`/static/images/treasure-island/betcontrol-en.jpg?v1`}
                     width={610}
                     height={343}
                     alt={"bet-control"}/>
@@ -283,8 +283,8 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
 const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName} = props;
     const { odds, betMultiplier, coin, level, coinValues, betLevels } = gameConfigs;
-    const sortedCoinValue = coinValues.sort();
-    const sortedBetLevel = betLevels.sort();
+    const sortedCoinValue = coinValues.sort((a, b) => a - b);
+    const sortedBetLevel = betLevels.sort((a, b) => a - b);
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
     const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
     return (
