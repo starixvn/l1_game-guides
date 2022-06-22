@@ -1,13 +1,13 @@
 import React from "react";
 
-import GameConfigs from "./game-configs";
-import TreasureIslandGuideEN from "./en";
-import TreasureIslandGuideVI from "./vi";
-import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { GameGuideBase } from "../type";
+import TreasureIslandGuideEN from "./en";
+import GameConfigs from "./game-configs";
+import TreasureIslandGuideVI from "./vi";
 
 const TreasureIslandGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
+    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, dynamic, isGetGameConfigs } = props;
     const getGameConfigs = () => {
         if (!isGetGameConfigs) {
             return GameConfigs;
@@ -19,7 +19,7 @@ const TreasureIslandGuide = (props: GameGuideBase) => {
     };
 
     if (locale === locales.en) {
-        return <TreasureIslandGuideEN gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+        return <TreasureIslandGuideEN gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate}/>;
     }
     return <TreasureIslandGuideVI gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
 };

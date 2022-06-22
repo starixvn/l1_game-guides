@@ -1,9 +1,8 @@
-export type JackpotProps = {
-    winningRatio: number;
-};
-
-export interface GameConfigProps {
+export interface GameConfigProps extends GameConfigsBaseProps {
     odds: object;
-    jackpot: JackpotProps;
-    stakeLevels: number[];
+    coin: number;
+    level: numer;
+    betMultiplier: number;
+    coinValues: number[];
+    betLevels: number[];
 }

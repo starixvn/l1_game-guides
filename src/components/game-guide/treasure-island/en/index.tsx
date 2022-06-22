@@ -191,13 +191,13 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                         and ten different symbols.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={426} height={443} />
+                        <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={750} height={194} />
                     </div>
                 </li>
-                <li className="guide-item">{renderTumbling()}</li>
+                
                 <li className="guide-item">{renderGameRule()}</li>
-
                 <li className="guide-item">{renderPayouts(odds)}</li>
+                <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds)}</li>
                 {renderTermsAndConditionsEN(Styles["guide-item"])}
