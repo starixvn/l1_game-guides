@@ -101,7 +101,7 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                             </td>
                             <td>
                                 Having {symbol.oddItem[0].countString} symbols{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
                                 appear on the result board.<br></br>Payout = {symbol.oddItem[0].count * coin *level}
                             </td>
                         </tr>

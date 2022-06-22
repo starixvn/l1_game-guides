@@ -133,7 +133,7 @@ export const renderIconContent = (
             >
             
                 {dataContent.oddItem.reverse().map((data, index) => {
-                    const value = data.count * coin *level;
+                    const value = +(+(data.count * coin *level)).toFixed(2);
 
                     return (
                         <div key={index} className={Styles["icon-content"]}>
@@ -293,7 +293,7 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                             <td>
                                 Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
-                                trên cùng Dòng Cược.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
+                                {" "}trên cùng Dòng Cược.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
                             </td>
                         </tr>
                         <tr>
