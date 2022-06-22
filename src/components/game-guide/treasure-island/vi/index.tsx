@@ -153,34 +153,42 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
             <div className={Styles["icon-container"]}>
                 {renderIconContent(
                     false,
-                    "item8",
+                    "item0",
                     false,
                     false,
-                    symbols[8],
+                    symbols[0],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item7",
+                    "item1",
                     true,
                     false,
-                    symbols[7],
+                    symbols[1],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item6",
+                    "item2",
                     true,
                     false,
-                    symbols[6],
+                    symbols[2],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item5",
+                    "item3",
                     true,
                     false,
-                    symbols[5],
+                    symbols[3],
+                    locale, coin, level
+                )}
+                {renderIconContent(
+                    false,
+                    "item4",
+                    true,
+                    false,
+                    symbols[4],
                     locale, coin, level
                 )}
             </div>
@@ -192,44 +200,37 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
     return (
         <>
             <div className={Styles["icon-container"]}>
+                
                 {renderIconContent(
                     false,
-                    "item4",
+                    "item5",
                     true,
-                    false,
-                    symbols[4],
+                    true,
+                    symbols[5],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item3",
+                    "item6",
                     true,
                     true,
-                    symbols[3],
+                    symbols[6],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item2",
+                    "item7",
                     true,
                     true,
-                    symbols[2],
+                    symbols[7],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item1",
-                    true,
-                    true,
-                    symbols[1],
-                    locale, coin, level
-                )}
-                {renderIconContent(
-                    false,
-                    "item0",
+                    "item8",
                     false,
                     false,
-                    symbols[0],
+                    symbols[8],
                     locale, coin, level
                 )}
             </div>
