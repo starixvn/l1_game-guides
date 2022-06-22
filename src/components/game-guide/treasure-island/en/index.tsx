@@ -297,7 +297,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                         The game consists of six reels, five rows, and ten different symbols.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/treasure-island/list_icon.png#v3`} alt="guide_item_symbol_bg" width={750} height={194} />
+                        <img src={`/static/images/treasure-island/list_icon.png#v4`} alt="guide_item_symbol_bg" width={750} height={194} />
                     </div>
                 </li>
                 
