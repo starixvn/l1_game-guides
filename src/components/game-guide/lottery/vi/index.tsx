@@ -629,7 +629,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò chơi Lô Đề cá cược thu hút nhiều người chơi.Trò chơi có luật chơi và cách chơi rất đơn giản, người
+                        {gameName} là trò chơi Lô Đề cá cược thu hút nhiều người chơi. Trò chơi có luật chơi và cách chơi rất đơn giản, người
                         chơi đặt cược vào con số bạn yêu thích, kết quả thắng thua sẽ được tính toán bằng cách khớp các số dựa trên 27 kết
                         quả của 8 giải thưởng.{" "}
                     </p>

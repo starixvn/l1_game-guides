@@ -20,6 +20,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2> Game Rules</h2>
                     <ul className="desc">
+                        <li>The dice cup is shaken at the beginning of the game round.</li>
                         <li>The players can bet on either ODD or EVEN, but not on both.</li>
                         <ul className="detail">
                             <li>ODD: the player will win if the total points of three dice is an odd number. </li>
@@ -38,7 +39,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                             maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            The dice will be shaken and the result will be shown. If the outcome of three dice matches your bet, you win.
+                            Once the betting time has expired, the result will be shown. If the outcome of three dice matches your bet, you win.
                         </li>
                         <li>
                             Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be

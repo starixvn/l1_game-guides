@@ -55,10 +55,6 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled.</li>
                 <li>
                     Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
-                    the players who have the latest bet ticket.
-                </li>
-                <li>
-                    Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be refunded to
                     the players who have the latest bet ticket.<br></br>
                     <strong>Example</strong>: Player A bets 100 on ODD, player B bets 30 on EVEN, and C bets 90 on EVEN. To balance the
                     total amounts bet on ODD and EVEN, the system will refund 20 to player C.
