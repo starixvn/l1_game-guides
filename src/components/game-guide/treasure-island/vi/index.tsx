@@ -344,7 +344,7 @@ const renderMultipliers = () => {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img  src="./static/images/treasure-island/item2.png" width={50} height={50} alt="item2"/>
+                                        <img  src="./static/images/treasure-island/item1.png" width={50} height={50} alt="item2"/>
                                     </td>
                                     <td>5</td>
                                     <td>22 <br/>(20+2)</td>

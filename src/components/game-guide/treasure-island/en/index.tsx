@@ -151,7 +151,7 @@ const renderMultipliers = () => {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img  src="./static/images/treasure-island/item2.png" width={50} height={50} alt="item2"/>
+                                        <img  src="./static/images/treasure-island/item1.png" width={50} height={50} alt="item2"/>
                                     </td>
                                     <td>5</td>
                                     <td>22 <br/>(20+2)</td>
@@ -267,7 +267,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                             <img src={`/static/images/treasure-island/tumblewin-en.png#v3`} alt="tumble-win" width={372} height={69}/>
                             <div className={Styles["tumble-desc"]}>
                                 <div><span className={Styles["orange"]}>1.</span> Tumble Win Amount</div>
-                                <div><span className={Styles["orange"]}>2.</span> Total Win Amount: 5+3 =8</div>
+                                <div><span className={Styles["orange"]}>2.</span> Total Multiplier: 5+3 =8</div>
                             </div>
                         </div>
                     </div>
