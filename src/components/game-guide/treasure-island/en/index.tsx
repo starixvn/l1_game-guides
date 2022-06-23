@@ -194,17 +194,17 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                             )}
                                         </td>
                                         <td>
-                                            Having {oddDetail[0].oddItem[0].countString} Free Spin symbols in the result.<br></br> Get “{oddDetail[0].oddItem[0].count}” Free Spins Bonus.
+                                            Having {oddDetail[0].oddItem[0].countString} Scatter symbols in the result.<br></br> Get “{oddDetail[0].oddItem[0].count}” Free Spins Bonus.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Having {oddDetail[0].oddItem[1].countString} Free Spin symbols in the result.<br></br>Get “{oddDetail[0].oddItem[1].count}” Free Spins Bonus.
+                                            Having {oddDetail[0].oddItem[1].countString} Scatter symbols in the result.<br></br>Get “{oddDetail[0].oddItem[1].count}” Free Spins Bonus.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Having {oddDetail[0].oddItem[2].countString} Free Spin symbols in the result.<br></br>Get “{oddDetail[0].oddItem[2].count}” Free Spins Bonus.
+                                            Having {oddDetail[0].oddItem[2].countString} Scatter symbols in the result.<br></br>Get “{oddDetail[0].oddItem[2].count}” Free Spins Bonus.
                                         </td>
                                     </tr>
                                 </tbody>

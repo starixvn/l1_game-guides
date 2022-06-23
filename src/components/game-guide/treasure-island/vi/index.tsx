@@ -294,20 +294,20 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                             <td>
                                 Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
-                                {" "}trên cùng Dòng Cược.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
+                                {" "}xuất hiện trên bảng kết quả.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Nếu có <strong>{symbol.oddItem[1].countString}</strong> biểu tượng{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> trên cùng Dòng Cược.{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> xuất hiện trên bảng kết quả.{" "}
                                 <br></br>Tiền thắng = {symbol.oddItem[1].count * coin *level}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Nếu có <strong>{symbol.oddItem[2].countString}</strong> biểu tượng{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> trên cùng Dòng Cược.{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> xuất hiện trên bảng kết quả.{" "}
                                 <br></br>Tiền thắng = {symbol.oddItem[2].count *coin * level}
                             </td>
                         </tr>
@@ -325,7 +325,7 @@ const renderMultipliers = () => {
         <h2>Số Nhân</h2>
         <div className={Styles["center"]}><img src={`/static/images/treasure-island/multiplier.jpg#v3`} alt="multiplier" width={486} height={101} /></div>
         <ul className="desc">
-            <li>Các biểu tượng Số Nhân xuất hiện trên tất cả các cột, và có thể xuất hiện ngẫu nhiên trong suốt các vòng quay và tumbling trong vòng quay cơ bản và Free Spin.</li>
+            <li>Các biểu tượng Số Nhân xuất hiện ở vị trí bất kì trên màn hình và người chơi có thể trúng ngẫu nhiên trong cả vòng quay và Tumble.</li>
             <li>Biểu tượng Số Nhân xuất hiện sẽ nhận một giá trị số nhân ngẫu nhiên từ 2x đến 500x.</li>
             <li>Kết thúc các lượt Tumble, giá trị của các biểu tượng Số Nhân trên màn hình được cộng lại với nhau và nhân với giá trị Thắng Tumble để tính toán kết quả thắng cuối cùng. 
                 <div className="sub-section">
@@ -367,7 +367,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
         <>
             <h2>Free Spin</h2>
             <ul className="desc">
-                <li>Free Spin hay còn được gọi là lượt quay miễn phí, người chơi sẽ được thưởng Free Spin khi có 4 biểu tượng SCATTER trở lên xuất hiện ở bất kỳ vị trí nào trên màn hình.
+                <li>Free Spins hay còn được gọi là lượt quay miễn phí, người chơi sẽ được thưởng Free Spins khi có 4 biểu tượng SCATTER trở lên xuất hiện ở bất kỳ vị trí nào trên màn hình.
                     <div className="sub-section">
                         <div className="table-container text-center">
                             <table className="table text-center table-medium">
@@ -387,19 +387,19 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                             )}
                                         </td>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
+                                            Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Scatter trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
                                             phí.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[1].countString}</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {oddDetail[0].oddItem[1].count} lượt quay miễn
+                                            Nếu có <strong>{oddDetail[0].oddItem[1].countString}</strong> biểu tượng Scatter trong kết quả. <br></br>Bạn nhận {oddDetail[0].oddItem[1].count} lượt quay miễn
                                             phí.
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
+                                            Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Scatter trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
                                             phí.
                                         </td>
                                     </tr>
@@ -479,8 +479,8 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
 const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName} = props;
     const { odds, betMultiplier, coin, level, coinValues, betLevels } = gameConfigs;
-    const sortedCoinValue = coinValues.sort();
-    const sortedBetLevel = betLevels.sort();
+    const sortedCoinValue = coinValues.sort((a, b) => a - b);
+    const sortedBetLevel = betLevels.sort((a, b) => a - b);
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
     const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
     return (
