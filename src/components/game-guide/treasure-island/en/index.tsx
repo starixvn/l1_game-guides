@@ -54,8 +54,9 @@ const renderTumbling = () => {
     );
 };
 
-const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number) => {
+const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number, maxWinPerRound: number) => {
     const {symbols} = odds;
+    const currMaxBet = maxWinPerRound <= maxBet ? maxWinPerRound : maxBet;
     let oddDetail = convertOddDetail(symbols, false);
     return (
        <>
@@ -73,7 +74,7 @@ const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number) 
                 </div>
             </li>
             <li>The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin have been played.</li>
-            <li>The maximum win amount is limited to {maxBet}X bet. If the total win of a round reaches the max win value, the game round immediately ends. The win is awarded up to the limitation and all remaining features are forfeited.</li>
+            <li>The maximum win amount is limited to {currMaxBet}X bet. If the total win of a round reaches the max win value, the game round immediately ends. The win is awarded up to the limitation and all remaining features are forfeited.</li>
         </ul>
         
        </>
@@ -287,7 +288,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
 
 const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName} = props;
-    const { odds, betMultiplier, coin, level, coinValues, betLevels } = gameConfigs;
+    const { odds, betMultiplier, coin, level, coinValues, betLevels, maxWinPerRound } = gameConfigs;
     const sortedCoinValue = coinValues.sort((a, b) => a - b);
     const sortedBetLevel = betLevels.sort((a, b) => a - b);
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
@@ -307,7 +308,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                 </li>
                 
                 <li className="guide-item">{renderGameRule(minBet, maxBet)}</li>
-                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet)}</li>
+                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet, maxWinPerRound)}</li>
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>

@@ -5,4 +5,5 @@ export interface GameConfigProps extends GameConfigsBaseProps {
     betMultiplier: number;
     coinValues: number[];
     betLevels: number[];
+    maxWinPerRound: number;
 }

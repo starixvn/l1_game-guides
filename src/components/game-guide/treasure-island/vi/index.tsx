@@ -79,9 +79,10 @@ export const convertOddDetail = (odd: any, isFreeSpin: boolean ):OddDetailList[]
     return  oddList;
 }
 
-const renderPayouts = (odds: any, coin: number, level: number, maxBet: number) => {
+const renderPayouts = (odds: any, coin: number, level: number, maxBet: number, maxWinPerRound: number) => {
     const {symbols} = odds;
     let oddDetail = convertOddDetail(symbols, false);
+    const currMaxBet = maxWinPerRound <= maxBet ? maxWinPerRound : maxBet;
     return (
        <>
         <h2>Trả Thưởng</h2>
@@ -98,7 +99,7 @@ const renderPayouts = (odds: any, coin: number, level: number, maxBet: number) =
                 </div>                
             </li>
             <li>Tổng số tiền thắng cược sẽ được cộng ngay vào tài khoản của người chơi khi phiên kết thúc.</li>
-            <li>Số tiền thắng tối đa của một phiên là {maxBet}X tiền cược. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì phiên chơi sẽ ngay lập tức kết thúc. Tổng số tiền thắng sẽ được trả đến mức thắng tối đa, các tính năng còn lại sẽ không được tính vào số tiền thắng cuối cùng.</li>
+            <li>Số tiền thắng tối đa của một phiên là {currMaxBet}X tiền cược. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì phiên chơi sẽ ngay lập tức kết thúc. Tổng số tiền thắng sẽ được trả đến mức thắng tối đa, các tính năng còn lại sẽ không được tính vào số tiền thắng cuối cùng.</li>
         </ul>
        
        </>
@@ -483,7 +484,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
 
 const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName} = props;
-    const { odds, betMultiplier, coin, level, coinValues, betLevels } = gameConfigs;
+    const { odds, betMultiplier, coin, level, coinValues, betLevels, maxWinPerRound } = gameConfigs;
     const sortedCoinValue = coinValues.sort((a, b) => a - b);
     const sortedBetLevel = betLevels.sort((a, b) => a - b);
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
@@ -503,7 +504,7 @@ const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                     </div>
                 </li>               
                 <li className="guide-item">{renderGameRule(minBet, maxBet)}</li>
-                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet)}</li>
+                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet, maxWinPerRound)}</li>
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>
