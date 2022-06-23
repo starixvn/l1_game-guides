@@ -130,7 +130,12 @@ const renderMultipliers = () => {
     return(
         <>
         <h2>Multipliers</h2>
-        <div className={Styles["center"]}><img src={`/static/images/treasure-island/multiplier.jpg#v3`} alt="multiplier" width={486} height={101} /></div>
+        <div className={Styles["center"]}>
+            <img src={`/static/images/treasure-island/multiplier1.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier2.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier3.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier4.jpg#v3`} alt="multiplier" width={140} height={112} />
+        </div>
         <ul className="desc">
             <li>The Multiplier symbols are present on all reels and can hit randomly during spins, and tumbles in both base game and free spins.</li>
             <li>Whenever a Multiplier symbol hits, it takes a random multiplier value from 2x to 500x.</li>

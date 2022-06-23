@@ -323,7 +323,12 @@ const renderMultipliers = () => {
     return(
         <>
         <h2>Số Nhân</h2>
-        <div className={Styles["center"]}><img src={`/static/images/treasure-island/multiplier.jpg#v3`} alt="multiplier" width={486} height={101} /></div>
+        <div className={Styles["center"]}>
+            <img src={`/static/images/treasure-island/multiplier1.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier2.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier3.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier4.jpg#v3`} alt="multiplier" width={140} height={112} />
+        </div>
         <ul className="desc">
             <li>Các biểu tượng Số Nhân xuất hiện ở vị trí bất kì trên màn hình và người chơi có thể trúng ngẫu nhiên trong cả vòng quay và Tumble.</li>
             <li>Biểu tượng Số Nhân xuất hiện sẽ nhận một giá trị số nhân ngẫu nhiên từ 2x đến 500x.</li>
