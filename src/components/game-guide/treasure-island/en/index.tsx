@@ -161,7 +161,7 @@ const renderMultipliers = () => {
                                     </td>
                                     <td>7</td>
                                     <td>22 <br/>(20+2)</td>
-                                    <td><strong>110</strong><br/><strong>(5*22)</strong></td>
+                                    <td><strong>154</strong><br/><strong>(7*22)</strong></td>
                                 </tr>                            
                             </tbody>
                         </table>
