@@ -41,11 +41,11 @@ const renderGameRule = (minValue: number, maxValue: number) => {
 const renderTumbling = () => {
     return(
         <>
-            <h2>Tính năng Tumble</h2>
+            <h2>Tính năng Nổ Sập</h2>
             <ul className="desc">
                 <li>Sau mỗi lần quay, các tổ hợp thắng được trả thưởng và tất cả biểu tượng chiến thắng biến mất, các biểu tượng còn lại rơi xuống cuối màn hình và cho phép các biểu tượng mới rơi vào vị trí trống.</li>
-                <li>Tumble sẽ tiếp tục cho đến khi không còn tổ hợp chiến thắng nào xuất hiện. </li>
-                <li>Số lần Tumble có thể xảy ra là không giới hạn.</li>
+                <li>Nổ Sập sẽ tiếp tục cho đến khi không còn tổ hợp chiến thắng nào xuất hiện. </li>
+                <li>Số lần Nổ Sập có thể xảy ra là không giới hạn.</li>
             </ul>
         </>
     );
@@ -331,9 +331,9 @@ const renderMultipliers = () => {
             <img src={`/static/images/treasure-island/multiplier4.jpg#v3`} alt="multiplier" width={140} height={112} />
         </div>
         <ul className="desc">
-            <li>Các biểu tượng Số Nhân xuất hiện ở vị trí bất kì trên màn hình và người chơi có thể trúng ngẫu nhiên trong cả vòng quay và Tumble.</li>
+            <li>Các biểu tượng Số Nhân xuất hiện ở vị trí bất kì trên màn hình và người chơi có thể trúng ngẫu nhiên trong cả vòng quay và lượt Nổ Sập.</li>
             <li>Biểu tượng Số Nhân xuất hiện sẽ nhận một giá trị số nhân ngẫu nhiên từ 2x đến 500x.</li>
-            <li>Kết thúc các lượt Tumble, giá trị của các biểu tượng Số Nhân trên màn hình được cộng lại với nhau và nhân với giá trị Thắng Tumble để tính toán kết quả thắng cuối cùng. 
+            <li>Kết thúc các lượt Nổ Sập, giá trị của các biểu tượng Số Nhân trên màn hình được cộng lại với nhau và nhân với giá trị Thắng Nổ Sập để tính toán kết quả thắng cuối cùng. 
                 <div className="sub-section">
                     <div>Ví dụ:</div>
                     <div className="center" ><img src={`/static/images/treasure-island/reel.png#v3`} alt="tumble-multiplier" width={921} height={547}/></div>
@@ -342,7 +342,7 @@ const renderMultipliers = () => {
                             <thead>
                                 <tr>
                                     <th>Biểu Tượng Thắng</th>
-                                    <th>Thắng Tumble</th>
+                                    <th>Thắng Nổ Sập</th>
                                     <th>Số Nhân</th>
                                     <th>Thắng</th>
                                 </tr>
@@ -416,7 +416,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                     
                 </li>
                 <li>Trong lượt Free Spins, nếu có 4 hoặc nhiều hơn 4 biểu tượng SCATTER xuất hiện ở bảng kết quả, người chơi sẽ được thưởng thêm {oddDetail[1].oddItem[0].count} lượt Free Spins.</li>
-                <li>Trong phiên của Free Spins, khi xuất hiện biểu tượng Số Nhân và kết quả Tumble là thắng, giá trị Số Nhân sẽ được cộng dồn vào Tổng Số Nhân. Giá trị Tổng Số Nhân được sử dụng để tính toán tiền thưởng.
+                <li>Trong phiên của Free Spins, khi xuất hiện biểu tượng Số Nhân và kết quả Nổ Sập là thắng, giá trị Số Nhân sẽ được cộng dồn vào Tổng Số Nhân. Giá trị Tổng Số Nhân được sử dụng để tính toán tiền thưởng.
                     <div className="sub-section">
                         <div>Ví dụ: Người chơi thắng 4 lượt <strong>Free Spins</strong></div>
                         <div className="table-container text-center">
@@ -424,7 +424,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                 <thead>
                                     <tr>
                                         <th>Phiên id</th>
-                                        <th>Thắng Tumble</th>
+                                        <th>Thắng Nổ Sập</th>
                                         <th>Số Nhân</th>
                                         <th>Tổng Số Nhân</th>
                                         <th>Thắng</th>
@@ -436,14 +436,14 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                         <td>10</td>
                                         <td>5</td>
                                         <td>5</td>
-                                        <td><strong>50</strong><br/><strong>(Thắng Tumble * Tổng Số Nhân)</strong></td>
+                                        <td><strong>50</strong><br/><strong>(Thắng Nổ Sập * Tổng Số Nhân)</strong></td>
                                     </tr>
                                     <tr>
                                         <td>#2</td>
                                         <td>5</td>
                                         <td>0</td>
                                         <td>5</td>
-                                        <td><strong>5</strong><br/><strong>(Thắng Tumble)</strong></td>
+                                        <td><strong>5</strong><br/><strong>(Thắng Nổ Sập)</strong></td>
                                     </tr>  
                                     <tr>
                                         <td>#3</td>
@@ -457,7 +457,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                         <td>7</td>
                                         <td>3</td>
                                         <td>8 <br/>(5+3)</td>
-                                        <td><strong>56</strong><br/><strong>(Thắng Tumble * Tổng Số Nhân)</strong></td>
+                                        <td><strong>56</strong><br/><strong>(Thắng Nổ Sập * Tổng Số Nhân)</strong></td>
                                     </tr>                           
                                 </tbody>
                             </table>
@@ -469,7 +469,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                         <div className={`${Styles["center"]} ${Styles["line"]}`}>
                             <img src={`/static/images/treasure-island/tumblewin-vn.png#v3`} alt="tumble-win" width={372} height={69}/>
                             <div className={Styles["tumble-desc"]}>
-                                <div><span className={Styles["orange"]}>1.</span> Tiền Thắng Tumble</div>
+                                <div><span className={Styles["orange"]}>1.</span> Tiền Thắng Nổ Sập</div>
                                 <div><span className={Styles["orange"]}>2.</span> Tổng Số Nhân: 5+3 = 8</div>
                             </div>
                         </div>
