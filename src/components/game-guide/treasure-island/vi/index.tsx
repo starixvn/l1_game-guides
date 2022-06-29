@@ -279,7 +279,7 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
     return (
         <>
             <p>
-                <strong>Ví dụ:</strong> Mức tiền cược cơ bản của bạn là {coin * level}
+                <strong>Ví dụ:</strong> Mức tiền cược cơ bản của bạn là {+(+(coin * level)).toFixed(2)}  
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">

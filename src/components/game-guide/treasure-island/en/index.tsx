@@ -87,7 +87,7 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
     return (
         <>
             <p>
-                <strong> Example:</strong> Your base bet value is {coin * level}
+                <strong> Example:</strong> Your base bet value is {+(+(coin * level)).toFixed(2)};
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
