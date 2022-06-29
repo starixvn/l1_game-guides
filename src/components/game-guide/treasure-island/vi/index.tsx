@@ -18,16 +18,17 @@ const renderGameRule = (minValue: number, maxValue: number) => {
             <ul className="desc">
                 <li>Người chơi chọn hoặc điều chỉnh số tiền đặt cược phù hợp với mình trước khi nhấn nút “Quay”.
                 <div className="sub-section">
-                    <div className="center">Tổng Cược =  Giá trị xu * Mức cược * Hệ số cược</div>
+                    <div className="center"><div>Tổng Cược =  Giá trị xu * Mức cược * Hệ số cược</div>
                         <img src={`/static/images/treasure-island/betcontrol-vn.jpg?v1`}
-                    width={610}
-                    height={343}
-                    alt={"bet-control"}/>
-                        <ul>
-                            <li>1. Giá Trị Xu là số tiền cược mà bạn muốn chi trả cho mỗi dòng trong trò chơi.</li>
-                            <li>2. Mức Cược là tổng số đồng xu trên mỗi dòng.</li>
-                            <li>3. Hệ Số Cược là hệ số nhân để tính Tổng Cược bằng cách nhân với Mức Cược và Giá Trị Xu. Hệ Số Cược: 20x.</li>
-                        </ul>
+                        width={610}
+                        height={343}
+                        alt={"bet-control"}/>
+                    </div>                        
+                    <ul className={Styles["desc-bet-control"]}>
+                        <li>1. Giá Trị Xu là số tiền cược mà bạn muốn chi trả cho mỗi dòng trong trò chơi.</li>
+                        <li>2. Mức Cược là tổng số đồng xu trên mỗi dòng.</li>
+                        <li>3. Hệ Số Cược là hệ số nhân để tính Tổng Cược bằng cách nhân với Mức Cược và Giá Trị Xu. Hệ Số Cược: 20x.</li>
+                    </ul>
                 </div>                    
                 </li>
                 <li>Người chơi có thể nhấn nút Quay hoặc sử dụng phím Spacebar/Enter để bắt đầu vòng quay.</li>
@@ -112,10 +113,11 @@ export const renderIconContent = (
     isContentTop = false,
     isGem = false,
     dataContent: OddDetailList,
-    locale = "en", coin: number, level: number
+    locale = "en", coin: number, level: number, isReverse = true
 ) => {
     const pathSrc = itemName === "item10" ? "./static/images/treasure-island/" : "./static/images/treasure-island/";
     const dictNumber = ["12-30", "10-11", "8-9"];
+    const oddItemList  = isReverse ?  dataContent.oddItem.reverse() : dataContent.oddItem;
     return (
         <div className={Styles["wrapper-icon"]}>
             <img
@@ -133,7 +135,7 @@ export const renderIconContent = (
                 }`}
             >
             
-                {dataContent.oddItem.reverse().map((data, index) => {
+                {oddItemList.map((data, index) => {
                     const value = +(+(data.count * coin *level)).toFixed(2);
 
                     return (
@@ -290,9 +292,9 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true,symbol, "", coin, level)}
+                                {renderIconContent(true, "item8", true, true,symbol, "", coin, level, false)}
                             </td>
-                            <td>
+                            <td>                                
                                 Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
                                 {" "}xuất hiện trên bảng kết quả.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
@@ -306,7 +308,7 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>                               
                                 Nếu có <strong>{symbol.oddItem[2].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> xuất hiện trên bảng kết quả.{" "}
                                 <br></br>Tiền thắng = {symbol.oddItem[2].count *coin * level}
@@ -394,7 +396,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                         </td>
                                         <td>
                                             Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Scatter trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
-                                            phí.
+                                            phí.                                            
                                         </td>
                                     </tr>
                                     <tr>
@@ -423,7 +425,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                             <table className="table text-center table-medium">
                                 <thead>
                                     <tr>
-                                        <th>Phiên id</th>
+                                        <th>Phiên</th>
                                         <th>Thắng Nổ Sập</th>
                                         <th>Số Nhân</th>
                                         <th>Tổng Số Nhân</th>
@@ -476,6 +478,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                     </div>
                     
                 </li>
+                <li>Người chơi phải hoàn tất các lượt quay miễn phí trong vòng 24 tiếng tính từ thời điểm trúng Free Spin, sau khoảng thời gian này, các lượt quay chưa sử dụng sẽ bị hủy.</li>
             </ul>
            
         </>

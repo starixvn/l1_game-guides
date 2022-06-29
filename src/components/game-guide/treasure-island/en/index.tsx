@@ -21,12 +21,14 @@ const renderGameRule = (minValue: number, maxValue: number) => {
             <ul className="desc">
                 <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
                     <div className="sub-section">
-                        <div className="center"><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
+                        <div className="center"><div><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
                         <img src={`/static/images/treasure-island/betcontrol-en.jpg?v1`}
                     width={610}
                     height={343}
                     alt={"bet-control"}/>
-                        <ul>
+                        </div>
+                       
+                        <ul className={Styles["desc-bet-control"]}>
                             <li>1. The coin value is how much you want to spend per line in the game.</li>
                             <li>2. Bet level is the total number of coins per line.</li>
                             <li>3. Bet Multiplier is the multiplier used to calculate the Total Bet by multiplying with Bet Level and Coin Value. Bet Multiplier: 20x.</li>
@@ -98,12 +100,12 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item8", true, true, symbol, "",  coin, level)}
+                                {renderIconContent(true, "item8", true, true, symbol, "",  coin, level, false)}
                             </td>
-                            <td>
-                                Having {symbol.oddItem[0].countString} symbols{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
-                                appear on the result board.<br></br>Payout = {symbol.oddItem[0].count * coin *level}
+                            <td>                               
+                                Having {symbol.oddItem[2].countString} symbols{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
+                                <br></br>Payout = {symbol.oddItem[2].count * coin * level}
                             </td>
                         </tr>
                         <tr>
@@ -115,9 +117,9 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                         </tr>
                         <tr>
                             <td>
-                                Having {symbol.oddItem[2].countString} symbols{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
-                                <br></br>Payout = {symbol.oddItem[2].count * coin * level}
+                                Having {symbol.oddItem[0].countString} symbols{" "}
+                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
+                                appear on the result board.<br></br>Payout = {symbol.oddItem[0].count * coin *level}
                             </td>
                         </tr>
                     </tbody>
@@ -278,6 +280,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                         </div>
                     </div>
                 </li> 
+                <li>The Player must complete the Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.</li>
             </ul>
            
         </>
