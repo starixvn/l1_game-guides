@@ -385,7 +385,7 @@ const renderBonus = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Bonus</h2>
             <ul className="desc">
-                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – .</li>
+                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
                 <li>The Bonus symbols do not have to be on the same payline.</li>
             </ul>
             <div className="table-container text-center">
