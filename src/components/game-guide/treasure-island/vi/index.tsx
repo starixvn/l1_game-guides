@@ -327,10 +327,10 @@ const renderMultipliers = () => {
         <>
         <h2>Số Nhân</h2>
         <div className={Styles["center"]}>
-            <img src={`/static/images/treasure-island/multiplier1.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier2.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier3.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier4.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier2.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier3.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier1.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier4.png#v3`} alt="multiplier" width={140} height={112} />
         </div>
         <ul className="desc">
             <li>Các biểu tượng Số Nhân xuất hiện ở vị trí bất kì trên màn hình và người chơi có thể trúng ngẫu nhiên trong cả vòng quay và lượt Nổ Sập.</li>
@@ -338,7 +338,7 @@ const renderMultipliers = () => {
             <li>Kết thúc các lượt Nổ Sập, giá trị của các biểu tượng Số Nhân trên màn hình được cộng lại với nhau và nhân với giá trị Thắng Nổ Sập để tính toán kết quả thắng cuối cùng. 
                 <div className="sub-section">
                     <div>Ví dụ:</div>
-                    <div className="center" ><img src={`/static/images/treasure-island/reel.png#v3`} alt="tumble-multiplier" width={921} height={547}/></div>
+                    <div className="center" ><img src={`/static/images/treasure-island/reel.jpg#v4`} alt="tumble-multiplier" width={610} height={362}/></div>
                     <div className="table-container text-center">
                         <table className="table text-center table-medium">
                             <thead>

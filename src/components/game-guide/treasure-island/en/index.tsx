@@ -22,7 +22,7 @@ const renderGameRule = (minValue: number, maxValue: number) => {
                 <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
                     <div className="sub-section">
                         <div className="center"><div><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
-                        <img src={`/static/images/treasure-island/betcontrol-en.jpg?v1`}
+                        <img src={`/static/images/treasure-island/betcontrol-en.jpg?v2`}
                     width={610}
                     height={343}
                     alt={"bet-control"}/>
@@ -134,10 +134,10 @@ const renderMultipliers = () => {
         <>
         <h2>Multipliers</h2>
         <div className={Styles["center"]}>
-            <img src={`/static/images/treasure-island/multiplier1.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier2.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier3.jpg#v3`} alt="multiplier" width={140} height={112} />
-            <img src={`/static/images/treasure-island/multiplier4.jpg#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier2.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier3.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier1.png#v3`} alt="multiplier" width={140} height={112} />
+            <img src={`/static/images/treasure-island/multiplier4.png#v3`} alt="multiplier" width={140} height={112} />
         </div>
         <ul className="desc">
             <li>The Multiplier symbols are present on all reels and can hit randomly during spins, and tumbles in both base game and free spins.</li>
@@ -145,7 +145,7 @@ const renderMultipliers = () => {
             <li>At the end of Tumbles, the value of Multiplier symbols is added and multiplied with the Tumble Win value to calculate the Win amount.
                 <div className="sub-section">
                     <div>Example:</div>
-                    <div className="center" ><img src={`/static/images/treasure-island/reel.png#v3`} alt="tumble-multiplier" width={921} height={547}/></div>
+                    <div className="center" ><img src={`/static/images/treasure-island/reel.jpg#v4`} alt="tumble-multiplier" width={610} height={362}/></div>
                     <div className="table-container text-center">
                         <table className="table text-center table-medium">
                             <thead>
