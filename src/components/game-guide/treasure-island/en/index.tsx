@@ -103,23 +103,23 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                                 {renderIconContent(true, "item8", true, true, symbol, "",  coin, level, false)}
                             </td>
                             <td>                               
-                                Having {symbol.oddItem[2].countString} symbols{" "}
+                                Having {symbol.oddItem[0].countString} symbols{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
-                                <br></br>Payout = {symbol.oddItem[2].count * coin * level}
+                                <br></br>Payout = {+(+(symbol.oddItem[0].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having {symbol.oddItem[1].countString} symbols {" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> appear on the result board.{" "}
-                                <br></br>Payout = {symbol.oddItem[1].count * coin * level}
+                                <br></br>Payout = {+(+(symbol.oddItem[1].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having {symbol.oddItem[0].countString} symbols{" "}
+                                Having {symbol.oddItem[2].countString} symbols{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
-                                appear on the result board.<br></br>Payout = {symbol.oddItem[0].count * coin *level}
+                                appear on the result board.<br></br>Payout = {+(+(symbol.oddItem[2].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                     </tbody>

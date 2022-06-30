@@ -297,21 +297,21 @@ const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number
                             <td>                                
                                 Nếu có <strong>{symbol.oddItem[0].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />
-                                {" "}xuất hiện trên bảng kết quả.<br></br>Tiền thắng = {symbol.oddItem[0].count * coin * level}
+                                {" "}xuất hiện trên bảng kết quả.<br></br>Tiền thắng = {+(+(symbol.oddItem[0].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Nếu có <strong>{symbol.oddItem[1].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> xuất hiện trên bảng kết quả.{" "}
-                                <br></br>Tiền thắng = {symbol.oddItem[1].count * coin *level}
+                                <br></br>Tiền thắng = {+(+(symbol.oddItem[1].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                         <tr>
                             <td>                               
                                 Nếu có <strong>{symbol.oddItem[2].countString}</strong> biểu tượng{" "}
                                 <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" /> xuất hiện trên bảng kết quả.{" "}
-                                <br></br>Tiền thắng = {symbol.oddItem[2].count *coin * level}
+                                <br></br>Tiền thắng = {+(+(symbol.oddItem[2].count * coin * level)).toFixed(2)}
                             </td>
                         </tr>
                     </tbody>
