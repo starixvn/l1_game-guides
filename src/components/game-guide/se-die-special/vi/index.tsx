@@ -11,6 +11,7 @@ const renderGameRule = (maxBet: string | undefined) => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
+                <li>Đồng xu sẽ được xóc trước khi phiên đặt cược bắt đầu.</li>
                 <li>
                     Người chơi dự đoán kết quả của 4 xu sau khi xóc bằng cách chọn cửa Chẵn hoặc Lẻ cùng với mức cược mong muốn.
                     <div className="table-container">
@@ -55,7 +56,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 </li>
                 <li>Tổng tiền cược tối đa cho 1 phiên là {maxBet}. Lưu ý, không thể hủy cược sau khi đặt.</li>
                 <li>
-                    Xu sẽ được xóc và kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược.Thời gian đặt cược cho mỗi phiên sẽ được
+                    Kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ được
                     hiển thị đếm ngược trên bàn chơi.
                 </li>
                 <li>

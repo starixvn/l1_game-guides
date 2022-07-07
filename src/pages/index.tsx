@@ -51,6 +51,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
     document.documentElement.style.fontFamily = fontFamily;
     document.body.style.fontFamily = fontFamily;
 };
+
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
@@ -105,35 +106,22 @@ const Home = () => {
         return <></>;
     }
 
+    const props = {
+        gameId,
+        locale: router?.locale ?? "en",
+        userStakeLevel,
+        name,
+        gameConfigs,
+        dynamic,
+        isScrollMD5,
+        isGetGameConfigs,
+        environment,
+    };
+
+    const gameGuideComponent = <GameGuide {...props} />;
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {!isGetGameConfigs ? (
-                <GameGuide
-                    gameId={gameId}
-                    locale={router?.locale ?? "en"}
-                    userStakeLevel={userStakeLevel}
-                    name={name}
-                    gameConfigs={gameConfigs}
-                    dynamic={dynamic}
-                    isScrollMD5={isScrollMD5}
-                    isGetGameConfigs={isGetGameConfigs}
-                    environment={environment}
-                ></GameGuide>
-            ) : (
-                gameConfigs && (
-                    <GameGuide
-                        gameId={gameId}
-                        locale={router?.locale ?? "en"}
-                        userStakeLevel={userStakeLevel}
-                        name={name}
-                        gameConfigs={gameConfigs}
-                        dynamic={dynamic}
-                        isScrollMD5={isScrollMD5}
-                        isGetGameConfigs={isGetGameConfigs}
-                        environment={environment}
-                    ></GameGuide>
-                )
-            )}
+            {!isGetGameConfigs ? gameGuideComponent : gameConfigs && gameGuideComponent}
         </div>
     );
 };

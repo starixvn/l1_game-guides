@@ -13,13 +13,13 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò chơi đổ xúc xắc, có luật chơi rất đơn giản, được Saba.club triển khai cho tất cả thị trường trên
-                        thế giới. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán xem kết quả là Chẵn hay Lẻ.
+                        {gameName} là trò chơi đổ xúc xắc, có luật chơi rất đơn giản. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán xem kết quả là Chẵn hay Lẻ.
                     </p>
                 </li>
                 <li className="guide-item">
                     <h2>Cách chơi</h2>
                     <ul className="desc">
+                        <li>Xúc xắc sẽ được lắc trước khi phiên đặt cược bắt đầu.</li>
                         <li>Người chơi dự đoán tổng điểm xúc xắc bằng cách chọn cửa Chẵn hoặc Lẻ cùng với mức cược mong muốn.</li>
                         <ul className="detail">
                             <li>
@@ -40,8 +40,8 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                             một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, xúc xắc
-                            sẽ bắt đầu lắc và tổng điểm xúc xắc sẽ được hiển thị.
+                            Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, tổng điểm
+                            xúc xắc sẽ được hiển thị.
                         </li>
                         <li>
                             Nhà cái cân cửa: trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả
