@@ -21,7 +21,7 @@ const renderGameRule = (minValue: number, maxValue: number) => {
             <ul className="desc">
                 <li>The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.
                     <div className="sub-section">
-                        <div className="center"><div><strong>Total bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
+                        <div className="center"><div><strong>Total Bet</strong> = Bet Level * Coin Value * Bet Multiplier</div>
                         <img src={`/static/images/treasure-island/betcontrol-en.jpg?v2`}
                     width={610}
                     height={343}
@@ -65,7 +65,7 @@ const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number, 
         <h2>Payouts</h2>
         <ul className="desc">
             <li>Symbols pay anywhere on the screen. </li>
-            <li>The Win-loss of each combination will be calculated based on the base bet value.
+            <li>The win-loss of each combination will be calculated based on the base bet value.
                 <div className="center">Base Bet Value= Bet level * Coin Value</div>
             </li>
             <li>The payouts table will be updated according to the value of the base bet that you have selected.
