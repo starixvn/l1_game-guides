@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React, { useEffect, useRef, useState } from "react";
 
-import GameGuide from "../components/game-guide";
 import { ENVIRONMENT } from "../common/constants";
+import GameGuide from "../components/game-guide";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -65,7 +65,7 @@ const Home = () => {
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
-
+    console.log("text game config" , gameConfigs);
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;

@@ -57,6 +57,7 @@ const renderTumbling = () => {
 };
 
 const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number, maxWinPerRound: number) => {
+    console.log("odds: "+ odds + ", coin:" + coin + ", level:" + level + ", maxBet:" + maxBet + ", maxperround:" + maxWinPerRound);
     const {symbols} = odds;
     const currMaxBet = maxWinPerRound <= maxBet ? maxWinPerRound : maxBet;
     let oddDetail = convertOddDetail(symbols, false);
