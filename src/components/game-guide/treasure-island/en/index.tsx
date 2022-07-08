@@ -56,10 +56,9 @@ const renderTumbling = () => {
     );
 };
 
-const renderPayouts = (odds: any,  coin: number, level: number, maxBet: number, maxWinPerRound: number) => {
-    console.log("odds: "+ odds + ", coin:" + coin + ", level:" + level + ", maxBet:" + maxBet + ", maxperround:" + maxWinPerRound);
+const renderPayouts = (odds: any,  coin: number, level: number,  maxWinPerRound: number) => {
     const {symbols} = odds;
-    const currMaxBet = maxWinPerRound <= maxBet ? maxWinPerRound : maxBet;
+    const currMaxBet = maxWinPerRound ;
     let oddDetail = convertOddDetail(symbols, false);
     return (
        <>
@@ -312,7 +311,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                 </li>
                 
                 <li className="guide-item">{renderGameRule(minBet, maxBet)}</li>
-                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet, maxWinPerRound)}</li>
+                <li className="guide-item">{renderPayouts(odds, coin, level, maxWinPerRound)}</li>
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>

@@ -80,11 +80,10 @@ export const convertOddDetail = (odd: any, isFreeSpin: boolean ):OddDetailList[]
     return  oddList;
 }
 
-const renderPayouts = (odds: any, coin: number, level: number, maxBet: number, maxWinPerRound: number) => {
-    console.log("odds: "+ odds + ", coin:" + coin + ", level:" + level + ", maxBet:" + maxBet + ", maxperround:" + maxWinPerRound);
+const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number) => {
     const {symbols} = odds;
     let oddDetail = convertOddDetail(symbols, false);
-    const currMaxBet = maxWinPerRound <= maxBet ? maxWinPerRound : maxBet;
+    const currMaxBet = maxWinPerRound ;
     return (
        <>
         <h2>Trả Thưởng</h2>
@@ -157,34 +156,34 @@ export const renderPayoutsIconFirstLine = (symbols: OddDetailList[], locale = "e
             <div className={Styles["icon-container"]}>
                 {renderIconContent(
                     false,
-                    "item0",
+                    "item8",
                     false,
                     false,
-                    symbols[0],
+                    symbols[8],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item1",
+                    "item7",
                     true,
                     false,
-                    symbols[1],
+                    symbols[7],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item2",
+                    "item6",
                     true,
                     false,
-                    symbols[2],
+                    symbols[6],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item3",
+                    "item5",
                     true,
                     false,
-                    symbols[3],
+                    symbols[5],
                     locale, coin, level
                 )}
                 {renderIconContent(
@@ -207,34 +206,34 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
                 
                 {renderIconContent(
                     false,
-                    "item5",
+                    "item3",
                     true,
                     true,
-                    symbols[5],
+                    symbols[3],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item6",
+                    "item2",
                     true,
                     true,
-                    symbols[6],
+                    symbols[2],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item7",
+                    "item1",
                     true,
                     true,
-                    symbols[7],
+                    symbols[1],
                     locale, coin, level
                 )}
                 {renderIconContent(
                     false,
-                    "item8",
+                    "item0",
                     false,
                     false,
-                    symbols[8],
+                    symbols[0],
                     locale, coin, level
                 )}
             </div>
@@ -508,7 +507,7 @@ const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                     </div>
                 </li>               
                 <li className="guide-item">{renderGameRule(minBet, maxBet)}</li>
-                <li className="guide-item">{renderPayouts(odds, coin, level, maxBet, maxWinPerRound)}</li>
+                <li className="guide-item">{renderPayouts(odds, coin, level, maxWinPerRound)}</li>
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>
