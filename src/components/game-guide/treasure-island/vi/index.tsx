@@ -481,8 +481,8 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                         <div className={`${Styles["center"]} ${Styles["line"]}`}>
                             <img src={`/static/images/treasure-island/tumblewin-vn.png#v3`} alt="tumble-win" width={372} height={69}/>
                             <div className={Styles["tumble-desc"]}>
-                                <div><span className={Styles["orange"]}>1.</span> Tiền Thắng Nổ Sập</div>
-                                <div><span className={Styles["orange"]}>2.</span> Tổng Số Nhân: 5+3 = 8</div>
+                                <div>1. Tiền Thắng Nổ Sập</div>
+                                <div>2. Tổng Số Nhân: 5+3 = 8</div>
                             </div>
                         </div>
                     </div>
