@@ -212,7 +212,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                     </tr>
                                     <tr>
                                         <td>
-                                            Having {oddDetail[0].oddItem[2].countString} Scatter symbols in the result.<br></br>Get “{oddDetail[0].oddItem[2].count}” Free Spins Bonus.
+                                            Having {oddDetail[0].oddItem[2].countString} or more Scatter symbols in the result.<br></br>Get “{oddDetail[0].oddItem[2].count}” Free Spins Bonus.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -229,7 +229,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                             <table className="table text-center table-medium">
                                 <thead>
                                     <tr>
-                                        <th>Round id</th>
+                                        <th>Round</th>
                                         <th>Tumble Win</th>
                                         <th>Multiplier</th>
                                         <th>Total Multiplier</th>

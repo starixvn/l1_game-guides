@@ -241,6 +241,15 @@ export const renderPayoutsIconSecondLine = (symbols: OddDetailList[], locale = "
     );
 };
 
+const renderCountFreeSpin = (count: number) => {
+    if(count < 6) {
+        return (<span>{count}</span>);
+    }
+    else {
+        return(<span className={`${Styles["ex-wrapper"]}`}><span>{count}</span></span>);
+    }
+}
+
 export const renderIconContentBlack = (itemName: string, dataContent: OddDetailList, textAfterNumber: string) => {
     return (
         <span className={Styles["wrapper-icon-dark"]}>
@@ -263,7 +272,8 @@ export const renderIconContentBlack = (itemName: string, dataContent: OddDetailL
                             key={index}
                             className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
                         >
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
+                            
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{renderCountFreeSpin(+data.countString)}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
                                 {data.count} {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
                             </span>
@@ -407,7 +417,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                     </tr>
                                     <tr>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Scatter trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
+                                            Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> hoặc nhiều hơn <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Scatter trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
                                             phí.
                                         </td>
                                     </tr>

@@ -136,4 +136,17 @@
 .desc-bet-control {
     padding: 0 4rem 0 5rem;
 }
+.free-spin {
+    grid-template-columns: 2.6rem 12rem;
+    grid-gap: 0;
+}
+.ex-wrapper {
+    position: relative;
+    &:before {
+        content: "\22DC";
+        display: inline-block;
+        transform: rotate(180deg);
+    }
+}
+
 
