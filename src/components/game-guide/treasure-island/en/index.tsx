@@ -221,7 +221,7 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                         </div>
                     </div>
                 </li>
-                <li>Whenever <i>4</i> or more SCATTER symbols appear during the Free Spins round, <i>{oddDetail[1].oddItem[0].count}</i> additional free spins are awarded.</li>
+                <li>Whenever 4 or more SCATTER symbols appear during the Free Spins round, {oddDetail[1].oddItem[0].count} additional free spins are awarded.</li>
                 <li>For the whole duration of Free Spins rounds, whenever any new Multiplier symbols appear and the spinning result in a win, the Multiplier value is added to the total multiplier.
                 The Total Multiplier value is used to calculate the Win amount.
                     <div className="sub-section">
