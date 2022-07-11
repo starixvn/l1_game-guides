@@ -97,6 +97,8 @@ export const GameGuide: React.FC<Props> = (props) => {
             case GAMES.KENO_WEST:
             case GAMES.KENO_SOUTH:
             case GAMES.KENO_NORTH:
+            case GAMES.MEGA_KENO:
+            case GAMES.MEGA_KENO_2:
                 return <KenoMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KENO_MINI:
             case GAMES.KENO_MINI_2:

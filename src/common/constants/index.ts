@@ -54,4 +54,6 @@ export const GAMES = {
     NightClubGuide: 46,
     TREASURE_ISLAND: 47,
     BLOCKCHAIN_BACCARAT: 48,
+    MEGA_KENO: 52,
+    MEGA_KENO_2: 53,
 };
