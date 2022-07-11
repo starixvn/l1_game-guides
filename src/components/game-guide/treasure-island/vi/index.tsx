@@ -266,7 +266,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: OddDetailL
             <div
                 className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
             >
-                {dataContent.oddItem.map((data, index) => {
+                {dataContent.oddItem.reverse().map((data, index) => {
                     return (
                         <div
                             key={index}
@@ -405,8 +405,9 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                             )}
                                         </td>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Scatter trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
-                                            phí.                                            
+                                        Nếu có <strong>{oddDetail[0].oddItem[0].countString}</strong> hoặc nhiều hơn <strong>{oddDetail[0].oddItem[0].countString}</strong> biểu tượng Scatter trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[0].count} lượt quay miễn
+                                            phí.
+                                                                                      
                                         </td>
                                     </tr>
                                     <tr>
@@ -417,8 +418,8 @@ const renderFreeSpins = (odds: any, coin: number, level: number) => {
                                     </tr>
                                     <tr>
                                         <td>
-                                            Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> hoặc nhiều hơn <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Scatter trong kết quả.<br></br>Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
-                                            phí.
+                                        Nếu có <strong>{oddDetail[0].oddItem[2].countString}</strong> biểu tượng Scatter trong kết quả. <br></br> Bạn nhận {oddDetail[0].oddItem[2].count} lượt quay miễn
+                                            phí. 
                                         </td>
                                     </tr>
                                 </tbody>
