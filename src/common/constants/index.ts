@@ -52,4 +52,5 @@ export const GAMES = {
     BITCOIN_MASTER: 43,
     HILO: 45,
     NightClubGuide: 46,
+    TREASURE_ISLAND: 47,
 };
