@@ -18,7 +18,7 @@ const renderGameRule = (minValue: number, maxValue: number) => {
             <ul className="desc">
                 <li>Người chơi chọn hoặc điều chỉnh số tiền đặt cược phù hợp với mình trước khi nhấn nút “Quay”.
                 <div className="sub-section">
-                    <div className="center"><div>Tổng Cược =  Giá trị xu * Mức cược * Hệ số cược</div>
+                    <div className="center"><div>Tổng Cược =  Giá Trị Xu * Mức Cược * Hệ Số Cược</div>
                         <img src={`/static/images/treasure-island/betcontrol-vn.jpg?v1`}
                         width={610}
                         height={343}
@@ -90,7 +90,7 @@ const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: n
         <ul className="desc">
             <li>Biểu tượng được thanh toán ở bất kỳ vị trí nào trên màn hình.</li>
             <li>Thắng-thua của mỗi tổ hợp sẽ được tính dựa trên mức tiền cược cơ bản.
-                <div className="center">Tiền Cược Cơ Bản = Mức cược * Giá trị xu</div>
+                <div className="center">Tiền Cược Cơ Bản = Mức Cược * Giá Trị Xu</div>
             </li>
             <li>Bảng trả thưởng sẽ được cập nhật theo giá trị của mức tiền cược cơ bản mà bạn đã chọn.
                 <div className="sub-section">

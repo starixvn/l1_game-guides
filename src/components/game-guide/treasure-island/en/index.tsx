@@ -29,8 +29,8 @@ const renderGameRule = (minValue: number, maxValue: number) => {
                         </div>
                        
                         <ul className={Styles["desc-bet-control"]}>
-                            <li>1. The coin value is how much you want to spend per line in the game.</li>
-                            <li>2. Bet level is the total number of coins per line.</li>
+                            <li>1. Coin value is how much you want to spend per line in the game.</li>
+                            <li>2. Bet Level is the total number of coins per line.</li>
                             <li>3. Bet Multiplier is the multiplier used to calculate the Total Bet by multiplying with Bet Level and Coin Value. Bet Multiplier: 20x.</li>
                         </ul>
                     </div>                    
@@ -66,7 +66,7 @@ const renderPayouts = (odds: any,  coin: number, level: number,  maxWinPerRound:
         <ul className="desc">
             <li>Symbols pay anywhere on the screen. </li>
             <li>The win-loss of each combination will be calculated based on the base bet value.
-                <div className="center">Base Bet Value= Bet level * Coin Value</div>
+                <div className="center">Base Bet Value= Bet Level * Coin Value</div>
             </li>
             <li>The payouts table will be updated according to the value of the base bet that you have selected.
                 <div className="sub-section">
