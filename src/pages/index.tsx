@@ -65,7 +65,6 @@ const Home = () => {
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
-    console.log("text game config" , gameConfigs);
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
