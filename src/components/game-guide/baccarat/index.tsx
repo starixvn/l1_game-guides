@@ -2,6 +2,7 @@ import React from "react";
 
 import GameConfigs from "./game-configs";
 import GameConfigsVIP from "../baccarat-vip/game-configs";
+import GameConfigsBlockchain from "../blockchain-baccarat/game-configs";
 import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
 import { locales } from "../../../common/constants";
@@ -9,6 +10,12 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps } from "./type";
 import { GameGuideBase } from "../type";
+
+export enum BaccaratId {
+    Baccarat = 10,
+    VipBaccarat = 27,
+    BlockchainBaccarat = 48,
+}
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -20,22 +27,32 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
     return { maxBetPlayer, maxBetSubChoice, maxBetMain, minBetMain };
 };
 
-export const BaccaratVip = [27];
 const BaccaratGuide = (props: GameGuideBase) => {
     const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
     const getGameConfigs = () => {
         if (!isGetGameConfigs) {
-            if (BaccaratVip.includes(id ? id : BaccaratVip[0])) {
-                return GameConfigsVIP;
+            switch (id) {
+                case BaccaratId.Baccarat:
+                    return GameConfigs;
+                case BaccaratId.BlockchainBaccarat:
+                    return GameConfigsBlockchain;
+                case BaccaratId.VipBaccarat:
+                    return GameConfigsVIP;
             }
-            return GameConfigs;
         }
         if (!dynamic) {
-            if (BaccaratVip.includes(id ? id : BaccaratVip[0])) {
-                gameConfigs.odds = GameConfigsVIP.odds;
+            switch (id) {
+                case BaccaratId.Baccarat:
+                    gameConfigs.odds = GameConfigs.odds;
+                    break;
+                case BaccaratId.BlockchainBaccarat:
+                    gameConfigs.odds = GameConfigsBlockchain.odds;
+                    break;
+                case BaccaratId.VipBaccarat:
+                    gameConfigs.odds = GameConfigsVIP.odds;
             }
-            gameConfigs.odds = GameConfigs.odds;
         }
+
         return gameConfigs;
     };
 

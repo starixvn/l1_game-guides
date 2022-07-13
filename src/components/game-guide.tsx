@@ -89,6 +89,7 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BACCARAT:
             case GAMES.VIP_BACCARAT:
+            case GAMES.BLOCKCHAIN_BACCARAT:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KENO_MAX:
             case GAMES.KENO_MAX_2:

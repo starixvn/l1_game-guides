@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { BaccaratVip } from "..";
+import { BaccaratId } from "..";
 import { renderTBodyPointCalculationRules } from "../en";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
@@ -10,38 +10,12 @@ import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import Styles from "../baccarat.module.scss";
 import { ENVIRONMENT } from "../../../../common/constants";
 
-const renderGameRule = (maxBetMain: number | string, environment: string | undefined) => {
+const renderGameRule = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia trước 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước.</li>
-                {environment === ENVIRONMENT.sc && (
-                    <>
-                        <li>Hai lá bài thứ ba cũng sẽ được rút sẵn sau khi kết thúc chia hai lá bài cho Nhà Con và Nhà Cái.</li>
-                        <li>Các lá bài được chia được đánh số từ một đến sáu tương ứng với thứ tự được chia của mỗi lá bài.</li>
-                    </>
-                )}
-                <li>Người chơi đặt cược và dự đoán cửa nào sẽ thắng.</li>
-                <li>
-                    Người chơi cũng có thể đặt cược vào lựa chọn Hòa nếu dự đoán 2 cửa Nhà Con và Nhà Cái có kết quả bằng nhau hoặc có thể
-                    đặt vào các cửa phụ như Tài, Xỉu, Con Đôi, Cái Đôi.
-                </li>
-                <li>
-                    Tùy thuộc vào tổng điểm của 2 lá bài được chia ban đầu, mỗi bên sẽ giữ nguyên các lá bài hoặc{" "}
-                    {environment === ENVIRONMENT.sc ? "mở" : "rút"} thêm lá bài thứ ba.
-                </li>
-                {environment === ENVIRONMENT.sm && <li>Lá bài thứ ba sẽ được rút sau khi hết thời gian đặt cược.</li>}
-                <li>
-                    Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và
-                    0 là điểm số thấp nhất.
-                </li>
-                <li>
-                    Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
-                    phiên là {maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
-                </li>
-                <li>Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.</li>
-                <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được sử dụng khi bắt đầu phiên mới.</li>
+                {renderRuleContent(gameId, maxBetMain, environment)}
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
@@ -84,7 +58,144 @@ const renderGameRule = (maxBetMain: number | string, environment: string | undef
                         </table>
                     </div>
                 </li>
+                {gameId === BaccaratId.BlockchainBaccarat && renderCutCard()}
             </ul>
+        </>
+    );
+};
+
+const renderCutCard = () => {
+    return (
+        <ul className="style-number-dot">
+            <li className="number-dot">
+                <span className="font-weight-medium title-text"> “Cut Card”</span>
+                <ul>
+                    <li>
+                        Thẻ “Cut Card” sẽ được chèn ngẫu nhiên vào giữa 416 lá bài khi bắt đầu game. Vị trí thẻ Cut Card sẽ quyết định khi
+                        nào bài sẽ được xào lại.
+                    </li>
+                </ul>
+                <img className={Styles["cut-card"]} src={`/static/images/blockchain-baccarat/cutcard.png`} alt="cut-card" loading="eager" />
+            </li>
+            <li className="number-dot">
+                <span className="font-weight-medium title-text">Burn Car</span>
+
+                <ul className="desc">
+                    <li>
+                        “Burn Card” là hành động bỏ đi 1 số lá bài trước khi bắt đầu game. Số lá bài bị bỏ tùy thuộc vào giá trị “Burn Card”
+                        của lá đầu tiên trong 416 lá.
+                    </li>
+                </ul>
+                <div>
+                    <strong>Lưu ý</strong>: lá đầu tiên cũng sẽ bị loại bỏ trong quá trình “Burn Card”
+                    <div className="table-container">
+                        <table className="table text-center">
+                            <thead>
+                                <tr>
+                                    <th className={Styles["rule-options"]}>Lá đầu tiên</th>
+                                    <th>A</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>J</th>
+                                    <th>Q</th>
+                                    <th>K</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Giá trị “Burn Card”</strong>
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                    <td>10</td>
+                                    <td>J</td>
+                                    <td>Q</td>
+                                    <td>K</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <strong>Ví dụ</strong>:{" "}
+                </div>
+                <ul className="desc">
+                    <li>Lá đầu tiên 5 {`=>`} Có 6 lá bài sẽ bị loại bỏ trước khi chơi gồm lá đầu tiên và 5 lá kế tiếp</li>
+                    <li>Lá đầu tiên K {`=>`} Có 11 lá bài sẽ bị loại bỏ trước khi chơi gồm lá đầu tiên và 10 lá kế tiếp</li>
+                </ul>
+            </li>
+        </ul>
+    );
+};
+const renderRuleContent = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
+    if (gameId === BaccaratId.BlockchainBaccarat) {
+        return (
+            <>
+                <li>
+                    Khi bắt đầu phiên, mặc định 6 lá bài sẽ được rút, trong đó hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia 2 lá bài.
+                    Bài sẽ được chia theo thứ tự Nhà Con trước.
+                </li>
+                <li>Hai lá còn lại trong 6 lá được rút ban đầu sẽ được chia tùy thuộc vào tổng điểm 2 lá bài của Nhà Con, Nhà Cái. </li>
+                <li>
+                    Trong trường hợp phiên kết thúc với tổng số lá bài được chia ít hơn 6 lá, những lá còn lại sẽ được sử dụng cho phiên kế
+                    tiếp.
+                </li>
+                <li>
+                    Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và
+                    0 là điểm số thấp nhất.
+                </li>
+                <li>
+                    Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
+                    phiên là {maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+                </li>
+                <li>Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.</li>
+            </>
+        );
+    }
+
+    return (
+        <>
+            <li>Hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia trước 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước.</li>
+            {environment === ENVIRONMENT.sc && (
+                <>
+                    <li>Hai lá bài thứ ba cũng sẽ được rút sẵn sau khi kết thúc chia hai lá bài cho Nhà Con và Nhà Cái.</li>
+                    <li>Các lá bài được chia được đánh số từ một đến sáu tương ứng với thứ tự được chia của mỗi lá bài.</li>
+                </>
+            )}
+            <li>Người chơi đặt cược và dự đoán cửa nào sẽ thắng.</li>
+            <li>
+                Người chơi cũng có thể đặt cược vào lựa chọn Hòa nếu dự đoán 2 cửa Nhà Con và Nhà Cái có kết quả bằng nhau hoặc có thể đặt
+                vào các cửa phụ như Tài, Xỉu, Con Đôi, Cái Đôi.
+            </li>
+            <li>
+                Tùy thuộc vào tổng điểm của 2 lá bài được chia ban đầu, mỗi bên sẽ giữ nguyên các lá bài hoặc{" "}
+                {environment === ENVIRONMENT.sc ? "mở" : "rút"} thêm lá bài thứ ba.
+            </li>
+            {environment === ENVIRONMENT.sm && <li>Lá bài thứ ba sẽ được rút sau khi hết thời gian đặt cược.</li>}
+            <li>
+                Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và 0
+                là điểm số thấp nhất.
+            </li>
+            <li>
+                Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1
+                phiên là {maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
+            </li>
+            <li>Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.</li>
         </>
     );
 };
@@ -133,7 +244,12 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_vi.png?v=1" alt="md5-result" />
-                    <div>Từ trái sang phải, <span className={Styles["black"]}>Q♠️</span> <span className={Styles["black"]}>A♠️</span> <span className={Styles["red"]}>8♦️</span> <span className={Styles["black"]}>4♠️</span> <span className={Styles["red"]}>6♥️</span> <span className={Styles["red"]}>J♥️</span> tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
+                    <div>
+                        Từ trái sang phải, <span className={Styles["black"]}>Q♠️</span> <span className={Styles["black"]}>A♠️</span>{" "}
+                        <span className={Styles["red"]}>8♦️</span> <span className={Styles["black"]}>4♠️</span>{" "}
+                        <span className={Styles["red"]}>6♥️</span> <span className={Styles["red"]}>J♥️</span> tương ứng với thứ tự được chia
+                        của mỗi lá bài khi bắt đầu phiên.
+                    </div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}
@@ -154,6 +270,27 @@ const renderMD5Example = (gameName: string) => {
     );
 };
 
+const renderContentIntroduction = (gameId: number | undefined) => {
+    let content = "";
+    switch (gameId) {
+        case BaccaratId.Baccarat:
+        case BaccaratId.VipBaccarat:
+            if (gameId === BaccaratId.Baccarat) {
+                content = "hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới.";
+            } else {
+                content = "là phiên bản đặc biệt của trò Cào Baccarat, với hạn mức cược được nâng cấp, mở rộng.";
+            }
+            content +=
+                "Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong muốn.";
+        case BaccaratId.BlockchainBaccarat:
+            content =
+                "- một sản phẩm game bài mang nhiều đột phá với công nghệ blockchain tiên tiến. Trò chơi sử dụng 8 bộ bài (416 lá không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong muốn. ";
+            break;
+    }
+
+    return content;
+};
+
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
     const { odds } = gameConfigs;
@@ -166,16 +303,10 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {BaccaratVip.includes(gameId ? gameId : BaccaratVip[0])
-                            ? "là phiên bản đặc biệt của trò Cào Baccarat, với hạn mức cược được nâng cấp, mở rộng. "
-                            : "hay còn gọi là bài Cào, là trò đánh bài nổi tiếng và rất được yêu thích tại các sòng bài trên thế giới. "}
-                        Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa
-                        chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược
-                        vào lựa chọn mong muốn.
+                        {gameName} {renderContentIntroduction(gameId)}
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
+                <li className="guide-item">{renderGameRule(gameId, maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
                 <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
@@ -343,7 +474,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
+                {environment === ENVIRONMENT.sc && gameId !== BaccaratId.BlockchainBaccarat && (
                     <li id="md5" className="guide-item">
                         {renderMD5VI()}
                         {renderMD5Example(gameName)}
