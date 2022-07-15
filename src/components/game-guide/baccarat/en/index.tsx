@@ -93,7 +93,7 @@ const renderCutCard = () => {
                 <img className={Styles["cut-card"]} src={`/static/images/blockchain-baccarat/cutcard.png`} alt="cut-card" loading="eager" />
             </li>
             <li className="number-dot">
-                <span className="font-weight-medium title-text">Burn Car</span>
+                <span className="font-weight-medium title-text">Burn Card</span>
 
                 <ul className="desc">
                     <li>
@@ -138,9 +138,9 @@ const renderCutCard = () => {
                                     <td>8</td>
                                     <td>9</td>
                                     <td>10</td>
-                                    <td>J</td>
-                                    <td>Q</td>
-                                    <td>K</td>
+                                    <td>10</td>
+                                    <td>10</td>
+                                    <td>10</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -211,7 +211,7 @@ const renderRuleContent = (gameId: number | undefined, maxBetMain: number | stri
     );
 };
 
-const renderPointCalculationRules = (gameName: string) => {
+const renderPointCalculationRules = (gameName: string, gameId: number | undefined) => {
     return (
         <>
             <h2>Point Calculation Rules</h2>
@@ -233,7 +233,7 @@ const renderPointCalculationRules = (gameName: string) => {
                             <th>First Two Cards</th>
                             <th className={Styles["point-three-cards"]}>Third Card</th>
                             <th className={Styles["point-total"]}>Totals</th>
-                            <th>Total Points Based On {gameName} Rules</th>
+                            <th>Total Points Based On {gameId === BaccaratId.BlockchainBaccarat ? "Baccarat " : gameName} Rules</th>
                         </tr>
                     </thead>
                     {renderTBodyPointCalculationRules()}
@@ -359,7 +359,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(gameId, maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
-                <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
+                <li className="guide-item">{renderPointCalculationRules(gameName, gameId)}</li>
                 <li className="guide-item">
                     <h2>Third Card Rules</h2>
                     <ul className="desc">
@@ -376,7 +376,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th>Player’s first two cards total</th>
+                                                <th className={Styles["sum-two-cards"]}>Player’s first two cards total</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -409,7 +409,7 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <table className="table text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>Banker’s first two cards total</th>
+                                                        <th className={Styles["sum-two-cards"]}>Banker’s first two cards total</th>
                                                         <th>Banker draws when the Player’s third card has a point value:</th>
                                                     </tr>
                                                 </thead>

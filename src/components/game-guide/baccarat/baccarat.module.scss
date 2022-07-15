@@ -14,7 +14,7 @@
 }
 
 .rule-options {
-    min-width: 10rem;
+    min-width: 14rem;
 }
 
 .point-total {
@@ -38,3 +38,11 @@
    display: block;
    margin: auto;
 }
+
+.sum-two-cards {
+    min-width: 30rem;
+    @media (max-width: 576px) {
+        min-width: 14rem;
+    }
+}
+

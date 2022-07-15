@@ -68,17 +68,17 @@ const renderCutCard = () => {
     return (
         <ul className="style-number-dot">
             <li className="number-dot">
-                <span className="font-weight-medium title-text"> “Cut Card”</span>
+                <span className="font-weight-medium title-text"> Cut Card</span>
                 <ul>
                     <li>
-                        Thẻ “Cut Card” sẽ được chèn ngẫu nhiên vào giữa 416 lá bài khi bắt đầu game. Vị trí thẻ Cut Card sẽ quyết định khi
+                        Thẻ “Cut Card” sẽ được chèn ngẫu nhiên vào giữa 416 lá bài khi bắt đầu game. Vị trí thẻ “Cut Card” sẽ quyết định khi
                         nào bài sẽ được xào lại.
                     </li>
                 </ul>
                 <img className={Styles["cut-card"]} src={`/static/images/blockchain-baccarat/cutcard.png`} alt="cut-card" loading="eager" />
             </li>
             <li className="number-dot">
-                <span className="font-weight-medium title-text">Burn Car</span>
+                <span className="font-weight-medium title-text">Burn Card</span>
 
                 <ul className="desc">
                     <li>
@@ -123,9 +123,9 @@ const renderCutCard = () => {
                                     <td>8</td>
                                     <td>9</td>
                                     <td>10</td>
-                                    <td>J</td>
-                                    <td>Q</td>
-                                    <td>K</td>
+                                    <td>10</td>
+                                    <td>10</td>
+                                    <td>10</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -200,13 +200,13 @@ const renderRuleContent = (gameId: number | undefined, maxBetMain: number | stri
     );
 };
 
-const renderPointCalculationRules = (gameName: string) => {
+const renderPointCalculationRules = (gameName: string, gameId: number | undefined) => {
     return (
         <>
             <h2>Quy tắc tính điểm</h2>
             <ul className="desc">
                 <li>
-                    Điểm số các lá bài trong {gameName} sẽ được tính như sau:
+                    Điểm số các lá bài {gameId === BaccaratId.BlockchainBaccarat ? "" : ` trong ${gameName}`} sẽ được tính như sau:
                     <ul className="detail">
                         <li>Các lá bài từ 2 đến 9 có giá trị tùy theo số trên mỗi lá bài; lá A được tính là 1 điểm.</li>
                         <li>Các lá 10, J, Q, K được tính là 0 điểm.</li>
@@ -220,7 +220,7 @@ const renderPointCalculationRules = (gameName: string) => {
                             <th>Hai lá bài đầu</th>
                             <th className={Styles["point-three-cards"]}>Lá thứ ba</th>
                             <th className={Styles["point-total"]}>Điểm số</th>
-                            <th>Tổng điểm tính theo {gameName} </th>
+                            <th>Tổng điểm tính theo {gameId === BaccaratId.BlockchainBaccarat ? "Cào Baccarat" : gameName} </th>
                         </tr>
                     </thead>
                     {renderTBodyPointCalculationRules()}
@@ -307,7 +307,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(gameId, maxBetFollowChoice?.maxBetMain ?? 0, environment)}</li>
-                <li className="guide-item">{renderPointCalculationRules(gameName)}</li>
+                <li className="guide-item">{renderPointCalculationRules(gameName, gameId)}</li>
                 <li className="guide-item">
                     <h2>Quy tắc rút bài</h2>
                     <ul className="desc">
@@ -334,7 +334,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th className={Styles["rule-hand-width"]}>Tổng điểm 2 lá bài đầu tiên</th>
+                                                <th className={Styles["sum-two-cards"]}>Tổng điểm 2 lá bài đầu tiên</th>
                                                 <th>Hành động</th>
                                             </tr>
                                         </thead>
@@ -364,7 +364,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <table className="table text-center">
                                         <thead>
                                             <tr>
-                                                <th className={Styles["rule-hand-width"]}>Tổng điểm 2 lá bài đầu tiên</th>
+                                                <th className={Styles["sum-two-cards"]}>Tổng điểm 2 lá bài đầu tiên</th>
                                                 <th>Nhà Cái được rút khi lá thứ ba của Nhà Con là:</th>
                                             </tr>
                                         </thead>
@@ -422,7 +422,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
-                            Giới hạn cược và tỷ lệ trả thưởng trong {gameName} như sau:
+                            Giới hạn cược và tỷ lệ trả thưởng{gameId !== BaccaratId.BlockchainBaccarat ? ` trong ${gameName} như sau` : ""}:
                             <div className="table-container">
                                 <table className="table text-center table-medium left">
                                     <thead>
