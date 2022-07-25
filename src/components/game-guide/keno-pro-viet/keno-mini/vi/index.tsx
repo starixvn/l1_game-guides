@@ -46,23 +46,27 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>10 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>4</td>
-                                        <td>8</td>
-                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>7</td>
                                         <td>11</td>
-                                        <td>12</td>
-                                        <td>13</td>
-                                        <td>29</td>
-                                        <td>30</td>
-                                        <td>32</td>
-                                        <td>39</td>
+                                        <td>15</td>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>28</td>
+                                        <td>33</td>
+                                        <td>35</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 188. Cược vào {`"XỈU"`} thắng.
+                                            <strong>Tổng điểm</strong> = 181. Cược vào XỈU thắng.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -84,23 +88,27 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>10 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>7</td>
-                                        <td>17</td>
-                                        <td>18</td>
-                                        <td>21</td>
-                                        <td>22</td>
-                                        <td>23</td>
-                                        <td>26</td>
-                                        <td>28</td>
-                                        <td>31</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                        <td>24</td>
+                                        <td>27</td>
+                                        <td>30</td>
+                                        <td>34</td>
                                         <td>40</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 233. Cược vào “LẺ” thắng.
+                                            <strong>Tổng điểm</strong> = 197. Cược vào LẺ thắng.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -131,23 +139,27 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>10 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>9</td>
-                                        <td>14</td>
-                                        <td>19</td>
-                                        <td>20</td>
-                                        <td>26</td>
-                                        <td>29</td>
-                                        <td>30</td>
-                                        <td>32</td>
-                                        <td>35</td>
-                                        <td>39</td>
+                                        <td>5</td>
+                                        <td>7</td>
+                                        <td>13</td>
+                                        <td>17</td>
+                                        <td>23</td>
+                                        <td>24</td>
+                                        <td>33</td>
+                                        <td>37</td>
+                                        <td>38</td>
+                                        <td>40</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 253. Cược vào “THỔ” thắng.
+                                            <strong>Tổng điểm</strong> = 237. Cược vào HỎA thắng.
                                         </td>
                                     </tr>
                                 </tbody>
