@@ -10,10 +10,8 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
         <>
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
-                    stake.
-                </li>
+                <li>The winning amount is calculated according to the payout ratio. </li>
+                <li>The Payout includes the initial stake.</li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
@@ -171,7 +169,7 @@ const bettingOptions = () => {
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Total Sum</strong> = 233. Players bet on ODD will win.
+                                            <strong>Total Sum</strong> = 197. Players bet on ODD will win.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -222,7 +220,7 @@ const bettingOptions = () => {
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Total Sum</strong> = 253. Players bet on FIRE will win.
+                                            <strong>Total Sum</strong> = 237. Players bet on FIRE will win.
                                         </td>
                                     </tr>
                                 </tbody>

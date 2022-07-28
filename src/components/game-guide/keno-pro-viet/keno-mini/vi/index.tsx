@@ -175,6 +175,7 @@ const bettingOptions = () => {
 const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds } = gameConfigs;
+    console.log(gameName, odds);
 
     return (
         <>
@@ -192,76 +193,74 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>
-                            Giới hạn cược và tỷ lệ trả thưởng:
-                            <div className="table-container">
-                                <table className="table text-center table-medium">
-                                    <thead>
-                                        <tr>
-                                            <th>Lựa Chọn</th>
-                                            <th>Tỷ Lệ Trả Thưởng</th>
-                                            <th>Giới Hạn Cược (Min - Max)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tài</td>
-                                            <td> 1: {odds?.big}</td>
-                                            <td rowSpan={4}>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Xỉu</td>
-                                            <td> 1: {odds?.small}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lẻ</td>
-                                            <td rowSpan={2}> 1: {odds?.odd}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chẵn</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kim</td>
-                                            <td>1: {odds?.gold}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mộc</td>
-                                            <td>1: {odds?.wood}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thủy</td>
-                                            <td>1: {odds?.water}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hỏa</td>
-                                            <td>1: {odds?.fire}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thổ</td>
-                                            <td>1: {odds?.earth}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>                                                  
+                        <div className="table-container">
+                            <table className="table text-center table-medium">
+                                <thead>
+                                    <tr>
+                                        <th>Lựa Chọn</th>
+                                        <th>Tỷ Lệ Trả Thưởng</th>
+                                        <th>Giới Hạn Cược (Min - Max)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tài</td>
+                                        <td> 1: {odds?.big}</td>
+                                        <td rowSpan={4}>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Xỉu</td>
+                                        <td> 1: {odds?.small}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lẻ</td>
+                                        <td rowSpan={2}> 1: {odds?.odd}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chẵn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kim</td>
+                                        <td>1: {odds?.gold}</td>
+                                        <td>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mộc</td>
+                                        <td>1: {odds?.wood}</td>
+                                        <td>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thủy</td>
+                                        <td>1: {odds?.water}</td>
+                                        <td>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hỏa</td>
+                                        <td>1: {odds?.fire}</td>
+                                        <td>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thổ</td>
+                                        <td>1: {odds?.earth}</td>
+                                        <td>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                                               
                     </ul>
                 </li>
                 {renderTermsAndConditionsVI()}
