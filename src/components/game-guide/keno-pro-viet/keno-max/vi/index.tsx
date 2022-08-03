@@ -195,8 +195,7 @@ const bettingOptions = () => {
 
 export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
-        <>
-            Giới hạn cược và tỷ lệ trả thưởng:
+        <>            
             <div className="table-container">
                 <table className="table text-center table-medium">
                     <thead>
@@ -272,8 +271,8 @@ export const renderContentKenoMaxOrMini = (odds: OddsProMaxProps | undefined, ma
                 <h2>Trả thưởng</h2>
                 <ul className="desc">
                     <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                    <li>{renderWinningOnTable(odds, maxBetFollowChoice)}</li>
-                    <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                    <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>   
+                    {renderWinningOnTable(odds, maxBetFollowChoice)}
                 </ul>
             </li>
             {renderTermsAndConditionsVI()}
