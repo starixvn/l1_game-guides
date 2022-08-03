@@ -46,6 +46,8 @@ const HiLoGuide = dynamic(() => import("./game-guide/hi-lo"));
 const TexasHoldGuide = dynamic(() => import("./game-guide/texas-hold"));
 const NightClubGuide = dynamic(() => import("./game-guide/NightClub"));
 const TreasureIslandGuide = dynamic(() => import("./game-guide/treasure-island"));
+const MultiplayBigSmallGuide = dynamic(() => import("./game-guide/multiplay-big-small"));
+
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 export const GameGuide: React.FC<Props> = (props) => {
@@ -141,6 +143,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <NightClubGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.TREASURE_ISLAND:
                 return <TreasureIslandGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.UNBALANCEBIGSMALL1:
+                return <MultiplayBigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }

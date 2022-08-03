@@ -159,6 +159,10 @@
         "id": 48,
         "gameName": "BlockchainBaccarat"
     },
+    "50": {
+        "id": 50,
+        "gameName": "UnbalancedBigSmall1"
+    },
     "52": {
         "id": 46,
         "gameName": "MegaKeno"

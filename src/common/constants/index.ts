@@ -53,6 +53,7 @@ export const GAMES = {
     HILO: 45,
     NightClubGuide: 46,
     TREASURE_ISLAND: 47,
+    UNBALANCEBIGSMALL1: 50,
     BLOCKCHAIN_BACCARAT: 48,
     MEGA_KENO: 52,
     MEGA_KENO_2: 53,
