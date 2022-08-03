@@ -59,7 +59,7 @@ const renderGameRule = (gameId: number | undefined, maxBetMain: number | string,
                                 <tr>
                                     <td>Big</td>
                                     <td className="text-start">
-                                        The Punter wins if the total numbers of cards that have been dealt in one round are 5 of 6.
+                                        The Punter wins if the total numbers of cards that have been dealt in one round are 5 or 6.
                                     </td>
                                 </tr>
                                 <tr>
@@ -97,8 +97,8 @@ const renderCutCard = () => {
 
                 <ul className="desc">
                     <li>
-                        After the Cut Card has been inserted, there is a burn card process. The number of the card that will be burned
-                        (discard without using it in the deal) is depended on the value of the first card taken out of the new Shoe.
+                        After the Cut Card has been inserted, there is a burn card process. The number of card that will be burned (discard
+                        without using), is dependent on the value of the first card taken out of the new Shoe.
                     </li>
                 </ul>
                 <div>
