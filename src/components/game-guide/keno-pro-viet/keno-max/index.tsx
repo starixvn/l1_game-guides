@@ -6,6 +6,8 @@ import GameConfigsNorth from "../keno-north/game-configs";
 import GameConfigsSouth from "../keno-south/game-configs";
 import GameConfigsWest from "../keno-west/game-configs";
 import GameConfigsEast from "../keno-east/game-configs";
+import GameConfigsMega from "../mega-keno/game-configs";
+import GameConfigsMega2 from "../mega-keno2/game-configs";
 import KenoMaxGuideEN from "./en";
 import KenoMaxGuideVI from "./vi";
 import { GameGuideBase } from "../../type";
@@ -27,6 +29,10 @@ const KenoMaxGuide = (props: GameGuideBase) => {
                     return GameConfigsSouth;
                 case 19:
                     return GameConfigsNorth;
+                case 52:
+                    return GameConfigsMega;
+                case 53:
+                    return GameConfigsMega2;
 
                 default:
                     return GameConfigsMax;
@@ -49,6 +55,12 @@ const KenoMaxGuide = (props: GameGuideBase) => {
                     break;
                 case 19:
                     gameConfigs.odds = GameConfigsNorth.odds;
+                    break;
+                case 52:
+                    gameConfigs.odds = GameConfigsMega.odds;
+                    break;
+                case 53:
+                    gameConfigs.odds = GameConfigsMega2.odds;
                     break;
 
                 default:

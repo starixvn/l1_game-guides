@@ -30,7 +30,7 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
 };
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
-    let fontFamily = "Roboto";
+    let fontFamily = "SanFranciscoDisplay";
     if (env === ENVIRONMENT.sc) {
         switch (locale) {
             case "th":
@@ -46,7 +46,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
                 fontFamily = "Noto";
                 break;
         }
-    }
+    } 
 
     document.documentElement.style.fontFamily = fontFamily;
     document.body.style.fontFamily = fontFamily;

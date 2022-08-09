@@ -48,35 +48,39 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                        <td>16</td>
+                                    <td>7</td>
+                                        <td>11</td>
                                         <td>17</td>
-                                        <td>26</td>
-                                        <td>28</td>
-                                        <td>32</td>
-                                        <td>36</td>
-                                        <td>37</td>
+                                        <td>20</td>
+                                        <td>21</td>
+                                        <td>23</td>
+                                        <td>33</td>
+                                        <td>40</td>
+                                        <td>41</td>
+                                        <td>42</td>
                                     </tr>
                                     <tr>
-                                        <td>43</td>
-                                        <td>55</td>
+                                    <td>45</td>
+                                        <td>48</td>
                                         <td>56</td>
-                                        <td>57</td>
-                                        <td>60</td>
-                                        <td>67</td>
-                                        <td>70</td>
+                                        <td>58</td>
+                                        <td>59</td>
+                                        <td>69</td>
                                         <td>71</td>
-                                        <td>74</td>
-                                        <td>75</td>
+                                        <td>72</td>
+                                        <td>73</td>
+                                        <td>77</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 842. Cược vào {`"TÀI"`} thắng.
+                                            <strong>Tổng điểm</strong> = 883. Cược vào TÀI thắng.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -98,35 +102,39 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
+                                    <td>4</td>
                                         <td>5</td>
                                         <td>8</td>
-                                        <td>9</td>
-                                        <td>14</td>
-                                        <td>15</td>
-                                        <td>16</td>
-                                        <td>19</td>
-                                        <td>24</td>
-                                        <td>25</td>
+                                        <td>18</td>
+                                        <td>23</td>
                                         <td>30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>32</td>
                                         <td>35</td>
                                         <td>37</td>
-                                        <td>38</td>
-                                        <td>41</td>
-                                        <td>42</td>
+                                        <td>39</td>
+                                        <td>40</td>
+                                    </tr>
+                                    <tr>
+                                    <td>42</td>
                                         <td>44</td>
-                                        <td>51</td>
-                                        <td>68</td>
-                                        <td>73</td>
+                                        <td>46</td>
+                                        <td>49</td>
+                                        <td>50</td>
+                                        <td>56</td>
+                                        <td>60</td>
+                                        <td>61</td>
+                                        <td>71</td>
+                                        <td>80</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 626. Cược vào “CHẴN” thắng.
+                                            <strong>Tổng điểm</strong> = 798. Cược vào CHẴN thắng.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -140,35 +148,39 @@ const bettingOptions = () => {
                         <strong>Ví dụ: </strong>20 quả bóng được lấy ngẫu nhiên gồm các số:
                         <div className="table-container">
                             <table className="table text-center table-small">
-                                <thead></thead>
+                                <thead>
+                                    <tr>
+                                        <th colSpan={10}>Kết Quả</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>6</td>
-                                        <td>7</td>
+                                        <td>3</td>
+                                        <td>5</td>
+                                        <td>10</td>
                                         <td>11</td>
-                                        <td>13</td>
-                                        <td>14</td>
-                                        <td>24</td>
-                                        <td>34</td>
-                                        <td>36</td>
-                                        <td>37</td>
-                                        <td>45</td>
+                                        <td>15</td>
+                                        <td>19</td>
+                                        <td>20</td>
+                                        <td>27</td>
+                                        <td>29</td>
+                                        <td>35</td>
                                     </tr>
                                     <tr>
+                                        <td>37</td>
+                                        <td>40</td>
+                                        <td>42</td>
                                         <td>47</td>
                                         <td>48</td>
-                                        <td>59</td>
-                                        <td>61</td>
+                                        <td>52</td>
+                                        <td>57</td>
                                         <td>62</td>
-                                        <td>65</td>
-                                        <td>67</td>
-                                        <td>70</td>
-                                        <td>74</td>
-                                        <td>77</td>
+                                        <td>68</td>
+                                        <td>71</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={10}>
-                                            <strong>Tổng điểm</strong> = 857. Cược vào “HỎA” thắng.
+                                            <strong>Tổng điểm</strong> = 698. Cược vào MỘC thắng.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -183,8 +195,7 @@ const bettingOptions = () => {
 
 export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
-        <>
-            Giới hạn cược và tỷ lệ trả thưởng:
+        <>            
             <div className="table-container">
                 <table className="table text-center table-medium">
                     <thead>
@@ -260,8 +271,8 @@ export const renderContentKenoMaxOrMini = (odds: OddsProMaxProps | undefined, ma
                 <h2>Trả thưởng</h2>
                 <ul className="desc">
                     <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                    <li>{renderWinningOnTable(odds, maxBetFollowChoice)}</li>
-                    <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                    <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>   
+                    {renderWinningOnTable(odds, maxBetFollowChoice)}
                 </ul>
             </li>
             {renderTermsAndConditionsVI()}
