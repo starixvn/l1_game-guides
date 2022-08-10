@@ -22,6 +22,7 @@ export type GameGuideBase = {
     isGetGameConfigs?: boolean;
     isScrollMD5?: boolean;
     environment?: string;
+    project?: string;
 };
 
 export interface GameConfigsBaseProps {

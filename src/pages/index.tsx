@@ -46,7 +46,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
                 fontFamily = "Noto";
                 break;
         }
-    } 
+    }
 
     document.documentElement.style.fontFamily = fontFamily;
     document.body.style.fontFamily = fontFamily;
