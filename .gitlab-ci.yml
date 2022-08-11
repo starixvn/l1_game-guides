@@ -6,3 +6,33 @@ include:
     - project: "ci/repos-ci/pentagon_l2_game_guides"
       ref: master
       file: "gitlab-ci-mixing.yml"
+
+.base_transform_config_script: &base_transform_config_script
+  stage: transform-config
+  tags:
+    - docker
+
+  script:
+    - echo "====== Build Game Guide ======"
+    - echo $DEPLOY_ENV
+    - echo $STACK_NAME
+    - echo pwd
+    - cp ./configs/$STACK_NAME/configs.$DEPLOY_ENV.json ./configs.json
+    - cat ./configs.json
+
+  artifacts:
+    paths:
+      - ./configs.json
+    expire_in: 1 day
+
+.base_transform_config_l1_game_guides:
+  <<: *base_transform_config_script
+  extends:
+    - .deploy_vars_l1_game_guides
+    - .build:image:l1_game_guides:rules
+
+.base_transform_config_l2_game_guides:
+  <<: *base_transform_config_script
+  extends:
+    - .deploy_vars_l2_game_guides
+    - .build:image:l2_game_guides:rules  
