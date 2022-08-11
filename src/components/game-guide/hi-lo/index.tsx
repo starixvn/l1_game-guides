@@ -39,6 +39,7 @@ const HiLoGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
+    
     if (locale === locales.en) {
         return <HiLoGuideEN gameConfigs={configs} userStakeLevel={userStakeLevel} gameName={gameNameTranslate} gameId={id} />;
     }

@@ -9,6 +9,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     maxBetFollowChoice?: MaxBetChoicesProps;
     isScrollMD5?: boolean;
     environment?: string;
+    project?: string;
 };
 
 export type GameGuideBase = {

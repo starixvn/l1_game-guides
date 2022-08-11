@@ -1,10 +1,11 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
-import { locales } from "../../../../common/constants";
+import { PROJECTS } from "../../../../common/constants";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -35,7 +36,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (odds: number[][]) => {
+const renderPayouts = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -46,14 +47,14 @@ const renderPayouts = (odds: number[][]) => {
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine(odds, locales.vi)}
-            {renderPayoutsIconSecondLine(odds, locales.vi)}
-            {renderExamplePayouts(odds)}
+            {renderPayoutsIconFirstLine(odds, project, "vi")}
+            {renderPayoutsIconSecondLine(odds, project)}
+            {renderExamplePayouts(odds, project)}
         </li>
     );
 };
 
-const renderExamplePayouts = (odds: number[][]) => {
+const renderExamplePayouts = (odds: number[][], project: string | undefined) => {
     return (
         <>
             <p>
@@ -70,11 +71,18 @@ const renderExamplePayouts = (odds: number[][]) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item1", true, true, [
-                                    [5, odds[1][5]],
-                                    [4, odds[1][4]],
-                                    [3, odds[1][3]],
-                                ])}
+                                {renderIconContent(
+                                    true,
+                                    "item1",
+                                    true,
+                                    true,
+                                    [
+                                        [5, odds[1][5]],
+                                        [4, odds[1][4]],
+                                        [3, odds[1][3]],
+                                    ],
+                                    project
+                                )}
                             </td>
                             <td>
                                 Nếu có <strong>5</strong> biểu tượng Ngọc Bội trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược *{" "}
@@ -99,8 +107,48 @@ const renderExamplePayouts = (odds: number[][]) => {
         </>
     );
 };
+const renderJackpot = () => {
+    return (
+        <li className="guide-item">
+            <h2>Nổ Hũ</h2>
+            <ul className="desc">
+                <li>
+                    Nổ Hũ là giải thưởng đặc biệt dành cho người chơi Long Lân Quy Phụng, có 3 giải Nổ Hũ ứng với 3 mức cược. Số tiền thưởng
+                    trong từng hũ sẽ được tích lũy tăng dần cho đến khi có người chơi may mắn quay và giành chiến thắng.
+                </li>
+            </ul>
 
-const renderFreeSpin = (odds: number[][]) => {
+            <div className="table-container text-center">
+                <table className="table text-center table-medium">
+                    <thead>
+                        <tr>
+                            <th className={Styles["bonus-symbol-width"]}>Biểu Tượng</th>
+                            <th> Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img
+                                    className={`${Styles["item10"]}}`}
+                                    src="./static/images/four-guardians/L2/vi/item10.png"
+                                    alt="item10"
+                                ></img>
+                            </td>
+                            <td>
+                                Người chơi sẽ thắng giải Nổ Hũ nếu quay được 5 biểu tượng “Đập Hũ” trên cùng Dòng Cược.<br></br>
+                                <strong>Lưu ý: </strong>
+                                trong trường hợp thắng giải Nổ Hũ, người chơi sẽ nhận được 98% số tiền hiện có trong Hũ.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    );
+};
+
+const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
@@ -162,7 +210,9 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/four-guardians/L1/guide_example_free_spin.png"
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/vi` : project
+                                }/guide_example_free_spin.png`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -188,7 +238,7 @@ const renderFreeSpin = (odds: number[][]) => {
     );
 };
 
-const renderBonus = (odds: number[][]) => {
+const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
@@ -252,7 +302,9 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/four-guardians/L1/guide_example_bonus.png"
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/vi` : project
+                                }/guide_example_bonus.png`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -274,7 +326,7 @@ const renderBonus = (odds: number[][]) => {
     );
 };
 
-const renderWild = (odds: number[][]) => {
+const renderWild = (odds: number[][], project: string | undefined) => {
     const wrapperWildImg = "wrapper-wild-img";
     const betValue = 1;
     return (
@@ -307,7 +359,7 @@ const renderWild = (odds: number[][]) => {
                         và{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/four-guardians/L1/item10.png"
+                            src={`./static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project}/item10.png`}
                             alt="item10"
                         ></img>
                     </li>
@@ -366,7 +418,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { gameConfigs, gameName, project } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -379,14 +431,20 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/four-guardians/L1/list_icon.png`} alt="guide_item_symbol_bg" width={38} height={38} />
+                        <img
+                            src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project}/list_icon.png`}
+                            alt="guide_item_symbol_bg"
+                            width={38}
+                            height={38}
+                        />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(odds)}
-                {renderFreeSpin(odds)}
-                {renderBonus(odds)}
-                {renderWild(odds)}
+                {renderPayouts(odds, project)}
+                {project === PROJECTS.L2 && renderJackpot()}
+                {renderFreeSpin(odds, project)}
+                {renderBonus(odds, project)}
+                {renderWild(odds, project)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

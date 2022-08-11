@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
 import TreasureIslandGuideEN from "./en";
-import GameConfigs from "./game-configs";
+import { GameConfigProps } from "./type";
 import TreasureIslandGuideVI from "./vi";
+import { getGameConfigProject } from "../index.helper";
 
 const TreasureIslandGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, dynamic, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("treasure-island", project, setConfigs);
     };
 
-    if (locale === locales.en) {
-        return <TreasureIslandGuideEN gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate}/>;
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs as any);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return <TreasureIslandGuideVI gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+
+    if (locale === locales.en) {
+        return <TreasureIslandGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+    }
+    return <TreasureIslandGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default TreasureIslandGuide;
