@@ -1,29 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import KenoProMaxGuideEN from "./en";
 import KenoProMaxGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
-import { handleMaxBetChoiceKenoPro } from "../index.helper";
+import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../index.helper";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const KenoProMaxGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("keno-pro-max", project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoiceKenoPro(userStakeLevel, getGameConfigs());
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoiceKenoPro(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
 
     if (locale === locales.en) {
-        return <KenoProMaxGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return <KenoProMaxGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
-    return <KenoProMaxGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return <KenoProMaxGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default KenoProMaxGuide;

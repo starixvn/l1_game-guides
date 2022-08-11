@@ -5,6 +5,7 @@ import BigSmallGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales, IObjectKeys } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
@@ -12,7 +13,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         locale,
         gameConfigs,
         gameNameTranslate,
-        dynamic: dynamicConfig,
+        dynamic,
         gameName,
         userStakeLevel,
         isGetGameConfigs,
@@ -20,44 +21,49 @@ const BigSmallGuide = (props: GameGuideBase) => {
         environment,
         project,
     } = props;
-    const [config, setConfig] = useState<any>();
-    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<any>();
 
-    const getGameConfigs = () => {
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
+
+    const getLocalGameConfigs = () => {
+        let pathName = "big-small";
         if (gameName === BigSmallName.TXTurbo) {
-            getGameConfigProject("big-small-turbo", project, setConfig);
+            pathName = "big-small-turbo";
+        }
+
+        getGameConfigProject(pathName, project, setConfigs);
+    };
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
         } else {
-            getGameConfigProject("big-small", project, setConfig);
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
         }
     };
 
     useEffect(() => {
-        getGameConfigs();
+        getLocalGameConfigs();
     }, []);
 
     useEffect(() => {
-        if (config) {
-            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, config));
-            if (!isGetGameConfigs) {
-                return;
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
             }
-            if (dynamicConfig) {
-                return setConfig(gameConfigs);
-            } else {
-                gameConfigs.odds = config.odds;
-                setConfig(gameConfigs);
-            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
         }
-    }, [config]);
+    }, [configs]);
 
-    if (!config) {
+    if (!configs) {
         return <></>;
     }
 
     if (locale === locales.en) {
         return (
             <BigSmallGuideEN
-                gameConfigs={config}
+                gameConfigs={configs}
                 gameName={gameNameTranslate}
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
@@ -68,7 +74,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
 
     return (
         <BigSmallGuideVI
-            gameConfigs={config}
+            gameConfigs={configs}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}

@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import ThreeCardsGuideEN from "./en";
 import ThreeCardsGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
+import { getGameConfigProject } from "../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -25,21 +25,43 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const ThreeCardsGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("three-cards", project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
-    if (locale === locales.en) {
-        return <ThreeCardsGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return <ThreeCardsGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+
+    if (locale === locales.en) {
+        return <ThreeCardsGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    }
+    return <ThreeCardsGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default ThreeCardsGuide;

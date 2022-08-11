@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import TexasHoldGuideEN from "./en";
 import TexasHoldGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
+import { getGameConfigProject } from "../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -22,22 +22,44 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const TexasHoldGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isScrollMD5, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isScrollMD5, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("texas-hold", project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
+    
     if (locale === locales.en) {
         return (
             <TexasHoldGuideEN
-                gameConfigs={getGameConfigs()}
+                gameConfigs={configs}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
                 gameId={id}
@@ -48,7 +70,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
     }
     return (
         <TexasHoldGuideVI
-            gameConfigs={getGameConfigs()}
+            gameConfigs={configs}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
             gameId={id}

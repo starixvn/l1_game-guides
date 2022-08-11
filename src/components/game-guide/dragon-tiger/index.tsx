@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import DragonTigerGuideEN from "./en";
 import DragonTigerGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
+import { getGameConfigProject } from "../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -20,22 +20,43 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const DragonTigerGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("dragon-tiger", project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
 
     if (locale === locales.en) {
-        return <DragonTigerGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return <DragonTigerGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
     }
-    return <DragonTigerGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return <DragonTigerGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default DragonTigerGuide;

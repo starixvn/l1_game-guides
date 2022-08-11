@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import BitcoinMasterGuideEN from "./en";
 import BitcoinMasterGuideVI from "./vi";
-import GameConfigs from "./game-configs";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import { getGameConfigProject } from "../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -19,22 +19,44 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("bitcoin-master", project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
-    if (locale === locales.en) {
-        return <BitcoinMasterGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
 
-    return <BitcoinMasterGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    if (locale === locales.en) {
+        return <BitcoinMasterGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    }
+
+    return <BitcoinMasterGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default BitcoinMasterGuide;
