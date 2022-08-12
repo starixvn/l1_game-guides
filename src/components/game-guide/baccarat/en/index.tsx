@@ -334,6 +334,7 @@ const renderContentIntroduction = (gameId: number | undefined) => {
             }
             content +=
                 "The game is played with one standard 52-card deck (excluding Joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table.";
+            break;
         case BaccaratId.BlockchainBaccarat:
             content =
                 " - a card game with Fairness Guarantees, the new breakthrough with blockchain technology. The game uses 8 decks of cards (416 cards excluding the joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table.";

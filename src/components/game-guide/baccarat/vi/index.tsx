@@ -196,6 +196,7 @@ const renderRuleContent = (gameId: number | undefined, maxBetMain: number | stri
                 phiên là {maxBetMain}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.
             </li>
             <li>Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.</li>
+            <li>Bộ bài 52 lá (không bao gồm lá Joker) sẽ được sử dụng khi bắt đầu phiên mới.</li>
         </>
     );
 };
@@ -272,6 +273,7 @@ const renderMD5Example = (gameName: string) => {
 
 const renderContentIntroduction = (gameId: number | undefined) => {
     let content = "";
+
     switch (gameId) {
         case BaccaratId.Baccarat:
         case BaccaratId.VipBaccarat:
@@ -281,7 +283,8 @@ const renderContentIntroduction = (gameId: number | undefined) => {
                 content = "là phiên bản đặc biệt của trò Cào Baccarat, với hạn mức cược được nâng cấp, mở rộng.";
             }
             content +=
-                "Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong muốn.";
+                " Trò chơi sử dụng bộ bài tây 52 lá (không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong muốn.";
+            break;
         case BaccaratId.BlockchainBaccarat:
             content =
                 "- một sản phẩm game bài mang nhiều đột phá với công nghệ blockchain tiên tiến. Trò chơi sử dụng 8 bộ bài (416 lá không bao gồm lá Joker) và sẽ có 7 lựa chọn (cửa) trên bàn chơi bao gồm 3 cửa chính (Nhà Con, Nhà Cái, Hòa) và 4 cửa phụ (Tài, Xỉu, Con Đôi, Cái Đôi). Người chơi sẽ dự đoán kết quả và đặt cược vào lựa chọn mong muốn. ";
