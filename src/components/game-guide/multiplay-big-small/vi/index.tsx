@@ -17,10 +17,10 @@ export const renderMD5VI = () => {
                             <strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi
                             thông qua bên thứ ba.
                         </li>
-                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi người chơi đặt cược. </li>
+                        <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi đặt cược. </li>
                         <li>
-                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược (Chuỗi{" "}
-                            <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (<strong>Kết Quả</strong>).
+                            Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi người chơi đặt cược
+                            (Chuỗi <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (<strong>Kết Quả</strong>).
                         </li>
                     </ul>
                 </li>
