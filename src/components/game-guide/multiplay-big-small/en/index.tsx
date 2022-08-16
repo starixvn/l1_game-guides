@@ -11,7 +11,7 @@ const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                <strong> Example:</strong> check the authenticity and transparency of the game result
             </div>
             <ul className="desc">
                 <li>
@@ -69,7 +69,7 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                             <li>SMALL: the player will win if the total points of the three dice &lt;= 10</li>
                         </ul>
                         <li>
-                            Players can increase their stake amount by placing another bet with the same selection before the betting time
+                            Players can increase their stakes by placing another bet with the same selection before the betting time
                             expires. Note, placed bets cannot be canceled.
                         </li>
                         <li>
