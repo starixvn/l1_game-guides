@@ -1,10 +1,10 @@
-import React from "react";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
+import React from "react";
 
 import appSettings from "../common/app-settings";
-import { UserStakeLevelProps } from "../pages";
 import { GAMES } from "../common/constants";
+import { UserStakeLevelProps } from "../pages";
 
 type Props = {
     gameId: number;
@@ -143,7 +143,10 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <NightClubGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.TREASURE_ISLAND:
                 return <TreasureIslandGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.UNBALANCEBIGSMALL1:
+            case GAMES.UNBALANCEDBIGSMALL1:
+            case GAMES.UNBALANCEDBIGSMALL2:
+            case GAMES.UNBALANCEDBIGSMALL3:
+            case GAMES.UNBALANCEDBIGSMALL4:
                 return <MultiplayBigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
