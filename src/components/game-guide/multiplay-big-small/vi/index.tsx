@@ -31,7 +31,7 @@ export const renderMD5VI = () => {
                             <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.
                         </li>
                         <li>
-                            <strong>Bước 2</strong>: Copy <strong>Kết Quả</strong> sau khi tổng điểm xúc xắc được công bố.
+                            <strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi tổng điểm xúc xắc được công bố.
                         </li>
                         <li>
                             <strong>Bước 3</strong>: Truy cập{" "}
@@ -69,7 +69,7 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_vi.png?v=3" alt="md5-result" />
-                    <div>Từ trái sang phải, &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
+                    <div>Trong đó &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}
@@ -103,8 +103,7 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>Giới thiệu</h2>
                     <p className="content">
                         {gameName} - tựa game Tài Xỉu không cân cửa hoàn toàn mới. Trò chơi gồm 4 game: Las Vegas, Marina Bay, Macau và
-                        Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. Mega Big
-                        Small cho phép chơi cùng lúc 4 game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6
+                        Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. {gameName} cho phép chơi cùng lúc 4 game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6
                         mặt và người chơi sẽ dự đoán xem kết quả là Tài hay Xỉu.
                     </p>
                 </li>
