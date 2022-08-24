@@ -159,6 +159,14 @@
         "id": 48,
         "gameName": "BlockchainBaccarat"
     },
+    "50": {
+        "id": 50,
+        "gameName": "UnbalancedBigSmall1"
+    },
+    "51": {
+        "id": 51,
+        "gameName": "UnbalancedBigSmall2"
+    },
     "52": {
         "id": 46,
         "gameName": "MegaKeno"
@@ -166,5 +174,13 @@
     "53": {
         "id": 46,
         "gameName": "MegaKeno2"
+    },
+    "54": {
+        "id": 54,
+        "gameName": "UnbalancedBigSmall3"
+    },
+    "55": {
+        "id": 55,
+        "gameName": "UnbalancedBigSmall4"
     }
 }
