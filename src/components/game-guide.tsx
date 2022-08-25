@@ -47,7 +47,7 @@ const TexasHoldGuide = dynamic(() => import("./game-guide/texas-hold"));
 const NightClubGuide = dynamic(() => import("./game-guide/NightClub"));
 const TreasureIslandGuide = dynamic(() => import("./game-guide/treasure-island"));
 const MultiplayBigSmallGuide = dynamic(() => import("./game-guide/multiplay-big-small"));
-const WayToGoalGuide = dynamic(() => import("./game-guide/WayToGoal"));
+const WayToGoalGuide = dynamic(() => import("./game-guide/way-to-goal"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 export const GameGuide: React.FC<Props> = (props) => {
