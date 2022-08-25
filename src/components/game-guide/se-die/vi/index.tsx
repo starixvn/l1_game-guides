@@ -1,15 +1,21 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsVI } from "../../../shared";
-import { SeDieMini } from "../index";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { StatisticalTable } from "../../../shared/se-die/vi";
-import Styles from "../se-die.module.scss";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import {
+    renderFourRed,
+    renderFourWhite,
+    renderOneRedThreeWhite,
+    renderThreeRedOneWhite,
+    renderTwoRedTwoWhite,
+} from "../../../shared/dot";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { StatisticalTable } from "../../../shared/se-die/vi";
+import { GameGuideProps } from "../../type";
+import Styles from "../se-die.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -218,7 +224,10 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return "là bản rút gọn của trò Xóc Đĩa. ";
+            case 56:
+            case 57:
+            case 58:
+                return "là phiên bản mới của Xóc Đĩa Mini với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
             case 22:
                 return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
             default:

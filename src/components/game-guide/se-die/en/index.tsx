@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
-import { SeDieMini } from "../index";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderTermsAndConditionsEN } from "../../../shared";
+import {
+    renderFourRed,
+    renderFourWhite,
+    renderOneRedThreeWhite,
+    renderThreeRedOneWhite,
+    renderTwoRedTwoWhite,
+} from "../../../shared/dot";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
+import { GameGuideProps } from "../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -134,7 +140,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return " is a compact version of Se Die game with fewer betting options. ";
+            case 56:
+            case 57:
+            case 58:
+                return " is an enhanced version of the Mini Se Die game that allows you to play 4 games (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:

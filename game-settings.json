@@ -186,5 +186,17 @@
     "49": {
         "id": 49,
         "gameName": "WayToGoal"
+    },
+    "56": {
+        "id": 56,
+        "gameName": "MiniSedie2"
+    },
+    "57": {
+        "id": 57,
+        "gameName": "MiniSedie3"
+    },
+    "58": {
+        "id": 58,
+        "gameName": "MiniSedie4"
     }
 }
