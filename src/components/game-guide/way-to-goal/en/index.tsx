@@ -388,7 +388,7 @@ const renderBonus = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/way-to-goal/guide_example_bonus.png#v3"
+                                src="/static/images/way-to-goal/guide_example_bonus.png#v2"
                                 alt="guide_example_bonus"
                                 width={265}
                                 height={125}

@@ -185,8 +185,8 @@
     --page-background: transparent;
 
     // scrollbar
-    --scrollbar-background: #28aedb;
-    --scrollbar-thumb-background: #032960;
+    --scrollbar-background: #032960;
+    --scrollbar-thumb-background: #28aedb;
 
     // font-size
     --font-size: 2.2rem;
@@ -285,6 +285,7 @@ label {
 }
 
 html[data-theme="way-to-goal"] {
+    ::-webkit-scrollbar,
     ::-webkit-scrollbar-thumb,
     ::-webkit-scrollbar-track {
         border-radius: 0.8rem;
