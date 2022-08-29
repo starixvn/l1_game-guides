@@ -26,7 +26,7 @@
     --table-background: #fff;
     --table-border: #dce2f3;
     --table-color: var(--text-color);
-    --table-header-background: #97B4E8;
+    --table-header-background: #97b4e8;
     --table-header-color: #2c2f3e;
     --border-line: none;
 }
@@ -54,7 +54,7 @@
     --table-background: #121f2c;
     --table-border: #364252;
     --table-color: var(--text-color);
-    --table-header-background: #97B4E8;
+    --table-header-background: #97b4e8;
     --table-header-color: #2c2f3e;
     --border-line: none;
 }
@@ -185,8 +185,8 @@
     --page-background: transparent;
 
     // scrollbar
-    --scrollbar-background: #16202d;
-    --scrollbar-thumb-background: #294057;
+    --scrollbar-background: #28aedb;
+    --scrollbar-thumb-background: #032960;
 
     // font-size
     --font-size: 2.2rem;
@@ -282,4 +282,11 @@ label {
 
 .sub-section {
     padding-left: 1.6rem;
+}
+
+html[data-theme="way-to-goal"] {
+    ::-webkit-scrollbar-thumb,
+    ::-webkit-scrollbar-track {
+        border-radius: 0.8rem;
+    }
 }
