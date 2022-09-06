@@ -28,12 +28,12 @@ const renderMD5Example = (gameName: string) => {
                         https://md5.services/
                     </a>{" "}
                     and paste the Result into the MD5 box.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
+                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
                     <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
                     the MD5 string in Step 1.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
+                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>
             </ul>
         </>

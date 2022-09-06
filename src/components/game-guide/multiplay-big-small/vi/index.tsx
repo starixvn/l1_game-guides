@@ -70,7 +70,7 @@ const renderMD5Example = (gameName: string) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step2_vi.png?v=3" alt="md5-result" />
-                    <div>Trong đó &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
+                    <div>Trong đó &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}
@@ -78,12 +78,12 @@ const renderMD5Example = (gameName: string) => {
                         https://md5.services/
                     </a>{" "}
                     và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step3_vi.png?v=1" alt="hash-darling" />
+                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step3_vi.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
                     <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
                     1.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step4_vi.png?v=1" alt="md5-checksum" />
+                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step4_vi.png?v=1" alt="md5-checksum" />
                 </li>
             </ul>
             <p className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</p>
