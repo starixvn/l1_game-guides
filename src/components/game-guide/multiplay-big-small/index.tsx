@@ -1,32 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import MultiplayBigSmallGuideEN from "./en";
 import MultiplayBigSmallGuideVI from "./vi";
 import { GameGuideBase } from "../type";
-import GameConfigs from "./game-configs";
-import { locales, IObjectKeys } from "../../../common/constants";
-import { handleMaxBetChoice } from "../index.helper";
+import { locales } from "../../../common/constants";
+import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("multiplay-big-small", project, setConfigs);
+    };
+
+    const getDynamicGameConfig = () => {
         if (dynamic) {
-            return gameConfigs;
+            setConfigs(gameConfigs);
         } else {
-            gameConfigs.odds = GameConfigs.odds;
-            return gameConfigs;
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
         }
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
 
     if (locale === locales.en) {
         return (
             <MultiplayBigSmallGuideEN
-                gameConfigs={getGameConfigs()}
+                gameConfigs={configs}
                 gameName={gameNameTranslate}
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
@@ -37,7 +56,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
 
     return (
         <MultiplayBigSmallGuideVI
-            gameConfigs={getGameConfigs()}
+            gameConfigs={configs}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
