@@ -9,6 +9,7 @@ import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -144,7 +145,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -243,6 +244,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 </table>
                             </div>
                         </li>
+                        {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
                 {renderStatistical()}

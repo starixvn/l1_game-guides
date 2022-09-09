@@ -10,6 +10,7 @@ import { StatisticalTable } from "../../../shared/se-die/vi";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die.module.scss";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
+import { renderPromotionNoteVN } from "../../../shared/promotion-note/vi";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -227,8 +228,9 @@ const renderMD5Example = (gameName: string, gameId: any) => {
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime } = props;
     const { odds } = gameConfigs;
+    console.log("SEDIE GUIDE", props);
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
@@ -272,8 +274,10 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                             Tỷ lệ trả thưởng đã bao gồm tiền cược.
                             {renderPayoutTable(odds, maxBetFollowChoice, props?.gameId ?? 0)}
                         </li>
+                        {renderPromotionNoteVN(isInPromotionTime)}
                     </ul>
                 </li>
+
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">

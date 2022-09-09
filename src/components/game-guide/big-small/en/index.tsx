@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 
 const renderMD5Example = (gameName: string) => {
     return (
@@ -42,7 +43,7 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -97,6 +98,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             initial stake.
                         </li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                        {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

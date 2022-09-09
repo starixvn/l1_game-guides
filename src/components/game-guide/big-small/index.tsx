@@ -20,6 +20,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         isScrollMD5,
         environment,
         project,
+        isInPromotionTime,
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -36,6 +37,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
 
     const getDynamicGameConfig = () => {
         if (dynamic) {
+            gameConfigs.odds = gameConfigs.originalOdds || gameConfigs.odds;
             setConfigs(gameConfigs);
         } else {
             gameConfigs.odds = configs?.odds;
@@ -68,6 +70,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
                 environment={environment}
+                isInPromotionTime={isInPromotionTime}
             />
         );
     }
@@ -79,6 +82,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
             environment={environment}
+            isInPromotionTime={isInPromotionTime}
         />
     );
 };

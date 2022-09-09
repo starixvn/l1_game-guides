@@ -10,6 +10,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     isScrollMD5?: boolean;
     environment?: string;
     project?: string;
+    isInPromotionTime?: boolean;
 };
 
 export type GameGuideBase = {
@@ -24,6 +25,7 @@ export type GameGuideBase = {
     isScrollMD5?: boolean;
     environment?: string;
     project?: string;
+    isInPromotionTime?: boolean;
 };
 
 export interface GameConfigsBaseProps {
@@ -36,4 +38,5 @@ export type GameConfigs = {
     maxBet: number;
     minBet: number;
     odds?: any;
+    originalOdds?: any;
 };

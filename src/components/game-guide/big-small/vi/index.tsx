@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderPromotionNoteVN } from "../../../shared/promotion-note/vi";
 
 const renderMD5Example = (gameName: string) => {
     return (
@@ -43,7 +43,7 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -97,6 +97,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là 1 ăn {odds?.big}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        {renderPromotionNoteVN(isInPromotionTime)}
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

@@ -17,6 +17,7 @@ export type GameConfigs = {
     maxBet: number;
     minBet: number;
     odds: any;
+    originalOdds?: any;
 };
 
 const CheckIsInteger = (number: string | number | object) => {
@@ -65,6 +66,7 @@ const Home = () => {
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
+    const [isInPromotionTime, setIsInPromotionTime] = useState<boolean>(false);
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
@@ -80,13 +82,13 @@ const Home = () => {
 
         if (router.isReady) {
             const queryParams: object | any = router.query;
-
             const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env);
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
             setEnvironment(env);
             setName(queryParams?.name);
+            setIsInPromotionTime(queryParams?.p === "true");
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {
@@ -115,6 +117,7 @@ const Home = () => {
         isScrollMD5,
         isGetGameConfigs,
         environment,
+        isInPromotionTime,
     };
 
     const gameGuideComponent = <GameGuide {...props} />;

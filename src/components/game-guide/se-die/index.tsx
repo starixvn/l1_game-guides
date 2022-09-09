@@ -29,8 +29,19 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment, project } =
-        props;
+    const {
+        id,
+        locale,
+        userStakeLevel,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        isGetGameConfigs,
+        isScrollMD5,
+        environment,
+        project,
+        isInPromotionTime,
+    } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
@@ -55,6 +66,7 @@ const SeDieGuide = (props: GameGuideBase) => {
 
     const getDynamicGameConfig = () => {
         if (dynamic) {
+            gameConfigs.odds = gameConfigs.originalOdds || gameConfigs.odds;
             setConfigs(gameConfigs);
         } else {
             gameConfigs.odds = configs?.odds;
@@ -87,6 +99,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
+        isInPromotionTime: isInPromotionTime,
     };
 
     switch (locale) {

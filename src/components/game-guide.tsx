@@ -16,6 +16,7 @@ type Props = {
     isGetGameConfigs?: boolean;
     isScrollMD5?: boolean;
     environment?: string;
+    isInPromotionTime?: boolean;
 };
 
 const BigSmallGuide = dynamic(() => import("./game-guide/big-small"));
@@ -51,7 +52,9 @@ const WayToGoalGuide = dynamic(() => import("./game-guide/way-to-goal"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 export const GameGuide: React.FC<Props> = (props) => {
-    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
+    const { gameId, userStakeLevel, name, locale, gameConfigs, dynamic, isGetGameConfigs, isScrollMD5, environment, isInPromotionTime } =
+        props;
+
     const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
     const gameGuideProps = {
@@ -65,6 +68,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         isScrollMD5,
         environment,
         project: appSettings.system,
+        isInPromotionTime: isInPromotionTime,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {
