@@ -3,7 +3,7 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { KenoMatchMD5, minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
+import { minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import Styles from "../keno-match.module.scss";
 
@@ -373,20 +373,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
     );
 };
 
-const md5Title = () => {
-    return (
-        <>
-            is a different version of Keno Match, with a new feature
-            <a href="#md5" className="md5-title">
-                <strong> MD5 (Message-Digest algorithm 5) </strong>
-            </a>
-            that allows players to check the fairness and authenticity of every game result.
-        </>
-    );
-};
-
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -394,11 +382,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}{" "}
-                        {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0])
-                            ? md5Title()
-                            : "is a completely new version of the traditional Keno game."}{" "}
-                        The game consists of 2 sets of numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers
+                        {gameName} consists of 2 sets of numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers
                         (from 01 to 80). The system will randomly draw 20 numbers (no duplicates) for each team, of which 10 numbers are
                         drawn for “First Half” and 10 numbers are drawn for “Full Time”. The object of this game is to predict the total
                         score of the numbers drawn for each team.
@@ -407,63 +391,59 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
                 <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
-                {KenoMatchMD5.includes(gameId ? gameId : KenoMatchMD5[0]) && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5EN()}
-                        <div>
-                            <strong>Example</strong>: check the authenticity and transparency of First Half’s results
-                            <ul className="desc">
-                                <li>
-                                    <strong>Step 1</strong>: Copy the MD5 string before the First Haft’s result is announced.
-                                    <div className={Styles["md5-section"]}>
-                                        <span className={`${Styles["text"]}`}>
-                                            <strong>MD5:</strong> 8489717e21867fa5420b055e5abd2b46
-                                        </span>
-                                        <div className={Styles["copy-box"]}>
-                                            <span className={Styles["copy-text"]}>Copy</span>
-                                        </div>
+                <li id="md5" className="guide-item">
+                    {renderMD5EN()}
+                    <div className="content">
+                        <strong>Example</strong>: check the authenticity and transparency of First Half’s results of {gameName}
+                        <ul className="desc">
+                            <li>
+                                <strong>Step 1</strong>: Copy the MD5 Key before the First Haft’s result is announced.
+                                <div className={Styles["md5-section"]}>
+                                    <span className={`${Styles["text"]}`}>
+                                        <strong>MD5 Key:</strong> 8489717e21867fa5420b055e5abd2b46
+                                    </span>
+                                    <div className={Styles["copy-box"]}>
+                                        <span className={Styles["copy-text"]}>Copy</span>
                                     </div>
-                                </li>
-                                <li>
-                                    <strong>Step 2</strong>: Copy key string after the system publishes the Frist Half’s result.
-                                    <div className={Styles["md5-section"]}>
-                                        <span className={`${Styles["text"]}`}>
-                                            <strong>Key:</strong> {`{`}
-                                            <span className={Styles["blue"]}>363</span>;<span className={Styles["red"]}>467</span>
-                                            {`}_{#26907421fad9b51da1169691982}`}
-                                        </span>
-                                        <div className={Styles["copy-box"]}>
-                                            <span className={Styles["copy-text"]}>Copy</span>
-                                        </div>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Step 2</strong>: Copy Result after the system publishes the Frist Half’s result.
+                                <div className={Styles["md5-section"]}>
+                                    <span className={`${Styles["text"]}`}>
+                                        <strong>Result:</strong> {`{`}
+                                        <span className={Styles["blue"]}>363</span>;<span className={Styles["red"]}>467</span>
+                                        {`}_{#26907421fad9b51da1169691982}`}
+                                    </span>
+                                    <div className={Styles["copy-box"]}>
+                                        <span className={Styles["copy-text"]}>Copy</span>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are first haft
-                            result of Team Blue and Team Red respectively
-                            <ul className="desc">
-                                <li>
-                                    <strong>Step 3</strong>: Go to{" "}
-                                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                        https://md5.services/
-                                    </a>{" "}
-                                    and paste the key string into the MD5 box
-                                    <div className={Styles["wrapper-img"]}>
-                                        <img src={`/static/images/keno-match/md5-hash.png#1`} alt="md5-copy" loading="eager" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <strong>Step 4</strong>: Press the “hash darling, hash!” button and compare the newly generated checksum
-                                    MD5 string with the MD5 string in Step 1
-                                    <div className={Styles["wrapper-img"]}>
-                                        <img src={`/static/images/keno-match/md5.png#1`} alt="md5-copy" loading="eager" />
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                )}
+                                </div>
+                                <div>
+                                    Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are
+                                    first haft result of Team Blue and Team Red respectively
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Step 3</strong>: Go to{" "}
+                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                                    https://md5.services/
+                                </a>{" "}
+                                and paste the Result into the MD5 box
+                                <div className={Styles["wrapper-img"]}>
+                                    <img src={`/static/images/keno-match/md5-hash.png#1`} alt="md5-copy" loading="eager" />
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Step 4</strong>: Press the “hash darling, hash!” button and compare the newly generated checksum MD5
+                                string with the MD5 Key in Step 1
+                                <div className={Styles["wrapper-img"]}>
+                                    <img src={`/static/images/keno-match/md5.png#1`} alt="md5-copy" loading="eager" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

@@ -5,6 +5,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { FiveElements } from "../../../../shared/keno/en";
 import { OddsProMaxProps } from "../../../keno-pro-max/type";
+import { renderMD5EN } from "../../../../shared/md5-count-down-timer/en";
+import Styles from "../keno-max.module.scss";
+import { ENVIRONMENT } from "../../../../../common/constants";
 
 const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
@@ -14,7 +17,7 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
                 <li>The winning amount is calculated according to the payout ratio. </li>
                 <li>The Payout includes the initial stake.</li>
                 <li>
-                    All winning amounts are instantly added to your account balance when bets are settled.                   
+                    All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">
                         <table className="table text-center table-small">
                             <thead>
@@ -251,8 +254,58 @@ const bettingOptions = () => {
     );
 };
 
+const renderMD5Example = (gameName: string) => {
+    return (
+        <div className="content">
+            <strong> Example:</strong> check the authenticity and transparency of the {gameName} table
+            <ul className="desc">
+                <li>
+                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <div className={Styles["md5-section"]}>
+                        <span className={`${Styles["text"]}`}>
+                            <strong>MD5 Key:</strong> 520e543659d05eb7024f9f76d85479f7
+                        </span>
+                        <div className={Styles["copy-box"]}>
+                            <span className={Styles["copy-text"]}>Copy</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <strong>Step 2:</strong> Copy Result after the system publishes the result.
+                    <div className={Styles["md5-section"]}>
+                        <span className={`${Styles["text"]}`}>
+                            <strong>Result:</strong> {"{363}_{#26907421fad9b51da1169691982}"}
+                        </span>
+                        <div className={Styles["copy-box"]}>
+                            <span className={Styles["copy-text"]}>Copy</span>
+                        </div>
+                    </div>
+                    <div>Note: 363 is the total point of the game result.</div>
+                </li>
+                <li>
+                    <strong>Step 3:</strong> Go to{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    and paste the Result into the MD5 box.
+                    <div className={Styles["wrapper-img-hash"]}>
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step3.png?v=1" alt="hash-darling" />
+                    </div>
+                </li>
+                <li>
+                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
+                    the MD5 Key in Step 1.
+                    <div className={Styles["wrapper-img"]}>
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step4.png?v=1" alt="md5-checksum" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    );
+};
+
 const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -270,13 +323,21 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     <ul className="desc">
                         <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled. </li>
                         <li>
-                            Once the betting time has expired, the system will randomly draw 20 numbered balls and the result will be shown.
+                            Once the betting time has expired,
+                            {environment === ENVIRONMENT.sc ? " the system will randomly draw 10 numbered balls and " : " "}
+                            the result will be shown.
                         </li>
                         <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
                 <li className="guide-item">{payouts(odds, maxBetFollowChoice)}</li>
+                {environment === ENVIRONMENT.sm && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

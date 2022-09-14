@@ -8,7 +8,7 @@ import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.hel
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, environment } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -71,8 +71,22 @@ const KenoMaxGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <KenoMaxGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return (
+            <KenoMaxGuideEN
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                environment={environment}
+            />
+        );
     }
-    return <KenoMaxGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return (
+        <KenoMaxGuideVI
+            gameConfigs={configs}
+            gameName={gameNameTranslate}
+            maxBetFollowChoice={maxBetFollowChoice}
+            environment={environment}
+        />
+    );
 };
 export default KenoMaxGuide;

@@ -34,7 +34,7 @@ export const renderMD5EN = () => {
                         </li>
                         <li>
                             <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated
-                            <strong> checksum MD5</strong> string with the MD5 string in <strong>Step 1</strong>.
+                            <strong> checksum MD5</strong> string with the MD5 Key in <strong>Step 1</strong>.
                         </li>
                     </ul>
                 </li>

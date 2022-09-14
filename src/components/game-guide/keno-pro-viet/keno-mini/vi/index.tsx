@@ -3,8 +3,11 @@ import React from "react";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { GameGuideProps } from "../../../type";
 import { renderTermsAndConditionsVI } from "../../../../shared";
+import { renderMD5VI } from "../../../../shared/md5-count-down-timer/vi";
+import Styles from "../keno-mini.module.scss";
+import { ENVIRONMENT } from "../../../../../common/constants";
 
-const renderGameRule = (maxBet: string | undefined) => {
+const renderGameRule = (maxBet: string | undefined, environment: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -19,8 +22,8 @@ const renderGameRule = (maxBet: string | undefined) => {
                     {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
-                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, hệ thống sẽ chọn
-                    ngẫu nhiên 10 quả bóng và kết quả sẽ được hiển thị.
+                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược,
+                    {environment === ENVIRONMENT.sc ? " hệ thống sẽ chọn ngẫu nhiên 10 quả bóng và" : ""} kết quả sẽ được hiển thị.
                 </li>
             </ul>
         </li>
@@ -172,8 +175,59 @@ const bettingOptions = () => {
     );
 };
 
+const renderMD5Example = (gameName: string) => {
+    return (
+        <div className="content">
+            <strong> Ví dụ:</strong> Kiểm tra tính minh bạch trong kết quả của bàn {gameName}
+            <ul className="desc">
+                <li>
+                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
+                    <div className={Styles["md5-section"]}>
+                        <span className={`${Styles["text"]}`}>
+                            <strong>Chuỗi MD5:</strong> f2bbd32524fe6e2e41eaaaa0eacd6d86
+                        </span>
+                        <div className={Styles["copy-box"]}>
+                            <span className={Styles["copy-text"]}>Copy</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi hệ thống công bố kết quả.
+                    <div className={Styles["md5-section"]}>
+                        <span className={`${Styles["text"]}`}>
+                            <strong>Kết Quả:</strong> {"{237}_{#26907421fad9b51da1169691982}"}
+                        </span>
+                        <div className={Styles["copy-box"]}>
+                            <span className={Styles["copy-text"]}>Copy</span>
+                        </div>
+                    </div>
+                    <div>Trong đó 237 là tổng điểm của các quả banh.</div>
+                </li>
+                <li>
+                    <strong>Bước 3:</strong> Truy cập{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    và dán Kết Quả vừa copy vào ô MD5.
+                    <div className={Styles["wrapper-img-hash"]}>
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step3.png?v=1" alt="hash-darling" />
+                    </div>
+                </li>
+                <li>
+                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
+                    1.
+                    <div className={Styles["wrapper-img-hash"]}>
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step4.png?v=1" alt="md5-checksum" />
+                    </div>
+                </li>
+            </ul>
+            Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.
+        </div>
+    );
+};
+
 const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     console.log(gameName, odds);
 
@@ -187,13 +241,13 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         ngẫu nhiên 10 quả bóng trong số 40 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 10 quả bóng này.{" "}
                     </p>
                 </li>
-                {renderGameRule(maxBetFollowChoice?.maxBetMain)}
+                {renderGameRule(maxBetFollowChoice?.maxBetMain, environment)}
                 {bettingOptions()}
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>                                                  
+                        <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -260,9 +314,14 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                 </tbody>
                             </table>
                         </div>
-                                               
                     </ul>
                 </li>
+                {environment === ENVIRONMENT.sm && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5VI()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

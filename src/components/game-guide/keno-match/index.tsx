@@ -13,7 +13,6 @@ export const minPayoutBlue = 1.06;
 export const minPayoutRed = 1.06;
 export const minPayoutOver = 1.05;
 export const minPayoutUnder = 1.04;
-export const KenoMatchMD5 = [37];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;

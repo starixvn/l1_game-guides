@@ -79,3 +79,23 @@
 .red {
     color: #ff4352;
 }
+
+.wrapper-img,
+.wrapper-img-hash {
+    img {
+        width: 100%;
+    }
+}
+.wrapper-img {
+    border: 1px solid #000;
+    margin: 0 auto;
+    max-width: 42rem;
+    max-height: 11rem;
+}
+
+.wrapper-img-hash {
+    border: 1px solid #000;
+    margin: 0 auto;
+    max-width: 42rem;
+    max-height: 20rem;
+}
