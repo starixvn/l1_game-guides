@@ -182,5 +182,9 @@
     "55": {
         "id": 55,
         "gameName": "UnbalancedBigSmall4"
+    },
+    "49": {
+        "id": 49,
+        "gameName": "WayToGoal"
     }
 }
