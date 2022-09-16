@@ -104,7 +104,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=3`}
+                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=4`}
                         alt="md5-string"
                     />
                 </li>
@@ -112,7 +112,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=3`}
+                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=4`}
                         alt="md5-result"
                     />
                     <div>Note: Red and white correspond to two sides of the button.</div>

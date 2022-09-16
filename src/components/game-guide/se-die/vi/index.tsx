@@ -186,7 +186,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=3`}
+                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=4`}
                         alt="md5-string"
                     />
                 </li>
@@ -194,7 +194,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=3`}
+                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=4`}
                         alt="md5-result"
                     />
                     <div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>
