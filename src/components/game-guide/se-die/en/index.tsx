@@ -3,13 +3,7 @@ import React, { useEffect } from "react";
 import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import {
-    renderFourRed,
-    renderFourWhite,
-    renderOneRedThreeWhite,
-    renderThreeRedOneWhite,
-    renderTwoRedTwoWhite,
-} from "../../../shared/dot";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
@@ -97,7 +91,9 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (gameName: string, gameId: any) => {
+    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
+
     return (
         <>
             <div className="content">
@@ -106,11 +102,19 @@ const renderMD5Example = (gameName: string) => {
             <ul className="desc">
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step1_en.png?v=3" alt="md5-string" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=3`}
+                        alt="md5-string"
+                    />
                 </li>
                 <li>
                     <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step2_en.png?v=3" alt="md5-result" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=3`}
+                        alt="md5-result"
+                    />
                     <div>Note: Red and white correspond to two sides of the button.</div>
                 </li>
                 <li>
@@ -231,7 +235,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}
-                        {renderMD5Example(gameName)}
+                        {renderMD5Example(gameName, gameId)}
                     </li>
                 )}
 

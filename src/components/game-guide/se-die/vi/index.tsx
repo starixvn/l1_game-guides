@@ -3,13 +3,7 @@ import React, { useEffect } from "react";
 import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderTermsAndConditionsVI } from "../../../shared";
-import {
-    renderFourRed,
-    renderFourWhite,
-    renderOneRedThreeWhite,
-    renderThreeRedOneWhite,
-    renderTwoRedTwoWhite,
-} from "../../../shared/dot";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import { StatisticalTable } from "../../../shared/se-die/vi";
@@ -180,7 +174,8 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (gameName: string, gameId: any) => {
+    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
     return (
         <>
             <div className="content">
@@ -189,11 +184,19 @@ const renderMD5Example = (gameName: string) => {
             <ul className="desc">
                 <li>
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step1_vi.png?v=3" alt="md5-string" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=3`}
+                        alt="md5-string"
+                    />
                 </li>
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step2_vi.png?v=3" alt="md5-result" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=3`}
+                        alt="md5-result"
+                    />
                     <div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>
                 </li>
                 <li>
@@ -262,7 +265,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
                         {renderMD5VI()}
-                        {renderMD5Example(gameName)}
+                        {renderMD5Example(gameName, gameId)}
                     </li>
                 )}
 
