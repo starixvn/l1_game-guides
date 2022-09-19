@@ -147,7 +147,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
             case 56:
             case 57:
             case 58:
-                return " is an enhanced version of the Mini Se Die game that allows you to play 4 games (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                return " -  a new version with “Multiplay” feature that allows you to play 4 games (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:

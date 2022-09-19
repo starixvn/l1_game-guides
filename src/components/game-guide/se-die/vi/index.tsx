@@ -186,7 +186,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=4`}
+                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=5`}
                         alt="md5-string"
                     />
                 </li>
@@ -194,7 +194,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=4`}
+                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=5`}
                         alt="md5-result"
                     />
                     <div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>
@@ -230,7 +230,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
             case 56:
             case 57:
             case 58:
-                return "là phiên bản mới của Xóc Đĩa Mini với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
+                return " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
             case 22:
                 return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
             default:
