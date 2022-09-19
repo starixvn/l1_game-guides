@@ -104,7 +104,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=4`}
+                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
                         alt="md5-string"
                     />
                 </li>
@@ -112,7 +112,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=4`}
+                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
                         alt="md5-result"
                     />
                     <div>Note: Red and white correspond to two sides of the button.</div>
@@ -123,12 +123,20 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                         https://md5.services/
                     </a>{" "}
                     and paste the Result into the MD5 box.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step3_en.png?v=1" alt="hash-darling" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+                        alt="hash-darling"
+                    />
                 </li>
                 <li>
                     <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
                     the MD5 string in Step 1.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step4_en.png?v=1" alt="md5-checksum" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+                        alt="md5-checksum"
+                    />
                 </li>
             </ul>
         </>
