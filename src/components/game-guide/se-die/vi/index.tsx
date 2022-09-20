@@ -232,13 +232,18 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "là bản rút gọn của trò Xóc Đĩa. "
+                : " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
+
         switch (gameId) {
             case 9:
             case 56:
             case 57:
             case 58:
-                return " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
+                return miniSeDieDescription;
             case 22:
                 return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
             default:
@@ -252,7 +257,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameName} {gameDescription(environment)}
                         Trò chơi có luật chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế 2 mặt đỏ
                         và trắng. Người chơi sẽ đặt cược vào các lựa chọn (cửa) có sẵn. Kết quả thắng thua sẽ phụ thuộc vào số mặt đỏ hoặc
                         trắng được lật của đồng xu sau khi xóc.

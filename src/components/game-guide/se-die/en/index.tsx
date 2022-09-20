@@ -149,13 +149,19 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "is a compact version of Se Die game with fewer betting options. "
+                : " -  a new version with “Multiplay” feature that allows you to play 4 games (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+
         switch (gameId) {
             case 9:
             case 56:
             case 57:
             case 58:
-                return " -  a new version with “Multiplay” feature that allows you to play 4 games (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                return miniSeDieDescription;
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:
@@ -168,7 +174,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameName} {gameDescription(environment)}
                         The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this
                         game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
