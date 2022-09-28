@@ -13,7 +13,10 @@ const renderGameRule = (maxBet: string | undefined) => {
         <>
             <h2>Cách chơi</h2>
             <ul className="desc">
-                <li>Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi hết thời gian quy định. Nếu kết quả mở ra trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.</li>
+                <li>
+                    Người chơi chọn mệnh giá và nhấp vào lựa chọn bạn muốn đặt cược trước khi hết thời gian quy định. Nếu kết quả mở ra
+                    trùng với lựa chọn của bạn, người chơi sẽ thắng và ngược lại sẽ thua toàn bộ tiền cược nếu lựa chọn sai.
+                </li>
                 <li>
                     Người chơi có thể đặt cược vào một hoặc nhiều lựa chọn cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt
                     cược. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
@@ -56,7 +59,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                     <td>Tài</td>
                                     <td rowSpan={2}>1:{odds?.big}</td>
                                     <td rowSpan={2}>
-                                        {maxBetFollowChoice?.minBetMain} -{maxBetFollowChoice?.maxBetBig}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
                                 </tr>
                                 <tr>
@@ -190,8 +193,8 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                             <img className="format-img auto-center" src="/static/images/sicbo/md5_step3_vi.png?v=1" alt="hash-darling" />
                         </li>
                         <li>
-                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
-                            1.
+                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
+                            ở Bước 1.
                             <img className="format-img auto-center" src="/static/images/sicbo/md5_step4_vi.png?v=1" alt="md5-checksum" />
                         </li>
                     </ul>
