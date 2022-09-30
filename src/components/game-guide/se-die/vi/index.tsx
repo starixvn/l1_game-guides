@@ -236,7 +236,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
         const miniSeDieDescription =
             environment === ENVIRONMENT.sm
                 ? "là bản rút gọn của trò Xóc Đĩa. "
-                : " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
+                : " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 bàn game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
 
         switch (gameId) {
             case 9:
