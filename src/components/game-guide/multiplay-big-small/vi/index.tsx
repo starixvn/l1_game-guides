@@ -103,15 +103,16 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} - tựa game Tài Xỉu không cân cửa hoàn toàn mới. Trò chơi gồm 4 game: Las Vegas, Marina Bay, Macau và
-                        Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. {gameName} cho phép chơi cùng lúc 4 game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6
-                        mặt và người chơi sẽ dự đoán xem kết quả là Tài hay Xỉu.
+                        {gameName} - tựa game Tài Xỉu không cân cửa hoàn toàn mới. Trò chơi gồm 4 bàn game: Las Vegas, Marina Bay, Macau và
+                        Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. {gameName}{" "}
+                        cho phép chơi cùng lúc 4 bàn game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt
+                        và người chơi sẽ dự đoán xem kết quả là Tài hay Xỉu.
                     </p>
                 </li>
                 <li className="guide-item">
                     <h2>Cách chơi</h2>
                     <ul className="desc">
-                        <li>Với mỗi game, xúc xắc sẽ được lắc trước khi phiên đặt cược bắt đầu.</li>
+                        <li>Với mỗi bàn game, xúc xắc sẽ được lắc trước khi phiên đặt cược bắt đầu.</li>
                         <li>Người chơi dự đoán tổng điểm xúc xắc bằng cách chọn cửa Tài hoặc Xỉu cùng với mức cược mong muốn.</li>
                         <ul className="detail">
                             <li>Tài: tổng điểm 3 viên xúc xắc &gt;= 11</li>

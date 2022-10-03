@@ -80,6 +80,9 @@ export const GameGuide: React.FC<Props> = (props) => {
             case GAMES.SE_DIE:
             case GAMES.MINI_SE_DIE:
             case GAMES.VIP_SE_DIE:
+            case GAMES.MINI_SE_DIE_2:
+            case GAMES.MINI_SE_DIE_3:
+            case GAMES.MINI_SE_DIE_4:
                 return <SeDieGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FISH_PRAWN_CRAB:
                 return <FishPrawnCrabGuide key={`game-${gameId}`} {...gameGuideProps} />;

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
-import { SeDieMini } from "../index";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
+import { GameGuideProps } from "../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -91,7 +91,9 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (gameName: string, gameId: any) => {
+    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
+
     return (
         <>
             <div className="content">
@@ -100,11 +102,19 @@ const renderMD5Example = (gameName: string) => {
             <ul className="desc">
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step1_en.png?v=3" alt="md5-string" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
+                        alt="md5-string"
+                    />
                 </li>
                 <li>
                     <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step2_en.png?v=3" alt="md5-result" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
+                        alt="md5-result"
+                    />
                     <div>Note: Red and white correspond to two sides of the button.</div>
                 </li>
                 <li>
@@ -113,12 +123,20 @@ const renderMD5Example = (gameName: string) => {
                         https://md5.services/
                     </a>{" "}
                     and paste the Result into the MD5 box.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step3_en.png?v=1" alt="hash-darling" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+                        alt="hash-darling"
+                    />
                 </li>
                 <li>
                     <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
                     the MD5 string in Step 1.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step4_en.png?v=1" alt="md5-checksum" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+                        alt="md5-checksum"
+                    />
                 </li>
             </ul>
         </>
@@ -131,10 +149,19 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "is a compact version of Se Die game with fewer betting options. "
+                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+
         switch (gameId) {
             case 9:
-                return " is a compact version of Se Die game with fewer betting options. ";
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:
@@ -147,7 +174,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameName} {gameDescription(environment)}
                         The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this
                         game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
                     </p>
@@ -222,7 +249,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
                         {renderMD5EN()}
-                        {renderMD5Example(gameName)}
+                        {renderMD5Example(gameName, gameId)}
                     </li>
                 )}
 

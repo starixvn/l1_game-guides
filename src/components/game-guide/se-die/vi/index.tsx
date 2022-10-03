@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsVI } from "../../../shared";
-import { SeDieMini } from "../index";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { StatisticalTable } from "../../../shared/se-die/vi";
-import Styles from "../se-die.module.scss";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { StatisticalTable } from "../../../shared/se-die/vi";
+import { GameGuideProps } from "../../type";
+import Styles from "../se-die.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -174,7 +174,8 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (gameName: string, gameId: any) => {
+    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
     return (
         <>
             <div className="content">
@@ -183,11 +184,19 @@ const renderMD5Example = (gameName: string) => {
             <ul className="desc">
                 <li>
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step1_vi.png?v=3" alt="md5-string" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step1_vi.png?v=6`}
+                        alt="md5-string"
+                    />
                 </li>
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step2_vi.png?v=3" alt="md5-result" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step2_vi.png?v=6`}
+                        alt="md5-result"
+                    />
                     <div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>
                 </li>
                 <li>
@@ -196,12 +205,20 @@ const renderMD5Example = (gameName: string) => {
                         https://md5.services/
                     </a>{" "}
                     và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step3_vi.png?v=1" alt="hash-darling" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step3_vi.png?v=1`}
+                        alt="hash-darling"
+                    />
                 </li>
                 <li>
                     <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
                     1.
-                    <img className="format-img auto-center" src="/static/images/sedie/md5_step4_vi.png?v=1" alt="md5-checksum" />
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step4_vi.png?v=1`}
+                        alt="md5-checksum"
+                    />
                 </li>
             </ul>
             <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
@@ -215,10 +232,18 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "là bản rút gọn của trò Xóc Đĩa. "
+                : " - phiên bản Multiplay, với tính năng độc đáo cho phép chơi cùng lúc 4 bàn game (Xóc Đĩa Mini, Xóc Đĩa Mini 2, Xóc Đĩa Mini 3 và Xóc Đĩa Mini 4) với nhiều trải nghiệm mới hấp dẫn. ";
+
         switch (gameId) {
             case 9:
-                return "là bản rút gọn của trò Xóc Đĩa. ";
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
                 return "là phiên bản đặc biệt của trò Xóc Đĩa, với hạn mức cược được nâng cấp, mở rộng. ";
             default:
@@ -232,7 +257,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameName} {gameDescription(environment)}
                         Trò chơi có luật chơi rất đơn giản, chỉ gồm 1 bát úp, 1 đĩa và 4 đồng xu. Trong đó, 4 đồng xu được thiết kế 2 mặt đỏ
                         và trắng. Người chơi sẽ đặt cược vào các lựa chọn (cửa) có sẵn. Kết quả thắng thua sẽ phụ thuộc vào số mặt đỏ hoặc
                         trắng được lật của đồng xu sau khi xóc.
@@ -253,7 +278,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
                         {renderMD5VI()}
-                        {renderMD5Example(gameName)}
+                        {renderMD5Example(gameName, gameId)}
                     </li>
                 )}
 

@@ -99,15 +99,16 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} - the “unbalanced betting pool” version of Big Small that consists of 4 games: Las Vegas, Marina Bay,
-                        Macau, and Monte Carlo, in which Marina Bay and Monte Carlo are turbo versions with shortened betting time. {gameName} allows you to play 4 games at the same time with many exciting new experiences. The game is played with three
-                        dice and the players place bets on whether the total points of the three dice are BIG or SMALL.
+                        {gameName} - the “unbalanced betting pool” version of Big Small that consists of 4 tables: Las Vegas, Marina Bay,
+                        Macau, and Monte Carlo, in which Marina Bay and Monte Carlo are turbo versions with shortened betting time.{" "}
+                        {gameName} allows you to play 4 tables at the same time with many exciting new experiences. The game is played with
+                        three dice and the players place bets on whether the total points of the three dice are BIG or SMALL.
                     </p>
                 </li>
                 <li className="guide-item">
                     <h2>Game Rules</h2>
                     <ul className="desc">
-                        <li>For each game, the dice cup will be shaken at the beginning of the game round.</li>
+                        <li>For each table, the dice cup will be shaken at the beginning of the game round.</li>
                         <li>The players can bet on either BIG or SMALL, but not on both.</li>
                         <ul className="detail">
                             <li>BIG: the player will win if the total points of three dice &gt;= 11</li>
