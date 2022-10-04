@@ -38,7 +38,7 @@ const SeDieGuide = (props: GameGuideBase) => {
     const getLocalGameConfigs = () => {
         let pathName = "";
         switch (id) {
-            case 7:
+            case 9:
                 pathName = "se-die-mini";
                 break;
             case 22:
