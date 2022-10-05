@@ -3,6 +3,6 @@ include:
       ref: updateCIMergeRepo
       file: "gitlab-ci.yml"
 
-    - project: "ci/repos-ci/pentagon_l2_game_guides"
+    - project: "ci/repos-ci/pentagon_l2_game_guides_new"
       ref: master
       file: "gitlab-ci-mixing.yml"
