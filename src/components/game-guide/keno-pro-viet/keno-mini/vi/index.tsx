@@ -7,7 +7,7 @@ import { renderMD5VI } from "../../../../shared/md5-count-down-timer/vi";
 import Styles from "../keno-mini.module.scss";
 import { ENVIRONMENT } from "../../../../../common/constants";
 
-const renderGameRule = (maxBet: string | undefined, environment: string | undefined) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Cách chơi</h2>
@@ -22,8 +22,8 @@ const renderGameRule = (maxBet: string | undefined, environment: string | undefi
                     {maxBet}. <strong>Lưu ý,</strong> không thể hủy cược sau khi đặt.
                 </li>
                 <li>
-                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược,
-                    {environment === ENVIRONMENT.sc ? " hệ thống sẽ chọn ngẫu nhiên 10 quả bóng và" : ""} kết quả sẽ được hiển thị.
+                    Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi. Khi hết thời gian đặt cược, kết quả sẽ được
+                    hiển thị.
                 </li>
             </ul>
         </li>
@@ -175,32 +175,40 @@ const bettingOptions = () => {
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (environment: string | undefined) => {
     return (
         <div className="content">
-            <strong> Ví dụ:</strong> Kiểm tra tính minh bạch trong kết quả của bàn {gameName}
+            <strong> Ví dụ:</strong> Kiểm tra tính minh bạch trong kết quả.
             <ul className="desc">
                 <li>
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
-                    <div className={Styles["md5-section"]}>
-                        <span className={`${Styles["text"]}`}>
-                            <strong>Chuỗi MD5:</strong> f2bbd32524fe6e2e41eaaaa0eacd6d86
-                        </span>
-                        <div className={Styles["copy-box"]}>
-                            <span className={Styles["copy-text"]}>Copy</span>
+                    {environment === ENVIRONMENT.sc ? (
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step1_vi.png?v=1" alt="md5-string" />
+                    ) : (
+                        <div className={Styles["md5-section"]}>
+                            <span className={`${Styles["text"]}`}>
+                                <strong>Chuỗi MD5:</strong> f2bbd32524fe6e2e41eaaaa0eacd6d86
+                            </span>
+                            <div className={Styles["copy-box"]}>
+                                <span className={Styles["copy-text"]}>Copy</span>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </li>
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi hệ thống công bố kết quả.
-                    <div className={Styles["md5-section"]}>
-                        <span className={`${Styles["text"]}`}>
-                            <strong>Kết Quả:</strong> {"{237}_{#26907421fad9b51da1169691982}"}
-                        </span>
-                        <div className={Styles["copy-box"]}>
-                            <span className={Styles["copy-text"]}>Copy</span>
+                    {environment === ENVIRONMENT.sc ? (
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step2_vi.png?v=1" alt="md5-string" />
+                    ) : (
+                        <div className={Styles["md5-section"]}>
+                            <span className={`${Styles["text"]}`}>
+                                <strong>Kết Quả:</strong> {"{237}_{#26907421fad9b51da1169691982}"}
+                            </span>
+                            <div className={Styles["copy-box"]}>
+                                <span className={Styles["copy-text"]}>Copy</span>
+                            </div>
                         </div>
-                    </div>
+                    )}
                     <div>Trong đó 237 là tổng điểm của các quả banh.</div>
                 </li>
                 <li>
@@ -227,9 +235,8 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
+    const { gameConfigs, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
-    console.log(gameName, odds);
 
     return (
         <>
@@ -237,11 +244,11 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là phiên bản RNG Keno rút gọn. Trò chơi bao gồm 40 quả bóng được đánh số từ 1 đến 40, hệ thống sẽ lấy
-                        ngẫu nhiên 10 quả bóng trong số 40 quả bóng. Người chơi sẽ đặt cược và dự đoán tổng điểm của 10 quả bóng này.{" "}
+                        Keno Mini / Keno Mini 2 là phiên bản RNG Keno rút gọn với 40 bóng. Hệ thống sẽ lấy ngẫu nhiên 10 quả bóng trong số
+                        40 quả bóng được đánh số từ 1 đến 40. Người chơi sẽ đặt cược và dự đoán tổng điểm của 10 quả bóng này.
                     </p>
                 </li>
-                {renderGameRule(maxBetFollowChoice?.maxBetMain, environment)}
+                {renderGameRule(maxBetFollowChoice?.maxBetMain)}
                 {bettingOptions()}
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
@@ -316,12 +323,10 @@ const KenoMiniGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         </div>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sm && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5VI()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                <li id="md5" className="guide-item">
+                    {renderMD5VI()}
+                    {renderMD5Example(environment)}
+                </li>
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

@@ -254,32 +254,40 @@ const bettingOptions = () => {
     );
 };
 
-const renderMD5Example = (gameName: string) => {
+const renderMD5Example = (environment: string | undefined) => {
     return (
         <div className="content">
-            <strong> Example:</strong> check the authenticity and transparency of the {gameName} table
+            <strong> Example:</strong> check the authenticity and transparency of the result.
             <ul className="desc">
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <div className={Styles["md5-section"]}>
-                        <span className={`${Styles["text"]}`}>
-                            <strong>MD5 Key:</strong> 520e543659d05eb7024f9f76d85479f7
-                        </span>
-                        <div className={Styles["copy-box"]}>
-                            <span className={Styles["copy-text"]}>Copy</span>
+                    {environment === ENVIRONMENT.sc ? (
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step1_en.png?v=1" alt="md5-string" />
+                    ) : (
+                        <div className={Styles["md5-section"]}>
+                            <span className={`${Styles["text"]}`}>
+                                <strong>MD5 Key:</strong> 520e543659d05eb7024f9f76d85479f7
+                            </span>
+                            <div className={Styles["copy-box"]}>
+                                <span className={Styles["copy-text"]}>Copy</span>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </li>
                 <li>
                     <strong>Step 2:</strong> Copy Result after the system publishes the result.
-                    <div className={Styles["md5-section"]}>
-                        <span className={`${Styles["text"]}`}>
-                            <strong>Result:</strong> {"{363}_{#26907421fad9b51da1169691982}"}
-                        </span>
-                        <div className={Styles["copy-box"]}>
-                            <span className={Styles["copy-text"]}>Copy</span>
+                    {environment === ENVIRONMENT.sc ? (
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step2_en.png?v=1" alt="md5-string" />
+                    ) : (
+                        <div className={Styles["md5-section"]}>
+                            <span className={`${Styles["text"]}`}>
+                                <strong>Result:</strong> {"{363}_{#26907421fad9b51da1169691982}"}
+                            </span>
+                            <div className={Styles["copy-box"]}>
+                                <span className={Styles["copy-text"]}>Copy</span>
+                            </div>
                         </div>
-                    </div>
+                    )}
                     <div>Note: 363 is the total point of the game result.</div>
                 </li>
                 <li>
@@ -305,7 +313,7 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, environment } = props;
+    const { gameConfigs, maxBetFollowChoice, environment } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -313,31 +321,26 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} is an RNG Keno Game with 80 balls. The game is played with 20 numbered balls drawn randomly from 80
-                        numbered balls ranging from 1 to 80. Players place bets on one or more betting options shown on the game table. The
-                        total sum of the 20 numbered balls drawn will determine the player‘s win or loss.
+                        Mega Keno / Mega Keno 2 / Keno North / Keno South /Keno West / Keno East are the RNG Keno with 80 balls. There are
+                        20 balls drawn randomly from 80 numbered balls ranging from 1 to 80. Players place bets on one or more betting
+                        options shown on the game table. The total sum of the 20 numbered balls drawn will determine the player‘s win or
+                        loss.
                     </p>
                 </li>
                 <li className="guide-item">
                     <h2>Game Rules</h2>
                     <ul className="desc">
                         <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled. </li>
-                        <li>
-                            Once the betting time has expired,
-                            {environment === ENVIRONMENT.sc ? " the system will randomly draw 10 numbered balls and " : " "}
-                            the result will be shown.
-                        </li>
+                        <li>Once the betting time has expired, the result will be shown.</li>
                         <li>The maximum total stake per round is {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
                 <li className="guide-item">{payouts(odds, maxBetFollowChoice)}</li>
-                {environment === ENVIRONMENT.sm && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5EN()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                <li id="md5" className="guide-item">
+                    {renderMD5EN()}
+                    {renderMD5Example(environment)}
+                </li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
