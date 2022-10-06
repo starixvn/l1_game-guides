@@ -64,6 +64,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         isGetGameConfigs,
         isScrollMD5,
         environment,
+        project: appSettings.system,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {

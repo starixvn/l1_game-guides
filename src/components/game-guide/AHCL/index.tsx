@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import HeroesSlotGuideEN from "./en";
 import HeroesSlotGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { getGameConfigProject } from "../index.helper";
+import { GameConfigProps } from "./type";
 
 const HeroesSlotGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("AHCL", project, setConfigs);
     };
 
-    if (locale === locales.en) {
-        return <HeroesSlotGuideEN gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs as any);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return <HeroesSlotGuideVI gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+
+    if (locale === locales.en) {
+        return <HeroesSlotGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+    }
+    return <HeroesSlotGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default HeroesSlotGuide;

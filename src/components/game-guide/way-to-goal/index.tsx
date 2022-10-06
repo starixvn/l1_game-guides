@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import GameConfigs from "./game-configs";
 import WayToGoalGuideEN from "./en";
 import WayToGoalGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { getGameConfigProject } from "../index.helper";
+import { GameConfigProps } from "./type";
 
 const WayToGoalGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("way-to-goal", project, setConfigs);
     };
 
-    if (locale === locales.en) {
-        return <WayToGoalGuideEN gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs as any);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return <WayToGoalGuideVI gameConfigs={getGameConfigs() as any} gameName={gameNameTranslate} />;
+
+    if (locale === locales.en) {
+        return <WayToGoalGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+    }
+    return <WayToGoalGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default WayToGoalGuide;

@@ -22,3 +22,9 @@ export const handleMaxBetChoiceKenoPro = (userStakeLevel: UserStakeLevelProps | 
 
     return { maxBetMain, minBetMain, maxBetBig, maxBetGold, maxBetWood, maxBetWater, maxBetFire, maxBetEarth };
 };
+
+export const getGameConfigProject = (path: string, project: string | undefined, config: Function): any => {
+    return import(`./${path}/configs/${project}/game-configs.ts`).then((mod: any) => {
+        config(mod.default);
+    });
+};

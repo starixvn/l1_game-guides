@@ -1,8 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
-import GameConfigsVIP from "../se-die-vip/game-configs";
-import GameConfigsMini from "../se-die-mini/game-configs";
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
 import SeDieGuideTH from "./th";
@@ -12,8 +9,9 @@ import SeDieGuideZH_TW from "./zh_tw";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
+import { getGameConfigProject } from "../index.helper";
 
 export const SeDieVip = [22];
 export const SeDieMini = [9, 56, 57, 58];
@@ -31,41 +29,58 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            switch (id) {
-                case 7:
-                    return GameConfigsMini;
-                case 22:
-                    return GameConfigsVIP;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment, project } =
+        props;
 
-                default:
-                    return GameConfigs;
-            }
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
+
+    const getLocalGameConfigs = () => {
+        let pathName = "";
+        switch (id) {
+            case 9:
+                pathName = "se-die-mini";
+                break;
+            case 22:
+                pathName = "se-die-vip";
+                break;
+
+            default:
+                pathName = "se-die";
+                break;
         }
 
-        if (dynamic) {
-            return gameConfigs;
-        } else {
-            switch (id) {
-                case 7:
-                    gameConfigs.odds = GameConfigsMini.odds;
-                    break;
-                case 22:
-                    gameConfigs.odds = GameConfigsVIP.odds;
-                    break;
+        getGameConfigProject(pathName, project, setConfigs);
+    };
 
-                default:
-                    gameConfigs.odds = GameConfigs.odds;
-                    break;
-            }
-            return gameConfigs;
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
         }
     };
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
+
     const resource = {
-        gameConfigs: getGameConfigs(),
+        gameConfigs: configs,
         userStakeLevel,
         gameName: gameNameTranslate,
         gameId: id,

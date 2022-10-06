@@ -1,41 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
 import HiLoGuideEN from "./en";
 import HiLoGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
-
+import { GameConfigProps } from "../big-small/type";
+import { getGameConfigProject } from "../index.helper";
 
 const HiLoGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            return GameConfigs;
-        }
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
 
-        if (!dynamic) {
-            gameConfigs.odds = GameConfigs.odds;
-        }
-        return gameConfigs;
+    const getLocalGameConfigs = () => {
+        getGameConfigProject("hi-lo", project, setConfigs);
     };
-    if (locale === locales.en) {
-        return (
-            <HiLoGuideEN
-                gameConfigs={getGameConfigs()}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-            />
-        );
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return (
-        <HiLoGuideVI
-            gameConfigs={getGameConfigs()}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-        />
-    );
+    
+    if (locale === locales.en) {
+        return <HiLoGuideEN gameConfigs={configs} userStakeLevel={userStakeLevel} gameName={gameNameTranslate} gameId={id} />;
+    }
+    return <HiLoGuideVI gameConfigs={configs} userStakeLevel={userStakeLevel} gameName={gameNameTranslate} gameId={id} />;
 };
 export default HiLoGuide;

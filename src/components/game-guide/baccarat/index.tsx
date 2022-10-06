@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigs from "./game-configs";
-import GameConfigsVIP from "../baccarat-vip/game-configs";
-import GameConfigsBlockchain from "../blockchain-baccarat/game-configs";
 import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps } from "./type";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
+import { getGameConfigProject } from "../index.helper";
 
 export enum BaccaratId {
     Baccarat = 10,
@@ -28,39 +26,59 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BaccaratGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            switch (id) {
-                case BaccaratId.Baccarat:
-                    return GameConfigs;
-                case BaccaratId.BlockchainBaccarat:
-                    return GameConfigsBlockchain;
-                case BaccaratId.VipBaccarat:
-                    return GameConfigsVIP;
-            }
-        }
-        if (!dynamic) {
-            switch (id) {
-                case BaccaratId.Baccarat:
-                    gameConfigs.odds = GameConfigs.odds;
-                    break;
-                case BaccaratId.BlockchainBaccarat:
-                    gameConfigs.odds = GameConfigsBlockchain.odds;
-                    break;
-                case BaccaratId.VipBaccarat:
-                    gameConfigs.odds = GameConfigsVIP.odds;
-            }
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment, project } =
+        props;
+
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
+
+    const getLocalGameConfigs = () => {
+        let pathName = "";
+        switch (id) {
+            case BaccaratId.Baccarat:
+                pathName = "baccarat";
+                break;
+            case BaccaratId.BlockchainBaccarat:
+                pathName = "blockchain-baccarat";
+                break;
+            case BaccaratId.VipBaccarat:
+                pathName = "baccarat-vip";
+                break;
         }
 
-        return gameConfigs;
+        getGameConfigProject(pathName, project, setConfigs);
     };
 
-    const maxBetFollowChoice = handleMaxBetChoice(userStakeLevel, getGameConfigs());
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
+    }
+
     if (locale === locales.en) {
         return (
             <BaccaratGuideEN
-                gameConfigs={getGameConfigs()}
+                gameConfigs={configs}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
                 gameId={id}
@@ -72,7 +90,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
     }
     return (
         <BaccaratGuideVI
-            gameConfigs={getGameConfigs()}
+            gameConfigs={configs}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
             gameId={id}

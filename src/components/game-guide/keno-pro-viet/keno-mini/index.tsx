@@ -1,36 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import GameConfigsMini from "./game-configs";
-import GameConfigsMini2 from "../keno-mini2/game-configs";
 import KenoMiniGuideEN from "./en";
 import KenoMiniGuideVI from "./vi";
 import { GameGuideBase } from "../../type";
 import { locales } from "../../../../common/constants";
-import { handleMaxBetChoiceKenoPro } from "../../index.helper";
+import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.helper";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const gameMini2Id = [15];
 const KenoMiniGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs } = props;
-    const getGameConfigs = () => {
-        if (!isGetGameConfigs) {
-            if (gameMini2Id.includes(id ?? gameMini2Id[0])) {
-                return GameConfigsMini2;
-            }
-            return GameConfigsMini;
+    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const [configs, setConfigs] = useState<GameConfigProps>();
+    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
+
+    const getLocalGameConfigs = () => {
+        let pathName = "keno-pro-viet/keno-mini";
+        if (gameMini2Id.includes(id ?? gameMini2Id[0])) {
+            pathName = "keno-pro-viet/keno-mini2";
         }
 
-        if (!dynamic) {
-            if (gameMini2Id.includes(id ?? gameMini2Id[0])) {
-                gameConfigs.odds = GameConfigsMini2.odds;
-            }
-            gameConfigs.odds = GameConfigsMini.odds;
-        }
-        return gameConfigs;
+        getGameConfigProject(pathName, project, setConfigs);
     };
-    const maxBetFollowChoice = handleMaxBetChoiceKenoPro(userStakeLevel, getGameConfigs());
-    if (locale === locales.en) {
-        return <KenoMiniGuideEN gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+
+    const getDynamicGameConfig = () => {
+        if (dynamic) {
+            setConfigs(gameConfigs);
+        } else {
+            gameConfigs.odds = configs?.odds;
+            setConfigs(gameConfigs);
+        }
+    };
+
+    useEffect(() => {
+        getLocalGameConfigs();
+    }, []);
+
+    useEffect(() => {
+        if (configs) {
+            if (isGetGameConfigs) {
+                getDynamicGameConfig();
+            }
+            setMaxBetFollowChoice(handleMaxBetChoiceKenoPro(userStakeLevel, configs));
+        }
+    }, [configs]);
+
+    if (!configs) {
+        return <></>;
     }
-    return <KenoMiniGuideVI gameConfigs={getGameConfigs()} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+
+    if (locale === locales.en) {
+        return <KenoMiniGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    }
+    return <KenoMiniGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
 };
 export default KenoMiniGuide;

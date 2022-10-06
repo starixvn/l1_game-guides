@@ -157,7 +157,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         Tài/Xỉu
                                     </td>
                                     <td>Tài</td>
-                                    <td rowSpan={4}>1: {odds?.blue}</td>
+                                    <td rowSpan={4}>1: {odds?.blueBig}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueRedChoice}
                                     </td>

@@ -19,4 +19,5 @@ export default interface AppSettings {
     proxy: ProxySetting;
     sentry: SentryOptions;
     gameSettings: { [id: string]: GameSettingProps };
+    system: string;
 }
