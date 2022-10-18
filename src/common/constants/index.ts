@@ -66,4 +66,5 @@ export const GAMES = {
     MINI_SE_DIE_2: 56,
     MINI_SE_DIE_3: 57,
     MINI_SE_DIE_4: 58,
+    FRUIT_SLOT: 59,
 };
