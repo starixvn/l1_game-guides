@@ -1,13 +1,13 @@
 import React from "react";
 
+import { ENVIRONMENT } from "../../../../../common/constants";
 import { renderTermsAndConditionsVI } from "../../../../shared";
-import { GameConfigProps, MaxBetChoicesProps } from "../../type";
-import { GameGuideProps } from "../../../type";
-import { OddsProMaxProps } from "../../../keno-pro-max/type";
 import { FiveElements } from "../../../../shared/keno/vi";
 import { renderMD5VI } from "../../../../shared/md5-count-down-timer/vi";
+import { OddsProMaxProps } from "../../../keno-pro-max/type";
+import { GameGuideProps } from "../../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-max.module.scss";
-import { ENVIRONMENT } from "../../../../../common/constants";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -314,7 +314,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi hệ thống công bố kết quả.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step2_vi.png?v=1" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step2_vi.png?v=2" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>

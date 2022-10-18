@@ -1,13 +1,13 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../../shared";
-import { GameConfigProps, MaxBetChoicesProps } from "../../type";
-import { GameGuideProps } from "../../../type";
-import { FiveElements } from "../../../../shared/keno/en";
-import { OddsProMaxProps } from "../../../keno-pro-max/type";
-import { renderMD5EN } from "../../../../shared/md5-count-down-timer/en";
-import Styles from "../keno-max.module.scss";
 import { ENVIRONMENT } from "../../../../../common/constants";
+import { renderTermsAndConditionsEN } from "../../../../shared";
+import { FiveElements } from "../../../../shared/keno/en";
+import { renderMD5EN } from "../../../../shared/md5-count-down-timer/en";
+import { OddsProMaxProps } from "../../../keno-pro-max/type";
+import { GameGuideProps } from "../../../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../../type";
+import Styles from "../keno-max.module.scss";
 
 const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
     return (
@@ -277,7 +277,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Step 2:</strong> Copy Result after the system publishes the result.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step2_en.png?v=1" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step2_en.png?v=2" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>
