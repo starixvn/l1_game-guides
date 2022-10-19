@@ -155,7 +155,7 @@ const renderLuckySymbol = () => {
         <li className="guide-item">
             <h2>Biểu Tượng May Mắn</h2>
             <ul className="desc">
-                <li>Khi kết quả quay ra là biểu tượng May Mắn, hệ thống sẽ quay ngẫu nhiên thêm 2 hoặc 3 kết quả, trừ biểu tượng May Mắn. Và các kết quả được quay thêm là không trùng lặp.</li>
+                <li>Khi kết quả quay ra là biểu tượng May Mắn, hệ thống sẽ quay ngẫu nhiên thêm <span className={Styles["text-highlight"]}>2</span> hoặc <span className={Styles["text-highlight"]}>3</span> kết quả, trừ biểu tượng May Mắn. Và các kết quả được quay thêm là không trùng lặp.</li>
                 <li>Kết quả quay thêm được sử dụng để tính toán kết quả thắng thua.</li>
                 <li>Kết quả Tài/ Xỉu sẽ không được quay lại ở vòng May Mắn.</li>    
                 <li>
@@ -199,15 +199,18 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>Cách chơi</h2>
                     <ul className="desc">
                         <li>Người chơi chọn mệnh giá và nhấp vào cửa cược bạn muốn đặt cược trước khi hết thời gian quy định.
-                            <div><strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.</div>
+                            <div><span className={Styles["text-highlight"]}>Lưu ý</span>, không thể hủy cược sau khi đặt.</div>
                         </li>
                         <li>Người chơi có thể đặt cược vào một hoặc nhiều cửa cược cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt cược. Ngoại trừ cửa cược Tài Xỉu, người chơi chỉ có thể đặt cược vào một trong hai cửa.</li>
-                        <li>Tổng tiền cược tối đa cho một phiên là {maxBetFollowChoice?.maxBetMain}.</li>
+                        <li>Tổng tiền cược tối đa cho một phiên là <span className={Styles["text-highlight"]}>{maxBetFollowChoice?.maxBetMain}</span>.</li>
                         <li>Khi thời gian đặt cược kết thúc, hệ thống sẽ bắt đầu quay thưởng để xác định kết quả thắng thua.</li>
-                        <ul className="detail">
-                        <li>Cửa Tài Xỉu: hệ thống chạy ngẫu nhiên các điểm từ 1 đến 14. Số điểm dừng lại cuối cùng sẽ được dùng để tính kết quả.</li>
-                            <li>Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu thượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</li>
-                        </ul>
+                        <div><div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            src="./static/images/fruit-slot/gameguide_bullet.png"
+                            alt="item_star"></img> Cửa Tài Xỉu: hệ thống chạy ngẫu nhiên các điểm từ 1 đến 14. Số điểm dừng lại cuối cùng sẽ được dùng để tính kết quả.</div>
+                            <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            src="./static/images/fruit-slot/gameguide_bullet.png"
+                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu thượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div></div>
+                                                      
                     </ul>
                 </li>
                 <li className="guide-item">
@@ -219,7 +222,7 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         {renderPayoutsTable(odds, locales.vi)}             
                     </ul>
                 </li>   
-                <li>{renderLuckySymbol()}</li>             
+                {renderLuckySymbol()}         
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

@@ -12,7 +12,7 @@ const renderLuckySymbol = () => {
         <li className="guide-item">
             <h2>Lucky Symbols</h2>
             <ul className="desc">
-                <li>When the lucky symbol appears, the system sequentially and randomly generates 2 or 3 more results; except lucky symbols, and the extra generated results are not overlapped.</li>
+                <li>When the lucky symbol appears, the system sequentially and randomly generates <span className={Styles["text-highlight"]}>2</span> or <span className={Styles["text-highlight"]}>3</span> more results; except lucky symbols, and the extra generated results are not overlapped.</li>
                 <li>The extra generated results are used to calculate the game result.</li>
                 <li>Big/Small results will not be regenerated in the lucky spin.</li>                              
                 <li>
@@ -55,15 +55,17 @@ const FruitSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <ul className="desc">
                     <li>
                         Select the chip value you wish to play. All bets must be placed before the betting time expires. 
-                        <div><strong>Please note that</strong> the placed bets cannot be canceled.</div>
+                        <div><span className={Styles["text-highlight"]}>Please note that</span> the placed bets cannot be canceled.</div>
                     </li>
-                        <li>The maximum total stake per round is  {maxBetFollowChoice?.maxBetMain}.</li>
+                        <li>The maximum total stake per round is <span className={Styles["text-highlight"]}>{maxBetFollowChoice?.maxBetMain}</span>.</li>
                         <li>The player can place bets on any available options; except for the Big and Small, the player either bet on one of these two bet options.</li>
                         <li>Once the betting time has expired, the system will randomly generate the game results.
-                            <ul className="detail">
-                                <li>Big/Small result: the system randomly generates a number in a range from 1 to 14.</li>
-                                <li>Symbol results: the system randomly generates a symbol shown on the table.</li>
-                            </ul>
+                            <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            src="./static/images/fruit-slot/gameguide_bullet.png"
+                            alt="item_star"></img> Big/Small result: the system randomly generates a number in a range from 1 to 14.</div>
+                            <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            src="./static/images/fruit-slot/gameguide_bullet.png"
+                            alt="item_star"></img> Symbol results: the system randomly generates a symbol shown on the table.</div>                            
                         </li>
                     </ul>
                 </li>
@@ -72,14 +74,14 @@ const FruitSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <ul className="desc">
                         <li>The winning amount is calculated according to the payout ratio. </li>
                         <li>
-                            <strong>Please note that </strong>the payouts include the initial stake.
+                            <span className={Styles["text-highlight"]}>Please note that</span> the payouts include the initial stake.
                         </li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                         <li>Payouts table:</li>
                         {renderPayoutsTable(odds, locales.en)}
                     </ul>
                 </li>    
-                <li>{renderLuckySymbol()}</li>                 
+                {renderLuckySymbol()}           
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
