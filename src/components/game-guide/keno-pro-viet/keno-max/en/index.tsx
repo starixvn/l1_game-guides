@@ -262,7 +262,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step1_en.png?v=1" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step1_en.png?v=2" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>

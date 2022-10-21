@@ -299,7 +299,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step1_vi.png?v=1" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/mega-keno/md5_step1_vi.png?v=2" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>
