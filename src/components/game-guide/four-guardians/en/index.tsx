@@ -107,12 +107,18 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     "item10",
                     false,
                     false,
-                    [
-                        [5, odds[10][5]],
-                        [4, odds[10][4]],
-                        [3, odds[10][3]],
-                        [2, odds[10][2]],
-                    ],
+                    project === PROJECTS.L1
+                        ? [
+                              [5, odds[10][5]],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ]
+                        : [
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ],
                     project,
                     locale
                 )}
