@@ -198,7 +198,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi hệ thống công bố kết quả.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step2_vi.png?v=2" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step2_vi.png?v=3" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>
