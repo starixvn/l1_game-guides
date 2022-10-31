@@ -144,7 +144,7 @@ export const renderItemSymbol = (
     
     return (
         <div className={Styles["wrapper-symbol"]}> 
-            <img className={`${Styles[itemName]} ${Styles["icon"]}`} src={`${pathSrc}${symbol}.png?v1`} alt={symbol}></img>
+            <img className={`${Styles[itemName]} ${Styles["icon"]}`} src={`${pathSrc}${symbol}.png?v2`} alt={symbol}></img>
             <span>1:{odds?.[itemName]}</span>
         </div>
     );

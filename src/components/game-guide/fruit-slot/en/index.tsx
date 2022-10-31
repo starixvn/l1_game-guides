@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameGuideProps } from "../../type";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { renderPayoutsTable } from "../vi";
 import { locales } from "../../../../common/constants";
 import Styles from "../fruit-slot.module.scss";
@@ -72,10 +72,9 @@ const FruitSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The winning amount is calculated according to the payout ratio. </li>
-                        <li>
-                            <span className={Styles["text-highlight"]}>Please note that</span> the payouts include the initial stake.
-                        </li>
+                        <li>The winning amount is calculated according to the payout ratio. 
+                        <div><span className={Styles["text-highlight"]}>Please note that</span> the payouts include the initial stake.</div>
+                        </li>                        
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                         <li>Payouts table:</li>
                         {renderPayoutsTable(odds, locales.en)}
