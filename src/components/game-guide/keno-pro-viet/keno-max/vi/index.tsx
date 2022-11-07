@@ -325,7 +325,7 @@ const renderMD5Example = (environment: string | undefined) => {
                             </div>
                         </div>
                     )}
-                    <div>Trong đó 363 là tổng điểm của các quả banh.</div>
+                    <div>Trong đó 363 là tổng điểm của các quả bóng.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}

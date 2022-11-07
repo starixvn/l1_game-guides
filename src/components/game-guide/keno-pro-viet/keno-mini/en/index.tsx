@@ -244,7 +244,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step1_en.png?v=1" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step1_en.png?v=2" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>
@@ -259,7 +259,7 @@ const renderMD5Example = (environment: string | undefined) => {
                 <li>
                     <strong>Step 2:</strong> Copy Result after the system publishes the result.
                     {environment === ENVIRONMENT.sc ? (
-                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step2_en.png?v=3" alt="md5-string" />
+                        <img className="format-img auto-center" src="/static/images/keno-mini/md5_step2_en.png?v=4" alt="md5-string" />
                     ) : (
                         <div className={Styles["md5-section"]}>
                             <span className={`${Styles["text"]}`}>
