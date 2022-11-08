@@ -153,7 +153,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
                     alt="red"
                 ></img>
-                <p>{t("threecards:red")}</p>
+                <p>{t<string>("threecards:red")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["black"]}`}>
                 <img
@@ -163,7 +163,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
                     alt="black"
                 ></img>
-                <p>{t("threecards:black")}</p>
+                <p>{t<string>("threecards:black")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["diamond"]}`}>
                 <img
@@ -171,7 +171,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     src="./static/images/three-cards/table_icon_diamond.png"
                     alt="diamond"
                 ></img>
-                <p>{t("threecards:diamonds")}</p>
+                <p>{t<string>("threecards:diamonds")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["heart"]}`}>
                 <img
@@ -180,7 +180,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     alt="heart"
                 ></img>
 
-                <p>{t("threecards:hearts")}</p>
+                <p>{t<string>("threecards:hearts")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["spade"]}`}>
                 <img
@@ -188,7 +188,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     src="./static/images/three-cards/table_icon_spade.png"
                     alt="spade"
                 ></img>
-                <p>{t("threecards:spades")}</p>
+                <p>{t<string>("threecards:spades")}</p>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["club"]}`}>
                 <img
@@ -196,7 +196,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     src="./static/images/three-cards/table_icon_club.png"
                     alt="club"
                 ></img>
-                <p>{t("threecards:clubs")}</p>
+                <p>{t<string>("threecards:clubs")}</p>
             </div>
         </>
     );

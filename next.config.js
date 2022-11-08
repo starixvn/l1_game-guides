@@ -12,10 +12,10 @@ const appSettings = {
 module.exports = {
     i18n,
     publicRuntimeConfig: appSettings,
+    productionBrowserSourceMaps: configs.enableSourceMap,
     generateBuildId: async () => {
         return uuidv4();
     },
-    excludeFile: (str) => /\*.{spec,test}.js/.test(str),
     webpack: (config, options) => {
         if (!options.isServer) {
             config.resolve.alias["@sentry/node"] = "@sentry/browser";
