@@ -201,6 +201,34 @@
     --border-line: #a3d9ff 1px solid;
 }
 
+[data-theme="fruit-slot"] {
+    --primary-color: #ffeb00;
+    --text-color: #fff;
+    --page-background: transparent;
+
+    // scrollbar
+    --scrollbar-background: rgba(185, 122, 69, 0.3);
+    --scrollbar-thumb-background: #b97a45;
+
+    // font-size
+    --font-size: 2.2rem;
+    --font-size-table: 2.2rem;
+
+    // dots
+    --dot-even-text-color: #000;
+    --dot-even-border: #fff;
+    --dot-even-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+    --dot-odd-shadow: 0px 1px 1px rgba(163, 0, 11, 1);
+
+    // table
+    --table-background: #100001;
+    --table-border: #0089c5;
+    --table-color: #fff;
+    --table-header-background: #03161d;
+    --table-header-color: #ffc634;
+    --border-line: #0089c5 1px solid;
+}
+
 html {
     font-size: 10px !important;
     background-color: transparent;

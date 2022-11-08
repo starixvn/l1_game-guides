@@ -209,7 +209,7 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             alt="item_star"></img> Cửa Tài Xỉu: hệ thống chạy ngẫu nhiên các điểm từ 1 đến 14. Số điểm dừng lại cuối cùng sẽ được dùng để tính kết quả.</div>
                             <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
                             src="./static/images/fruit-slot/gameguide_bullet.png"
-                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu thượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div></div>
+                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu tượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div></div>
                                                       
                     </ul>
                 </li>
