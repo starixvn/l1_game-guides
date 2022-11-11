@@ -202,5 +202,9 @@
     "59": {
         "id": 59,
         "gameName": "FruitSlot"
+    },
+    "60": {
+        "id": 60,
+        "gameName": "Fantan"
     }
 }

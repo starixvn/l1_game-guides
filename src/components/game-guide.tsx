@@ -5,6 +5,7 @@ import React from "react";
 import appSettings from "../common/app-settings";
 import { GAMES } from "../common/constants";
 import { UserStakeLevelProps } from "../pages";
+import FantanGuide from "./game-guide/fantan";
 
 type Props = {
     gameId: number;
@@ -50,6 +51,7 @@ const TreasureIslandGuide = dynamic(() => import("./game-guide/treasure-island")
 const MultiplayBigSmallGuide = dynamic(() => import("./game-guide/multiplay-big-small"));
 const WayToGoalGuide = dynamic(() => import("./game-guide/way-to-goal"));
 const FruitSlotGuide = dynamic(() => import("./game-guide/fruit-slot"));
+const FantanGuide = dynamic(() => import("./game-guide/fantan/index"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 export const GameGuide: React.FC<Props> = (props) => {
@@ -161,6 +163,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <WayToGoalGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FRUIT_SLOT:
                 return <FruitSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.FANTAN:
+                return <FantanGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }
