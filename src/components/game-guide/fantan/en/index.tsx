@@ -240,7 +240,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <img className="format-img auto-center" src={`/static/images/fantan/md5_step3_vi.png?v=1`} alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>Step 4:</strong>Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
+                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
                     the MD5 string in Step 1
                     <img className="format-img auto-center" src={`/static/images/fantan/md5_step4_vi.png?v=1`} alt="md5-checksum" />
                 </li>
