@@ -1,3 +1,5 @@
+import { GameConfigsBaseProps } from "../type";
+
 export interface OddsProps {
     even: number;
     odd: number;
@@ -34,16 +36,14 @@ export interface ChoicesMaxBetProps {
 
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds?: OddsProps;
-    maxBetPerChoices: MaxBetChoicesProps;
+    maxBetPerChoices: ChoicesMaxBetProps;
 }
 
 export interface MaxBetChoicesProps {
     maxBetMain: string | number;
     minBetMain: string | number;
-    maxBetSubChoice: string | number;
-    maxBetPlayer: string | number;
-    maxBetEven?: number | string;
-    maxBetFan1?: number | string;
-    maxBetKwok12?: number | string;
-    maxBetChun123?: number | string;
+    maxBetEven: string | number;
+    maxBetFan1: string | number;
+    maxBetKwok12: string | number;
+    maxBetChun123: string | number;
 }

@@ -5,7 +5,7 @@ import { GameGuideProps } from "../../type";
 import Styles from "../fantan.module.scss";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi/index";
 
-const renderGameRule = () => {
+const renderGameRule = (maxBet: string | number | undefined) => {
     return (
         <>
             <h2>Cách chơi</h2>
@@ -16,7 +16,7 @@ const renderGameRule = () => {
                     kết quả thắng thua của phiên đó
                 </li>
                 <li>
-                    <b>Ví du: </b>
+                    <b>Ví dụ: </b>
                     <ul className="detail">
                         <li>
                             Số hạt lấy ngẫu nhiên là 30. Chia các hạt thành từng nhóm, mỗi nhóm 4 hạt:
@@ -49,14 +49,14 @@ const renderGameRule = () => {
                                 </tr>
                                 <tr>
                                     <td>Chẵn</td>
-                                    <td>Số hạt còn lại là số Lẻ</td>
+                                    <td>Số hạt còn lại là số Chẵn</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={4} className="text-center">
                                         Fan
                                     </td>
                                     <td>1 Fan</td>
-                                    <td>Số hạt còn lại là số Lẻ</td>
+                                    <td>Số hạt còn lại là 1</td>
                                 </tr>
                                 <tr>
                                     <td>2 Fan</td>
@@ -120,7 +120,7 @@ const renderGameRule = () => {
                     Người chơi có thể đặt cược ở bất kì cửa cược có sẵn trên bàn; ngoại trừ cửa cược Chẵn và Lẻ, chỉ có thể cược vào một
                     trong hai cửa cược này.
                 </li>
-                <li>Tổng tiền cược tối đa cho một phiên là 2,000</li>
+                <li>Tổng tiền cược tối đa cho một phiên là {maxBet}.</li>
             </ul>
         </>
     );
@@ -228,7 +228,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                 <li>
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src={`/static/images/fantan/md5_step2_vi.png?v=6`} alt="md5-result" />
-                    <div>Trong đó XX tương ứng với số hạt được lấy ngẫu nhiên khi bắt đầu phiên.</div>
+                    <div>Trong đó 40 tương ứng với số hạt được lấy ngẫu nhiên khi bắt đầu phiên.</div>
                 </li>
                 <li>
                     <strong>Bước 3:</strong> Truy cập{" "}
@@ -249,9 +249,9 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     );
 };
 
-const FantanGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, gameId } = props;
-    const { odds, maxBetPerChoices } = gameConfigs;
+const FantanGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
+    const { odds } = gameConfigs;
 
     return (
         <>
@@ -259,12 +259,12 @@ const FantanGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => 
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        “{gameName}” là trò casino có nguồn gốc từ Châu Á. Trò chơi sử dụng 150 hạt màu trắng, sẽ có 14 cửa cược trên bàn
+                        {gameName} là trò casino có nguồn gốc từ Châu Á. Trò chơi sử dụng 150 hạt màu trắng, sẽ có 14 cửa cược trên bàn
                         game. Người chơi sẽ đặt cược và dự đoán kết quả cửa thắng.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(odds, maxBetPerChoices)}
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
+                {renderPayouts(odds, maxBetFollowChoice)}
                 <li id="md5" className="guide-item">
                     {renderMD5VI()}
                     {renderMD5Example(gameName, gameId)}
