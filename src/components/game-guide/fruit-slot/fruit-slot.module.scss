@@ -5,6 +5,10 @@
     height: auto;
 }
 
+.list-space {
+    margin-left: 1rem;
+}
+
 .symbol-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

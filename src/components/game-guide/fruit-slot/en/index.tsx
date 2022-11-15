@@ -60,9 +60,13 @@ const FruitSlotGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         <li>The maximum total stake per round is <span className={Styles["text-highlight"]}>{maxBetFollowChoice?.maxBetMain}</span>.</li>
                         <li>The player can place bets on any available options; except for the Big and Small, the player either bet on one of these two bet options.</li>
                         <li>Once the betting time has expired, the system will randomly generate the game results.
-                            <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            <div style={{marginLeft: "2rem"}}>
+                                <img className={Styles["symbol-mini"]}
                             src="./static/images/fruit-slot/gameguide_bullet.png"
-                            alt="item_star"></img> Big/Small result: the system randomly generates a number in a range from 1 to 14.</div>
+                            alt="item_star"></img> Big/Small result: the system randomly generates a number in a range from 1 to 14.
+                                <div style={{marginLeft: "5rem"}}>✦ Big: from 8 to 14</div>
+                                <div style={{marginLeft: "5rem"}}>✦ Small: from 1 to 7</div>
+                            </div>
                             <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
                             src="./static/images/fruit-slot/gameguide_bullet.png"
                             alt="item_star"></img> Symbol results: the system randomly generates a symbol shown on the table.</div>                            

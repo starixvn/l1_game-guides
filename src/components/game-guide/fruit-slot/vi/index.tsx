@@ -204,12 +204,17 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         <li>Người chơi có thể đặt cược vào một hoặc nhiều cửa cược cùng lúc trong cùng một lượt chơi và không bị giới hạn số lần đặt cược. Ngoại trừ cửa cược Tài Xỉu, người chơi chỉ có thể đặt cược vào một trong hai cửa.</li>
                         <li>Tổng tiền cược tối đa cho một phiên là <span className={Styles["text-highlight"]}>{maxBetFollowChoice?.maxBetMain}</span>.</li>
                         <li>Khi thời gian đặt cược kết thúc, hệ thống sẽ bắt đầu quay thưởng để xác định kết quả thắng thua.</li>
-                        <div><div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
-                            src="./static/images/fruit-slot/gameguide_bullet.png"
-                            alt="item_star"></img> Cửa Tài Xỉu: hệ thống chạy ngẫu nhiên các điểm từ 1 đến 14. Số điểm dừng lại cuối cùng sẽ được dùng để tính kết quả.</div>
+                        <div>
                             <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
                             src="./static/images/fruit-slot/gameguide_bullet.png"
-                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu tượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div></div>
+                            alt="item_star"></img> Cửa Tài Xỉu: hệ thống chạy ngẫu nhiên các điểm từ 1 đến 14. Số điểm dừng lại cuối cùng sẽ được dùng để tính kết quả.
+                                <div style={{marginLeft: "5rem"}}>✦ Tài: từ 8 đến 14</div>
+                                <div style={{marginLeft: "5rem"}}>✦ Xỉu: từ 1 đến 7</div>
+                            </div>
+                            <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
+                            src="./static/images/fruit-slot/gameguide_bullet.png"
+                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu tượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div>
+                        </div>
                                                       
                     </ul>
                 </li>
