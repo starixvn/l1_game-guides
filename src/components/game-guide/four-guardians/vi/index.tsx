@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
 import { PROJECTS } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -36,7 +37,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (odds: number[][], project: string | undefined) => {
+const renderPayouts = (odds: number[][], project: string | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -47,14 +48,14 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine(odds, project, "vi")}
-            {renderPayoutsIconSecondLine(odds, project)}
-            {renderExamplePayouts(odds, project)}
+            {renderPayoutsIconFirstLine(odds, project, fractionalOddsFormat, "vi")}
+            {renderPayoutsIconSecondLine(odds, project, fractionalOddsFormat)}
+            {renderExamplePayouts(odds, project, fractionalOddsFormat)}
         </li>
     );
 };
 
-const renderExamplePayouts = (odds: number[][], project: string | undefined) => {
+const renderExamplePayouts = (odds: number[][], project: string | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <p>
@@ -77,9 +78,9 @@ const renderExamplePayouts = (odds: number[][], project: string | undefined) => 
                                     true,
                                     true,
                                     [
-                                        [5, odds[1][5]],
-                                        [4, odds[1][4]],
-                                        [3, odds[1][3]],
+                                        [5, +formatOdds(odds[1][5], fractionalOddsFormat)],
+                                        [4, +formatOdds(odds[1][4], fractionalOddsFormat)],
+                                        [3, +formatOdds(odds[1][3], fractionalOddsFormat)],
                                     ],
                                     project
                                 )}
@@ -418,7 +419,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 };
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, project } = props;
+    const { gameConfigs, gameName, project, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -440,7 +441,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(odds, project)}
+                {renderPayouts(odds, project, fractionalOddsFormat)}
                 {project === PROJECTS.L2 && renderJackpot()}
                 {renderFreeSpin(odds, project)}
                 {renderBonus(odds, project)}

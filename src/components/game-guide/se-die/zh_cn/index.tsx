@@ -160,7 +160,8 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 红，2 白</td>
-                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>                                                 
+                                                </td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>

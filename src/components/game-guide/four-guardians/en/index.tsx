@@ -5,6 +5,7 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
 import { PROJECTS } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -39,7 +40,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (odds: number[][], project: string | undefined) => {
+const renderPayouts = (odds: number[][], project: string | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Paytable</h2>
@@ -49,9 +50,9 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>
             </ul>
-            {renderPayoutsIconFirstLine(odds, project, "en")}
-            {renderPayoutsIconSecondLine(odds, project)}
-            {renderExamplePayout(odds, project)}
+            {renderPayoutsIconFirstLine(odds, project, fractionalOddsFormat, "en")}
+            {renderPayoutsIconSecondLine(odds, project, fractionalOddsFormat)}
+            {renderExamplePayout(odds, project, fractionalOddsFormat)}
         </li>
     );
 };
@@ -98,7 +99,12 @@ export const renderIconContent = (
     );
 };
 
-export const renderPayoutsIconFirstLine = (odds: number[][], project: string | undefined, locale?: string) => {
+export const renderPayoutsIconFirstLine = (
+    odds: number[][],
+    project: string | undefined,
+    fractionalOddsFormat: boolean | undefined,
+    locale?: string
+) => {
     return (
         <>
             <div className={Styles["icon-container"]}>
@@ -109,15 +115,15 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     false,
                     project === PROJECTS.L1
                         ? [
-                              [5, odds[10][5]],
-                              [4, odds[10][4]],
-                              [3, odds[10][3]],
-                              [2, odds[10][2]],
+                              [5, +formatOdds(odds[10][5], fractionalOddsFormat)],
+                              [4, +formatOdds(odds[10][4], fractionalOddsFormat)],
+                              [3, +formatOdds(odds[10][3], fractionalOddsFormat)],
+                              [2, +formatOdds(odds[10][2], fractionalOddsFormat)],
                           ]
                         : [
-                              [4, odds[10][4]],
-                              [3, odds[10][3]],
-                              [2, odds[10][2]],
+                              [4, +formatOdds(odds[10][4], fractionalOddsFormat)],
+                              [3, +formatOdds(odds[10][3], fractionalOddsFormat)],
+                              [2, +formatOdds(odds[10][2], fractionalOddsFormat)],
                           ],
                     project,
                     locale
@@ -128,9 +134,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     true,
                     false,
                     [
-                        [5, odds[6][5]],
-                        [4, odds[6][4]],
-                        [3, odds[6][3]],
+                        [5, +formatOdds(odds[6][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[6][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[6][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -140,9 +146,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     true,
                     false,
                     [
-                        [5, odds[5][5]],
-                        [4, odds[5][4]],
-                        [3, odds[5][3]],
+                        [5, +formatOdds(odds[5][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[5][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[5][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -152,9 +158,9 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     true,
                     false,
                     [
-                        [5, odds[4][5]],
-                        [4, odds[4][4]],
-                        [3, odds[4][3]],
+                        [5, +formatOdds(odds[4][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[4][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[4][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -163,7 +169,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
     );
 };
 
-export const renderPayoutsIconSecondLine = (odds: number[][], project: string | undefined) => {
+export const renderPayoutsIconSecondLine = (odds: number[][], project: string | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles["icon-container"]}>
@@ -173,9 +179,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], project: string | 
                     true,
                     false,
                     [
-                        [5, odds[3][5]],
-                        [4, odds[3][4]],
-                        [3, odds[3][3]],
+                        [5, +formatOdds(odds[3][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[3][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[3][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -185,9 +191,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], project: string | 
                     true,
                     true,
                     [
-                        [5, odds[2][5]],
-                        [4, odds[2][4]],
-                        [3, odds[2][3]],
+                        [5, +formatOdds(odds[2][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[2][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[2][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -197,9 +203,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], project: string | 
                     true,
                     true,
                     [
-                        [5, odds[1][5]],
-                        [4, odds[1][4]],
-                        [3, odds[1][3]],
+                        [5, +formatOdds(odds[1][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[1][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[1][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -209,9 +215,9 @@ export const renderPayoutsIconSecondLine = (odds: number[][], project: string | 
                     true,
                     true,
                     [
-                        [5, odds[0][5]],
-                        [4, odds[0][4]],
-                        [3, odds[0][3]],
+                        [5, +formatOdds(odds[0][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[0][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[0][3], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -221,10 +227,10 @@ export const renderPayoutsIconSecondLine = (odds: number[][], project: string | 
                     false,
                     false,
                     [
-                        [5, odds[9][5]],
-                        [4, odds[9][4]],
-                        [3, odds[9][3]],
-                        [2, odds[9][2]],
+                        [5, +formatOdds(odds[9][5], fractionalOddsFormat)],
+                        [4, +formatOdds(odds[9][4], fractionalOddsFormat)],
+                        [3, +formatOdds(odds[9][3], fractionalOddsFormat)],
+                        [2, +formatOdds(odds[9][2], fractionalOddsFormat)],
                     ],
                     project
                 )}
@@ -271,7 +277,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
     );
 };
 
-const renderExamplePayout = (odds: number[][], project: string | undefined) => {
+const renderExamplePayout = (odds: number[][], project: string | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <p>
@@ -294,9 +300,9 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                     true,
                                     true,
                                     [
-                                        [5, odds[1][5]],
-                                        [4, odds[1][4]],
-                                        [3, odds[1][3]],
+                                        [5, +formatOdds(odds[1][5], fractionalOddsFormat)],
+                                        [4, +formatOdds(odds[1][4], fractionalOddsFormat)],
+                                        [3, +formatOdds(odds[1][3], fractionalOddsFormat)],
                                     ],
                                     project
                                 )}
@@ -626,7 +632,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 };
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameName, gameConfigs, project } = props;
+    const { gameName, gameConfigs, project, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -647,7 +653,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
 
-                {renderPayouts(odds, project)}
+                {renderPayouts(odds, project, fractionalOddsFormat)}
                 {project === PROJECTS.L2 && renderJackpot()}
                 {renderFreeSpin(odds, project)}
                 {renderBonus(odds, project)}

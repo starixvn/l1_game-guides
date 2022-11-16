@@ -8,7 +8,7 @@ import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 
 const WayToGoalGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
@@ -38,8 +38,8 @@ const WayToGoalGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <WayToGoalGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+        return <WayToGoalGuideEN gameConfigs={configs} gameName={gameNameTranslate} fractionalOddsFormat={fractionalOddsFormat} />;
     }
-    return <WayToGoalGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
+    return <WayToGoalGuideVI gameConfigs={configs} gameName={gameNameTranslate} fractionalOddsFormat={fractionalOddsFormat} />;
 };
 export default WayToGoalGuide;

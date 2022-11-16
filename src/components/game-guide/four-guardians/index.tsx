@@ -8,7 +8,7 @@ import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
@@ -38,8 +38,22 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <FourGuardiansGuideEN gameConfigs={configs} gameName={gameNameTranslate} project={project} />;
+        return (
+            <FourGuardiansGuideEN
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                project={project}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        );
     }
-    return <FourGuardiansGuideVI gameConfigs={configs} gameName={gameNameTranslate} project={project} />;
+    return (
+        <FourGuardiansGuideVI
+            gameConfigs={configs}
+            gameName={gameNameTranslate}
+            project={project}
+            fractionalOddsFormat={fractionalOddsFormat}
+        />
+    );
 };
 export default FourGuardiansGuide;

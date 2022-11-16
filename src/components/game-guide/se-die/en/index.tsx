@@ -236,6 +236,9 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <tr>
                                                 <td>2 red, 2 white</td>
                                                 <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
+                                                    1:
+                                                    {formatOdds(odds?.red2, fractionalOddsFormat)}
+                                                </td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
