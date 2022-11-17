@@ -1,12 +1,16 @@
 import React from "react";
 
-import { numberWithCommas } from "../../../../helpers/number-helper";
+import { numberWithCommas, formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { FiveElements } from "../../../shared/keno/en";
 
-const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const payouts = (
+    odds: OddsProMaxProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -29,7 +33,7 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
                             <tbody>
                                 <tr>
                                     <td>Big</td>
-                                    <td rowSpan={4}> 1: {odds?.big}</td>
+                                    <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
@@ -45,35 +49,35 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
                                 </tr>
                                 <tr>
                                     <td>Gold</td>
-                                    <td>1: {odds?.gold}</td>
+                                    <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Wood</td>
-                                    <td>1: {odds?.wood}</td>
+                                    <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Water</td>
-                                    <td>1: {odds?.water}</td>
+                                    <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fire</td>
-                                    <td>1: {odds?.fire}</td>
+                                    <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Earth</td>
-                                    <td>1: {odds?.earth}</td>
+                                    <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                                     </td>
@@ -246,8 +250,8 @@ const bettingOptions = () => {
 };
 
 const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { odds, maxBet } = gameConfigs;
 
     const maxBetRound = numberWithCommas(maxBet);
     return (
@@ -272,7 +276,7 @@ const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
-                <li className="guide-item">{payouts(odds, maxBetFollowChoice)}</li>
+                <li className="guide-item">{payouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
 
                 {renderTermsAndConditionsEN()}
             </ul>

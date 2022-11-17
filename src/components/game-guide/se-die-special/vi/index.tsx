@@ -5,6 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable } from "../../../shared/se-die/vi";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -56,8 +57,8 @@ const renderGameRule = (maxBet: string | undefined) => {
                 </li>
                 <li>Tổng tiền cược tối đa cho 1 phiên là {maxBet}. Lưu ý, không thể hủy cược sau khi đặt.</li>
                 <li>
-                    Kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ được
-                    hiển thị đếm ngược trên bàn chơi.
+                    Kết quả cửa thắng sẽ được hiển thị khi hết thời gian đặt cược. Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm
+                    ngược trên bàn chơi.
                 </li>
                 <li>
                     Nhà cái cân cửa: trong trường hợp tiền đặt cược giữa 2 cửa chênh lệch nhau, số tiền chênh lệch sẽ được hoàn trả vào tài
@@ -71,7 +72,7 @@ const renderGameRule = (maxBet: string | undefined) => {
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -107,7 +108,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <tbody>
                                         <tr>
                                             <td>Chẵn</td>
-                                            <td rowSpan={2}>1:{odds?.even}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                             </td>

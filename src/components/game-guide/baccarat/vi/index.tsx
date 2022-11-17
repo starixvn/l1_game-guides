@@ -9,6 +9,7 @@ import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import Styles from "../baccarat.module.scss";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
     return (
@@ -295,7 +296,7 @@ const renderContentIntroduction = (gameId: number | undefined) => {
 };
 
 const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -438,33 +439,33 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <tbody>
                                         <tr>
                                             <td>Nhà Con</td>
-                                            <td>1: {odds?.player}</td>
+                                            <td>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Nhà Cái</td>
-                                            <td>1: {odds?.banker}</td>
+                                            <td>{formatOdds(odds?.banker, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Tài</td>
-                                            <td>1: {odds?.big}</td>
+                                            <td>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Xỉu</td>
-                                            <td>1: {odds?.small}</td>
+                                            <td>{formatOdds(odds?.small, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Hòa</td>
-                                            <td>1: {odds?.tie}</td>
+                                            <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                             <td rowSpan={3}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Con Đôi</td>
-                                            <td rowSpan={2}>1: {odds?.playerPair}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.playerPair, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Cái Đôi</td>

@@ -25,7 +25,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const RouletteGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -60,8 +60,22 @@ const RouletteGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <RouletteGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return (
+            <RouletteGuideEN
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        );
     }
-    return <RouletteGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return (
+        <RouletteGuideVI
+            gameConfigs={configs}
+            gameName={gameNameTranslate}
+            maxBetFollowChoice={maxBetFollowChoice}
+            fractionalOddsFormat={fractionalOddsFormat}
+        />
+    );
 };
 export default RouletteGuide;

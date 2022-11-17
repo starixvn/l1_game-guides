@@ -9,7 +9,18 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const gameMini2Id = [15];
 const KenoMiniGuide = (props: GameGuideBase) => {
-    const { id, locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, environment } = props;
+    const {
+        id,
+        locale,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        userStakeLevel,
+        isGetGameConfigs,
+        project,
+        environment,
+        fractionalOddsFormat,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -55,6 +66,7 @@ const KenoMiniGuide = (props: GameGuideBase) => {
                 gameName={gameNameTranslate}
                 maxBetFollowChoice={maxBetFollowChoice}
                 environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -64,6 +76,7 @@ const KenoMiniGuide = (props: GameGuideBase) => {
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
             environment={environment}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

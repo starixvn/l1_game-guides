@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { ENVIRONMENT } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { GameGuideProps } from "../../type";
@@ -92,7 +93,7 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -137,7 +138,7 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là 1 ăn {odds?.big}</li>
+                        <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>

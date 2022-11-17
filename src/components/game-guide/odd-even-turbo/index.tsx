@@ -10,7 +10,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 export const OddEvenTurboName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 
 const OddEvenTurboGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -45,9 +45,23 @@ const OddEvenTurboGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <OddEvenTurboGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return (
+            <OddEvenTurboGuideEN
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        );
     }
 
-    return <OddEvenTurboGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return (
+        <OddEvenTurboGuideVI
+            gameConfigs={configs}
+            gameName={gameNameTranslate}
+            maxBetFollowChoice={maxBetFollowChoice}
+            fractionalOddsFormat={fractionalOddsFormat}
+        />
+    );
 };
 export default OddEvenTurboGuide;

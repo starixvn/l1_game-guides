@@ -11,6 +11,7 @@ import { GameGuideProps } from "../../type";
 import Styles from "../se-die.module.scss";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { renderPromotionNoteVN } from "../../../shared/promotion-note/vi";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId = 0) => {
     return (
@@ -116,7 +117,12 @@ const renderStatistical = () => {
     );
 };
 
-const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, gameId: number) => {
+const renderPayoutTable = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    gameId: number,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <div className="table-container">
@@ -131,7 +137,7 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
                     <tbody>
                         <tr>
                             <td>Chẵn</td>
-                            <td rowSpan={2}>1:{odds?.even}</td>
+                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                             </td>
@@ -141,7 +147,7 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
                         </tr>
                         <tr>
                             <td>4 đỏ</td>
-                            <td rowSpan={2}>1:{odds?.red4}</td>
+                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
                             </td>
@@ -151,7 +157,7 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
                         </tr>
                         <tr>
                             <td> 3 đỏ, 1 trắng</td>
-                            <td rowSpan={2}>1:{odds?.red3}</td>
+                            <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                             </td>
@@ -162,7 +168,7 @@ const renderPayoutTable = (odds: OddsProps | undefined, maxBetFollowChoice: MaxB
                         {!SeDieMini.includes(gameId) && (
                             <tr>
                                 <td> 2 đỏ, 2 trắng</td>
-                                <td>1:{odds?.red2}</td>
+                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                 <td rowSpan={2}>
                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                 </td>
@@ -228,9 +234,8 @@ const renderMD5Example = (gameName: string, gameId: any) => {
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
-    console.log("SEDIE GUIDE", props);
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
@@ -272,7 +277,7 @@ const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
                             Tỷ lệ trả thưởng đã bao gồm tiền cược.
-                            {renderPayoutTable(odds, maxBetFollowChoice, props?.gameId ?? 0)}
+                            {renderPayoutTable(odds, maxBetFollowChoice, props?.gameId ?? 0, fractionalOddsFormat)}
                         </li>
                         {renderPromotionNoteVN(isInPromotionTime)}
                     </ul>

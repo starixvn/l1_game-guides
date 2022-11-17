@@ -19,7 +19,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BitcoinMasterGuide = (props: GameGuideBase) => {
-    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameNameTranslate, userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -54,9 +54,23 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <BitcoinMasterGuideEN gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+        return (
+            <BitcoinMasterGuideEN
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        );
     }
 
-    return <BitcoinMasterGuideVI gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} />;
+    return (
+        <BitcoinMasterGuideVI
+            gameConfigs={configs}
+            gameName={gameNameTranslate}
+            maxBetFollowChoice={maxBetFollowChoice}
+            fractionalOddsFormat={fractionalOddsFormat}
+        />
+    );
 };
 export default BitcoinMasterGuide;

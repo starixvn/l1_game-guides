@@ -5,6 +5,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
@@ -168,7 +169,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -190,11 +191,11 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                             <tbody>
                                 <tr>
                                     <td>Blackjack Win</td>
-                                    <td>1:{odds?.blackjack}</td>
+                                    <td>{formatOdds(odds?.blackjack, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Normal Win</td>
-                                    <td>1:{odds?.regular}</td>
+                                    <td>{formatOdds(odds?.regular, fractionalOddsFormat)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -206,7 +207,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
 };
 
 const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslation([gameName.toLocaleLowerCase(), "blackjack"]);
     return (
@@ -241,7 +242,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         <li>A hand containing a Seven (7) and Ace (A) {`=>`} the hand’s value is 18</li>
                     </ul>
                 </li>
-                {renderPayouts(odds)}
+                {renderPayouts(odds, fractionalOddsFormat)}
 
                 <li className="guide-item">
                     <h2>Terms and Conditions</h2>

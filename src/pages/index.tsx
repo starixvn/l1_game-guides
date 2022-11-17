@@ -67,6 +67,8 @@ const Home = () => {
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
     const [isInPromotionTime, setIsInPromotionTime] = useState<boolean>(false);
+    const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
+
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
@@ -89,6 +91,7 @@ const Home = () => {
             setEnvironment(env);
             setName(queryParams?.name);
             setIsInPromotionTime(queryParams?.p === "true");
+            setFractionalOddsFormat(queryParams?.fof === "true");
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {
@@ -118,6 +121,7 @@ const Home = () => {
         isGetGameConfigs,
         environment,
         isInPromotionTime,
+        fractionalOddsFormat,
     };
 
     const gameGuideComponent = <GameGuide {...props} />;

@@ -41,6 +41,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         environment,
         project,
         isInPromotionTime,
+        fractionalOddsFormat,
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -100,6 +101,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         isScrollMD5: isScrollMD5,
         environment,
         isInPromotionTime: isInPromotionTime,
+        fractionalOddsFormat,
     };
 
     switch (locale) {

@@ -38,7 +38,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const KenoMatchGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -79,6 +79,7 @@ const KenoMatchGuide = (props: GameGuideBase) => {
                 gameName={gameNameTranslate}
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -89,6 +90,7 @@ const KenoMatchGuide = (props: GameGuideBase) => {
             gameName={gameNameTranslate}
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

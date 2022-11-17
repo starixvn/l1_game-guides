@@ -4,9 +4,10 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../dragon-tiger.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -71,7 +72,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                     <tbody>
                                         <tr>
                                             <td>Dragon</td>
-                                            <td rowSpan={2}>1:{odds?.dragon}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.dragon, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                             </td>
@@ -82,7 +83,7 @@ const DragonTigerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                         </tr>
                                         <tr>
                                             <td>Tie</td>
-                                            <td>1:{odds?.tie}</td>
+                                            <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTie}
                                             </td>

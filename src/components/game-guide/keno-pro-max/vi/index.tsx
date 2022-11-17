@@ -1,6 +1,5 @@
 import React from "react";
-
-import { numberWithCommas } from "../../../../helpers/number-helper";
+import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -179,7 +178,7 @@ const bettingOptions = () => {
 };
 
 const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -214,7 +213,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                                     <tbody>
                                         <tr>
                                             <td>Tài</td>
-                                            <td rowSpan={4}> 1: {odds?.big}</td>
+                                            <td rowSpan={4}> {formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                             </td>
@@ -230,35 +229,35 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                                         </tr>
                                         <tr>
                                             <td>Kim</td>
-                                            <td>1: {odds?.gold}</td>
+                                            <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Mộc</td>
-                                            <td>1: {odds?.wood}</td>
+                                            <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thủy</td>
-                                            <td>1: {odds?.water}</td>
+                                            <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Hỏa</td>
-                                            <td>1: {odds?.fire}</td>
+                                            <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Thổ</td>
-                                            <td>1: {odds?.earth}</td>
+                                            <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                                             </td>

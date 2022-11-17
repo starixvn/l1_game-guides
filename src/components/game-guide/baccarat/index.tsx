@@ -26,8 +26,19 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const BaccaratGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, isScrollMD5, environment, project } =
-        props;
+    const {
+        id,
+        locale,
+        userStakeLevel,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        isGetGameConfigs,
+        isScrollMD5,
+        environment,
+        project,
+        fractionalOddsFormat,
+    } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
@@ -85,6 +96,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
                 environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -97,6 +109,7 @@ const BaccaratGuide = (props: GameGuideBase) => {
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
             environment={environment}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

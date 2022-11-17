@@ -8,6 +8,8 @@ import { OddsProMaxProps } from "../../../keno-pro-max/type";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-max.module.scss";
+import { ENVIRONMENT } from "../../../../../common/constants";
+import { formatOdds } from "../../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -196,7 +198,11 @@ const bettingOptions = () => {
     );
 };
 
-export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+export const renderWinningOnTable = (
+    odds: OddsProMaxProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <div className="table-container">
@@ -211,7 +217,7 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFo
                     <tbody>
                         <tr>
                             <td>Tài</td>
-                            <td rowSpan={4}> 1: {odds?.big}</td>
+                            <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                             <td rowSpan={4}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                             </td>
@@ -227,35 +233,35 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFo
                         </tr>
                         <tr>
                             <td>Kim</td>
-                            <td>1: {odds?.gold}</td>
+                            <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                             </td>
                         </tr>
                         <tr>
                             <td>Mộc</td>
-                            <td>1: {odds?.wood}</td>
+                            <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                             </td>
                         </tr>
                         <tr>
                             <td>Thủy</td>
-                            <td>1: {odds?.water}</td>
+                            <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                             </td>
                         </tr>
                         <tr>
                             <td>Hỏa</td>
-                            <td>1: {odds?.fire}</td>
+                            <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                             </td>
                         </tr>
                         <tr>
                             <td>Thổ</td>
-                            <td>1: {odds?.earth}</td>
+                            <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                             </td>
@@ -270,7 +276,9 @@ export const renderWinningOnTable = (odds: OddsProMaxProps | undefined, maxBetFo
 export const renderContentKenoMaxOrMini = (
     odds: OddsProMaxProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    environment: string | undefined
+    gameName: string,
+    environment: string | undefined,
+    fractionalOddsFormat: boolean | undefined
 ) => {
     return (
         <>
@@ -279,7 +287,7 @@ export const renderContentKenoMaxOrMini = (
                 <ul className="desc">
                     <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                     <li>Tỷ lệ cược đã bao gồm tiền vốn.</li>
-                    {renderWinningOnTable(odds, maxBetFollowChoice)}
+                    {renderWinningOnTable(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 </ul>
             </li>
             <li id="md5" className="guide-item">
@@ -351,7 +359,7 @@ const renderMD5Example = (environment: string | undefined) => {
 };
 
 const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -367,7 +375,7 @@ const KenoMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
                 {bettingOptions()}
-                {renderContentKenoMaxOrMini(odds, maxBetFollowChoice, environment)}
+                {renderContentKenoMaxOrMini(odds, maxBetFollowChoice, gameName, environment, fractionalOddsFormat)}
             </ul>
         </>
     );

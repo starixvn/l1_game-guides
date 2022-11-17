@@ -5,6 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import Styles from "../keno-match.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
@@ -102,7 +103,11 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -127,7 +132,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={2}>Team Blue/Team Red</td>
                                     <td className="text-start">Team Blue</td>
-                                    <td rowSpan={6}>1: {odds?.blue}</td>
+                                    <td rowSpan={6}>{formatOdds(odds?.blue, fractionalOddsFormat)}</td>
                                     <td rowSpan={6}>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                     </td>
@@ -152,7 +157,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={2}>Team Blue Big/Small</td>
                                     <td className="text-start">Big</td>
-                                    <td rowSpan={4}>1: {odds?.blueBig}</td>
+                                    <td rowSpan={4}>{formatOdds(odds?.blueBig, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueRedChoice}
                                     </td>
@@ -177,7 +182,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -191,7 +196,7 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
                 <li id="md5" className="guide-item">
                     {renderMD5EN()}
                     <div className="content">

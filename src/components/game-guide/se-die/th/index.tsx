@@ -6,6 +6,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -89,7 +90,7 @@ const renderStatistical = () => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
@@ -135,7 +136,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <tbody>
                                         <tr>
                                             <td>ODD</td>
-                                            <td rowSpan={2}>1:{odds?.even}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
@@ -145,7 +146,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>4 red</td>
-                                            <td rowSpan={2}>1:{odds?.red4}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
 
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
@@ -156,7 +157,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>3 red, 1 white</td>
-                                            <td rowSpan={2}>1:{odds?.red3}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
@@ -167,7 +168,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 red, 2 white</td>
-                                                <td>1:{odds?.red2}</td>
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>

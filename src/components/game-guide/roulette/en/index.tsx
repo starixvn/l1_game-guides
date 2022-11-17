@@ -1,14 +1,18 @@
 import React from "react";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
-import {} from "../../../../helpers/number-helper";
+import { formatOdds } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderGameRule = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -40,7 +44,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                             <tbody>
                                 <tr>
                                     <td>Straight Up</td>
-                                    <td>1:{odds?.straightUp}</td>
+                                    <td>{formatOdds(odds?.straightUp, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightUp}
                                     </td>
@@ -48,14 +52,14 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                 </tr>
                                 <tr>
                                     <td>Split</td>
-                                    <td>1:{odds?.split}</td>
+                                    <td>{formatOdds(odds?.split, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSplit}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Street</td>
-                                    <td rowSpan={2}>1:{odds?.street}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.street, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStreet}
                                     </td>
@@ -65,7 +69,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                 </tr>
                                 <tr>
                                     <td>Corner</td>
-                                    <td rowSpan={2}>1:{odds?.corner}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.corner, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetCorner}
                                     </td>
@@ -75,14 +79,14 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                 </tr>
                                 <tr>
                                     <td>Line</td>
-                                    <td>1:{odds?.line}</td>
+                                    <td>{formatOdds(odds?.line, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Column</td>
-                                    <td rowSpan={2}>1:{odds?.dozen}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.dozen, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDozen}
                                     </td>
@@ -92,7 +96,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                 </tr>
                                 <tr>
                                     <td>Red/Black</td>
-                                    <td rowSpan={3}>1:{odds?.redBlack}</td>
+                                    <td rowSpan={3}>{formatOdds(odds?.redBlack, fractionalOddsFormat)}</td>
                                     <td rowSpan={3}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRedBlack}
                                     </td>
@@ -251,7 +255,7 @@ const renderBetChipsNotice = () => {
     );
 };
 
-const renderCallBetTiers = () => {
+const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tiers</span>
@@ -266,7 +270,11 @@ const renderCallBetTiers = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Tiers option, it will cost 6 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -316,7 +324,7 @@ const renderCallBetTiers = () => {
     );
 };
 
-const renderCallBetOrphelins = () => {
+const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -335,7 +343,15 @@ const renderCallBetOrphelins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-orphelins_ex.png" alt="game_guide-orphelins_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide-orphelins_ex.png"
+                        alt="game_guide-orphelins_ex"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-orphelins_ex.png" alt="game_guide-orphelins_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -382,7 +398,7 @@ const renderCallBetOrphelins = () => {
     );
 };
 
-const renderCallBetVoisins = () => {
+const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisins</span>
@@ -402,7 +418,15 @@ const renderCallBetVoisins = () => {
                 choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-voisins_ex.png" alt="game_guide-voisins_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide-voisins_ex.png"
+                        alt="game_guide-voisins_ex"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-voisins_ex.png" alt="game_guide-voisins_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -458,7 +482,7 @@ const renderCallBetVoisins = () => {
     );
 };
 
-const renderCallBetZero = () => {
+const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Zero</span>
@@ -477,7 +501,11 @@ const renderCallBetZero = () => {
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -522,7 +550,7 @@ const renderCallBetZero = () => {
     );
 };
 
-const renderCallBetNeighbors = () => {
+const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
@@ -542,7 +570,15 @@ const renderCallBetNeighbors = () => {
                 for five Straight bets: (36), (13), (27), (6), (34).
             </p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide_neighbors_ex.png" alt="game_guide_neighbors_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide_neighbors_ex.png"
+                        alt="game_guide_neighbors_ex"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide_neighbors_ex.png" alt="game_guide_neighbors_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -588,7 +624,7 @@ const renderCallBetNeighbors = () => {
     );
 };
 
-const renderBettingOptions = () => {
+const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -598,14 +634,18 @@ const renderBettingOptions = () => {
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
             <div className={Styles["wrapper-img-rule"]}>
-                <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                )}
             </div>
             {renderBetChipsNotice()}
         </li>
     );
 };
 
-const renderCallBet = () => {
+const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Call Bet</h2>
@@ -623,11 +663,11 @@ const renderCallBet = () => {
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Types of Call Bet</span>
                     <ul className="style-number-dot-number">
-                        <li className="number-dot-number">{renderCallBetTiers()}</li>
-                        <li className="number-dot-number">{renderCallBetOrphelins()}</li>
-                        <li className="number-dot-number">{renderCallBetVoisins()}</li>
-                        <li className="number-dot-number">{renderCallBetZero()}</li>
-                        <li className="number-dot-number">{renderCallBetNeighbors()}</li>
+                        <li className="number-dot-number">{renderCallBetTiers(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetOrphelins(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetVoisins(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetZero(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetNeighbors(fractionalOddsFormat)}</li>
                     </ul>
                 </li>
             </ul>
@@ -636,7 +676,7 @@ const renderCallBet = () => {
 };
 
 const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -651,9 +691,9 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         into the number you selected, you will win; otherwise, you lose.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice)}</li>
-                {renderBettingOptions()}
-                {renderCallBet()}
+                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
+                {renderBettingOptions(fractionalOddsFormat)}
+                {renderCallBet(fractionalOddsFormat)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

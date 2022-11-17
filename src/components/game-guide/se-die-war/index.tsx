@@ -35,7 +35,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SeDieWarGuide = (props: GameGuideBase) => {
-    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -68,7 +68,7 @@ const SeDieWarGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-    
+
     if (locale === locales.en) {
         return (
             <SeDieGuideEN
@@ -76,6 +76,7 @@ const SeDieWarGuide = (props: GameGuideBase) => {
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
                 maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -85,6 +86,7 @@ const SeDieWarGuide = (props: GameGuideBase) => {
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

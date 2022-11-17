@@ -5,6 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../texas-hold.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
@@ -735,7 +736,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <h2>Trả thưởng</h2>
@@ -770,7 +775,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         </tr>
                         <tr>
                             <td>Ante (Sảnh hoặc cao hơn) </td>
-                            <td>1 : {odds?.AnteBet_flush}</td>
+                            <td>{formatOdds(odds?.AnteBet_flush, fractionalOddsFormat)}</td>
                             <td>
                                 {" "}
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
@@ -778,7 +783,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         </tr>
                         <tr>
                             <td>Call</td>
-                            <td>1 : {odds?.call}</td>
+                            <td>{formatOdds(odds?.call, fractionalOddsFormat)}</td>
                             <td>
                                 {" "}
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
@@ -786,7 +791,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         </tr>
                         <tr>
                             <td>Turn</td>
-                            <td>1 : {odds?.turn}</td>
+                            <td>{formatOdds(odds?.turn, fractionalOddsFormat)}</td>
                             <td>
                                 {" "}
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetTurnBetChoice}
@@ -794,7 +799,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         </tr>
                         <tr>
                             <td>River</td>
-                            <td>1 : {odds?.river}</td>
+                            <td>{formatOdds(odds?.river, fractionalOddsFormat)}</td>
                             <td>
                                 {" "}
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRiverBetChoice}
@@ -928,7 +933,7 @@ export const renderMD5 = () => {
 };
 
 const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, isScrollMD5 } = props;
+    const { gameConfigs, maxBetFollowChoice, isScrollMD5, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     useEffect(() => {
@@ -954,7 +959,7 @@ const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
                 <li id="md5" className="guide-item">
                     {renderMD5()}
                 </li>

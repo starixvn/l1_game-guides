@@ -4,6 +4,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
@@ -28,7 +29,7 @@ const renderHowToPLay = (maxBet: string | undefined) => {
     );
 };
 
-const renderGameRule = (odds: OddsProps | undefined) => {
+const renderGameRule = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Luật Chơi</h2>
@@ -113,22 +114,22 @@ const renderGameRule = (odds: OddsProps | undefined) => {
             <div>
                 <strong>Ví dụ:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds)}</li>
-                    <li>{BettingOptionsSpecial(odds)}</li>
-                    <li>{BettingOptionsHead(odds)}</li>
-                    <li>{BettingOptionsTail(odds)}</li>
-                    <li>{BettingOptions27Sets(odds)}</li>
+                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsSpecial(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined) => {
+const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
-            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng 1:{odds && odds["4Sets"]}</p>
+            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 20</li>
@@ -163,11 +164,11 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
     );
 };
 
-const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
+const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
-            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng 1:{odds?.special}</p>
+            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng {formatOdds(odds?.special, fractionalOddsFormat)}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 30</li>
@@ -201,11 +202,11 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
     );
 };
 
-const BettingOptionsHead = (odds?: OddsProps) => {
+const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
-            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng 1:{odds?.head}</p>
+            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng {formatOdds(odds?.head, fractionalOddsFormat)}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 30</li>
@@ -240,11 +241,11 @@ const BettingOptionsHead = (odds?: OddsProps) => {
     );
 };
 
-const BettingOptionsTail = (odds: OddsProps | undefined) => {
+const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
-            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng 1:{odds?.tail}</p>
+            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng {formatOdds(odds?.tail, fractionalOddsFormat)}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 20</li>
@@ -275,11 +276,11 @@ const BettingOptionsTail = (odds: OddsProps | undefined) => {
         </>
     );
 };
-const BettingOptions27Sets = (odds?: OddsProps) => {
+const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) Cược Lô</div>
-            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng 1:{odds && odds["27Sets"]}</p>
+            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</p>
             <ul className="desc">
                 <li>Tiền cược: 10</li>
                 <li>Tổng cược: 40</li>
@@ -419,7 +420,11 @@ const BettingOptions27Sets = (odds?: OddsProps) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -439,35 +444,35 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <tbody>
                     <tr>
                         <td colSpan={2}>Đề Đầu</td>
-                        <td>1:{odds && odds["4Sets"]}</td>
+                        <td>{formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Đề Đặc Biệt</td>
-                        <td>1:{odds?.special}</td>
+                        <td>{formatOdds(odds?.special, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecial}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đầu</td>
-                        <td>1:{odds?.head}</td>
+                        <td>{formatOdds(odds?.head, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetHead}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Số Đuôi</td>
-                        <td>1:{odds?.tail}</td>
+                        <td>{formatOdds(odds?.tail, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTail}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Lô</td>
-                        <td>1:{odds && odds["27Sets"]}</td>
+                        <td>{formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets27}
                         </td>
@@ -475,7 +480,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     <tr>
                         <td rowSpan={4}>Hai Cửa</td>
                         <td>Tài</td>
-                        <td rowSpan={2}>1:{odds?.others}</td>
+                        <td rowSpan={2}>{formatOdds(odds?.others, fractionalOddsFormat)}</td>
                         <td rowSpan={2}>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
@@ -485,7 +490,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </tr>
                     <tr>
                         <td>Chẵn</td>
-                        <td rowSpan={2}>1:{odds?.others}</td>
+                        <td rowSpan={2}>{formatOdds(odds?.others, fractionalOddsFormat)}</td>
                         <td rowSpan={2}>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
@@ -620,7 +625,7 @@ const renderViewStatistic = () => {
 };
 
 const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -629,9 +634,9 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò chơi Lô Đề cá cược thu hút nhiều người chơi. Trò chơi có luật chơi và cách chơi rất đơn giản, người
-                        chơi đặt cược vào con số bạn yêu thích, kết quả thắng thua sẽ được tính toán bằng cách khớp các số dựa trên 27 kết
-                        quả của 8 giải thưởng.{" "}
+                        {gameName} là trò chơi Lô Đề cá cược thu hút nhiều người chơi. Trò chơi có luật chơi và cách chơi rất đơn giản,
+                        người chơi đặt cược vào con số bạn yêu thích, kết quả thắng thua sẽ được tính toán bằng cách khớp các số dựa trên 27
+                        kết quả của 8 giải thưởng.{" "}
                     </p>
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
@@ -771,8 +776,8 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderHowToPLay(maxBetFollowChoice?.maxBetMain)}
-                {renderGameRule(odds)}
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderGameRule(odds, fractionalOddsFormat)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsVI()}
             </ul>

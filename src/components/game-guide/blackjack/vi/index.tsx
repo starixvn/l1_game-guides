@@ -5,6 +5,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
@@ -149,7 +150,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng </h2>
@@ -168,11 +169,11 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                             <tbody>
                                 <tr>
                                     <td>Thắng với Blackjack</td>
-                                    <td>1:{odds?.blackjack}</td>
+                                    <td>{formatOdds(odds?.blackjack, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Thắng điểm thông thường</td>
-                                    <td>1:{odds?.regular}</td>
+                                    <td>{formatOdds(odds?.regular, fractionalOddsFormat)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -184,7 +185,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
 };
 
 const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslation([gameName.toLocaleLowerCase(), "blackjack"]);
     return (
@@ -222,7 +223,7 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         <li>Blackjack (21 điểm với 2 lá bài đầu tiên) sẽ thắng 21 điểm tạo thành bởi 3 lá bài trở lên.</li>
                     </ul>
                 </li>
-                {renderPayouts(odds)}
+                {renderPayouts(odds, fractionalOddsFormat)}
 
                 <li className="guide-item">
                     <h2>Các quy định trong game</h2>

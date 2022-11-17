@@ -3,9 +3,10 @@ import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -13,7 +14,8 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò chơi đổ xúc xắc, có luật chơi rất đơn giản. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán xem kết quả là Chẵn hay Lẻ.
+                        {gameName} là trò chơi đổ xúc xắc, có luật chơi rất đơn giản. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và
+                        người chơi sẽ dự đoán xem kết quả là Chẵn hay Lẻ.
                     </p>
                 </li>
                 <li className="guide-item">
@@ -55,7 +57,7 @@ const OddEvenTurboGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ trả thưởng khi đặt vào Chẵn, Lẻ là 1 ăn {odds?.even} </li>
+                        <li>Tỷ lệ trả thưởng khi đặt vào Chẵn, Lẻ là {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>

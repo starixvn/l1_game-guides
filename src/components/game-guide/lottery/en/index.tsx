@@ -4,6 +4,7 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../lottery.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
@@ -22,7 +23,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -115,23 +116,23 @@ const renderBettingOptions = (odds: OddsProps | undefined) => {
             <div>
                 <strong>Example:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds)}</li>
-                    <li>{BettingOptionsSpecial(odds)}</li>
-                    <li>{BettingOptionsHead(odds)}</li>
-                    <li>{BettingOptionsTail(odds)}</li>
-                    <li>{BettingOptions27Sets(odds)}</li>
+                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsSpecial(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined) => {
+const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77 with Odds = 1:{odds && odds["4Sets"]}</li>
+                <li>Place bet on two numbers: 07, 77 with Odds = {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -161,12 +162,12 @@ const BettingOptions4Sets = (odds: OddsProps | undefined) => {
         </>
     );
 };
-const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
+const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Special </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 with Odds = 1:{odds?.special}</li>
+                <li>Place bet on three numbers: 00, 62, 79 with Odds = {formatOdds(odds?.special, fractionalOddsFormat)}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 30</li>
             </ul>
@@ -196,12 +197,12 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined) => {
         </>
     );
 };
-const BettingOptionsHead = (odds: OddsProps | undefined) => {
+const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Head</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9 with Odds = 1:{odds?.head}</li>
+                <li>Place bet on three numbers: 0, 6, 9 with Odds = {formatOdds(odds?.head, fractionalOddsFormat)}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 30</li>
             </ul>
@@ -231,12 +232,12 @@ const BettingOptionsHead = (odds: OddsProps | undefined) => {
         </>
     );
 };
-const BettingOptionsTail = (odds: OddsProps | undefined) => {
+const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Tail</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5 with Odds = 1:{odds?.tail}</li>
+                <li>Place bet on two numbers: 0, 5 with Odds = {formatOdds(odds?.tail, fractionalOddsFormat)}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 20</li>
             </ul>
@@ -263,12 +264,12 @@ const BettingOptionsTail = (odds: OddsProps | undefined) => {
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps | undefined) => {
+const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = 1:{odds && odds["27Sets"]}</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</li>
                 <li>Stake = 10</li>
                 <li>Total Stake = 40</li>
             </ul>
@@ -393,16 +394,22 @@ const BettingOptions27Sets = (odds: OddsProps | undefined) => {
                 </tbody>
             </table>
             <p>
-                Number 05 has appeared two times in 27 results. Payout = (10 * {odds ? odds["27Sets"] : 0}) * 2 = {10 * (odds ? odds["27Sets"] : 0) * 2}
+                Number 05 has appeared two times in 27 results. Payout = (10 * {odds ? odds["27Sets"] : 0}) * 2 ={" "}
+                {10 * (odds ? odds["27Sets"] : 0) * 2}
             </p>
             <p>
-                Number 12 has appeared one time in 27 results. Payout = 10 * {odds ? odds["27Sets"]: 0} = {10 * (odds ? odds["27Sets"] : 0)}
+                Number 12 has appeared one time in 27 results. Payout = 10 * {odds ? odds["27Sets"] : 0} ={" "}
+                {10 * (odds ? odds["27Sets"] : 0)}
             </p>
         </>
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -424,7 +431,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <tbody>
                     <tr>
                         <td colSpan={2}>4 Sets</td>
-                        <td>1:{odds && odds["4Sets"]}</td>
+                        <td>{formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
                         </td>
@@ -432,28 +439,28 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </tr>
                     <tr>
                         <td colSpan={2}>Special</td>
-                        <td>1:{odds?.special}</td>
+                        <td>{formatOdds(odds?.special, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecial}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Head</td>
-                        <td>1:{odds?.head}</td>
+                        <td>{formatOdds(odds?.head, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetHead}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>Tail</td>
-                        <td>1:{odds?.tail}</td>
+                        <td>{formatOdds(odds?.tail, fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTail}
                         </td>
                     </tr>
                     <tr>
                         <td colSpan={2}>27 Sets</td>
-                        <td>1:{odds && odds["27Sets"]}</td>
+                        <td>{formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets27}
                         </td>
@@ -461,7 +468,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     <tr>
                         <td rowSpan={4}>Others</td>
                         <td>Big</td>
-                        <td rowSpan={2}>1:{odds?.others}</td>
+                        <td rowSpan={2}>{formatOdds(odds?.others, fractionalOddsFormat)}</td>
                         <td rowSpan={2}>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
@@ -471,7 +478,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </tr>
                     <tr>
                         <td>Odd</td>
-                        <td rowSpan={2}>1:{odds?.others}</td>
+                        <td rowSpan={2}>{formatOdds(odds?.others, fractionalOddsFormat)}</td>
                         <td rowSpan={2}>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetOthers}
                         </td>
@@ -604,7 +611,7 @@ const renderViewStatistic = () => {
 };
 
 const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -755,8 +762,8 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
-                {renderBettingOptions(odds)}
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsEN()}
             </ul>

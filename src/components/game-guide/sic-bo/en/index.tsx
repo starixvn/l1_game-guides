@@ -6,6 +6,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../sic-bo.module.scss";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -25,7 +26,12 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    t: TFunction,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -52,7 +58,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={2}>Big Small</td>
                                     <td>Big</td>
-                                    <td rowSpan={2}>1:{odds?.big}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
@@ -63,7 +69,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Any Triple</td>
                                     <td>Any Triple</td>
-                                    <td>1:{odds?.anyTriple}</td>
+                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                     </td>
@@ -71,18 +77,24 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={3}>Specific Number</td>
                                     <td rowSpan={3}>Bet on any number from 1 to 6</td>
-                                    <td className="text-start">1:{odds?.single} if the chosen number appears once.</td>
+                                    <td className="text-start">
+                                        {formatOdds(odds?.single, fractionalOddsFormat)} if the chosen number appears once.
+                                    </td>
                                     <td rowSpan={3}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">1:{odds?.double} if the chosen number appears twice.</td>
+                                    <td className="text-start">
+                                        {formatOdds(odds?.double, fractionalOddsFormat)} if the chosen number appears twice.
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td className="text-start">1:{odds?.triple} if the chosen number appears on all three dice.</td>
+                                    <td className="text-start">
+                                        {formatOdds(odds?.triple, fractionalOddsFormat)} if the chosen number appears on all three dice.
+                                    </td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t)}
+                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t, fractionalOddsFormat)}
                             </tbody>
                         </table>
                     </div>
@@ -92,13 +104,18 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
     );
 };
 
-export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
+export const renderPayoutsTableOnBody = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    t: TFunction,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <tr>
                 <td rowSpan={14}>{t("sicbo:totalPoints")}</td>
                 <td>4</td>
-                <td rowSpan={2}>1:{odds?.total4}</td>
+                <td rowSpan={2}>{formatOdds(odds?.total4, fractionalOddsFormat)}</td>
                 <td rowSpan={8}>
                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal4}
                 </td>
@@ -108,28 +125,28 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFoll
             </tr>
             <tr>
                 <td>5</td>
-                <td rowSpan={2}>1:{odds?.total5}</td>
+                <td rowSpan={2}>{formatOdds(odds?.total5, fractionalOddsFormat)}</td>
             </tr>
             <tr>
                 <td>16</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td rowSpan={2}>1:{odds?.total6}</td>
+                <td rowSpan={2}>{formatOdds(odds?.total6, fractionalOddsFormat)}</td>
             </tr>
             <tr>
                 <td>15</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td rowSpan={2}>1:{odds?.total7}</td>
+                <td rowSpan={2}>{formatOdds(odds?.total7, fractionalOddsFormat)}</td>
             </tr>
             <tr>
                 <td>14</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td rowSpan={2}>1:{odds?.total8}</td>
+                <td rowSpan={2}>{formatOdds(odds?.total8, fractionalOddsFormat)}</td>
                 <td rowSpan={6}>
                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal8}
                 </td>
@@ -139,7 +156,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFoll
             </tr>
             <tr>
                 <td>9</td>
-                <td rowSpan={4}>1:{odds?.total9}</td>
+                <td rowSpan={4}>{formatOdds(odds?.total9, fractionalOddsFormat)}</td>
             </tr>
             <tr>
                 <td>10</td>
@@ -155,7 +172,7 @@ export const renderPayoutsTableOnBody = (odds: OddsProps | undefined, maxBetFoll
 };
 
 const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslation([gameName.toLocaleLowerCase(), "sicbo"]);
 
@@ -231,7 +248,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, maxBetFollowChoice, t)}
+                {renderPayouts(odds, maxBetFollowChoice, t, fractionalOddsFormat)}
                 <li className="guide-item">
                     {renderMD5EN()}
                     <div className="content">

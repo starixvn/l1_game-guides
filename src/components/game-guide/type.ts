@@ -11,6 +11,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     environment?: string;
     project?: string;
     isInPromotionTime?: boolean;
+    fractionalOddsFormat?: boolean;
 };
 
 export type GameGuideBase = {
@@ -26,6 +27,7 @@ export type GameGuideBase = {
     environment?: string;
     project?: string;
     isInPromotionTime?: boolean;
+    fractionalOddsFormat?: boolean;
 };
 
 export interface GameConfigsBaseProps {

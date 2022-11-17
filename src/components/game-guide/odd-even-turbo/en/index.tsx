@@ -3,9 +3,10 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -39,7 +40,8 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                             maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Once the betting time has expired, the result will be shown. If the outcome of three dice matches your bet, you win.
+                            Once the betting time has expired, the result will be shown. If the outcome of three dice matches your bet, you
+                            win.
                         </li>
                         <li>
                             Balanced Betting Pool: if the total amounts bet on ODD and EVEN are different then the gap amount will be
@@ -52,7 +54,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The payout on ODD, EVEN is 1:{odds?.even}</li>
+                        <li>The payout on ODD, EVEN is {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>
                             The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
                             initial stake.

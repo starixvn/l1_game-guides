@@ -5,6 +5,7 @@ import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 import { Themes } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 export const renderListIcon = (theme: string | undefined) => {
     const widthIcon1 = theme === Themes.blue ? 100 : 75;
@@ -28,7 +29,7 @@ export const renderListIcon = (theme: string | undefined) => {
     );
 };
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     return (
@@ -88,18 +89,18 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={3}>Specific Symbol (Fish, Prawn, Crab, Rooster, Gourd, Stag)</td>
                                             <td className="text-start">If the chosen symbol appears once. </td>
-                                            <td>1: {odds?.single}</td>
+                                            <td>{formatOdds(odds?.single, fractionalOddsFormat)}</td>
                                             <td rowSpan={5}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFish}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">If the chosen symbol appears twice.</td>
-                                            <td>1: {odds?.double}</td>
+                                            <td>{formatOdds(odds?.double, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td className="text-start">If the chosen symbol appears three times. </td>
-                                            <td>1: {odds?.triple}</td>
+                                            <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Mountain (Rooster, Gourd, Stag)</td>
@@ -107,7 +108,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Place a bet on the Mountain group of 3 symbols. The player will win if having at least two
                                                 symbols from the Mountain group appear in the result.
                                             </td>
-                                            <td>1: {odds?.mountain}</td>
+                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Ocean (Fish, Prawn, Crab)</td>
@@ -115,12 +116,12 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                                 Place a bet on the Ocean group of 3 symbols. The player will win if having at least two
                                                 symbols from the Ocean group appear in the result.
                                             </td>
-                                            <td>1: {odds?.ocean}</td>
+                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Any Triple</td>
                                             <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
-                                            <td>1: {odds?.anyTriple}</td>
+                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                             </td>

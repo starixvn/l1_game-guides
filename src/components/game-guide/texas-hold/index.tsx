@@ -22,7 +22,18 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const TexasHoldGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isScrollMD5, isGetGameConfigs, project } = props;
+    const {
+        id,
+        locale,
+        userStakeLevel,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        isScrollMD5,
+        isGetGameConfigs,
+        project,
+        fractionalOddsFormat,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -55,7 +66,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-    
+
     if (locale === locales.en) {
         return (
             <TexasHoldGuideEN
@@ -65,6 +76,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
                 gameId={id}
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -76,6 +88,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
             gameId={id}
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

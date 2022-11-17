@@ -8,6 +8,7 @@ import Styles from "../baccarat.module.scss";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
     return (
@@ -345,7 +346,7 @@ const renderContentIntroduction = (gameId: number | undefined) => {
 };
 
 const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -483,33 +484,33 @@ const BaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <tbody>
                                         <tr>
                                             <td>Player</td>
-                                            <td>1: {odds?.player}</td>
+                                            <td>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Banker</td>
-                                            <td>1: {odds?.banker}</td>
+                                            <td>{formatOdds(odds?.banker, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Big</td>
-                                            <td>1: {odds?.big}</td>
+                                            <td>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Small</td>
-                                            <td>1: {odds?.small}</td>
+                                            <td>{formatOdds(odds?.small, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Tie</td>
-                                            <td>1: {odds?.tie}</td>
+                                            <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                             <td rowSpan={3}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSubChoice}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Player pair</td>
-                                            <td rowSpan={2}>1: {odds?.playerPair}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.playerPair, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Banker pair</td>

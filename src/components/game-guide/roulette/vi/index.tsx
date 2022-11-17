@@ -1,10 +1,10 @@
 import React from "react";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
-import {} from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -116,7 +116,7 @@ const renderBetChipsNotice = () => {
     );
 };
 
-const renderCallBetTiers = () => {
+const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text"> Cược Tiers</span>
@@ -127,7 +127,11 @@ const renderCallBetTiers = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Tiers, mức cược tương ứng cho từng cược đôi sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-tiers_ex.png" alt="game_guide-tiers" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -177,7 +181,7 @@ const renderCallBetTiers = () => {
     );
 };
 
-const renderCallBetOrphelins = () => {
+const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Orphelins</span>
@@ -194,7 +198,15 @@ const renderCallBetOrphelins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Orphelins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-orphelins_ex.png" alt="game_guide-orphelins_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide-orphelins_ex.png"
+                        alt="game_guide-orphelins_ex"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-orphelins_ex.png" alt="game_guide-orphelins_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -241,7 +253,7 @@ const renderCallBetOrphelins = () => {
     );
 };
 
-const renderCallBetVoisins = () => {
+const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Voisins</span>
@@ -266,7 +278,15 @@ const renderCallBetVoisins = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Voisins, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-voisins_ex.png" alt="game_guide-voisins_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide-voisins_ex.png"
+                        alt="game_guide-voisins_ex"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-voisins_ex.png" alt="game_guide-voisins_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -322,7 +342,7 @@ const renderCallBetVoisins = () => {
     );
 };
 
-const renderCallBetZero = () => {
+const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Zero</span>
@@ -339,7 +359,11 @@ const renderCallBetZero = () => {
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Zero, mức cược tương ứng cho từng loại cược sẽ là:</p>
             <div className={Styles[wrapperImg]}>
-                <img src="/static/images/roulette/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-zero_ex.png" alt="game_guide-zero_ex" loading="lazy" />
+                )}
             </div>
             <div className="table-container text-center">
                 <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -384,7 +408,7 @@ const renderCallBetZero = () => {
     );
 };
 
-const renderCallBetNeighbors = () => {
+const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Neighbors</span>
@@ -395,7 +419,15 @@ const renderCallBetNeighbors = () => {
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
-                <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img
+                        src="/static/images/roulette/fractionalodds/game_guide-neighbors_1.png"
+                        alt="game_guide-neighbors_1"
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
+                )}
             </div>
             <p>
                 Ví dụ: Người chơi chọn mệnh giá chip 10, ô số muốn đặt là 27, có nghĩa là người chơi đặt cược lên năm con số liền nhau
@@ -448,7 +480,7 @@ const renderCallBetNeighbors = () => {
     );
 };
 
-const renderBettingOptions = () => {
+const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
             <h2>Luật chơi</h2>
@@ -458,7 +490,11 @@ const renderBettingOptions = () => {
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
             <div className={Styles["wrapper-img-rule"]}>
-                <img src="/static/images/roulette/vi/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                {fractionalOddsFormat ? (
+                    <img src="/static/images/roulette/fractionalodds/vi/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                ) : (
+                    <img src="/static/images/roulette/vi/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
+                )}
             </div>
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
@@ -586,11 +622,11 @@ const renderBettingOptions = () => {
                         </div>
                     </div>
                     <ul className="style-number-dot-number">
-                        <li className="number-dot-number">{renderCallBetTiers()}</li>
-                        <li className="number-dot-number">{renderCallBetOrphelins()}</li>
-                        <li className="number-dot-number">{renderCallBetVoisins()}</li>
-                        <li className="number-dot-number">{renderCallBetZero()}</li>
-                        <li className="number-dot-number">{renderCallBetNeighbors()}</li>
+                        <li className="number-dot-number">{renderCallBetTiers(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetOrphelins(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetVoisins(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetZero(fractionalOddsFormat)}</li>
+                        <li className="number-dot-number">{renderCallBetNeighbors(fractionalOddsFormat)}</li>
                     </ul>
                 </li>
             </ul>
@@ -598,7 +634,11 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -621,7 +661,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược Đơn</td>
                                     <td>1 số</td>
-                                    <td>1:{odds?.straightUp}</td>
+                                    <td>{formatOdds(odds?.straightUp, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightUp}
                                     </td>
@@ -629,7 +669,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược Đôi</td>
                                     <td>2 số</td>
-                                    <td>1:{odds?.split}</td>
+                                    <td>{formatOdds(odds?.split, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSplit}
                                     </td>
@@ -637,7 +677,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược Hàng</td>
                                     <td rowSpan={2}>3 số</td>
-                                    <td rowSpan={2}>1:{odds?.street}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.street, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStreet}
                                     </td>
@@ -648,7 +688,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược Góc</td>
                                     <td rowSpan={2}>4 số</td>
-                                    <td rowSpan={2}>1:{odds?.corner}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.corner, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetCorner}
                                     </td>
@@ -659,7 +699,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược 2 Hàng</td>
                                     <td>6 số</td>
-                                    <td>1:{odds?.line}</td>
+                                    <td>{formatOdds(odds?.line, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
                                     </td>
@@ -667,7 +707,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Cược Cột</td>
                                     <td rowSpan={2}>12 số</td>
-                                    <td rowSpan={2}>1:{odds?.dozen}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.dozen, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDozen}
                                     </td>
@@ -678,7 +718,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Tài/Xỉu</td>
                                     <td rowSpan={3}>18 số</td>
-                                    <td rowSpan={3}>1:{odds?.redBlack}</td>
+                                    <td rowSpan={3}>{formatOdds(odds?.redBlack, fractionalOddsFormat)}</td>
                                     <td rowSpan={3}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRedBlack}
                                     </td>
@@ -699,7 +739,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -715,8 +755,8 @@ const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
-                {renderBettingOptions()}
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderBettingOptions(fractionalOddsFormat)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

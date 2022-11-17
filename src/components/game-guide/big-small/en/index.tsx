@@ -7,6 +7,7 @@ import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderMD5Example = (gameName: string) => {
     return (
@@ -43,7 +44,7 @@ const renderMD5Example = (gameName: string) => {
 };
 
 const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -92,7 +93,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The payout on Big, Small is 1: {odds?.big}</li>
+                        <li>The payout on Big, Small is {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
                             The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the
                             initial stake.

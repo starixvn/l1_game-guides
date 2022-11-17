@@ -21,6 +21,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         environment,
         project,
         isInPromotionTime,
+        fractionalOddsFormat,
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -71,6 +72,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
                 isScrollMD5={isScrollMD5}
                 environment={environment}
                 isInPromotionTime={isInPromotionTime}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -83,6 +85,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
             isScrollMD5={isScrollMD5}
             environment={environment}
             isInPromotionTime={isInPromotionTime}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

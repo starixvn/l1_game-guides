@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 import { renderTermsAndConditionsVI } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-number";
@@ -699,7 +700,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
             <h2>Trả thưởng</h2>
@@ -721,27 +722,27 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                             <tbody>
                                 <tr>
                                     <td>Sảnh Rồng </td>
-                                    <td>1:{odds?.AnteBet_royalFlush}</td>
+                                    <td>{formatOdds(odds?.AnteBet_royalFlush, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Thùng Phá Sảnh</td>
-                                    <td>1:{odds?.AnteBet_straightFlush}</td>
+                                    <td>{formatOdds(odds?.AnteBet_straightFlush, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Tứ Quý</td>
-                                    <td>1:{odds?.AnteBet_fourKind}</td>
+                                    <td>{formatOdds(odds?.AnteBet_fourKind, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Cù Lũ</td>
-                                    <td>1:{odds?.AnteBet_fullHouse}</td>
+                                    <td>{formatOdds(odds?.AnteBet_fullHouse, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Thùng</td>
-                                    <td>1:{odds?.AnteBet_flush}</td>
+                                    <td>{formatOdds(odds?.AnteBet_flush, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Sảnh</td>
-                                    <td rowSpan={5}>1:{odds?.AnteBet_straight}</td>
+                                    <td rowSpan={5}>{formatOdds(odds?.AnteBet_straight, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Sám</td>
@@ -762,7 +763,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                 <li className="number-dot">
                     <span className="font-weight-medium title-text">Cược Call</span>
                     <ul className="desc">
-                        <li>Tỷ lệ cược cho Call là 1:{odds?.CallBet_callBet}</li>
+                        <li>Tỷ lệ cược cho Call là {formatOdds(odds?.CallBet_callBet, fractionalOddsFormat)}</li>
                     </ul>
                 </li>
                 <li className="number-dot">
@@ -779,27 +780,27 @@ const renderPayouts = (odds: OddsProps | undefined) => {
                                 <tbody>
                                     <tr>
                                         <td>Sảnh Rồng</td>
-                                        <td>1:{odds?.AABet_royalFlush}</td>
+                                        <td>{formatOdds(odds?.AABet_royalFlush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Thùng Phá Sảnh</td>
-                                        <td>1:{odds?.AABet_straightFlush}</td>
+                                        <td>{formatOdds(odds?.AABet_straightFlush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Tứ Quý</td>
-                                        <td>1:{odds?.AABet_fourKind}</td>
+                                        <td>{formatOdds(odds?.AABet_fourKind, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Cù Lũ</td>
-                                        <td>1:{odds?.AABet_fullHouse}</td>
+                                        <td>{formatOdds(odds?.AABet_fullHouse, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Thùng</td>
-                                        <td>1:{odds?.AABet_flush}</td>
+                                        <td>{formatOdds(odds?.AABet_flush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Sảnh</td>
-                                        <td rowSpan={5}>1:{odds?.AABet_straight}</td>
+                                        <td rowSpan={5}>{formatOdds(odds?.AABet_straight, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
                                         <td>Sám</td>
@@ -821,7 +822,7 @@ const renderPayouts = (odds: OddsProps | undefined) => {
 };
 
 const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, isScrollMD5 } = props;
+    const { gameConfigs, maxBetFollowChoice, isScrollMD5, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     useEffect(() => {
@@ -847,7 +848,7 @@ const CasinoHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
-                <li className="guide-item">{renderPayouts(odds)}</li>
+                <li className="guide-item">{renderPayouts(odds, fractionalOddsFormat)}</li>
                 <li className="guide-item">
                     <h2>Hạn mức cược</h2>
                     <table className="table table-small text-center">

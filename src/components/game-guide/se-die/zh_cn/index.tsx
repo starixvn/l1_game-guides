@@ -6,21 +6,18 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/cn";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
         <>
             <h2>游戏规则</h2>
             <ul className="desc">
-                <li>
-                    纽扣放在盘子上并盖上碗。当盘子仍然被碗盖住时，庄家将拿起盘子并摇晃它。玩家下注，下注选项是：
-                </li>
+                <li>纽扣放在盘子上并盖上碗。当盘子仍然被碗盖住时，庄家将拿起盘子并摇晃它。玩家下注，下注选项是：</li>
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
                 <li>下注时间结束后，庄家将碗从盘子上移开，结果将显示。</li>
-                <li>
-                    玩家可以在游戏桌上显示的一个或多个投注选项上下注。所有投注必须在投注时间结束前进行。请注意，下注不能取消。
-                </li>
+                <li>玩家可以在游戏桌上显示的一个或多个投注选项上下注。所有投注必须在投注时间结束前进行。请注意，下注不能取消。</li>
                 <li>每轮最大总赌注为 {maxBetMain}</li>
             </ul>
         </>
@@ -87,7 +84,7 @@ const renderStatistical = () => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId } = props;
+    const { gameConfigs, maxBetFollowChoice, gameId, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const gameDescription = () => {
         switch (gameId) {
@@ -113,9 +110,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>支付</h2>
                     <ul className="desc">
-                        <li>
-                            中奖金额根据派彩率计算。 支付包括初始本金。
-                        </li>
+                        <li>中奖金额根据派彩率计算。 支付包括初始本金。</li>
                         <li>
                             投注结算后，所有中奖金额都会立即添加到您的账户余额中。
                             <div className="table-container">
@@ -125,14 +120,15 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <th>选项</th>
                                             <th>支出</th>
                                             <th>
-                                                投注限额 <br />（最小 - 最大）
+                                                投注限额 <br />
+                                                （最小 - 最大）
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>单</td>
-                                            <td rowSpan={2}>1:{odds?.even}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
@@ -142,7 +138,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>4 红</td>
-                                            <td rowSpan={2}>1:{odds?.red4}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
 
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
@@ -153,7 +149,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         </tr>
                                         <tr>
                                             <td>3 红，1 白</td>
-                                            <td rowSpan={2}>1:{odds?.red3}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
@@ -164,7 +160,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 红，2 白</td>
-                                                <td>1:{odds?.red2}</td>
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>

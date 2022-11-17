@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import Styles from "../keno-match.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
@@ -178,7 +179,14 @@ const renderBettingOptions = () => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
+    const getMinMaxOdd = (min: number, max: number | undefined) => {
+        return `${fractionalOddsFormat ? min - 1 : min} - ${fractionalOddsFormat && max ? max - 1 : max}`;
+    };
     return (
         <>
             <h2>Payouts</h2>
@@ -207,7 +215,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         <tr>
                                             <td rowSpan={2}>Team Blue</td>
                                             <td className="text-start">First Half</td>
-                                            <td rowSpan={2}>1: {odds?.fhBlue}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.fhBlue, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>
@@ -218,7 +226,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         <tr>
                                             <td rowSpan={2}>Team Red</td>
                                             <td className="text-start">First Half</td>
-                                            <td rowSpan={2}>1: {odds?.fhRed}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.fhRed, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRedChoice}
                                             </td>
@@ -229,7 +237,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         <tr>
                                             <td rowSpan={2}>Over</td>
                                             <td className="text-start">First Half</td>
-                                            <td rowSpan={2}>1: {odds?.fhOver}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.fhOver, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetOverChoice}
                                             </td>
@@ -240,7 +248,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         <tr>
                                             <td rowSpan={2}>Under</td>
                                             <td className="text-start">First Half</td>
-                                            <td rowSpan={2}>1: {odds?.fhUnder}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.fhUnder, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetUnderChoice}
                                             </td>
@@ -251,7 +259,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                         <tr>
                                             <td rowSpan={2}>Even</td>
                                             <td className="text-start">First Half</td>
-                                            <td rowSpan={4}>1: {odds?.fhEven}</td>
+                                            <td rowSpan={4}>{formatOdds(odds?.fhEven, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetEvenChoice}
                                             </td>
@@ -313,7 +321,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Blue</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutBlue} - {odds?.liveFTBlue}
+                                                            {getMinMaxOdd(minPayoutBlue, odds?.liveFTBlue)}
                                                         </td>
                                                         <td> {maxBetFollowChoice?.minBetRound}</td>
                                                         <td rowSpan={4} className="text-start">
@@ -324,7 +332,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Red</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutRed} - {odds?.liveFTRed}
+                                                            {getMinMaxOdd(minPayoutRed, odds?.liveFTRed)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
@@ -332,7 +340,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Over</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutOver} - {odds?.liveFTOver}
+                                                            {getMinMaxOdd(minPayoutOver, odds?.liveFTOver)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
@@ -340,7 +348,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Under</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td className={Styles[classBetOddWd]}>
-                                                            {minPayoutUnder} - {odds?.liveFTUnder}
+                                                            {getMinMaxOdd(minPayoutUnder, odds?.liveFTUnder)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
@@ -348,7 +356,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                                         <td className={`text-start ${Styles[classBetTeamWd]}`}>Even</td>
                                                         <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
                                                         <td rowSpan={2} className={Styles[classBetTeamWd]}>
-                                                            1:{odds?.liveFTEven}
+                                                            {formatOdds(odds?.liveFTEven, fractionalOddsFormat)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
@@ -374,7 +382,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -390,7 +398,7 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
                 <li id="md5" className="guide-item">
                     {renderMD5EN()}
                     <div className="content">

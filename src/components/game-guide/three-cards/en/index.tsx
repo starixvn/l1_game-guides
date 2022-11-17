@@ -7,6 +7,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
     const bet = 10;
@@ -85,7 +86,11 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -106,7 +111,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             <tbody>
                                 <tr>
                                     <td>Red</td>
-                                    <td rowSpan={2}>1:{odds?.red}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.red, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed}
                                     </td>
@@ -116,7 +121,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 </tr>
                                 <tr>
                                     <td>Diamonds</td>
-                                    <td rowSpan={4}>1:{odds?.diamonds}</td>
+                                    <td rowSpan={4}>{formatOdds(odds?.diamonds, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDiamonds}
                                     </td>
@@ -203,7 +208,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
 };
 
 const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
@@ -224,7 +229,7 @@ const ThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

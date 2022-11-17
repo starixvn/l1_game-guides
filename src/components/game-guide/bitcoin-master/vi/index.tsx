@@ -4,6 +4,7 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../bitcoin-master.module.scss";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBetRound: string | undefined) => {
     return (
@@ -127,7 +128,7 @@ const renderGameRule = (maxBetRound: string | undefined) => {
 };
 
 const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -163,7 +164,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Tăng/Giảm</td>
                                             <td>Tăng</td>
-                                            <td rowSpan={2}>1: {odds?.up}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.up, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetUp}
                                             </td>
@@ -174,7 +175,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td rowSpan={2}>Chẵn/Lẻ</td>
                                             <td>Chẵn</td>
-                                            <td rowSpan={2}>1: {odds?.odd}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.odd, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Lẻ</td>

@@ -8,7 +8,18 @@ import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment, project } = props;
+    const {
+        locale,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        userStakeLevel,
+        isGetGameConfigs,
+        isScrollMD5,
+        environment,
+        project,
+        fractionalOddsFormat,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -50,6 +61,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
                 environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         );
     }
@@ -61,6 +73,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
             environment={environment}
+            fractionalOddsFormat={fractionalOddsFormat}
         />
     );
 };

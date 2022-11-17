@@ -8,8 +8,13 @@ import { OddsProMaxProps } from "../../../keno-pro-max/type";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-max.module.scss";
+import { formatOdds } from "../../../../../helpers/number-helper";
 
-const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const payouts = (
+    odds: OddsProMaxProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <>
             <h2>Payouts</h2>
@@ -32,7 +37,7 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
                             <tbody>
                                 <tr>
                                     <td>Big</td>
-                                    <td rowSpan={4}> 1: {odds?.big}</td>
+                                    <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
@@ -48,35 +53,35 @@ const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetCh
                                 </tr>
                                 <tr>
                                     <td>Gold</td>
-                                    <td>1: {odds?.gold}</td>
+                                    <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Wood</td>
-                                    <td>1: {odds?.wood}</td>
+                                    <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Water</td>
-                                    <td>1: {odds?.water}</td>
+                                    <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Fire</td>
-                                    <td>1: {odds?.fire}</td>
+                                    <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Earth</td>
-                                    <td>1: {odds?.earth}</td>
+                                    <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
                                     </td>
@@ -313,7 +318,7 @@ const renderMD5Example = (environment: string | undefined) => {
 };
 
 const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -336,11 +341,13 @@ const KenoProGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 <li className="guide-item">{bettingOptions()}</li>
-                <li className="guide-item">{payouts(odds, maxBetFollowChoice)}</li>
-                <li id="md5" className="guide-item">
-                    {renderMD5EN()}
-                    {renderMD5Example(environment)}
-                </li>
+                <li className="guide-item">{payouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
+                {environment === ENVIRONMENT.sm && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                        {renderMD5Example(gameName)}
+                    </li>
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

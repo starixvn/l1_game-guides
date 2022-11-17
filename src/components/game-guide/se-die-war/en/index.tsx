@@ -8,6 +8,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
 import { Themes } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -158,7 +159,11 @@ const renderGameRuleTable = (data: string[]) => {
     );
 };
 
-const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBetChoicesProps) => {
+const renderPayouts = (
+    odds: object | any,
+    maxBetFollowChoice: undefined | MaxBetChoicesProps,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -178,7 +183,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                             <tbody>
                                 <tr>
                                     <td>Player</td>
-                                    <td rowSpan={2}>1:{odds?.player}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                     <td rowSpan={5}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                     </td>
@@ -188,18 +193,18 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Tie</td>
-                                    <td>1:{odds?.tie}</td>
+                                    <td>1:{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Total Even</td>
-                                    <td rowSpan={2}>1:{odds?.even}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Total Odd</td>
                                 </tr>
                                 <tr>
                                     <td>Player - Even</td>
-                                    <td rowSpan={2}>1:{odds?.playerEven}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.playerEven, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerEven}
                                     </td>
@@ -209,7 +214,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Player - 3 Red</td>
-                                    <td rowSpan={2}>1:{odds?.playerRed3}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.playerRed3, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerRed3}
                                     </td>
@@ -219,7 +224,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Player - 4 Red</td>
-                                    <td rowSpan={2}>1:{odds?.playerRed4}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.playerRed4, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayerRed4}
                                     </td>
@@ -229,7 +234,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Banker - Even</td>
-                                    <td rowSpan={2}>1:{odds?.bankerEven}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.bankerEven, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerEven}
                                     </td>
@@ -239,7 +244,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Banker - 3 Red</td>
-                                    <td rowSpan={2}>1:{odds?.bankerRed3}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.bankerRed3, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerRed3}
                                     </td>
@@ -249,7 +254,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 </tr>
                                 <tr>
                                     <td>Banker - 4 Red</td>
-                                    <td rowSpan={2}>1:{odds?.bankerRed4}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.bankerRed4, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBankerRed4}
                                     </td>
@@ -267,7 +272,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const pathImg = theme === Themes.light ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
@@ -285,7 +290,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 <li className="guide-item">
                     <h2>Scoreboard</h2>
                     <ul className="style-number-dot">
@@ -296,12 +301,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         <li className="number-dot">
                             <strong className="title-text">Statistical Round result</strong>
                             <div className={Styles["wrapper-guide-stats"]}>
-                                <img
-                                    src={`/static/images/sedie-war/${pathImg}`}
-                                    alt="guide-stats-en"
-                                 
-                                    loading="eager"
-                                />
+                                <img src={`/static/images/sedie-war/${pathImg}`} alt="guide-stats-en" loading="eager" />
                             </div>
 
                             <p>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { ENVIRONMENT } from "../../../../common/constants";
+import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { GameGuideProps } from "../../type";
@@ -88,7 +89,7 @@ export const renderMD5EN = () => {
 };
 
 const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -131,7 +132,7 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>Payouts</h2>
                     <ul className="desc">
-                        <li>The payout on Big, Small is 1: {odds?.big}</li>
+                        <li>The payout on Big, Small is {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>The winning amount is calculated according to the payout ratio.</li>
                         <li>The Payout includes the initial stake.</li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>

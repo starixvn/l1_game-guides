@@ -7,6 +7,7 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsTableOnBody } from "../en";
 import Styles from "../sic-bo.module.scss";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -35,7 +36,12 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, t: TFunction) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    t: TFunction,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -57,7 +63,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={2}>Tài/Xỉu</td>
                                     <td>Tài</td>
-                                    <td rowSpan={2}>1:{odds?.big}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
@@ -68,7 +74,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td>Bộ Ba Bất Kỳ</td>
                                     <td>Bộ Ba Bất Kỳ</td>
-                                    <td>1:{odds?.anyTriple}</td>
+                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
                                     </td>
@@ -76,18 +82,18 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 <tr>
                                     <td rowSpan={3}>Cược số</td>
                                     <td rowSpan={3}>Xúc xắc 1 đến 6</td>
-                                    <td>Xuất hiện một lần 1:{odds?.single}</td>
+                                    <td>Xuất hiện một lần {formatOdds(odds?.single, fractionalOddsFormat)}</td>
                                     <td rowSpan={3}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Xuất hiện hai lần 1:{odds?.double}</td>
+                                    <td>Xuất hiện hai lần {formatOdds(odds?.double, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
-                                    <td>Xuất hiện ba lần 1:{odds?.triple}</td>
+                                    <td>Xuất hiện ba lần {formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                 </tr>
-                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t)}
+                                {renderPayoutsTableOnBody(odds, maxBetFollowChoice, t, fractionalOddsFormat)}
                             </tbody>
                         </table>
                     </div>
@@ -98,7 +104,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslation(gameName.toLocaleLowerCase());
     return (
@@ -168,7 +174,7 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         </li>
                     </ul>
                 </li>
-                {renderPayouts(odds, maxBetFollowChoice, t)}
+                {renderPayouts(odds, maxBetFollowChoice, t, fractionalOddsFormat)}
                 <li className="guide-item">
                     {renderMD5VI()}
                     <div className="content">
