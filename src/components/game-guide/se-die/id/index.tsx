@@ -1,30 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsID } from "../../../shared";
 import { SeDieMini } from "../index";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
+import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/id";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { formatOdds } from "../../../../helpers/number-helper";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { ENVIRONMENT } from "../../../../common/constants";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>
-                    Buttons are placed on the plate and covered with a bowl. The dealer will pick up the plate and shake it when the plate
-                    is still covered with the bowl. The players place their bets and the betting options are:
+                    Kancing diletakkan di atas piring dan ditutup dengan mangkuk. Dealer akan mengambil piring dan mengocoknya ketika piring masih tertutup mangkuk. Para pemain memasang taruhan mereka dan pilihan taruhannya adalah:
                 </li>
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
-                <li>Once the betting time has expired, the dealer removes the bowl from the plate and the result will be shown.</li>
+                <li>Setelah waktu taruhan berakhir, dealer mengeluarkan mangkuk dari piring dan hasilnya akan ditampilkan.</li>
                 <li>
-                    Players can bet on one or more betting options shown on the game table. All bets must be placed before the betting time
-                    expires. Note, placed bets cannot be canceled.
+                Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir.
                 </li>
-                <li>The maximum total stake per round is {maxBetMain}</li>
+                <li>Total taruhan maksimum per putaran adalah {maxBetMain}</li>
             </ul>
         </>
     );
@@ -36,39 +38,39 @@ const renderGameRuleTable = (gameId: number) => {
             <table className="table text-center table-small">
                 <thead>
                     <tr>
-                        <th>Options</th>
-                        <th>Winning Conditions</th>
-                        <th>Descriptions</th>
+                        <th>Pilihan</th>
+                        <th>Kondisi Kemenangan</th>
+                        <th>Deskripsi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2}>ODD</td>
-                        <td>3 red, 1 white</td>
+                        <td rowSpan={2}>GENAP</td>
+                        <td>3 merah, 1 putih</td>
                         {renderThreeRedOneWhite()}
                     </tr>
                     <tr>
-                        <td>1 red, 3 white</td>
+                        <td>1 merah, 3 putih</td>
                         {renderOneRedThreeWhite()}
                     </tr>
                     <tr>
-                        <td rowSpan={3}>EVEN</td>
-                        <td>4 red</td>
+                        <td rowSpan={3}>GANJIL</td>
+                        <td>4 merah</td>
                         {renderFourRed()}
                     </tr>
                     <tr>
-                        <td>4 white</td>
+                        <td>4 putih</td>
                         {renderFourWhite()}
                     </tr>
                     <tr>
-                        <td>2 red, 2 white</td>
+                        <td>2 merah, 2 putih</td>
                         {renderTwoRedTwoWhite()}
                     </tr>
                     {RedWhiteDataOnTable()}
                     {!SeDieMini.includes(gameId) && (
                         <tr>
-                            <td>2 red, 2 white</td>
-                            <td>2 red, 2 white</td>
+                            <td>2 merah, 2 putih</td>
+                            <td>2 merah, 2 putih</td>
                             {renderTwoRedTwoWhite()}
                         </tr>
                     )}
@@ -81,7 +83,7 @@ const renderGameRuleTable = (gameId: number) => {
 const renderStatistical = () => {
     return (
         <li className="guide-item">
-            <h2>Statistical Table</h2>
+            <h2>Tabel Statistik</h2>
             <ul className="desc">
                 <li className="contentBeforeEmpty"> {StatisticalTable()}</li>
             </ul>
@@ -89,63 +91,119 @@ const renderStatistical = () => {
     );
 };
 
+const renderMD5Example = (gameName: string, gameId: any) => {
+    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
+
+    return (
+        <>
+            <div className="content">
+                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+            </div>
+            <ul className="desc">
+                <li>
+                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
+                        alt="md5-string"
+                    />
+                </li>
+                <li>
+                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
+                        alt="md5-result"
+                    />
+                    <div>Note: Red and white correspond to two sides of the button.</div>
+                </li>
+                <li>
+                    <strong>Step 3:</strong> Go to{" "}
+                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
+                        https://md5.services/
+                    </a>{" "}
+                    and paste the Result into the MD5 box.
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+                        alt="hash-darling"
+                    />
+                </li>
+                <li>
+                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
+                    the MD5 string in Step 1.
+                    <img
+                        className="format-img auto-center"
+                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+                        alt="md5-checksum"
+                    />
+                </li>
+            </ul>
+        </>
+    );
+};
+
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
+    
     const gameDescription = () => {
         switch (gameId) {
             case 9:
-                return " is a compact version of Se Die game with fewer betting options. ";
+                return " adalah versi ringkas dari game Se Die dengan pilihan taruhan yang lebih sedikit. ";
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:
-                return "is a popular game in Asian countries. ";
+                return "adalah permainan populer di negara-negara Asia. ";
         }
     };
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>Perkenalan</h2>
                     <p className="content">
                         {gameName} {gameDescription()}
-                        The game is played with 4 colored buttons, each button has two sides colored in red and white. The objective of this
-                        game is to predict the outcome of 4 buttons. If the outcome matches the player’s bet, the player wins.
+                        Permainan ini dimainkan dengan 4 tombol berwarna, masing-masing tombol memiliki dua sisi berwarna merah dan putih. Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain, pemain menang.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
-                    <h2>Payouts</h2>
+                    <h2>Pembayaran</h2>
                     <ul className="desc">
                         <li>
-                            The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.
+                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.
                         </li>
+                        <li>Pembayaran termasuk taruhan awal.</li>
                         <li>
-                            All winning amounts are instantly added to your account balance when bets are settled.
+                        Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                             <div className="table-container">
                                 <table className="table text-center table-small">
                                     <thead>
                                         <tr>
-                                            <th>Options</th>
-                                            <th>Payouts</th>
+                                            <th>Pilihan</th>
+                                            <th>Pembayaran</th>
                                             <th>
-                                                Bet Limit <br /> (Min - Max)
+                                                Batas Taruhan  <br /> (Min - Maks)
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>ODD</td>
+                                            <td>GENAP</td>
                                             <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>EVEN</td>
+                                            <td>GANJIL</td>
                                         </tr>
                                         <tr>
-                                            <td>4 red</td>
+                                            <td>4 merah</td>
                                             <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
 
                                             <td rowSpan={2}>
@@ -153,25 +211,22 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>4 white</td>
+                                            <td>4 putih</td>
                                         </tr>
                                         <tr>
-                                            <td>3 red, 1 white</td>
+                                            <td>3 merah, 1 putih</td>
                                             <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>1 red, 3 white</td>
+                                            <td>1 merah, 3 putih</td>
                                         </tr>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
-                                                <td>2 red, 2 white</td>
-                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
-                                                    1:
-                                                    {formatOdds(odds?.red2, fractionalOddsFormat)}
-                                                </td>
+                                                <td>2 merah, 2 putih</td>
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>                                                   
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
@@ -181,10 +236,17 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 </table>
                             </div>
                         </li>
+                        {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
                 {renderStatistical()}
-                {renderTermsAndConditionsEN()}
+                {environment === ENVIRONMENT.sc && (
+                    <li id="md5" className="guide-item">
+                        {renderMD5EN()}
+                        {renderMD5Example(gameName, gameId)}
+                    </li>
+                )}
+                {renderTermsAndConditionsID()}
             </ul>
         </>
     );

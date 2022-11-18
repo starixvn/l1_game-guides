@@ -58,6 +58,110 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     );
 };
 
+export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
+    return (
+        <li className={`guide-item ${style}`}>
+            <h2>Syarat dan Ketentuan</h2>
+            <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
+                        extended period of time or is canceled.
+                    </li>
+                )}
+                {gameId === games.casinoHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
+                        considered as “FOLD”.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
+                        determined by the following rules:
+                        <ul className="detail">
+                            <li>
+                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
+                                considered as “FOLD”.
+                            </li>
+                            <li>
+                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
+                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                            </li>
+                        </ul>
+                    </li>
+                )}
+                <li className="number-dot">
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun karena peristiwa force majeure termasuk tetapi tidak terbatas pada kesalahan teknis, kegagalan layanan jaringan, kegagalan daya.
+                </li>
+                <li className="number-dot">
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan pemain yang kami yakini terlibat dalam penipuan, pencucian uang, atau segala bentuk aktivitas ilegal atau mencurigakan lainnya.
+                </li>
+                <li className="number-dot">
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun ketika ada kesalahan (disebabkan oleh manusia atau faktor lainnya), atau kegagalan sistem yang mengakibatkan rasio pembayaran yang salah.
+                </li>
+                <li className="number-dot">
+                    Semua taruhan yang diterima akan tetap berlaku meskipun member kemudian keluar atau terputus dari situs karena alasan apa pun.
+                </li>
+            </ul>
+        </li>
+    );
+};
+
+export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
+    return (
+        <li className={`guide-item ${style}`}>
+            <h2>ข้อกำหนดและเงื่อนไข</h2>
+            <ul className="style-number-rule">
+                {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">
+                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
+                        extended period of time or is canceled.
+                    </li>
+                )}
+                {gameId === games.casinoHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
+                        considered as “FOLD”.
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
+                        “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
+                        determined by the following rules:
+                        <ul className="detail">
+                            <li>
+                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
+                                considered as “FOLD”.
+                            </li>
+                            <li>
+                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
+                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                            </li>
+                        </ul>
+                    </li>
+                )}
+                <li className="number-dot">
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันใด ๆ เป็นโมฆะเนื่องจากเหตุสุดวิสัย ซึ่งรวมถึงแต่ไม่จำกัดเฉพาะข้อผิดพลาดทางเทคนิค ความล้มเหลวของบริการเครือข่ายหรือไฟฟ้าขัดข้อง
+                </li>
+                <li className="number-dot">
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันของผู้เล่นที่เราเชื่อว่ามีส่วนเกี่ยวข้องกับการฉ้อโกง การฟอกเงิน หรือกิจกรรมที่ผิดกฎหมายหรือน่าสงสัยในรูปแบบอื่นใดเป็นโมฆะ
+                </li>
+                <li className="number-dot">
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันใด ๆ เมื่อมีข้อผิดพลาด (เกิดจากมนุษย์หรือปัจจัยอื่น ๆ ) หรือความล้มเหลวของระบบส่งผลให้อัตราการจ่ายไม่ถูกต้อง
+                </li>
+                <li className="number-dot">
+                    การเดิมพันที่ยอมรับทั้งหมดจะยังคงมีผลแม้ว่าสมาชิกจะออกจากระบบในภายหลังหรือถูกตัดการเชื่อมต่อจากไซต์ด้วยเหตุผลใดก็ตาม
+                </li>
+            </ul>
+        </li>
+    );
+};
+
 export const renderTermsAndConditionsVI = (style = "", gameId?: number) => {
     return (
         <li className={`guide-item ${style}`}>
