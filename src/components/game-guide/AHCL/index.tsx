@@ -8,7 +8,7 @@ import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 
 const HeroesSlotGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
@@ -38,8 +38,8 @@ const HeroesSlotGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.en) {
-        return <HeroesSlotGuideEN gameConfigs={configs} gameName={gameNameTranslate} fractionalOddsFormat={fractionalOddsFormat} />;
+        return <HeroesSlotGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
     }
-    return <HeroesSlotGuideVI gameConfigs={configs} gameName={gameNameTranslate} fractionalOddsFormat={fractionalOddsFormat} />;
+    return <HeroesSlotGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default HeroesSlotGuide;

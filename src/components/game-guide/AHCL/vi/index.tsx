@@ -5,7 +5,6 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../heroes-slot.module.scss";
 import { locales } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -30,7 +29,7 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (odds: number[][], fractionalOddsFormat: boolean | undefined) => {
+const renderPayouts = (odds: number[][]) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -41,14 +40,14 @@ const renderPayouts = (odds: number[][], fractionalOddsFormat: boolean | undefin
                 </li>
             </ul>
 
-            {renderPayoutsIconFirstLine(odds, locales.vi, fractionalOddsFormat)}
-            {renderPayoutsIconSecondLine(odds, locales.vi, fractionalOddsFormat)}
-            {renderExamplePayouts(odds, fractionalOddsFormat)}
+            {renderPayoutsIconFirstLine(odds, locales.vi)}
+            {renderPayoutsIconSecondLine(odds, locales.vi)}
+            {renderExamplePayouts(odds)}
         </li>
     );
 };
 
-const renderExamplePayouts = (odds: number[][], fractionalOddsFormat: boolean | undefined) => {
+const renderExamplePayouts = (odds: number[][]) => {
     return (
         <>
             <p>
@@ -66,9 +65,9 @@ const renderExamplePayouts = (odds: number[][], fractionalOddsFormat: boolean | 
                         <tr>
                             <td rowSpan={3}>
                                 {renderIconContent(true, "item1", true, true, [
-                                    [5, +formatOdds(odds[1][5], fractionalOddsFormat)],
-                                    [4, +formatOdds(odds[1][4], fractionalOddsFormat)],
-                                    [3, +formatOdds(odds[1][3], fractionalOddsFormat)],
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
                                 ])}
                             </td>
                             <td>
@@ -346,7 +345,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -362,7 +361,7 @@ const HeroesSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
-                {renderPayouts(odds, fractionalOddsFormat)}
+                {renderPayouts(odds)}
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
