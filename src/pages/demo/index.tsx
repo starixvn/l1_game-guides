@@ -1,74 +1,36 @@
 import React, { useEffect, useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { v4 as uuidv4 } from "uuid";
+import { TFunction, useTranslation } from "next-i18next";
 
 import { ENVIRONMENT, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
 
-const renderGameName = (setGameId: Function) => {
+const SelectOptions = (listData: Object, setData: Function) => {
+    return (
+        <div>
+            <select className="form-select form-select-lg mb-3" onChange={(event) => setData(event.target.value)}>
+                {Object.values(listData).map((data, index) => {
+                    return (
+                        <option key={index} value={data}>
+                            {data}
+                        </option>
+                    );
+                })}
+            </select>
+        </div>
+    );
+};
+
+const renderGameName = (setGameId: Function, t: TFunction) => {
     return (
         <div>
             <select className="form-select form-select-lg mb-3" onChange={(event) => setGameId(+event.target.value)}>
-                {Object.values(appSettings.gameSettings).map((guide) => {
+                {Object.values(appSettings.gameSettings).map((guide, index) => {
                     return (
-                        <>
-                            <option key={guide.id} value={guide.id}>
-                                {guide.gameName}
-                            </option>
-                        </>
-                    );
-                })}
-            </select>
-        </div>
-    );
-};
-
-const renderLanguage = (setLocale: Function) => {
-    return (
-        <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setLocale(event.target.value)}>
-                {Object.values(locales).map((locale, index) => {
-                    return (
-                        <>
-                            <option key={index} value={locale}>
-                                {locale}
-                            </option>
-                        </>
-                    );
-                })}
-            </select>
-        </div>
-    );
-};
-
-const renderThemes = (setTheme: Function) => {
-    return (
-        <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setTheme(event.target.value)}>
-                {Object.values(Themes).map((name, index) => {
-                    return (
-                        <>
-                            <option key={index} value={name}>
-                                {name}
-                            </option>
-                        </>
-                    );
-                })}
-            </select>
-        </div>
-    );
-};
-
-const renderEnvironment = (setEnvironment: Function) => {
-    return (
-        <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setEnvironment(event.target.value)}>
-                {Object.values(ENVIRONMENT).map((name, index) => {
-                    return (
-                        <>
-                            <option key={index} value={name}>
-                                {name}
-                            </option>
-                        </>
+                        <option key={index} value={guide.id}>
+                            {t(guide.gameName.toLocaleLowerCase())}
+                        </option>
                     );
                 })}
             </select>
@@ -77,6 +39,8 @@ const renderEnvironment = (setEnvironment: Function) => {
 };
 
 const Demo = () => {
+    const { t } = useTranslation();
+
     const [linkGuide, setLinkGuide] = useState<string>("");
     const [locale, setLocale] = useState<string>(locales.en);
     const [gameId, setGameId] = useState<number>(1);
@@ -84,6 +48,7 @@ const Demo = () => {
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sc);
     const [minBet, setMinBet] = useState<number>(0);
     const [maxBet, setMaxBet] = useState<number>(2000);
+    const [showConfig, setShowConfig] = useState<boolean>(true);
 
     useEffect(() => {
         if (locale && gameId && theme && environment) {
@@ -94,41 +59,59 @@ const Demo = () => {
 
     return (
         <div id="container-guide" className="container-guide">
-            <div className="container" style={{ marginBottom: 20, marginTop: 20 }}>
-                <div className="col-8">
-                    <div className="row">
-                        <div className="col">{renderGameName(setGameId)}</div>
-                        <div className="col"> {renderLanguage(setLocale)}</div>
-                    </div>
-                    <div className="row">
-                        <div className="col"> {renderThemes(setTheme)}</div>
-                        <div className="col"> {renderEnvironment(setEnvironment)}</div>
-                    </div>
-                </div>
+            <div>
+                <div className="container" style={{ marginBottom: 20, marginTop: 20 }}>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => setShowConfig(!showConfig)}
+                        style={{ fontSize: 14, marginBottom: 10 }}
+                    >
+                        {showConfig ? "Collapse Configs" : "Expand Configs"}
+                    </button>
+                    <div className={showConfig ? "show" : "hide"}>
+                        <div className="col-8">
+                            <div className="row">
+                                <div className="col">{renderGameName(setGameId, t)}</div>
+                                <div className="col"> {SelectOptions(locales, setLocale)}</div>
+                            </div>
+                            <div className="row">
+                                <div className="col">{SelectOptions(Themes, setTheme)} </div>
+                                <div className="col"> {SelectOptions(ENVIRONMENT, setEnvironment)}</div>
+                            </div>
+                        </div>
 
-                <div className="row">
-                    <h4>User stake level</h4>
-                    <div className="col-8">
-                        <div className="input-group">
-                            <span className="input-group-text" style={{ fontSize: 14 }}>
-                                Min bet and Max bet
-                            </span>
-                            <input
-                                type="number"
-                                min={0}
-                                className="form-control"
-                                value={minBet}
-                                onChange={(event) => setMinBet(+event.target.value)}
-                                style={{ fontSize: 14 }}
-                            ></input>
-                            <input
-                                type="number"
-                                min={0}
-                                className="form-control"
-                                value={maxBet}
-                                onChange={(event) => setMaxBet(+event.target.value)}
-                                style={{ fontSize: 14 }}
-                            ></input>
+                        <div className="row">
+                            <h4>User stake level</h4>
+                            <div className="col-8">
+                                <div className="input-group">
+                                    <span className="input-group-text" style={{ fontSize: 14 }}>
+                                        Min bet and Max bet
+                                    </span>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        className="form-control"
+                                        value={minBet}
+                                        onChange={(event) => setMinBet(+event.target.value)}
+                                        style={{ fontSize: 14 }}
+                                    ></input>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        className="form-control"
+                                        value={maxBet}
+                                        onChange={(event) => setMaxBet(+event.target.value)}
+                                        style={{ fontSize: 14 }}
+                                    ></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            Link Guide:{" "}
+                            <a href={linkGuide} target="_blank">
+                                {linkGuide}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -148,6 +131,14 @@ const Demo = () => {
             )}
         </div>
     );
+};
+
+export const getStaticProps = async ({ locale = "en" }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common"])),
+        },
+    };
 };
 
 export default Demo;
