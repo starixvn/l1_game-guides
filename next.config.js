@@ -12,6 +12,7 @@ const appSettings = {
 module.exports = {
     i18n,
     publicRuntimeConfig: appSettings,
+    productionBrowserSourceMaps: configs.enableSourceMap,
     generateBuildId: async () => {
         return uuidv4();
     },
