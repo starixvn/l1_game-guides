@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import BaccaratGuideEN from "./en";
 import BaccaratGuideVI from "./vi";
+import BaccaratGuideTW from "./zh_tw";
+import BaccaratGuideCN from "./zh_cn";
+import BaccaratGuideTH from "./th";
+import BaccaratGuideID from "./id";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -86,31 +90,31 @@ const BaccaratGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <BaccaratGuideEN
-                gameConfigs={configs}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-                maxBetFollowChoice={maxBetFollowChoice}
-                isScrollMD5={isScrollMD5}
-                environment={environment}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <BaccaratGuideVI
-            gameConfigs={configs}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-            maxBetFollowChoice={maxBetFollowChoice}
-            isScrollMD5={isScrollMD5}
-            environment={environment}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    const resource = {
+        gameConfigs: configs,       
+        userStakeLevel,
+        gameName: gameNameTranslate,  
+        gameId: id,
+        maxBetFollowChoice, 
+        isScrollMD5: isScrollMD5,
+        environment,
+        fractionalOddsFormat,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <BaccaratGuideVI {...resource} />
+        case locales.id:
+            return <BaccaratGuideID {...resource} />
+        case locales.th:
+            return <BaccaratGuideTH {...resource} />
+        case locales.zh_cn:
+            return <BaccaratGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <BaccaratGuideTW {...resource} />;
+
+        default:
+            return <BaccaratGuideEN {...resource} />
+    }    
 };
 export default BaccaratGuide;

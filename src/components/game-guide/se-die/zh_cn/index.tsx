@@ -145,10 +145,17 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "is a compact version of Se Die game with fewer betting options. "
+                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                return "Mini 色碟是色碟游戏的精简版，投注选项较少。";
+                case 56:
+                case 57:
+                case 58:
+                    return miniSeDieDescription;
             case 22:
                 return "VIP 色碟是色碟游戏的另一个版本，具有更高的投注限制。";
             default:

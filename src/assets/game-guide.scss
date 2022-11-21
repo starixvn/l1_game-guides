@@ -264,13 +264,13 @@ ul {
 
     .icon-wrapper {
         display: grid;
-        grid-template-columns: repeat(6, minmax(5rem, calc(var(--font-size-FPC) - 1rem)));
+        grid-template-columns: repeat(6, minmax(5rem, calc(7rem - 1rem)));
         grid-gap: var(--grid-gap-FPC);
         text-align: center;
         justify-content: center;
         padding-bottom: 1rem;
         @media (min-width: 768px) {
-            grid-template-columns: repeat(6, var(--font-size-FPC));
+            grid-template-columns: repeat(6, 7rem);
         }
         .symbol-size {
             font-size: var(--font-size-FPC);

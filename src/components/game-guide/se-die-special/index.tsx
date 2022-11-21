@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
+import SeDieGuideZH_TW from "./zh_tw";
+import SeDieGuideZH_CN from "./zh_cn";
+import SeDieGuideTH from "./th";
+import SeDieGuideID from "./id";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
@@ -41,23 +45,28 @@ const SeDieSpecialGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-    if (locale === locales.en) {
-        return (
-            <SeDieGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <SeDieGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,     
+        fractionalOddsFormat,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <SeDieGuideVI {...resource} />
+        case locales.id:
+            return <SeDieGuideID {...resource} />
+        case locales.th:
+            return <SeDieGuideTH {...resource} />
+        case locales.zh_cn:
+            return <SeDieGuideZH_CN {...resource} />;
+        case locales.zh_tw:
+            return <SeDieGuideZH_TW {...resource} />;
+
+        default:
+            return <SeDieGuideEN {...resource} />
+    }      
 };
 export default SeDieSpecialGuide;

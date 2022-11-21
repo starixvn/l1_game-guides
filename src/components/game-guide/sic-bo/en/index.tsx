@@ -208,7 +208,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td className="text-start">
                                                 <ul className="plus">
                                                     <li> Bet on the total score of three dice is between 11 and 17 points. </li>
-                                                    <li> If three dice are of equal value, you lose this bet</li>
+                                                    <li> If three dice are of equal value, you lose this bet.</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -217,7 +217,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td className="text-start">
                                                 <ul className="plus">
                                                     <li> Bet on the total score of three dice is between 4 and 10 points.</li>
-                                                    <li> If three dice are of equal value, you lose this bet</li>
+                                                    <li> If three dice are of equal value, you lose this bet.</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -231,7 +231,7 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <td>Bet on any number from 1 to 6</td>
                                             <td className="text-start">
                                                 Bet on a specific number from 1 to 6. If the chosen number has appeared among three dice,
-                                                you win{" "}
+                                                you win.
                                             </td>
                                         </tr>
                                         <tr>

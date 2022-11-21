@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import BigSmallGuideEN from "./en";
 import BigSmallGuideVI from "./vi";
+import BigSmallGuideID from "./id";
+import BigSmallGuideTH from "./th";
+import BigSmallGuideZH_CN from "./zh_cn";
+import BigSmallGuideZH_TW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales, IObjectKeys } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
@@ -62,31 +66,30 @@ const BigSmallGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,
+        isScrollMD5: isScrollMD5,
+        environment,
+        isInPromotionTime: isInPromotionTime,
+        fractionalOddsFormat,
+    };
 
-    if (locale === locales.en) {
-        return (
-            <BigSmallGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                isScrollMD5={isScrollMD5}
-                environment={environment}
-                isInPromotionTime={isInPromotionTime}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
+    switch(locale) {
+        case locales.vi:
+            return <BigSmallGuideVI {...resource} />
+        case locales.id:
+            return <BigSmallGuideID {...resource} />
+        case locales.th:
+            return <BigSmallGuideTH {...resource} />
+        case locales.zh_cn:
+            return <BigSmallGuideZH_CN {...resource} />;
+        case locales.zh_tw:
+            return <BigSmallGuideZH_TW {...resource} />;
 
-    return (
-        <BigSmallGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            isScrollMD5={isScrollMD5}
-            environment={environment}
-            isInPromotionTime={isInPromotionTime}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+        default:
+            return <BigSmallGuideEN {...resource} />
+    }    
 };
 export default BigSmallGuide;

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import SicBoGuideEN from "./en";
 import SicBoGuideVI from "./vi";
+import SicBoGuideTW from "./zh_tw";
+import SicBoGuideCN from "./zh_cn";
+import SicBoGuideTH from "./th";
+import SicBoGuideID from "./id";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -65,23 +69,27 @@ const SicBoGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <SicBoGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <SicBoGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    const resource = {
+        gameConfigs: configs,       
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,        
+        fractionalOddsFormat,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <SicBoGuideVI {...resource} />
+        case locales.id:
+            return <SicBoGuideID {...resource} />
+        case locales.th:
+            return <SicBoGuideTH {...resource} />
+        case locales.zh_cn:
+            return <SicBoGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <SicBoGuideTW {...resource} />;
+
+        default:
+            return <SicBoGuideEN {...resource} />
+    }    
 };
 export default SicBoGuide;

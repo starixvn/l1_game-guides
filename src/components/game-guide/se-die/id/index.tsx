@@ -150,10 +150,17 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
         isScrollMD5 && ScrollToMD5();
     });
     
-    const gameDescription = () => {
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "is a compact version of Se Die game with fewer betting options. "
+                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                return " adalah versi ringkas dari game Se Die dengan pilihan taruhan yang lebih sedikit. ";
+                case 56:
+                case 57:
+                case 58:
+                    return miniSeDieDescription;
             case 22:
                 return "is another version of the Se Die game with higher betting limits. ";
             default:

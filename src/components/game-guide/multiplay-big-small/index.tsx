@@ -6,6 +6,10 @@ import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import MultiplayBigSmallGuideID from "./id";
+import MultiplayBigSmallGuideTH from "./th";
+import MultiplayBigSmallGuideCN from "./zh_cn";
+import MultiplayBigSmallGuideTW from "./zh_tw";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -53,28 +57,29 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <MultiplayBigSmallGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                isScrollMD5={isScrollMD5}
-                environment={environment}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,
+        isScrollMD5: isScrollMD5,
+        environment,       
+        fractionalOddsFormat,
+    };
 
-    return (
-        <MultiplayBigSmallGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            isScrollMD5={isScrollMD5}
-            environment={environment}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    switch(locale) {
+        case locales.vi:
+            return <MultiplayBigSmallGuideVI {...resource} />
+        case locales.id:
+            return <MultiplayBigSmallGuideID {...resource} />
+        case locales.th:
+            return <MultiplayBigSmallGuideTH {...resource} />
+        case locales.zh_cn:
+            return <MultiplayBigSmallGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <MultiplayBigSmallGuideTW {...resource} />;
+
+        default:
+            return <MultiplayBigSmallGuideEN {...resource} />
+    }     
 };
 export default MultiplayBigSmallGuide;

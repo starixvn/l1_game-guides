@@ -148,12 +148,19 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    const gameDescription = () => {
+    const gameDescription = (environment: string = ENVIRONMENT.sc) => {
+        const miniSeDieDescription =
+            environment === ENVIRONMENT.sm
+                ? "is a compact version of Se Die game with fewer betting options. "
+                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                return "เป็นเกม Se Die รุ่นกะทัดรัดที่มีตัวเลือกการเดิมพันน้อยกว่า ";
+                case 56:
+                case 57:
+                case 58:
+                    return miniSeDieDescription;
             case 22:
-                return "เป็นอีกเวอร์ชั่นของเกม Se Die ที่มีขีดจำกัดการเดิมพันที่สูงกว่า ";
+                return "เป็นอีกเวอร์ชั่นของเกม Se Die ที่มีขีดจำกัดการเดิมพันที่สูงกว่า";
             default:
                 return "เป็นเกมส์ที่ได้รับความนิยมที่สุดในเอเชีย ";
         }

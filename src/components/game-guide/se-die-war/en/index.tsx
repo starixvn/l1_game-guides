@@ -193,7 +193,7 @@ const renderPayouts = (
                                 </tr>
                                 <tr>
                                     <td>Tie</td>
-                                    <td>1:{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>Total Even</td>

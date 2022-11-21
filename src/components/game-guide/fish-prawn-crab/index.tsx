@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import FishPrawnCrabGuideEN from "./en";
 import FishPrawnCrabGuideVI from "./vi";
+import FishPrawnCrabGuideID from "./id";
+import FishPrawnCrabGuideTH from "./th";
+import FishPrawnCrabGuideCN from "./zh_cn";
+import FishPrawnCrabGuideTW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
@@ -63,26 +67,28 @@ const FishPrawnCrab = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <FishPrawnCrabGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                environment={environment}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
+    const resource = {
+        gameConfigs: configs,       
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,      
+        environment,  
+        fractionalOddsFormat,
+    };
 
-    return (
-        <FishPrawnCrabGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            environment={environment}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    switch(locale) {
+        case locales.vi:
+            return <FishPrawnCrabGuideVI {...resource} />
+        case locales.id:
+            return <FishPrawnCrabGuideID {...resource} />
+        case locales.th:
+            return <FishPrawnCrabGuideTH {...resource} />
+        case locales.zh_cn:
+            return <FishPrawnCrabGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <FishPrawnCrabGuideTW {...resource} />;
+
+        default:
+            return <FishPrawnCrabGuideEN {...resource} />
+    }
 };
 export default FishPrawnCrab;

@@ -206,7 +206,7 @@ const renderPayouts = (
                                                 Đội Xanh
                                             </td>
                                             <td className="text-start">Hiệp 1</td>
-                                            <td rowSpan={2}>1: {formatOdds(odds?.fhBlue, fractionalOddsFormat)}</td>
+                                            <td rowSpan={2}>{formatOdds(odds?.fhBlue, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>

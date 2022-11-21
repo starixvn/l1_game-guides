@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import OddEvenTurboGuideEN from "./en";
 import OddEvenTurboGuideVI from "./vi";
+import OddEvenTurboGuideID from "./id";
+import OddEvenTurboGuideTH from "./th";
+import OddEvenTurboGuideCN from "./zh_cn";
+import OddEvenTurboGuideTW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales, IObjectKeys } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
@@ -44,24 +47,27 @@ const OddEvenTurboGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <OddEvenTurboGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,        
+        fractionalOddsFormat,
+    };
 
-    return (
-        <OddEvenTurboGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    switch(locale) {
+        case locales.vi:
+            return <OddEvenTurboGuideVI {...resource} />
+        case locales.id:
+            return <OddEvenTurboGuideID {...resource} />
+        case locales.th:
+            return <OddEvenTurboGuideTH {...resource} />
+        case locales.zh_cn:
+            return <OddEvenTurboGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <OddEvenTurboGuideTW {...resource} />;
+
+        default:
+            return <OddEvenTurboGuideEN {...resource} />
+    }     
 };
 export default OddEvenTurboGuide;
