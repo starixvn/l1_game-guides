@@ -1,9 +1,10 @@
 import React from "react";
+
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { MaxBetChoicesProps, GameConfigProps, OddsProps } from "../type";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import { GameGuideProps } from "../../type";
 import Styles from "../fantan.module.scss";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi/index";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
@@ -138,7 +139,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Lựa Chọn</th>
+                            <th>Loại Cược</th>
                             <th>Cửa Cược</th>
                             <th>Tỷ Lệ Trả Thưởng</th>
                             <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min-Max)</th>
