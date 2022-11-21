@@ -8,7 +8,6 @@ import { OddsProMaxProps } from "../../../keno-pro-max/type";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-max.module.scss";
-import { ENVIRONMENT } from "../../../../../common/constants";
 import { formatOdds } from "../../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {

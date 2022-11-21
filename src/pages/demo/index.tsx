@@ -109,7 +109,7 @@ const Demo = () => {
                         </div>
                         <div className="row">
                             Link Guide:{" "}
-                            <a href={linkGuide} target="_blank">
+                            <a href={linkGuide} rel="noopener noreferrer" target="_blank">
                                 {linkGuide}
                             </a>
                         </div>

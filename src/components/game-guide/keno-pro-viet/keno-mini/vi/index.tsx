@@ -6,7 +6,6 @@ import { renderMD5VI } from "../../../../shared/md5-count-down-timer/vi";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-mini.module.scss";
-import { ENVIRONMENT } from "../../../../../common/constants";
 import { formatOdds } from "../../../../../helpers/number-helper";
 
 const renderGameRule = (maxBet: string | undefined) => {
