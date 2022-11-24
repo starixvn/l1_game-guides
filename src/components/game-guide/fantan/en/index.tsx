@@ -39,7 +39,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2}>Odd Even</td>
+                                    <td rowSpan={2} className="text-center">Odd Even</td>
                                     <td>Odd</td>
                                     <td>The remaining beads are Odd number</td>
                                 </tr>
@@ -48,7 +48,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are Even number</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4}>Fan</td>
+                                    <td rowSpan={4} className="text-center">Fan</td>
                                     <td>1 Fan</td>
                                     <td>The remaining beads are 1</td>
                                 </tr>
@@ -65,7 +65,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are 4</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4}>Kwok</td>
+                                    <td rowSpan={4} className="text-center">Kwok</td>
                                     <td>1 2 Kwok</td>
                                     <td>The remaining beads are 1 or 2</td>
                                 </tr>
@@ -82,7 +82,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are 1 or 4</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4}>Chun</td>
+                                    <td rowSpan={4} className="text-center">Chun</td>
                                     <td>2 3 4 Chun</td>
                                     <td>The remaining beads are 2, 3 or 4</td>
                                 </tr>
@@ -142,7 +142,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={2}>Odd Even</td>
+                            <td rowSpan={2} className="text-center">Odd Even</td>
                             <td className={Styles["text-left"]}>Odd</td>
                             <td rowSpan={2}>1:{odds?.even}</td>
                             <td rowSpan={2}>
