@@ -206,5 +206,9 @@
     "60": {
         "id": 60,
         "gameName": "Fantan"
+    },
+    "62": {
+        "id": 62,
+        "gameName": "FortuneCat"
     }
 }
