@@ -272,7 +272,7 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                     </li>
                     <li className="number-dot">
                         未完成的游戏将在 24 小时后自动结算。
-                        玩家的手牌被视为"停牌"，系统将根据中断时桌上的牌计算输赢。
+                        玩家的手牌被视为&#34;停牌&#34;，系统将根据中断时桌上的牌计算输赢。
                     </li>
                 </>
                 )}
@@ -309,7 +309,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                     </li>
                     <li className="number-dot">
                         未完成的遊戲將在 24 小時後自動結算。
-                        玩家的手牌被視為"停牌"，系統將根據中斷時桌上的牌計算輸贏。
+                        玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。
                     </li>
                 </>
                 )}

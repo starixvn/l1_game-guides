@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import RouletteGuideEN from "./en";
 import RouletteGuideVI from "./vi";
+import RouletteGuideID from "./id";
+import RouletteGuideTH from "./th";
+import RouletteGuideCN from "./zh_cn";
+import RouletteGuideTW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
@@ -59,23 +63,27 @@ const RouletteGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <RouletteGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <RouletteGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,     
+        fractionalOddsFormat,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <RouletteGuideVI {...resource} />
+        case locales.id:
+            return <RouletteGuideID {...resource} />
+        case locales.th:
+            return <RouletteGuideTH {...resource} />
+        case locales.zh_cn:
+            return <RouletteGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <RouletteGuideTW {...resource} />;
+
+        default:
+            return <RouletteGuideEN {...resource} />
+    }      
 };
 export default RouletteGuide;
