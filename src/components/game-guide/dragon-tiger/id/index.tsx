@@ -37,7 +37,7 @@ const DragonTigerGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                 <li>
                                 Urutan kartu dari yang terendah hingga tertinggi adalah sebagai berikut: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, dan King.
                                 </li>
-                                <li>Ace berarti 1 poin; Jack berarti 11 poin; Queen berarti 12 poin dan King berarti 13 poin. Sisa kartu (2 sampai 10) dihitung berdasarkan nilai nominal.</li>
+                                <li>Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points.</li>
                                 <li>All cards from 2 to 10 are counted at face value.</li>
                             </ul>
                         </li>

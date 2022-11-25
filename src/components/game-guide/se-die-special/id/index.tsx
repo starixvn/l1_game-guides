@@ -56,7 +56,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>Total taruhan maksimum per putaran adalah {maxBet}. Catatan, taruhan yang dipasang tidak dapat dibatalkan.</li>
                 <li>
                     Balanced Betting Pool: jika jumlah total taruhan pada GANJIL dan GENAP berbeda maka jumlah selisih akan dikembalikan ke pemain yang memiliki tiket taruhan terbaru.<br></br>
-                    <strong>Contoh:</strong>: Pemain A bertaruh 100 pada GANJIL, pemain B bertaruh 30 pada GENAP, dan C bertaruh 90 pada GENAP. 
+                    <strong>Contoh:</strong> Pemain A bertaruh 100 pada GANJIL, pemain B bertaruh 30 pada GENAP, dan C bertaruh 90 pada GENAP. 
                     Untuk menyeimbangkan jumlah total taruhan pada GANJIL dan GENAP, sistem akan mengembalikan 20 ke pemain C.
                 </li>
             </ul>

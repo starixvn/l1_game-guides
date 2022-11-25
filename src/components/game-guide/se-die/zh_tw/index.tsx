@@ -168,7 +168,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameName} {gameDescription()}
+                        {gameDescription()}
                         遊戲有 4 個彩色按鈕，每個按鈕有紅白兩色。這個遊戲的目標是預測 4 個按鈕的結果。如果結果與玩家的賭注相符，則玩家獲勝。
                     </p>
                 </li>

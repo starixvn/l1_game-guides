@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderTermsAndConditionsEN } from "../../../shared";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
@@ -243,36 +244,7 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-
-                <li className="guide-item">
-                    <h2>Terms and Conditions</h2>
-                    <ul className="style-number-rule">
-                        <li className="number-dot">
-                            The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
-                            the {`"Deal"`} button.
-                        </li>
-                        <li className="number-dot">
-                            The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
-                            the system will calculate win-loss based on the cards that were on the table at the point of interruption.
-                        </li>
-                        <li className="number-dot">
-                            The Company reserves the right to cancel or void any bets because of a force majeure event including but not
-                            limited to any technical errors, network service failures, power failures.
-                        </li>
-                        <li className="number-dot">
-                            The Company reserves the right to cancel or void any bets of players we believe to be involved in fraud, money
-                            laundering, or any other form of illegal or suspicious activities.
-                        </li>
-                        <li className="number-dot">
-                            The Company reserves the right to cancel or void any bets when there is an error (caused by human or any other
-                            factors), or a system failure resulting in an incorrect payout ratio.
-                        </li>
-                        <li className="number-dot">
-                            All accepted bets will still be effective even if the member subsequently logs out or is disconnected from the
-                            site for any reason.
-                        </li>
-                    </ul>
-                </li>
+                {renderTermsAndConditionsEN("", 23)}                
             </ul>
         </>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 
-const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42 };
+const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42, blackjack: 23 };
 
 export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
@@ -37,6 +37,20 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                         </ul>
                     </li>
                 )}
+
+                {gameId === games.blackjack && ( 
+                <>
+                    <li className="number-dot">
+                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
+                        the {`"Deal"`} button.
+                    </li>
+                    <li className="number-dot">
+                        The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
+                        the system will calculate win-loss based on the cards that were on the table at the point of interruption.
+                    </li>
+                </>
+                )}
+
                 <li className="number-dot">
                     The Company reserves the right to cancel or void any bets because of a force majeure event including but not limited to
                     any technical errors, network service failures, power failures.
@@ -93,6 +107,17 @@ export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
                         </ul>
                     </li>
                 )}
+                {gameId === games.blackjack && ( 
+                <>
+                    <li className="number-dot">
+                        Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain menekan tombol {`"Deal"`}.
+                    </li>
+                    <li className="number-dot">
+                        Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. 
+                        Tangan pemain dianggap STAND dan sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.
+                    </li>
+                </>
+                )}
                 <li className="number-dot">
                     Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun karena peristiwa force majeure termasuk tetapi tidak terbatas pada kesalahan teknis, kegagalan layanan jaringan, kegagalan daya.
                 </li>
@@ -144,6 +169,17 @@ export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
                             </li>
                         </ul>
                     </li>
+                )}
+                {gameId === games.blackjack && ( 
+                <>
+                    <li className="number-dot">
+                        รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {`"ดีล"`}
+                    </li>
+                    <li className="number-dot">
+                        เกมที่ยังไม่เสร็จจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง 
+                        มือของผู้เล่นถือเป็นยึดหลักและระบบจะคำนวณ ชนะ-แพ้ ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก
+                    </li>
+                </>
                 )}
                 <li className="number-dot">
                     บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันใด ๆ เป็นโมฆะเนื่องจากเหตุสุดวิสัย ซึ่งรวมถึงแต่ไม่จำกัดเฉพาะข้อผิดพลาดทางเทคนิค ความล้มเหลวของบริการเครือข่ายหรือไฟฟ้าขัดข้อง
@@ -229,6 +265,17 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                         extended period of time or is canceled.
                     </li>
                 )}
+                {gameId === games.blackjack && ( 
+                <>
+                    <li className="number-dot">
+                        未完成的游戏回合可以恢复，并且必须在玩家按下“发牌”按钮后的 24 小时内完成。
+                    </li>
+                    <li className="number-dot">
+                        未完成的游戏将在 24 小时后自动结算。
+                        玩家的手牌被视为"停牌"，系统将根据中断时桌上的牌计算输赢。
+                    </li>
+                </>
+                )}
                 <li className="number-dot">
                     本公司保留因不可抗力事件（包括但不限于任何技术错误、网络服务故障、电源故障）而取消或取消任何投注的权利。
                 </li>
@@ -254,6 +301,17 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                         The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
                         extended period of time or is canceled.
                     </li>
+                )}
+                {gameId === games.blackjack && ( 
+                <>
+                    <li className="number-dot">
+                        未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。
+                    </li>
+                    <li className="number-dot">
+                        未完成的遊戲將在 24 小時後自動結算。
+                        玩家的手牌被視為"停牌"，系統將根據中斷時桌上的牌計算輸贏。
+                    </li>
+                </>
                 )}
                 <li className="number-dot">
                     本公司保留因不可抗力事件（包括但不限於任何技術錯誤、網絡服務故障、電源故障）而取消或取消任何投注的權利。

@@ -3,6 +3,10 @@ import { TFunction } from "next-i18next";
 
 import BlackjackGuideEN from "./en";
 import BlackjackGuideVI from "./vi";
+import BlackjackGuideID from "./id";
+import BlackjackGuideTH from "./th";
+import BlackjackGuideCN from "./zh_cn";
+import BlackjackGuideTW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
@@ -43,24 +47,28 @@ const BlackjackGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <BlackjackGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <BlackjackGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    const resource = {
+        gameConfigs: configs,       
+        gameName: gameNameTranslate,  
+        maxBetFollowChoice,   
+        fractionalOddsFormat,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <BlackjackGuideVI {...resource} />
+        case locales.id:
+            return <BlackjackGuideID {...resource} />
+        case locales.th:
+            return <BlackjackGuideTH {...resource} />
+        case locales.zh_cn:
+            return <BlackjackGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <BlackjackGuideTW {...resource} />;
+
+        default:
+            return <BlackjackGuideEN {...resource} />
+    }    
 };
 
 export const CardPointValuesTable = (t: TFunction) => {

@@ -35,7 +35,7 @@ const DragonTigerGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                 <li>
                                     牌从低到高排列如下：Ace、2、3、4、5、6、7、8、9、10、Jack、Queen、King。
                                 </li>
-                                <li>ACE 代表 1 分； Jack是 11 分； Queen代表 12 分，King代表 13 分。 其余牌（2 到 10）按面值计算。</li>
+                                <li>Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points.</li>
                                 <li>All cards from 2 to 10 are counted at face value.</li>
                             </ul>
                         </li>

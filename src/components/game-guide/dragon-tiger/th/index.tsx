@@ -36,7 +36,7 @@ const DragonTigerGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                 <li>
                                     การจัดอันดับไพ่จากต่ำสุดไปสูงสุดมีดังนี้: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10,Jack, Queen, and King.
                                 </li>
-                                <li>เอซคือ 1 แต้ม Jack คือ 11 แต้ม Queen คือ 12 แต้ม และ King คือ 13 แต้ม ไพ่ที่เหลือ (2 ถึง 10) จะถูกนับตามมูลค่าหน้าไพ่</li>
+                                <li>Ace stands for 1 point; Jack is 11 points; Queen stands for 12 points and King is 13 points.</li>
                                 <li>All cards from 2 to 10 are counted at face value.</li>
                             </ul>
                         </li>
