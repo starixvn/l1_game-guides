@@ -47,7 +47,7 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                 </li>
                 <li className="number-dot">
                     The Company reserves the right to cancel or void any bets when there is an error (caused by human or any other factors),
-                    or a system failure resulting in an incorrect payout ratio.
+                    or a system failure resulting in the wrong betting odds.
                 </li>
                 <li className="number-dot">
                     All accepted bets will still be effective even if the member subsequently logs out or is disconnected from the site for
