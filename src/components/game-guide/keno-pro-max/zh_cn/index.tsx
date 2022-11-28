@@ -249,7 +249,7 @@ const bettingOptions = () => {
     );
 };
 
-const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const KenoProMaxGuideZHCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds, maxBet } = gameConfigs;
 
@@ -280,4 +280,4 @@ const KenoProMaxGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
         </>
     );
 };
-export default KenoProMaxGuideEN;
+export default KenoProMaxGuideZHCN;

@@ -610,7 +610,7 @@ const renderViewStatistic = () => {
     );
 };
 
-const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const LotteryGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
@@ -770,4 +770,4 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
         </>
     );
 };
-export default LotteryGuideVI;
+export default LotteryGuideEN;

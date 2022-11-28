@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
-import LotteryGuideEN from "./en";
-import LotteryGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../index.helper";
+
+const LotteryGuideEN = dynamic(() => import("./en"));
+const LotteryGuideVI = dynamic(() => import("./vi"));
+const LotteryGuideID = dynamic(() => import("./id"));
+const LotteryGuideTH = dynamic(() => import("./th"));
+const LotteryGuideZHCN = dynamic(() => import("./zh_cn"));
+// const KenoProMaxGuideZHTW = dynamic(() => import("./zh_tw"));
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -58,23 +64,27 @@ const LotteryGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <LotteryGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
+        fractionalOddsFormat,
+    };
+
+    switch (locale) {
+        case locales.vi:
+            return <LotteryGuideVI {...resource} />;
+        case locales.id:
+            return <LotteryGuideID {...resource} />;
+        case locales.th:
+            return <LotteryGuideTH {...resource} />;
+        case locales.zh_cn:
+            return <LotteryGuideZHCN {...resource} />;
+        // case locales.zh_tw:
+        //     return <KenoProMaxGuideZHTW {...resource} />;
+
+        default:
+            return <LotteryGuideEN {...resource} />;
     }
-    return (
-        <LotteryGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
 };
 export default LotteryGuide;
