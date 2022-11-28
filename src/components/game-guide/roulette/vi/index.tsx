@@ -5,6 +5,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -121,8 +122,8 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text"> Cược Tiers</span>
             <ul className="desc">
-                <li>Cược “Tiers” bao gồm các số 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33.</li>
-                <li>Hệ thống sẽ tạo thành 6 cược đôi: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36). </li>
+                <li>Cược “Tiers” bao gồm các số 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33</li>
+                <li>Hệ thống sẽ tạo thành 6 cược đôi: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36) </li>
                 <li>Người chơi chọn mệnh giá chip và nhấp vào Tiers, một lần đặt cược sẽ tốn 6 chip cho 6 cược đôi.</li>
             </ul>
             <p>Ví dụ: Người chơi đặt 10 vào Tiers, mức cược tương ứng cho từng cược đôi sẽ là:</p>
@@ -186,7 +187,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Cược Orphelins</span>
             <ul className="desc">
-                <li>Cược “Orphelins” bao gồm các số 1, 20, 14, 31, 9, 6, 34, 17.</li>
+                <li>Cược “Orphelins” bao gồm các số 1, 20, 14, 31, 9, 6, 34, 17</li>
                 <li>
                     Hệ thống sẽ tạo thành 4 cược đôi và 1 cược đơn:
                     <ul className="plus">
@@ -258,7 +259,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Cược Voisins</span>
             <ul className="desc">
-                <li>Cược “Voisins” bao gồm các số 22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25.</li>
+                <li>Cược “Voisins” bao gồm các số 22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25</li>
                 <li>
                     Hệ thống sẽ tạo thành 5 cược đôi, 1 cược bộ ba và 1 cược góc:
                     <ul className="plus">
@@ -347,7 +348,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Cược Zero</span>
             <ul className="desc">
-                <li>Cược “Zero” bao gồm các số 12, 35, 3, 26, 0, 32, 15.</li>
+                <li>Cược “Zero” bao gồm các số 12, 35, 3, 26, 0, 32, 15</li>
                 <li>
                     Hệ thống sẽ tạo thành 3 cược đôi, 1 cược đơn.
                     <ul className="plus">
@@ -431,7 +432,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
             </div>
             <p>
                 Ví dụ: Người chơi chọn mệnh giá chip 10, ô số muốn đặt là 27, có nghĩa là người chơi đặt cược lên năm con số liền nhau
-                36-13-27-6-34 (27 là con số ở giữa).
+                36-13-27-6-34 (27 là con số ở giữa)
             </p>
             <div className={Styles[wrapperImg]}>
                 <img src="/static/images/roulette/game_guide_neighbors_ex.png" alt="game_guide_neighbors_ex" loading="lazy" />
@@ -480,7 +481,10 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = (
+    odds: OddsProps | undefined,
+    fractionalOddsFormat: boolean | undefined, 
+) => {
     return (
         <li className="guide-item">
             <h2>Luật chơi</h2>
@@ -489,13 +493,7 @@ const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
                 cược trong là cược vào các ô số cụ thể trên bàn cược. Cược ngoài là người chơi đặt cược vào các lựa chọn như cược Đỏ Đen,
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
-            <div className={Styles["wrapper-img-rule"]}>
-                {fractionalOddsFormat ? (
-                    <img src="/static/images/roulette/fractionalodds/vi/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                ) : (
-                    <img src="/static/images/roulette/vi/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                )}
-            </div>
+            {renderGameRuleImage(fractionalOddsFormat, "vi")}  
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -537,7 +535,7 @@ const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
                                 </tr>
                                 <tr className="text-start">
                                     <td>Cược Bộ Bốn ( 4 số)</td>
-                                    <td>Cược vào tổ hợp bốn số 0,1,2,3</td>
+                                    <td>Cược vào tổ hợp bốn số 0, 1, 2, 3</td>
                                     <td>Đặt chip vào góc giao nhau giữa số 0 và số 1</td>
                                 </tr>
                                 <tr className="text-start">
@@ -548,7 +546,7 @@ const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
                                 <tr className="text-start">
                                     <td>Cược Cột (12 số)</td>
                                     <td>Cược vào 12 số trong một cột.</td>
-                                    <td>Đặt chip vào ô “1:3” ở cột muốn chọn.</td>
+                                    <td>Đặt chip vào ô &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34; ở cột muốn chọn.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -755,7 +753,7 @@ const RouletteGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
-                {renderBettingOptions(fractionalOddsFormat)}
+                {renderBettingOptions(odds, fractionalOddsFormat)}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsVI()}
             </ul>

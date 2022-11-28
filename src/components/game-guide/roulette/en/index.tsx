@@ -5,6 +5,7 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
+import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -117,7 +118,10 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = () => {
+const renderBetChipsNotice = (
+    odds: OddsProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -143,7 +147,7 @@ const renderBetChipsNotice = () => {
                                 <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one
-                                    the areas marked {`"1:3"`} at the end of the columns.
+                                    the areas marked &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34; at the end of the columns.
                                 </div>
                             </div>
                         </td>
@@ -624,7 +628,10 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = (
+    odds: OddsProps | undefined,
+    fractionalOddsFormat: boolean | undefined, 
+) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -633,14 +640,8 @@ const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
                 numbers themselves are called inside bets (Straight, Split, Street...), whereas the bets that you place on the outside the
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
-            <div className={Styles["wrapper-img-rule"]}>
-                {fractionalOddsFormat ? (
-                    <img src="/static/images/roulette/fractionalodds/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                ) : (
-                    <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                )}
-            </div>
-            {renderBetChipsNotice()}
+            {renderGameRuleImage(fractionalOddsFormat, "en")}  
+            {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
 };
@@ -692,7 +693,7 @@ const RouletteGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
-                {renderBettingOptions(fractionalOddsFormat)}
+                {renderBettingOptions(odds, fractionalOddsFormat)}
                 {renderCallBet(fractionalOddsFormat)}
                 {renderTermsAndConditionsEN()}
             </ul>

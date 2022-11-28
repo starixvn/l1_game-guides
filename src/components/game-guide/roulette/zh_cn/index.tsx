@@ -1,10 +1,11 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsCN } from "../../../shared";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
+import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -15,35 +16,32 @@ const renderGameRule = (
 ) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>游戏规则</h2>
             <ul className="desc">
-                <li>Select the chip value you wish to play. All bets must be completed before the betting time expires. </li>
-                <li>Click the “Confirm” button to complete, or X to reset your bets. Note, a confirmed bet cannot be canceled. </li>
-
+                <li>选择您想玩的筹码值。 所有投注必须在投注时间结束前完成。</li>
+                <li>点击“确认”按钮完成，或点击“X”重置您的投注。 请注意，已确认的投注不能取消。</li>
                 <li>
-                    Once the betting time has expired, the wheel will be spun with the ball rolls in the opposite direction of the wheel
-                    rotation.
+                一旦下注时间结束，轮盘将随着滚珠以与轮盘旋转相反的方向旋转。
                 </li>
-                <li>The winning number is determined by the slot where the ball falls into.</li>
-                <li>Players can bet on one or more betting options shown on the game table.</li>
+                <li>中奖号码由球落入的槽位决定。</li>
+                <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                 <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
-                    stake.
+                    中奖金额根据派彩率计算。 <strong>请注意，</strong> 支付包括初始投注。
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>Bet Types</th>
-                                    <th>Payouts</th>
+                                    <th>投注类型</th>
+                                    <th>支出</th>
                                     <th>
-                                        Bet Limit <br></br> (Min - Max)
+                                        投注限额<br></br>（最小-最大） 
                                     </th>
-                                    <th>Max Total Stake Per Round</th>
+                                    <th>每轮最大总赌注</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Straight Up</td>
+                                    <td>直线上升</td>
                                     <td>{formatOdds(odds?.straightUp, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightUp}
@@ -51,80 +49,83 @@ const renderGameRule = (
                                     <td rowSpan={12}>{maxBetFollowChoice?.maxBetMain}</td>
                                 </tr>
                                 <tr>
-                                    <td>Split</td>
+                                    <td>分</td>
                                     <td>{formatOdds(odds?.split, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSplit}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Street</td>
+                                    <td>街道</td>
                                     <td rowSpan={2}>{formatOdds(odds?.street, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStreet}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Triangle</td>
+                                    <td>三角形</td>
                                 </tr>
                                 <tr>
-                                    <td>Corner</td>
+                                    <td>角落</td>
                                     <td rowSpan={2}>{formatOdds(odds?.corner, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetCorner}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Four numbers</td>
+                                    <td>四个数字</td>
                                 </tr>
                                 <tr>
-                                    <td>Line</td>
+                                    <td>线</td>
                                     <td>{formatOdds(odds?.line, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Column</td>
+                                    <td>列</td>
                                     <td rowSpan={2}>{formatOdds(odds?.dozen, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDozen}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Dozen</td>
+                                    <td>一打</td>
                                 </tr>
                                 <tr>
-                                    <td>Red/Black</td>
+                                    <td>红/黑</td>
                                     <td rowSpan={3}>{formatOdds(odds?.redBlack, fractionalOddsFormat)}</td>
                                     <td rowSpan={3}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRedBlack}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Odd/Even</td>
+                                    <td>单/双</td>
                                 </tr>
                                 <tr>
-                                    <td>Big/Small</td>
+                                    <td>大/小</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </li>
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
             </ul>
         </>
     );
 };
 
-const renderBetChipsNotice = () => {
+const renderBetChipsNotice = (
+    odds: OddsProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
                 <thead>
                     <tr>
-                        <th>INSIDE BETS</th>
-                        <th>OUTSIDE BETS</th>
+                        <th>内幕投注</th>
+                        <th>外围投注</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -133,8 +134,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Straight Up: </strong>a bet on a specific number.<br></br>+ Place your chips directly on any
-                                    single number (including Zero)
+                                    <strong>直线上升：</strong>对特定数字的赌注。<br></br>
+                                    + 将筹码直接放在任何单个数字（包括零）上。
                                 </div>
                             </div>
                         </td>
@@ -142,8 +143,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Column: </strong>a bet on all twelve numbers (excluding Zero)<br></br>+ Place your chips in one
-                                    the areas marked {`"1:3"`} at the end of the columns.
+                                    <strong>列：</strong>对所有十二个数字的投注（不包括零）<br></br>
+                                    + 将您的筹码放在列末尾标有&#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34;的区域之一。
                                 </div>
                             </div>
                         </td>
@@ -153,8 +154,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Split: </strong>a bet on two adjoining numbers, either horizontal or vertical.<br></br>+ Place
-                                    your chips on the line between any two numbers.
+                                    <strong>分：</strong>投注两个相邻的数字，水平或垂直。<br></br>
+                                    + 将筹码放在任意两个数字之间的线上。
                                 </div>
                             </div>
                         </td>
@@ -162,8 +163,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Dozen: </strong>a bet on twelve consecutive numbers.<br></br>+ Place your chips in one of the
-                                    three areas marked {`"1-12", "13-24" or "25-36"`}.
+                                    <strong>一打：</strong>投注十二个连续数字。<br></br>
+                                    + 将筹码放在标有“1-12”、“13-24”或“25-36”的三个区域之一。
                                 </div>
                             </div>
                         </td>
@@ -173,8 +174,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Street: </strong>a bet on three consecutive numbers located on the same line.<br></br>+ Place
-                                    your chips on the outside border of the three numbers.
+                                    <strong>街：</strong>对位于同一行的三个连续数字下注。<br></br>
+                                    + 将筹码放在三个数字的外边界上。
                                 </div>
                             </div>
                         </td>
@@ -182,7 +183,7 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Red/Black: </strong>bet on whether the final result is Red or Black colour.
+                                    <strong>红/黑：</strong>投注最终结果是红色还是黑色。
                                 </div>
                             </div>
                         </td>
@@ -192,8 +193,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Triangle: </strong>a bet on three adjoining numbers 0, 1, 2 or 0, 2, 3.<br></br>+ Place your
-                                    chips on the intersecting corner of (0, 1, and 2) or (0, 2, and 3).
+                                    <strong>三角形：</strong>对三个相邻数字 0、1、2 或 0、2、3 的投注。<br></br>
+                                    + 将筹码放在（0、1 和 2）或（0、2 和 3）的交叉角上。
                                 </div>
                             </div>
                         </td>
@@ -201,7 +202,7 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Odd/Even: </strong>bet on whether the final result is Odd or Even number (excluding Zero).
+                                    <strong>单/双：</strong>投注最终结果是奇数还是偶数（不包括零）
                                 </div>
                             </div>
                         </td>
@@ -211,8 +212,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Corner: </strong>a bet on four numbers
-                                    <br></br>+ Place your chips on the intersection where all four numbers meet.
+                                    <strong>角落：</strong>投注四个数字。
+                                    <br></br>+ 将您的筹码放在所有四个数字相交的十字路口。
                                 </div>
                             </div>
                         </td>
@@ -220,7 +221,7 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Big/Small: </strong>bet on whether the final result is Big (19-36) or Small (1-18).
+                                    <strong>大/小：</strong>投注最终结果是大（19-36）还是小（1-18）
                                 </div>
                             </div>
                         </td>
@@ -230,8 +231,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Four numbers: </strong>a bet on four numbers 0, 1, 2, 3.<br></br>+ Place your chips on the
-                                    intersecting corner of 0 and the row of 1, 2, 3.
+                                    <strong>四个数字：</strong>投注四个数字 0、1、2、3<br></br>
+                                    + 将筹码放在 0 和 1、2、3 行的交叉角上
                                 </div>
                             </div>
                         </td>
@@ -242,8 +243,8 @@ const renderBetChipsNotice = () => {
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Line: </strong>a bet on two adjoining rows.<br></br>+ Place your chips at the end of two rows on
-                                    the intersection between them.
+                                    <strong>线：</strong>对相邻两行的赌注。<br></br>
+                                    + 将您的筹码放在两排交叉点的末端。
                                 </div>
                             </div>
                         </td>
@@ -258,16 +259,15 @@ const renderBetChipsNotice = () => {
 const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
-            <span className="font-weight-medium title-text">Tiers</span>
+            <span className="font-weight-medium title-text">跟注类型</span>
             <ul className="desc">
-                <li>The Tiers bet includes the numbers 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33. </li>
+                <li>Tiers投注包括数字 27、13、36、11、30、8、23、10、5、24、16、33</li>
                 <li>
-                    To play Tiers bet, six chips will be taken which are placed on the six Splits: (5, 8), (10, 11), (13, 16), (23, 24),
-                    (27, 30), (33, 36).
+                    要玩Tiers投注，将取六个筹码，分别放在六个分赛中：(5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33) , 36)
                 </li>
             </ul>
             <p>
-                <strong>Example: </strong>Player select the chip value 10, and click on Tiers option, it will cost 6 chips for this choice:
+                <strong>示例：</strong>玩家选择筹码值 10，然后点击"Tiers"选项，此选项将花费 6 个筹码：
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -280,14 +280,14 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
                 <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
-                            <th>Bet Type</th>
-                            <th>Options</th>
-                            <th>Stake</th>
+                            <th>投注类型</th>
+                            <th>选项</th>
+                            <th>赌注</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={6}>Split</td>
+                            <td rowSpan={6}>分</td>
                             <td>5, 8</td>
                             <td>10</td>
                         </tr>
@@ -313,7 +313,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <strong>Total</strong>
+                                <strong>总</strong>
                             </td>
                             <td>60</td>
                         </tr>
@@ -329,18 +329,17 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
             <ul className="desc">
-                <li>The Orphelins bet includes the numbers 1, 20, 14, 31, 9, 6, 34, 17.</li>
+                <li>投注包括数字 1、20、14、31、9、6、34、17</li>
                 <li>
-                    To play Orphelins bet, five chips will be taken which are placed on:
+                    要玩 Orphelins 赌注，将获得五个筹码，分别放置在：
                     <ul className="plus">
-                        <li>Four chips for the four Splits (6, 9), (14, 17), (17, 20), (31, 34) </li>
-                        <li>One chip for a Straight bet (1) </li>
+                        <li>四个分裂的四个筹码 (6, 9), (14, 17), (17, 20), (31, 34)</li>
+                        <li>一个筹码用于直注 (1)</li>
                     </ul>
                 </li>
             </ul>
             <p>
-                <strong>Example: </strong>Player select the chip value 10, and click on the Orphelins option, it will cost 5 chips for this
-                choice:
+                <strong>示例：</strong>玩家选择筹码值 10，然后单击 Orphelins 选项，该选项将花费 5 个筹码：
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -357,14 +356,14 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
                 <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
-                            <th>Bet Type</th>
-                            <th>Options</th>
-                            <th>Stake</th>
+                            <th>投注类型</th>
+                            <th>选项</th>
+                            <th>赌注</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={4}>Split</td>
+                            <td rowSpan={4}>分</td>
                             <td>6, 9</td>
                             <td>10</td>
                         </tr>
@@ -381,13 +380,13 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
                             <td>10</td>
                         </tr>
                         <tr>
-                            <td>Straight Up</td>
+                            <td>直线上升</td>
                             <td>1</td>
                             <td>10</td>
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <strong>Total</strong>
+                                <strong>总</strong>
                             </td>
                             <td>50</td>
                         </tr>
@@ -403,19 +402,18 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Voisins</span>
             <ul className="desc">
-                <li>The Voisins bet includes the numbers 22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25. </li>
+                <li>Voisins 投注包括数字 22、18、29、7、28、12、35、3、26、0、32、15、19、4、21、2、25</li>
                 <li>
-                    To play Voisins bet, nine chips will be taken which are placed on:
+                    要玩 Voisins 赌注，将获得九个筹码，分别放在：
                     <ul className="plus">
-                        <li>Five chips for five Splits: (12, 15), (18, 21), (32, 35), (19, 22), (4, 7) </li>
-                        <li>Two chips for Triangle: (0, 2, 3) </li>
-                        <li>Two chips for Corner: (25, 26, 28, 29)</li>
+                        <li>五个筹码用于五个拆分：(12, 15), (18, 21), (32, 35), (19, 22), (4, 7)</li>
+                        <li>三角形的两个筹码：(0, 2, 3)</li>
+                        <li>角落的两个筹码：(25, 26, 28, 29)</li>
                     </ul>
                 </li>
             </ul>
             <p>
-                <strong>Example: </strong>Player select the chip value 10, and click on the Voisins option, it will cost 9 chips for this
-                choice:
+                <strong>示例：</strong>玩家选择筹码值 10，然后单击 Voisins 选项，此选项将花费 9 筹码：
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -432,14 +430,14 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
                 <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
-                            <th>Bet Type</th>
-                            <th>Options</th>
-                            <th>Stake</th>
+                            <th>投注类型</th>
+                            <th>选项</th>
+                            <th>赌注</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={5}>Split</td>
+                            <td rowSpan={5}>分</td>
                             <td>12, 15</td>
                             <td>10</td>
                         </tr>
@@ -460,18 +458,18 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
                             <td>10</td>
                         </tr>
                         <tr>
-                            <td>Triangle</td>
+                            <td>三角形</td>
                             <td>0, 2, 3</td>
                             <td>20</td>
                         </tr>
                         <tr>
-                            <td>Corner</td>
+                            <td>角落</td>
                             <td>25, 26, 28, 29</td>
                             <td>20</td>
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <strong>Total</strong>
+                                <strong>总</strong>
                             </td>
                             <td>90</td>
                         </tr>
@@ -487,18 +485,17 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Zero</span>
             <ul className="desc">
-                <li>The Zero bet includes the numbers 12, 35, 3, 26, 0, 32, 15.</li>
+                <li>Zero赌注包括数字 12、35、3、26、0、32、15</li>
                 <li>
-                    To play Zero bet, four chips will be taken which are placed on:
+                    要玩Zero赌注，将取四个筹码，分别放在：
                     <ul className="plus">
-                        <li>One chip for a Straight bet (26)</li>
-                        <li>Three chips for three Splits (0, 3), (12, 15), (32, 35)</li>
+                        <li>一个筹码用于直注 (26)</li>
+                        <li>三个分片的三个筹码 (0, 3), (12, 15), (32, 35)</li>
                     </ul>
-                </li>
-                <li>Người chơi chọn mệnh giá chip và nhấp vào Zero, một lần đặt cược sẽ tốn 4 chip cho 3 cược đôi và 1 cược đơn.</li>
+                </li>                
             </ul>
             <p>
-                <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
+                <strong>示例：</strong>玩家选择筹码值 10，然后单击“Zero”选项，此选项将花费 4 个筹码：
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -511,14 +508,14 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
                 <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
-                            <th>Bet Type</th>
-                            <th>Options</th>
-                            <th>Stake</th>
+                            <th>投注类型</th>
+                            <th>选项</th>
+                            <th>赌注</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>Split</td>
+                            <td rowSpan={3}>分</td>
                             <td>0, 3</td>
                             <td>10</td>
                         </tr>
@@ -532,14 +529,14 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
                         </tr>
 
                         <tr>
-                            <td>Straight Up</td>
+                            <td>直线上升</td>
                             <td>26</td>
                             <td>10</td>
                         </tr>
 
                         <tr>
                             <td colSpan={2}>
-                                <strong>Total</strong>
+                                <strong>总</strong>
                             </td>
                             <td>40</td>
                         </tr>
@@ -555,19 +552,17 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
             <p>
-                The Neighbors is made with 5 numbers, among that one number is chosen by the player, together with the two numbers that lay
-                on the left and right side of that number on the wheel.
+                Neighbors由 5 个数字组成，其中一个数字由玩家选择，以及位于轮盘上该数字左右两侧的两个数字。
             </p>
             <ul className="desc">
-                <li>To play Neighbor bet, five chips will be taken which are placed on 5 Straight bets.</li>
+                <li>要玩Neighbors赌注，将取 5 个筹码，这些筹码放在 5 连注中。</li>
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
                 <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
             </div>
             <p>
-                <strong>Example: </strong>Player selects the chip value 10, and click on number 27 for a Neighbors bet, it will cost 5 chips
-                for five Straight bets: (36), (13), (27), (6), (34).
+                <strong>示例：</strong>玩家选择筹码值 10，然后单击数字 27 进行Neighbors下注，五个直注将花费 5 个筹码：(36)、(13)、(27)、(6)、(34)
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -584,14 +579,14 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
                 <table className={`table text-center ${Styles[tableSmall]}`}>
                     <thead>
                         <tr>
-                            <th>Bet Type</th>
-                            <th>Options</th>
-                            <th>Stake</th>
+                            <th>投注类型</th>
+                            <th>选项</th>
+                            <th>赌注</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={5}>Straight Up</td>
+                            <td rowSpan={5}>直线上升</td>
                             <td>36</td>
                             <td>10</td>
                         </tr>
@@ -613,7 +608,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <strong>Total</strong>
+                                <strong>总</strong>
                             </td>
                             <td>50</td>
                         </tr>
@@ -624,23 +619,18 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = (
+    odds: OddsProps | undefined,
+    fractionalOddsFormat: boolean | undefined, 
+) => {
     return (
         <li className="guide-item">
-            <h2>Betting Options</h2>
+            <h2>投注选项</h2>
             <p>
-                Roulette bet types are broken down into two categories: inside bets and outside bets. The bets that are placed on the
-                numbers themselves are called inside bets (Straight, Split, Street...), whereas the bets that you place on the outside the
-                number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
+                轮盘赌的投注类型分为两类：内注和外注。 对数字本身进行的投注称为内注（直、分、街...），而您在数字字段之外进行的投注称为外注（单/双、红/黑、大 /小，列和一打）
             </p>
-            <div className={Styles["wrapper-img-rule"]}>
-                {fractionalOddsFormat ? (
-                    <img src="/static/images/roulette/fractionalodds/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                ) : (
-                    <img src="/static/images/roulette/en/game_guide-luat_choi.png" alt="luat-choi" loading="lazy" />
-                )}
-            </div>
-            {renderBetChipsNotice()}
+            {renderGameRuleImage(fractionalOddsFormat, "cn")}  
+            {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
 };
@@ -648,10 +638,10 @@ const renderBettingOptions = (fractionalOddsFormat: boolean | undefined) => {
 const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <li className="guide-item">
-            <h2>Call Bet</h2>
+            <h2>跟注</h2>
             <p>
-                Call Bet or French Bet are special betting options which are a predefined set of bets. There are 5 options: Tiers, Voisins
-                du Zero, Orphelins, Zero, Neighbors.
+                跟注或法式投注是特殊的投注选项，它们是一组预定义的投注。
+                有 5 个选项：Tiers)、Voisins du Zero、Orphelins、Zero、Neighbors。
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
@@ -661,7 +651,7 @@ const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
 
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Types of Call Bet</span>
+                    <span className="font-weight-medium title-text">跟注类型</span>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">{renderCallBetTiers(fractionalOddsFormat)}</li>
                         <li className="number-dot-number">{renderCallBetOrphelins(fractionalOddsFormat)}</li>
@@ -683,18 +673,17 @@ const RouletteGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>简介</h2>
                     <p className="content">
-                        {gameName} is a simple yet fascinating gambling game. The game is played with a ball and a roulette wheel which
-                        consists of thirty-seven slots, numbered from 0 to 36. Each slot is colored red or black, while the slot “0” is
-                        green. The players predict the number that the ball will finally rest after the wheel is spun. If the ball falls
-                        into the number you selected, you will win; otherwise, you lose.
+                        {gameName}是一个简单而迷人的赌博游戏。游戏使用一个球和一个轮盘，轮盘由 37 个插槽组成，编号从 0 到 36
+                        每个插槽都是红色或黑色，而插槽“0”是绿色。 玩家预测轮盘旋转后球最终静止的次数。
+                        如果球落入您选择的号码，您将获胜； 否则，你输了。
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
-                {renderBettingOptions(fractionalOddsFormat)}
+                {renderBettingOptions(odds, fractionalOddsFormat)}
                 {renderCallBet(fractionalOddsFormat)}
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsCN()}
             </ul>
         </>
     );
