@@ -81,9 +81,8 @@ export const renderIconContent = (
 
             <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png`} alt={itemName}></img>
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
-                    isGem && Styles["gem-position"]
-                }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
+                    }`}
             >
                 {dataContent.map((data, index) => {
                     return (
@@ -109,16 +108,16 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     false,
                     project === PROJECTS.L1
                         ? [
-                              [5, odds[10][5]],
-                              [4, odds[10][4]],
-                              [3, odds[10][3]],
-                              [2, odds[10][2]],
-                          ]
+                            [5, odds[10][5]],
+                            [4, odds[10][4]],
+                            [3, odds[10][3]],
+                            [2, odds[10][2]],
+                        ]
                         : [
-                              [4, odds[10][4]],
-                              [3, odds[10][3]],
-                              [2, odds[10][2]],
-                          ],
+                            [4, odds[10][4]],
+                            [3, odds[10][3]],
+                            [2, odds[10][2]],
+                        ],
                     project,
                     locale
                 )}
@@ -429,9 +428,8 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${
-                                    project === PROJECTS.L2 ? `${project}/en` : project
-                                }/guide_example_free_spin.png?v1`}
+                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
+                                    }/guide_example_free_spin.png?v1`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -510,9 +508,8 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${
-                                    project === PROJECTS.L2 ? `${project}/en` : project
-                                }/guide_example_bonus.png?v1`}
+                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
+                                    }/guide_example_bonus.png?v1`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -625,7 +622,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
     );
 };
 
-const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const FourGuardiansGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameName, gameConfigs, project } = props;
     const { odds } = gameConfigs;
     return (
@@ -657,4 +654,4 @@ const SicBoGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
         </>
     );
 };
-export default SicBoGuideEN;
+export default FourGuardiansGuideEN;

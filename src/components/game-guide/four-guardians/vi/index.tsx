@@ -210,9 +210,8 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${
-                                    project === PROJECTS.L2 ? `${project}/vi` : project
-                                }/guide_example_free_spin.png`}
+                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project
+                                    }/guide_example_free_spin.png`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -302,9 +301,8 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${
-                                    project === PROJECTS.L2 ? `${project}/vi` : project
-                                }/guide_example_bonus.png`}
+                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project
+                                    }/guide_example_bonus.png`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -417,7 +415,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
     );
 };
 
-const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const FourGuardiansGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
     const { gameConfigs, gameName, project } = props;
     const { odds } = gameConfigs;
     return (
@@ -450,4 +448,4 @@ const SicBoGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
         </>
     );
 };
-export default SicBoGuideVI;
+export default FourGuardiansGuideVI;
