@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import ThreeCardsGuideEN from "./en";
 import ThreeCardsGuideVI from "./vi";
+import ThreeCardsGuideID from "./id";
+import ThreeCardsGuideTH from "./th";
+import ThreeCardsGuideZH_CN from "./zh_cn";
+import ThreeCardsGuideZH_TW from "./zh_tw";
+
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -59,23 +64,61 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <ThreeCardsGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
+    switch (locale) {
+        case locales.vi:
+            return (
+                <ThreeCardsGuideVI
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        case locales.id:
+            return (
+                <ThreeCardsGuideID
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        case locales.th:
+            return (
+                <ThreeCardsGuideTH
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        case locales.zh_cn:
+            return (
+                <ThreeCardsGuideZH_CN
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        case locales.zh_tw:
+            return (
+                <ThreeCardsGuideZH_TW
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        default:
+            return (
+                <ThreeCardsGuideEN
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
     }
-    return (
-        <ThreeCardsGuideVI
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
 };
 export default ThreeCardsGuide;

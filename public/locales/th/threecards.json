@@ -1,8 +1,8 @@
 {
-    "red": "Red",
-    "black": "Black",
-    "diamonds":"Diamonds",
-    "hearts":"Hearts",
-    "spades":"Spades",
-    "clubs":"Clubs"
+    "red": "แดง",
+    "black": "ดำ",
+    "diamonds": "ข้าวหลามตัด",
+    "hearts": "หัวใจ",
+    "spades": "โพดำ",
+    "clubs": "ดอกจิก"
 }

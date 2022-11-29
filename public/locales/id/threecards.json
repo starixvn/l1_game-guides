@@ -1,8 +1,8 @@
 {
-    "red": "Red",
-    "black": "Black",
-    "diamonds":"Diamonds",
-    "hearts":"Hearts",
-    "spades":"Spades",
-    "clubs":"Clubs"
+    "red": "Merah",
+    "black": "Hitam",
+    "diamonds": "Berlian",
+    "hearts": "Hati",
+    "spades": "Sekop",
+    "clubs": "Klub"
 }

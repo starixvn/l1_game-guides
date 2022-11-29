@@ -1,8 +1,8 @@
 {
-    "red": "Red",
-    "black": "Black",
-    "diamonds":"Diamonds",
-    "hearts":"Hearts",
-    "spades":"Spades",
-    "clubs":"Clubs"
+    "red": "红",
+    "black": "黑",
+    "diamonds": "方块",
+    "hearts": "红心",
+    "spades": "黑桃",
+    "clubs": "梅花"
 }
