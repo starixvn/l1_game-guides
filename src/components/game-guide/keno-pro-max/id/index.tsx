@@ -107,7 +107,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor
+                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -159,7 +159,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor
+                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -203,7 +203,7 @@ const bettingOptions = () => {
                 <li className="number-dot">
                     {FiveElements()}
                     <div>
-                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor
+                        <strong>Contoh:</strong> Set 20 bola bernomor yang diambil secara acak dari 80 bola bernomor:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>

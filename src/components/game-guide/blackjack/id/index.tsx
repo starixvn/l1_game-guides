@@ -16,7 +16,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
             <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>Pilih nilai chip dan klik pada lingkaran (tempat taruhan) dari masing-masing tangan yang ingin Anda pertaruhkan.</li>
-                <li>Para Pemain dapat bermain dengan lebih dari satu tangan secara bersamaan (hingga 3).</li>
+                <li>Para Pemain dapat bermain dengan lebih dari satu tangan secara bersamaan (hingga 3)</li>
                 <li>
                     Klik tombol “Deal” untuk mengonfirmasi taruhan, atau “X” untuk mengatur ulang taruhan Anda. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan setelah kartu dibagikan.
                 </li>
@@ -67,7 +67,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                             Tidak ada batasan jumlah kartu yang dapat Anda tarik hingga nilai total kartu adalah 21 atau Bust.
                                                         </li>
                                                         <li>
-                                                            Jika tangan Pemain melebihi 21, pemain kalah untuk tangan itu, tidak peduli apa yang dimiliki Dealer
+                                                            Jika tangan Pemain melebihi 21, pemain kalah untuk tangan itu, tidak peduli apa yang dimiliki Dealer.
                                                         </li>
                                                     </ul>
                                                 </td>

@@ -15,8 +15,8 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
         <>
             <h2>遊戲規則</h2>
             <ul className="desc">
-                <li>選擇籌碼值並單擊您要下注的每手牌的圓圈（下注點）。</li>
-                <li>玩家可以同時玩多隻手（最多 3 只）。</li>
+                <li>選擇籌碼值並單擊您要下注的每手牌的圓圈（下注點）</li>
+                <li>玩家可以同時玩多隻手（最多 3 只）</li>
                 <li>
                     點擊“Deal”按鈕確認投注，或點擊“X”重置您的投注。請注意，發牌後無法取消投注。
                 </li>
@@ -37,9 +37,9 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                             <li>
                                 當閒家和莊家都擁有二十一點時，結果為平局（平局），賭注返還給閒家。
                             </li>
-                            <li>如果玩家的總點數超過 21（破產）。玩家輸了，即使莊家也超過 21。</li>
+                            <li>如果玩家的總點數超過 21（破產）。玩家輸了，即使莊家也超過 21</li>
                             <li>
-                                根據遊戲規則，根據前兩張牌的總點數，玩家最多有四個選項：“拿牌”、“停牌”、“加倍”或“分牌” .
+                                根據遊戲規則，根據前兩張牌的總點數，玩家最多有四個選項：“拿牌”、“停牌”、“加倍”或“分牌”。
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -65,7 +65,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                             在總手牌值達到 21 或破產之前，您可以抽的牌數量沒有限制。
                                                         </li>
                                                         <li>
-                                                            如果玩家的手牌超過 21，則無論莊家有什麼牌，玩家都會輸掉該手牌
+                                                            如果玩家的手牌超過 21，則無論莊家有什麼牌，玩家都會輸掉該手牌。
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -214,7 +214,7 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>積分計算規則</h2>
                     <ul className="desc">
                         <li>
-                        從 2 到 10 的所有牌都按面值計算，無論花色如何，面牌（J、Queen、King）計為 10。
+                        從 2 到 10 的所有牌都按面值計算，無論花色如何，面牌（J、Queen、King）計為 10
                         </li>
                         <li>一張 A 算作 1 或 11，以最適合您的手牌為準。</li>
                         <li>
@@ -224,7 +224,7 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                     <strong>例子：</strong>
                     <ul className="detail">
-                        <li>包含九 (9)、八 (8) 和 Ace (A) 的手 =&gt; 手的值是 18。</li>
+                        <li>包含九 (9)、八 (8) 和 Ace (A) 的手 =&gt; 手的值是 18</li>
                         <li>包含七 (7) 和 A (A) 的手 =&gt; 手的價值是 18</li>
                     </ul>
                 </li>

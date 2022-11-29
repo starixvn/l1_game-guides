@@ -568,11 +568,11 @@ const renderViewStatistic = () => {
                             <p className="bold">例子:</p>
                             <div className={Styles["others"]}>
                                 <div className={Styles["result"]}>
-                                    <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>ODD</span>
+                                    <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>單</span>
                                     <span className={`${Styles[subNumber]}`}>48%</span>
                                 </div>
                                 <div className={Styles["result"]}>
-                                    <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>EVEN</span>
+                                    <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>雙</span>
                                     <span className={`${Styles[subNumber]}`}>52%</span>
                                 </div>
                             </div>

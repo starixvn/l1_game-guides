@@ -18,11 +18,11 @@ const renderMD5Example = (gameName: string) => {
             <ul className="desc">
                 <li>
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step1_en.png?v=3" alt="md5-string" />
+                    <img className="format-img auto-center" src="/static/images/big-small/md5_step1_cn.png?v=4" alt="md5-string" />
                 </li>
                 <li>
                     <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step2_en.png?v=3" alt="md5-result" />
+                    <img className="format-img auto-center" src="/static/images/big-small/md5_step2_cn.png?v=4" alt="md5-result" />
                     <div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the the value of three dice.</div>
                 </li>
                 <li>

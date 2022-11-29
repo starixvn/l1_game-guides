@@ -110,22 +110,19 @@ const MultiplayBigSmallGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>Game Rules</h2>
                     <ul className="desc">
                         <li>For each table, the dice cup will be shaken at the beginning of the game round.</li>
-                        <li>The players can bet on either BIG or SMALL, but not on both.</li>
+                        <li>玩家可以下注大或小，但不能同時下注。</li>
                         <ul className="detail">
-                            <li>BIG: the player will win if the total points of three dice &gt;= 11</li>
-                            <li>SMALL: the player will win if the total points of the three dice &lt;= 10</li>
+                            <li>大: 如果三個骰子的總點數 &gt;= 11，玩家將獲勝 </li>
+                            <li>小: 如果三個骰子的總點數 &lt;= 10，則玩家獲勝 </li>
                         </ul>
                         <li>
-                            Players can increase their stakes by placing another bet with the same selection before the betting time
-                            expires. Note, placed bets cannot be canceled.
+                            玩家可以在下注時間結束前通過使用相同選項再次下注來增加賭注金額。 請注意，投注無法取消。
                         </li>
                         <li>
-                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} and the
-                            maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
+                            最小賭注和最大賭注必須在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} 之間，每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Once the betting time has expired, the result will be shown. If the outcome of three dice matches your bet, you
-                            win.
+                            Once the betting time has expired, the result will be shown. 如果三個骰子的結果與您的賭注相符，則您獲勝。
                         </li>
                     </ul>
                 </li>

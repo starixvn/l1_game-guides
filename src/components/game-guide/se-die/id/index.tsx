@@ -45,7 +45,7 @@ const renderGameRuleTable = (gameId: number) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2}>GENAP</td>
+                        <td rowSpan={2}>GANJIL</td>
                         <td>3 merah, 1 putih</td>
                         {renderThreeRedOneWhite()}
                     </tr>
@@ -54,7 +54,7 @@ const renderGameRuleTable = (gameId: number) => {
                         {renderOneRedThreeWhite()}
                     </tr>
                     <tr>
-                        <td rowSpan={3}>GANJIL</td>
+                        <td rowSpan={3}>GENAP</td>
                         <td>4 merah</td>
                         {renderFourRed()}
                     </tr>
@@ -104,7 +104,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
+                        src={`/static/images/${currentGameType}/md5_step1_id.png?v=5`}
                         alt="md5-string"
                     />
                 </li>
@@ -112,7 +112,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
                     <img
                         className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
+                        src={`/static/images/${currentGameType}/md5_step2_id.png?v=5`}
                         alt="md5-result"
                     />
                     <div>Note: Red and white correspond to two sides of the button.</div>
@@ -200,14 +200,14 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>GENAP</td>
+                                            <td>GANJIL</td>
                                             <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>GANJIL</td>
+                                            <td>GENAP</td>
                                         </tr>
                                         <tr>
                                             <td>4 merah</td>

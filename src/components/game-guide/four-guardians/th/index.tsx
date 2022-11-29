@@ -1,10 +1,11 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsTH } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
 import { PROJECTS } from "../../../../common/constants";
+import { renderGameRuleContent } from "../../../shared/slot-games/th";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -14,17 +15,9 @@ const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>กฎของเกม</h2>
             <ul className="desc">
-                <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
-                    <div className="text-center">
-                        <strong>Total Bet</strong> = Paylines * Bet Level
-                    </div>
-                </li>
-
-                <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
-                <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
+                {renderGameRuleContent()}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img
                         src={`/static/images/four-guardians/guide_payline.png`}
@@ -42,11 +35,11 @@ const renderGameRule = () => {
 const renderPayouts = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>Paytable</h2>
+            <h2>ตารางการจ่าย</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio.</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
                 <li>
-                    <strong>Note, </strong>the Payout includes the initial stake.
+                    <strong>หมายเหตุ </strong> การจ่ายเงินจะรวมเงินเดิมพันเริ่มต้นด้วย
                 </li>
             </ul>
             {renderPayoutsIconFirstLine(odds, project, "en")}
@@ -274,14 +267,14 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
     return (
         <>
             <p>
-                <strong>Example</strong>
+                <strong>ตัวอย่าง</strong>
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>สัญลักษณ์</th>
+                            <th>คำอธิบาย</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -301,20 +294,20 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                Having 5 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][5]}
+                                มีสัญลักษณ์อัญมณี 5 อันอยู่บนเพย์ไลน์เดียวกัน
+                                <br></br>การจ่ายเงิน = ระดับการเดิมพัน  * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][4]}
+                                มีสัญลักษณ์อัญมณี 4 อันอยู่บนเพย์ไลน์เดียวกัน
+                                <br></br>การจ่ายเงิน = ระดับการเดิมพัน * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][3]}
+                                มีสัญลักษณ์อัญมณี 3 อันอยู่บนเพย์ไลน์เดียวกัน
+                                <br></br>การจ่ายเงิน = ระดับการเดิมพัน * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -376,17 +369,17 @@ const renderJackpot = () => {
 const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>Free Spin</h2>
+            <h2>ฟรีสปิน</h2>
             <ul className="desc">
-                <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
-                <li>The Free Spin symbols do not have to be on the same payline.</li>
+                <li>ผู้เล่นจะได้รับโบนัสฟรีสปินตามจำนวนสัญลักษณ์ฟรีสปินในผลลัพธ์</li>
+                <li>สัญลักษณ์ฟรีสปินไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th>Description</th>
+                            <th>สัญลักษณ์</th>
+                            <th>คำอธิบาย</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -399,7 +392,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                                         [4, odds[7][4]],
                                         [3, odds[7][3]],
                                     ],
-                                    " FREE SPINS"
+                                    " ฟรีสปิน"
                                 )}
                             </td>
                             <td>
@@ -422,9 +415,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
-                    {`"Free Spin"`}
-                    symbols on the same reel, the system will count as one symbol.
+                    <strong>หมายเหตุ:</strong> สัญลักษณ์ &#34;ฟรีสปิน&#34; ต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากมีสัญลักษณ์ &#34;หมุนฟรี&#34; 3 อันบนรีลเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -438,16 +429,14 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols are located on the same reel. The player is not
-                            eligible for the Free spins bonus.
+                            มี 4 สัญลักษณ์ &#34;หมุนฟรี&#34; ในผลลัพธ์ แต่มี 3 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นไม่มีสิทธิ์รับโบนัสหมุนฟรี
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    Free Spins are played at the same Bet Level and same number of paylines as the last spin (the spin on which the User
-                    gets the Free Spins Bonus).
+                ฟรีสปิน ผู้เล่นที่ระดับการเดิมพันเดียวกันและจำนวนเพย์ไลน์เดียวกันกับการหมุนรอบสุดท้าย (เพียงยูสเซอร์ได้รับโบนัสสปินฟรี)
                 </li>
-                <li>The Player must complete Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.</li>
+                <li>ผู้เล่นต้องเสร็จสิ้นในการโบนัสฟรีสปินให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังจากที่ออกให้ ฟรีสปินที่ไม่ได้ใช้จะเป็นโมฆะ</li>
             </ul>
         </li>
     );
@@ -456,17 +445,17 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
 const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>Bonus</h2>
+            <h2>โบนัส</h2>
             <ul className="desc">
-                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – Treasure Chest.</li>
-                <li>The Bonus symbols do not have to be on the same payline.</li>
+                <li>การมีสัญลักษณ์โบนัส 3, 4 หรือ 5 อันปรากฏขึ้นที่ใดในเกมซึ่งจะได้โบนัส – หีบสมบัติ</li>
+                <li>สัญลักษณ์โบนัสไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>สัญลักษณ์</th>
+                            <th>คำอธิบาย</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -479,22 +468,22 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                                         [4, odds[8][4]],
                                         [3, odds[8][3]],
                                     ],
-                                    " BONUS"
+                                    " โบนัส"
                                 )}
                             </td>
                             <td>
-                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} Treasure Chests in Bonus Game.
+                                มี 5 สัญลักษณ์โบนัสในแสดงที่หน้าจอ<br></br>สามารถเปิด {odds[8][5]} โบนัสหีบสมบัติในเกม
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Bonus symbols in the result.
-                                <br></br> Can open {odds[8][4]} Treasure Chests in Bonus Game.
+                                มีสัญลักษณ์โบนัส 4 ตัวในผลลัพธ์
+                                <br></br> สามารถเปิด {odds[8][4]} โบนัสหีบสมบัติในเกม
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} Treasure Chests in Bonus Game.
+                                มี 3 สัญลักษณ์โบนัสในแสดงที่หน้าจอ<br></br>สามารถเปิด {odds[8][3]} โบนัสหีบสมบัติในเกม
                             </td>
                         </tr>
                     </tbody>
@@ -503,8 +492,7 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
-                    on the same reel, the system will count as one symbol.
+                    <strong>หมายเหตุ:</strong>  สัญลักษณ์โบนัสต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากสัญลักษณ์โบนัส 2 หรือ 3 ปรากฏบนวงล้อเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -518,15 +506,13 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Bonus"`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 Treasure Chests.
+                            มี 4 สัญลักษณ์ &#34;โบนัส&#34; ในเกม แต่มี 2 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นมีสิทธิ์ได้รับ 3 หีบสมบัติ เท่านั้น
                         </span>
                     </div>
                 </li>
                 <li>
                     {" "}
-                    Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
-                    Chests and settle the game round.
+                    ผู้เล่นต้องทำโบนัสของเกมให้เสร็จสิ้นภายใน 120 วินาที นับจากนับถอยหลัง หลังจากช่วงเวลานี้ ระบบจะสุ่มเปิดหีบและตัดสินรอบเกม
                 </li>
             </ul>
         </li>
@@ -551,7 +537,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 
                 <ul className="desc">
                     <li>
-                        “Wild” symbol can substitute for all symbols except
+                        สัญลักษณ์ “Wild” สามารถใช้แทนสัญลักษณ์ทั้งหมดได้ ยกเว้น
                         <img
                             className={`${Styles["item8"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item8.png"
@@ -563,18 +549,18 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                             src="./static/images/four-guardians/item7.png"
                             alt="item7"
                         ></img>
-                        and{" "}
+                        และ{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src={`./static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project}/item10.png`}
                             alt="item10"
                         ></img>
                     </li>
-                    <li>Only the highest achieved win per line is paid out.</li>
+                    <li>จะจ่ายเฉพาะการชนะที่ทำได้สูงสุดต่อ Line เท่านั้น</li>
                 </ul>
             </div>
             <div>
-                <strong>Example</strong>
+                <strong>Contoh</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
@@ -595,26 +581,26 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            If Wild symbol is
+                            หากสัญลักษณ์ Wild คือ 
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[2][3]}
+                            {`=>`} การจ่ายเงิน = ระดับการเดิมพัน * {odds[2][3]}
                         </li>
                         <li>
-                            If Wild symbol is
+                            หากสัญลักษณ์ Wild คือ
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[5][3]}
+                            {`=>`} การจ่ายเงิน = ระดับการเดิมพัน * {odds[5][3]}
                         </li>
                     </ul>
                     <p>
-                        Player will get the highest win on this payline {`=>`} Payout = Bet Level * {Math.max(odds[2][3], odds[5][3])}
+                        ผู้เล่นจะได้รับชัยชนะสูงสุดในเพย์ไลน์นี้  {`=>`} การจ่ายเงิน = ระดับการเดิมพัน * {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>
             </div>
@@ -629,11 +615,10 @@ const FourGuardiansGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} is an online slot game, built on the legend story of Four Holy Beasts as Dragon, Qilin, Turtle, and
-                        Phoenix. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same
-                        symbols located on the same payline that you have chosen.
+                        {gameName} เป็นเกมสล็อตออนไลน์ที่สร้างขึ้นจากตำนานของ Four Holy Beasts เช่น Dragon, Qilin, Turtle และ Phoenix เกมดังกล่าวประกอบด้วย 5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ
+                        ผู้เล่นจะชนะหากมีสัญลักษณ์เดียวกันอยู่บนเพย์ไลน์เดียวกันกับที่คุณเลือก
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
@@ -649,7 +634,7 @@ const FourGuardiansGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 {renderFreeSpin(odds, project)}
                 {renderBonus(odds, project)}
                 {renderWild(odds, project)}
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsTH()}
             </ul>
         </>
     );

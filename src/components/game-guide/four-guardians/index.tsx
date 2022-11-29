@@ -6,6 +6,10 @@ import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
+import FourGuardiansGuideID from "./id";
+import FourGuardiansGuideTH from "./th";
+import FourGuardiansGuideCN from "./zh_cn";
+import FourGuardiansGuideTW from "./zh_tw";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -37,9 +41,26 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return <FourGuardiansGuideEN gameConfigs={configs} gameName={gameNameTranslate} project={project} />;
-    }
-    return <FourGuardiansGuideVI gameConfigs={configs} gameName={gameNameTranslate} project={project} />;
+    const resource = {
+        gameConfigs: configs,       
+        gameName: gameNameTranslate,  
+        project: project,
+    };
+
+    switch(locale) {
+        case locales.vi:
+            return <FourGuardiansGuideVI {...resource} />
+        case locales.id:
+            return <FourGuardiansGuideID {...resource} />
+        case locales.th:
+            return <FourGuardiansGuideTH {...resource} />
+        case locales.zh_cn:
+            return <FourGuardiansGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <FourGuardiansGuideTW {...resource} />;
+
+        default:
+            return <FourGuardiansGuideEN {...resource} />
+    }      
 };
 export default FourGuardiansGuide;

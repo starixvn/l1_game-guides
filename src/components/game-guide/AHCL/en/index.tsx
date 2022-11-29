@@ -4,6 +4,7 @@ import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../heroes-slot.module.scss";
 import { locales } from "../../../../common/constants";
+import { renderGameRuleContent } from "../../../shared/slot-games/en";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -15,15 +16,7 @@ const renderGameRule = () => {
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
-                    <div className="text-center">
-                        <strong>Total Bet</strong> = Paylines * Bet Level
-                    </div>
-                </li>
-
-                <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
-                <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
+                {renderGameRuleContent()}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img src={`/static/images/heroes/guide_payline.png`} alt="guide_payline" width={834} height={159} loading="eager" />
                 </div>

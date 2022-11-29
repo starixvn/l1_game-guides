@@ -107,7 +107,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
+                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -159,7 +159,7 @@ const bettingOptions = () => {
                         </li>
                     </ul>
                     <div>
-                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
+                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -203,7 +203,7 @@ const bettingOptions = () => {
                 <li className="number-dot">
                     {FiveElements()}
                     <div>
-                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls
+                        <strong>Example:</strong> Set of 20 numbered balls drawn randomly from 80 numbered balls:
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>

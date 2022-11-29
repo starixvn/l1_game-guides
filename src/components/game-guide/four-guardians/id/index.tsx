@@ -1,10 +1,11 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsID } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../four-guardians.module.scss";
 import { PROJECTS } from "../../../../common/constants";
+import { renderGameRuleContent } from "../../../shared/slot-games/id";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -14,17 +15,9 @@ const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>Aturan Permainan</h2>
             <ul className="desc">
-                <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`"Spin"`}.
-                    <div className="text-center">
-                        <strong>Total Bet</strong> = Paylines * Bet Level
-                    </div>
-                </li>
-
-                <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
-                <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
+                {renderGameRuleContent()}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img
                         src={`/static/images/four-guardians/guide_payline.png`}
@@ -42,11 +35,11 @@ const renderGameRule = () => {
 const renderPayouts = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>Paytable</h2>
+            <h2>Tabel Pembayaran</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio.</li>
+                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
                 <li>
-                    <strong>Note, </strong>the Payout includes the initial stake.
+                    <strong>Catatan,</strong> Pembayaran termasuk taruhan awal.
                 </li>
             </ul>
             {renderPayoutsIconFirstLine(odds, project, "en")}
@@ -274,14 +267,14 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
     return (
         <>
             <p>
-                <strong>Example</strong>
+                <strong>Contoh</strong>
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>Simbol</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -301,20 +294,20 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                Having 5 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][5]}
+                                Memiliki 5 simbol Permata yang terletak di payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan *  {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][4]}
+                                Memiliki 4 simbol Permata yang terletak di payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Gem symbols located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][3]}
+                            Memiliki 3 simbol Permata yang terletak di payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan  * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -378,15 +371,15 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>Free Spin</h2>
             <ul className="desc">
-                <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
-                <li>The Free Spin symbols do not have to be on the same payline.</li>
+                <li>Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.</li>
+                <li>Simbol Free Spin tidak harus berada di payline yang sama.</li>
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th>Description</th>
+                            <th>Simbol</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -422,9 +415,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
-                    {`"Free Spin"`}
-                    symbols on the same reel, the system will count as one symbol.
+                    <strong>Catatan:</strong>  Simbol &#34;Putaran Gratis&#34; harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol &#34;Putaran Gratis&#34; pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -438,16 +429,14 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Free spin"`} symbols in the result, but 3 symbols are located on the same reel. The player is not
-                            eligible for the Free spins bonus.
+                        Ada 4 simbol &#34;Putaran gratis&#34; di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat untuk bonus putaran Gratis.
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    Free Spins are played at the same Bet Level and same number of paylines as the last spin (the spin on which the User
-                    gets the Free Spins Bonus).
+                    Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).
                 </li>
-                <li>The Player must complete Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.</li>
+                <li>Pemain harus menyelesaikan Bonus Putaran Gratis dalam waktu 24 jam setelah diterbitkan. Putaran Gratis yang tidak digunakan akan hilang.</li>
             </ul>
         </li>
     );
@@ -458,15 +447,15 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>Bonus</h2>
             <ul className="desc">
-                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – Treasure Chest.</li>
-                <li>The Bonus symbols do not have to be on the same payline.</li>
+                <li>Memiliki 3, 4, atau 5 simbol Bonus yang muncul di mana saja dalam hasil akan memicu Game Bonus – Peti Harta Karun.</li>
+                <li>Simbol Bonus tidak harus berada di garis pembayaran yang sama.</li>
             </ul>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>Simbol</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -483,18 +472,18 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} Treasure Chests in Bonus Game.
+                                Memiliki 5 simbol Bonus di hasil.<br></br>Dapat membuka {odds[8][5]} Peti Harta Karun di Game Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Bonus symbols in the result.
-                                <br></br> Can open {odds[8][4]} Treasure Chests in Bonus Game.
+                            Memiliki 4 simbol Bonus di hasilnya.
+                                <br></br> Dapat membuka {odds[8][4]} Peti Harta Karun di Game Bonus.
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} Treasure Chests in Bonus Game.
+                            Memiliki 3 simbol Bonus di hasil.<br></br>Dapat membuka {odds[8][3]} Peti Harta Karun di Game Bonus.
                             </td>
                         </tr>
                     </tbody>
@@ -503,8 +492,8 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
-                    on the same reel, the system will count as one symbol.
+                    <strong> Catatan:</strong>  Simbol Bonus harus muncul di gulungan yang berbeda. 
+                    Misalnya, jika 2 atau 3 simbol Bonus muncul di gulungan yang sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -516,17 +505,15 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                                 loading="eager"
                             />
                         </div>
-
                         <span>
-                            There are 4 {`"Bonus"`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 Treasure Chests.
+                            Ada 4 simbol {`"Bonus"`} di hasil, tetapi 2 simbol terletak di gulungan yang sama.
                         </span>
                     </div>
                 </li>
                 <li>
                     {" "}
-                    Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
-                    Chests and settle the game round.
+                    Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur.
+                    Setelah periode ini, sistem akan membuka Peti secara acak dan menyelesaikan putaran permainan.
                 </li>
             </ul>
         </li>
@@ -551,7 +538,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 
                 <ul className="desc">
                     <li>
-                        “Wild” symbol can substitute for all symbols except
+                        Simbol “Wild” dapat menggantikan semua simbol kecuali
                         <img
                             className={`${Styles["item8"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item8.png"
@@ -563,18 +550,18 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                             src="./static/images/four-guardians/item7.png"
                             alt="item7"
                         ></img>
-                        and{" "}
+                        dan{" "}
                         <img
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src={`./static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project}/item10.png`}
                             alt="item10"
                         ></img>
                     </li>
-                    <li>Only the highest achieved win per line is paid out.</li>
+                    <li>Hanya kemenangan tertinggi yang dicapai per baris yang dibayarkan.</li>
                 </ul>
             </div>
             <div>
-                <strong>Example</strong>
+                <strong>Contoh</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
@@ -595,26 +582,26 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            If Wild symbol is
+                        Jika simbol Liar adalah
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[2][3]}
+                            {`=>`} Pembayaran = Level Taruhan * {odds[2][3]}
                         </li>
                         <li>
-                            If Wild symbol is
+                            Jika simbol Liar adalah
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[5][3]}
+                            {`=>`} Pembayaran = Level Taruhan * {odds[5][3]}
                         </li>
                     </ul>
                     <p>
-                        Player will get the highest win on this payline {`=>`} Payout = Bet Level * {Math.max(odds[2][3], odds[5][3])}
+                        Pemain akan mendapatkan kemenangan tertinggi pada payline ini {`=>`} Pembayaran = Level Taruhan * {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>
             </div>
@@ -629,11 +616,10 @@ const FourGuardiansGuideID: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} is an online slot game, built on the legend story of Four Holy Beasts as Dragon, Qilin, Turtle, and
-                        Phoenix. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same
-                        symbols located on the same payline that you have chosen.
+                        {gameName} adalah permainan slot online, dibangun di atas legenda Empat Binatang Suci sebagai Naga, Qilin, Penyu, dan Phoenix.
+                        Permainan ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika ada simbol yang sama yang terletak di garis pembayaran yang sama dengan yang Anda pilih.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
@@ -649,7 +635,7 @@ const FourGuardiansGuideID: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 {renderFreeSpin(odds, project)}
                 {renderBonus(odds, project)}
                 {renderWild(odds, project)}
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsID()}
             </ul>
         </>
     );

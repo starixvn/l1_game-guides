@@ -15,8 +15,8 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
         <>
             <h2>游戏规则</h2>
             <ul className="desc">
-                <li>选择筹码值并单击您要下注的每手牌的圆圈（下注点）。</li>
-                <li>玩家可以同时玩多只手（最多 3 只）。</li>
+                <li>选择筹码值并单击您要下注的每手牌的圆圈（下注点）</li>
+                <li>玩家可以同时玩多只手（最多 3 只）</li>
                 <li>
                 点击“Deal”按钮确认投注，或点击“X”重置您的投注。 请注意，发牌后无法取消投注。
                 </li>
@@ -37,9 +37,9 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                             <li>
                                 当闲家和庄家都拥有二十一点时，结果为平局（平局），赌注返还给闲家。
                             </li>
-                            <li>如果玩家的总点数超过 21（破产）。 玩家输了，即使庄家也超过 21。</li>
+                            <li>如果玩家的总点数超过 21（破产）。 玩家输了，即使庄家也超过 21</li>
                             <li>
-                                根据游戏规则，根据前两张牌的总点数，玩家最多有四个选项：“拿牌”、“停牌”、“加倍”或“分牌” .
+                                根据游戏规则，根据前两张牌的总点数，玩家最多有四个选项：“拿牌”、“停牌”、“加倍”或“分牌”。
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -212,7 +212,7 @@ const BlackjackGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>积分计算规则</h2>
                     <ul className="desc">
                         <li>
-                            从 2 到 10 的所有牌都按面值计算，无论花色如何，面牌（J、Queen、King）计为 10。
+                            从 2 到 10 的所有牌都按面值计算，无论花色如何，面牌（J、Queen、King）计为 10
                         </li>
                         <li>一张 A 算作 1 或 11，以最适合您的手牌为准。</li>
                         <li>
@@ -222,7 +222,7 @@ const BlackjackGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                     <strong>Example: </strong>
                     <ul className="detail">
-                        <li>包含九 (9)、八 (8) 和 Ace (A) 的手 =&gt; 手的值是 18。</li>
+                        <li>包含九 (9)、八 (8) 和 Ace (A) 的手 =&gt; 手的值是 18</li>
                         <li>包含七 (7) 和 A (A) 的手 =&gt; 手的价值是 18</li>
                     </ul>
                 </li>

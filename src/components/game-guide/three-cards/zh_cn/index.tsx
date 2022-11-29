@@ -146,7 +146,6 @@ const renderPayouts = (
 export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) => {
     const imgCustomize = "img-customize";
     const wrapperImg = "wrapper-img";
-    const prefixLocale = locale === locales.en ? "_en" : "";
     const classMobile = isSM ? "sm" : "";
 
     return (
@@ -154,7 +153,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
             <div className={`${Styles[wrapperImg]} ${Styles["red"]}`}>
                 <img
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["red-en"] : Styles["red"]} ${Styles[classMobile]}`}
-                    src={`./static/images/three-cards/table_text_red${prefixLocale}.png`}
+                    src={`./static/images/three-cards/table_text_red_cn.png`}
                     alt="red"
                 ></img>
                 <p>{t("threecards:red")}</p>
@@ -164,7 +163,7 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
                     className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${
                         Styles[classMobile]
                     }`}
-                    src={`./static/images/three-cards/table_txt_black${prefixLocale}.png`}
+                    src={`./static/images/three-cards/table_txt_black_cn.png`}
                     alt="black"
                 ></img>
                 <p>{t("threecards:black")}</p>

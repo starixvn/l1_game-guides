@@ -112,14 +112,14 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>GENAP</td>
+                                            <td>GANJIL</td>
                                             <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>GANJIL</td>
+                                            <td>GENAP</td>
                                         </tr>
                                     </tbody>
                                 </table>

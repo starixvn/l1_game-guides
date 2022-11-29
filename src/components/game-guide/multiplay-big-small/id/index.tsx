@@ -110,22 +110,20 @@ const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>Game Rules</h2>
                     <ul className="desc">
                         <li>For each table, the dice cup will be shaken at the beginning of the game round.</li>
-                        <li>The players can bet on either BIG or SMALL, but not on both.</li>
+                        <li>Para pemain dapat bertaruh pada BESAR atau KECIL, tetapi tidak pada keduanya.</li>
                         <ul className="detail">
-                            <li>BIG: the player will win if the total points of three dice &gt;= 11</li>
-                            <li>SMALL: the player will win if the total points of the three dice &lt;= 10</li>
+                            <li>BESAR: pemain akan menang jika total poin dari tiga dadu &gt;= 11</li>
+                            <li>KECIL: pemain akan menang jika total poin dari tiga dadu &lt;= 10</li>
                         </ul>
                         <li>
-                            Players can increase their stakes by placing another bet with the same selection before the betting time
-                            expires. Note, placed bets cannot be canceled.
+                        Pemain dapat meningkatkan jumlah taruhan mereka dengan memasang taruhan lain dengan pilihan yang sama sebelum waktu taruhan berakhir.
+                        Catatan, taruhan yang dipasang tidak dapat dibatalkan.
                         </li>
                         <li>
-                            Min bet and Max bet must be between {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} and the
-                            maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
+                            Taruhan minimum dan taruhan Maks harus antara {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} dan total taruhan maksimum per putaran adalah {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Once the betting time has expired, the result will be shown. If the outcome of three dice matches your bet, you
-                            win.
+                            Once the betting time has expired, the result will be shown. Jika hasil dari tiga dadu cocok dengan taruhan Anda, Anda menang.
                         </li>
                     </ul>
                 </li>
