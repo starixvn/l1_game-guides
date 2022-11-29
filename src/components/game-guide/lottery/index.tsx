@@ -13,7 +13,7 @@ const LotteryGuideVI = dynamic(() => import("./vi"));
 const LotteryGuideID = dynamic(() => import("./id"));
 const LotteryGuideTH = dynamic(() => import("./th"));
 const LotteryGuideZHCN = dynamic(() => import("./zh_cn"));
-// const KenoProMaxGuideZHTW = dynamic(() => import("./zh_tw"));
+const LotteryGuideZHTW = dynamic(() => import("./zh_tw"));
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -80,8 +80,8 @@ const LotteryGuide = (props: GameGuideBase) => {
             return <LotteryGuideTH {...resource} />;
         case locales.zh_cn:
             return <LotteryGuideZHCN {...resource} />;
-        // case locales.zh_tw:
-        //     return <KenoProMaxGuideZHTW {...resource} />;
+        case locales.zh_tw:
+            return <LotteryGuideZHTW {...resource} />;
 
         default:
             return <LotteryGuideEN {...resource} />;
