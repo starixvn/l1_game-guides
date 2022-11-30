@@ -39,7 +39,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={2} className="text-center">Odd Even</td>
+                                    <td rowSpan={2} className="text-center">
+                                        Odd Even
+                                    </td>
                                     <td>Odd</td>
                                     <td>The remaining beads are Odd number</td>
                                 </tr>
@@ -48,7 +50,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are Even number</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4} className="text-center">Fan</td>
+                                    <td rowSpan={4} className="text-center">
+                                        Fan
+                                    </td>
                                     <td>1 Fan</td>
                                     <td>The remaining beads are 1</td>
                                 </tr>
@@ -65,7 +69,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are 4</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4} className="text-center">Kwok</td>
+                                    <td rowSpan={4} className="text-center">
+                                        Kwok
+                                    </td>
                                     <td>1 2 Kwok</td>
                                     <td>The remaining beads are 1 or 2</td>
                                 </tr>
@@ -82,7 +88,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     <td>The remaining beads are 1 or 4</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={4} className="text-center">Chun</td>
+                                    <td rowSpan={4} className="text-center">
+                                        Chun
+                                    </td>
                                     <td>2 3 4 Chun</td>
                                     <td>The remaining beads are 2, 3 or 4</td>
                                 </tr>
@@ -110,7 +118,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                 <li>
                     The player can place bets on any available options except for Odd and Even, the player can only bet on either Odd or
                     Even.
-                </li>               
+                </li>
                 <li>The maximum total stake per round is {maxBet}.</li>
             </ul>
         </>
@@ -123,7 +131,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>Payouts</h2>
             <ul className="desc">
                 <li>
-                    The winning amount is calculated according to the payout ratio.
+                    The winning amount is calculated according to the betting odds.
                     <p>
                         <b>Note</b>: the payouts include the initial stake.
                     </p>
@@ -136,13 +144,15 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <tr>
                             <th>Bet Type</th>
                             <th>Bet Option</th>
-                            <th>Payouts </th>
+                            <th>Odds</th>
                             <th className={Styles["bet-limit-width"]}>Bet Limit (Min-Max)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={2} className="text-center">Odd Even</td>
+                            <td rowSpan={2} className="text-center">
+                                Odd Even
+                            </td>
                             <td className={Styles["text-left"]}>Odd</td>
                             <td rowSpan={2}>1:{odds?.even}</td>
                             <td rowSpan={2}>

@@ -5,7 +5,6 @@ import React from "react";
 import appSettings from "../common/app-settings";
 import { GAMES } from "../common/constants";
 import { UserStakeLevelProps } from "../pages";
-import FantanGuide from "./game-guide/fantan";
 
 type Props = {
     gameId: number;
