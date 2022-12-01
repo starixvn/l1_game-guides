@@ -8,9 +8,9 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    single: 2,
-    double: 3.5,
-    triple: 6,
+    single: 2.01,
+    double: 3.51,
+    triple: 6.01,
 };
 
 const GameConfigs = {

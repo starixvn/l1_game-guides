@@ -475,7 +475,7 @@ const BaccaratGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             </div>
                         </li>
                         <li>Trong trường hợp kết quả Hòa, người chơi sẽ được hoàn lại số tiền cược đặt vào 2 cửa Nhà Con, Nhà Cái.</li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        <li>Tiền thắng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && gameId !== BaccaratId.BlockchainBaccarat && (

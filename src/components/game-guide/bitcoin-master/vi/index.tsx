@@ -146,7 +146,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>
-                            Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                            Tiền thắng đã bao gồm tiền cược.
                             <div className="table-container">
                                 <table className="table text-center table-medium left">
                                     <thead>

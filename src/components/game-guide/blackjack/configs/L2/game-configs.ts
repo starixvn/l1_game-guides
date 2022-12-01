@@ -1,6 +1,6 @@
 const odds = {
-    blackjack: 2.5,
-    regular: 2,
+    blackjack: 2.51,
+    regular: 2.01,
 };
 
 const GameConfigs = {

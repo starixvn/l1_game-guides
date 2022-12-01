@@ -7,12 +7,12 @@ const choicesMaxBet = {
     others: 20000,
 };
 const odds = {
-    Sets4: 24,
-    special: 90,
-    head: 9,
-    tail: 9,
-    Sets27: 3.6,
-    others: 1.96,
+    Sets4: 24.01,
+    special: 90.01,
+    head: 9.01,
+    tail: 9.01,
+    Sets27: 3.61,
+    others: 1.97,
 };
 
 const GameConfigs = {

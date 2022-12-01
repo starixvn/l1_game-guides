@@ -5,9 +5,9 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    dragon: 2,
-    tiger: 2,
-    tie: 11,
+    dragon: 2.01,
+    tiger: 2.01,
+    tie: 11.01,
 };
 
 const GameConfigs = {

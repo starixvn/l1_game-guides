@@ -198,7 +198,7 @@ const KenoProMaxGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        <li>Tiền thắng đã bao gồm tiền cược.</li>
                         <li>
                             Giới hạn cược và tỷ lệ trả thưởng trong Keno Pro Max như sau:
                             <div className="table-container">

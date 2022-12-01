@@ -64,7 +64,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
                         <div>
-                            <strong>Lưu ý</strong>: Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                            <strong>Lưu ý</strong>: Tiền thắng đã bao gồm tiền cược.
                         </div>
                         <li>
                             Nếu linh vật người chơi chọn không xuất hiện, đồng nghĩa với việc người chơi thua và mất số tiền cược.

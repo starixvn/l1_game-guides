@@ -139,7 +139,7 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <ul className="desc">
                         <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
                         <li>Tỷ lệ trả thưởng khi đặt vào Tài, Xỉu là {formatOdds(odds?.big, fractionalOddsFormat)}</li>
-                        <li>Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
+                        <li>Tiền thắng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

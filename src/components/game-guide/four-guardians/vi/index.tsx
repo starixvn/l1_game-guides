@@ -43,7 +43,7 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
             <ul className="desc">
                 <li>Mỗi biểu tượng sẽ có tỷ lệ trả thưởng tương ứng khác nhau.</li>
                 <li>
-                    <strong>Lưu ý:</strong> Tỷ lệ trả thưởng đã bao gồm tiền cược.
+                    <strong>Lưu ý:</strong> Tiền thắng đã bao gồm tiền cược.
                 </li>
             </ul>
 

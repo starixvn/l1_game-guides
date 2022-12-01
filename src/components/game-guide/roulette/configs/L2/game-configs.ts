@@ -14,18 +14,18 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    straightUp: 36,
-    split: 18,
-    street: 12,
-    triangle: 12,
-    corner: 9,
-    fourNumbers: 9,
-    line: 6,
-    column: 3,
-    dozen: 3,
-    redBlack: 2,
-    oddEven: 2,
-    bigSmall: 2,
+    straightUp: 36.01,
+    split: 18.01,
+    street: 12.01,
+    triangle: 12.01,
+    corner: 9.01,
+    fourNumbers: 9.01,
+    line: 6.01,
+    column: 3.01,
+    dozen: 3.01,
+    redBlack: 2.01,
+    oddEven: 2.01,
+    bigSmall: 2.01,
 };
 
 const GameConfigs = {

@@ -253,11 +253,11 @@ const SicBoGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <ul className="desc">
                         <li>
                             <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step1_en.png?v=3" alt="md5-string" />
+                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step1_tw.png?v=4" alt="md5-string" />
                         </li>
                         <li>
                             <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step2_en.png?v=3" alt="md5-result" />
+                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step2_tw.png?v=4" alt="md5-result" />
                             <div>Note: From the left to right, &#123;3, 2, 1&#125; correspond to the the value of three dice.</div>
                         </li>
                         <li>

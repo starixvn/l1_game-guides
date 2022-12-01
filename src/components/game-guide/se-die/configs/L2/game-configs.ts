@@ -9,13 +9,13 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    even: 1.96,
-    odd: 1.96,
-    red2: 2.4,
-    red4: 14.4,
-    white4: 14.4,
-    white3: 3.75,
-    red3: 3.75,
+    even: 1.97,
+    odd: 1.97,
+    red2: 2.41,
+    red4: 14.41,
+    white4: 14.41,
+    white3: 3.76,
+    red3: 3.76,
 };
 
 const GameConfigs = {

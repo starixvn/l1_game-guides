@@ -9,13 +9,13 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    player: 2,
-    banker: 1.95,
-    big: 1.54,
-    small: 2.5,
-    tie: 9,
-    playerPair: 12,
-    bankerPair: 12,
+    player: 2.01,
+    banker: 1.96,
+    big: 1.55,
+    small: 2.51,
+    tie: 9.01,
+    playerPair: 12.01,
+    bankerPair: 12.01,
 };
 
 const GameConfigs = {

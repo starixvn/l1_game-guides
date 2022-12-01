@@ -1,6 +1,6 @@
 const odds = {
-    big: 1.96,
-    small: 1.96,
+    big: 1.97,
+    small: 1.97,
 };
 
 const GameConfigs = {

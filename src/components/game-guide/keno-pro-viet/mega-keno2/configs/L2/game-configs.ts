@@ -10,15 +10,15 @@ const choicesMaxBet = {
     earth: 5000,
 };
 const odds = {
-    big: 1.96,
-    small: 1.96,
-    odd: 1.96,
-    even: 1.96,
-    gold: 9.2,
-    wood: 4.6,
-    water: 2.4,
-    fire: 4.6,
-    earth: 9.2,
+    big: 1.97,
+    small: 1.97,
+    odd: 1.97,
+    even: 1.97,
+    gold: 9.21,
+    wood: 4.61,
+    water: 2.41,
+    fire: 4.61,
+    earth: 9.21,
 };
 
 const GameConfigs = {
