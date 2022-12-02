@@ -286,7 +286,7 @@ const FortuneCatGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        “{gameName}” là thể loại Slot game (game xèng), với giao diện hấp dẫn, được xây dựng với chủ đề mèo cầu tài lộc nhân
+                        “{gameName}” là thể loại Slot game (game xèng) với giao diện hấp dẫn, được xây dựng với chủ đề mèo cầu tài lộc nhân
                         dịp tết Quý Mão. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu
                         tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
