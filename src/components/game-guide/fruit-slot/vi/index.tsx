@@ -213,7 +213,7 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                             </div>
                             <div style={{marginLeft: "2rem"}}><img className={Styles["symbol-mini"]}
                             src="./static/images/fruit-slot/gameguide_bullet.png"
-                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu tượng hiển trị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div>
+                            alt="item_star"></img> Các cửa biểu tượng: hệ thống quay ngẫu nhiên và lựa chọn một trong các biểu tượng hiển thị trên bàn. Biểu tượng được dừng lại sẽ được dùng để tính kết quả.</div>
                         </div>
                                                       
                     </ul>
@@ -221,9 +221,9 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Trả thưởng</h2>
                     <ul className="desc">
-                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả. Tỷ lệ trả thưởng đã bao gồm tiền cược.</li>
-                        <li>Tiền thắng của phiên được tính toán dựa trên bảng trả thưởng.</li>
-                        <li>Bảng trả thưởng:</li>          
+                        <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.</li>
+                        <li>Tiền thắng đã bao gồm tiền cược.</li>
+                        <li>Bảng tỷ lệ trả thưởng:</li>          
                         {renderPayoutsTable(odds, locales.vi)}             
                     </ul>
                 </li>   
