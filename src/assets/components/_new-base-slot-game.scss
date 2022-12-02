@@ -1,0 +1,136 @@
+.payline-wrapper,
+.list-symbol-wrapper {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+.payout-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    grid-gap: 0.5rem;
+}
+
+.symbol-wrapper {
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: 9rem 1fr;
+    padding: 1rem;
+
+    @media (max-width: 576px) {
+        transform: scale(0.9);
+    }
+
+    &.large {
+        grid-template-columns: 10rem 1fr;
+    }
+}
+
+.symbol-content {
+    display: grid;
+    grid-template-columns: 1.5rem 2rem;
+    justify-content: flex-start;
+    grid-column-gap: 0.3rem;
+
+    .number {
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 1.9rem;
+        display: inline-flex;
+        color: var(--text-color);
+
+        &.number-second {
+            display: block;
+            text-align: right;
+        }
+    }
+
+    &.free-spin,
+    &.bonus {
+        grid-template-columns: 2rem 12rem;
+        span {
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+    }
+
+    &.bonus {
+        grid-template-columns: 2rem 8rem;
+    }
+}
+
+.symbol-small {
+    margin: 0 0.6rem;
+}
+
+.free-spin-content-ex {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+
+    @media (max-width: 576px) {
+        display: block;
+    }
+}
+
+.wild-content-ex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 1rem;
+
+    @media (max-width: 576px) {
+        display: block;
+    }
+
+    .wrapper-wild {
+        @media (max-width: 576px) {
+            display: block;
+            text-align: center;
+        }
+
+        .wrapper-wild-img {
+            margin-right: 2rem !important;
+            transform: scale(0.8);
+        }
+    }
+}
+
+.wrapper-free-spin-ex {
+    max-width: 33.3rem;
+    max-height: 12.6rem;
+    float: left;
+    margin-right: 1rem;
+}
+
+.wrapper-ex-wild {
+    padding-left: 1rem;
+
+    .wild-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .wrapper-wild-img {
+            margin-right: 1rem !important;
+        }
+    }
+    @media (min-width: 768px) {
+        padding-left: 3rem;
+    }
+}
+
+.bonus-symbol-width {
+    min-width: 13rem;
+}
+
+.free-spin-container,
+.bonus-container {
+    display: grid;
+    grid-template-columns: 28rem 1fr;
+    align-items: center;
+}

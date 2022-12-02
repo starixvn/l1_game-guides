@@ -229,6 +229,28 @@
     --border-line: #0089c5 1px solid;
 }
 
+[data-theme="fortune-cat"] {
+    --primary-color: #ffd700;
+    --text-color: #fff;
+    --page-background: transparent;
+
+    // scrollbar
+    --scrollbar-background: #312f3d;
+    --scrollbar-thumb-background: #be3e35;
+
+    // font-size
+    --font-size: 2rem;
+    --font-size-table: 2rem;
+
+    // table
+    --table-background: #181626;
+    --table-border: #ffe700;
+    --table-color: #000;
+    --table-header-background: #6f0d0f;
+    --table-header-color: #fff;
+    --border-line: #ffe700 1px solid;
+}
+
 html {
     font-size: 10px !important;
     background-color: transparent;
@@ -318,6 +340,11 @@ html[data-theme="way-to-goal"] {
     ::-webkit-scrollbar-track {
         border-radius: 0.8rem;
     }
+}
+
+.d-center {
+    display: flex;
+    justify-content: center;
 }
 
 .show{

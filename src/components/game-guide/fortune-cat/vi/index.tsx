@@ -2,7 +2,7 @@ import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
+import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentLarge, renderIconContent } from "../en";
 import Styles from "../fortune-cat.module.scss";
 import { locales } from "../../../../common/constants";
 
@@ -14,20 +14,14 @@ const renderGameRule = () => {
             <ul className="desc">
                 <li>
                     Người chơi chọn Mức Cược và thiết lập số Dòng Cược mà bạn muốn đặt trước khi bấm “Quay”.
-                    <div className={Styles["center"]}>Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
+                    <div className="text-center">Tổng tiền cược = Mức Cược * Số Dòng Cược</div>
                 </li>
                 <li>Có 25 dòng cược được đánh số từ 1 đến 25 và người chơi phải chọn ít nhất một dòng cược để bắt đầu chơi.</li>
                 <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
-                    <div className={Styles["wrapper-img-rectangle"]}>
-                        <img
-                            src={`/static/images/fortune-cat/guide_payline.png`}
-                            alt="guide_payline"
-                            width={834}
-                            height={159}
-                            loading="eager"
-                        />
+                    <div className={Styles["payline-wrapper"]}>
+                        <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
                     </div>
                 </li>
             </ul>
@@ -70,30 +64,29 @@ const renderExamplePayouts = (odds: number[][]) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item1", true, true, [
-                                    [5, odds[1][5]],
-                                    [4, odds[1][4]],
-                                    [3, odds[1][3]],
-                                ])}
+                                <div className="d-center">
+                                    {renderIconContent(true, "item1", true, true, [
+                                        [5, odds[1][5]],
+                                        [4, odds[1][4]],
+                                        [3, odds[1][3]],
+                                    ])}
+                                </div>
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng{" "}
-                                <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" />
+                                Nếu có <strong>5</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />
                                 trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng{" "}
-                                <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" /> trên cùng Dòng Cược.{" "}
-                                <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
+                                Nếu có <strong>4</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />{" "}
+                                trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng{" "}
-                                <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" /> trên cùng Dòng Cược.{" "}
-                                <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
+                                Nếu có <strong>3</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />{" "}
+                                trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -108,7 +101,7 @@ const renderFreeSpin = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Free Spin</h2>
             <div className={Styles["free-spin-container"]}>
-                {renderIconContentBlack(
+                {renderIconContentLarge(
                     "item7",
                     [
                         [5, odds[7][5]],
@@ -138,8 +131,6 @@ const renderFreeSpin = (odds: number[][]) => {
                             <img
                                 src="/static/images/fortune-cat/guide_example_freespin.png#v2"
                                 alt="guide_item_symbol_bg"
-                                width={265}
-                                height={125}
                                 loading="eager"
                             />
                         </div>
@@ -167,7 +158,7 @@ const renderBonus = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Bonus</h2>
             <div className={Styles["bonus-container"]}>
-                {renderIconContentBlack(
+                {renderIconContentLarge(
                     "item8",
                     [
                         [5, odds[8][5]],
@@ -179,11 +170,7 @@ const renderBonus = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
-                        <img
-                            className={`${Styles["item8"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item8.png"
-                            alt="item8"
-                        ></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png" alt="item8"></img>
                         quay được.
                     </li>
                     <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
@@ -199,13 +186,7 @@ const renderBonus = (odds: number[][]) => {
                     thống sẽ tính là 1 biểu tượng.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <img
-                                src="/static/images/fortune-cat/guide_example_bonus.png#v2"
-                                alt="guide_example_bonus"
-                                width={265}
-                                height={125}
-                                loading="eager"
-                            />
+                            <img src="/static/images/fortune-cat/guide_example_bonus.png#v2" alt="guide_example_bonus" loading="eager" />
                         </div>
                         <p>
                             Có 4 biểu tượng “Bonus” trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được
@@ -230,28 +211,16 @@ const renderWild = (odds: number[][]) => {
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
-                    <img src="/static/images/fortune-cat/guide_example_wild.png#v3" alt="wild" width={110} height={99} loading="eager" />
+                    <img src="/static/images/fortune-cat/guide_example_wild.png#v3" alt="wild" loading="eager" />
                 </span>
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img
-                            className={`${Styles["item7"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item7.png#v2"
-                            alt="item7"
-                        ></img>
-                        , Bonus
-                        <img
-                            className={`${Styles["item8"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item8.png#v2"
-                            alt="item8"
-                        ></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7-small.png#v2" alt="item7"></img>,
+                        Bonus
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png#v2" alt="item8"></img>
                         và
-                        <img
-                            className={`${Styles["item10"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item10.png"
-                            alt="item10"
-                        ></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png" alt="item10"></img>
                     </li>
                     <li>
                         Người chơi sẽ nhận được mức trả thưởng cao nhất trên mỗi dòng cược trong trường hợp có được 2 nhóm biểu tượng cùng
@@ -266,27 +235,27 @@ const renderWild = (odds: number[][]) => {
                     </p>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item2.png" alt="item2" width={88} height={79} loading="eager" />
+                            <img src="/static/images/fortune-cat/item2.png" alt="item2" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item2.png" alt="item2" width={88} height={79} loading="eager" />
+                            <img src="/static/images/fortune-cat/item2.png" alt="item2" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item9.png" alt="item9" width={70} height={64} loading="eager" />
+                            <img src="/static/images/fortune-cat/item9.png" alt="item9" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item5.png" alt="item5" width={88} height={79} loading="eager" />
+                            <img src="/static/images/fortune-cat/item5.png" alt="item5" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item5.png" alt="item5" width={88} height={79} loading="eager" />
+                            <img src="/static/images/fortune-cat/item5.png" alt="item5" loading="eager" />
                         </div>
                     </div>
                     <ul className="plus">
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
-                                className={`${Styles["item2"]} ${Styles["mini"]}`}
-                                src="./static/images/fortune-cat/item2.png"
+                                className={Styles["symbol-small"]}
+                                src="./static/images/fortune-cat/item2-small.png"
                                 alt="item2-mini"
                             ></img>
                             . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
@@ -294,8 +263,8 @@ const renderWild = (odds: number[][]) => {
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
-                                className={`${Styles["item5"]} ${Styles["mini"]}`}
-                                src="./static/images/fortune-cat/item5.png"
+                                className={Styles["symbol-small"]}
+                                src="./static/images/fortune-cat/item5-small.png"
                                 alt="item5-mini"
                             ></img>
                             . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
@@ -321,8 +290,8 @@ const FortuneCatGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         dịp tết Quý Mão. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu
                         tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
-                    <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v1`} alt="guide_item_symbol_bg" width={551} height={280} />
+                    <div className={Styles["list-symbol-wrapper"]}>
+                        <img src={`/static/images/fortune-cat/list_icon.png#v1`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

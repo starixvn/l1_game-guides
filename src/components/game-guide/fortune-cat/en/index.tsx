@@ -24,14 +24,8 @@ const renderGameRule = () => {
 
                 <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
-                <div className={Styles["wrapper-img-rectangle"]}>
-                    <img
-                        src={`/static/images/fortune-cat/guide_payline.png`}
-                        alt="guide_payline"
-                        width={834}
-                        height={159}
-                        loading="eager"
-                    />
+                <div className={Styles["payline-wrapper"]}>
+                    <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
                 </div>
             </ul>
         </>
@@ -64,40 +58,31 @@ export const renderIconContent = (
     dataContent: number[][],
     locale = "en"
 ) => {
-    const pathSrc = itemName === "item10" ? "./static/images/fortune-cat/" : "./static/images/fortune-cat/";
+    const pathSrc = "./static/images/fortune-cat/";
     return (
-        <span className={Styles["wrapper-icon"]}>
-            <img
-                src={`/static/images/fortune-cat/guide_item_symbol_bg.png?v1`}
-                width={200}
-                height={132}
-                alt={"guide_item_symbol_bg"}
-                loading="eager"
-            />
+        <div className={Styles["symbol-wrapper"]}>
+            <div className="d-center">
+                <img src={`${pathSrc}${itemName}.png?v2`} alt={itemName}></img>
+            </div>
 
-            <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
-            <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
-                    isGem && Styles["gem-position"]
-                }`}
-            >
+            <div>
                 {dataContent.map((data, index) => {
                     return (
-                        <div key={index} className={Styles["icon-content"]}>
+                        <div key={index} className={Styles["symbol-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1]}</span>
                         </div>
                     );
                 })}
             </div>
-        </span>
+        </div>
     );
 };
 
 export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
     return (
         <>
-            <div className={Styles["icon-container"]}>
+            <div className={Styles["payout-row"]}>
                 {renderIconContent(
                     false,
                     "item10",
@@ -155,7 +140,7 @@ export const renderPayoutsIconFirstLine = (odds: number[][], locale = "en") => {
 export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => {
     return (
         <>
-            <div className={Styles["icon-container"]}>
+            <div className={Styles["payout-row"]}>
                 {renderIconContent(
                     false,
                     "item3",
@@ -222,31 +207,18 @@ export const renderPayoutsIconSecondLine = (odds: number[][], locale = "en") => 
     );
 };
 
-export const renderIconContentBlack = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
+export const renderIconContentLarge = (itemName: string, dataContent: number[][], textAfterNumber: string) => {
     return (
-        <span className={Styles["wrapper-icon-dark"]}>
-            <img
-                className={`${Styles[iconBox]}`}
-                src="/static/images/fortune-cat/guide_item_symbol_bg.png#v2"
-                width={269}
-                height={132}
-                alt="guide_item_symbol_bg"
-                loading="eager"
-            />
-
-            <img
-                className={`${Styles[itemName]} ${Styles["dark"]}`}
-                src={`./static/images/fortune-cat/${itemName}.png`}
-                alt={itemName}
-            ></img>
-            <div
-                className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]}`}
-            >
+        <span className={`${Styles["symbol-wrapper"]} ${Styles["large"]}`}>
+            <div className="d-center">
+                <img src={`./static/images/fortune-cat/${itemName}.png`} alt={itemName}></img>
+            </div>
+            <div>
                 {dataContent.map((data, index) => {
                     return (
                         <div
                             key={index}
-                            className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
+                            className={`${Styles["symbol-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
                         >
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
@@ -277,29 +249,31 @@ const renderExamplePayout = (odds: number[][]) => {
                     <tbody>
                         <tr>
                             <td rowSpan={3}>
-                                {renderIconContent(true, "item1", true, true, [
-                                    [5, odds[1][5]],
-                                    [4, odds[1][4]],
-                                    [3, odds[1][3]],
-                                ])}
+                                <div className="d-center">
+                                    {renderIconContent(true, "item1", true, true, [
+                                        [5, odds[1][5]],
+                                        [4, odds[1][4]],
+                                        [3, odds[1][3]],
+                                    ])}
+                                </div>
                             </td>
                             <td>
-                                Having 5 symbols <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" />{" "}
-                                located on the same payline
+                                Having 5 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                payline
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 symbols <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" />{" "}
-                                located on the same payline
+                                Having 4 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                payline
                                 <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 symbols <img src="./static/images/fortune-cat/item1.png" width={50} height={50} alt="item1" />{" "}
-                                located on the same payline
+                                Having 3 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                payline
                                 <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
                         </tr>
@@ -315,7 +289,7 @@ const renderFreeSpin = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Free Spin</h2>
             <div className={Styles["free-spin-container"]}>
-                {renderIconContentBlack(
+                {renderIconContentLarge(
                     "item7",
                     [
                         [5, odds[7][5]],
@@ -366,7 +340,7 @@ const renderBonus = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Bonus</h2>
             <div className={Styles["bonus-container"]}>
-                {renderIconContentBlack(
+                {renderIconContentLarge(
                     "item8",
                     [
                         [5, odds[8][5]],
@@ -387,13 +361,7 @@ const renderBonus = (odds: number[][]) => {
                     on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
-                            <img
-                                src="/static/images/fortune-cat/guide_example_bonus.png#v4"
-                                alt="guide_example_bonus"
-                                width={265}
-                                height={125}
-                                loading="eager"
-                            />
+                            <img src="/static/images/fortune-cat/guide_example_bonus.png#v4" alt="guide_example_bonus" loading="eager" />
                         </div>
 
                         <span>
@@ -419,35 +387,16 @@ const renderWild = (odds: number[][]) => {
             <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
-                    <img
-                        src="/static/images/fortune-cat/guide_example_wild.png#v3"
-                        alt="guide_example_wild"
-                        width={110}
-                        height={99}
-                        loading="eager"
-                    />
+                    <img src="/static/images/fortune-cat/guide_example_wild.png#v3" alt="guide_example_wild" loading="eager" />
                 </span>
 
                 <ul className="desc">
                     <li>
                         “Wild” symbol can substitute for all symbols except
-                        <img
-                            className={`${Styles["item8"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item8.png"
-                            alt="item8"
-                        ></img>
-                        ,
-                        <img
-                            className={`${Styles["item7"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item7.png#v2"
-                            alt="item7"
-                        ></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png" alt="item8"></img>,
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7-small.png#v2" alt="item7"></img>
                         and
-                        <img
-                            className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
-                            src="./static/images/fortune-cat/item10.png"
-                            alt="item10"
-                        ></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png" alt="item10"></img>
                     </li>
                     <li>Only the highest achieved win per line is paid out.</li>
                 </ul>
@@ -457,27 +406,27 @@ const renderWild = (odds: number[][]) => {
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item2.png" alt="item2" width={88} height={80} loading="eager" />
+                            <img src="/static/images/fortune-cat/item2.png" alt="item2" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item2.png" alt="item2" width={88} height={80} loading="eager" />
+                            <img src="/static/images/fortune-cat/item2.png" alt="item2" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item9.png?v1" alt="item9" width={70} height={64} loading="eager" />
+                            <img src="/static/images/fortune-cat/item9.png?v1" alt="item9" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item5.png" alt="item5" width={88} height={80} loading="eager" />
+                            <img src="/static/images/fortune-cat/item5.png" alt="item5" loading="eager" />
                         </div>
                         <div className={Styles[wrapperWildImg]}>
-                            <img src="/static/images/fortune-cat/item5.png" alt="item5" width={88} height={80} loading="eager" />
+                            <img src="/static/images/fortune-cat/item5.png" alt="item5" loading="eager" />
                         </div>
                     </div>
                     <ul className="desc">
                         <li>
                             If Wild symbol is
                             <img
-                                className={`${Styles["item2"]} ${Styles["mini"]}`}
-                                src="./static/images/fortune-cat/item2.png"
+                                className={Styles["symbol-small"]}
+                                src="./static/images/fortune-cat/item2-small.png"
                                 alt="item2-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[2][3]}
@@ -485,8 +434,8 @@ const renderWild = (odds: number[][]) => {
                         <li>
                             If Wild symbol is
                             <img
-                                className={`${Styles["item5"]} ${Styles["mini"]}`}
-                                src="./static/images/fortune-cat/item5.png"
+                                className={Styles["symbol-small"]}
+                                src="./static/images/fortune-cat/item5-small.png"
                                 alt="item5-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[5][3]}
@@ -514,8 +463,8 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same
                         payline that you have chosen.
                     </p>
-                    <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v3`} alt="guide_item_symbol_bg" width={551} height={280} />
+                    <div className={Styles["list-symbol-wrapper"]}>
+                        <img src={`/static/images/fortune-cat/list_icon.png#v3`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
