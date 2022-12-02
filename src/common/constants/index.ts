@@ -71,6 +71,7 @@ export const GAMES = {
     FRUIT_SLOT: 59,
     FANTAN: 60,
     FORTUNE_CAT: 62,
+    WIN_THREE_CARDS: 61,
 };
 
 export const GAMES_COMPLETE_TRANSLATE = [

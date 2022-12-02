@@ -207,6 +207,10 @@
         "id": 60,
         "gameName": "Fantan"
     },
+    "61": {
+        "id": 61,
+        "gameName": "WinThreeCards"
+    },
     "62": {
         "id": 62,
         "gameName": "FortuneCat"
