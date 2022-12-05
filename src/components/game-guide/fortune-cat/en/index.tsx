@@ -259,21 +259,21 @@ const renderExamplePayout = (odds: number[][]) => {
                             </td>
                             <td>
                                 Having 5 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
-                                payline
+                                payline.
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 4 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
-                                payline
+                                payline.
                                 <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 Having 3 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
-                                payline
+                                payline.
                                 <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
                         </tr>
@@ -464,7 +464,7 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         payline that has been chosen.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v2`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v4`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
