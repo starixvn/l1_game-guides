@@ -311,7 +311,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/fortune-cat/guide_example_freespin.png#v2"
+                                src="/static/images/fortune-cat/guide_example_freespin.png#v1"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
