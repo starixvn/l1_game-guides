@@ -6,7 +6,7 @@ import { GameGuideProps } from "../../type";
 import { renderIconChoice } from "../en";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, environment, fractionalOddsFormat } = props;
@@ -73,11 +73,11 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <ul className="detail">
                                     <li>
                                         Cược 10 vào “Cá” và có một biểu tượng Cá trong kết quả. Tiền thắng{" "}
-                                        <strong>{10 * (odds?.single ?? 0)}</strong>
+                                        <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
                                         Cược 10 vào “Cua” và có hai biểu tượng Cua trong kết quả. Tiền thắng{" "}
-                                        <strong>{10 * (odds?.double ?? 0)} </strong>
+                                        <strong>{numberWithCommas(10 * (odds?.double ?? 0))} </strong>
                                     </li>
                                 </ul>
                             </div>

@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 export const renderIconChoice = () => {
     return (
@@ -29,8 +29,9 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameName}，也被称为 Hoo Hey How，是亚洲流行的使用三个骰子的游戏。 每个骰子包含六个独特的符号（鱼、虾、蟹、公鸡、葫芦和麈）。
-                        有 6 个投注选项可下注，每个符号一个。玩家下注将出现哪些符号。
+                        {gameName}，也被称为 Hoo Hey How，是亚洲流行的使用三个骰子的游戏。
+                        每个骰子包含六个独特的符号（鱼、虾、蟹、公鸡、葫芦和麈）。 有 6
+                        个投注选项可下注，每个符号一个。玩家下注将出现哪些符号。
                     </p>
                     <div className="icon-wrapper">
                         {renderIconChoice()}
@@ -46,15 +47,14 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>游戏规则</h2>
                     <ul className="desc">
                         <li>The dice cup will be shaken at the beginning of the game round.</li>
-                        <li>
-                            When the betting time has expired, the dice results will be displayed. 如果您下注的符号出现，您就赢了。
-                        </li>
+                        <li>When the betting time has expired, the dice results will be displayed. 如果您下注的符号出现，您就赢了。</li>
                         <li>
                             Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
                             be shown during the setting time only.
                         </li>
                         <li>
-                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice} 之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
+                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice}{" "}
+                            之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             支出：
@@ -64,24 +64,20 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <li>{formatOdds(odds?.triple, fractionalOddsFormat)} 如果所选符号出现三次。</li>
                             </ul>
                         </li>
-                        <li>
-                            玩家可以对游戏桌上显示的一个或多个投注选项进行投注。 注意，下注不能取消。
-                        </li>
-                        <li>
-                            中奖金额根据派彩率计算。支付包括初始投注。
-                        </li>
+                        <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。 注意，下注不能取消。</li>
+                        <li>中奖金额根据派彩率计算。支付包括初始投注。</li>
                         <li>
                             投注结算后，所有中奖金额都会立即添加到您的账户余额中。
                             <div>
                                 <strong>例子：</strong>
                                 <ul className="detail">
                                     <li>
-                                        在“鱼”上投注 10 并出现一个鱼符号，然后您将获得 {" "}
-                                        <strong>{10 * (odds?.single ?? 0)}</strong>
+                                        在“鱼”上投注 10 并出现一个鱼符号，然后您将获得{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
-                                        在“螃蟹”上投注 10 并出现两个螃蟹符号，那么您将获得 {" "}
-                                        <strong>{10 * (odds?.double ?? 0)}</strong>
+                                        在“螃蟹”上投注 10 并出现两个螃蟹符号，那么您将获得{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.double ?? 0))}</strong>
                                     </li>
                                 </ul>
                             </div>

@@ -6,7 +6,7 @@ import { GameGuideProps } from "../../type";
 import { minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import Styles from "../keno-match.module.scss";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
@@ -176,7 +176,9 @@ const renderPayouts = (
     fractionalOddsFormat: boolean | undefined
 ) => {
     const getMinMaxOdd = (min: number, max: number | undefined) => {
-        return `${fractionalOddsFormat ? min - 1 : min} - ${fractionalOddsFormat && max ? max - 1 : max}`;
+        return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${
+            fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
+        }`;
     };
     return (
         <>

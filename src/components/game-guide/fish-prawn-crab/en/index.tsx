@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 export const renderIconChoice = () => {
     return (
@@ -80,11 +80,11 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <ul className="detail">
                                     <li>
                                         Betting 10 on “Fish” and having one Fish symbol turns up, then you will be paid{" "}
-                                        <strong>{10 * (odds?.single ?? 0)}</strong>
+                                        <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
                                         Betting 10 on “Crab” and having two Crab symbols turn up, then you will be paid{" "}
-                                        <strong>{10 * (odds?.double ?? 0)}</strong>
+                                        <strong>{numberWithCommas(10 * (odds?.double ?? 0))}</strong>
                                     </li>
                                 </ul>
                             </div>

@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 export const renderIconChoice = () => {
     return (
@@ -29,8 +29,9 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName}, juga dikenal sebagai Hoo Hey How, adalah permainan populer di Asia dengan menggunakan tiga dadu. Setiap dadu berisi enam simbol unik (ikan, udang, kepiting, ayam jago, labu, dan rusa jantan). 
-                        Ada 6 pilihan taruhan yang tersedia, satu untuk setiap simbol. Pemain memasang taruhan pada simbol mana yang akan muncul.
+                        {gameName}, juga dikenal sebagai Hoo Hey How, adalah permainan populer di Asia dengan menggunakan tiga dadu. Setiap
+                        dadu berisi enam simbol unik (ikan, udang, kepiting, ayam jago, labu, dan rusa jantan). Ada 6 pilihan taruhan yang
+                        tersedia, satu untuk setiap simbol. Pemain memasang taruhan pada simbol mana yang akan muncul.
                     </p>
                     <div className="icon-wrapper">
                         {renderIconChoice()}
@@ -47,14 +48,17 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <ul className="desc">
                         <li>The dice cup will be shaken at the beginning of the game round.</li>
                         <li>
-                            When the betting time has expired, the dice results will be displayed. If the symbol you have bet on shows up, you win.
+                            When the betting time has expired, the dice results will be displayed. If the symbol you have bet on shows up,
+                            you win.
                         </li>
                         <li>
                             Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
                             be shown during the setting time only.
                         </li>
                         <li>
-                            Taruhan minimum dan taruhan Maks harus antara {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice} dan total taruhan maksimum per putaran adalah {maxBetFollowChoice?.maxBetMain}
+                            Taruhan minimum dan taruhan Maks harus antara {maxBetFollowChoice?.minBetMain} -{" "}
+                            {maxBetFollowChoice?.maxBetChoice} dan total taruhan maksimum per putaran adalah{" "}
+                            {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             Pembayaran:
@@ -65,24 +69,22 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
                         <li>
-                            Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. 
-                            Catatan, taruhan yang dipasang tidak dapat dibatalkan.
+                            Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Catatan, taruhan
+                            yang dipasang tidak dapat dibatalkan.
                         </li>
-                        <li>
-                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Pembayaran termasuk taruhan awal.
-                        </li>
+                        <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Pembayaran termasuk taruhan awal.</li>
                         <li>
                             Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                             <div>
                                 <strong>Contoh:</strong>
                                 <ul className="detail">
                                     <li>
-                                        Bertaruh 10 pada “Ikan” dan memiliki satu simbol Ikan muncul, maka Anda akan dibayar {" "}
-                                        <strong>{10 * (odds?.single ?? 0)}</strong>
+                                        Bertaruh 10 pada “Ikan” dan memiliki satu simbol Ikan muncul, maka Anda akan dibayar{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
-                                        Taruhan 10 pada “Kepiting” dan muncul dua simbol Kepiting, maka Anda akan dibayar {" "}
-                                        <strong>{10 * (odds?.double ?? 0)}</strong>
+                                        Taruhan 10 pada “Kepiting” dan muncul dua simbol Kepiting, maka Anda akan dibayar{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.double ?? 0))}</strong>
                                     </li>
                                 </ul>
                             </div>

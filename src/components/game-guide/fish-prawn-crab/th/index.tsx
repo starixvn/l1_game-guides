@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { formatOdds } from "../../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 
 export const renderIconChoice = () => {
     return (
@@ -29,8 +29,9 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} หรือที่เรียกว่า Hoo Hey How เป็นเกมที่ได้รับความนิยมในเอเชียโดยใช้ลูกเต๋าสามลูก ลูกเต๋าแต่ละลูกมีสัญลักษณ์ที่ไม่ซ้ำกัน 6 แบบ (ปลา กุ้ง ปู ไก่ น้ำเต้า และกวาง) 
-                        มีตัวเลือกการเดิมพัน 6 แบบให้เลือกสำหรับแต่ละสัญลักษณ์ ผู้เล่นวางเดิมพันที่สัญลักษณ์จะปรากฏขึ้น
+                        {gameName} หรือที่เรียกว่า Hoo Hey How เป็นเกมที่ได้รับความนิยมในเอเชียโดยใช้ลูกเต๋าสามลูก
+                        ลูกเต๋าแต่ละลูกมีสัญลักษณ์ที่ไม่ซ้ำกัน 6 แบบ (ปลา กุ้ง ปู ไก่ น้ำเต้า และกวาง) มีตัวเลือกการเดิมพัน 6
+                        แบบให้เลือกสำหรับแต่ละสัญลักษณ์ ผู้เล่นวางเดิมพันที่สัญลักษณ์จะปรากฏขึ้น
                     </p>
                     <div className="icon-wrapper">
                         {renderIconChoice()}
@@ -47,14 +48,16 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <ul className="desc">
                         <li>The dice cup will be shaken at the beginning of the game round.</li>
                         <li>
-                            When the betting time has expired, the dice results will be displayed. หากสัญลักษณ์ที่คุณเดิมพันปรากฏขึ้น แสดงว่าคุณชนะ
+                            When the betting time has expired, the dice results will be displayed. หากสัญลักษณ์ที่คุณเดิมพันปรากฏขึ้น
+                            แสดงว่าคุณชนะ
                         </li>
                         <li>
                             Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
                             be shown during the setting time only.
                         </li>
                         <li>
-                            เดิมพันขั้นต่ำและเดิมพันสูงสุดต้องอยู่ระหว่าง {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice} และเงินเดิมพันรวมสูงสุดต่อรอบคือ {maxBetFollowChoice?.maxBetMain}
+                            เดิมพันขั้นต่ำและเดิมพันสูงสุดต้องอยู่ระหว่าง {maxBetFollowChoice?.minBetMain} -{" "}
+                            {maxBetFollowChoice?.maxBetChoice} และเงินเดิมพันรวมสูงสุดต่อรอบคือ {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
                             การจ่ายเงิน:
@@ -67,21 +70,19 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>
                             ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้
                         </li>
-                        <li>
-                            จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น
-                        </li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>
                             จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
                             <div>
                                 <strong>ตัวอย่าง:</strong>
                                 <ul className="detail">
                                     <li>
-                                        เดิมพัน 10 กับ “ปลา” และมีสัญลักษณ์ปลาหนึ่งตัวปรากฏขึ้น จากนั้นคุณจะได้รับเงิน {" "}
-                                        <strong>{10 * (odds?.single ?? 0)}</strong>
+                                        เดิมพัน 10 กับ “ปลา” และมีสัญลักษณ์ปลาหนึ่งตัวปรากฏขึ้น จากนั้นคุณจะได้รับเงิน{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
-                                        เดิมพัน 10 บน “ปู” และมีสัญลักษณ์ปูสองตัวปรากฏขึ้น จากนั้นคุณจะได้รับเงิน {" "}
-                                        <strong>{10 * (odds?.double ?? 0)}</strong>
+                                        เดิมพัน 10 บน “ปู” และมีสัญลักษณ์ปูสองตัวปรากฏขึ้น จากนั้นคุณจะได้รับเงิน{" "}
+                                        <strong>{numberWithCommas(10 * (odds?.double ?? 0))}</strong>
                                     </li>
                                 </ul>
                             </div>
