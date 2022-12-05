@@ -258,7 +258,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/fortune-cat/item2-small.png"
                                 alt="item2-mini"
                             ></img>
-                            . Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
+                            {`=>`} Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
                         </li>
                         <li>
                             Nếu biểu tượng Wild thay thế{" "}
@@ -267,7 +267,7 @@ const renderWild = (odds: number[][]) => {
                                 src="./static/images/fortune-cat/item5-small.png"
                                 alt="item5-mini"
                             ></img>
-                            . Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
+                            {`=>`} Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
                         </li>
                     </ul>
                     <p>Người chơi sẽ nhận được mức trả thưởng cao nhất là {Math.max(odds[2][3], odds[5][3])}</p>

@@ -461,7 +461,7 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     <p className="content">
                         “{gameName}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game
                         includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same
-                        payline that you have chosen.
+                        payline that has been chosen.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
                         <img src={`/static/images/fortune-cat/list_icon.png#v3`} alt="guide_item_symbol_bg" />

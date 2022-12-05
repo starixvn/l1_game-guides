@@ -8,7 +8,6 @@
 .payout-row {
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
     grid-gap: 0.5rem;
 }
@@ -31,6 +30,10 @@
         .number-second {
             display: block;
             text-align: right;
+        }
+
+        .text {
+            color: var(--text-color);
         }
     }
 
@@ -62,10 +65,15 @@
     &.bonus {
         grid-template-columns: 2rem 8rem;
     }
+
+    .number-second {
+        display: block;
+        color: var(--primary-color);
+    }
 }
 
 .symbol-small {
-    margin: 0 0.6rem;
+    margin: 0 0.4rem;
 }
 
 .free-spin-content-ex {
