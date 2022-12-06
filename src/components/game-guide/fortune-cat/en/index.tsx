@@ -464,7 +464,7 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         payline that has been chosen.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v4`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v5`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
