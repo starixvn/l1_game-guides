@@ -71,14 +71,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    在红色选项上下注 10。 结果：方块 (<span className={Styles[imgRed]}>♦</span>), 红心 (
-                    <span className={Styles[imgRed]}>♥</span>), 梅花 (<span className={Styles["img-black"]}>♣</span>).<br></br> 支出 = {bet}{" "}
-                    x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    在钻石选项上下注 10。 结果：方块 (<span className={Styles[imgRed]}>♦</span>), 方块 (
-                    <span className={Styles[imgRed]}>♦</span>), 梅花 (<span className={Styles["img-black"]}>♣</span>).<br></br> 支出 = {bet}{" "}
-                    x {odds?.diamonds} = {winDiamonds}
+                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
+                    <span className={Styles[imgRed]}>♦</span>) in the results.
                 </li>
             </ul>
         </>

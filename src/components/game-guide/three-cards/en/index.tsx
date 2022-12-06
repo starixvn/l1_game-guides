@@ -72,14 +72,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    Bet 10 on Red option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Hearts (
-                    <span className={Styles[imgRed]}>♥</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
-                    {bet} x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    Bet 10 on Diamonds option. Result: Diamonds (<span className={Styles[imgRed]}>♦</span>), Diamonds (
-                    <span className={Styles[imgRed]}>♦</span>), Clubs (<span className={Styles["img-black"]}>♣</span>).<br></br> Payout ={" "}
-                    {bet} x {odds?.diamonds} = {winDiamonds}
+                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
+                    <span className={Styles[imgRed]}>♦</span>) in the results.
                 </li>
             </ul>
         </>

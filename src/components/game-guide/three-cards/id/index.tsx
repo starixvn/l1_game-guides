@@ -74,14 +74,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    Taruhan 10 pada opsi Merah. Hasil: Berlian (<span className={Styles[imgRed]}>♦</span>), Hati (
-                    <span className={Styles[imgRed]}>♥</span>), Klub (<span className={Styles["img-black"]}>♣</span>).<br></br> Pembayaran ={" "}
-                    {bet} x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    Taruhan 10 pada opsi Berlian. Hasil: Berlian (<span className={Styles[imgRed]}>♦</span>), Berlian (
-                    <span className={Styles[imgRed]}>♦</span>), Klub (<span className={Styles["img-black"]}>♣</span>).<br></br> Pembayaran ={" "}
-                    {bet} x {odds?.diamonds} = {winDiamonds}
+                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
+                    <span className={Styles[imgRed]}>♦</span>) in the results.
                 </li>
             </ul>
         </>
@@ -148,7 +142,7 @@ const renderPayouts = (
 
 export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) => {
     const imgCustomize = "img-customize";
-    const wrapperImg = "wrapper-img";   
+    const wrapperImg = "wrapper-img";
     const classMobile = isSM ? "sm" : "";
 
     return (

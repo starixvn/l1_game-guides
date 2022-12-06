@@ -129,10 +129,8 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
     return (
         <>
             <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
-            <p>Người chơi đặt cược vào hai số 07, 77. Tỷ lệ trả thưởng {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</p>
             <ul className="desc">
-                <li>Tiền cược: 10</li>
-                <li>Tổng cược: 20</li>
+                <li>Người chơi đặt cược vào hai số 07, 77</li>
                 <li>
                     Kết quả:
                     <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -154,10 +152,7 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
                             </tr>
                         </tbody>
                     </table>
-                    <p>
-                        Số 07 xuất hiện hai lần trong kết quả giải Bảy. Tiền thắng = (10 * {odds ? odds["4Sets"] : 0}) * 2 ={" "}
-                        {10 * (odds ? odds["4Sets"] : 0 ?? 0) * 2}
-                    </p>
+                    <p>Số 07 xuất hiện hai lần trong kết quả giải Bảy. Người chơi thắng cược trên số 07 với tiền thắng sẽ được nhân đôi.</p>
                 </li>
             </ul>
         </>
@@ -168,10 +163,8 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
-            <p>Người chơi đặt cược vào ba số 00, 62, 79. Tỷ lệ trả thưởng {formatOdds(odds?.special, fractionalOddsFormat)}</p>
             <ul className="desc">
-                <li>Tiền cược: 10</li>
-                <li>Tổng cược: 30</li>
+                <li>Người chơi đặt cược vào ba số 00, 62, 79</li>
                 <li>
                     Kết quả:
                     <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -193,9 +186,7 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
                             </tr>
                         </tbody>
                     </table>
-                    <p>
-                        Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Tiền thắng = 10 * {odds?.special ?? 0} = {10 * (odds?.special ?? 0)}
-                    </p>
+                    <p>Số 62 xuất hiện ở hai số cuối giải Đặc Biệt. Người chơi thắng cược trên số 62</p>
                 </li>
             </ul>
         </>
@@ -206,10 +197,8 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
-            <p>Người chơi đặt cược vào ba số 0, 6, 9. Tỷ lệ trả thưởng {formatOdds(odds?.head, fractionalOddsFormat)}</p>
             <ul className="desc">
-                <li>Tiền cược: 10</li>
-                <li>Tổng cược: 30</li>
+                <li>Người chơi đặt cược vào ba số 0, 6, 9</li>
                 <li>
                     Kết quả:
                     <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -232,9 +221,7 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
                             </tr>
                         </tbody>
                     </table>
-                    <p>
-                        Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Tiền thắng = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
-                    </p>
+                    <p>Số 6 xuất hiện ở chữ số hàng chục của giải Đặc Biệt. Người chơi thắng cược trên số 6</p>
                 </li>
             </ul>
         </>
@@ -245,10 +232,8 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
-            <p>Người chơi đặt cược vào hai số 0, 5. Tỷ lệ trả thưởng {formatOdds(odds?.tail, fractionalOddsFormat)}</p>
             <ul className="desc">
-                <li>Tiền cược: 10</li>
-                <li>Tổng cược: 20</li>
+                <li>Người chơi đặt cược vào hai số 0, 5</li>
                 <li>
                     Kết quả:
                     <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -280,10 +265,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
     return (
         <>
             <div className={Styles[exampleTitle]}>e) Cược Lô</div>
-            <p>Người chơi đặt cược vào bốn số 05, 12, 77, 85. Tỷ lệ trả thưởng {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</p>
             <ul className="desc">
-                <li>Tiền cược: 10</li>
-                <li>Tổng cược: 40</li>
+                <li>Người chơi đặt cược vào bốn số 05, 12, 77, 85</li>
                 <li>
                     Kết quả:
                     <table className={`table text-center ${Styles[tableSmall]}`}>
@@ -406,14 +389,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
                             </tr>
                         </tbody>
                     </table>
-                    <p>
-                        Số 05 xuất hiện hai lần trong kết quả. Tiền thắng trên số 05 = (10 * {odds ? odds["27Sets"] : 0}) * 2 ={" "}
-                        {10 * (odds ? odds["27Sets"] : 0) * 2}
-                    </p>
-                    <p>
-                        Số 12 xuất hiện một lần trong kết quả. Tiền thắng trên số 12 = 10 * {odds ? odds["27Sets"] : 0} ={" "}
-                        {10 * (odds ? odds["27Sets"] : 0)}
-                    </p>
+                    <p>Số 05 xuất hiện hai lần trong kết quả. Người chơi thắng cược trên số 05 với tiền thắng được nhân đôi.</p>
+                    <p>Số 12 xuất hiện một lần trong kết quả. Người chơi thắng cược trên số 12</p>
                 </li>
             </ul>
         </>
@@ -437,7 +414,7 @@ const renderPayouts = (
                 <thead>
                     <tr>
                         <th colSpan={2}>Loại Cược</th>
-                        <th>Trả Thưởng</th>
+                        <th>Tỷ Lệ Trả Thưởng</th>
                         <th>Giới Hạn Cược (Min-Max)</th>
                     </tr>
                 </thead>

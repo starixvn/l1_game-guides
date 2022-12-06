@@ -71,14 +71,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    在紅色選項上下注 10。結果：方塊 (<span className={Styles[imgRed]}>♦</span>), 紅心 (
-                    <span className={Styles[imgRed]}>♥</span>), 梅花 (<span className={Styles["img-black"]}>♣</span>).<br></br> 支出 ={bet}{" "}
-                    x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    在鑽石選項上下注 10。結果： 方塊 (<span className={Styles[imgRed]}>♦</span>), 方塊 (
-                    <span className={Styles[imgRed]}>♦</span>), 梅花 (<span className={Styles["img-black"]}>♣</span>).<br></br> 支出 = {bet}{" "}
-                    x {odds?.diamonds} = {winDiamonds}
+                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
+                    <span className={Styles[imgRed]}>♦</span>) in the results.
                 </li>
             </ul>
         </>
@@ -145,7 +139,7 @@ const renderPayouts = (
 
 export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) => {
     const imgCustomize = "img-customize";
-    const wrapperImg = "wrapper-img";    
+    const wrapperImg = "wrapper-img";
     const classMobile = isSM ? "sm" : "";
 
     return (

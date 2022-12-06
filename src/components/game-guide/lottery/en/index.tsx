@@ -132,9 +132,8 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77 with Odds = {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</li>
-                <li>Stake = 10</li>
-                <li>Total Stake = 20</li>
+                <li>Place bet on two numbers: 07, 77</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -155,10 +154,7 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Number 07 has appeared 2 times in the result of the Seventh Prize. Payout = (10 * {odds ? odds["4Sets"] : 0}) * 2 ={" "}
-                {10 * (odds ? odds["4Sets"] : 0) * 2}
-            </p>
+            <p>Number 07 has appeared 2 times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
         </>
     );
 };
@@ -167,9 +163,8 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
         <>
             <div className={Styles[exampleTitle]}>b) Special </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 with Odds = {formatOdds(odds?.special, fractionalOddsFormat)}</li>
-                <li>Stake = 10</li>
-                <li>Total Stake = 30</li>
+                <li>Place bet on three numbers: 00, 62, 79 </li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -190,10 +185,7 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
                     </tr>
                 </tbody>
             </table>
-            <p>
-                The number 62 is the same as the last 2 digits of the Special Prize. Payout = 10 * {odds?.special} ={" "}
-                {10 * (odds?.special ?? 0)}
-            </p>
+            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
         </>
     );
 };
@@ -202,9 +194,8 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
         <>
             <div className={Styles[exampleTitle]}>c) Head</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9 with Odds = {formatOdds(odds?.head, fractionalOddsFormat)}</li>
-                <li>Stake = 10</li>
-                <li>Total Stake = 30</li>
+                <li>Place bet on three numbers: 0, 6, 9</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -226,9 +217,7 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>
-                The number 6 is the same as the tens digit of the Special Prize. Payout = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
-            </p>
+            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
         </>
     );
 };
@@ -237,9 +226,8 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
         <>
             <div className={Styles[exampleTitle]}>d) Tail</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5 with Odds = {formatOdds(odds?.tail, fractionalOddsFormat)}</li>
-                <li>Stake = 10</li>
-                <li>Total Stake = 20</li>
+                <li>Place bet on two numbers: 0, 5</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -260,7 +248,7 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. Payout = 0</p>
+            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
         </>
     );
 };
@@ -269,9 +257,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85 with Odds = {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</li>
-                <li>Stake = 10</li>
-                <li>Total Stake = 40</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -393,14 +380,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Number 05 has appeared two times in 27 results. Payout = (10 * {odds ? odds["27Sets"] : 0}) * 2 ={" "}
-                {10 * (odds ? odds["27Sets"] : 0) * 2}
-            </p>
-            <p>
-                Number 12 has appeared one time in 27 results. Payout = 10 * {odds ? odds["27Sets"] : 0} ={" "}
-                {10 * (odds ? odds["27Sets"] : 0)}
-            </p>
+            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
+            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
         </>
     );
 };
@@ -414,7 +395,10 @@ const renderPayouts = (
         <li className="guide-item">
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the betting odds. Note, the Payout includes the initial stake.</li>
+                <li>The winning amount is calculated according to the betting odds.</li>
+                <li>
+                    <strong>Note</strong>, the Payout includes the initial stake.
+                </li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
             <table className={`table text-center table-medium`}>

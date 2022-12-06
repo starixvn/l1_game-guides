@@ -72,14 +72,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    เดิมพัน 10 กับตัวเลือกแดง. ผลลัพธ์: ข้าวหลามตัด (<span className={Styles[imgRed]}>♦</span>), หัวใจ (
-                    <span className={Styles[imgRed]}>♥</span>), ดอกจิก (<span className={Styles["img-black"]}>♣</span>).<br></br>{" "}
-                    การจ่ายเงิน = {bet} x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    เดิมพัน 10 กับตัวเลือก ข้าวหลามตัด. ผลลัพธ์: ข้าวหลามตัด (<span className={Styles[imgRed]}>♦</span>), ข้าวหลามตัด (
-                    <span className={Styles[imgRed]}>♦</span>), ดอกจิก (<span className={Styles["img-black"]}>♣</span>).<br></br>{" "}
-                    การจ่ายเงิน = {bet} x {odds?.diamonds} = {winDiamonds}
+                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
+                    <span className={Styles[imgRed]}>♦</span>) in the results.
                 </li>
             </ul>
         </>
@@ -146,7 +140,7 @@ const renderPayouts = (
 
 export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) => {
     const imgCustomize = "img-customize";
-    const wrapperImg = "wrapper-img";   
+    const wrapperImg = "wrapper-img";
     const classMobile = isSM ? "sm" : "";
 
     return (

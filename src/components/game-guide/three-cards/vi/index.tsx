@@ -72,18 +72,16 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </ul>
 
             <p>
-                <strong>Lưu ý: </strong> Đối với các cửa cược Rô, Cơ, Bích, Chuồn, tỷ lệ trả thưởng sẽ không nhân hệ số nếu kết quả có nhiều
-                hơn 1 lá bài cùng chất.
+                <strong>Lưu ý: </strong> Đối với các cửa cược Rô, Cơ, Bích, Chuồn, tiền thắng sẽ không nhân hệ số nếu kết quả có nhiều hơn 1
+                lá bài cùng chất.
             </p>
             <p>
                 <strong>Ví dụ:</strong>
             </p>
             <ul className="desc">
                 <li>
-                    Đặt 10 vào cửa Đỏ. Kết quả 3 lá bài: Rô, Cơ, Chuồn. Tiền thắng = {bet} x {odds?.red} = {winRed}
-                </li>
-                <li>
-                    Đặt 10 vào cửa Rô. Kết quả 3 lá bài: Rô, Rô, Chuồn. Tiền thắng = {bet} x {odds?.diamonds} = {winDiamonds}
+                    Đặt cược vào cửa Rô. Tiền thắng sẽ không thay đổi nếu có 1, 2 hoặc 3 lá bài Rô (
+                    <span className={Styles["img-red"]}>♦</span>) trong kết quả.
                 </li>
             </ul>
         </>
@@ -107,7 +105,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th className={Styles["payout-option"]}>Lựa Chọn</th>
-                                    <th>Trả Thưởng </th>
+                                    <th>Tỷ Lệ Trả Thưởng</th>
                                     <th>Giới Hạn Cược (Min - Max)</th>
                                 </tr>
                             </thead>
