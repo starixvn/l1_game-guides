@@ -78,7 +78,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Pilihan</th>
                                             <th>Kondisi Kemenangan</th>
-                                            <th>Pembayaran</th>
+                                            <th>Odds</th>
                                             <th className={Styles["min-max-width"]}>
                                                 Batas Taruhan  <br></br>(Min - Maks)
                                             </th>

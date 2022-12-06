@@ -103,7 +103,7 @@ const SeDieGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <thead>
                                         <tr>
                                             <th>ตัวเลือก</th>
-                                            <th>การจ่ายเงิน</th>
+                                            <th>ราคาต่อรอง</th>
                                             <th>
                                                 วงเงินเดิมพัน  <br /> (ต่ำสุด - สูงสุด)
                                             </th>

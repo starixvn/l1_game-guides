@@ -168,7 +168,7 @@ const renderPayouts = (
         <li className="guide-item">
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.</li>
+                <li>The winning amount is calculated according to the betting odds. Note, the Payout includes the initial stake.</li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
                     <div className="table-container">

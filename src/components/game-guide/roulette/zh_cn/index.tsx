@@ -30,7 +30,7 @@ const renderGameRule = (
                             <thead>
                                 <tr>
                                     <th>投注类型</th>
-                                    <th>支出</th>
+                                    <th>赔率</th>
                                     <th>
                                         投注限额<br></br>（最小-最大）
                                     </th>
@@ -249,7 +249,7 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat:
 const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     return (
         <>
-            <span className="font-weight-medium title-text">跟注类型</span>
+            <span className="font-weight-medium title-text">Tiers</span>
             <ul className="desc">
                 <li>Tiers投注包括数字 27、13、36、11、30、8、23、10、5、24、16、33</li>
                 <li>要玩Tiers投注，将取六个筹码，分别放在六个分赛中：(5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33) , 36)</li>
@@ -317,7 +317,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
             <ul className="desc">
-                <li>投注包括数字 1、20、14、31、9、6、34、17</li>
+                <li>Orphelins 投注包括数字 1、20、14、31、9、6、34、17。</li>
                 <li>
                     要玩 Orphelins 赌注，将获得五个筹码，分别放置在：
                     <ul className="plus">

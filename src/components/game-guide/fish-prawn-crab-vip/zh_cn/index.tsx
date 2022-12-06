@@ -76,7 +76,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>选项</th>
                                             <th>获胜条件</th>
-                                            <th>支出</th>
+                                            <th>赔率</th>
                                             <th className={Styles["min-max-width"]}>
                                                 投注限额 <br></br>（最低 - 最高）
                                             </th>

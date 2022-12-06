@@ -60,7 +60,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             {maxBetFollowChoice?.maxBetChoice} และเงินเดิมพันรวมสูงสุดต่อรอบคือ {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            การจ่ายเงิน:
+                            Betting Odds:
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} ถ้าสัญลักษณ์ที่เลือกปรากฏครั้งเดียว.</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} ถ้าสัญลักษณ์ที่เลือกปรากฏสองครั้ง</li>

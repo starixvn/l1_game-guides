@@ -56,7 +56,7 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <ul className="desc">
                         <li>The payout on ODD, EVEN is {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>
-                            The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
+                            The winning amount is calculated according to the betting odds. <strong>Note,</strong> the Payout includes the
                             initial stake.
                         </li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>

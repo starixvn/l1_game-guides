@@ -184,7 +184,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <thead>
                                         <tr>
                                             <th>選項</th>
-                                            <th>支出</th>
+                                            <th>賠率</th>
                                             <th>
                                                 投注限額 <br />
                                                 （最小 - 最大）

@@ -68,7 +68,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>Payouts</h2>
                     <ul className="desc">
                         <li>
-                            The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the
+                            The winning amount is calculated according to the betting odds. <strong>Note,</strong> the Payout includes the
                             initial stake.
                         </li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
@@ -79,7 +79,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Options</th>
                                             <th>Winning Conditions</th>
-                                            <th>Payouts</th>
+                                            <th>Odds</th>
                                             <th className={Styles["min-max-width"]}>
                                                 Bet Limit <br></br>(Min - Max)
                                             </th>

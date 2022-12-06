@@ -30,7 +30,7 @@ const renderGameRule = (
                             <thead>
                                 <tr>
                                     <th>投注類型</th>
-                                    <th>支出</th>
+                                    <th>賠率</th>
                                     <th>
                                         投注限額<br></br>（最小-最大）
                                     </th>

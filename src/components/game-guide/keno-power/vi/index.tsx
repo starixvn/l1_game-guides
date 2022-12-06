@@ -123,7 +123,7 @@ const renderPayouts = (
                                 <tr>
                                     <th className={Styles["payouts-option-width"]}>Loại Cược</th>
                                     <th>Lựa Chọn</th>
-                                    <th>Tỷ Lệ Cược</th>
+                                    <th>Tỷ Lệ Trả Thưởng</th>
                                     <th>
                                         Hạn Mức Cược <br></br>(Min - Max)
                                     </th>

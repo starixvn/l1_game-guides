@@ -60,7 +60,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             the maximum total stake per round is {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Payouts:
+                            Betting odds:
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} if the chosen symbol appears once.</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} if the chosen symbol appears twice.</li>
@@ -71,7 +71,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             Players can bet on one or more betting options shown on the game table. Note, placed bets cannot be canceled.
                         </li>
                         <li>
-                            The winning amount is calculated according to the payout ratio. Note, the Payout includes the initial stake.
+                            The winning amount is calculated according to the betting odds. Note, the Payout includes the initial stake.
                         </li>
                         <li>
                             All winning amounts are instantly added to your account balance when bets are settled.

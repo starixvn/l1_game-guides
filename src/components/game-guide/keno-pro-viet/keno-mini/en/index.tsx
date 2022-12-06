@@ -18,7 +18,7 @@ const payouts = (
         <>
             <h2>Payouts</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio. </li>
+                <li>The winning amount is calculated according to the betting odds. </li>
                 <li>The Payout includes the initial stake.</li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.
@@ -27,7 +27,7 @@ const payouts = (
                             <thead>
                                 <tr>
                                     <th>Options</th>
-                                    <th>Payouts</th>
+                                    <th>Odds</th>
                                     <th>
                                         Bet Limit <br></br>(Min-Max)
                                     </th>

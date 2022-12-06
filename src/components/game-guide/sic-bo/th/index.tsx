@@ -48,7 +48,7 @@ const renderPayouts = (
                                 <tr>
                                     <th className={Styles["bet-option-width"]}>ตัวเลือก</th>
                                     <th className={Styles["bet-choice-width"]}>ทางเลือก</th>
-                                    <th>การจ่ายเงิน</th>
+                                    <th>ราคาต่อรอง</th>
                                     <th className={Styles["bet-limit-width"]}>
                                         วงเงินเดิมพัน  <br></br>(ต่ำสุด - สูงสุด)
                                     </th>

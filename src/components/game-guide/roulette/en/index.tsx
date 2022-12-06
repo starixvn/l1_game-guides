@@ -28,14 +28,14 @@ const renderGameRule = (
                 <li>The winning number is determined by the slot where the ball falls into.</li>
                 <li>Players can bet on one or more betting options shown on the game table.</li>
                 <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
+                    The winning amount is calculated according to the betting odds. <strong>Note,</strong> the Payout includes the initial
                     stake.
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
                                     <th>Bet Types</th>
-                                    <th>Payouts</th>
+                                    <th>Odds</th>
                                     <th>
                                         Bet Limit <br></br> (Min - Max)
                                     </th>

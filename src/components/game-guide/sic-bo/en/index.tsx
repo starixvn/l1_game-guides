@@ -37,7 +37,7 @@ const renderPayouts = (
             <h2>Payouts</h2>
             <ul className="desc">
                 <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
+                    The winning amount is calculated according to the betting odds. <strong>Note,</strong> the Payout includes the initial
                     stake.
                 </li>
                 <li>
@@ -48,7 +48,7 @@ const renderPayouts = (
                                 <tr>
                                     <th className={Styles["bet-option-width"]}>Options</th>
                                     <th className={Styles["bet-choice-width"]}>Choices</th>
-                                    <th>Payouts</th>
+                                    <th>Odds</th>
                                     <th className={Styles["bet-limit-width"]}>
                                         Bet Limit <br></br>(Min-Max)
                                     </th>

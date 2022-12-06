@@ -43,8 +43,7 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                     <li className="number-dot">
                         The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
                         the {`"Deal"`} button.
-                    </li>
-                    <li className="number-dot">
+                        <br></br>
                         The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
                         the system will calculate win-loss based on the cards that were on the table at the point of interruption.
                     </li>
@@ -111,8 +110,7 @@ export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
                 <>
                     <li className="number-dot">
                         Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain menekan tombol {`"Deal"`}.
-                    </li>
-                    <li className="number-dot">
+                    <br></br>
                         Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. 
                         Tangan pemain dianggap STAND dan sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.
                     </li>
@@ -174,8 +172,7 @@ export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
                 <>
                     <li className="number-dot">
                         รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {`"ดีล"`}
-                    </li>
-                    <li className="number-dot">
+                        <br></br>
                         เกมที่ยังไม่เสร็จจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง 
                         มือของผู้เล่นถือเป็นยึดหลักและระบบจะคำนวณ ชนะ-แพ้ ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก
                     </li>
@@ -269,8 +266,7 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                 <>
                     <li className="number-dot">
                         未完成的游戏回合可以恢复，并且必须在玩家按下“发牌”按钮后的 24 小时内完成。
-                    </li>
-                    <li className="number-dot">
+                        <br></br>
                         未完成的游戏将在 24 小时后自动结算。
                         玩家的手牌被视为&#34;停牌&#34;，系统将根据中断时桌上的牌计算输赢。
                     </li>
@@ -306,8 +302,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                 <>
                     <li className="number-dot">
                         未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。
-                    </li>
-                    <li className="number-dot">
+                        <br></br>
                         未完成的遊戲將在 24 小時後自動結算。
                         玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。
                     </li>

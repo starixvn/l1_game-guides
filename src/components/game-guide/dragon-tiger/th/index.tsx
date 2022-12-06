@@ -59,7 +59,7 @@ const DragonTigerGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                     <thead>
                                         <tr>
                                             <th>ตัวเลือก</th>
-                                            <th>การจ่ายเงิน</th>
+                                            <th>ราคาต่อรอง</th>
                                             <th className={Styles["bet-limit-width"]}>
                                                 วงเงินเดิมพัน  <br /> (ต่ำสุด - สูงสุด)
                                             </th>

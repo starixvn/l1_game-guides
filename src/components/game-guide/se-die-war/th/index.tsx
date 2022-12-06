@@ -176,7 +176,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th>ตัวเลือก</th>
-                                    <th>การจ่ายเงิน </th>
+                                    <th>ราคาต่อรอง </th>
                                     <th>วงเงินเดิมพัน (ต่ำสุด - สูงสุด)</th>
                                 </tr>
                             </thead>

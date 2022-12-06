@@ -175,7 +175,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th>選項</th>
-                                    <th>支出 </th>
+                                    <th>賠率 </th>
                                     <th>投注限額（最小 - 最大）</th>
                                 </tr>
                             </thead>

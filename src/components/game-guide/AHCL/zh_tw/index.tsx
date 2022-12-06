@@ -37,7 +37,7 @@ const renderPayouts = (odds: number[][]) => {
         <li className="guide-item">
             <h2>Paytable</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the payout ratio.</li>
+                <li>The winning amount is calculated according to the betting odds.</li>
                 <li>
                     <strong>Note, </strong>the Payout includes the initial stake.
                 </li>

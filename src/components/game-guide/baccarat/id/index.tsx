@@ -467,7 +467,7 @@ const BaccaratGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <thead>
                                         <tr>
                                             <th className={Styles["payouts-option-width"]}>Pilihan</th>
-                                            <th>Pembayaran</th>
+                                            <th>Odds</th>
                                             <th>
                                                 Batas Taruhan  <br></br>(Min Maks)
                                             </th>

@@ -59,7 +59,7 @@ const DragonTigerGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                                     <thead>
                                         <tr>
                                             <th>选项</th>
-                                            <th>支出</th>
+                                            <th>赔率</th>
                                             <th className={Styles["bet-limit-width"]}>
                                             投注限额 <br /> （最小最大）
                                             </th>

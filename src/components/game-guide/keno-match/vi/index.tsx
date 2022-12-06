@@ -196,7 +196,7 @@ const renderPayouts = (
                                             <th colSpan={2} className={Styles["payouts-option-width"]}>
                                                 Lựa Chọn
                                             </th>
-                                            <th>Tỷ Lệ Cược</th>
+                                            <th>Tỷ Lệ Trả Thưởng</th>
                                             <th>
                                                 Hạn Mức Cược <br></br>(Min - Max)
                                             </th>

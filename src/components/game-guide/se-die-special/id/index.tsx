@@ -78,6 +78,7 @@ const renderStatisticTable = () => {
 const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
+    console.log(gameName)
 
     return (
         <>
@@ -85,7 +86,7 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} adalah versi mini dari game Se Die yang hanya menyertakan dua pilihan taruhan GANJIL dan GENAP. 
+                        Spesial Se Die adalah versi mini dari game Se Die yang hanya menyertakan dua pilihan taruhan GANJIL dan GENAP. 
                         Permainan ini dimainkan dengan 4 tombol berwarna, masing-masing tombol memiliki dua sisi berwarna merah dan putih. 
                         Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain, pemain menang.
                     </p>

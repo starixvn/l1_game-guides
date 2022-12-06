@@ -176,7 +176,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
             <h2>Payouts</h2>
             <ul className="desc">
                 <li>
-                    The winning amount is calculated according to the payout ratio. <strong>Note,</strong> the Payout includes the initial
+                    The winning amount is calculated according to the betting odds. <strong>Note,</strong> the Payout includes the initial
                     stake.
                 </li>
                 <li>
@@ -186,7 +186,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Payouts</th>
+                                    <th>Odds</th>
                                 </tr>
                             </thead>
                             <tbody>

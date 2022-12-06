@@ -57,7 +57,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             之間，每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            支出：
+                            Betting odds：
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} 如果所選符號出現一次。</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} 如果所選符號出現兩次。</li>

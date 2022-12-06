@@ -133,7 +133,7 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>Payouts</h2>
                     <ul className="desc">
                         <li>The payout on Big, Small is {formatOdds(odds?.big, fractionalOddsFormat)}</li>
-                        <li>The winning amount is calculated according to the payout ratio.</li>
+                        <li>The winning amount is calculated according to the betting odds.</li>
                         <li>The Payout includes the initial stake.</li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>

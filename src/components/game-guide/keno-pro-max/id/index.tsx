@@ -24,7 +24,7 @@ const payouts = (
                             <thead>
                                 <tr>
                                     <th>Pilihan</th>
-                                    <th>Pembayaran</th>
+                                    <th>Odds</th>
                                     <th>
                                         Batas Taruhan <br></br> (Min Maks)
                                     </th>

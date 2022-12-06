@@ -760,7 +760,7 @@ const renderPayouts = (
                     <thead>
                         <tr>
                             <td>Lựa Chọn</td>
-                            <td>Tỷ Lệ Cược</td>
+                            <td>Tỷ Lệ Trả Thưởng</td>
                             <td>Hạn Mức Cược (Min - Max)</td>
                         </tr>
                     </thead>

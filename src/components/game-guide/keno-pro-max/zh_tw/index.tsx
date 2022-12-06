@@ -24,7 +24,7 @@ const payouts = (
                             <thead>
                                 <tr>
                                     <th>選項</th>
-                                    <th>支出</th>
+                                    <th>賠率</th>
                                     <th>
                                         投注限額 <br></br>（最小最大）
                                     </th>

@@ -47,7 +47,7 @@ const renderPayouts = (
                                 <tr>
                                     <th className={Styles["bet-option-width"]}>選項</th>
                                     <th className={Styles["bet-choice-width"]}>選擇</th>
-                                    <th>支出</th>
+                                    <th>賠率</th>
                                     <th className={Styles["bet-limit-width"]}>
                                         投注限額 <br></br>（最小最大）
                                     </th>

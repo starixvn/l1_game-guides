@@ -95,7 +95,7 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <ul className="desc">
                         <li>The payout on Big, Small is {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
-                            The winning amount is calculated according to the payout ratio. <strong>Note</strong>, the Payout includes the
+                            The winning amount is calculated according to the betting odds. <strong>Note</strong>, the Payout includes the
                             initial stake.
                         </li>
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>

@@ -153,7 +153,7 @@ const BitcoinMasterGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Loại Cược</th>
                                             <th>Lựa Chọn</th>
-                                            <th>Trả Thưởng</th>
+                                            <th>Tỷ Lệ Trả Thưởng</th>
                                             <th>
                                                 Giới Hạn Cược
                                                 <br /> (Min - Max)

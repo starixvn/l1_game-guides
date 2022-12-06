@@ -103,7 +103,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th className={Styles["payout-option"]}>選項</th>
-                                    <th>支出 </th>
+                                    <th>賠率 </th>
                                     <th>投注限額（最小最大）</th>
                                 </tr>
                             </thead>

@@ -716,7 +716,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
                             <thead>
                                 <tr>
                                     <td>Tay Bài</td>
-                                    <td>Tỷ Lệ Cược</td>
+                                    <td>Tỷ Lệ Trả Thưởng</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -774,7 +774,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
                                 <thead>
                                     <tr>
                                         <td>Tay Bài</td>
-                                        <td>Tỷ Lệ Cược</td>
+                                        <td>Tỷ Lệ Trả Thưởng</td>
                                     </tr>
                                 </thead>
                                 <tbody>

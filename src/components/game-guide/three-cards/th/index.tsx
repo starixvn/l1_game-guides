@@ -104,7 +104,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th className={Styles["payout-option"]}>ตัวเลือก</th>
-                                    <th>การจ่ายเงิน </th>
+                                    <th>ราคาต่อรอง </th>
                                     <th>การจำกัดการเดิมพัน (ต่ำสุดสูงสุด)</th>
                                 </tr>
                             </thead>

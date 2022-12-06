@@ -24,7 +24,7 @@ const payouts = (
                             <thead>
                                 <tr>
                                     <th>ตัวเลือก</th>
-                                    <th>การจ่ายเงิน</th>
+                                    <th>ราคาต่อรอง</th>
                                     <th>
                                         วงเงินเดิมพัน <br></br> (ต่ำสุด - สูงสุด)
                                     </th>
@@ -32,20 +32,20 @@ const payouts = (
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Big</td>
+                                    <td>ใหญ่</td>
                                     <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Small</td>
+                                    <td>เล็ก</td>
                                 </tr>
                                 <tr>
-                                    <td>Odd</td>
+                                    <td>คี่</td>
                                 </tr>
                                 <tr>
-                                    <td>Even</td>
+                                    <td>คู่</td>
                                 </tr>
                                 <tr>
                                     <td>ทอง</td>
@@ -97,13 +97,13 @@ const bettingOptions = () => {
             <h2>ตัวเลือกการเดิมพัน</h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Big/Small</span>
+                    <span className="font-weight-medium title-text">ใหญ่/เล็ก</span>
                     <ul className="desc">
                         <li>
-                            <strong>Big:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาคือ {`>=`} 811
+                            <strong>ใหญ่:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาคือ {`>=`} 811
                         </li>
                         <li>
-                            <strong>Small:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาคือ {`<=`} 810
+                            <strong>เล็ก:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาคือ {`<=`} 810
                         </li>
                     </ul>
                     <div>
@@ -149,13 +149,13 @@ const bettingOptions = () => {
                     </div>
                 </li>
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text">Odd/Even</span>
+                    <span className="font-weight-medium title-text">คี่/คู่</span>
                     <ul className="desc">
                         <li>
-                            <strong>Odd:</strong> ผลรวมของลูกบอล 20 ลูกที่สุ่มออกมาเป็นเลขคี่
+                            <strong>คี่:</strong> ผลรวมของลูกบอล 20 ลูกที่สุ่มออกมาเป็นเลขคี่
                         </li>
                         <li>
-                            <strong>Even:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาเป็นเลขคู่
+                            <strong>คู่:</strong> ผลรวมของลูกบอล 20 หมายเลขที่สุ่มออกมาเป็นเลขคู่
                         </li>
                     </ul>
                     <div>

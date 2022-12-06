@@ -164,7 +164,7 @@ const renderBetChipsNotice = (
                                 <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
                                     <strong>Dozen: </strong>taruhan pada dua belas nomor berurutan.<br></br>
-                                    + Tempatkan chip Anda di salah satu dari tiga area bertanda {`"1-12", "13-24" or "25-36"`}.
+                                    + Tempatkan chip Anda di salah satu dari tiga area bertanda {`"1-12", "13-24" atau "25-36"`}.
                                 </div>
                             </div>
                         </td>

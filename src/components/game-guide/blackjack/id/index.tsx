@@ -41,7 +41,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                             <li>Jika total Player melebihi 21 (Bust). Player kalah, meskipun Dealer juga melebihi 21</li>
                             <li>
                                 Bergantung pada total poin dari dua kartu pertama, Pemain akan memiliki hingga empat opsi: {`"Hit"`},{" "}
-                                {`"Stand"`}, {`"Double"`}, or {`"Split"`}, sesuai permainan aturan.
+                                {`"Stand"`}, {`"Double"`}, atau {`"Split"`}, sesuai permainan aturan.
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
@@ -175,7 +175,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Pembayaran</th>
+                                    <th>Odds</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -204,11 +204,11 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>Perkenalan</h2>
                     <p className="content">
                         {gameName} (juga disebut {`"21"`}) adalah permainan kartu kasino yang menyenangkan dan menyenangkan. Permainan ini dimainkan dengan enam dek standar dari 52 kartu (tidak termasuk Joker) yang dikocok bersama.
-                        In Blackjack, the Player plays against the Dealer, and the object of the game is to have the total points of your cards as close to 21 as possible, without going over 21. 
-                        Pemain akan menang jika total poin kartu Anda lebih dekat ke 21 dari kartu {`Dealer's`}.                        
+                        Di Blackjack, Pemain bermain melawan Dealer, dan tujuan dari permainan ini adalah memiliki total poin kartu Anda sedekat mungkin dengan 21, tanpa melebihi 21.
+                        Pemain akan menang jika total poin kartu Anda lebih dekat ke 21 dari kartu Dealer.                    
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain)}</li>
