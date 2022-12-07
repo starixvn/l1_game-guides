@@ -492,7 +492,7 @@ const renderViewStatistic = () => {
             <ul className="desc">
                 <li>
                     Soi cầu là hình thức thống kê dữ liệu dựa trên hai số cuối trong kết quả Xổ Số RNG, nhằm hỗ trợ người chơi trong việc
-                    lựa chọn con số yêu thích. Lưu ý, dữ liệu thống kê trên từng loại cược sẽ khác nhau.
+                    lựa chọn con số yêu thích. <strong>Lưu ý</strong>, dữ liệu thống kê trên từng loại cược sẽ khác nhau.
                 </li>
                 <li>
                     Dữ liệu được thống kê theo từng loại cược trên 100 phiên gần nhất:

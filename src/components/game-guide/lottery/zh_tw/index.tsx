@@ -99,25 +99,24 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
             <div>
                 <strong>例子:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsSpecial(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpecial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions4Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 套</div>
             <ul className="desc">
-                <li>投注兩個數字：07、77，賠率 = {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</li>
-                <li>賭注 = 10</li>
-                <li>總賭注 = 20</li>
+                <li>Place bet on two numbers: 07, 77</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -138,20 +137,17 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
                     </tr>
                 </tbody>
             </table>
-            <p>
-                07 號在七等獎的結果中出現了 2 次。 支出 = (10 * {odds ? odds["4Sets"] : 0}) * 2 = {10 * (odds ? odds["4Sets"] : 0) * 2}
-            </p>
+            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
         </>
     );
 };
-const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsSpecial = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) 特別 </div>
             <ul className="desc">
-                <li>投註三個數字：00、62、79，賠率 = {formatOdds(odds?.special, fractionalOddsFormat)}</li>
-                <li>賭注 = 10</li>
-                <li>總賭注 = 30</li>
+                <li>Place bet on three numbers: 00, 62, 79 </li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -172,20 +168,17 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
                     </tr>
                 </tbody>
             </table>
-            <p>
-                數字 62 與特別獎的最後 2 位數字相同。 支出 = 10 * {odds?.special} = {10 * (odds?.special ?? 0)}
-            </p>
+            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
         </>
     );
 };
-const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsHead = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) 頭</div>
             <ul className="desc">
-                <li>投註三個數字：0、6、9，賠率 = {formatOdds(odds?.head, fractionalOddsFormat)}</li>
-                <li>賭注 = 10</li>
-                <li>總賭注 = 30</li>
+                <li>Place bet on three numbers: 0, 6, 9</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -207,20 +200,17 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>
-                數字 6 與特獎的十位數相同。 支出 = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
-            </p>
+            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
         </>
     );
 };
-const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsTail = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) 尾</div>
             <ul className="desc">
-                <li>投注兩個數字：0、5，賠率 = {formatOdds(odds?.tail, fractionalOddsFormat)}</li>
-                <li>賭注 = 10</li>
-                <li>總賭注 = 20</li>
+                <li>Place bet on two numbers: 0, 5</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -241,18 +231,17 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>所有選定的數字都與特別獎的個位不同。 支出 = 0</p>
+            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions27Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 套</div>
             <ul className="desc">
-                <li>投註四個數字：05、12、77、85，賠率 = {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</li>
-                <li>賭注 = 10</li>
-                <li>總賭注 = 40</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -374,12 +363,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
                     </tr>
                 </tbody>
             </table>
-            <p>
-                數字 05 在 27 個結果中出現了兩次。 支出 = (10 * {odds ? odds["27Sets"] : 0}) * 2 = {10 * (odds ? odds["27Sets"] : 0) * 2}
-            </p>
-            <p>
-                12 號在 27 個結果中出現了一次。 支出 = 10 * {odds ? odds["27Sets"] : 0} = {10 * (odds ? odds["27Sets"] : 0)}
-            </p>
+            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
+            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
         </>
     );
 };

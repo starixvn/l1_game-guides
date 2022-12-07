@@ -116,25 +116,24 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
             <div>
                 <strong>Contoh:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsSpesial(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpesial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions4Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 Set</div>
             <ul className="desc">
-                <li>Pasang taruhan pada dua angka: 07, 77 dengan Odds = {formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</li>
-                <li>Taruhan = 10</li>
-                <li>Jumlah Taruhan = 20</li>
+                <li>Place bet on two numbers: 07, 77</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -155,21 +154,17 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Number 07 has appeared 2 times in the result of the Ketujuh Prize. Pembayaran = (10 * {odds ? odds["4Sets"] : 0}) * 2 ={" "}
-                {10 * (odds ? odds["4Sets"] : 0) * 2}
-            </p>
+            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
         </>
     );
 };
-const BettingOptionsSpesial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsSpesial = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Spesial </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 with Odds = {formatOdds(odds?.special, fractionalOddsFormat)}</li>
-                <li>Taruhan = 10</li>
-                <li>Jumlah Taruhan = 30</li>
+                <li>Place bet on three numbers: 00, 62, 79 </li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -190,20 +185,17 @@ const BettingOptionsSpesial = (odds: OddsProps | undefined, fractionalOddsFormat
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Angka 62 sama dengan 2 digit terakhir Hadiah Spesial. Pembayaran = 10 * {odds?.special} = {10 * (odds?.special ?? 0)}
-            </p>
+            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
         </>
     );
 };
-const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsHead = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Kepala</div>
             <ul className="desc">
-                <li>Pasang taruhan pada tiga angka: 0, 6, 9 dengan Odds = {formatOdds(odds?.head, fractionalOddsFormat)}</li>
-                <li>Taruhan = 10</li>
-                <li>Jumlah Taruhan = 30</li>
+                <li>Place bet on three numbers: 0, 6, 9</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -225,20 +217,17 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Angka 6 sama dengan angka puluhan dari Hadiah Khusus. Pembayaran = 10 * {odds?.head} = {10 * (odds?.head ?? 0)}
-            </p>
+            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
         </>
     );
 };
-const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsTail = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Ekor</div>
             <ul className="desc">
-                <li>Pasang taruhan pada dua angka: 0, 5 dengan Odds = {formatOdds(odds?.tail, fractionalOddsFormat)}</li>
-                <li>Taruhan = 10</li>
-                <li>Jumlah Taruhan = 20</li>
+                <li>Place bet on two numbers: 0, 5</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -259,18 +248,17 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
                     </tr>
                 </tbody>
             </table>
-            <p>Semua nomor yang dipilih tidak sama dengan angka satuan dari Hadiah Khusus. Pembayaran = 0</p>
+            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions27Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 set</div>
             <ul className="desc">
-                <li>Pasang taruhan pada empat angka: 05, 12, 77, 85 dengan Odds = {formatOdds(odds?.["27Sets"], fractionalOddsFormat)}</li>
-                <li>Taruhan = 10</li>
-                <li>Jumlah Taruhan = 40</li>
+                <li>Place bet on four numbers: 05, 12, 77, 85</li>
+                <li>The final result:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -392,14 +380,8 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Nomor 05 telah muncul dua kali dalam 27 hasil. Pembayaran = (10 * {odds ? odds["27Sets"] : 0}) * 2 ={" "}
-                {10 * (odds ? odds["27Sets"] : 0) * 2}
-            </p>
-            <p>
-                Nomor 12 telah muncul satu kali dalam 27 hasil. Pembayaran = 10 * {odds ? odds["27Sets"] : 0} ={" "}
-                {10 * (odds ? odds["27Sets"] : 0)}
-            </p>
+            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
+            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
         </>
     );
 };
@@ -424,7 +406,7 @@ const renderPayouts = (
                         <th>
                             Batas Taruhan <br></br>(Min Maks)
                         </th>
-                        <th className={Styles["payout-max-total-width"]}>Max Jumlah Taruhan Per Round</th>
+                        <th className={Styles["payout-max-total-width"]}>Jumlah Taruhan Maksimum Per Putaran</th>
                     </tr>
                 </thead>
                 <tbody>

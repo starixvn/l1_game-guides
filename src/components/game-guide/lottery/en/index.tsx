@@ -116,18 +116,18 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
             <div>
                 <strong>Example:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsSpecial(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpecial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions4Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) 4 Sets</div>
@@ -154,11 +154,11 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared 2 times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
         </>
     );
 };
-const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsSpecial = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Special </div>
@@ -189,7 +189,7 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
         </>
     );
 };
-const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsHead = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Head</div>
@@ -221,7 +221,7 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
         </>
     );
 };
-const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsTail = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Tail</div>
@@ -252,7 +252,7 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions27Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) 27 Sets</div>

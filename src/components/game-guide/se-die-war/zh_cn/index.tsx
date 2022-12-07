@@ -80,7 +80,7 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
         <>
             <tr>
                 <td rowSpan={9}>{isBanker ? "庄家" : "玩家"}</td>
-                <td rowSpan={2}>双</td>
+                <td rowSpan={2}>单</td>
                 <td>3 红，1 白</td>
                 {renderThreeRedOneWhite()}
             </tr>

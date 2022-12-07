@@ -25,7 +25,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 </li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
-                        <table className="table text-center table-medium">
+                        <table className="table text-center">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Options</th>

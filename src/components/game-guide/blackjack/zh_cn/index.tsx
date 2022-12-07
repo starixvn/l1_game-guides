@@ -220,7 +220,7 @@ const BlackjackGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                         </li>
                         <li>卡点值：{CardPointValuesTable(t)}</li>
                     </ul>
-                    <strong>Example: </strong>
+                    <strong>例子: </strong>
                     <ul className="detail">
                         <li>包含九 (9)、八 (8) 和 Ace (A) 的手 =&gt; 手的值是 18</li>
                         <li>包含七 (7) 和 A (A) 的手 =&gt; 手的价值是 18</li>

@@ -469,7 +469,7 @@ const BaccaratGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                     <thead>
                                         <tr>
                                             <th className={Styles["payouts-option-width"]}>ตัวเลือก</th>
-                                            <th>ราคาต่อรอง</th>
+                                            <th>อัตราต่อรอง</th>
                                             <th>
                                                 ขีด จำกัด การเดิมพัน  <br></br>(ต่ำสุด สูงสุด)
                                             </th>

@@ -302,7 +302,7 @@ const SeDieGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             </div>
 
                             <p>
-                                <strong>注意</strong>：统计轮中显示的数字是玩家和庄家结果中的红色按钮总数。
+                                <strong>注意</strong>：統計輪中顯示的數字是玩家和莊家結果中的紅色按鈕總數。
                             </p>
                         </li>
                     </ul>

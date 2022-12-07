@@ -98,7 +98,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th className={Styles["payout-option"]}>ตัวเลือก</th>
-                                    <th>ราคาต่อรอง </th>
+                                    <th>อัตราต่อรอง </th>
                                     <th>การจำกัดการเดิมพัน (ต่ำสุดสูงสุด)</th>
                                 </tr>
                             </thead>
@@ -211,12 +211,9 @@ const ThreeCardsGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
-                    <p className={`content ${Styles["content-customize"]}`}>
-                        เกมส์ไพ่สามใบนั้นเป็นเกมที่น่าตื่นเต้นอีกเกมหนึ่ง ที่เล่นใบไพ่ 52 ใบ มาตรฐานทั่วไป (ยกเว้น โจ๊กเกอร์ ).
-                        มีตัวเลือกการเดิมพัน 6 แบบ ได้แก่ แดง ดำ , ข้าวหลามตัด (<span className={Styles["img-red"]}>♦</span>), หัวใจ (
-                        <span className={Styles["img-red"]}>♥</span>), โพดำ (<span className={Styles["img-black"]}>♠</span>), และ ดอกจิก (
-                        <span className={Styles["img-black"]}>♣</span>). จุดประสงค์ของเกมนี้คือการทายชุดไพ่ที่จั่วได้ 3 ใบในแต่ละรอบ
-                        หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ.
+                    <p className={`content ${Styles["content-customize"]}`}>                        
+                        เกมส์ไพ่สามใบนั้นเป็นเกมที่น่าตื่นเต้นอีกเกมหนึ่ง ที่เล่นใบไพ่ 52 ใบ มาตรฐานทั่วไป (ยกเว้น โจ๊กเกอร์ ) มีตัวเลือกการเดิมพัน 6 แบบ ได้แก่ แดง ดำ ข้าวหลามตัด (<span className={Styles["img-red"]}>♦</span>),หัวใจ (<span className={Styles["img-red"]}>♥</span>), โพดำ(<span className={Styles["img-black"]}>♠</span>), และ ดอกจิก (<span className={Styles["img-black"]}>♣</span>). 
+                        จุดประสงค์ของเกมนี้คือการทายชุดไพ่ที่จั่วได้ 3 ใบในแต่ละรอบ หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>

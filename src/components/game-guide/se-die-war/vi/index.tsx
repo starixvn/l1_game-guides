@@ -199,7 +199,7 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <th>Lựa Chọn</th>
-                                    <th>Trả Thưởng </th>
+                                    <th>Tỉ Lệ Trả Thưởng </th>
                                     <th>Giới Hạn Cược (Min - Max)</th>
                                 </tr>
                             </thead>

@@ -173,7 +173,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>ราคาต่อรอง</th>
+                                    <th>อัตราต่อรอง</th>
                                 </tr>
                             </thead>
                             <tbody>

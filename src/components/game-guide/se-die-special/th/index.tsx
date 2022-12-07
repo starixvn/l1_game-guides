@@ -84,7 +84,7 @@ const SeDieGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} เวอร์ชันมินิที่มีเพียงสองตัวเลือกการเดิมพันแบบคี่และคู่ 
+                        Special Se Die เป็นเกม Se Die เวอร์ชันมินิที่มีเพียงสองตัวเลือกการเดิมพันแบบคี่และคู่ 
                         เกมนี้เล่นด้วยปุ่มสี 4 ปุ่ม แต่ละปุ่มมี 2 ด้านคือสีแดงและสีขาว 
                         วัตถุประสงค์ของเกมนี้คือการทำนายผลของปุ่ม 4 ปุ่ม หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
                     </p>
@@ -103,7 +103,7 @@ const SeDieGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                     <thead>
                                         <tr>
                                             <th>ตัวเลือก</th>
-                                            <th>ราคาต่อรอง</th>
+                                            <th>อัตราต่อรอง</th>
                                             <th>
                                                 วงเงินเดิมพัน  <br /> (ต่ำสุด - สูงสุด)
                                             </th>

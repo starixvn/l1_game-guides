@@ -35,19 +35,19 @@ const renderGameRule = (maxBet: string | undefined) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colSpan={2}>Pemain</td>
+                                    <td colSpan={2}>Player</td>
                                     <td colSpan={2} className="text-start">
                                         Jumlah tombol merah pada hasil Player lebih banyak dari pada Banker.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan={2}>Bankir</td>
+                                    <td colSpan={2}>Banker</td>
                                     <td colSpan={2} className="text-start">
                                         Jumlah tombol merah pada hasil Banker lebih banyak daripada Player.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan={2}>Mengikat</td>
+                                    <td colSpan={2}>Seri</td>
                                     <td colSpan={2} className="text-start">
                                         Player dan Banker memiliki hasil yang sama.
                                     </td>
@@ -80,7 +80,7 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
     return (
         <>
             <tr>
-                <td rowSpan={9}>{isBanker ? "Bankir" : "Pemain"}</td>
+                <td rowSpan={9}>{isBanker ? "Banker" : "Player"}</td>
                 <td rowSpan={2}>Ganjil</td>
                 <td>3 merah, 1 putih</td>
                 {renderThreeRedOneWhite()}
@@ -146,11 +146,11 @@ const renderGameRuleTable = (data: string[]) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Pemain</td>
+                        <td>Player</td>
                         <td>{data[0]}</td>
                     </tr>
                     <tr>
-                        <td>Bankir</td>
+                        <td>Banker</td>
                         <td>{data[1]}</td>
                     </tr>
                 </tbody>
@@ -182,17 +182,17 @@ const renderPayouts = (
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Pemain</td>
+                                    <td>Player</td>
                                     <td rowSpan={2}>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                     <td rowSpan={5}>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPlayer}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Bankir</td>
+                                    <td>Banker</td>
                                 </tr>
                                 <tr>
-                                    <td>Mengikat</td>
+                                    <td>Seri</td>
                                     <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
@@ -284,7 +284,7 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <p className="content">
                         {gameName} adalah versi khusus dari game Se Die. Permainan ini terdiri dari 2 set tombol, satu untuk Banker dan satu lagi untuk Player. 
                         Setiap set termasuk 4 tombol berwarna, di mana setiap tombol memiliki dua sisi berwarna merah dan putih. 
-                        Pemain memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. 
+                        Player memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. 
                         Permainan menentukan menang atau kalah berdasarkan jumlah situs merah atau putih yang dihadapi dalam hasil.
                     </p>
                 </li>
