@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 
 import { BaccaratId } from "..";
-import { renderTBodyPointCalculationRules } from "../en";
-import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import Styles from "../baccarat.module.scss";
 import { ENVIRONMENT } from "../../../../common/constants";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
+import { GameGuideProps } from "../../type";
+import Styles from "../baccarat.module.scss";
+import { renderTBodyPointCalculationRules } from "../en";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const renderGameRule = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
     return (
@@ -246,9 +246,7 @@ const renderMD5Example = (gameName: string) => {
                     <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_vi.png?v=1" alt="md5-result" />
                     <div>
-                        Từ trái sang phải, <span className={Styles["black"]}>Q♠️</span> <span className={Styles["black"]}>A♠️</span>{" "}
-                        <span className={Styles["red"]}>8♦️</span> <span className={Styles["black"]}>4♠️</span>{" "}
-                        <span className={Styles["red"]}>6♥️</span> <span className={Styles["red"]}>J♥️</span> tương ứng với thứ tự được chia
+                        Từ trái sang phải, Q♠️ A♠️ 8♦️ 4♠️ 6♥️ J♥️ tương ứng với thứ tự được chia
                         của mỗi lá bài khi bắt đầu phiên.
                     </div>
                 </li>

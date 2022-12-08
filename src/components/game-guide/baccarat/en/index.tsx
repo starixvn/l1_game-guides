@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
 import { BaccaratId } from "..";
+import { ENVIRONMENT } from "../../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { GameGuideProps } from "../../type";
 import Styles from "../baccarat.module.scss";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { ENVIRONMENT } from "../../../../common/constants";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const renderGameRule = (gameId: number | undefined, maxBetMain: number | string, environment: string | undefined) => {
     return (
@@ -297,10 +297,7 @@ const renderMD5Example = (gameName: string) => {
                     <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
                     <img className="format-img auto-center" src="/static/images/baccarat/md5_step2_en.png?v=1" alt="md5-result" />
                     <div>
-                        Note: From the left to right, <span className={Styles["black"]}>7♠️</span>{" "}
-                        <span className={Styles["black"]}>3♠️</span> <span className={Styles["red"]}>7♦️</span>{" "}
-                        <span className={Styles["black"]}>K♣️</span> <span className={Styles["black"]}>2♠️</span>{" "}
-                        <span className={Styles["red"]}>Q♦️</span> corresponds to the order of dealt cards at the beginning of the game
+                        Note: From the left to right, 7♠️ 3♠️ 7♦️ K♣️ 2♠️ Q♦️ corresponds to the order of dealt cards at the beginning of the game
                         round.
                     </div>
                 </li>
