@@ -168,11 +168,7 @@ const renderBonus = (odds: number[][]) => {
                     " BONUS"
                 )}
                 <ul className="desc">
-                    <li>
-                        Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png" alt="item8"></img>
-                        quay được.
-                    </li>
+                    <li>Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus quay được.</li>
                     <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
                 </ul>
             </div>

@@ -22,7 +22,7 @@ const renderGameRule = () => {
                     </div>
                 </li>
 
-                <li> 25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.</li>
+                <li> 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
@@ -39,7 +39,7 @@ const renderPayouts = (odds: number[][]) => {
             <ul className="desc">
                 <li>The winning amount is calculated according to the payout ratio.</li>
                 <li>
-                    <strong>Note, </strong>the Payout includes the initial stake.
+                    <strong>Note: </strong>the Payout includes the initial stake.
                 </li>
                 <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
