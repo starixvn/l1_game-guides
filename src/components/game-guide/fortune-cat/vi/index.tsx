@@ -1,10 +1,11 @@
 import React from "react";
-import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps } from "../type";
-import { GameGuideProps } from "../../type";
-import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentLarge, renderIconContent } from "../en";
-import Styles from "../fortune-cat.module.scss";
+
 import { locales } from "../../../../common/constants";
+import { renderTermsAndConditionsVI } from "../../../shared";
+import { GameGuideProps } from "../../type";
+import { renderIconContent, renderIconContentLarge, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "../en";
+import Styles from "../fortune-cat.module.scss";
+import { GameConfigProps } from "../type";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
@@ -216,7 +217,7 @@ const renderWild = (odds: number[][]) => {
                         Bonus
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png#v2" alt="item8"></img>
                         và
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png" alt="item10"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png#v2" alt="item10"></img>
                     </li>
                     <li>
                         Người chơi sẽ nhận được mức trả thưởng cao nhất trên mỗi dòng cược trong trường hợp có được 2 nhóm biểu tượng cùng
@@ -287,7 +288,7 @@ const FortuneCatGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v5`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

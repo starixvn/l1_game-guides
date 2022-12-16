@@ -1,9 +1,10 @@
 import React from "react";
+
+import { locales } from "../../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../../shared";
-import { GameConfigProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../fortune-cat.module.scss";
-import { locales } from "../../../../common/constants";
+import { GameConfigProps } from "../type";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -62,7 +63,7 @@ export const renderIconContent = (
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="d-center">
-                <img src={`${pathSrc}${itemName}.png?v2`} alt={itemName}></img>
+                <img src={`${pathSrc}${itemName}.png?v3`} alt={itemName}></img>
             </div>
 
             <div>
@@ -396,7 +397,7 @@ const renderWild = (odds: number[][]) => {
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png" alt="item8"></img>,
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7-small.png#v2" alt="item7"></img>
                         and
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png" alt="item10"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png#v2" alt="item10"></img>
                     </li>
                     <li>Only the highest achieved win per line is paid out.</li>
                 </ul>
@@ -464,7 +465,7 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         payline that has been chosen.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v5`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
