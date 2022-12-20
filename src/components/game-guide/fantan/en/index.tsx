@@ -1,4 +1,5 @@
 import React from "react";
+import { formatOdds } from "../../../../helpers/number-helper";
 
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
@@ -125,7 +126,11 @@ const renderGameRule = (maxBet: string | number | undefined) => {
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -154,7 +159,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 Odd Even
                             </td>
                             <td className={Styles["text-left"]}>Odd</td>
-                            <td rowSpan={2}>1:{odds?.even}</td>
+                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                             </td>
@@ -165,7 +170,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <tr>
                             <td rowSpan={4}>Fan</td>
                             <td className={Styles["text-left"]}>1 Fan</td>
-                            <td rowSpan={4}>1:{odds?.fan1}</td>
+                            <td rowSpan={4}>{formatOdds(odds?.fan1, fractionalOddsFormat)}</td>
                             <td rowSpan={4}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFan1}
                             </td>
@@ -182,7 +187,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <tr>
                             <td rowSpan={4}>Kwok</td>
                             <td className={Styles["text-left"]}>1 2 Kwok</td>
-                            <td rowSpan={4}>1:{odds?.kwok12}</td>
+                            <td rowSpan={4}>{formatOdds(odds?.kwok12, fractionalOddsFormat)}</td>
                             <td rowSpan={4}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetKwok12}
                             </td>
@@ -199,7 +204,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <tr>
                             <td rowSpan={4}>Chun</td>
                             <td className={Styles["text-left"]}>2 3 4 Chun</td>
-                            <td rowSpan={4}>1:{odds?.chun123}</td>
+                            <td rowSpan={4}>{formatOdds(odds?.chun123, fractionalOddsFormat)}</td>
                             <td rowSpan={4}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChun123}
                             </td>
@@ -257,7 +262,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
 };
 
 const FantanGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, gameId, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, gameId, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -271,7 +276,7 @@ const FantanGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 <li id="md5" className="guide-item">
                     {renderMD5EN()}
                     {renderMD5Example(gameName, gameId)}

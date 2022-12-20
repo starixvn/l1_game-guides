@@ -23,7 +23,17 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const FantanGuide = (props: GameGuideBase) => {
-    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, environment, project } = props;
+    const {
+        locale,
+        userStakeLevel,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        isGetGameConfigs,
+        environment,
+        project,
+        fractionalOddsFormat,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps | undefined>();
@@ -66,6 +76,7 @@ const FantanGuide = (props: GameGuideBase) => {
         gameName: gameNameTranslate,
         maxBetFollowChoice,
         environment,
+        fractionalOddsFormat,
     };
 
     if (locale === locales.en) {
