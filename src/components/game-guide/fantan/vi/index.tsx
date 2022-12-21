@@ -260,8 +260,8 @@ const FantanGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} là trò casino có nguồn gốc từ Châu Á. Trò chơi sử dụng 150 hạt màu trắng, sẽ có 14 cửa cược trên bàn
-                        game. Người chơi sẽ đặt cược và dự đoán kết quả cửa thắng.
+                        {gameName} là trò casino có nguồn gốc từ Châu Á. Trò chơi sử dụng 150 hạt màu trắng, có 14 cửa cược trên bàn game.
+                        Người chơi sẽ đặt cược và dự đoán kết quả cửa thắng.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
