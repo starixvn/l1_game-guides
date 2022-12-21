@@ -259,21 +259,21 @@ const renderExamplePayout = (odds: number[][]) => {
                                 </div>
                             </td>
                             <td>
-                                Having 5 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                Having 5 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
                                 payline.
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                Having 4 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
                                 payline.
                                 <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 symbols <img src="./static/images/fortune-cat/item1-small.png" alt="item1" /> located on the same
+                                Having 3 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
                                 payline.
                                 <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
@@ -394,10 +394,10 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         “Wild” symbol can substitute for all symbols except
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png" alt="item8"></img>,
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7-small.png#v2" alt="item7"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png" alt="item8"></img>,
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>
                         and
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png#v2" alt="item10"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10_small.png#v2" alt="item10"></img>
                     </li>
                     <li>Only the highest achieved win per line is paid out.</li>
                 </ul>
@@ -427,7 +427,7 @@ const renderWild = (odds: number[][]) => {
                             If Wild symbol is
                             <img
                                 className={Styles["symbol-small"]}
-                                src="./static/images/fortune-cat/item2-small.png"
+                                src="./static/images/fortune-cat/item2_small.png"
                                 alt="item2-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[2][3]}
@@ -436,7 +436,7 @@ const renderWild = (odds: number[][]) => {
                             If Wild symbol is
                             <img
                                 className={Styles["symbol-small"]}
-                                src="./static/images/fortune-cat/item5-small.png"
+                                src="./static/images/fortune-cat/item5_small.png"
                                 alt="item5-mini"
                             ></img>
                             {`=>`} Payout = Bet Level * {odds[5][3]}

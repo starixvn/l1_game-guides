@@ -74,19 +74,19 @@ const renderExamplePayouts = (odds: number[][]) => {
                                 </div>
                             </td>
                             <td>
-                                Nếu có <strong>5</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />
+                                Nếu có <strong>5</strong> biểu tượng <img src="./static/images/fortune-cat/item1_small.png" alt="item1" />
                                 trên cùng Dòng Cược.<br></br>Tiền thắng = Mức Cược * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>4</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />{" "}
+                                Nếu có <strong>4</strong> biểu tượng <img src="./static/images/fortune-cat/item1_small.png" alt="item1" />{" "}
                                 trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Nếu có <strong>3</strong> biểu tượng <img src="./static/images/fortune-cat/item1-small.png" alt="item1" />{" "}
+                                Nếu có <strong>3</strong> biểu tượng <img src="./static/images/fortune-cat/item1_small.png" alt="item1" />{" "}
                                 trên cùng Dòng Cược. <br></br>Tiền thắng = Mức Cược * {odds[1][3]}
                             </td>
                         </tr>
@@ -213,11 +213,11 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7-small.png#v2" alt="item7"></img>,
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>,
                         Bonus
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8-small.png#v2" alt="item8"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png#v2" alt="item8"></img>
                         và
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10-small.png#v2" alt="item10"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10_small.png#v2" alt="item10"></img>
                     </li>
                     <li>
                         Người chơi sẽ nhận được mức trả thưởng cao nhất trên mỗi dòng cược trong trường hợp có được 2 nhóm biểu tượng cùng
@@ -252,7 +252,7 @@ const renderWild = (odds: number[][]) => {
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
                                 className={Styles["symbol-small"]}
-                                src="./static/images/fortune-cat/item2-small.png"
+                                src="./static/images/fortune-cat/item2_small.png"
                                 alt="item2-mini"
                             ></img>
                             {`=>`} Mức trả thưởng = {betValue} * {odds[2][3]} = {betValue * odds[2][3]}
@@ -261,7 +261,7 @@ const renderWild = (odds: number[][]) => {
                             Nếu biểu tượng Wild thay thế{" "}
                             <img
                                 className={Styles["symbol-small"]}
-                                src="./static/images/fortune-cat/item5-small.png"
+                                src="./static/images/fortune-cat/item5_small.png"
                                 alt="item5-mini"
                             ></img>
                             {`=>`} Mức trả thưởng = {betValue} * {odds[5][3]} = {betValue * odds[5][3]}
