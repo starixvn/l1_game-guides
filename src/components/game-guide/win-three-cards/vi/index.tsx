@@ -1,9 +1,8 @@
 import React from "react";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 
 const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {   
@@ -45,7 +44,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
                                     <td className="text-start">Kết quả của tay bài thắng là “Bão”.</td>
                                 </tr>
                                 <tr>
-                                    <td>Thùng Phá Sảnh</td>
+                                    <td  style={{width: 250}}>Thùng Phá Sảnh</td>
                                     <td className="text-start">Kết quả của tay bài thắng là “Thùng Phá Sảnh”.</td>
                                 </tr>
                                 <tr>
@@ -163,7 +162,7 @@ export const renderCardType = () => {
                                 <td width={250}>
                                     <strong>Sát Thủ Bão</strong>
                                 </td>
-                                <td>Ba lá bài 2, 3, 5 không đồng chất hoặc có hai trong ba đồng chất, lá còn lại khác chất. </td>
+                                <td className="text-start">Ba lá bài 2, 3, 5 không đồng chất hoặc có hai trong ba đồng chất, lá còn lại khác chất. </td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -171,6 +170,7 @@ export const renderCardType = () => {
                                             alt="235"                                          
                                             height={65}
                                             loading="eager"
+                                            style={{marginBottom: 5}}
                                         />
                                     </span> <br></br>
                                     <span className={Styles["wrapper-card"]}>
@@ -187,7 +187,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Bão</strong>
                                 </td>
-                                <td>Ba lá bài có cùng giá trị.</td>
+                                <td className="text-start">Ba lá bài có cùng giá trị.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                     <img
@@ -203,7 +203,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Thùng Phá Sảnh</strong>
                                 </td>
-                                <td>Ba lá bài đồng chất và có giá trị liên tiếp.</td>
+                                <td className="text-start">Ba lá bài đồng chất và có giá trị liên tiếp.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -219,7 +219,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Thùng</strong>
                                 </td>
-                                <td>Ba lá bài đồng chất và không liên tiếp.</td>
+                                <td className="text-start">Ba lá bài đồng chất và không liên tiếp.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -235,7 +235,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Sảnh</strong>
                                 </td>
-                                <td>Ba lá bài với giá trị liên tiếp.</td>
+                                <td className="text-start">Ba lá bài với giá trị liên tiếp.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -251,7 +251,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Đôi</strong>
                                 </td>
-                                <td>Hai trong ba lá bài có cùng giá trị.</td>
+                                <td className="text-start">Hai trong ba lá bài có cùng giá trị.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -267,7 +267,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Bài Cao </strong>
                                 </td>
-                                <td>Không bao gồm các loại trên và giá trị được xác định bởi quân bài mang giá trị cao nhất.</td>
+                                <td className="text-start">Không bao gồm các loại trên và giá trị được xác định bởi quân bài mang giá trị cao nhất.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -304,24 +304,24 @@ export const renderRankingLevel = () => {
                 <li><strong>Thứ hạng tay bài</strong>
                     <ul className="detail">
                         <li>
-                            Bão {'>'} Thùng Phá Sảnh {'>'} Thùng   {'>'} Sảnh   {'>'} Đôi   {'>'} Bài Cao.
+                            Bão {'>'} Thùng Phá Sảnh {'>'} Thùng   {'>'} Sảnh   {'>'} Đôi   {'>'} Bài Cao
                         </li>
                     </ul>
                 </li>
                 <li><strong>Sát Thủ Bão {'>'} Bão</strong>
                     <ul className="detail">
                         <li>
-                            Nếu “Bão” và “Sát Thủ Bão” cùng xuất hiện trong kết quả thì “Sát Thủ Bão” có thứ hạng cao hơn “Bão”
+                            Nếu “Bão” và “Sát Thủ Bão” cùng xuất hiện trong kết quả thì “Sát Thủ Bão” có thứ hạng cao hơn “Bão”.
                         </li>
                         <li>
-                            Nếu không có “Bão” trong kết quả thì “Sát Thủ Bão” có thứ hạng thấp nhất trong nhóm Bài Cao
+                            Nếu không có “Bão” trong kết quả thì “Sát Thủ Bão” có thứ hạng thấp nhất trong nhóm Bài Cao.
                         </li>
                     </ul>
                 </li>
                 <li><strong>Đôi</strong>
                     <ul className="detail">
                         <li>Nếu Long và Phụng đều có Đôi, thì giá trị của Đôi sẽ xác định bên thắng.</li>      
-                        <li>Nếu hai bên có cùng giá trị đôi, giá trị của lá bài thứ ba sẽ quyết định thắng thua </li>                  
+                        <li>Nếu hai bên có cùng giá trị đôi, giá trị của lá bài thứ ba sẽ quyết định thắng thua. </li>                  
                     </ul>
                 </li>
                 <li><strong>Thùng, Bài Cao</strong>
@@ -378,7 +378,7 @@ const WinThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>
                             <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
                             <img className="format-img auto-center" src="/static/images/win-three-cards/md5_step2_vi.png?v=3" alt="md5-result" />
-                            <div>Từ trái sang phải, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
+                            <div>Từ trái sang phải, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.</div>
                         </li>
                         <li>
                             <strong>Bước 3:</strong> Truy cập{" "}
@@ -396,7 +396,7 @@ const WinThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </ul>
                     <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
                 </li>                
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditionsVI()}
             </ul>
         </>
     );

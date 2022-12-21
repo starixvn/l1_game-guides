@@ -164,7 +164,7 @@ export const renderCardType = () => {
                                 <td width={250}>
                                     <strong>235</strong>
                                 </td>
-                                <td>Three cards 2, 3, 5 with different suits; or, any two cards among 2, 3, 5 are the same suit and the other one with a different suit.</td>
+                                <td className="text-start">Three cards 2, 3, 5 with different suits; or, any two cards among 2, 3, 5 are the same suit and the other one with a different suit.</td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -172,6 +172,7 @@ export const renderCardType = () => {
                                             alt="235"                                          
                                             height={65}
                                             loading="eager"
+                                            style={{marginBottom: 5}}
                                         />
                                     </span> <br></br>
                                     <span className={Styles["wrapper-card"]}>
@@ -188,7 +189,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Three of a Kind</strong>
                                 </td>
-                                <td>Three cards of the same rank.</td>
+                                <td className="text-start">Three cards of the same rank.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                     <img
@@ -204,7 +205,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Straight Flush</strong>
                                 </td>
-                                <td>Three cards of the same suit in the sequence rank.</td>
+                                <td className="text-start">Three cards of the same suit in the sequence rank.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -220,7 +221,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Flush</strong>
                                 </td>
-                                <td>Three cards of the same suit with different ranks.</td>
+                                <td className="text-start">Three cards of the same suit with different ranks.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -236,7 +237,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Straight</strong>
                                 </td>
-                                <td>Three cards in the sequence with different suits.</td>
+                                <td className="text-start">Three cards in the sequence with different suits.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -252,7 +253,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>Pair</strong>
                                 </td>
-                                <td>Two cards of the same rank.</td>
+                                <td className="text-start">Two cards of the same rank.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -268,7 +269,7 @@ export const renderCardType = () => {
                                 <td>
                                     <strong>High Card</strong>
                                 </td>
-                                <td>Highest card when no higher hand is available.</td>
+                                <td className="text-start">Highest card when no higher hand is available.</td>
                                 <td>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -305,14 +306,14 @@ export const renderRankingLevel = () => {
                 <li><strong>Hand Ranking</strong>
                     <ul className="detail">
                         <li>
-                            Three of a Kind {'>'} Straight Flush {'>'} Flush  {'>'} Straight  {'>'} Pair  {'>'} High Card.
+                            Three of a Kind {'>'} Straight Flush {'>'} Flush  {'>'} Straight  {'>'} Pair  {'>'} High Card
                         </li>
                     </ul>
                 </li>
                 <li><strong>235 {'>'} Three of a Kind</strong>
                     <ul className="detail">
                         <li>
-                            If there are only 235 and Three of a Kind in the result, 235 card type is higher than Three of a Kind.
+                            If there are only 235 and “Three of a Kind” in the result, 235 card type is higher than “Three of a Kind”.
                         </li>
                         <li>
                             When there is no “Three of a Kind” card type in the result, 235 is the smallest high card.
@@ -380,7 +381,7 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>
                             <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
                             <img className="format-img auto-center" src="/static/images/win-three-cards/md5_step2_en.png?v=3" alt="md5-result" />
-                            <div>Note: From left to right, J♠️ 9♥️ 8♦️ 9♣️ 7♠️ 5♥️ corresponds to the order of dealt cards at the beginning of the game round.</div>
+                            <div>Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning of the game round.</div>
                         </li>
                         <li>
                             <strong>Step 3:</strong> Go to{" "}
