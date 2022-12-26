@@ -13,17 +13,17 @@ const choicesMaxBet = {
 };
 
 const odds = {
-    blue: 1.97,
-    red: 1.97,
-    tie: 1.97,
-    big: 1.97,
-    small: 1.97,
-    even: 1.97,
-    odd: 1.97,
-    blueBig: 1.97,
-    blueSmall: 1.97,
-    redBig: 1.97,
-    redSmall: 1.97,
+    blue: 1.96,
+    red: 1.96,
+    tie: 1.96,
+    big: 1.96,
+    small: 1.96,
+    even: 1.96,
+    odd: 1.96,
+    blueBig: 1.96,
+    blueSmall: 1.96,
+    redBig: 1.96,
+    redSmall: 1.96,
 };
 
 const GameConfigs = {

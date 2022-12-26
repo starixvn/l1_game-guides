@@ -1,6 +1,6 @@
 const odds = {
-    even: 1.97,
-    odd: 1.97,
+    even: 1.96,
+    odd: 1.96,
 };
 
 const GameConfigs = {
