@@ -37,7 +37,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
                                 </tr>
                                 <tr>
                                     <td>Đôi 8 trở lên</td>
-                                    <td className="text-start">Kết quả của tay bài thắng có chứa (Đôi 9 đến đôi A, Thùng, Sảnh, Bão,Thùng Phá Sảnh)</td>
+                                    <td className="text-start">Kết quả của tay bài thắng có chứa Đôi 9 đến đôi A, Sảnh, Thùng, Thùng Phá Sảnh, Bão</td>
                                 </tr>
                                 <tr>
                                     <td>Bão</td>

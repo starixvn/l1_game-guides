@@ -25,8 +25,8 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
                     <table className="table text-center">
                         <thead>
                             <tr>
-                                <th className={Styles["payout-option"]}>Bet Option</th>
-                                <th>Winning Condition</th>
+                                <th className={Styles["payout-option"]}>Bet Options</th>
+                                <th>Winning Conditions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +40,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
                             </tr>
                             <tr>
                                 <td>Pair 8 Plus</td>
-                                <td className="text-start">The winning hand has contained Pair 9 to Pair A, Flush, Straight, Three of a Kind, Straight Flush.</td>
+                                <td className="text-start">The winning hand has contained Pair 9 to Pair A, Straight, Flush, Straight Flush, Three of a Kind.</td>
                             </tr>
                             <tr>
                                 <td>Three of a Kind</td>
@@ -164,7 +164,7 @@ export const renderCardType = () => {
                                 <td width={250}>
                                     <strong>235</strong>
                                 </td>
-                                <td className="text-start">Three cards 2, 3, 5 with different suits; or, any two cards among 2, 3, 5 are the same suit and the other one with a different suit.</td>
+                                <td className="text-start">Three cards 2, 3, 5 with different suits; or any two cards among 2, 3, 5 are the same suit and the other one with a different suit.</td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -306,7 +306,7 @@ export const renderRankingLevel = () => {
                 <li><strong>Hand Ranking</strong>
                     <ul className="detail">
                         <li>
-                            Three of a Kind {'>'} Straight Flush {'>'} Flush  {'>'} Straight  {'>'} Pair  {'>'} High Card
+                            Three of a Kind {'>'} Straight Flush {'>'} Flush  {'>'} Straight  {'>'} Pair  {'>'} High Card.
                         </li>
                     </ul>
                 </li>
@@ -379,7 +379,7 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             <img className="format-img auto-center" src="/static/images/win-three-cards/md5_step1_en.png?v=3" alt="md5-string" />
                         </li>
                         <li>
-                            <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                            <strong>Step 2:</strong> Copy the Result after the system publishes the result.
                             <img className="format-img auto-center" src="/static/images/win-three-cards/md5_step2_en.png?v=3" alt="md5-result" />
                             <div>Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning of the game round.</div>
                         </li>

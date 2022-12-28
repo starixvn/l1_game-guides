@@ -4,9 +4,7 @@ import WinThreeCardsGuideEN from "./en";
 import WinThreeCardsGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
 
 const WinThreeCardsGuide = (props: GameGuideBase) => {
