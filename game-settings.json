@@ -214,5 +214,9 @@
     "62": {
         "id": 62,
         "gameName": "FortuneCat"
+    },
+    "63": {
+        "id": 63,
+        "gameName": "ClassicSlotTemplate"
     }
 }

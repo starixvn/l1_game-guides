@@ -54,6 +54,7 @@ const FruitSlotGuide = dynamic(() => import("./game-guide/fruit-slot"));
 const FantanGuide = dynamic(() => import("./game-guide/fantan/index"));
 const FortuneCatGuide = dynamic(() => import("./game-guide/fortune-cat"));
 const WinThreeCardsGuide = dynamic(() => import("./game-guide/win-three-cards"));
+const ClassicSlotGuide = dynamic(() => import("./game-guide/classic-slot-template"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
@@ -184,6 +185,8 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <FortuneCatGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.WIN_THREE_CARDS:
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.Classic_Slot_Template:
+                return <ClassicSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }
