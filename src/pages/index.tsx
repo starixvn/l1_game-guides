@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 
-import { ENVIRONMENT } from "../common/constants";
+import { ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
 export interface UserStakeLevelProps {
@@ -30,22 +30,26 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
     }
 };
 
-const changeFontFamilyFollowLanguage = (locale: string, env: string) => {
+const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number) => {
     let fontFamily = "SanFranciscoDisplay";
     if (env === ENVIRONMENT.sc) {
-        switch (locale) {
-            case "th":
-                fontFamily = "Noto-Thai";
-                break;
-            case "zh_cn":
-                fontFamily = "Noto-ZH-CN";
-                break;
-            case "zh_tw":
-                fontFamily = "Noto-ZH-TW";
-                break;
-            default:
-                fontFamily = "Noto";
-                break;
+        if (GAMES_COMPLETE_TRANSLATE.includes(gameId)) {
+            switch (locale) {
+                case "th":
+                    fontFamily = "Noto-Thai";
+                    break;
+                case "zh_cn":
+                    fontFamily = "Noto-ZH-CN";
+                    break;
+                case "zh_tw":
+                    fontFamily = "Noto-ZH-TW";
+                    break;
+                default:
+                    fontFamily = "Noto";
+                    break;
+            }
+        } else {
+            fontFamily = "Noto";
         }
     }
 
@@ -85,9 +89,9 @@ const Home = () => {
         if (router.isReady) {
             const queryParams: object | any = router.query;
             const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
-            changeFontFamilyFollowLanguage(router?.locale ?? "en", env);
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
+            changeFontFamilyFollowLanguage(router?.locale ?? "en", env, gameId);
             setEnvironment(env);
             setName(queryParams?.name);
             setIsInPromotionTime(queryParams?.p === "true");
@@ -110,9 +114,16 @@ const Home = () => {
         return <></>;
     }
 
+    const getLocale = () => {
+        if (router?.locale === "vi" || router?.locale === "en") {
+            return router.locale;
+        }
+        return "en";
+    };
+
     const props = {
         gameId,
-        locale: router?.locale ?? "en",
+        locale: GAMES_COMPLETE_TRANSLATE.includes(gameId) ? router?.locale ?? "en" : getLocale(),
         userStakeLevel,
         name,
         gameConfigs,
