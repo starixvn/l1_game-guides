@@ -69,7 +69,7 @@ export const renderIconContent = (
                 {dataContent.map((data, index) => {
                     return (
                         <div key={index} className={Styles["symbol-content"]}>
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={Styles[number]}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1]}</span>
                         </div>
                     );
