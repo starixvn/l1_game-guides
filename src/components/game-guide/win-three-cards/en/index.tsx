@@ -4,8 +4,9 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { formatOdds } from "../../../../helpers/number-helper";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
+const renderGameRule = (maxBet: string | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -74,7 +75,11 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
+const renderPayouts = (
+    odds: OddsProps | undefined,
+    maxBetFollowChoice: MaxBetChoicesProps | undefined,
+    fractionalOddsFormat: boolean | undefined
+) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -99,49 +104,49 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                             <tbody>
                                 <tr>
                                     <td>Dragon</td>
-                                    <td>1:{odds?.dragon}</td>
+                                    <td>{formatOdds(odds?.dragon, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Phoenix</td>
-                                    <td>1:{odds?.phoenix}</td>
+                                    <td>{formatOdds(odds?.phoenix, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Pair 8 Plus </td>
-                                    <td>1:{odds?.pair8Plus}</td>
+                                    <td>{formatOdds(odds?.pair8Plus, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Three of a Kind</td>
-                                    <td>1:{odds?.threeOfAKind}</td>
+                                    <td>{formatOdds(odds?.threeOfAKind, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Straight Flush</td>
-                                    <td>1:{odds?.straightFlush}</td>
+                                    <td>{formatOdds(odds?.straightFlush, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Flush</td>
-                                    <td>1:{odds?.flush}</td>
+                                    <td>{formatOdds(odds?.flush, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Straight</td>
-                                    <td>1:{odds?.straight}</td>
+                                    <td>{formatOdds(odds?.straight, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
                                     </td>
@@ -332,7 +337,7 @@ export const renderRankingLevel = () => {
 };
 
 const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -345,9 +350,9 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         Phoenix to determine the outcome of the game. The hand with the higher ranking will win.
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
-                {renderPayouts(odds, maxBetFollowChoice)}
+                {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderCardType()}
                 {renderRankingLevel()}
                 <li className="guide-item">
