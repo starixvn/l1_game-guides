@@ -1,103 +1,64 @@
-import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import React from "react";
+import { withTranslation } from "next-i18next";
+import { withRouter } from "next/router";
 
-import appSettings from "../common/app-settings";
-import { GAMES } from "../common/constants";
-import { UserStakeLevelProps } from "../pages";
+import { GAMES } from "../../common/constants";
+import GuideBase from "../guide-base";
+import { BaseProps } from "../type";
 
-type Props = {
-    gameId: number;
-    userStakeLevel: UserStakeLevelProps | undefined;
-    locale: string;
-    name: string;
-    gameConfigs: any;
-    dynamic: boolean;
-    isGetGameConfigs?: boolean;
-    isScrollMD5?: boolean;
-    environment?: string;
-    isInPromotionTime?: boolean;
-    fractionalOddsFormat?: boolean;
-};
-
-const BigSmallGuide = dynamic(() => import("./game-guide/big-small"));
-const DragonTigerGuide = dynamic(() => import("./game-guide/dragon-tiger"));
-const FishPrawnCrabGuide = dynamic(() => import("./game-guide/fish-prawn-crab"));
-const FishPrawnCrabVIPGuide = dynamic(() => import("./game-guide/fish-prawn-crab-vip"));
-const SeDieGuide = dynamic(() => import("./game-guide/se-die"));
-const SeDieSpecialGuide = dynamic(() => import("./game-guide/se-die-special"));
-const SeDieWarGuide = dynamic(() => import("./game-guide/se-die-war"));
-const BaccaratGuide = dynamic(() => import("./game-guide/baccarat"));
-const BlockchainBaccaratGuide = dynamic(() => import("./game-guide/blockchain-baccarat"));
-const KenoProMaxGuide = dynamic(() => import("./game-guide/keno-pro-max"));
-const OddEvenTurboGuide = dynamic(() => import("./game-guide/odd-even-turbo"));
-const BlackjackGuide = dynamic(() => import("./game-guide/blackjack"));
-const SicBoGuide = dynamic(() => import("./game-guide/sic-bo"));
-const FourGuardiansGuide = dynamic(() => import("./game-guide/four-guardians"));
-const LotteryGuide = dynamic(() => import("./game-guide/lottery"));
-const ThreeCardsGuide = dynamic(() => import("./game-guide/three-cards"));
-const KenoMaxGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-max"));
-const KenoMiniGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-mini"));
-const RouletteGuide = dynamic(() => import("./game-guide/roulette"));
-const LuckyWheelGuide = dynamic(() => import("./game-guide/lucky-wheel"));
-const HeroesSlotGuide = dynamic(() => import("./game-guide/heroes-slot"));
-const KenoMatchGuide = dynamic(() => import("./game-guide/keno-match"));
-const KenoPowerGuide = dynamic(() => import("./game-guide/keno-power"));
-const BitCoinMasterGuide = dynamic(() => import("./game-guide/bitcoin-master"));
-const CasinoHoldGuide = dynamic(() => import("./game-guide/casino-hold-em"));
-const HiLoGuide = dynamic(() => import("./game-guide/hi-lo"));
-const TexasHoldGuide = dynamic(() => import("./game-guide/texas-hold-em"));
-const NightClubGuide = dynamic(() => import("./game-guide/night-club"));
-const TreasureIslandGuide = dynamic(() => import("./game-guide/treasure-island"));
-const MultiplayBigSmallGuide = dynamic(() => import("./game-guide/multiplay-big-small"));
-const WayToGoalGuide = dynamic(() => import("./game-guide/way-to-goal"));
-const FruitSlotGuide = dynamic(() => import("./game-guide/fruit-slot"));
-const FantanGuide = dynamic(() => import("./game-guide/fantan/index"));
-const FortuneCatGuide = dynamic(() => import("./game-guide/fortune-cat"));
-const WinThreeCardsGuide = dynamic(() => import("./game-guide/win-three-cards"));
-const VipBaccaratGuide = dynamic(() => import("./game-guide/baccarat-vip"));
+const BigSmallGuide = dynamic(() => import("./big-small"));
+const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
+const FishPrawnCrabGuide = dynamic(() => import("./fish-prawn-crab"));
+const FishPrawnCrabVIPGuide = dynamic(() => import("./fish-prawn-crab-vip"));
+const SeDieGuide = dynamic(() => import("./se-die"));
+const SeDieSpecialGuide = dynamic(() => import("./se-die-special"));
+const SeDieWarGuide = dynamic(() => import("./se-die-war"));
+const BaccaratGuide = dynamic(() => import("./baccarat"));
+const BlockchainBaccaratGuide = dynamic(() => import("./blockchain-baccarat"));
+const KenoProMaxGuide = dynamic(() => import("./keno-pro-max"));
+const OddEvenTurboGuide = dynamic(() => import("./odd-even-turbo"));
+const BlackjackGuide = dynamic(() => import("./blackjack"));
+const SicBoGuide = dynamic(() => import("./sic-bo"));
+const FourGuardiansGuide = dynamic(() => import("./four-guardians"));
+const LotteryGuide = dynamic(() => import("./lottery"));
+const ThreeCardsGuide = dynamic(() => import("./three-cards"));
+const KenoMaxGuide = dynamic(() => import("./keno-pro-viet/keno-max"));
+const KenoMiniGuide = dynamic(() => import("./keno-pro-viet/keno-mini"));
+const RouletteGuide = dynamic(() => import("./roulette"));
+const LuckyWheelGuide = dynamic(() => import("./lucky-wheel"));
+const HeroesSlotGuide = dynamic(() => import("./heroes-slot"));
+const KenoMatchGuide = dynamic(() => import("./keno-match"));
+const KenoPowerGuide = dynamic(() => import("./keno-power"));
+const BitCoinMasterGuide = dynamic(() => import("./bitcoin-master"));
+const CasinoHoldGuide = dynamic(() => import("./casino-hold-em"));
+const HiLoGuide = dynamic(() => import("./hi-lo"));
+const TexasHoldGuide = dynamic(() => import("./texas-hold-em"));
+const NightClubGuide = dynamic(() => import("./night-club"));
+const TreasureIslandGuide = dynamic(() => import("./treasure-island"));
+const MultiplayBigSmallGuide = dynamic(() => import("./multiplay-big-small"));
+const WayToGoalGuide = dynamic(() => import("./way-to-goal"));
+const FruitSlotGuide = dynamic(() => import("./fruit-slot"));
+const FantanGuide = dynamic(() => import("./fantan/index"));
+const FortuneCatGuide = dynamic(() => import("./fortune-cat"));
+const WinThreeCardsGuide = dynamic(() => import("./win-three-cards"));
+const VipBaccaratGuide = dynamic(() => import("./baccarat-vip"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
-export const GameGuide: React.FC<Props> = (props) => {
-    const {
-        gameId,
-        userStakeLevel,
-        name,
-        locale,
-        gameConfigs,
-        dynamic,
-        isGetGameConfigs,
-        isScrollMD5,
-        environment,
-        isInPromotionTime,
-        fractionalOddsFormat,
-    } = props;
-
-    const { t } = useTranslation(["common"]);
-    const { gameSettings } = appSettings;
-    const gameGuideProps = {
-        locale: locale,
-        userStakeLevel: userStakeLevel,
-        ...gameSettings[gameId],
-        gameConfigs: gameConfigs,
-        gameNameTranslate: gameId ? t(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
-        dynamic,
-        isGetGameConfigs,
-        isScrollMD5,
-        environment,
-        project: appSettings.system,
-        isInPromotionTime: isInPromotionTime,
-        fractionalOddsFormat,
-    };
-    const otherGuides = () => {
+class GameGuide<P extends BaseProps> extends GuideBase<P> {
+    otherGuides = (name: string, gameGuideProps: any) => {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         } else {
             return <></>;
         }
     };
-    const renderGuide = () => {
+
+    renderGuide = () => {
+        const { gameId, name } = this.props;
+        const gameGuideProps = this.getGameGuideProps();
+
         switch (gameId) {
             case GAMES.BIG_SMALL:
             case GAMES.TURBO_BIG_SMALL:
@@ -189,11 +150,9 @@ export const GameGuide: React.FC<Props> = (props) => {
             case GAMES.WIN_THREE_CARDS:
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
-                return otherGuides();
+                return this.otherGuides(name, gameGuideProps);
         }
     };
+}
 
-    return <div className="game-container">{renderGuide()}</div>;
-};
-
-export default GameGuide;
+export default withRouter(withTranslation()(GameGuide));

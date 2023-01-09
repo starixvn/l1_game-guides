@@ -10,4 +10,8 @@ const formatOdds = (value: number | undefined, fractionFormat: boolean | undefin
     return fractionFormat && value ? `${numberWithCommas(value - 1)}:1` : `1:${value}`;
 };
 
-export { numberWithCommas, randomInteger, formatOdds };
+const checkIsInteger = (number: string | number | object) => {
+    return Number.isInteger(+number) ? +number : 0;
+};
+
+export { numberWithCommas, randomInteger, formatOdds, checkIsInteger };

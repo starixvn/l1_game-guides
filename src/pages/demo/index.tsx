@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { v4 as uuidv4 } from "uuid";
 import { TFunction, useTranslation } from "next-i18next";
 
-import { ENVIRONMENT, locales, Themes } from "../../common/constants";
+import { ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
 
@@ -34,17 +34,26 @@ const SelectOptions = (listData: Object, setData: Function, value: string) => {
     );
 };
 
-const renderGameName = (setGameId: Function, t: TFunction, gameId: number) => {
+const renderGameName = (setGameId: Function, t: TFunction, gameId: number, environment: string) => {
+    const getGameFollowEnv = () => {
+        if (environment === ENVIRONMENT.si) {
+            return Object.values(GAMES_MINI);
+        }
+
+        return Object.values(GAMES);
+    };
     return (
         <div>
             <select className="form-select form-select-lg mb-3" value={gameId} onChange={(event) => setGameId(+event.target.value)}>
-                {Object.values(appSettings.gameSettings).map((guide, index) => {
-                    return (
-                        <option key={index} value={guide.id}>
-                            {t(guide.gameName.toLocaleLowerCase())}
-                        </option>
-                    );
-                })}
+                {Object.values(appSettings.gameSettings)
+                    .filter((item) => getGameFollowEnv().includes(+item.id))
+                    .map((guide, index) => {
+                        return (
+                            <option key={index} value={guide.id}>
+                                {t(guide.gameName.toLocaleLowerCase())}
+                            </option>
+                        );
+                    })}
             </select>
         </div>
     );
@@ -80,7 +89,7 @@ const Demo = () => {
     useEffect(() => {
         if (locale && gameId && theme && environment) {
             let data = `${locale}?gId=${gameId}&t=${theme}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
-            environment === ENVIRONMENT.sc && (data += `&f=${environment}`);
+            environment !== ENVIRONMENT.sm && (data += `&f=${environment}`);
             setLinkGuide(`${window.location.origin}/${data}`);
 
             storeLocalStorageItem(localStorageKeys.configs, {
@@ -114,7 +123,7 @@ const Demo = () => {
                     </button>
                     <div className="col-8">
                         <div className="row">
-                            <div className="col">{renderGameName(setGameId, t, gameId)}</div>
+                            <div className="col">{renderGameName(setGameId, t, gameId, environment)}</div>
                             <div className="col"> {SelectOptions(locales, setLocale, locale)}</div>
                         </div>
                     </div>

@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 
 import { ENVIRONMENT } from "../common/constants";
-import GameGuide from "../components/game-guide";
+import GameGuide from "../components/game-guide/game-guide";
+import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
+import { checkIsInteger } from "../helpers/number-helper";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -12,21 +14,17 @@ export interface UserStakeLevelProps {
 }
 
 export type GameConfigs = {
-    maxBetPerChoices: any;
-    enableFreeBet: boolean;
-    maxBet: number;
-    minBet: number;
-    odds: any;
+    maxBetPerChoices?: any;
+    enableFreeBet?: boolean;
+    maxBet?: number;
+    minBet?: number;
+    odds?: any;
     originalOdds?: any;
-};
-
-const CheckIsInteger = (number: string | number | object) => {
-    return Number.isInteger(+number) ? +number : 0;
 };
 
 const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Function) => {
     if (queryParams?.minBet && queryParams?.maxBet) {
-        setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
+        setUserStakeLevel({ minBet: checkIsInteger(queryParams.minBet), maxBet: checkIsInteger(queryParams.maxBet) });
     }
 };
 
@@ -53,15 +51,23 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
     document.body.style.fontFamily = fontFamily;
 };
 
+const handleEnv = (queryParams: object | any) => {
+    if (queryParams?.f) {
+        return queryParams.f ?? ENVIRONMENT.sc;
+    }
+
+    return ENVIRONMENT.sm;
+};
+
 const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
-    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
+    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({});
     const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState<string>("");
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
+    const [gameConfigs, setGameConfigs] = useState<GameConfigs>({});
     const [dynamic, setDynamic] = useState<boolean>(true);
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
@@ -69,8 +75,16 @@ const Home = () => {
     const [isInPromotionTime, setIsInPromotionTime] = useState<boolean>(false);
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
 
+    const getTemplateFollowEnv = () => {
+        if (environment === ENVIRONMENT.si) {
+            return <GameGuideMini {...props} />;
+        }
+
+        return <GameGuide {...props} />;
+    };
+
     useEffect(() => {
-        const CheckIsInteger = (number: string | number | object) => {
+        const checkIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
         };
 
@@ -84,9 +98,9 @@ const Home = () => {
 
         if (router.isReady) {
             const queryParams: object | any = router.query;
-            const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
+            const env = handleEnv(queryParams);
             setIsLoading(false);
-            setGameId(CheckIsInteger(queryParams?.gId));
+            setGameId(checkIsInteger(queryParams?.gId));
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env, gameId);
             setEnvironment(env);
             setName(queryParams?.name);
@@ -124,10 +138,9 @@ const Home = () => {
         fractionalOddsFormat,
     };
 
-    const gameGuideComponent = <GameGuide {...props} />;
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {!isGetGameConfigs ? gameGuideComponent : gameConfigs && gameGuideComponent}
+            {!isGetGameConfigs ? getTemplateFollowEnv() : gameConfigs && getTemplateFollowEnv()}
         </div>
     );
 };
