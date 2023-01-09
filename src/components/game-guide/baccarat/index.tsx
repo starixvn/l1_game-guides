@@ -91,17 +91,17 @@ const BaccaratGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
+        gameConfigs: configs,
         userStakeLevel,
-        gameName: gameNameTranslate,  
+        gameName: gameNameTranslate,
         gameId: id,
-        maxBetFollowChoice, 
+        maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
         fractionalOddsFormat,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
             return <BaccaratGuideVI {...resource} />
         case locales.id:
@@ -115,6 +115,6 @@ const BaccaratGuide = (props: GameGuideBase) => {
 
         default:
             return <BaccaratGuideEN {...resource} />
-    }    
+    }
 };
 export default BaccaratGuide;

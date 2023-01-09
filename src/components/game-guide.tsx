@@ -28,6 +28,7 @@ const SeDieGuide = dynamic(() => import("./game-guide/se-die"));
 const SeDieSpecialGuide = dynamic(() => import("./game-guide/se-die-special"));
 const SeDieWarGuide = dynamic(() => import("./game-guide/se-die-war"));
 const BaccaratGuide = dynamic(() => import("./game-guide/baccarat"));
+const BlockchainBaccaratGuide = dynamic(() => import("./game-guide/blockchain-baccarat"));
 const KenoProMaxGuide = dynamic(() => import("./game-guide/keno-pro-max"));
 const OddEvenTurboGuide = dynamic(() => import("./game-guide/odd-even-turbo"));
 const BlackjackGuide = dynamic(() => import("./game-guide/blackjack"));
@@ -117,8 +118,9 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BACCARAT:
             case GAMES.VIP_BACCARAT:
-            case GAMES.BLOCKCHAIN_BACCARAT:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.BLOCKCHAIN_BACCARAT:
+                return <BlockchainBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KENO_MAX:
             case GAMES.KENO_MAX_2:
             case GAMES.KENO_EAST:
