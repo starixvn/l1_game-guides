@@ -6,6 +6,7 @@ import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 import FortuneCatGuideEN from "./en";
 import FortuneCatGuideVI from "./vi";
+import FortuneCatGuideID from "./id";
 
 const FortuneCatGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -37,9 +38,24 @@ const FortuneCatGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return <FortuneCatGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+    };
+
+    switch (locale) {
+        case locales.vi:
+            return <FortuneCatGuideVI {...resource} />;
+        case locales.id:
+            return <FortuneCatGuideID {...resource} />;
+        // case locales.th:
+        //     return <WayToGoalGuideTH {...resource} />;
+        // case locales.zh_cn:
+        //     return <WayToGoalGuideCN {...resource} />;
+        // case locales.zh_tw:
+        //     return <WayToGoalGuideTW {...resource} />;
+        default:
+            return <FortuneCatGuideEN {...resource} />;
     }
-    return <FortuneCatGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default FortuneCatGuide;

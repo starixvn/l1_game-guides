@@ -9,6 +9,7 @@ import { GameConfigProps } from "./type";
 import WayToGoalGuideID from "./id";
 import WayToGoalGuideTH from "./th";
 import WayToGoalGuideCN from "./zh_cn";
+import WayToGoalGuideTW from "./zh_tw";
 
 const WayToGoalGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -53,6 +54,8 @@ const WayToGoalGuide = (props: GameGuideBase) => {
             return <WayToGoalGuideTH {...resource} />;
         case locales.zh_cn:
             return <WayToGoalGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <WayToGoalGuideTW {...resource} />;
         default:
             return <WayToGoalGuideEN {...resource} />;
     }
