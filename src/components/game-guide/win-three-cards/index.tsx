@@ -5,11 +5,38 @@ import WinThreeCardsGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { getGameConfigProject } from "../index.helper";
 import WinThreeCardsGuideID from "./id";
 import WinThreeCardsGuideTH from "./th";
 import WinThreeCardsGuideZH_CN from "./zh_cn";
 import WinThreeCardsGuideZH_TW from "./zh_tw";
+import { UserStakeLevelProps } from "../../../pages";
+import { numberWithCommas } from "../../../helpers/number-helper";
+
+export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
+    const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxBetDragon = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.dragon));
+    const maxBetPhoenix = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.phoenix));
+    const maxBetPair8Plus = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.pair8Plus));
+    const maxBetStraight = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.straight));
+    const maxBetStraightFlush = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.straightFlush));
+    const maxBetFlush = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.flush));
+    const maxBetThreeOfAKind = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.threeOfAKind));
+
+    return {
+        maxBetMain,
+        minBetMain,
+        maxBetDragon,
+        maxBetPhoenix,
+        maxBetPair8Plus,
+        maxBetStraight,
+        maxBetStraightFlush,
+        maxBetFlush,
+        maxBetThreeOfAKind,
+    };
+};
 
 const WinThreeCardsGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;

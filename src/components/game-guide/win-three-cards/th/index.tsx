@@ -101,49 +101,49 @@ const renderPayouts = (
                                     <td>มังกร</td>
                                     <td>{formatOdds(odds?.dragon, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ฟีนิกซ์</td>
                                     <td>{formatOdds(odds?.phoenix, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPhoenix}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ไพ่คู่ 8 ขึ้นไป</td>
                                     <td>{formatOdds(odds?.pair8Plus, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPair8Plus}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ตอง</td>
                                     <td>{formatOdds(odds?.threeOfAKind, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetThreeOfAKind}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>สเตรทฟลัช</td>
                                     <td>{formatOdds(odds?.straightFlush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ฟลัช</td>
                                     <td>{formatOdds(odds?.flush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>สเตรท</td>
                                     <td>{formatOdds(odds?.straight, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraight}
                                     </td>
                                 </tr>
                             </tbody>

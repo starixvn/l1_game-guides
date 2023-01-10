@@ -95,49 +95,49 @@ const renderPayouts = (
                                     <td>龙</td>
                                     <td>{formatOdds(odds?.dragon, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>凤</td>
                                     <td>{formatOdds(odds?.phoenix, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPhoenix}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>配对 8 Plus</td>
                                     <td>{formatOdds(odds?.pair8Plus, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPair8Plus}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>三张</td>
                                     <td>{formatOdds(odds?.threeOfAKind, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetThreeOfAKind}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>同花顺</td>
                                     <td>{formatOdds(odds?.straightFlush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>同花</td>
                                     <td>{formatOdds(odds?.flush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>顺子</td>
                                     <td>{formatOdds(odds?.straight, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraight}
                                     </td>
                                 </tr>
                             </tbody>
@@ -168,7 +168,7 @@ export const renderCardType = () => {
                                 <td width={250}>
                                     <strong>235</strong>
                                 </td>
-                                <td className="text-start">三张牌 2、3、5，花色不同。</td>
+                                <td className="text-start">三张牌 2, 3, 5 不同花色； 或2、3、5中任意两张同花色，另一张不同花色的牌。</td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
                                         <img

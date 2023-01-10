@@ -106,49 +106,49 @@ const renderPayouts = (
                                     <td>Dragon</td>
                                     <td>{formatOdds(odds?.dragon, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetDragon}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Phoenix</td>
                                     <td>{formatOdds(odds?.phoenix, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPhoenix}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Pair 8 Plus </td>
                                     <td>{formatOdds(odds?.pair8Plus, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetPair8Plus}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Three of a Kind</td>
                                     <td>{formatOdds(odds?.threeOfAKind, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetThreeOfAKind}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Straight Flush</td>
                                     <td>{formatOdds(odds?.straightFlush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraightFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Flush</td>
                                     <td>{formatOdds(odds?.flush, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFlush}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Straight</td>
                                     <td>{formatOdds(odds?.straight, fractionalOddsFormat)}</td>
                                     <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetStraight}
                                     </td>
                                 </tr>
                             </tbody>
