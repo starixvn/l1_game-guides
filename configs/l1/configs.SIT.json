@@ -4,5 +4,6 @@
         "environment": "SIT"
     },
     "system": "L1",
-    "enableSourceMap": false
+    "enableSourceMap": false,
+    "resourceUrl": "https://l1uatproxy.sgamesuat.com/sit/game/static/"
 }

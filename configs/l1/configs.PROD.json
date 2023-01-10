@@ -4,5 +4,7 @@
         "environment": "PROD"
     },
     "system": "L1",
-    "enableSourceMap": false
+    "enableSourceMap": false,
+    "resourceUrl": "https://proxy.sabagame.com/game/static/"
+
 }

@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../index.helper";
 import { GameGuideBase } from "../type";
-import ClassicSlotGuideEN from "./en";
+import Contents from "./contents";
 import { GameConfigProps } from "./type";
-import ClassicSlotGuideVI from "./vi";
 
 const ClassicSlotGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -37,9 +36,6 @@ const ClassicSlotGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return <ClassicSlotGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
-    }
-    return <ClassicSlotGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
+    return <Contents gameConfigs={configs} gameName={gameNameTranslate} />;
 };
 export default ClassicSlotGuide;

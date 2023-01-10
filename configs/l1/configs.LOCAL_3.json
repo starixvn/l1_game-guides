@@ -4,5 +4,6 @@
         "environment": "LOCAL_3"
     },
     "system": "L1",
-    "enableSourceMap": true
+    "enableSourceMap": true,
+    "resourceUrl": "https://l1-proxy3.lumigame.com/game/static/"
 }
