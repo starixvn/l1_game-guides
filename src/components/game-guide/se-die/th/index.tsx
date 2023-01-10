@@ -8,9 +8,9 @@ import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/th
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
+import { renderMD5TH } from "../../../shared/md5-count-down-timer/th";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -18,12 +18,14 @@ const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
             <h2>กฎของเกม</h2>
             <ul className="desc">
                 <li>
-                    ปุ่มวางอยู่บนจานและปิดด้วยชาม เจ้ามือจะหยิบจานขึ้นมาเขย่าขณะที่จานยังถูกปิดชามอยู่ ผู้เล่นวางเดิมพันและตัวเลือกการเดิมพันคือ:
+                    ปุ่มวางอยู่บนจานและปิดด้วยชาม เจ้ามือจะหยิบจานขึ้นมาเขย่าขณะที่จานยังถูกปิดชามอยู่
+                    ผู้เล่นวางเดิมพันและตัวเลือกการเดิมพันคือ:
                 </li>
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
                 <li>เมื่อหมดเวลาเดิมพัน เจ้ามือจะเปิดชามออกจากจานและแสดงผล</li>
                 <li>
-                ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม ต้องวางเดิมพันทั้งหมดก่อนเวลาเดิมพันจะสิ้นสุดลง หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้
+                    ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม ต้องวางเดิมพันทั้งหมดก่อนเวลาเดิมพันจะสิ้นสุดลง
+                    หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้
                 </li>
                 <li>ยอดเดิมพันสูงสุดต่อรอบคือ {maxBetMain}</li>
             </ul>
@@ -96,11 +98,11 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์
             </div>
             <ul className="desc">
                 <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
@@ -108,20 +110,21 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากที่ระบบเผยแพร่ผลลัพธ์
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
                         alt="md5-result"
                     />
-                    <div>Note: Red and white correspond to two sides of the button.</div>
+                    <div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>
                 </li>
                 <li>
-                    <strong>Step 3:</strong> Go to{" "}
+                    <strong>ขั้นตอนที่ 3: </strong>
+                    ไปที่{" "}
                     <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                         https://md5.services/
                     </a>{" "}
-                    and paste the Result into the MD5 box.
+                    และวางในช่อง MD5
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
@@ -129,8 +132,8 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
+                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “แฮชที่รัก แฮช!” ปุ่มและเปรียบเทียบสตริง MD5
+                    ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
@@ -155,10 +158,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                case 56:
-                case 57:
-                case 58:
-                    return miniSeDieDescription;
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
                 return "เป็นอีกเวอร์ชั่นของเกม Se Die ที่มีขีดจำกัดการเดิมพันที่สูงกว่า";
             default:
@@ -172,19 +175,18 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <h2>แนะนำ</h2>
                     <p className="content">
                         {gameName} {gameDescription()}
-                        เกมส์นี้เล่นด้วยปุ่มสี 4 ปุ่ม แต่ละปุ่มมี 2 ด้านคือสีแดงและสีขาว วัตถุประสงค์ของเกมส์นี้คือการทำนายผลของปุ่ม 4 ปุ่ม หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
+                        เกมส์นี้เล่นด้วยปุ่มสี 4 ปุ่ม แต่ละปุ่มมี 2 ด้านคือสีแดงและสีขาว วัตถุประสงค์ของเกมส์นี้คือการทำนายผลของปุ่ม 4 ปุ่ม
+                        หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>
-                        จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย 
-                        </li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
                         <li>การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>
-                        จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
+                            จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
                             <div className="table-container">
                                 <table className="table text-center table-small">
                                     <thead>
@@ -192,7 +194,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <th>ตัวเลือก</th>
                                             <th>อัตราต่อรอง</th>
                                             <th>
-                                            วงเงินเดิมพัน  <br /> (ต่ำสุด - สูงสุด)
+                                                วงเงินเดิมพัน <br /> (ต่ำสุด - สูงสุด)
                                             </th>
                                         </tr>
                                     </thead>
@@ -231,7 +233,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 แดง 2 ขาว</td>
-                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>                                                    
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
@@ -247,7 +249,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5TH()}
                         {renderMD5Example(gameName, gameId)}
                     </li>
                 )}

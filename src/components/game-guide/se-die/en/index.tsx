@@ -111,7 +111,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <strong>Step 2:</strong> Copy the Result after the system publishes the result.
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
@@ -235,7 +235,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 red, 2 white</td>
-                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>                                                    
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>

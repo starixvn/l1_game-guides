@@ -129,8 +129,8 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) พิเศษ</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสองหมายเลข: 07, 77</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -151,7 +151,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>หมายเลข 07 ออกสองครั้งในผลการตัดสินรางวัลที่เจ็ด ผู้เล่นชนะในหมายเลข 07 ด้วยการจ่ายเงินสองเท่า</p>
         </>
     );
 };
@@ -160,8 +160,8 @@ const BettingOptionsSpecial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) พิเศษ </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสามหมายเลข: 00, 62, 79 </li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -182,7 +182,7 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>เลข 62 ตรงกับเลขท้ายสองตัวของรางวัลพิเศษ ผู้เล่นชนะในหมายเลข 62</p>
         </>
     );
 };
@@ -191,8 +191,8 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) หัว</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสามหมายเลข: 0, 6, 9</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -214,7 +214,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>หมายเลข 6 เหมือนกับหลักสิบของรางวัลพิเศษ ผู้เล่นชนะในหมายเลข 6</p>
         </>
     );
 };
@@ -223,8 +223,8 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) ท้าย</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>เดิมพันสองหมายเลข: 0, 5</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -245,7 +245,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>หมายเลขที่เลือกทั้งหมดไม่ตรงกับหลักหน่วยของรางวัลพิเศษ ผู้เล่นเสียเงินเดิมพัน</p>
         </>
     );
 };
@@ -254,8 +254,8 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 ชุด</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสี่หมายเลข: 05, 12, 77, 85</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -377,8 +377,8 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>หมายเลข 05 ออกสองครั้งใน 27 ผลลัพธ์ ผู้เล่นชนะในหมายเลข 05 และได้รับเงินสองเท่า</p>
+            <p>หมายเลข 12 ออกครั้งเดียวใน 27 ผลลัพธ์ ผู้เล่นชนะในหมายเลข 12</p>
         </>
     );
 };

@@ -8,9 +8,9 @@ import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/cn
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
+import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -93,11 +93,11 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                <strong> 示例</strong>：检查比赛结果的真实性和透明度
             </div>
             <ul className="desc">
                 <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <strong>第一步</strong> ：在公布结果前复制MD5密钥。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
@@ -105,20 +105,20 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <strong>第二步：</strong> 系统发布结果后复制结果。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
                         alt="md5-result"
                     />
-                    <div>Note: Red and white correspond to two sides of the button.</div>
+                    <div>注：红色和白色对应按钮的两侧。</div>
                 </li>
                 <li>
-                    <strong>Step 3:</strong> Go to{" "}
+                    <strong>第三步:</strong> 转到{" "}
                     <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                         https://md5.services/
                     </a>{" "}
-                    and paste the Result into the MD5 box.
+                    并将结果粘贴到 MD5 框中。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
@@ -126,8 +126,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
+                    <strong>第四步:</strong> 按“hash darling，hash！” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
@@ -152,10 +151,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                case 56:
-                case 57:
-                case 58:
-                    return miniSeDieDescription;
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
                 return "VIP 色碟是色碟游戏的另一个版本，具有更高的投注限制。";
             default:
@@ -242,7 +241,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5CN()}
                         {renderMD5Example(gameName, gameId)}
                     </li>
                 )}

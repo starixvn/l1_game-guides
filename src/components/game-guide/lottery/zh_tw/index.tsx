@@ -115,8 +115,8 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) 4 套</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>
+                <li>對兩個數字下注：07、77</li>
+                <li>最終結果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -137,7 +137,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>七等獎的結果中，07號出現了兩次。玩家以雙倍賠率贏得 07 號。</p>
         </>
     );
 };
@@ -146,8 +146,8 @@ const BettingOptionsSpecial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) 特別 </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>對三個數字下注：00、62、79 </li>
+                <li>最終結果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -168,7 +168,7 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>數字 62 與特別獎的最後兩位數字相同。玩家在數字 62 上獲勝</p>
         </>
     );
 };
@@ -177,8 +177,8 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) 頭</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>投註三個數字：0、6、9</li>
+                <li>最終結果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -200,7 +200,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>數字6與特別獎的十位數相同。玩家在數字 6 上獲勝</p>
         </>
     );
 };
@@ -209,8 +209,8 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) 尾</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>對兩個數字下注：0、5</li>
+                <li>最終結果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -231,7 +231,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>所有中選號碼都與特獎的個位不同。玩家輸掉賭注。</p>
         </>
     );
 };
@@ -240,8 +240,8 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 套</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>下註四個數字：05、12、77、85</li>
+                <li>最終結果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -363,8 +363,8 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>數字 05 在 27 個結果中出現了兩次。玩家以雙倍賠率贏得 05 號。</p>
+            <p>12 號在 27 個結果中出現過一次。玩家在數字 12 上獲勝</p>
         </>
     );
 };

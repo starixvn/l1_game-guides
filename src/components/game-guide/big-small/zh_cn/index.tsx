@@ -1,41 +1,40 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsCN, renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
 
 const renderMD5Example = (gameName: string) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                <strong> 示例</strong>：检查比赛结果的真实性和透明度
             </div>
             <ul className="desc">
                 <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <strong>第一步：</strong> 在公布结果前复制MD5密钥。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step1_cn.png?v=4" alt="md5-string" />
                 </li>
                 <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the dice result.
+                    <strong> 第二步：</strong> 系统发布结果后复制结果。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_cn.png?v=4" alt="md5-result" />
-                    <div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the the value of three dice.</div>
+                    <div>注：从左到右，&#123;6, 2, 5&#125; 分别对应三个骰子的点数。</div>
                 </li>
                 <li>
-                    <strong>Step 3:</strong> Go to{" "}
+                    <strong>第三步</strong>: 转到{" "}
                     <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                         https://md5.services/
                     </a>{" "}
-                    and paste the Result into the MD5 box.
+                    并将结果粘贴到 MD5 框中。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
+                    <strong> 第四步：</strong>按“hash darling，hash！” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>
             </ul>
@@ -61,25 +60,23 @@ const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                 <li className="guide-item">
                     <h2>游戏规则</h2>
                     <ul className="desc">
-                        <li>The dice cup is shaken at the beginning of the game round.</li>
-                        <li>During the betting time, the players can bet on either BIG or SMALL, but not on both.</li>
+                        <li>骰杯在游戏开始时摇动。</li>
+                        <li>在下注时间内，玩家可以下大注或小注，但不能同时下注。</li>
                         <ul className="detail">
                             <li>大: 如果三个骰子的总点数 &gt;= 11，玩家将获胜 </li>
                             <li>小: 如果三个骰子的总点数 &lt;= 10，则玩家获胜 </li>
                         </ul>
+                        <li>玩家可以在下注时间结束前通过使用相同选项再次下注来增加赌注金额。 请注意，投注无法取消。</li>
                         <li>
-                        玩家可以在下注时间结束前通过使用相同选项再次下注来增加赌注金额。 请注意，投注无法取消。
+                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}{" "}
+                            之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
                         </li>
-                        <li>
-                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} 之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
-                        </li>
-                        <li>
-                            Once the betting time has expired, the result will be shown. 如果三个骰子的结果与您的赌注相符，则您获胜。
-                        </li>
+                        <li>下注时间结束后，将显示结果。 如果三个骰子的结果与您的赌注相符，则您获胜。</li>
                         <li>
                             平衡投注池：如果大和小的总投注额不同，则差额将退还给最新投注的玩家。
                             <p>
-                                <strong>例子：</strong> 玩家 A 在 大下注 100，玩家 B 在 小下注 40，而 C 在 小下注 80。 为了平衡大和小的总投注额，系统将退还 20 给玩家 C。
+                                <strong>例子：</strong> 玩家 A 在 大下注 100，玩家 B 在 小下注 40，而 C 在 小下注 80。
+                                为了平衡大和小的总投注额，系统将退还 20 给玩家 C。
                             </p>
                         </li>
                     </ul>
@@ -97,7 +94,7 @@ const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                 </li>
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5CN()}
                         {renderMD5Example(gameName)}
                     </li>
                 )}

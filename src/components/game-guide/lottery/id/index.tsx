@@ -132,8 +132,8 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) 4 Set</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada dua nomor: 07, 77</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -154,7 +154,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>Nomor 07 telah muncul dua kali dalam hasil Hadiah Ketujuh. Pemain menang di nomor 07 dengan pembayaran ganda.</p>
         </>
     );
 };
@@ -163,8 +163,8 @@ const BettingOptionsSpesial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) Spesial </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada tiga angka: 00, 62, 79 </li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -185,7 +185,7 @@ const BettingOptionsSpesial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>Angka 62 sama dengan dua angka terakhir dari Hadiah Spesial. Pemain menang di nomor 62</p>
         </>
     );
 };
@@ -194,8 +194,8 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) Kepala</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada tiga angka: 0, 6, 9</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -217,7 +217,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>Angka 6 sama dengan angka puluhan Hadiah Spesial. Pemain menang di nomor 6</p>
         </>
     );
 };
@@ -226,8 +226,8 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) Ekor</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada dua angka: 0, 5</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -248,7 +248,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>Semua nomor yang dipilih tidak sama dengan digit satuan Hadiah Spesial. Pemain kalah taruhan.</p>
         </>
     );
 };
@@ -257,8 +257,8 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 set</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada empat angka: 05, 12, 77, 85</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -380,8 +380,8 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>Nomor 05 muncul dua kali dalam 27 hasil. Pemain menang di nomor 05 dengan pembayaran ganda.</p>
+            <p>Nomor 12 muncul satu kali dalam 27 hasil. Pemain menang di nomor 12</p>
         </>
     );
 };

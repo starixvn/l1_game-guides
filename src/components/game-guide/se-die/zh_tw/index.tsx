@@ -11,6 +11,7 @@ import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
+import { renderMD5TW } from "../../../shared/md5-count-down-timer/zh_tw";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -93,11 +94,11 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     return (
         <>
             <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                <strong>示例</strong>: 檢查比賽結果的真實性和透明度
             </div>
             <ul className="desc">
                 <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                    <strong>第一步:</strong> 在公佈結果前複製MD5密鑰。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step1_tw.png?v=5`}
@@ -105,20 +106,20 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                    <strong>第二步:</strong>系统发布结果后复制结果。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_tw.png?v=5`}
                         alt="md5-result"
                     />
-                    <div>Note: Red and white correspond to two sides of the button.</div>
+                    <div>注：紅色和白色對應按鈕的兩側。</div>
                 </li>
                 <li>
-                    <strong>Step 3:</strong> Go to{" "}
+                    <strong>第三步</strong>: 轉到{" "}
                     <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                         https://md5.services/
                     </a>{" "}
-                    and paste the Result into the MD5 box.
+                    並將結果粘貼到 MD5 框中。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
@@ -126,8 +127,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
+                    <strong>第四步:</strong> 按“hash darling，hash！” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
@@ -152,10 +152,10 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
         switch (gameId) {
             case 9:
-                case 56:
-                case 57:
-                case 58:
-                    return miniSeDieDescription;
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
                 return "VIP 色碟是色碟遊戲的另一個版本，具有更高的投注限制。";
             default:
@@ -242,7 +242,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 {renderStatistical()}
                 {environment === ENVIRONMENT.sc && (
                     <li id="md5" className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5TW()}
                         {renderMD5Example(gameName, gameId)}
                     </li>
                 )}

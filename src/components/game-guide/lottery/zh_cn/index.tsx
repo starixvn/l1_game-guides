@@ -115,8 +115,8 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) 4套</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>          
+                <li>对两个数字下注：07、77</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -137,7 +137,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>七等奖的结果中，07号出现了两次。 玩家以双倍赔率赢得 07 号。</p>
         </>
     );
 };
@@ -146,8 +146,8 @@ const BettingOptionsSpecial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) 特别 </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>对三个数字下注：00、62、79 </li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -168,7 +168,7 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>数字 62 与特别奖的最后两位数字相同。 玩家在数字 62 上获胜</p>
         </>
     );
 };
@@ -177,8 +177,8 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) 头</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>投注三个数字：0、6、9</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -200,7 +200,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>数字6与特别奖的十位数相同。 玩家在数字 6 上获胜</p>
         </>
     );
 };
@@ -209,8 +209,8 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) 尾</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>对两个数字下注：0、5</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -231,7 +231,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>所有中选号码都与特奖的个位不同。 玩家输掉赌注。</p>
         </>
     );
 };
@@ -240,8 +240,8 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27套</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>下注四个数字：05、12、77、85</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -363,8 +363,8 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>数字 05 在 27 个结果中出现了两次。 玩家以双倍赔率赢得 05 号。</p>
+            <p>12 号在 27 个结果中出现过一次。 玩家在数字 12 上获胜</p>
         </>
     );
 };
