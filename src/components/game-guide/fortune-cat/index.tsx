@@ -7,6 +7,9 @@ import { GameConfigProps } from "./type";
 import FortuneCatGuideEN from "./en";
 import FortuneCatGuideVI from "./vi";
 import FortuneCatGuideID from "./id";
+import FortuneCatGuideTH from "./th";
+import FortuneCatGuideCN from "./zh_cn";
+import FortuneCatGuideTW from "./zh_tw";
 
 const FortuneCatGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -48,12 +51,12 @@ const FortuneCatGuide = (props: GameGuideBase) => {
             return <FortuneCatGuideVI {...resource} />;
         case locales.id:
             return <FortuneCatGuideID {...resource} />;
-        // case locales.th:
-        //     return <WayToGoalGuideTH {...resource} />;
-        // case locales.zh_cn:
-        //     return <WayToGoalGuideCN {...resource} />;
-        // case locales.zh_tw:
-        //     return <WayToGoalGuideTW {...resource} />;
+        case locales.th:
+            return <FortuneCatGuideTH {...resource} />;
+        case locales.zh_cn:
+            return <FortuneCatGuideCN {...resource} />;
+        case locales.zh_tw:
+            return <FortuneCatGuideTW {...resource} />;
         default:
             return <FortuneCatGuideEN {...resource} />;
     }

@@ -14,17 +14,21 @@ const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`“Spin”`}.
+                    Pemain memilih Paylines (Garis) dan menetapkan Level Taruhan yang ingin Anda pasang sebelum menekan “Putar”.
                     <div className="text-center">
-                        <strong>Total Bet</strong> = Paylines * Bet Level
+                        <strong>Total Taruhan</strong> = Paylines * Level Taruhan
                     </div>
                 </li>
 
-                <li> 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.</li>
-                <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
+                <li>
+                    25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.
+                </li>
+                <li>
+                    Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.
+                </li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
                 </div>
@@ -36,13 +40,13 @@ const renderGameRule = () => {
 const renderPayouts = (odds: number[][]) => {
     return (
         <li className="guide-item">
-            <h2>Paytable</h2>
+            <h2>Tabel Pembayaran</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the betting odds.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                 <li>
-                    <strong>Note: </strong>the Payout includes the initial stake.
+                    <strong>Catatan:</strong> Pembayaran termasuk taruhan awal.
                 </li>
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
             </ul>
             {renderPayoutsIconFirstLine(odds, locales.en)}
             {renderPayoutsIconSecondLine(odds, locales.en)}
@@ -237,14 +241,14 @@ const renderExamplePayout = (odds: number[][]) => {
     return (
         <>
             <p>
-                <strong>Example</strong>
+                <strong>Contoh</strong>
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>Simbol</th>
+                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -259,23 +263,23 @@ const renderExamplePayout = (odds: number[][]) => {
                                 </div>
                             </td>
                             <td>
-                                Having 5 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
-                                payline.
-                                <br></br>Payout = Bet Level * {odds[1][5]}
+                                Memiliki 5 simbol <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> yang terletak pada
+                                payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
-                                payline.
-                                <br></br>Payout = Bet Level * {odds[1][4]}
+                                Memiliki 4 simbol <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> yang terletak pada
+                                payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 symbols <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> located on the same
-                                payline.
-                                <br></br>Payout = Bet Level * {odds[1][3]}
+                                Memiliki 3 simbol <img src="./static/images/fortune-cat/item1_small.png" alt="item1" /> yang terletak pada
+                                payline yang sama.
+                                <br></br>Pembayaran = Tingkat Taruhan * {odds[1][3]}
                             </td>
                         </tr>
                     </tbody>
@@ -300,15 +304,16 @@ const renderFreeSpin = (odds: number[][]) => {
                     " FREE SPINS"
                 )}
                 <ul className="desc">
-                    <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
-                    <li>The Free Spin symbols do not have to be on the same payline.</li>
+                    <li>Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.</li>
+                    <li>Simbol Free Spin tidak harus berada di payline yang sama.</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin” symbols must appear in different reels. For example, if there are 3{" "}
-                    {`“Free Spin”`} symbols on the same reel, the system will count as one symbol.
+                    <strong> Catatan: </strong>
+                    Simbol “Putaran Gratis” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Putaran Gratis” pada
+                    gulungan yang sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -321,16 +326,19 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            There are 4 {`“Free Spin”`} symbols in the result, but 3 symbols are located on the same reel. The player is not
-                            eligible for the Free spins bonus.
+                            Ada 4 simbol “Putaran gratis” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi
+                            syarat untuk bonus putaran Gratis.
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    Free Spins are played at the same Bet Level and same number of paylines as the last spin (the spin on which the User
-                    gets the Free Spins Bonus).
+                    Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
+                    (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).
                 </li>
-                <li>The Player must complete Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.</li>
+                <li>
+                    Pemain harus menyelesaikan Bonus Putaran Gratis dalam waktu 24 jam setelah diterbitkan. Putaran Gratis yang tidak
+                    digunakan akan hilang.
+                </li>
             </ul>
         </li>
     );
@@ -351,30 +359,30 @@ const renderBonus = (odds: number[][]) => {
                     " BONUS"
                 )}
                 <ul className="desc">
-                    <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
-                    <li>The Bonus symbols do not have to be on the same payline.</li>
+                    <li>Memiliki 3, 4, atau 5 simbol Bonus yang muncul di mana saja pada hasil akan memicu Permainan Bonus.</li>
+                    <li>Simbol Bonus tidak harus berada di garis pembayaran yang sama.</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
-                    on the same reel, the system will count as one symbol.
+                    <strong> Catatan:</strong> Simbol Bonus harus muncul di gulungan yang berbeda. Misalnya, jika 2 atau 3 simbol Bonus
+                    muncul di gulungan yang sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img src="/static/images/fortune-cat/guide_example_bonus.png#v4" alt="guide_example_bonus" loading="eager" />
                         </div>
 
                         <span>
-                            There are 4 {`“Bonus”`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 items.
+                            Ada 4 simbol “Bonus” di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi syarat
+                            untuk 3 item.
                         </span>
                     </div>
                 </li>
                 <li>
                     {" "}
-                    Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
-                    items and settle the game round.
+                    Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur. Setelah periode ini, sistem akan
+                    membuka Peti secara acak dan menyelesaikan putaran permainan.
                 </li>
             </ul>
         </li>
@@ -393,17 +401,17 @@ const renderWild = (odds: number[][]) => {
 
                 <ul className="desc">
                     <li>
-                        “Wild” symbol can substitute for all symbols except
+                        Simbol “Wild” dapat menggantikan semua simbol kecuali
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png" alt="item8"></img>,
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>
-                        and
+                        dan
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10_small.png#v2" alt="item10"></img>
                     </li>
-                    <li>Only the highest achieved win per line is paid out.</li>
+                    <li>Hanya kemenangan tertinggi yang dicapai per baris yang dibayarkan.</li>
                 </ul>
             </div>
             <div>
-                <strong>Example</strong>
+                <strong>Contoh</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
@@ -424,26 +432,27 @@ const renderWild = (odds: number[][]) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            If Wild symbol is
+                            Jika simbol Liar adalah
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item2_small.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[2][3]}
+                            {`=>`} Pembayaran = Tingkat Taruhan * {odds[2][3]}
                         </li>
                         <li>
-                            If Wild symbol is
+                            Jika simbol Liar adalah
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item5_small.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} Payout = Bet Level * {odds[5][3]}
+                            {`=>`} Pembayaran = Tingkat Taruhan * {odds[5][3]}
                         </li>
                     </ul>
                     <p>
-                        Player will get the highest win on this payline {`=>`} Payout = Bet Level * {Math.max(odds[2][3], odds[5][3])}
+                        Pemain akan mendapatkan kemenangan tertinggi pada payline ini {`=>`} Pembayaran = Tingkat Taruhan *{" "}
+                        {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>
             </div>
