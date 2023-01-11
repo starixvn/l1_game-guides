@@ -44,7 +44,7 @@ const Demo = () => {
     const [linkGuide, setLinkGuide] = useState<string>("");
     const [locale, setLocale] = useState<string>(locales.en);
     const [gameId, setGameId] = useState<number>(1);
-    const [theme, setTheme] = useState<string>(Themes.light);
+    const [theme, setTheme] = useState<string>(Themes.dark);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sc);
     const [minBet, setMinBet] = useState<number>(0);
     const [maxBet, setMaxBet] = useState<number>(2000);

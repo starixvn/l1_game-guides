@@ -88,4 +88,5 @@ export const GAMES_COMPLETE_TRANSLATE = [
     GAMES.SE_DIE,
     GAMES.WAY_TO_GOAL,
     GAMES.FORTUNE_CAT,
+    GAMES.NightClubGuide,
 ];

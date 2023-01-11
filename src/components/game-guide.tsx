@@ -47,7 +47,7 @@ const BitCoinMasterGuide = dynamic(() => import("./game-guide/bitcoin-master"));
 const CasinoHoldGuide = dynamic(() => import("./game-guide/casino-hold"));
 const HiLoGuide = dynamic(() => import("./game-guide/hi-lo"));
 const TexasHoldGuide = dynamic(() => import("./game-guide/texas-hold"));
-const NightClubGuide = dynamic(() => import("./game-guide/NightClub"));
+const NightClubGuide = dynamic(() => import("./game-guide/night-club"));
 const TreasureIslandGuide = dynamic(() => import("./game-guide/treasure-island"));
 const MultiplayBigSmallGuide = dynamic(() => import("./game-guide/multiplay-big-small"));
 const WayToGoalGuide = dynamic(() => import("./game-guide/way-to-goal"));
