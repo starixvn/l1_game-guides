@@ -306,10 +306,8 @@ export const renderRankingLevel = () => {
                     <li>
                         <strong>Pair</strong>
                         <ul className="detail">
-                            <li>
-                                If both Dragon and Phoenix have one Pair, the card values of Pair are compared. If the card values are
-                                identical then the card value of the remaining card is compared.
-                            </li>
+                            <li>If both Dragon and Phoenix have one Pair, the card values of Pair are compared. </li>
+                            <li>If the card values are identical then the card value of the remaining card is compared.</li>
                         </ul>
                     </li>
                     <li>
@@ -370,7 +368,7 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             />
                         </li>
                         <li>
-                            <strong>Step 2:</strong> Copy the Result after the system publishes the result.
+                            <strong>Step 2:</strong> Copy the Result after it is published.
                             <img
                                 className="format-img auto-center"
                                 src="/static/images/win-three-cards/md5_step2_en.png?v=3"

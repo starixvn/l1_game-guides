@@ -23,7 +23,7 @@ export const renderMD5ID = () => {
                             <strong>Langkah 1</strong>: Salin kunci <strong>MD5</strong> sebelum hasilnya diumumkan.
                         </li>
                         <li>
-                            <strong>Langkah 2</strong>: Salin <strong>Hasil</strong> setelah sistem menerbitkan hasilnya.
+                            <strong>Langkah 2</strong>: Salin <strong>Hasil</strong> setelah dipublikasikan.
                         </li>
                         <li>
                             <strong>Langkah 3</strong>: Buka{" "}

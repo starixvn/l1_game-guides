@@ -38,16 +38,16 @@ export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
                     </li>
                 )}
 
-                {gameId === games.blackjack && ( 
-                <>
-                    <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
-                        the {`"Deal"`} button.
-                        <br></br>
-                        The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
-                        the system will calculate win-loss based on the cards that were on the table at the point of interruption.
-                    </li>
-                </>
+                {gameId === games.blackjack && (
+                    <>
+                        <li className="number-dot">
+                            The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press
+                            the {`"Deal"`} button.
+                            <br></br>
+                            The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and
+                            the system will calculate win-loss based on the cards that were on the table at the point of interruption.
+                        </li>
+                    </>
                 )}
 
                 <li className="number-dot">
@@ -106,27 +106,31 @@ export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
                         </ul>
                     </li>
                 )}
-                {gameId === games.blackjack && ( 
-                <>
-                    <li className="number-dot">
-                        Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain menekan tombol {`"Deal"`}.
-                    <br></br>
-                        Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. 
-                        Tangan pemain dianggap STAND dan sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.
-                    </li>
-                </>
+                {gameId === games.blackjack && (
+                    <>
+                        <li className="number-dot">
+                            Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain
+                            menekan tombol {`"Deal"`}.<br></br>
+                            Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. Tangan pemain dianggap STAND dan
+                            sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.
+                        </li>
+                    </>
                 )}
                 <li className="number-dot">
-                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun karena peristiwa force majeure termasuk tetapi tidak terbatas pada kesalahan teknis, kegagalan layanan jaringan, kegagalan daya.
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun karena peristiwa force majeure termasuk tetapi
+                    tidak terbatas pada kesalahan teknis, kegagalan layanan jaringan, kegagalan daya.
                 </li>
                 <li className="number-dot">
-                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan pemain yang kami yakini terlibat dalam penipuan, pencucian uang, atau segala bentuk aktivitas ilegal atau mencurigakan lainnya.
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan pemain yang kami yakini terlibat dalam penipuan, pencucian
+                    uang, atau segala bentuk aktivitas ilegal atau mencurigakan lainnya.
                 </li>
                 <li className="number-dot">
-                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun ketika ada kesalahan (disebabkan oleh manusia atau faktor lainnya), atau kegagalan sistem yang mengakibatkan rasio pembayaran yang salah.
+                    Perusahaan berhak membatalkan atau membatalkan taruhan apa pun jika ada kesalahan (disebabkan oleh manusia atau faktor
+                    lainnya), atau kegagalan sistem yang mengakibatkan peluang taruhan yang salah.
                 </li>
                 <li className="number-dot">
-                    Semua taruhan yang diterima akan tetap berlaku meskipun member kemudian keluar atau terputus dari situs karena alasan apa pun.
+                    Semua taruhan yang diterima akan tetap berlaku meskipun member kemudian keluar atau terputus dari situs karena alasan
+                    apa pun.
                 </li>
             </ul>
         </li>
@@ -168,24 +172,27 @@ export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
                         </ul>
                     </li>
                 )}
-                {gameId === games.blackjack && ( 
-                <>
-                    <li className="number-dot">
-                        รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {`"ดีล"`}
-                        <br></br>
-                        เกมที่ยังไม่เสร็จจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง 
-                        มือของผู้เล่นถือเป็นยึดหลักและระบบจะคำนวณ ชนะ-แพ้ ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก
-                    </li>
-                </>
+                {gameId === games.blackjack && (
+                    <>
+                        <li className="number-dot">
+                            รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {`"ดีล"`}
+                            <br></br>
+                            เกมที่ยังไม่เสร็จจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง มือของผู้เล่นถือเป็นยึดหลักและระบบจะคำนวณ ชนะ-แพ้
+                            ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก
+                        </li>
+                    </>
                 )}
                 <li className="number-dot">
-                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันใด ๆ เป็นโมฆะเนื่องจากเหตุสุดวิสัย ซึ่งรวมถึงแต่ไม่จำกัดเฉพาะข้อผิดพลาดทางเทคนิค ความล้มเหลวของบริการเครือข่ายหรือไฟฟ้าขัดข้อง
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันใด ๆ เป็นโมฆะเนื่องจากเหตุสุดวิสัย
+                    ซึ่งรวมถึงแต่ไม่จำกัดเฉพาะข้อผิดพลาดทางเทคนิค ความล้มเหลวของบริการเครือข่ายหรือไฟฟ้าขัดข้อง
                 </li>
                 <li className="number-dot">
-                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันของผู้เล่นที่เราเชื่อว่ามีส่วนเกี่ยวข้องกับการฉ้อโกง การฟอกเงิน หรือกิจกรรมที่ผิดกฎหมายหรือน่าสงสัยในรูปแบบอื่นใดเป็นโมฆะ
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือทำให้การเดิมพันของผู้เล่นที่เราเชื่อว่ามีส่วนเกี่ยวข้องกับการฉ้อโกง การฟอกเงิน
+                    หรือกิจกรรมที่ผิดกฎหมายหรือน่าสงสัยในรูปแบบอื่นใดเป็นโมฆะ
                 </li>
                 <li className="number-dot">
-                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันใด ๆ เมื่อมีข้อผิดพลาด (เกิดจากมนุษย์หรือปัจจัยอื่น ๆ ) หรือความล้มเหลวของระบบส่งผลให้อัตราการจ่ายไม่ถูกต้อง
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันใดๆ เมื่อมีข้อผิดพลาด (เกิดจากผู้เล่นหรือปัจจัยอื่นๆ)
+                    หรือระบบล้มเหลวส่งผลให้อัตราเดิมพันผิดพลาด
                 </li>
                 <li className="number-dot">
                     การเดิมพันที่ยอมรับทั้งหมดจะยังคงมีผลแม้ว่าสมาชิกจะออกจากระบบในภายหลังหรือถูกตัดการเชื่อมต่อจากไซต์ด้วยเหตุผลใดก็ตาม
@@ -262,15 +269,14 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                         extended period of time or is canceled.
                     </li>
                 )}
-                {gameId === games.blackjack && ( 
-                <>
-                    <li className="number-dot">
-                        未完成的游戏回合可以恢复，并且必须在玩家按下“发牌”按钮后的 24 小时内完成。
-                        <br></br>
-                        未完成的游戏将在 24 小时后自动结算。
-                        玩家的手牌被视为&#34;停牌&#34;，系统将根据中断时桌上的牌计算输赢。
-                    </li>
-                </>
+                {gameId === games.blackjack && (
+                    <>
+                        <li className="number-dot">
+                            未完成的游戏回合可以恢复，并且必须在玩家按下“发牌”按钮后的 24 小时内完成。
+                            <br></br>
+                            未完成的游戏将在 24 小时后自动结算。 玩家的手牌被视为&#34;停牌&#34;，系统将根据中断时桌上的牌计算输赢。
+                        </li>
+                    </>
                 )}
                 <li className="number-dot">
                     本公司保留因不可抗力事件（包括但不限于任何技术错误、网络服务故障、电源故障）而取消或取消任何投注的权利。
@@ -279,7 +285,7 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                     本公司保留取消或取消我们认为涉及欺诈、洗钱或任何其他形式的非法或可疑活动的玩家的任何投注的权利。
                 </li>
                 <li className="number-dot">
-                    当出现错误（由人为或任何其他因素引起）或系统故障导致支付率不正确时，本公司保留取消或取消任何投注的权利。
+                    当出现错误（由人为或任何其他因素引起）或系统故障导致错误的投注赔率时，本公司保留取消或作废任何投注的权利。
                 </li>
                 <li className="number-dot">即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。</li>
             </ul>
@@ -298,15 +304,14 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                         extended period of time or is canceled.
                     </li>
                 )}
-                {gameId === games.blackjack && ( 
-                <>
-                    <li className="number-dot">
-                        未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。
-                        <br></br>
-                        未完成的遊戲將在 24 小時後自動結算。
-                        玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。
-                    </li>
-                </>
+                {gameId === games.blackjack && (
+                    <>
+                        <li className="number-dot">
+                            未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。
+                            <br></br>
+                            未完成的遊戲將在 24 小時後自動結算。 玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。
+                        </li>
+                    </>
                 )}
                 <li className="number-dot">
                     本公司保留因不可抗力事件（包括但不限於任何技術錯誤、網絡服務故障、電源故障）而取消或取消任何投注的權利。
@@ -315,7 +320,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                     本公司保留取消或取消我們認為涉及欺詐、洗錢或任何其他形式的非法或可疑活動的玩家的任何投注的權利。
                 </li>
                 <li className="number-dot">
-                    當出現錯誤（由人為或任何其他因素引起）或系統故障導致支付率不正確時，本公司保留取消或取消任何投注的權利。
+                    當出現錯誤（由人為或任何其他因素引起）或系統故障導致錯誤的投注賠率時，本公司保留取消或作廢任何投注的權利。
                 </li>
                 <li className="number-dot">即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。</li>
             </ul>

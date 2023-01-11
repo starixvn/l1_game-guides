@@ -292,7 +292,8 @@ export const renderRankingLevel = () => {
                     <li>
                         <strong>一对</strong>
                         <ul className="detail">
-                            <li>若龙、凤均有一对，则比较该对的牌值. 如果卡值相同，则比较剩余卡的卡值l. </li>
+                            <li>若龙、凤均有一对，则比较该对的牌值.</li>
+                            <li>如果卡值相同，则比较剩余卡的卡值. </li>
                         </ul>
                     </li>
                     <li>
@@ -323,7 +324,7 @@ const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>一、简介</h2>
+                    <h2>介绍</h2>
                     <p className={`content ${Styles["content-customize"]}`}>
                         {gameName}, 又名金花，是娱乐场内极受欢迎的纸牌游戏。本游戏使用标准的 52 张牌（不包括小丑）。
                         游戏的目的是比较龙凤之间的手牌排名来决定比赛的胜负。 排名较高的手牌将获胜。
@@ -344,15 +345,15 @@ const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                             <strong>第一步:</strong> 在公布结果前复制MD5 Key。
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step1_cn.png?v=3"
                                 alt="md5-string"
                             />
                         </li>
                         <li>
-                            <strong>第二步:</strong> 系统发布结果后复制Result。
+                            <strong>第二步:</strong> 发布后复制结果。
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step2_cn.png?v=3"
                                 alt="md5-result"
                             />
                             <div>注: 从左到右， 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ 对应游戏回合开始时的发牌顺序.</div>

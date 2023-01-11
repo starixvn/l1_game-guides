@@ -11,19 +11,19 @@ const renderGameRule = (maxBet: string | undefined) => {
         <>
             <h2>Aturan permainan</h2>
             <ul className="desc">
-                <li>Pada awalnya, tiga kartu tertutup akan dibagikan ke tangan Dragon dan Phoenix.</li>
+                <li>Pada awalnya, tiga kartu tertutup akan dibagikan ke tangan Naga dan Phoenix.</li>
                 <li>
                     Pemain memilih nilai chip dan menempatkannya pada opsi taruhan yang diinginkan. Semua taruhan harus ditempatkan sebelum
                     waktu taruhan berakhir. Perhatikan bahwa, taruhan yang dipasang tidak dapat dibatalkan.
                 </li>
                 <li>
                     Pemain dapat memasang taruhan pada opsi apa pun yang tersedia kecuali Naga dan Phoenix, pemain hanya dapat bertaruh pada
-                    Dragon atau Phoenix.
+                    Naga atau Phoenix.
                 </li>
                 <li>Setelah waktu taruhan berakhir, sistem akan mengungkapkan hasil permainan.</li>
-                <li>Permainan menentukan menang atau kalah dengan membandingkan peringkat tangan antara Dragon dan Phoenix.</li>
+                <li>Permainan menentukan menang atau kalah dengan membandingkan peringkat tangan antara Naga dan Phoenix.</li>
                 <li>
-                    Jika kedua kartu Dragon dan Phoenix memiliki peringkat yang sama (jenis kartu dan nilai kartu), hasil permainan adalah
+                    Jika kedua kartu Naga dan Phoenix memiliki peringkat yang sama (jenis kartu dan nilai kartu), hasil permainan adalah
                     Seri dan semua taruhan dikembalikan.
                 </li>
                 <li>Dek standar dengan 52 kartu (tidak termasuk Joker) dikocok setelah setiap putaran.</li>
@@ -56,15 +56,15 @@ const renderGameRule = (maxBet: string | undefined) => {
                                 <td className="text-start">Hasil tangan yang menang adalah “Three of a Kind”. </td>
                             </tr>
                             <tr>
-                                <td>Seri Flush</td>
+                                <td>Straight Flush</td>
                                 <td className="text-start">Hasil tangan yang menang adalah “Straight Flush”.</td>
                             </tr>
                             <tr>
-                                <td>Menyiram</td>
+                                <td>Flush</td>
                                 <td className="text-start">Hasil tangan yang menang adalah “Flush”. </td>
                             </tr>
                             <tr>
-                                <td>Seri</td>
+                                <td>Straight</td>
                                 <td className="text-start">Hasil tangan yang menang adalah “Straight”. </td>
                             </tr>
                         </tbody>
@@ -179,7 +179,10 @@ export const renderCardType = () => {
                                 <td width={250}>
                                     <strong>235</strong>
                                 </td>
-                                <td className="text-start">Tiga kartu 2, 3, 5 dengan jenis yang berbeda.</td>
+                                <td className="text-start">
+                                    Tiga kartu 2, 3, 5 dengan jenis yang berbeda; atau dua kartu di antara 2, 3, 5 adalah jenis yang sama
+                                    dan yang lainnya dengan jenis yang berbeda.
+                                </td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
                                         <img
@@ -242,7 +245,7 @@ export const renderCardType = () => {
                             </tr>
                             <tr>
                                 <td>
-                                    <strong>Pasangan</strong>
+                                    <strong>Pair</strong>
                                 </td>
                                 <td className="text-start">Dua kartu dengan peringkat yang sama.</td>
                                 <td>
@@ -301,10 +304,10 @@ export const renderRankingLevel = () => {
                         </ul>
                     </li>
                     <li>
-                        <strong>Pasangan</strong>
+                        <strong>Pair</strong>
                         <ul className="detail">
                             <li>
-                                Jika Dragon dan Phoenix sama-sama memiliki satu Pair, nilai kartu Pair akan dibandingkan. Jika nilai kartu
+                                Jika Naga dan Phoenix sama-sama memiliki satu Pair, nilai kartu Pair akan dibandingkan. Jika nilai kartu
                                 identik maka nilai kartu dari kartu yang tersisa dibandingkan.
                             </li>
                         </ul>
@@ -345,8 +348,8 @@ const WinThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <p className={`content ${Styles["content-customize"]}`}>
                         {gameName}, dikenal sebagai Golden Flower, adalah permainan kartu yang sangat populer di Kasino. Game ini
                         menggunakan setumpuk 52 kartu standar (tidak termasuk Joker). Tujuan permainan ini adalah untuk membandingkan
-                        peringkat tangan antara Dragon dan Phoenix untuk menentukan hasil permainan. Tangan dengan peringkat lebih tinggi
-                        akan menang.
+                        peringkat tangan antara Naga dan Phoenix untuk menentukan hasil permainan. Tangan dengan peringkat lebih tinggi akan
+                        menang.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
@@ -364,15 +367,15 @@ const WinThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             <strong>Langkah 1:</strong> Salin Kunci MD5 sebelum hasilnya diumumkan.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step1_id.png?v=3"
                                 alt="md5-string"
                             />
                         </li>
                         <li>
-                            <strong>Langkah 2:</strong> Salin hasil setelah sistem menerbitkan hasilnya.
+                            <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step2_id.png?v=3"
                                 alt="md5-result"
                             />
                             <div>

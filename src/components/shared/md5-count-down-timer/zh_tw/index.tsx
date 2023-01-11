@@ -22,7 +22,7 @@ export const renderMD5TW = () => {
                             <strong>第一步</strong>: 在公佈結果前複製<strong>MD5</strong>密鑰。
                         </li>
                         <li>
-                            <strong>第二步</strong>: 系統發布<strong>結果</strong>後復制結果。
+                            <strong>第二步</strong>: 發布後復制<strong>結果。</strong>
                         </li>
                         <li>
                             <strong>第三步</strong>: 轉到{" "}

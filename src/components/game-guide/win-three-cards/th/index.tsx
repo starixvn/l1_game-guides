@@ -11,18 +11,18 @@ const renderGameRule = (maxBet: string | undefined) => {
         <>
             <h2>กฎของเกมส์</h2>
             <ul className="desc">
-                <li>ในตอนเริ่มต้น ไพ่คว่ำหน้าสามใบจะถูกแจกให้กับมือ Dragon และ Phoenix.</li>
+                <li>ในตอนเริ่มต้น ไพ่คว่ำหน้าสามใบจะถูกแจกให้กับมือ มังกร และ ฟีนิกซ์.</li>
                 <li>
                     ผู้เล่นเลือกมูลค่าชิปและวางลงในตัวเลือกการเดิมพันที่ต้องการ. ต้องวางเดิมพันทั้งหมดก่อนหมดเวลาเดิมพัน.
                     โปรดทราบว่าการวางเดิมพันไม่สามารถยกเลิกได้.
                 </li>
                 <li>
-                    ผู้เล่นสามารถวางเดิมพันในตัวเลือกใดก็ได้ยกเว้น Dragon และ Phoenix ผู้เล่นสามารถเดิมพันได้เฉพาะ Dragon หรือ Phoenix
+                    ผู้เล่นสามารถวางเดิมพันในตัวเลือกใดก็ได้ยกเว้น มังกร และ ฟีนิกซ์ ผู้เล่นสามารถเดิมพันได้เฉพาะ มังกร หรือ ฟีนิกซ์
                     เท่านั้น.
                 </li>
                 <li>หลังจากหมดเวลาการเดิมพัน ระบบจะแสดงผลของเกมส์.</li>
-                <li>เกมส์ตัดสินการชนะหรือแพ้โดยการเปรียบเทียบระดับมือระหว่าง Dragon และ Phoenix.</li>
-                <li>หากไพ่ Dragon และ Phoenix มีแต้มเท่ากัน (ชุดไพ่และมูลค่าไพ่) ผลของเกมคือเสมอและจะคืนเงินเดิมพันทั้งหมด.</li>
+                <li>เกมส์ตัดสินการชนะหรือแพ้โดยการเปรียบเทียบระดับมือระหว่าง มังกร และ ฟีนิกซ์.</li>
+                <li>หากไพ่ มังกร และ ฟีนิกซ์ มีแต้มเท่ากัน (ชุดไพ่และมูลค่าไพ่) ผลของเกมคือเสมอและจะคืนเงินเดิมพันทั้งหมด.</li>
                 <li>สำรับไพ่มาตรฐาน 52 ใบ (ไม่รวมโจ๊กเกอร์) จะถูกสับหลังจากทุกรอบ.</li>
                 <li>เดิมพันรวมสูงสุดต่อรอบคือ {maxBet}</li>
                 <div className="table-container">
@@ -36,15 +36,15 @@ const renderGameRule = (maxBet: string | undefined) => {
                         <tbody>
                             <tr>
                                 <td width={250}>มังกร</td>
-                                <td className="text-start">มือ Dragon มีอันดับสูงกว่า.</td>
+                                <td className="text-start">มือ มังกร มีอันดับสูงกว่า.</td>
                             </tr>
                             <tr>
                                 <td>ฟีนิกซ์</td>
-                                <td className="text-start">มือ Phoenix มีอันดับสูงกว่า.</td>
+                                <td className="text-start">มือ ฟีนิกซ์ มีอันดับสูงกว่า.</td>
                             </tr>
                             <tr>
                                 <td>ไพ่คู่ 8 ขึ้นไป</td>
-                                <td className="text-start">มือที่ชนะประกอบด้วยคู่ 9 ถึงคู่ A, ฟลัช, สเตรท, ตอง, สเตรทฟลัช.</td>
+                                <td className="text-start">มือที่ชนะประกอบด้วยคู่ 9 ถึงคู่ A, สเตรท, ฟลัช, สเตรทฟลัช, ไพ่ตอง.</td>
                             </tr>
                             <tr>
                                 <td>ตอง</td>
@@ -175,7 +175,7 @@ export const renderCardType = () => {
                                     <strong>235</strong>
                                 </td>
                                 <td className="text-start">
-                                    ไพ่ 3 ใบ 2, 3, 5 ที่มีดอกต่างกัน.
+                                    ไพ่สามใบ 2, 3, 5 ที่มีดอกต่างกัน หรือไพ่สองใบระหว่าง 2, 3, 5 เป็นดอกเดียวกันและอีกใบมีดอกต่างกัน.
                                 </td>
                                 <td width={250}>
                                     <span className={Styles["wrapper-card"]}>
@@ -286,7 +286,7 @@ export const renderRankingLevel = () => {
                         <strong>อันดับมือ</strong>
                         <ul className="detail">
                             <li>
-                                ตอง {">"} เตรทฟลัช {">"} ฟลัช {">"} สเตรท {">"} คู่ {">"} ไพ่สูง.
+                                ตอง {">"} สเตรทฟลัช {">"} ฟลัช {">"} สเตรท {">"} คู่ {">"} ไพ่สูง.
                             </li>
                         </ul>
                     </li>
@@ -300,10 +300,8 @@ export const renderRankingLevel = () => {
                     <li>
                         <strong>คู่</strong>
                         <ul className="detail">
-                            <li>
-                                หากทั้ง Dragon และ Phoenix มีไพ่คู่เดียว ค่าไพ่ของไพ่คู่จะถูกเปรียบเทียบ. หากค่าของไพ่เหมือนกัน
-                                ค่าของไพ่ที่เหลือจะถูกเปรียบเทียบ.
-                            </li>
+                            <li>หากทั้ง มังกร และ ฟีนิกซ์ มีไพ่คู่เดียว ค่าไพ่ของไพ่คู่จะถูกเปรียบเทียบ.</li>
+                            <li>หากค่าของไพ่เหมือนกัน ค่าของไพ่ที่เหลือจะถูกเปรียบเทียบ.</li>
                         </ul>
                     </li>
                     <li>
@@ -340,7 +338,7 @@ const WinThreeCardsGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>บทนำ</h2>
                     <p className={`content ${Styles["content-customize"]}`}>
                         {gameName}, หรือที่เรียกว่า Golden Flower เป็นเกมส์ไพ่ที่ได้รับความนิยมอย่างมากในคาสิโน. เกมส์นี้ใช้สำรับไพ่มาตรฐาน
-                        52 ใบ (ไม่รวมโจ๊กเกอร์). จุดประสงค์ของเกมส์นี้คือเพื่อเปรียบเทียบระดับมือระหว่าง Dragon และ Phoenix
+                        52 ใบ (ไม่รวมโจ๊กเกอร์). จุดประสงค์ของเกมส์นี้คือเพื่อเปรียบเทียบระดับมือระหว่าง มังกร และ ฟีนิกซ์
                         เพื่อกำหนดผลลัพธ์ของเกมส์. มือที่มีอันดับสูงกว่าจะเป็นผู้ชนะ.
                     </p>
                 </li>
@@ -356,18 +354,18 @@ const WinThreeCardsGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </div>
                     <ul className="desc">
                         <li>
-                            <strong>ขั้นตอนที่ 1:</strong> Copy the MD5 Key before the result is announced.
+                            <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step1_th.png?v=3"
                                 alt="md5-string"
                             />
                         </li>
                         <li>
-                            <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากที่ระบบเผยแพร่ผลลัพธ์.
+                            <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว.
                             <img
                                 className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_en.png?v=3"
+                                src="/static/images/win-three-cards/md5_step2_th.png?v=3"
                                 alt="md5-result"
                             />
                             <div>หมายเหตุ: จากซ้ายไปขวา, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ ตามลำดับการแจกไพ่เมื่อเริ่มรอบเกมส์.</div>

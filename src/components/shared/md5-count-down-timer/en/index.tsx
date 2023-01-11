@@ -23,7 +23,7 @@ export const renderMD5EN = () => {
                             <strong>Step 1</strong>: Copy the <strong>MD5</strong> key before the result is announced.
                         </li>
                         <li>
-                            <strong>Step 2</strong>: Copy <strong>Result</strong> after the system publishes the result.
+                            <strong>Step 2</strong>: Copy the <strong>Result</strong> after it is published.
                         </li>
                         <li>
                             <strong>Step 3</strong>: Go to{" "}
