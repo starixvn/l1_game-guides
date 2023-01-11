@@ -1,7 +1,7 @@
 import React from "react";
-import Styles from "../blockchain-baccarat.module.scss";
+import Styles from "./base-baccarat.module.scss";
 
-const PointCalculationRules: React.FunctionComponent<{ t: any }> = ({ t }) => {
+const BaseBaccaratPointCalculationRules: React.FunctionComponent<{ t: any }> = ({ t }) => {
     return (
         <>
             <h2>{t('pointRules.header')}</h2>
@@ -65,4 +65,4 @@ const PointCalculationRules: React.FunctionComponent<{ t: any }> = ({ t }) => {
     );
 };
 
-export default PointCalculationRules;
+export default BaseBaccaratPointCalculationRules;

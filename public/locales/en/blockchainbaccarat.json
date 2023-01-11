@@ -69,45 +69,75 @@
     },
     "thirdCardRules": {
         "header": "Third Card Rules",
-        "descriptions": {
-            "line1": "A third card will be dealt according to the strict rules of the game.",
-            "line2": "If the total points of the first two cards of either hand are 8 or 9, this is called a “Natural” and no more cards are dealt, both the player and banker stand."
-        },
+        "descriptions": [
+            "A third card will be dealt according to the strict rules of the game.",
+            "If the total points of the first two cards of either hand are 8 or 9, this is called a “Natural” and no more cards are dealt, both the player and banker stand."
+        ],
         "playerHand": {
             "header": "Rules for the Player hand",
             "cardsTotal": "Player’s first two cards total",
             "action": "Action",
-            "example": {
-                "0, 1, 2, 3, 4, 5": "Draws a third card.",
-                "6 or 7": "The Player always stands.",
-                "8 or 9": "“Natural” and no more cards are dealt, both the player and banker stand."
-            }
+            "examples": [
+                {
+                    "twoCardsTotal": "0, 1, 2, 3, 4, 5",
+                    "action": "Draws a third card."
+                },
+                {
+                    "twoCardsTotal": "6 or 7",
+                    "action": "The Player always stands."
+                },
+                {
+                    "twoCardsTotal": "8 or 9",
+                    "action": "“Natural” and no more cards are dealt, both the player and banker stand."
+                }
+            ]
         },
         "bankerHand": {
             "header": "Rules for the Banker hand",
             "firstDescription": "If the Player hand gets the third card then the Banker draws a third card according to the following rules:",
             "cardsTotal": "Banker’s first two cards total",
             "action": "Banker draws when the Player’s third card has a point value:",
-            "example": {
-                "0, 1, 2": "The Banker always draws a third card.",
-                "3": "The point value of 1, 2, 3, 4, 5, 6, 7, 9, 0 (not 8).",
-                "4": "The point value of 2, 3, 4, 5, 6, 7",
-                "5": "The point value of 4, 5, 6, 7",
-                "6": "The point value of 6 or 7",
-                "7": "The Banker always stands.",
-                "8 or 9": " “Natural” and no more cards are dealt, both the player and banker stand."
-            },
+            "examples": [
+                {
+                    "twoCardsTotal": "0, 1, 2",
+                    "action": "The Banker always draws a third card."
+                },
+                {
+                    "twoCardsTotal": "3",
+                    "action": "The point value of 1, 2, 3, 4, 5, 6, 7, 9, 0 (not 8)."
+                },
+                {
+                    "twoCardsTotal": "4",
+                    "action": "The point value of 2, 3, 4, 5, 6, 7"
+                },
+                {
+                    "twoCardsTotal": "5",
+                    "action": "The point value of 4, 5, 6, 7"
+                },
+                {
+                    "twoCardsTotal": "6",
+                    "action": "The point value of 6 or 7"
+                },
+                {
+                    "twoCardsTotal": "7",
+                    "action": "The Banker always stands."
+                },
+                {
+                    "twoCardsTotal": "8 or 9",
+                    "action": "“Natural” and no more cards are dealt, both the player and banker stand."
+                }
+            ],
             "secondDescription": "If the total points of Player's first two cards are 6 or 7 then the Banker will stand on a total of 6 or 7, and draw on a total of 5 or less."
         }
     },
     "payouts": {
         "header": "Payouts",
         "descriptions": {
-            "details": {
-                "line1": "The winning amount is calculated according to the betting odds.",
-                "line2": "The Payout includes the initial stake.",
-                "line3": "All winning amounts are instantly added to your account balance when bets are settled."
-            },
+            "details": [
+                "The winning amount is calculated according to the betting odds.",
+                "The Payout includes the initial stake.",
+                "All winning amounts are instantly added to your account balance when bets are settled."
+            ],
             "noted": " <strong>Note:</strong> All bets on Player and Banker will be refunded if the result is a draw.",
             "options": "Options",
             "odds": "Odds",

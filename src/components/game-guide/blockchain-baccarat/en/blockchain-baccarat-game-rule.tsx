@@ -2,6 +2,7 @@ import React from "react";
 import Styles from "../blockchain-baccarat.module.scss";
 import { Markup } from "interweave";
 import { Cards } from "../models/blockchain-baccarat-model";
+import BaseBaccaratGameRule from "../../base-baccarat/base-baccarat-game-rule";
 
 const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
     return (
@@ -51,38 +52,14 @@ const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
     );
 };
 
-const GameRule: React.FunctionComponent<{ maxBetMain: number | string, t: any }> = ({ maxBetMain, t }) => {
+const BlockChainBaccaratGameRule: React.FunctionComponent<{ maxBetMain: number | string, t: any }> = ({ maxBetMain, t }) => {
     return (
         <>
-            <h2>{t('gameRules.header')}</h2>
-            <ul className="desc">
-                {
-                    Object.entries(t('gameRules.details', { returnObjects: true, maxBetMain })).map(([line, description]) => <li key={line}>{description}</li>)
-                }
-                <li className="contentBeforeEmpty">
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr>
-                                    <th className={Styles["rule-options"]}>{t('gameRules.descriptionTable.header.options')}</th>
-                                    <th>{t('gameRules.descriptionTable.header.options')}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    Object.entries(t('gameRules.descriptionTable.content', { returnObjects: true })).map(([choice, rule]) => (<tr key={choice}>
-                                        <td>{choice}</td>
-                                        <td className="text-start">{rule}</td>
-                                    </tr>))
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </li>
-                <CutCard t={t} />
-            </ul>
+            <BaseBaccaratGameRule {...{ maxBetMain, t }} />
+            <CutCard t={t} />
+
         </>
     );
 };
 
-export default GameRule;
+export default BlockChainBaccaratGameRule;
