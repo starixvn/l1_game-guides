@@ -22,7 +22,16 @@ const BlockchainBaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBet
     const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslation(['blockchainbaccarat', 'basebaccarat']);
-    const resources: BlockchainBaccaratResources = t('resources', { returnObjects: true });
+    const baseResources: BlockchainBaccaratResources = t('basebaccarat:resources', { returnObjects: true });
+    const blockchainBaccaratResources: BlockchainBaccaratResources = t('blockchainbaccarat:resources', { returnObjects: true });
+    const resources: BlockchainBaccaratResources = {
+        ...baseResources,
+        ...blockchainBaccaratResources,
+        gameRules: {
+            ...baseResources.gameRules,
+            ...blockchainBaccaratResources.gameRules,
+        },
+    };
 
     return (
         <>

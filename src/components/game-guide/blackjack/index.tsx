@@ -48,13 +48,13 @@ const BlackjackGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,   
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
         fractionalOddsFormat,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
             return <BlackjackGuideVI {...resource} />
         case locales.id:
@@ -68,7 +68,7 @@ const BlackjackGuide = (props: GameGuideBase) => {
 
         default:
             return <BlackjackGuideEN {...resource} />
-    }    
+    }
 };
 
 export const CardPointValuesTable = (t: TFunction) => {
