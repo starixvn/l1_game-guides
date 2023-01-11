@@ -24,8 +24,10 @@ export interface BaccaratPayoutResources {
 }
 
 const BaseBaccaratPayout: React.FunctionComponent<{
-    fractionalOddsFormat: any, odds: any, maxBetFollowChoice: any, resources
-    : BaccaratPayoutResources
+    fractionalOddsFormat: any,
+    odds: any,
+    maxBetFollowChoice: any,
+    resources: BaccaratPayoutResources
 }> = (
     { fractionalOddsFormat, odds, maxBetFollowChoice, resources }) => {
         const { header, descriptions } = resources;

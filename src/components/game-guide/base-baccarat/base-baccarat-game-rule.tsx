@@ -1,28 +1,45 @@
 import React from "react";
 import Styles from "./base-baccarat.module.scss";
 
-const BaseBaccaratGameRule: React.FunctionComponent<{ maxBetMain: number | string, t: any }> = ({ maxBetMain, t }) => {
+interface GameRuleByChoice {
+    choice: string;
+    rule: string;
+}
+
+export interface BaccaratGameRuleResources {
+    header: string;
+    details: Array<string>;
+    table: {
+        header: {
+            options: string;
+            descriptions: string;
+        }
+        contents: Array<GameRuleByChoice>;
+    }
+}
+
+const BaseBaccaratGameRule: React.FunctionComponent<{ resources: BaccaratGameRuleResources }> = ({ resources }) => {
     return (
         <>
-            <h2>{t('gameRules.header')}</h2>
+            <h2>{resources.header}</h2>
             <ul className="desc">
                 {
-                    Object.entries(t('gameRules.details', { returnObjects: true, maxBetMain })).map(([line, description]) => <li key={line}>{description}</li>)
+                    resources.details.map((detail, index) => <li key={index}>{detail}</li>)
                 }
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th className={Styles["rule-options"]}>{t('gameRules.descriptionTable.header.options')}</th>
-                                    <th>{t('gameRules.descriptionTable.header.options')}</th>
+                                    <th className={Styles["rule-options"]}>{resources.table.header.options}</th>
+                                    <th>{resources.table.header.options}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    Object.entries(t('gameRules.descriptionTable.content', { returnObjects: true })).map(([choice, rule]) => (<tr key={choice}>
-                                        <td>{choice}</td>
-                                        <td className="text-start">{rule}</td>
+                                    resources.table.contents.map((content, index) => (<tr key={index}>
+                                        <td>{content.choice}</td>
+                                        <td className="text-start">{content.rule}</td>
                                     </tr>))
                                 }
                             </tbody>

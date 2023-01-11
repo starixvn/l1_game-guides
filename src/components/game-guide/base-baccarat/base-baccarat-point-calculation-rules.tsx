@@ -1,30 +1,47 @@
 import React from "react";
 import Styles from "./base-baccarat.module.scss";
 
-const BaseBaccaratPointCalculationRules: React.FunctionComponent<{ t: any }> = ({ t }) => {
+export interface BaccaratPointCalculationRulesResources {
+    header: string;
+    descriptions: {
+        paragraph1: {
+            cardPointValues: string,
+            details: Array<string>
+        },
+        paragraph2: string;
+    },
+    examples: {
+        firstTwoCard: string;
+        thirdCard: string;
+        totals: string;
+        basedTotal: string;
+    }
+}
+
+const BaseBaccaratPointCalculationRules: React.FunctionComponent<{ resources: BaccaratPointCalculationRulesResources }> = ({ resources }) => {
     return (
         <>
-            <h2>{t('pointRules.header')}</h2>
+            <h2>{resources.header}</h2>
             <ul className="desc">
                 <li>
-                    {t('pointRules.descriptions.paragraph1.cardPointValues')}
+                    {resources.descriptions.paragraph1.cardPointValues}
                     <ul className="detail">
                         {
-                            Object.entries(t('pointRules.descriptions.paragraph1.details', { returnObjects: true })).map(([line, detail]) => (
-                                <li key={line}>{detail}</li>))
+                            resources.descriptions.paragraph1.details.map((detail, index) => (
+                                <li key={index}>{detail}</li>))
                         }
                     </ul>
                 </li>
                 <li>
-                    {t('pointRules.descriptions.paragraph2')}
+                    {resources.descriptions.paragraph2}
                 </li>
                 <table className="table text-center">
                     <thead>
                         <tr>
-                            <th>{t('pointRules.exampleTable.header.firstTwoCard')}</th>
-                            <th className={Styles["point-three-cards"]}>{t('pointRules.exampleTable.header.thirdCard')}</th>
-                            <th className={Styles["point-total"]}>{t('pointRules.exampleTable.header.totals')}</th>
-                            <th>{t('pointRules.exampleTable.header.basedTotal')}</th>
+                            <th>{resources.examples.firstTwoCard}</th>
+                            <th className={Styles["point-three-cards"]}>{resources.examples.thirdCard}</th>
+                            <th className={Styles["point-total"]}>{resources.examples.totals}</th>
+                            <th>{resources.examples.basedTotal}</th>
                         </tr>
                     </thead>
                     <tbody>

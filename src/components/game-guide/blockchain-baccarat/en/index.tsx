@@ -1,41 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameGuideProps } from "../../type";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { GameConfigProps, MaxBetChoicesProps } from "../../baccarat/type";
 import { useTranslation } from "next-i18next";
 import BaseBaccaratIntroduction from "../../base-baccarat/base-baccarat-introduction";
-import BaseBaccaratPointCalculationRules from "../../base-baccarat/base-baccarat-point-calculation-rules";
+import BaseBaccaratPointCalculationRules, { BaccaratPointCalculationRulesResources } from "../../base-baccarat/base-baccarat-point-calculation-rules";
 import BaseBaccaratThirdCardRule, { BaccaratThirdCardRuleResources } from "../../base-baccarat/base-baccarat-third-card-rule";
 import BaseBaccaratPayout, { BaccaratPayoutResources } from "../../base-baccarat/base-baccarat-payouts";
-import BlockChainBaccaratGameRule from "./blockchain-baccarat-game-rule";
+import BlockChainBaccaratGameRule, { BlockchainBaccaratGameRuleResources } from "./blockchain-baccarat-game-rule";
 import { BaccaratIntroductionResources } from "../../base-baccarat/card-model";
 
-type BlockchainBaccaratResources = {
-    introduction: BaccaratIntroductionResources
-
+interface BlockchainBaccaratResources {
+    introduction: BaccaratIntroductionResources;
+    gameRules: BlockchainBaccaratGameRuleResources;
+    pointRules: BaccaratPointCalculationRulesResources;
+    thirdCardRules: BaccaratThirdCardRuleResources;
+    payouts: BaccaratPayoutResources;
 }
 
 const BlockchainBaccaratGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, isScrollMD5, fractionalOddsFormat } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
-    useEffect(() => {
-        isScrollMD5 && ScrollToMD5();
-    });
+    const { t } = useTranslation(['blockchainbaccarat', 'basebaccarat']);
+    const resources: BlockchainBaccaratResources = t('resources', { returnObjects: true });
 
-    const { t } = useTranslation('blockchainbaccarat');
-
-    const introductionResources: BaccaratIntroductionResources = t('introduction', { returnObjects: true });
-    const payoutResources: BaccaratPayoutResources = t('payouts', { returnObjects: true });
-    const thirdCardRuleResources: BaccaratThirdCardRuleResources = t('thirdCardRules', { returnObjects: true });
     return (
         <>
             <ul className="game-guide">
-                <li className="guide-item"><BaseBaccaratIntroduction resources={introductionResources} /></li>
-                <li className="guide-item"><BlockChainBaccaratGameRule maxBetMain={maxBetFollowChoice?.maxBetMain ?? 0} t={t} /></li>
-                <li className="guide-item"><BaseBaccaratPointCalculationRules t={t} /></li>
-                <li className="guide-item"><BaseBaccaratThirdCardRule resources={thirdCardRuleResources} /></li>
-                <li className="guide-item"> <BaseBaccaratPayout {...{ fractionalOddsFormat, odds, maxBetFollowChoice, resources: payoutResources }} /></li>
+                <li className="guide-item"><BaseBaccaratIntroduction resources={resources.introduction} /></li>
+                <li className="guide-item"><BlockChainBaccaratGameRule maxBetMain={maxBetFollowChoice?.maxBetMain ?? 0} resources={resources.gameRules} /></li>
+                <li className="guide-item"><BaseBaccaratPointCalculationRules resources={resources.pointRules} /></li>
+                <li className="guide-item"><BaseBaccaratThirdCardRule resources={resources.thirdCardRules} /></li>
+                <li className="guide-item"> <BaseBaccaratPayout {...{ fractionalOddsFormat, odds, maxBetFollowChoice, resources: resources.payouts }} /></li>
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

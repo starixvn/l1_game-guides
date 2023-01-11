@@ -2,26 +2,43 @@ import React from "react";
 import Styles from "../blockchain-baccarat.module.scss";
 import { Markup } from "interweave";
 import { Cards } from "../models/blockchain-baccarat-model";
-import BaseBaccaratGameRule from "../../base-baccarat/base-baccarat-game-rule";
+import BaseBaccaratGameRule, { BaccaratGameRuleResources } from "../../base-baccarat/base-baccarat-game-rule";
 
-const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
+export interface BlockchainBaccaratGameRuleResources extends BaccaratGameRuleResources {
+    cutCard: {
+        header: string;
+        description: string;
+    },
+    burnCard: {
+        header: string;
+        description: string;
+        noted: string;
+        firstCard: string;
+        example: {
+            header: string;
+            descriptions: Array<string>
+        }
+    }
+}
+
+const CutCard: React.FunctionComponent<{ resources: BlockchainBaccaratGameRuleResources }> = ({ resources }) => {
     return (
         <ul className="style-number-dot">
             <li className="number-dot">
-                <span className="font-weight-medium title-text">{t('gameRules.cutCard.header')}</span>
-                <ul><li>{t('gameRules.cutCard.description')} </li></ul>
+                <span className="font-weight-medium title-text">{resources.cutCard.header}</span>
+                <ul><li>{resources.cutCard.description} </li></ul>
                 <img className={Styles["cut-card"]} src={`/static/images/blockchain-baccarat/cutcard.png`} alt="cut-card" loading="eager" />
             </li>
             <li className="number-dot">
-                <span className="font-weight-medium title-text">{t('gameRules.burnCard.header')}</span>
-                <ul className="desc"><li>{t('gameRules.burnCard.description')}</li></ul>
+                <span className="font-weight-medium title-text">{resources.burnCard.header}</span>
+                <ul className="desc"><li>{resources.burnCard.description}</li></ul>
                 <div>
-                    <Markup content={t("gameRules.burnCard.noted")} />
+                    <Markup content={resources.burnCard.noted} />
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th className={Styles["rule-options"]}>{t('gameRules.burnCard.firstCard')}</th>
+                                    <th className={Styles["rule-options"]}>{resources.burnCard.firstCard}</th>
                                     {
                                         Cards.map((card, index) => <th key={index}>{card.name}</th>)
                                     }
@@ -29,7 +46,7 @@ const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>{t('gameRules.burnCard.header')}</strong></td>
+                                    <td><strong>{resources.burnCard.header}</strong></td>
                                     {
                                         Cards.map((card, index) => <td key={index}>{card.value}</td>)
                                     }
@@ -39,12 +56,12 @@ const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
                     </div>
                 </div>
                 <div>
-                    <strong>{t('gameRules.burnCard.example.header')}</strong>:
+                    <strong>{resources.burnCard.example.header}</strong>:
                 </div>
                 <ul className="desc">
                     {
-                        Object.entries(t('gameRules.burnCard.example.descriptions', { returnObjects: true })).map(([line, description]) => (
-                            <li key={line}>{description}</li>))
+                        resources.burnCard.example.descriptions.map((description, index) => (
+                            <li key={index}>{description}</li>))
                     }
                 </ul>
             </li>
@@ -52,12 +69,11 @@ const CutCard: React.FunctionComponent<{ t: any }> = ({ t }) => {
     );
 };
 
-const BlockChainBaccaratGameRule: React.FunctionComponent<{ maxBetMain: number | string, t: any }> = ({ maxBetMain, t }) => {
+const BlockChainBaccaratGameRule: React.FunctionComponent<{ maxBetMain: number | string, resources: BlockchainBaccaratGameRuleResources }> = ({ maxBetMain, resources }) => {
     return (
         <>
-            <BaseBaccaratGameRule {...{ maxBetMain, t }} />
-            <CutCard t={t} />
-
+            <BaseBaccaratGameRule {...{ maxBetMain, resources }} />
+            <CutCard resources={resources} />
         </>
     );
 };
