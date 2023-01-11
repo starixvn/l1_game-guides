@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from "next-i18next";
 import React from "react";
 
 import { locales } from "../../../common/constants";
@@ -11,23 +12,22 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const freeSpinContentEX = "wrapper-symbols-content";
 const resourceUrl = "https://l1-proxy1.lumigame.com/game/static/";
-const gameName = "nightclub";
-const imgSrc = resourceUrl + gameName;
+let imgSrc = "";
 
-const renderGameRule = () => {
+const renderGameRule = (t: Function) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>{t("GameRule-title")}</h2>
             <ul className="desc">
                 <li>
-                    The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing {`“Spin”`}.
+                    {t("GameRule-line-1")}
                     <div className="text-center">
-                        <strong>Total Bet</strong> = Paylines * Bet Level
+                        <Trans>{t("GameRule-totalBet")}</Trans>
                     </div>
                 </li>
 
-                <li> 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.</li>
-                <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
+                <li>{t("GameRule-line-2")}</li>
+                <li>{t("GameRule-line-3")}</li>
                 <div className={Styles["payline"]}>
                     <img src={`${resourceUrl}_shared/guide_payline.png`} alt="guide_payline" loading="eager" />
                 </div>
@@ -36,20 +36,20 @@ const renderGameRule = () => {
     );
 };
 
-const renderPayouts = (odds: number[][]) => {
+const renderPayouts = (odds: number[][], t: Function) => {
     return (
         <li className="guide-item">
-            <h2>Paytable</h2>
+            <h2>{t("Paytable-title")}</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the betting odds.</li>
+                <li>{t("Paytable-line-1")}</li>
                 <li>
-                    <strong>Note: </strong>the Payout includes the initial stake.
+                    <Trans>{t("Paytable-line-2")}</Trans>
                 </li>
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                <li>{t("Paytable-line-3")}</li>
             </ul>
             {renderPayoutsIconFirstLine(odds)}
             {renderPayoutsIconSecondLine(odds)}
-            {renderExamplePayout(odds)}
+            {renderExamplePayout(odds, t)}
         </li>
     );
 };
@@ -170,18 +170,18 @@ const renderIconContentLarge = (symbol: number, dataContent: number[][], textAft
     );
 };
 
-const renderExamplePayout = (odds: number[][]) => {
+const renderExamplePayout = (odds: number[][], t: Function) => {
     return (
         <>
             <p>
-                <strong>Example</strong>
+                <strong>{t("Common-example")}</strong>
             </p>
             <div className="table-container text-center">
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>{t("Common-symbol")}</th>
+                            <th>{t("Common-Description")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -196,8 +196,9 @@ const renderExamplePayout = (odds: number[][]) => {
                                 </div>
                             </td>
                             <td>
-                                Having 5 symbols {generateSymbol(1, false, true)}
-                                located on the same payline.
+                                {t("Paytbale-example-description-1", { numOfSymbols: 5 })}
+                                {generateSymbol(1, false, true)}
+                                {t("Paytbale-example-description-2")}
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
@@ -222,7 +223,7 @@ const renderExamplePayout = (odds: number[][]) => {
     );
 };
 
-const renderFreeSpin = (odds: number[][]) => {
+const renderFreeSpin = (odds: number[][], t: Function) => {
     const boardSymbols = [7, 4, 7, 6, 1, 2, 0, 7, 5, 4, 5, 4, 7, 0, 3];
     const highlightSymbol = 7;
 
@@ -271,7 +272,7 @@ const renderFreeSpin = (odds: number[][]) => {
     );
 };
 
-const renderBonus = (odds: number[][]) => {
+const renderBonus = (odds: number[][], t: Function) => {
     const boardSymbols = [3, 4, 8, 6, 1, 8, 0, 2, 5, 4, 5, 4, 8, 0, 8];
     const highlightSymbol = 8;
 
@@ -319,7 +320,7 @@ const renderBonus = (odds: number[][]) => {
     );
 };
 
-const renderWild = (odds: number[][]) => {
+const renderWild = (odds: number[][], t: Function) => {
     return (
         <li className="guide-item">
             <h2>Wild</h2>
@@ -362,19 +363,17 @@ const renderWild = (odds: number[][]) => {
 };
 
 const Contents: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { t } = useTranslation("classicslot");
+    const { gameConfigs, name } = props;
     const { odds } = gameConfigs;
+    imgSrc = resourceUrl + name;
 
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
-                    <p className="content">
-                        “{gameName}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game
-                        includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same
-                        payline that has been chosen.
-                    </p>
+                    <h2>{t("Introduction-title")}</h2>
+                    <p className="content">{t("Introduction-content", { gameName: name })}</p>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[10, 6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>
@@ -385,12 +384,12 @@ const Contents: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
                         {[7, 8, 9].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(t)}</li>
 
-                {renderPayouts(odds)}
-                {renderFreeSpin(odds)}
-                {renderBonus(odds)}
-                {renderWild(odds)}
+                {renderPayouts(odds, t)}
+                {renderFreeSpin(odds, t)}
+                {renderBonus(odds, t)}
+                {renderWild(odds, t)}
                 {renderTermsAndConditionsEN(Styles["guide-item"])}
             </ul>
         </>

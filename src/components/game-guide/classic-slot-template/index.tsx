@@ -7,7 +7,7 @@ import Contents from "./contents";
 import { GameConfigProps } from "./type";
 
 const ClassicSlotGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, name } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
@@ -36,6 +36,6 @@ const ClassicSlotGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    return <Contents gameConfigs={configs} gameName={gameNameTranslate} />;
+    return <Contents gameConfigs={configs} name={name} gameName={gameNameTranslate} />;
 };
 export default ClassicSlotGuide;

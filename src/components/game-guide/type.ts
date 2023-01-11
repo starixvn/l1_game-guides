@@ -4,6 +4,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     gameConfigs: GameConfigs;
     userStakeLevel?: UserStakeLevelProps;
     gameName: string;
+    name?: string;
     gameId?: number;
     locale?: string;
     maxBetFollowChoice?: MaxBetChoicesProps;
@@ -17,6 +18,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
 export type GameGuideBase = {
     userStakeLevel?: UserStakeLevelProps;
     gameName: string;
+    name?: string;
     locale?: string;
     id?: number;
     gameConfigs: GameConfigs;

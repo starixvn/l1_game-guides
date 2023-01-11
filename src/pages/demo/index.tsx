@@ -43,19 +43,20 @@ const Demo = () => {
 
     const [linkGuide, setLinkGuide] = useState<string>("");
     const [locale, setLocale] = useState<string>(locales.en);
-    const [gameId, setGameId] = useState<number>(1);
+    const [gameId, setGameId] = useState<number>(0);
     const [theme, setTheme] = useState<string>(Themes.light);
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sc);
     const [minBet, setMinBet] = useState<number>(0);
     const [maxBet, setMaxBet] = useState<number>(2000);
     const [showConfig, setShowConfig] = useState<boolean>(true);
+    const [name, setName] = useState<string>("");
 
     useEffect(() => {
-        if (locale && gameId && theme && environment) {
-            const data = `${locale}?gId=${gameId}&t=${theme}&f=${environment}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
+        if (locale && name && theme && environment) {
+            const data = `${locale}?name=${name}&t=${theme}&f=${environment}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
             setLinkGuide(`${window.location.origin}/${data}`);
         }
-    }, [locale, gameId, theme, environment, minBet, maxBet]);
+    }, [locale, name, theme, environment, minBet, maxBet]);
 
     return (
         <div id="container-guide" className="container-guide">
@@ -72,7 +73,15 @@ const Demo = () => {
                     <div className={showConfig ? "show" : "hide"}>
                         <div className="col-8">
                             <div className="row">
-                                <div className="col">{renderGameName(setGameId, t)}</div>
+                                <div className="col">
+                                    <input
+                                        type="string"
+                                        className="form-control"
+                                        value={name}
+                                        onChange={(event) => setName(event.target.value)}
+                                        style={{ fontSize: 14 }}
+                                    ></input>
+                                </div>
                                 <div className="col"> {SelectOptions(locales, setLocale)}</div>
                             </div>
                             <div className="row">

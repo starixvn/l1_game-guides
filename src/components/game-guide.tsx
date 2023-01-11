@@ -58,7 +58,7 @@ const ClassicSlotGuide = dynamic(() => import("./game-guide/classic-slot-templat
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
-export const GameGuide: React.FC<Props> = (props) => {
+const GameGuide: React.FC<Props> = (props) => {
     const {
         gameId,
         userStakeLevel,
@@ -80,6 +80,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
         gameConfigs: gameConfigs,
+        name,
         gameNameTranslate: gameId ? t(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
         dynamic,
         isGetGameConfigs,
@@ -93,7 +94,7 @@ export const GameGuide: React.FC<Props> = (props) => {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         } else {
-            return <></>;
+            return <ClassicSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
     };
     const renderGuide = () => {
@@ -185,8 +186,6 @@ export const GameGuide: React.FC<Props> = (props) => {
                 return <FortuneCatGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.WIN_THREE_CARDS:
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.Classic_Slot_Template:
-                return <ClassicSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return otherGuides();
         }

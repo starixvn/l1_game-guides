@@ -5,7 +5,9 @@ import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 import { Themes } from "../common/constants";
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = (appProps: AppProps) => {
+    const { Component, pageProps } = appProps;
+
     return (
         <ThemeProvider defaultTheme={Themes.light}>
             <Component {...pageProps} />

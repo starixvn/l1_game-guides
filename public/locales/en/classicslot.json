@@ -1,8 +1,9 @@
 {
     "Common-example": "Example",
+    "Common-symbol": "Symbol",
     "Common-description": "Description",
     "Introduction-title": "Introduction",
-    "Introduction-content": "“{gameName}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same payline that has been chosen.",
+    "Introduction-content": "“{{gameName}}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same payline that has been chosen.",
     "GameRule-title": "Game Rules",
     "GameRule-totalBet": "<strong>Total Bet</strong> = Paylines * Bet Level",
     "GameRule-line-1": "The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing “Spin”.",
