@@ -83,12 +83,6 @@ const BlockChainBaccaratGuide = (props: GameGuideBase) => {
         locale
     };
 
-    switch (locale) {
-        case locales.vi:
-            return <BlockchainBaccaratGuideVI {...resource} />
-
-        default:
-            return <BlockchainBaccaratGuideEN {...resource} />
-    }
+    return <BlockchainBaccaratGuideEN {...resource} />
 };
 export default BlockChainBaccaratGuide;

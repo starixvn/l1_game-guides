@@ -126,7 +126,9 @@
                         "action": "“Natural” and no more cards are dealt, both the player and banker stand."
                     }
                 ],
-                "secondDescription": "If the total points of Player's first two cards are 6 or 7 then the Banker will stand on a total of 6 or 7, and draw on a total of 5 or less."
+                "secondDescription": [
+                    "If the total points of Player's first two cards are 6 or 7 then the Banker will stand on a total of 6 or 7, and draw on a total of 5 or less."
+                ]
             }
         },
         "payouts": {

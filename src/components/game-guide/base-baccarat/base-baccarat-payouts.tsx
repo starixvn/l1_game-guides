@@ -39,9 +39,9 @@ const BaseBaccaratPayout: React.FunctionComponent<{
                         descriptions.details.map((detail, index) => (
                             <li key={index}>{detail}</li>))
                     }
-
+                    <Markup content={descriptions.noted} />
                     <li className="contentBeforeEmpty">
-                        <Markup content={descriptions.noted} />
+
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>

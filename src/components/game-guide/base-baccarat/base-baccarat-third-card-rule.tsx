@@ -15,7 +15,7 @@ interface BaccaratPlayerHandResources {
 
 interface BaccaratBankerHandResources extends BaccaratPlayerHandResources {
     firstDescription: string;
-    secondDescription: string;
+    secondDescription: Array<string>;
 }
 
 export interface BaccaratThirdCardRuleResources {
@@ -81,7 +81,10 @@ const BaseBaccaratThirdCardRule: React.FunctionComponent<{ resources: BaccaratTh
                                     </table>
                                 </div>
                             </li>
-                            <li>{bankerHand.secondDescription} </li>
+                            {
+                                bankerHand.secondDescription.map((description, index) => (
+                                    <li key={index}>{description}</li>))
+                            }
                         </ul>
                     </li>
                 </ul>

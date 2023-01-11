@@ -126,7 +126,9 @@
                         "action": "“Alami” dan tidak ada lagi kartu yang dibagikan, baik pemain maupun bankir berdiri"
                     }
                 ],
-                "secondDescription": "Jika total poin dari dua kartu pertama Player adalah 6 atau 7 maka Banker akan berdiri dengan total 6 atau 7, dan menarik total 5 atau kurang."
+                "secondDescription": [
+                    "Jika total poin dari dua kartu pertama Player adalah 6 atau 7 maka Banker akan berdiri dengan total 6 atau 7, dan menarik total 5 atau kurang."
+                ]
             }
         },
         "payouts": {
