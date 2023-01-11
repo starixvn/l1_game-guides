@@ -137,7 +137,7 @@
                     "The Payout includes the initial stake.",
                     "All winning amounts are instantly added to your account balance when bets are settled."
                 ],
-                "noted": " <strong>Note:</strong> All bets on Player and Banker will be refunded if the result is a draw.",
+                "noted": "<strong>Note:</strong> All bets on Player and Banker will be refunded if the result is a draw.",
                 "options": "Options",
                 "odds": "Odds",
                 "betLimit": "Bet Limit <br></br>(Min-Max)",

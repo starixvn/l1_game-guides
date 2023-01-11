@@ -1,124 +1,27 @@
 {
-    "introduction": {
-        "header": "Introduction",
-        "content": "Blockchain Baccarat - a card game with Fairness Guarantees, the new breakthrough with blockchain technology. The game uses 8 decks of cards (416 cards excluding the joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table."
-    },
-    "gameRules": {
-        "header": "遊戲規則",
-        "details": {
-            "line1": "By default, 6 cards will be drawn at the beginning of each round. Player and Banker, each hand will start with 2 cards face down.",
-            "line2": "The third card will be dealt according to the total points of the first 2 cards on each hand.",
-            "line3": "If the round ends with a total of less than 6 cards dealt, the remaining cards will be used for the next round.",
-            "line4": "The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the one closest to a total of 9 points.",
-            "line5": "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
-            "line6": "The maximum total stake per round is {{maxBetMain}}"
+    "resources": {
+        "introduction": {
+            "header": "Introduction",
+            "content": "Blockchain Baccarat - a card game with Fairness Guarantees, the new breakthrough with blockchain technology. The game uses 8 decks of cards (416 cards excluding the joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table."
         },
-        "descriptionTable": {
-            "header": {
-                "options": "選項",
-                "descriptions": "說明"
+        "gameRules": {
+            "cutCard": {
+                "header": "Cut Card",
+                "description": "Cut Card: a special card is used to indicate where the shoe will end and all cards will be reshuffled. Cut Card will  be inserted in the middle of the card pack (416 cards) at the beginning of the new shoe."
             },
-            "content": {
-                "閒家": "如果閒家的總點數高於莊家，閒家手將獲勝。",
-                "莊家": "如果莊家的總點數高於閒家，莊家手將獲勝。",
-                "平局": " 如果兩隻手（閒家和莊家）的總點數相等，則投注者獲勝。",
-                "閒家一對": "如果閒家的前兩張牌是對子，則投注者獲勝，無論花色如何",
-                "莊家一對": "如果莊家的前兩張牌是對子，則投注者獲勝，無論花色如何",
-                "大": "如果一輪中發出的牌總數為 6 張中的 5 張，則投注者獲勝",
-                "小": "如果一輪中發出的牌總數為 4，則投注者獲勝"
-            }
-        },
-        "cutCard": {
-            "header": "Cut Card",
-            "description": "Cut Card: a special card is used to indicate where the shoe will end and all cards will be reshuffled. Cut Card will  be inserted in the middle of the card pack (416 cards) at the beginning of the new shoe."
-        },
-        "burnCard": {
-            "header": "Burn Card",
-            "description": "After the Cut Card has been inserted, there is a burn card process. The number of card that will be burned (discard without using), is dependent on the value of the first card taken out of the new Shoe.",
-            "noted": "<strong>Note</strong>: The first card on top of the card pack (416 cards) is also discarded.",
-            "firstCard": "First Card",
-            "example": {
-                "header": "Example",
-                "descriptions": {
-                    "line1": "If the first card is 5 => 6 cards will be removed (5 burned cards + the first card)",
-                    "line2": "If the first card is K => 11 cards will be removed (10 burned cards + K card)"
+            "burnCard": {
+                "header": "Burn Card",
+                "description": "After the Cut Card has been inserted, there is a burn card process. The number of card that will be burned (discard without using), is dependent on the value of the first card taken out of the new Shoe.",
+                "noted": "<strong>Note</strong>: The first card on top of the card pack (416 cards) is also discarded.",
+                "firstCard": "First Card",
+                "example": {
+                    "header": "Example",
+                    "descriptions": [
+                        "If the first card is 5 => 6 cards will be removed (5 burned cards + the first card)",
+                        "If the first card is K => 11 cards will be removed (10 burned cards + K card)"
+                    ]
                 }
             }
-        }
-    },
-    "pointRules": {
-        "header": "積分計算規則",
-        "descriptions": {
-            "paragraph1": {
-                "cardPointValues": "卡點值：",
-                "details": {
-                    "line1": "牌（2 到 9）按面值計算。",
-                    "line2": "10 或面牌（Jack, Queen, King）的值為 0，而 Aces 的值為 1"
-                }
-            },
-            "paragraph2": "當總點數超過九點時，總點數的第一個數字被丟棄，第二個數字是手的價值。"
-        },
-        "exampleTable": {
-            "header": {
-                "firstTwoCard": "前兩張牌",
-                "thirdCard": "第三張牌",
-                "totals": "總計",
-                "basedTotal": "基於 Blockchain Baccarat 規則的總分"
-            }
-        }
-    },
-    "thirdCardRules": {
-        "header": "第三張牌規則",
-        "descriptions": {
-            "line1": "第三張牌將根據嚴格的遊戲規則進行處理。",
-            "line2": "如果任一手牌的前兩張牌的總點數為 8 或 9，則稱為“自然”，不再發牌，閒家和莊家均站立。"
-        },
-        "playerHand": {
-            "header": "閒家手牌規則",
-            "cardsTotal": "閒家的前兩張牌總數",
-            "action": "行動",
-            "example": {
-                "0, 1, 2, 3, 4, 5": "抽第三張牌。",
-                "6 或 7": "閒家始終站立。",
-                "8 或 9": "“自然”，不再發牌，閒家和莊家都站著。"
-            }
-        },
-        "bankerHand": {
-            "header": "莊家的規則",
-            "firstDescription": "如果閒家拿到第三張牌，莊家根據以下規則抽第三張牌：",
-            "cardsTotal": "莊家的前兩張牌總數",
-            "action": "當閒家的第三張牌有點值時，莊家抽牌：",
-            "example": {
-                "0, 1, 2": "莊家總是抽第三張牌。",
-                "3": " 點值 1、2、3、4、5、6、7、9、0（不是 8）。",
-                "4": "點值 2、3、4、5、6、7",
-                "5": "點值 4、5、6、7",
-                "6": "點值 6 或 7",
-                "7": "莊家始終站立。",
-                "8 或 9": "“自然”，不再發牌，閒家和莊家都站著。"
-            },
-            "secondDescription": " 如果閒家前兩張牌的總點數為 6 或 7，則莊家將站在總點數為 6 或 7 的點上，並抽出總點數為 5 或更少的點數。"
-        }
-    },
-    "payouts": {
-        "header": "支出",
-        "descriptions": {
-            "details": {
-                "line1": "中獎金額根據派彩率計算。",
-                "line2": "支付包括初始投注。",
-                "line3": "投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。"
-            },
-            "noted": "<strong>注意：</strong> 如果結果為平局，所有對閒家和莊家的投注將被退還。",
-            "options": "選項",
-            "odds": "賠率",
-            "betLimit": "投注限額 <br></br>（最小最大）",
-            "player": "閒家",
-            "banker": "莊家一對",
-            "big": "大",
-            "small": "小",
-            "tie": "平局",
-            "playerPair": "閒家一對",
-            "bankerPair": "莊家一對"
         }
     }
 }
