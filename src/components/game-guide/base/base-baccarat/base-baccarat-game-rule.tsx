@@ -1,5 +1,6 @@
 import React from "react";
 import Styles from "./base-baccarat.module.scss";
+import { Markup } from "interweave";
 
 interface GameRuleByChoice {
     choice: string;
@@ -24,7 +25,7 @@ const BaseBaccaratGameRule: React.FunctionComponent<{ resources: BaccaratGameRul
             <h2>{resources.header}</h2>
             <ul className="desc">
                 {
-                    resources.details.map((detail, index) => <li key={index}>{detail}</li>)
+                    resources.details.map((detail, index) => <li key={index}>{<Markup content={detail} />}</li>)
                 }
                 <li className="contentBeforeEmpty">
                     <div className="table-container">

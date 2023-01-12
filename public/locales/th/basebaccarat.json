@@ -1,14 +1,14 @@
 {
     "resources": {
         "gameRules": {
-            "header": "กฎของเกม",
+            "header": "กฎของเกมส์",
             "details": [
-                "By default, 6 cards will be drawn at the beginning of each round. Player and Banker, each hand will start with 2 cards face down.",
-                "The third card will be dealt according to the total points of the first 2 cards on each hand.",
-                "If the round ends with a total of less than 6 cards dealt, the remaining cards will be used for the next round.",
-                "The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the one closest to a total of 9 points.",
-                "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
-                "The maximum total stake per round is {{maxBetMain}}"
+                "ตามค่าเริ่มต้น ไพ่ 6 ใบจะถูกจั่วเมื่อเริ่มแต่ละรอบ ผู้เล่นและเจ้ามือแต่ละมือจะเริ่มต้นด้วยไพ่ 2 ใบ คว่ำหน้า",
+                "ไพ่ใบที่สามจะถูกแจกตามแต้มรวมของไพ่ 2 ใบแรกในแต่ละมือ",
+                "หากรอบนั้นจบลงด้วยการแจกไพ่รวมกันน้อยกว่า 6 ใบ ไพ่ที่เหลือจะถูกนำไปใช้ในรอบถัดไป",
+                "เกมส์ตัดสินการชนะหรือแพ้โดยการเปรียบเทียบแต้มรวมของไพ่ทั้งหมดในแต่ละมือ และมือที่ชนะคือแต้มที่ใกล้เคียงที่สุดกับแต้มรวม 9 แต้ม",
+                "ต้องวางเดิมพันทั้งหมดก่อนหมดเวลาเดิมพัน หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้",
+                "เงินเดิมพันรวมสูงสุดต่อรอบคือ {{maxBetMain}}"
             ],
             "table": {
                 "header": {

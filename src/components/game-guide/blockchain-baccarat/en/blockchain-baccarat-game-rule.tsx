@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "../blockchain-baccarat.module.scss";
 import { Markup } from "interweave";
 import { Cards } from "../models/blockchain-baccarat-model";
-import BaseBaccaratGameRule, { BaccaratGameRuleResources } from "../../base-baccarat/base-baccarat-game-rule";
+import BaseBaccaratGameRule, { BaccaratGameRuleResources } from "../../base/base-baccarat/base-baccarat-game-rule";
 
 export interface BlockchainBaccaratGameRuleResources extends BaccaratGameRuleResources {
     cutCard: {
@@ -69,10 +69,10 @@ const CutCard: React.FunctionComponent<{ resources: BlockchainBaccaratGameRuleRe
     );
 };
 
-const BlockChainBaccaratGameRule: React.FunctionComponent<{ maxBetMain: number | string, resources: BlockchainBaccaratGameRuleResources }> = ({ maxBetMain, resources }) => {
+const BlockChainBaccaratGameRule: React.FunctionComponent<{ resources: BlockchainBaccaratGameRuleResources }> = ({ resources }) => {
     return (
         <>
-            <BaseBaccaratGameRule {...{ maxBetMain, resources }} />
+            <BaseBaccaratGameRule resources={resources} />
             <CutCard resources={resources} />
         </>
     );

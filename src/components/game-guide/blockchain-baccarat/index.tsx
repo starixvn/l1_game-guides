@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-
-import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../index.helper";
 import BlockchainBaccaratGuideEN from "./en";
-import BlockchainBaccaratGuideVI from "./vi";
 import { GameConfigProps, MaxBetChoicesProps } from "../baccarat/type";
 
 export enum BaccaratId {

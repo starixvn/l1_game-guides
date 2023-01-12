@@ -3,12 +3,12 @@
         "gameRules": {
             "header": "Cách chơi",
             "details": [
-                "By default, 6 cards will be drawn at the beginning of each round. Player and Banker, each hand will start with 2 cards face down.",
-                "The third card will be dealt according to the total points of the first 2 cards on each hand.",
-                "If the round ends with a total of less than 6 cards dealt, the remaining cards will be used for the next round.",
-                "The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the one closest to a total of 9 points.",
-                "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
-                "The maximum total stake per round is {{maxBetMain}}"
+                "Khi bắt đầu phiên, mặc định 6 lá bài sẽ được rút, trong đó hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước.",
+                "Hai lá còn lại trong 6 lá được rút ban đầu sẽ được chia tùy thuộc vào tổng điểm 2 lá bài của Nhà Con, Nhà Cái.",
+                "Trong trường hợp phiên kết thúc với tổng số lá bài được chia ít hơn 6 lá, những lá còn lại sẽ được sử dụng cho phiên kế tiếp.",
+                "Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và 0 là điểm số thấp nhất.",
+                "Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là {{maxBetMain}}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
+                "Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi."
             ],
             "table": {
                 "header": {

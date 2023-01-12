@@ -1,8 +1,8 @@
 {
     "resources": {
         "introduction": {
-            "header": "Introduction",
-            "content": "Blockchain Baccarat - a card game with Fairness Guarantees, the new breakthrough with blockchain technology. The game uses 8 decks of cards (416 cards excluding the joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table."
+            "header": "บทนำ",
+            "content": "Blockchain Baccarat - บาคาร่าบล็อกเชน - เกมส์ไพ่ที่รับประกันความยุติธรรม ความก้าวหน้าครั้งใหม่ด้วยเทคโนโลยีบล็อกเชน. เกมส์ดังกล่าวใช้ไพ่ 8 สำรับ ของ(ไพ่ 416 ใบไม่รวมโจ๊กเกอร์). มีตัวเลือกการเดิมพัน 7 ตัวเลือกและนักพนันสามารถเดิมพันตัวเลือกการเดิมพันอย่างน้อยหนึ่งตัวเลือกที่แสดงบนโต๊ะเกม."
         },
         "gameRules": {
             "cutCard": {
