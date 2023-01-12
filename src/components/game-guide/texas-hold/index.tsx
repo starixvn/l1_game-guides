@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import TexasHoldGuideEN from "./en";
-import TexasHoldGuideVI from "./vi";
+import TexasHoldGuideTemplate from "./templates/default";
+import TexasHoldGuideVI from "./templates/vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../index.helper";
+import { en } from "./languages/en";
+import { vi } from "./languages/vi";
+import { id as idLanguage } from "./languages/id";
+import { th } from "./languages/th";
+import { zhCN } from "./languages/zh-cn";
+import { zhTW } from "./languages/zh-tw";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -67,29 +73,88 @@ const TexasHoldGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <TexasHoldGuideEN
-                gameConfigs={configs}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-                maxBetFollowChoice={maxBetFollowChoice}
-                isScrollMD5={isScrollMD5}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
+    console.log("locale ", locale, locales);
+
+    switch (locale) {
+        case locales.vi:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={idLanguage}
+                />
+            );
+        case locales.id:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={idLanguage}
+                />
+            );
+        case locales.th:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={th}
+                />
+            );
+        case locales.zh_cn:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={zhCN}
+                />
+            );
+        case locales.zh_tw:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={zhTW}
+                />
+            );
+
+        default:
+            return (
+                <TexasHoldGuideTemplate
+                    gameConfigs={configs}
+                    userStakeLevel={userStakeLevel}
+                    gameName={gameNameTranslate}
+                    gameId={id}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    isScrollMD5={isScrollMD5}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    language={en}
+                />
+            );
     }
-    return (
-        <TexasHoldGuideVI
-            gameConfigs={configs}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-            maxBetFollowChoice={maxBetFollowChoice}
-            isScrollMD5={isScrollMD5}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
 };
 export default TexasHoldGuide;

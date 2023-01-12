@@ -6,106 +6,103 @@ import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../texas-hold.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { TexasHoldemLanguage } from "../languages/types";
 
-const renderGameRule = (maxBet: string | number | undefined) => {
+type TexasHoldemGameGuideProps = GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { language: TexasHoldemLanguage };
+
+const renderGameRule = (maxBet: string | number | undefined, language: TexasHoldemLanguage) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>{language.gameRules["Game Rules"]}</h2>
             <ul className="desc">
-                <li>Select the desired chip with the value that suits you best and place bet on Ante.</li>
-                <li>Note, Ante bet is a mandatory option that the Player must place bet before any cards are dealt.</li>
-                <li>Click on the Deal button to start the game round, the Player and the Dealer each receive two hole cards.</li>
+                <li>{language.gameRules["Select the desired chip with"]}</li>
+                <li>{language.gameRules["Note, Ante bet is"]}</li>
+                <li>{language.gameRules["Click on the Deal button to"]}</li>
                 <li>
-                    <strong>Swap Cards</strong>
+                    <strong>{language.gameRules["Swap Cards"]}</strong>
                     <ul className="detail">
-                        <li>
-                            Swap Cards is an optional feature and can be turned ON/ OFF. It allows player to choose either to swap his
-                            two-hole cards with Dealer’s cards before cards are face-up or keep the cards without changing.
-                        </li>
+                        <li>{language.gameRules["Swap Cards is"]}</li>
                     </ul>
                 </li>
-                <li>Note: The Swap cards feature can only be ON/OFF before the game round is started.</li>
+                <li>{language.gameRules["Note: The Swap cards feature can"]}</li>
                 <li>
-                    After the two hole cards are dealt and face up, the Player must decide whether to CALL or FOLD.
+                    {language.gameRules["After the two hole cards are"]}
                     <ul className="detail">
                         <li>
-                            <strong>FOLD: </strong> the Player will surrender his hand and lose the Ante bet. The game round is over.
+                            <strong>{language.gameRules.FOLD}: </strong> {language.gameRules["the Player will surrender"]}
                         </li>
                         <li>
-                            <strong>CALL: </strong>the Player will continue playing with an additional Call bet, equal to twice the Ante
-                            bet, and three community cards (Flop card) are dealt face-up in the middle of the table.
+                            <strong>{language.gameRules.CALL}: </strong>
+                            {language.gameRules["the Player will continue playing"]}
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Turn {`&`} River bet</strong>: are additional bets decided by Player whether he wants to raise his bet.
+                    <strong>{language.gameRules["Turn & River bet"]}</strong>: {language.gameRules["are additional bets"]}
                     <ul className="detail">
                         <li>
-                            <strong>Turn bet: </strong>before a fourth community card is dealt face up (the Turn), Player can increase the
-                            stake by placing bet on “Turn” option with the same bet amount placed on Ante.
+                            <strong>{language.gameRules["Turn bet"]}: </strong>
+                            {language.gameRules["before a fourth community card is dealt"]}
                         </li>
                         <li>
-                            <strong>River bet: </strong>the River is the fifth and final community card. Similar to the Turn bet, before the
-                            River card is dealt, Player will have the option of placing an additional River bet.
+                            <strong>{language.gameRules["River bet"]}: </strong>
+                            {language.gameRules["the River is the"]}
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Check: </strong>To skip placing bets on Turn or River, simply click on “Check” button.
+                    <strong>{language.gameRules.Check}: </strong>
+                    {language.gameRules["To skip placing bets on Turn or River"]}
                 </li>
+                <li>{language.gameRules["The two personal cards are combined with 5 community cards"]}</li>
                 <li>
-                    The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win if
-                    the Player has a better hand than the Dealer
+                    {language.gameRules["The maximum total stake per round is"]}
+                    {maxBet}. {language.gameRules["Note, placed bets cannot be canceled after cards are dealt"]}
                 </li>
-                <li>The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled after cards are dealt.</li>
             </ul>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="font-weight-medium title-text"> Ranking Level</span>
+                    <span className="font-weight-medium title-text"> {language.gameRules["Ranking Level"]}</span>
                     <ul className="style-number-dot-number">
                         <li className="number-dot-number">
-                            <span className="title-text">Card Values</span>
+                            <span className="title-text">{language.gameRules["Card Values"]}</span>
                             <ul className="desc">
+                                <li>{language.gameRules["The card’s value is "]}</li>
                                 <li>
-                                    The card’s value is ranked from the highest to the lowest in the following order: Ace (A), King (K),
-                                    Queen (Q), Jack (J), 10, 9, 8, 7, 6, 5, 4, 3 and 2.
-                                </li>
-                                <li>
-                                    The Ace can be used as both the highest and lowest card.
+                                    {language.gameRules["The Ace can be used as"]}
                                     <ul className="detail">
-                                        <li>
-                                            For example: In a straight, the A can be used as A, K, Q, J, 10 as the highest value or 5, 4, 3,
-                                            2, A as the lowest value card.
-                                        </li>
+                                        <li>{language.gameRules["For example: In a straight, "]}</li>
                                     </ul>
                                 </li>
                                 <li>
-                                    All the suits - heart (<span className={Styles["red"]}>♥</span>), spade (
-                                    <span className={Styles["black"]}>♠</span>), diamond (<span className={Styles["red"]}>♦</span>), and
-                                    club (<span className={Styles["black"]}>♣</span>) have equal value.
+                                    {language.gameRules["All the suits"]} - {language.gameRules.heart} (
+                                    <span className={Styles["red"]}>♥</span>), {language.gameRules.spade} (
+                                    <span className={Styles["black"]}>♠</span>), {language.gameRules.diamond} (
+                                    <span className={Styles["red"]}>♦</span>), {language.gameRules["and club"]}(
+                                    <span className={Styles["black"]}>♣</span>) {language.gameRules["have equal value"]}.
                                 </li>
                             </ul>
                         </li>
                         <li className="number-dot-number">
-                            <span className="title-text">Hand Ranking</span>
+                            <span className="title-text">{language.gameRules["Hand Ranking"]}</span>
                             <ul className="desc">
                                 <li>
-                                    List of poker hand ranking levels from highest to lowest.
+                                    {language.gameRules["List of poker hand ranking levels from highest to lowest."]}
                                     <div className="table-container text-center">
                                         <table className="table text-center">
                                             <thead>
                                                 <tr>
-                                                    <td>Hand</td>
-                                                    <td>Description</td>
-                                                    <td>Example</td>
+                                                    <td>{language.gameRules.Hand}</td>
+                                                    <td>{language.gameRules.Description}</td>
+                                                    <td>{language.gameRules.Example}</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <strong>Royal Flush </strong>
+                                                        <strong>{language.gameRules["Royal Flush"]} </strong>
                                                     </td>
-                                                    <td>Ace, King, Queen, Jack, and 10 in the same suit</td>
+                                                    <td>{language.gameRules["Ace, King, Queen, Jack, and 10 in the same suit"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -120,9 +117,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong> Straight Flush </strong>
+                                                        <strong> {language.gameRules["Straight Flush"]} </strong>
                                                     </td>
-                                                    <td>Five cards in the same suit, all in a rank sequence</td>
+                                                    <td>{language.gameRules["Five cards in the same suit, all in a rank sequence"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -137,9 +134,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong> Four of a Kind </strong>
+                                                        <strong> {language.gameRules["Four of a Kind"]} </strong>
                                                     </td>
-                                                    <td>Four cards of the same rank</td>
+                                                    <td>{language.gameRules["Four cards of the same rank"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -154,9 +151,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Full House </strong>
+                                                        <strong>{language.gameRules["Full House"]} </strong>
                                                     </td>
-                                                    <td>Three of a Kind and a Pair </td>
+                                                    <td>{language.gameRules["Three of a Kind and a Pair"]} </td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -171,9 +168,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Flush </strong>
+                                                        <strong>{language.gameRules.Flush} </strong>
                                                     </td>
-                                                    <td>Five cards in the same suit</td>
+                                                    <td>{language.gameRules["Five cards in the same suit"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -188,9 +185,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Straight</strong>
+                                                        <strong>{language.gameRules.Straight}</strong>
                                                     </td>
-                                                    <td>Five cards a rank sequence</td>
+                                                    <td>{language.gameRules["Five cards a rank sequence"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -205,9 +202,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Three of a Kind </strong>
+                                                        <strong>{language.gameRules["Three of a Kind"]} </strong>
                                                     </td>
-                                                    <td>Three cards of the same rank</td>
+                                                    <td>{language.gameRules["Three cards of the same rank"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -222,9 +219,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Two Pair </strong>
+                                                        <strong>{language.gameRules["Two Pair"]} </strong>
                                                     </td>
-                                                    <td>Two pairs of different ranks</td>
+                                                    <td>{language.gameRules["Two pairs of different ranks"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -239,9 +236,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>Pair</strong>
+                                                        <strong>{language.gameRules.Pair}</strong>
                                                     </td>
-                                                    <td>Two cards of the same rank</td>
+                                                    <td>{language.gameRules["Two cards of the same rank"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -256,9 +253,9 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>High Card</strong>
+                                                        <strong>{language.gameRules["High Card"]}</strong>
                                                     </td>
-                                                    <td>Highest card when no higher hand is available</td>
+                                                    <td>{language.gameRules["Highest card when no higher hand is available"]}</td>
                                                     <td>
                                                         <span className={Styles["wrapper-card"]}>
                                                             <img
@@ -275,28 +272,24 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                         </table>
                                     </div>
                                 </li>
-                                <li>
-                                    The Poker hand consists of five cards. If the Player and the Dealer share a winning hand, then the
-                                    individual cards will be used to break the Tie. If the highest card in the Player’s hand is equal, the
-                                    second-highest card should be compared, and so on.
-                                </li>
+                                <li>{language.gameRules["The Poker hand consists of five cards"]}</li>
                             </ul>
                             <p>
-                                <strong>Example</strong>
+                                <strong>{language.gameRules.Example}</strong>
                             </p>
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
                                         <tr>
                                             <td></td>
-                                            <td>Cards</td>
-                                            <td>Combination</td>
-                                            <td>Result</td>
+                                            <td>{language.gameRules.Cards}</td>
+                                            <td>{language.gameRules.Combination}</td>
+                                            <td>{language.gameRules.Result}</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Player</td>
+                                            <td>{language.gameRules.Player}</td>
                                             <td>
                                                 <span className={Styles["red"]}>
                                                     A<span className={Styles["font-large"]}>♥</span>
@@ -327,10 +320,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     10<span className={Styles["font-large"]}>♣</span>
                                                 </span>
                                             </td>
-                                            <td>Two Pair</td>
+                                            <td>{language.gameRules["Two Pair"]}</td>
                                         </tr>
                                         <tr>
-                                            <td>Dealer</td>
+                                            <td>{language.gameRules.Dealer}</td>
                                             <td>
                                                 <span className={Styles["red"]}>
                                                     5<span className={Styles["font-large"]}>♦</span>
@@ -361,10 +354,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     10<span className={Styles["font-large"]}>♣</span>
                                                 </span>
                                             </td>
-                                            <td>Pair</td>
+                                            <td>{language.gameRules.Pair}</td>
                                         </tr>
                                         <tr>
-                                            <td>Community Cards</td>
+                                            <td>{language.gameRules["Community Cards"]}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     A<span className={Styles["font-large"]}>♠</span>
@@ -392,21 +385,21 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; The Player wins.</div>
+                            <div>=&gt; {language.gameRules["The Player wins"]}</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
                                         <tr>
                                             <td></td>
-                                            <td>Cards</td>
-                                            <td>Combination</td>
-                                            <td>Result</td>
+                                            <td>{language.gameRules.Cards}</td>
+                                            <td>{language.gameRules.Combination}</td>
+                                            <td>{language.gameRules.Result}</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Player</td>
+                                            <td>{language.gameRules.Player}</td>
                                             <td>
                                                 <span className={Styles["red"]}>
                                                     5<span className={Styles["font-large"]}>♦</span>
@@ -440,7 +433,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                             <td>Pair</td>
                                         </tr>
                                         <tr>
-                                            <td>Dealer</td>
+                                            <td>{language.gameRules.Dealer}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     9<span className={Styles["font-large"]}>♣</span>
@@ -471,10 +464,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     6<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>Pair</td>
+                                            <td>{language.gameRules.Pair}</td>
                                         </tr>
                                         <tr>
-                                            <td>Community Cards</td>
+                                            <td>{language.gameRules["Community Cards"]}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     J<span className={Styles["font-large"]}>♣</span>
@@ -502,21 +495,21 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; The Dealer wins.</div>
+                            <div>=&gt; {language.gameRules["The Dealer wins"]}</div>
                             <br />
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
                                         <tr>
                                             <td></td>
-                                            <td>Cards</td>
-                                            <td>Combination</td>
-                                            <td>Result</td>
+                                            <td>{language.gameRules.Cards}</td>
+                                            <td>{language.gameRules.Combination}</td>
+                                            <td>{language.gameRules.Result}</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Player</td>
+                                            <td>{language.gameRules.Player}</td>
                                             <td>
                                                 <span className={Styles["red"]}>
                                                     5<span className={Styles["font-large"]}>♦</span>
@@ -547,10 +540,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     5<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>Two Pair</td>
+                                            <td>{language.gameRules["Two Pair"]}</td>
                                         </tr>
                                         <tr>
-                                            <td>Dealer</td>
+                                            <td>{language.gameRules.Dealer}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     4<span className={Styles["font-large"]}>♠</span>
@@ -581,10 +574,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     10<span className={Styles["font-large"]}>♥</span>
                                                 </span>
                                             </td>
-                                            <td>Two Pair</td>
+                                            <td>{language.gameRules["Two Pair"]}</td>
                                         </tr>
                                         <tr>
-                                            <td>Community Cards</td>
+                                            <td>{language.gameRules["Community Cards"]}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     A<span className={Styles["font-large"]}>♣</span>
@@ -612,20 +605,20 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; The Dealer wins.</div>
+                            <div>=&gt; {language.gameRules["The Dealer wins"]}</div>
                             <div className="table-container text-center">
                                 <table className="table">
                                     <thead>
                                         <tr>
                                             <td></td>
-                                            <td>Cards</td>
-                                            <td>Combination</td>
-                                            <td>Result</td>
+                                            <td>{language.gameRules.Cards}</td>
+                                            <td>{language.gameRules.Combination}</td>
+                                            <td>{language.gameRules.Result}</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Player</td>
+                                            <td>{language.gameRules.Player}</td>
                                             <td>
                                                 <span className={Styles["red"]}>
                                                     5<span className={Styles["font-large"]}>♦</span>
@@ -656,10 +649,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     J<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>Two Pair</td>
+                                            <td>{language.gameRules["Two Pair"]}</td>
                                         </tr>
                                         <tr>
-                                            <td>Dealer</td>
+                                            <td>{language.gameRules.Dealer}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     4<span className={Styles["font-large"]}>♠</span>
@@ -690,10 +683,10 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                     J<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>Two Pair</td>
+                                            <td>{language.gameRules["Two Pair"]}</td>
                                         </tr>
                                         <tr>
-                                            <td>Community Cards</td>
+                                            <td>{language.gameRules["Community Cards"]}</td>
                                             <td>
                                                 <span className={Styles["black"]}>
                                                     A<span className={Styles["font-large"]}>♣</span>
@@ -721,7 +714,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; Result is a “Tie”.</div>
+                            <div>=&gt; {language.gameRules["Result is a “Tie”"]}.</div>
                         </li>
                     </ul>
                 </li>
@@ -733,63 +726,70 @@ const renderGameRule = (maxBet: string | number | undefined) => {
 const renderPayouts = (
     odds: OddsProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
+    fractionalOddsFormat: boolean | undefined,
+    language: TexasHoldemLanguage
 ) => {
     return (
         <>
-            <h2>Payout</h2>
+            <h2>{language.payout.Payout}</h2>
             <ul className="desc">
-                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
-                <li>The winning amount is calculated according to the betting odds. Note, the Payout includes the initial stake.</li>
+                <li>{language.payout["All winning amounts are"]}</li>
+                <li>{language.payout["The winning amount is calculated"]}</li>
                 <li>
-                    If Player’s hand beats Dealer’s hand:
+                    {language.payout["If Player’s hand beats Dealer’s hand"]}:
                     <ul className="detail">
-                        <li>With a Three of a Kind or lower {`=>`} the Call, Turn and River bets are won, and Ante is pushed.</li>
-                        <li>With a Straight or higher {`=>`} All bets (Ante, Call, Turn, and River) will win.</li>
+                        <li>
+                            {language.payout["With a Three of a Kind or lower"]} {`=>`}{" "}
+                            {language.payout["the Call, Turn and River bets are won, and Ante is pushed."]}
+                        </li>
+                        <li>
+                            {language.payout["With a Straight or higher"]} {`=>`}{" "}
+                            {language.payout["All bets (Ante, Call, Turn, and River) will win."]}
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    Payout and Bet Limit{" "}
+                    {language.payout["Payout and Bet Limit"]}{" "}
                     <div className="table-container text-center">
                         <table className="table table-medium">
                             <thead>
                                 <tr>
-                                    <td>Option</td>
-                                    <td>Odds</td>
-                                    <td>Bet Limit (Min-Max)</td>
+                                    <td>{language.payout.Option}</td>
+                                    <td>{language.payout.Odds}</td>
+                                    <td>{language.payout["Bet Limit (Min-Max)"]}</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Ante (with Three of a Kind or lower)</td>
-                                    <td>Push</td>
+                                    <td>{language.payout["Ante (with Three of a Kind or lower)"]}</td>
+                                    <td>{language.payout.Push}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ante (with Straight or higher) </td>
+                                    <td>{language.payout["Ante (with Straight or higher)"]} </td>
                                     <td>{formatOdds(odds?.AnteBet_flush, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Call</td>
+                                    <td>{language.payout.Call}</td>
                                     <td>{formatOdds(odds?.call, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Turn</td>
+                                    <td>{language.payout.Turn}</td>
                                     <td>{formatOdds(odds?.turn, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetTurnBetChoice}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>River</td>
+                                    <td>{language.payout.River}</td>
                                     <td>{formatOdds(odds?.river, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRiverBetChoice}
@@ -804,63 +804,75 @@ const renderPayouts = (
     );
 };
 
-export const renderMD5 = () => {
+export const renderMD5 = (language: TexasHoldemLanguage) => {
     return (
         <>
-            <h2> MD5 (Message-Digest algorithm 5) </h2>
+            <h2> {language.md5["MD5 (Message-Digest algorithm 5)"]} </h2>
             <ul className="style-number-dot">
                 <li className="number-dot">
-                    <span className="title-text">MD5 Technology</span>
+                    <span className="title-text">{language.md5["MD5 Technology"]}</span>
                     <ul className="desc">
-                        <li>MD5 allows Players to check the authenticity and transparency of game results through 3rd parties.</li>
-                        <li>The game results will be randomly generated by the system before the cards are revealed.</li>
                         <li>
-                            Players can manually check whether or not the results generated before the cards are revealed (
-                            <strong>MD5</strong> string) and the publishing results (String <strong>Result</strong>) are matched.
+                            {
+                                language.md5[
+                                    "MD5 allows Players to check the authenticity and transparency of game results through 3rd parties."
+                                ]
+                            }
+                        </li>
+                        <li>{language.md5["The game results will be randomly generated by the system before the cards are revealed."]}</li>
+                        <li>
+                            {language.md5["Players can manually check whether or not the results generated before the cards are revealed"]}(
+                            <strong>{language.md5.MD5}</strong> {language.md5.string}) {language.md5["and the publishing results"]} (
+                            {language.md5.string} <strong>{language.md5.Result}</strong>) {language.md5["are matched"]}.
                         </li>
                     </ul>
                 </li>
                 <li className="number-dot">
-                    <span className="title-text">MD5 Validation</span>
+                    <span className="title-text">{language.md5["MD5 Validation"]}</span>
                     <ul className="desc">
                         <li>
                             <span>
-                                <strong>Step 1</strong>: Copy the <strong>MD5</strong> key after pressing the Deal button.
+                                <strong>{language.md5["Step 1"]}</strong>: {language.md5["Copy the"]} <strong>{language.md5.MD5}</strong>{" "}
+                                {language.md5["key after pressing the Deal button"]}.
                             </span>
                         </li>
                         <li>
                             <span>
-                                <strong>Step 2</strong>: Copy <strong> the Result</strong> after the fifth community card (River) is dealt.
+                                <strong>{language.md5["Step 2"]}</strong>: {language.md5.Copy}{" "}
+                                <strong> {language.md5["the Result"]}</strong>{" "}
+                                {language.md5["after the fifth community card (River) is dealt."]}
                             </span>
                         </li>
                         <li>
-                            <strong>Step 3</strong>: Go to{" "}
+                            <strong>{language.md5["Step 3"]}</strong>: {language.md5["Go to"]}{" "}
                             <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                 https://md5.services/
                             </a>{" "}
-                            and paste the String Result into the MD5 box.
+                            {language.md5["and paste the Key string into the MD5 box"]}.
                         </li>
                         <li>
-                            <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated{" "}
-                            <strong>checksum MD5</strong> string with the MD5 string in <strong>Step 1.</strong>
+                            <strong>{language.md5["Step 4"]}</strong>: {language.md5["Press the"]}{" "}
+                            <strong>“{language.md5["hash darling, hash!"]}”</strong>{" "}
+                            {language.md5["button and compare the newly generated"]} <strong>{language.md5["checksum MD5"]}</strong>{" "}
+                            {language.md5["string with the MD5 string in"]} <strong>{language.md5["Step 1"]}.</strong>
                         </li>
-                        <li>
-                            If two strings are matching, prove that the outcome of that game round is transparent and the game result is
-                            unchanged from the random result generated by the system before the cards are dealt.
-                        </li>
+                        <li>{language.md5["If two strings are matching, prove that"]}</li>
                     </ul>
                 </li>
             </ul>
 
             <div className="content">
-                <strong> Example:</strong> Check the authenticity and transparency of Poker game results.
+                <strong> {language.gameRules.Example}:</strong>{" "}
+                {language.md5["Check the authenticity and transparency of Poker game results."]}
                 <ul className="desc">
                     <li>
-                        <strong>Step 1:</strong>Copy the MD5 key after pressing the DEAL button.
+                        <strong>{language.md5["Step 1"]}:</strong>
+                        {language.md5["Copy the MD5 key after pressing the DEAL button."]}
                         <img className="format-img auto-center format-mobile" src="/static/images/texas-hold/md5-en.png#v1" alt="md5-en" />
                     </li>
                     <li>
-                        <strong>Step 2:</strong> Copy the Result after the fifth community card (River) is dealt.
+                        <strong>{language.md5["Step 2"]}:</strong>{" "}
+                        {language.md5["Copy the Result after the fifth community card (River) is dealt."]}
                         <img
                             className="format-img auto-center format-mobile"
                             src="/static/images/texas-hold/result-en.png#v1"
@@ -868,30 +880,36 @@ export const renderMD5 = () => {
                         />
                     </li>
                     <li>
-                        <strong>Note</strong>
+                        <strong>{language.md5.Note}</strong>
                         <ul className="detail">
                             <li>
-                                From left to right, the cards are displayed in the order: Player’s cards ({" "}
-                                <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>), Dealer’s cards (
-                                <span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>), and the five
-                                community cards (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
+                                {language.md5["From left to right, the cards are displayed in the order: Player’s cards"]} ({" "}
+                                <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>),{" "}
+                                {language.md5["Dealer’s cards"]} (<span className={Styles["red"]}>2♥</span>,{" "}
+                                <span className={Styles["red"]}>Q♥</span>), {language.md5["and the five"]} {language.md5["community cards"]}{" "}
+                                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
                                 <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
                                 <span className={Styles["black"]}>10♣</span>)
                             </li>
                             <li>
-                                If the Player has swapped his cards with Dealer then the display order will be: Dealer’s cards ({" "}
-                                <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>), Player’s cards (
-                                <span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>), and the five
-                                community cards.
+                                {
+                                    language.md5[
+                                        "If the Player has swapped his cards with Dealer then the display order will be: Dealer’s cards"
+                                    ]
+                                }
+                                ( <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>),{" "}
+                                {language.md5["Player’s cards"]}(<span className={Styles["red"]}>2♥</span>,{" "}
+                                <span className={Styles["red"]}>Q♥</span>), {language.md5["and the five"]} {language.md5["community cards"]}
+                                .
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <strong>Step 3:</strong> Go to{" "}
+                        <strong>{language.md5["Step 3"]}:</strong> Go to{" "}
                         <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                             https://md5.services/
                         </a>{" "}
-                        and paste the Key string into the MD5 box
+                        {language.md5["and paste the Key string into the MD5 box"]}
                         <div className="wrapper-md5-img-hash">
                             <img
                                 className="format-img auto-center"
@@ -901,8 +919,8 @@ export const renderMD5 = () => {
                         </div>
                     </li>
                     <li>
-                        <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string
-                        with the MD5 string in <strong>Step 1</strong>.
+                        <strong>{language.md5["Step 4"]}:</strong> {language.md5["Press the “hash darling, hash!” button and compare"]}{" "}
+                        <strong>{language.md5["Step 1"]}</strong>.
                         <div className="wrapper-md5-img">
                             <img
                                 className="format-img auto-center"
@@ -917,8 +935,8 @@ export const renderMD5 = () => {
     );
 };
 
-const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, maxBetFollowChoice, isScrollMD5, fractionalOddsFormat } = props;
+const TexasHoldGuideTemplate: React.FC<TexasHoldemGameGuideProps> = (props) => {
+    const { gameConfigs, maxBetFollowChoice, isScrollMD5, fractionalOddsFormat, language } = props;
     const { odds } = gameConfigs;
 
     useEffect(() => {
@@ -929,25 +947,20 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>{language.introduction.Introduction}</h2>
+                    <p className="content">{language.introduction["Texas Holdem is"]}</p>
                     <p className="content">
-                        Texas Hold’em is one of the world’s most popular poker games. The game is played with a standard 52-card deck
-                        (excluding Joker), and the cards are reshuffled after each round. The objective of this game is to obtain a higher
-                        ranking Poker hand than the Dealer. Using your two hole cards combines with the five community cards to create the
-                        best possible five-card Poker hand.
-                    </p>
-                    <p className="content">
-                        In addition, a new feature -{" "}
+                        {language.introduction["In addition, a new feature"]} -{" "}
                         <a href="#md5" className={Styles["link"]}>
-                            MD5 (Message-Digest algorithm 5)
+                            {language.introduction["MD5 (Message-Digest algorithm 5)"]}
                         </a>{" "}
-                        that allows the Player to check the fairness and authenticity of every game result.
+                        {language.introduction["that allows the Player to"]}
                     </p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound)}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound, language)}</li>
+                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat, language)}</li>
                 <li id="md5" className="guide-item">
-                    {renderMD5()}
+                    {renderMD5(language)}
                 </li>
 
                 {renderTermsAndConditionsEN("", 42)}
@@ -955,4 +968,4 @@ const TexasHoldGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
         </>
     );
 };
-export default TexasHoldGuideEN;
+export default TexasHoldGuideTemplate;
