@@ -1,7 +1,6 @@
 import { Trans, useTranslation } from "next-i18next";
 import React from "react";
 
-import { locales } from "../../../common/constants";
 import { renderTermsAndConditionsEN } from "../../shared";
 import { GameGuideProps } from "../type";
 import Styles from "./classic-slot.module.scss";
@@ -29,7 +28,7 @@ const renderGameRule = (t: Function) => {
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")}</li>
                 <div className={Styles["payline"]}>
-                    <img src={`${resourceUrl}_shared/guide_payline.png`} alt="guide_payline" loading="eager" />
+                    <img src={`${resourceUrl}_shared/payline-guide.png`} alt="guide_payline" loading="eager" />
                 </div>
             </ul>
         </>
@@ -58,7 +57,7 @@ const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false)
     <img
         key={`symbol-${iconIndex}`}
         className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
-        src={`${imgSrc}/${iconIndex}.png`}
+        src={`${imgSrc}/symbol-${iconIndex}.png`}
         alt={`symbol_${iconIndex}.`}
     />
 );
