@@ -110,7 +110,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากที่ระบบเผยแพร่ผลลัพธ์
+                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
@@ -132,7 +132,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “แฮชที่รัก แฮช!” ปุ่มและเปรียบเทียบสตริง MD5
+                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5
                     ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1
                     <img
                         className="format-img auto-center"
@@ -155,7 +155,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
         const miniSeDieDescription =
             environment === ENVIRONMENT.sm
                 ? "is a compact version of Se Die game with fewer betting options. "
-                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                : " -  เวอร์ชันใหม่พร้อมคุณสมบัติ “มัลติเพลย์” ที่ให้คุณเล่น 4 โต๊ะ (มินิ Se Die, มินิ Se Die 2, มินิ Se Die 3 และ มินิ Se Die 4) พร้อมประสบการณ์ใหม่ที่น่าตื่นเต้นมากมาย ";
         switch (gameId) {
             case 9:
             case 56:

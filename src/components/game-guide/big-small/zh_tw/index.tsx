@@ -21,7 +21,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step1_tw.png?v=4" alt="md5-string" />
                 </li>
                 <li>
-                    <strong>第二步</strong>: 系统发布结果后复制结果。
+                    <strong>第二步</strong>: 發布後復制結果。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_tw.png?v=4" alt="md5-result" />
                     <div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>
                 </li>
@@ -34,7 +34,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>第四步</strong>: 按“hash darling，hash！” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
+                    <strong>第四步</strong>: 按 “hash darling，hash!” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>
             </ul>
@@ -54,7 +54,7 @@ const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameName} 大小或俗稱 Sicbo 或 Tai Sai，是一種用三個骰子進行的遊戲。玩家下注並預測三個骰子的總點數是大還是小。
+                        {gameName}或俗稱 Sicbo 或 Tai Sai，是一種用三個骰子進行的遊戲。玩家下注並預測三個骰子的總點數是大還是小。
                     </p>
                 </li>
                 <li className="guide-item">

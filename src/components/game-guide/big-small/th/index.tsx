@@ -21,7 +21,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step1_th.png?v=4" alt="md5-string" />
                 </li>
                 <li>
-                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากที่ระบบเผยแพร่ผลลัพธ์
+                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_th.png?v=4" alt="md5-result" />
                     <div>หมายเหตุ: จากซ้ายไปขวา &#123;6, 2, 5&#125; จะตรงกับแต้มของลูกเต๋าสามลูก</div>
                 </li>
@@ -34,7 +34,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “แฮชที่รัก แฮช!” ปุ่มและเปรียบเทียบสตริง MD5
+                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5
                     ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>
@@ -55,7 +55,7 @@ const BigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} สูง ต่ำ หรือที่รู้จักกันทั่วไปว่า ไฮโล หรือ ไทไซ เป็นเกมที่เล่นด้วยลูกเต๋าสามลูก
+                        {gameName} หรือที่รู้จักกันทั่วไปว่า ไฮโล หรือ ไทไซ เป็นเกมที่เล่นด้วยลูกเต๋าสามลูก
                         ผู้เล่นวางเดิมพันและทำนายแต้มรวมของลูกเต๋าสามลูกใหญ่หรือเล็ก
                     </p>
                 </li>

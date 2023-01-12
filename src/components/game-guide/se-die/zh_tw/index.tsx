@@ -10,7 +10,6 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { renderMD5TW } from "../../../shared/md5-count-down-timer/zh_tw";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
@@ -106,7 +105,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>第二步:</strong>系统发布结果后复制结果。
+                    <strong>第二步:</strong>發布後復制結果。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_tw.png?v=5`}
@@ -127,7 +126,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>第四步:</strong> 按“hash darling，hash！” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
+                    <strong>第四步:</strong> 按 “hash darling，hash!” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
@@ -149,7 +148,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
         const miniSeDieDescription =
             environment === ENVIRONMENT.sm
                 ? "is a compact version of Se Die game with fewer betting options. "
-                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                : " - 具有“多人遊戲”功能的新版本可讓您同時玩 4 桌（迷你色碟、迷你色碟 2、迷你色碟 3 和 迷你色碟 4），享受許多激動人心的新體驗。";
         switch (gameId) {
             case 9:
             case 56:
@@ -159,7 +158,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
             case 22:
                 return "VIP 色碟是色碟遊戲的另一個版本，具有更高的投注限制。";
             default:
-                return "色碟是亞洲國家的流行遊戲。";
+                return "是亞洲國家的流行遊戲。";
         }
     };
     return (
@@ -168,7 +167,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameDescription()}
+                        {gameName} {gameDescription()}
                         遊戲有 4 個彩色按鈕，每個按鈕有紅白兩色。這個遊戲的目標是預測 4 個按鈕的結果。如果結果與玩家的賭注相符，則玩家獲勝。
                     </p>
                 </li>

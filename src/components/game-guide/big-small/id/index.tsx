@@ -21,7 +21,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step1_id.png?v=4" alt="md5-string" />
                 </li>
                 <li>
-                    <strong>Langkah 2:</strong> Salin hasil setelah sistem menerbitkan hasilnya.
+                    <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step2_id.png?v=4" alt="md5-result" />
                     <div>Catatan: Dari kiri ke kanan, &#123;6, 2, 5&#125; sesuai dengan nilai tiga dadu.</div>
                 </li>
@@ -34,7 +34,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>Langkah 4:</strong> Tekan tombol "hash darling, hash!"dan bandingkan rangkaian daftar periksa MD5 yang baru
+                    <strong>Langkah 4:</strong> Tekan tombol "hash darling, hash!" dan bandingkan rangkaian daftar periksa MD5 yang baru
                     dibuat dengan Kunci MD5 di Langkah 1.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>
@@ -55,9 +55,8 @@ const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} Besar Kecil atau yang biasa dikenal dengan Sicbo atau Ta Siaw, adalah permainan yang dimainkan dengan
-                        menggunakan tiga buah dadu. Para pemain memasang taruhan dan memprediksi total poin dari ketiga dadu tersebut BESAR
-                        atau KECIL.
+                        {gameName} atau yang biasa dikenal dengan Sicbo atau Ta Siaw, adalah permainan yang dimainkan dengan menggunakan
+                        tiga buah dadu. Para pemain memasang taruhan dan memprediksi total poin dari ketiga dadu tersebut BESAR atau KECIL.
                     </p>
                 </li>
                 <li className="guide-item">

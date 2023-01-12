@@ -105,7 +105,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>第二步：</strong> 系统发布结果后复制结果。
+                    <strong>第二步：</strong> 发布后复制结果。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
@@ -126,7 +126,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>第四步:</strong> 按“hash darling，hash！” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
+                    <strong>第四步:</strong> 按 “hash darling，hash!” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
@@ -148,7 +148,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
         const miniSeDieDescription =
             environment === ENVIRONMENT.sm
                 ? "is a compact version of Se Die game with fewer betting options. "
-                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                : " - 具有“多人游戏”功能的新版本可让您同时玩 4 桌（迷你色碟、迷你色碟 2、迷你色碟 3 和 迷你色碟 4），享受许多激动人心的新体验。";
         switch (gameId) {
             case 9:
             case 56:
@@ -158,7 +158,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
             case 22:
                 return "VIP 色碟是色碟游戏的另一个版本，具有更高的投注限制。";
             default:
-                return "色碟是亚洲国家的流行游戏。";
+                return "是亚洲国家的流行游戏。";
         }
     };
     return (
@@ -167,7 +167,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameDescription()}
+                        {gameName} {gameDescription()}
                         游戏有 4 个彩色按钮，每个按钮有红白两色。这个游戏的目标是预测 4 个按钮的结果。如果结果与玩家的赌注相符，则玩家获胜。
                     </p>
                 </li>
