@@ -28,7 +28,7 @@ const renderGameRule = (t: Function) => {
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")}</li>
                 <div className={Styles["payline"]}>
-                    <img src={`${resourceUrl}_shared/payline-guide.png`} alt="guide_payline" loading="eager" />
+                    <img src={`${resourceUrl}_shared/classicslot/payline-guide.png`} alt="guide_payline" loading="eager" />
                 </div>
             </ul>
         </>
