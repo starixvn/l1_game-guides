@@ -55,6 +55,7 @@ const FruitSlotGuide = dynamic(() => import("./game-guide/fruit-slot"));
 const FantanGuide = dynamic(() => import("./game-guide/fantan/index"));
 const FortuneCatGuide = dynamic(() => import("./game-guide/fortune-cat"));
 const WinThreeCardsGuide = dynamic(() => import("./game-guide/win-three-cards"));
+const VipBaccaratGuide = dynamic(() => import("./game-guide/baccarat-vip"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
@@ -117,8 +118,9 @@ export const GameGuide: React.FC<Props> = (props) => {
             case GAMES.KENO_PRO_MAX:
                 return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BACCARAT:
-            case GAMES.VIP_BACCARAT:
                 return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_BACCARAT:
+                return <VipBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BLOCKCHAIN_BACCARAT:
                 return <BlockchainBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KENO_MAX:
