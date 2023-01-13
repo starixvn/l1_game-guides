@@ -4,5 +4,7 @@
         "environment": "PROD"
     },
     "system": "L2",
-    "enableSourceMap": false
+    "enableSourceMap": false,
+    "resourceUrl": "https://proxy.v-gaming.net/game/static/",
+    "gameSettingUrl": "http://l2_admin_api_prod:5000/api/public/game_configs/"
 }

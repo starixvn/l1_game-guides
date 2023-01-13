@@ -1,16 +1,14 @@
-import { Trans, useTranslation } from "next-i18next";
 import React from "react";
-
+import { Trans, useTranslation } from "next-i18next";
 import { renderTermsAndConditionsEN } from "../../shared";
-import { GameGuideProps } from "../type";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
+import appSettings from "../../../common/app-settings";
 
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
 const freeSpinContentEX = "wrapper-symbols-content";
-const resourceUrl = "https://l1-proxy1.lumigame.com/game/static/";
 let imgSrc = "";
 
 const renderGameRule = (t: Function) => {
@@ -28,7 +26,7 @@ const renderGameRule = (t: Function) => {
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")}</li>
                 <div className={Styles["payline"]}>
-                    <img src={`${resourceUrl}_shared/classicslot/payline-guide.png`} alt="guide_payline" loading="eager" />
+                    <img src={`${appSettings.resourceUrl}_shared/classicslot/payline-guide.png`} alt="guide_payline" loading="eager" />
                 </div>
             </ul>
         </>
@@ -198,21 +196,26 @@ const renderExamplePayout = (odds: number[][], t: Function) => {
                                 {t("Paytbale-example-description-1", { numOfSymbols: 5 })}
                                 {generateSymbol(1, false, true)}
                                 {t("Paytbale-example-description-2")}
-                                <br></br>Payout = Bet Level * {odds[1][5]}
+                                <br></br>
+                                {t("Paytbale-example-description-3", { odd: odds[1][5] })}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 symbols {generateSymbol(1, false, true)}
-                                located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][4]}
+                                {t("Paytbale-example-description-1", { numOfSymbols: 4 })}
+                                {generateSymbol(1, false, true)}
+                                {t("Paytbale-example-description-2")}
+                                <br></br>
+                                {t("Paytbale-example-description-3", { odd: odds[1][4] })}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 symbols
-                                {generateSymbol(1, false, true)} located on the same payline.
-                                <br></br>Payout = Bet Level * {odds[1][3]}
+                                {t("Paytbale-example-description-1", { numOfSymbols: 3 })}
+                                {generateSymbol(1, false, true)}
+                                {t("Paytbale-example-description-2")}
+                                <br></br>
+                                {t("Paytbale-example-description-3", { odd: odds[1][3] })}
                             </td>
                         </tr>
                     </tbody>
@@ -228,7 +231,7 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2>Free Spin</h2>
+            <h2>{t("FreeSpin-title")}</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     7,
@@ -237,35 +240,28 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " FREE SPINS"
+                    t("FreeSpin-upper-plural")
                 )}
                 <ul className="desc">
-                    <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
-                    <li>The Free Spin symbols do not have to be on the same payline.</li>
+                    <li>{t("FreeSpin-line-1")}</li>
+                    <li>{t("FreeSpin-line-2")}</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin” symbols must appear in different reels. For example, if there are 3
-                    {` “Free Spin”`} symbols on the same reel, the system will count as one symbol.
+                    <Trans>{t("FreeSpin-line-3")}</Trans>
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                             <div className={Styles["overlay"]}></div>
                         </div>
 
-                        <span>
-                            There are 4 {`“Free Spin”`} symbols in the result, but 3 symbols are located on the same reel. The player is not
-                            eligible for the Free spins bonus.
-                        </span>
+                        <span>{t("FreeSpin-line-4")}</span>
                     </div>
                 </li>
-                <li className="clear-both">
-                    Free Spins are played at the same Bet Level and same number of paylines as the last spin (the spin on which the User
-                    gets the Free Spins Bonus).
-                </li>
-                <li>The Player must complete Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.</li>
+                <li className="clear-both">{t("FreeSpin-line-5")}</li>
+                <li>{t("FreeSpin-line-6")}</li>
             </ul>
         </li>
     );
@@ -277,7 +273,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2>Bonus</h2>
+            <h2>{t("Bonus-title")}</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     8,
@@ -286,11 +282,11 @@ const renderBonus = (odds: number[][], t: Function) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " BONUS"
+                    t("Bonus-upper-plural")
                 )}
                 <ul className="desc">
-                    <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
-                    <li>The Bonus symbols do not have to be on the same payline.</li>
+                    <li>{t("Bonus-line-1")}</li>
+                    <li>{t("Bonus-line-2")}</li>
                 </ul>
             </div>
 
@@ -361,18 +357,17 @@ const renderWild = (odds: number[][], t: Function) => {
     );
 };
 
-const Contents: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
+const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslation("classicslot");
-    const { gameConfigs, name } = props;
-    const { odds } = gameConfigs;
-    imgSrc = resourceUrl + name;
+    const { odds, name, displayName } = props;
+    imgSrc = appSettings.resourceUrl + name;
 
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("Introduction-title")}</h2>
-                    <p className="content">{t("Introduction-content", { gameName: name })}</p>
+                    <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[10, 6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>

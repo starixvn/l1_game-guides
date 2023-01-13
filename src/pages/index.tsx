@@ -1,8 +1,9 @@
+import { NextPageContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-
+import appSettings from "../common/app-settings";
 import { ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
@@ -57,7 +58,8 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
     document.body.style.fontFamily = fontFamily;
 };
 
-const Home = () => {
+const Home = (prop: any) => {
+    const { gameSetting } = prop;
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
@@ -72,6 +74,7 @@ const Home = () => {
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
     const [isInPromotionTime, setIsInPromotionTime] = useState<boolean>(false);
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
+    const [displayName, setDisplayName] = useState<string>("");
 
     useEffect(() => {
         const CheckIsInteger = (number: string | number | object) => {
@@ -94,6 +97,7 @@ const Home = () => {
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env, gameId);
             setEnvironment(env);
             setName(queryParams?.name);
+            setDisplayName(queryParams?.displayName);
             setIsInPromotionTime(queryParams?.p === "true");
             setFractionalOddsFormat(queryParams?.fof === "true");
             queryParams?.t && setTheme(queryParams.t.toString());
@@ -133,6 +137,8 @@ const Home = () => {
         environment,
         isInPromotionTime,
         fractionalOddsFormat,
+        gameSetting,
+        displayName,
     };
 
     const gameGuideComponent = <GameGuide {...props} />;
@@ -143,10 +149,29 @@ const Home = () => {
     );
 };
 
-export const getStaticProps = async ({ locale = "en", gId = 0 }) => {
+const getGameSetting = async (gameId: number) => {
+    if (gameId) {
+        try {
+            const response = await fetch(`${appSettings.gameSettingUrl}${+gameId}`);
+
+            if (response.ok) {
+                return await response.json();
+            } else {
+                return {};
+            }
+        } catch (err) {
+            return {};
+        }
+    }
+};
+
+export const getServerSideProps = async (context: NextPageContext) => {
+    const gameId = context.query?.gId ?? 0;
+
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "blackjack", "sicbo", "threecards", "classicslot"])),
+            gameSetting: await getGameSetting(+gameId),
+            ...(await serverSideTranslations(context.locale ?? "en", ["common", "blackjack", "sicbo", "threecards", "classicslot"])),
         },
     };
 };

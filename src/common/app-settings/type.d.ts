@@ -20,4 +20,6 @@ export default interface AppSettings {
     sentry: SentryOptions;
     gameSettings: { [id: string]: GameSettingProps };
     system: string;
+    resourceUrl: string;
+    gameSettingUrl: string;
 }

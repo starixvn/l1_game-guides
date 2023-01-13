@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { v4 as uuidv4 } from "uuid";
-import { TFunction, useTranslation } from "next-i18next";
 
 import { ENVIRONMENT, locales, Themes } from "../../common/constants";
-import appSettings from "../../common/app-settings";
 
 const SelectOptions = (listData: Object, setData: Function) => {
     return (
@@ -22,25 +19,7 @@ const SelectOptions = (listData: Object, setData: Function) => {
     );
 };
 
-const renderGameName = (setGameId: Function, t: TFunction) => {
-    return (
-        <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setGameId(+event.target.value)}>
-                {Object.values(appSettings.gameSettings).map((guide, index) => {
-                    return (
-                        <option key={index} value={guide.id}>
-                            {t(guide.gameName.toLocaleLowerCase())}
-                        </option>
-                    );
-                })}
-            </select>
-        </div>
-    );
-};
-
 const Demo = () => {
-    const { t } = useTranslation();
-
     const [linkGuide, setLinkGuide] = useState<string>("");
     const [locale, setLocale] = useState<string>(locales.en);
     const [gameId, setGameId] = useState<number>(0);
@@ -49,14 +28,13 @@ const Demo = () => {
     const [minBet, setMinBet] = useState<number>(0);
     const [maxBet, setMaxBet] = useState<number>(2000);
     const [showConfig, setShowConfig] = useState<boolean>(true);
-    const [name, setName] = useState<string>("");
 
     useEffect(() => {
-        if (locale && name && theme && environment) {
-            const data = `${locale}?name=${name}&t=${theme}&f=${environment}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
+        if (locale && gameId && theme && environment) {
+            const data = `${locale}?gId=${gameId}&t=${theme}&f=${environment}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
             setLinkGuide(`${window.location.origin}/${data}`);
         }
-    }, [locale, name, theme, environment, minBet, maxBet]);
+    }, [locale, gameId, theme, environment, minBet, maxBet]);
 
     return (
         <div id="container-guide" className="container-guide">
@@ -77,8 +55,8 @@ const Demo = () => {
                                     <input
                                         type="string"
                                         className="form-control"
-                                        value={name}
-                                        onChange={(event) => setName(event.target.value)}
+                                        value={gameId}
+                                        onChange={(event) => setGameId(+event.target.value)}
                                         style={{ fontSize: 14 }}
                                     ></input>
                                 </div>
@@ -140,14 +118,6 @@ const Demo = () => {
             )}
         </div>
     );
-};
-
-export const getStaticProps = async ({ locale = "en" }) => {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["common"])),
-        },
-    };
 };
 
 export default Demo;

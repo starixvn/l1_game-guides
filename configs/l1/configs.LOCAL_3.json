@@ -5,5 +5,6 @@
     },
     "system": "L1",
     "enableSourceMap": true,
-    "resourceUrl": "https://l1-proxy3.lumigame.com/game/static/"
+    "resourceUrl": "https://l1-proxy3.lumigame.com/game/static/",
+    "gameSettingUrl": "http://l1_admin_api_local_3:5000/api/public/game_configs/"
 }

@@ -5,6 +5,6 @@
     },
     "system": "L1",
     "enableSourceMap": false,
-    "resourceUrl": "https://proxy.sabagame.com/game/static/"
-
+    "resourceUrl": "https://proxy.sabagame.com/game/static/",
+    "gameSettingUrl": "http://l1_admin_api_prod:5000/api/public/game_configs/"
 }

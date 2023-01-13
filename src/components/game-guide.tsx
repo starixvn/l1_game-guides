@@ -18,6 +18,8 @@ type Props = {
     environment?: string;
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
+    gameSetting: any;
+    displayName: string;
 };
 
 const BigSmallGuide = dynamic(() => import("./game-guide/big-small"));
@@ -71,17 +73,20 @@ const GameGuide: React.FC<Props> = (props) => {
         environment,
         isInPromotionTime,
         fractionalOddsFormat,
+        gameSetting,
+        displayName,
     } = props;
 
     const { t } = useTranslation(["common"]);
     const { gameSettings } = appSettings;
+    const gameName = name ?? gameSettings[gameId]?.gameName?.toLocaleLowerCase();
     const gameGuideProps = {
         locale: locale,
         userStakeLevel: userStakeLevel,
         ...gameSettings[gameId],
         gameConfigs: gameConfigs,
         name,
-        gameNameTranslate: gameId ? t(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
+        gameNameTranslate: t(gameName),
         dynamic,
         isGetGameConfigs,
         isScrollMD5,
@@ -89,13 +94,19 @@ const GameGuide: React.FC<Props> = (props) => {
         project: appSettings.system,
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
+        gameSetting,
+        displayName,
     };
     const otherGuides = () => {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
-        } else {
-            return <ClassicSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
+
+        if (gameSetting.Type == 2 && gameSetting.GameId > 62) {
+            return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
+        }
+
+        return <></>;
     };
     const renderGuide = () => {
         switch (gameId) {

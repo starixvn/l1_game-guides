@@ -1,41 +1,10 @@
-import React, { useEffect, useState } from "react";
-
-import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
+import React from "react";
 import { GameGuideBase } from "../type";
 import Contents from "./contents";
-import { GameConfigProps } from "./type";
 
 const ClassicSlotGuide = (props: GameGuideBase) => {
-    const { gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, name } = props;
-    const [configs, setConfigs] = useState<GameConfigProps>();
+    const { name, gameSetting, displayName } = props;
 
-    const getLocalGameConfigs = () => {
-        getGameConfigProject("fortune-cat", project, setConfigs);
-    };
-
-    const getDynamicGameConfig = () => {
-        if (dynamic) {
-            setConfigs(gameConfigs as any);
-        }
-    };
-
-    useEffect(() => {
-        getLocalGameConfigs();
-    }, []);
-
-    useEffect(() => {
-        if (configs) {
-            if (isGetGameConfigs) {
-                getDynamicGameConfig();
-            }
-        }
-    }, [configs]);
-
-    if (!configs) {
-        return <></>;
-    }
-
-    return <Contents gameConfigs={configs} name={name} gameName={gameNameTranslate} />;
+    return <Contents displayName={displayName} odds={gameSetting?.SlotsConfig?.Icons} name={name ?? gameSetting?.Name} />;
 };
 export default ClassicSlotGuide;

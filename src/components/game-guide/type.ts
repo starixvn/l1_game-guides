@@ -30,6 +30,8 @@ export type GameGuideBase = {
     project?: string;
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
+    gameSetting?: any;
+    displayName: string;
 };
 
 export interface GameConfigsBaseProps {
