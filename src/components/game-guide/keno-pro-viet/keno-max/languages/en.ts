@@ -69,7 +69,7 @@ export const en: IKenoTranslationResource = {
         even: "Even",
         gold: "Gold",
         wood: "Wood",
-        walter: "Walter",
+        water: "Walter",
         fire: "Fire",
         earth: "Earth",
     },

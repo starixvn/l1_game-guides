@@ -48,7 +48,7 @@ export interface IKenoTranslationResource {
         even: string;
         gold: string;
         wood: string;
-        walter: string;
+        water: string;
         fire: string;
         earth: string;
     };

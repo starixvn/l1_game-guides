@@ -67,7 +67,7 @@ export const vi: IKenoTranslationResource = {
         even: "Chẵn",
         gold: "Kim",
         wood: "Mộc",
-        walter: "Thuỷ",
+        water: "Thuỷ",
         fire: "Hoả",
         earth: "Thổ",
     },

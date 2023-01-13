@@ -56,7 +56,7 @@ export const cn: IKenoTranslationResource = {
         even: "双",
         gold: "金",
         wood: "木",
-        walter: "水",
+        water: "水",
         fire: "火",
         earth: "土",
     },

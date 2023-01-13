@@ -295,7 +295,7 @@ export default class KenoProGuideTemplate extends React.Component<
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{payouts.walter}</td>
+                                    <td>{payouts.water}</td>
                                     <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
