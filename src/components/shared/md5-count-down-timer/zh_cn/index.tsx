@@ -11,7 +11,7 @@ export const renderMD5CN = () => {
                         <li>MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。</li>
                         <li>游戏结果将在玩家下注前由系统随机生成。</li>
                         <li>
-                            玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>Result</strong>）是否匹配。
+                            玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>结果</strong>）是否匹配。
                         </li>
                     </ul>
                 </li>

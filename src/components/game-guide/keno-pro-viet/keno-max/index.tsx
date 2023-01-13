@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import KenoMaxGuideEN from "./en";
-import KenoMaxGuideVI from "./vi";
 import { GameGuideBase } from "../../type";
-import { locales } from "../../../../common/constants";
 import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import KenoProGuideTemplate from "./templates/default";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
     const {
@@ -80,20 +78,9 @@ const KenoMaxGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-
-    if (locale === locales.en) {
-        return (
-            <KenoMaxGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                environment={environment}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
     return (
-        <KenoMaxGuideVI
+        <KenoProGuideTemplate
+            locale={locale}
             gameConfigs={configs}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}

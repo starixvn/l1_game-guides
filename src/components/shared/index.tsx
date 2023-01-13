@@ -1,6 +1,24 @@
 import React from "react";
+import { locales } from "../../common/constants";
 
 const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42, blackjack: 23 };
+
+export const renderTermsAndConditions = (style = "", gameId?: number, locale?: string) => {
+    switch (locale) {
+        case locales.vi:
+            return renderTermsAndConditionsVI(style, gameId);
+        case locales.id:
+            return renderTermsAndConditionsID(style, gameId);
+        case locales.th:
+            return renderTermsAndConditionsTH(style, gameId);
+        case locales.zh_cn:
+            return renderTermsAndConditionsCN(style, gameId);
+        case locales.zh_tw:
+            return renderTermsAndConditionsTW(style, gameId);
+        default:
+            return renderTermsAndConditionsEN(style, gameId);
+    }
+};
 
 export const renderTermsAndConditionsEN = (style = "", gameId?: number) => {
     return (
@@ -125,8 +143,8 @@ export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
                     uang, atau segala bentuk aktivitas ilegal atau mencurigakan lainnya.
                 </li>
                 <li className="number-dot">
-                    Perusahaan berhak membatalkan atau membatalkan taruhan apa pun jika ada kesalahan (disebabkan oleh manusia atau faktor
-                    lainnya), atau kegagalan sistem yang mengakibatkan peluang taruhan yang salah.
+                    Perusahaan berhak untuk membatalkan atau membatalkan taruhan apa pun ketika ada kesalahan (disebabkan oleh manusia atau
+                    faktor lainnya), atau kegagalan sistem yang mengakibatkan rasio pembayaran yang salah.
                 </li>
                 <li className="number-dot">
                     Semua taruhan yang diterima akan tetap berlaku meskipun member kemudian keluar atau terputus dari situs karena alasan
@@ -191,8 +209,8 @@ export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
                     หรือกิจกรรมที่ผิดกฎหมายหรือน่าสงสัยในรูปแบบอื่นใดเป็นโมฆะ
                 </li>
                 <li className="number-dot">
-                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันใดๆ เมื่อมีข้อผิดพลาด (เกิดจากผู้เล่นหรือปัจจัยอื่นๆ)
-                    หรือระบบล้มเหลวส่งผลให้อัตราเดิมพันผิดพลาด
+                    บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันใด ๆ เมื่อมีข้อผิดพลาด (เกิดจากมนุษย์หรือปัจจัยอื่น ๆ )
+                    หรือความล้มเหลวของระบบส่งผลให้อัตราการจ่ายไม่ถูกต้อง
                 </li>
                 <li className="number-dot">
                     การเดิมพันที่ยอมรับทั้งหมดจะยังคงมีผลแม้ว่าสมาชิกจะออกจากระบบในภายหลังหรือถูกตัดการเชื่อมต่อจากไซต์ด้วยเหตุผลใดก็ตาม
@@ -285,7 +303,7 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
                     本公司保留取消或取消我们认为涉及欺诈、洗钱或任何其他形式的非法或可疑活动的玩家的任何投注的权利。
                 </li>
                 <li className="number-dot">
-                    当出现错误（由人为或任何其他因素引起）或系统故障导致错误的投注赔率时，本公司保留取消或作废任何投注的权利。
+                    当出现错误（由人为或任何其他因素引起）或系统故障导致支付率不正确时，本公司保留取消或取消任何投注的权利。
                 </li>
                 <li className="number-dot">即使会员随后退出或因任何原因与网站断开连接，所有已接受的投注仍将有效。</li>
             </ul>
@@ -320,7 +338,7 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
                     本公司保留取消或取消我們認為涉及欺詐、洗錢或任何其他形式的非法或可疑活動的玩家的任何投注的權利。
                 </li>
                 <li className="number-dot">
-                    當出現錯誤（由人為或任何其他因素引起）或系統故障導致錯誤的投注賠率時，本公司保留取消或作廢任何投注的權利。
+                    當出現錯誤（由人為或任何其他因素引起）或系統故障導致支付率不正確時，本公司保留取消或取消任何投注的權利。
                 </li>
                 <li className="number-dot">即使會員隨後退出或因任何原因與網站斷開連接，所有已接受的投注仍將有效。</li>
             </ul>

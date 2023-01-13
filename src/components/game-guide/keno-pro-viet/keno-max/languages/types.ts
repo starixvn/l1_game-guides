@@ -1,0 +1,68 @@
+export interface IKenoTranslationResource {
+    introduction: {
+        title: string;
+        description: string;
+    };
+    gameRules: {
+        title: string;
+        description: {
+            lines: string[];
+            maximum: string;
+            otherLine?: string;
+        };
+    };
+    bettingOptions: {
+        title: string;
+        bigSmall: {
+            title: string;
+            descriptions: string[];
+            winningText: string;
+        };
+        oddEven: {
+            title: string;
+            descriptions: string[];
+            winningText: string;
+        };
+        fiveElement: {
+            title: string;
+            descriptions: string[];
+            winningText: string;
+        };
+        example: {
+            description: string;
+            drawResult: string;
+            totalSum: string;
+        };
+    };
+    payouts: {
+        title: string;
+        descriptions: string[];
+        options: string;
+        odds: string;
+        betLimit: string;
+        min: string;
+        max: string;
+        big: string;
+        small: string;
+        odd: string;
+        even: string;
+        gold: string;
+        wood: string;
+        walter: string;
+        fire: string;
+        earth: string;
+    };
+    md5: {
+        example: string;
+        step1: string;
+        image1: string;
+        step2: string;
+        image2: string;
+        step3: string;
+        step4: string;
+        note: string;
+        md5Key: string;
+        result: string;
+        copy: string;
+    };
+}

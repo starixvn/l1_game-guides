@@ -52,7 +52,8 @@ const Demo = () => {
 
     useEffect(() => {
         if (locale && gameId && theme && environment) {
-            const data = `${locale}?gId=${gameId}&t=${theme}&f=${environment}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
+            let data = `${locale}?gId=${gameId}&t=${theme}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
+            environment == ENVIRONMENT.sc && (data += `&f=${environment}`);
             setLinkGuide(`${window.location.origin}/${data}`);
         }
     }, [locale, gameId, theme, environment, minBet, maxBet]);
