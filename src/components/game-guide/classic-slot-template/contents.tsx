@@ -1,6 +1,5 @@
 import React from "react";
 import { Trans, useTranslation } from "next-i18next";
-import { renderTermsAndConditionsEN } from "../../shared";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
 import appSettings from "../../../common/app-settings";
@@ -292,24 +291,17 @@ const renderBonus = (odds: number[][], t: Function) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
-                    on the same reel, the system will count as one symbol.
+                    <Trans>{t("Bonus-line-3")}</Trans>
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                             <div className={Styles["overlay"]}></div>
                         </div>
 
-                        <span>
-                            There are 4 {`“Bonus”`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 items.
-                        </span>
+                        <span>{t("Bonus-line-4")}</span>
                     </div>
                 </li>
-                <li>
-                    Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open
-                    items and settle the game round.
-                </li>
+                <li>{t("Bonus-line-5")}</li>
             </ul>
         </li>
     );
@@ -318,41 +310,53 @@ const renderBonus = (odds: number[][], t: Function) => {
 const renderWild = (odds: number[][], t: Function) => {
     return (
         <li className="guide-item">
-            <h2>Wild</h2>
+            <h2>{t("Wild-title")}</h2>
             <div className={Styles["wild-content"]}>
                 <span className={Styles["wrapper-wild"]}>{generateSymbol(9)}</span>
 
                 <ul className="desc">
                     <li>
-                        “Wild” symbol can substitute for all symbols except
+                        {t("Wild-line-1")}
                         {generateSymbol(8, false, true)},{generateSymbol(7, false, true)}
-                        and
+                        {t("Wild-word-and")}
                         {generateSymbol(10, false, true)}
                     </li>
-                    <li>Only the highest achieved win per line is paid out.</li>
+                    <li>{t("Wild-line-2")}</li>
                 </ul>
             </div>
             <div>
-                <strong>Example</strong>
+                <strong>{t("Common-example")}</strong>
                 <div className={Styles["wrapper-wild-ex"]}>
                     <div className={Styles["wild-img"]}>{[2, 2, 9, 5, 5].map((symbol) => generateSymbol(symbol))}</div>
                     <ul className="desc">
                         <li>
-                            If Wild symbol is
+                            {t("Wild-example-description-1")}
                             {generateSymbol(2, false, true)}
-                            {`=>`} Payout = Bet Level * {odds[2][3]}
+                            {t("Wild-example-description-2", { odd: odds[2][3] })}
                         </li>
                         <li>
-                            If Wild symbol is
+                            {t("Wild-example-description-1")}
                             {generateSymbol(5, false, true)}
-                            {`=>`} Payout = Bet Level * {odds[5][3]}
+                            {t("Wild-example-description-2", { odd: odds[5][3] })}
                         </li>
                     </ul>
-                    <p>
-                        Player will get the highest win on this payline {`=>`} Payout = Bet Level * {Math.max(odds[2][3], odds[5][3])}
-                    </p>
+                    <p>{t("Wild-example-description-3", { odd: Math.max(odds[2][3], odds[5][3]) })}</p>
                 </div>
             </div>
+        </li>
+    );
+};
+
+const renderTermsAndConditions = (t: Function) => {
+    return (
+        <li className={`guide-item ${Styles["guide-item"]}`}>
+            <h2>{t("TermsAndConditions-title")}</h2>
+            <ul className="style-number-rule">
+                <li className="number-dot">{t("TermsAndConditions-line-1")}</li>
+                <li className="number-dot">{t("TermsAndConditions-line-2")}</li>
+                <li className="number-dot">{t("TermsAndConditions-line-3")}</li>
+                <li className="number-dot">{t("TermsAndConditions-line-4")}</li>
+            </ul>
         </li>
     );
 };
@@ -384,7 +388,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 {renderFreeSpin(odds, t)}
                 {renderBonus(odds, t)}
                 {renderWild(odds, t)}
-                {renderTermsAndConditionsEN(Styles["guide-item"])}
+                {renderTermsAndConditions(t)}
             </ul>
         </>
     );
