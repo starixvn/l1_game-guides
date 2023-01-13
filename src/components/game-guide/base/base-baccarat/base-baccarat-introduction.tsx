@@ -1,11 +1,11 @@
 import React from "react";
-import { BaccaratIntroductionResources } from "./card-model";
+import { IBaseBaccaratResources } from "./languages/types";
 
-const BaseBaccaratIntroduction: React.FunctionComponent<{ resources: BaccaratIntroductionResources }> = ({ resources }) => {
+const BaseBaccaratIntroduction: React.FunctionComponent<{ resources: IBaseBaccaratResources }> = ({ resources }) => {
     return (
         <>
-            <h2>{resources.header}</h2>
-            <p className="content">{resources.content}</p>
+            <h2>{resources.introduction.header}</h2>
+            <p className="content">{resources.introduction.content}</p>
         </>
     );
 }

@@ -1,32 +1,9 @@
 import React from "react";
 import Styles from "./base-baccarat.module.scss";
+import { IBaseBaccaratResources } from "./languages/types";
 
-interface BaccaratRuleResoures {
-    twoCardsTotal: string;
-    action: string;
-}
-
-interface BaccaratPlayerHandResources {
-    header: string;
-    cardsTotal: string;
-    action: string;
-    examples: Array<BaccaratRuleResoures>
-}
-
-interface BaccaratBankerHandResources extends BaccaratPlayerHandResources {
-    firstDescription: string;
-    secondDescription: Array<string>;
-}
-
-export interface BaccaratThirdCardRuleResources {
-    header: string;
-    descriptions: Array<string>;
-    playerHand: BaccaratPlayerHandResources;
-    bankerHand: BaccaratBankerHandResources;
-}
-
-const BaseBaccaratThirdCardRule: React.FunctionComponent<{ resources: BaccaratThirdCardRuleResources }> = ({ resources }) => {
-    const { header, descriptions, playerHand, bankerHand } = resources;
+const BaseBaccaratThirdCardRule: React.FunctionComponent<{ resources: IBaseBaccaratResources }> = ({ resources }) => {
+    const { header, descriptions, playerHand, bankerHand } = resources.thirdCardRules;
     return (
         <>
             <h2>{header}</h2>

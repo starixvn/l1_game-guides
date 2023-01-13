@@ -3,8 +3,8 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../index.helper";
-import BlockchainBaccaratGuideEN from "./en";
 import { GameConfigProps, MaxBetChoicesProps } from "../baccarat/type";
+import BlockchainBaccaratGuideTemplate from "./templates";
 
 export enum BaccaratId {
     BlockchainBaccarat = 48,
@@ -80,6 +80,6 @@ const BlockChainBaccaratGuide = (props: GameGuideBase) => {
         locale
     };
 
-    return <BlockchainBaccaratGuideEN {...resource} />
+    return <BlockchainBaccaratGuideTemplate {...resource} />
 };
 export default BlockChainBaccaratGuide;

@@ -2,35 +2,16 @@ import React from "react";
 import Styles from "./base-baccarat.module.scss";
 import { Markup } from "interweave";
 import { formatOdds } from "../../../../helpers/number-helper";
-
-interface PayoutsDescriptions {
-    details: Array<string>;
-    noted: string;
-    options: string;
-    odds: string;
-    betLimit: string;
-    player: string;
-    banker: string;
-    big: string;
-    small: string;
-    tie: string;
-    playerPair: string;
-    bankerPair: string;
-}
-
-export interface BaccaratPayoutResources {
-    header: string;
-    descriptions: PayoutsDescriptions;
-}
+import { IBaseBaccaratResources } from "./languages/types";
 
 const BaseBaccaratPayout: React.FunctionComponent<{
     fractionalOddsFormat: any,
     odds: any,
     maxBetFollowChoice: any,
-    resources: BaccaratPayoutResources
+    resources: IBaseBaccaratResources
 }> = (
     { fractionalOddsFormat, odds, maxBetFollowChoice, resources }) => {
-        const { header, descriptions } = resources;
+        const { header, descriptions } = resources.payouts;
         return (
             <>
                 <h2>{header}</h2>
