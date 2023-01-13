@@ -34,7 +34,7 @@ const renderMD5Example = (gameName: string) => {
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
                 </li>
                 <li>
-                    <strong>Langkah 4:</strong> Tekan tombol "hash darling, hash!" dan bandingkan rangkaian daftar periksa MD5 yang baru
+                    <strong>Langkah 4:</strong> Tekan tombol {`"hash darling, hash!"`} dan bandingkan rangkaian daftar periksa MD5 yang baru
                     dibuat dengan Kunci MD5 di Langkah 1.
                     <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
                 </li>

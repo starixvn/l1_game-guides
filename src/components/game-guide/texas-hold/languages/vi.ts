@@ -31,7 +31,7 @@ export const vi: TexasHoldemLanguage = {
         "the Player will continue playing":
             "the Player will continue playing with an additional Call bet, equal to twice the Ante\
     bet, and three community cards (Flop card) are dealt face-up in the middle of the table.",
-        Turn: "Turn",
+        "Turn & River bet": "Turn & River bet",
         "River bet": "River bet",
         "are additional bets": "are additional bets decided by Player whether he wants to raise his bet.",
         "Turn bet": "Turn bet",
@@ -46,8 +46,8 @@ export const vi: TexasHoldemLanguage = {
         "The two personal cards are combined with 5 community cards":
             "The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win if\
     the Player has a better hand than the Dealer",
-        "The maximum total stake per round is":
-            "The maximum total stake per round is {maxBet}. Note, placed bets cannot be canceled after cards are dealt.",
+        "The maximum total stake per round is": "The maximum total stake per round is ",
+        "Note, placed bets cannot be canceled after cards are dealt": "Note, placed bets cannot be canceled after cards are dealt.",
         "Ranking Level": "Ranking Level",
         "Card Values": "Card Values",
         "The card’s value is ":
@@ -111,7 +111,8 @@ export const vi: TexasHoldemLanguage = {
         "If Player’s hand beats Dealer’s hand": "If Player’s hand beats Dealer’s hand",
         "With a Three of a Kind or lower": "With a Three of a Kind or lower",
         "the Call, Turn and River bets are won, and Ante is pushed.": "the Call, Turn and River bets are won, and Ante is pushed.",
-        "With a Straight or higher": "All bets (Ante, Call, Turn, and River) will win.",
+        "With a Straight or higher": "With a Straight or higher",
+        "All bets (Ante, Call, Turn, and River) will win.": "All bets (Ante, Call, Turn, and River) will win.",
         "Payout and Bet Limit": "Payout and Bet Limit",
         Option: "Option",
         Odds: "Odds",
@@ -122,7 +123,6 @@ export const vi: TexasHoldemLanguage = {
         Call: "Call",
         Turn: "Turn",
         River: "River",
-        "All bets (Ante, Call, Turn, and River) will win.": "All bets (Ante, Call, Turn, and River) will win.",
     },
 
     md5: {
@@ -135,7 +135,9 @@ export const vi: TexasHoldemLanguage = {
         "Players can manually check whether or not the results generated before the cards are revealed":
             "Players can manually check whether or not the results generated before the cards are revealed",
         MD5: "MD5",
+        "MD5 string": "MD5 string",
         string: "string",
+        "Result string": "String Result",
         "and the publishing results": "and the publishing results",
         "are matched": "are matched",
         "MD5 Validation": "MD5 Validation",
