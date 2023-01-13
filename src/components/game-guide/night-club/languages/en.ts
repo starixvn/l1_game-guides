@@ -4,7 +4,7 @@ export const en: INighClubTranslationResource = {
     gameRule: {
         title: "Game Rules",
         description: {
-            line1: "The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing",
+            line1: "The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing “Spin”.",
             totalBet: "Total Bet",
             paylinesFormular: "= Paylines * Bet Level",
             note: "Note",
@@ -19,7 +19,7 @@ export const en: INighClubTranslationResource = {
         paytable: "Paytable",
         winningAmount: "The winning amount is calculated according to the betting odds",
         note: "Note",
-        initialStake: "the Payout includes the initial stake",
+        initialStake: "the Payout includes the initial stake.",
     },
     examplePayout: {
         title: "Example",
@@ -29,8 +29,8 @@ export const en: INighClubTranslationResource = {
             having5Symbols: "Having 5 symbols",
             samePayline: "located on the same payline",
             payoutBetLevel: "Payout = Bet Level *",
-            having3Symbols: "Having 5 symbols",
-            having4Symbols: "Having 5 symbols",
+            having3Symbols: "Having 3 symbols",
+            having4Symbols: "Having 4 symbols",
         },
     },
     freeSpin: {
@@ -45,11 +45,10 @@ export const en: INighClubTranslationResource = {
         get: "Get",
         freeSpinBonus: "Free Spins Bonus.",
         note: "Note",
-        freeSpinReel: "The “Free Spin” symbols must appear in different reels. For example, if there are 3",
-        oneSymbol: "symbols on the same reel, the system will count as one symbol.",
-        thereAre4: "There are 4",
-        notEligible:
-            "symbols in the result, but 3 symbols are located on the same reel. The player is not eligible for the Free spins bonus.",
+        freeSpinReel:
+            "The “Free Spin” symbols must appear in different reels. For example, if there are 3 “Free Spin” symbols on the same reel, the system will count as one symbol.",
+        thereAre4:
+            "There are 4 “Free Spin” symbols in the result, but 3 symbols are located on the same reel. The player is not eligible for the Free spins bonus.",
         lastFreespin:
             "Free Spins are played at the same Bet Level and same number of paylines as the last spin (the spin on which the User gets the Free Spins Bonus).",
         freeSpinExpired: "The Player must complete Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.",
@@ -71,16 +70,17 @@ export const en: INighClubTranslationResource = {
         thereAre4: "There are 4",
         eligible: "symbols in the result, but 2 symbols are located on the same reel. The player is only eligible for 3 items.",
         bonusExpired:
-            "Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open items and settle the game round.",
+            "Player has to complete the Bonus Game within 120 seconds of countdown. After this period, the system will randomly open items and settle the game round.",
     },
     wild: {
         title: "Wild",
         substitute: "“Wild” symbol can substitute for all symbols except",
         and: "and",
+        endSubstitute: "",
         onlyHighest: "Only the highest achieved win per line is paid out.",
         example: "Example",
         ifwild: "If Wild symbol is",
-        payoutBetLevel: "Payout = Bet Level ",
+        payoutBetLevel: "Payout = Bet Level *",
         highestWin: "Player will get the highest win on this payline",
     },
     main: {

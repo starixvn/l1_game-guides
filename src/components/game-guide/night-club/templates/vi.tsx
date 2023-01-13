@@ -1,7 +1,5 @@
 import React from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
-import { GameConfigProps } from "../type";
-import { GameGuideProps } from "../../type";
 import NightClubGuideTemplate from "./default";
 import Styles from "../nightclub.module.scss";
 import { locales } from "../../../../common/constants";

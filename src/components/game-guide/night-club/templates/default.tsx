@@ -22,7 +22,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                 <h2>{gameRuleResource.title}</h2>
                 <ul className="desc">
                     <li>
-                    {gameRuleResource.description.line1} {`“Spin”`}.
+                    {gameRuleResource.description.line1}
                         <div className="text-center">
                             <strong> {gameRuleResource.description.totalBet}</strong> {gameRuleResource.description.paylinesFormular}
                         </div>
@@ -49,7 +49,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                 <ul className="desc">
                     <li>{payOutResource.winningAmount}.</li>
                     <li>
-                        <strong>{payOutResource.note}, </strong>{payOutResource.initialStake}.
+                        <strong>{payOutResource.note}, </strong>{payOutResource.initialStake}
                     </li>
                 </ul>
                 {this.renderPayoutsIconFirstLine(odds, locales.en)}
@@ -144,7 +144,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
         );
     };
     
-    renderPayoutsIconSecondLine(odds: number[][], locale = "en") {
+    renderPayoutsIconSecondLine(odds: number[][]) {
         return (
             <>
                 <div className={Styles["icon-container"]}>
@@ -339,8 +339,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
     
                 <ul className="desc">
                     <li>
-                        <strong>  {freeSpinResource.note}:</strong>  {freeSpinResource.freeSpinReel}{" "}
-                        {`“Free Spin”`}  {freeSpinResource.oneSymbol}
+                        <strong>  {freeSpinResource.note}:</strong>  {freeSpinResource.freeSpinReel}
                         <div className={Styles[freeSpinContentEX]}>
                             <div className={Styles["wrapper-free-spin-ex"]}>
                                 <img
@@ -353,7 +352,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                             </div>
     
                             <span>
-                            {freeSpinResource.thereAre4} {`“Free Spin”`}  {freeSpinResource.notEligible}
+                            {freeSpinResource.thereAre4}
                             </span>
                         </div>
                     </li>
@@ -476,6 +475,7 @@ class NightClubGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                                 src="./static/images/nightclub/item10.png"
                                 alt="item10"
                             ></img>
+                            {wildResource.endSubstitute}
                         </li>
                         <li>{wildResource.highestWin}</li>
                     </ul>

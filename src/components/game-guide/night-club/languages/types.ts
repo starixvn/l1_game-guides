@@ -42,9 +42,7 @@ export interface INighClubTranslationResource {
         freeSpinBonus: string;
         note: string;
         freeSpinReel: string;
-        oneSymbol: string;
         thereAre4: string;
-        notEligible: string;
         lastFreespin: string;
         freeSpinExpired: string;
     };
@@ -69,6 +67,7 @@ export interface INighClubTranslationResource {
         title: string;
         substitute: string;
         and: string;
+        endSubstitute: string;
         onlyHighest: string;
         example: string;
         ifwild: string;
