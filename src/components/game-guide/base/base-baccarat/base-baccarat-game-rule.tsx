@@ -2,9 +2,9 @@ import React from "react";
 import Styles from "./base-baccarat.module.scss";
 import { Markup } from "interweave";
 import { IBaseBaccaratResources } from "./languages/types";
-import _ from "lodash";
+import { StringFormat } from "../../../../helpers/string-helper";
 
-const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratResources, maxBetMain: number | string }> = ({ resources, maxBetMain }) => {
+const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratResources, maxBetMain: string }> = ({ resources, maxBetMain }) => {
     const { gameRules } = resources;
     return (
         <>
@@ -12,8 +12,7 @@ const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratRe
             <ul className="desc">
                 {
                     gameRules.details.map((detail, index) => {
-                        const template = _.template(detail);
-                        return <li key={index}>{<Markup content={template({ maxBetMain })} />}</li>
+                        return <li key={index}>{<Markup content={StringFormat(detail, maxBetMain)} />}</li>
                     })
                 }
                 <li className="contentBeforeEmpty">

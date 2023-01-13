@@ -20,7 +20,7 @@ const BlockchainBaccaratGuideTemplate: React.FC<GameGuideProps<GameConfigProps, 
         <>
             <ul className="game-guide">
                 <li className="guide-item"><BaseBaccaratIntroduction resources={resources} /></li>
-                <li className="guide-item"><BlockChainBaccaratGameRule resources={resources} maxBetMain={maxBetFollowChoice?.maxBetMain ?? 0} /></li>
+                <li className="guide-item"><BlockChainBaccaratGameRule resources={resources} maxBetMain={(maxBetFollowChoice?.maxBetMain ?? 0).toString()} /></li>
                 <li className="guide-item"><BaseBaccaratPointCalculationRules resources={resources} /></li>
                 <li className="guide-item"><BaseBaccaratThirdCardRule resources={resources} /></li>
                 <li className="guide-item"><BaseBaccaratPayout {...{ fractionalOddsFormat, odds, maxBetFollowChoice, resources }} /></li>

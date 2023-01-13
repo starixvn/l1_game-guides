@@ -14,7 +14,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             "Jika putaran berakhir dengan total kurang dari 6 kartu yang dibagikan, kartu yang tersisa akan digunakan untuk putaran berikutnya.",
             "Permainan menentukan menang atau kalah dengan membandingkan total poin dari semua kartu di masing-masing tangan dan tangan yang menang adalah yang paling dekat dengan total 9 poin.",
             "Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan.",
-            "Total taruhan maksimum per putaran adalah <%= maxBetMain%>",
+            "Total taruhan maksimum per putaran adalah {0}",
         ],
         table: {
             header: {

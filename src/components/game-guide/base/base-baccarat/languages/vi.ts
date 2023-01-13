@@ -13,7 +13,7 @@ export const baseBaccaratResourcesVi: IBaseBaccaratResources = {
             "Hai lá còn lại trong 6 lá được rút ban đầu sẽ được chia tùy thuộc vào tổng điểm 2 lá bài của Nhà Con, Nhà Cái.",
             "Trong trường hợp phiên kết thúc với tổng số lá bài được chia ít hơn 6 lá, những lá còn lại sẽ được sử dụng cho phiên kế tiếp.",
             "Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và 0 là điểm số thấp nhất.",
-            "Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là <%= maxBetMain%>. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
+            "Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là {0}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
             "Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.",
         ],
         table: {

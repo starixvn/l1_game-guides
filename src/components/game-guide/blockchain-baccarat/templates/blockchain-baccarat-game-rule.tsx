@@ -54,7 +54,7 @@ const CutCard: React.FunctionComponent<{ resources: IBlockchainBaccaratResources
     );
 };
 
-const BlockChainBaccaratGameRule: React.FunctionComponent<{ resources: IBlockchainBaccaratResources, maxBetMain: number | string }> = ({ resources, maxBetMain }) => {
+const BlockChainBaccaratGameRule: React.FunctionComponent<{ resources: IBlockchainBaccaratResources, maxBetMain: string }> = ({ resources, maxBetMain }) => {
     return (
         <>
             <BaseBaccaratGameRule {...{ resources, maxBetMain }} />

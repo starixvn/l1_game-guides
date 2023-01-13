@@ -14,7 +14,7 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
             "如果該回合結束時發出的牌總數少於6張，剩餘的牌將用於下一輪。",
             "遊戲通過比較每手牌的總點數來決定輸贏，點數越接近9的獲勝。",
             "所有投注必須在投注時間結束前完成。請注意，下注後不能取消。",
-            "每輪最大賭注為 <%= maxBetMain%>",
+            "每輪最大賭注為 {0}",
         ],
         table: {
             header: {

@@ -1,5 +1,4 @@
 import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
-import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
 
 export interface IBlockchainBaccaratResources extends IBaseBaccaratResources {
     extendGameRules: {
