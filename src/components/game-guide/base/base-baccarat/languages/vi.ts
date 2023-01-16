@@ -8,14 +8,7 @@ export const baseBaccaratResourcesVi: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "Cách chơi",
-        details: [
-            "Khi bắt đầu phiên, mặc định 6 lá bài sẽ được rút, trong đó hai cửa Nhà Con và Nhà Cái, mỗi cửa sẽ được chia 2 lá bài. Bài sẽ được chia theo thứ tự Nhà Con trước.",
-            "Hai lá còn lại trong 6 lá được rút ban đầu sẽ được chia tùy thuộc vào tổng điểm 2 lá bài của Nhà Con, Nhà Cái.",
-            "Trong trường hợp phiên kết thúc với tổng số lá bài được chia ít hơn 6 lá, những lá còn lại sẽ được sử dụng cho phiên kế tiếp.",
-            "Trò chơi sẽ phân định thắng thua bằng cách so sánh tổng điểm của các lá bài ở mỗi cửa. Trong đó 9 là số điểm cao nhất và 0 là điểm số thấp nhất.",
-            "Người chơi có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược. Tổng tiền cược tối đa cho 1 phiên là {0}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
-            "Thời gian đặt cược cho mỗi phiên sẽ được hiển thị đếm ngược trên bàn chơi.",
-        ],
+        details: [],
         table: {
             header: {
                 options: "Lựa Chọn",

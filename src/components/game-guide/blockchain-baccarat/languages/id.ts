@@ -31,4 +31,17 @@ export const id: IBlockchainBaccaratResources = {
             },
         },
     },
+    gameRules: {
+        ...baseBaccaratResourcesId.gameRules,
+        ...{
+            details: [
+                "Secara bawaan, 6 kartu akan ditarik di awal setiap putaran. Player dan Banker, masing-masing tangan akan dimulai dengan 2 kartu menghadap ke bawah.",
+                "Kartu ketiga akan dibagikan sesuai dengan total poin dari 2 kartu pertama di masing-masing tangan.",
+                "Jika putaran berakhir dengan total kurang dari 6 kartu yang dibagikan, kartu yang tersisa akan digunakan untuk putaran berikutnya.",
+                "Permainan menentukan menang atau kalah dengan membandingkan total poin dari semua kartu di masing-masing tangan dan tangan yang menang adalah yang paling dekat dengan total 9 poin.",
+                "Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan.",
+                "Total taruhan maksimum per putaran adalah {0}",
+            ],
+        },
+    },
 };

@@ -8,14 +8,7 @@ export const baseBaccaratResourcesEn: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "Game Rules",
-        details: [
-            "By default, 6 cards will be drawn at the beginning of each round. Player and Banker, each hand will start with 2 cards face down.",
-            "The third card will be dealt according to the total points of the first 2 cards on each hand.",
-            "If the round ends with a total of less than 6 cards dealt, the remaining cards will be used for the next round.",
-            "The game determines the win or loss by comparing the total points of all cards on each hand and the winning hand is the one closest to a total of 9 points.",
-            "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
-            "The maximum total stake per round is {0}",
-        ],
+        details: [],
         table: {
             header: {
                 options: "Options",
