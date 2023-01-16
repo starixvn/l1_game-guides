@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import CasinoHoldGuideEN from "./en";
+import CasinoHoldGuideTemplate from "./templates/default";
 import CasinoHoldGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
@@ -66,9 +66,9 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
+    if (locale === locales.vi) {
         return (
-            <CasinoHoldGuideEN
+            <CasinoHoldGuideVI
                 gameConfigs={configs}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
@@ -79,8 +79,9 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
             />
         );
     }
+
     return (
-        <CasinoHoldGuideVI
+        <CasinoHoldGuideTemplate
             gameConfigs={configs}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
