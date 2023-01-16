@@ -86,7 +86,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
                     maxBetFollowChoice={maxBetFollowChoice}
                     isScrollMD5={isScrollMD5}
                     fractionalOddsFormat={fractionalOddsFormat}
-                    language={idLanguage}
+                    language={vi}
                 />
             );
         case locales.id:
