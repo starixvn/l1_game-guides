@@ -1,18 +1,16 @@
-import { INighClubTranslationResource } from "./types";
+import { ISlotTranslationResource } from "../types";
 
-export const id: INighClubTranslationResource = {
+export const id: ISlotTranslationResource = {
     gameRule: {
         title: "Aturan Permainan",
         description: {
             line1: "Pemain memilih Paylines (Garis) dan menetapkan Level Taruhan yang ingin Anda pasang sebelum menekan “ Putar ”.",
             totalBet: "Total Taruhan",
             paylinesFormular: "= Paylines * Level Taruhan",
-            note: "Catatan",
-            newExperience: "Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.",
-            atLeastOnePayline:
+            subDescriptions: [
                 "25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.",
-            paylineWinLoss:
                 "Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.",
+            ],
         },
     },
     payOut: {
@@ -20,6 +18,7 @@ export const id: INighClubTranslationResource = {
         winningAmount: "Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.",
         note: "Catatan",
         initialStake: "Pembayaran termasuk taruhan awal.",
+        allWinningAmount: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
     },
     examplePayout: {
         title: "Contoh",
@@ -37,12 +36,6 @@ export const id: INighClubTranslationResource = {
         title: "Free Spin",
         description1: "Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.",
         description2: "Simbol Free Spin tidak harus berada di payline yang sama.",
-        symbolHeader: "Simbol",
-        descriptionHeader: "Keterangan",
-        having5FreeSpins: "Memiliki 5 simbol Putaran Gratis di hasil.",
-        having4FreeSpins: "Memiliki 4 simbol Putaran Gratis di hasil.",
-        having3FreeSpins: "Memiliki 3 simbol Putaran Gratis di hasil.",
-        get: "Get",
         freeSpinBonus: "Bonus Putaran Gratis.",
         note: "Catatan",
         freeSpinReel:
@@ -57,11 +50,6 @@ export const id: INighClubTranslationResource = {
         title: "Bonus",
         description1: "Memiliki 3, 4, atau 5 simbol Bonus yang muncul di mana saja pada hasil akan memicu Permainan Bonus.",
         description2: "Simbol Bonus tidak harus berada di garis pembayaran yang sama.",
-        symbolHeader: "Simbol",
-        descriptionHeader: "Keterangan",
-        having5Bonuses: "Memiliki 5 simbol Bonus di hasil.",
-        having4Bonuses: "Memiliki 4 simbol Bonus di hasil.",
-        having3Bonuses: "Memiliki 3 simbol Bonus di hasil.",
         canOpen: "Dapat membuka",
         itemInBonusGame: " Peti Harta Karun di Game Bonus.",
         note: "Catatan",

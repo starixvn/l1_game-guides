@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-
-import NightClubGuideTemplate from "./templates/default";
+import { NightClubTemplate } from "./templates/default";
 import NightClubGuideVI from "./templates/vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../index.helper";
-import { GameConfigProps } from "./type";
+import { GameConfigProps } from "../base/base-slot/types";
 
 const NightClubGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -38,9 +37,10 @@ const NightClubGuide = (props: GameGuideBase) => {
     }
 
     if (locale === locales.vi) {
-        return <NightClubGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
+        return <NightClubGuideVI gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
     }
 
-    return <NightClubGuideTemplate gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
+    return <NightClubTemplate gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
 };
+
 export default NightClubGuide;

@@ -1,16 +1,16 @@
-import { INighClubTranslationResource } from "./types";
+import { ISlotTranslationResource } from "../types";
 
-export const cn: INighClubTranslationResource = {
+export const cn: ISlotTranslationResource = {
     gameRule: {
         title: "游戏规则",
         description: {
             line1: "玩家在按下“旋转”之前选择支付线（线）并设置您要下注的下注级别。",
             totalBet: "总投注",
             paylinesFormular: "= 支付线 * 投注水平",
-            note: "请注意",
-            newExperience: "Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.",
-            atLeastOnePayline: "25 条支付线从 1 到 25 编号，玩家必须在开始游戏前至少选择一条支付线。",
-            paylineWinLoss: "每条支付线上的赢输将根据位于该支付线上的相同符号的数量计算。",
+            subDescriptions: [
+                "25 条支付线从 1 到 25 编号，玩家必须在开始游戏前至少选择一条支付线。",
+                "每条支付线上的赢输将根据位于该支付线上的相同符号的数量计算。",
+            ],
         },
     },
     payOut: {
@@ -18,6 +18,7 @@ export const cn: INighClubTranslationResource = {
         winningAmount: "中奖金额根据派彩率计算。",
         note: "请注意",
         initialStake: "支付包括初始投注。",
+        allWinningAmount: "投注结算后，所有中奖金额都会立即添加到您的账户余额中。",
     },
     examplePayout: {
         title: "例子",
@@ -35,12 +36,6 @@ export const cn: INighClubTranslationResource = {
         title: "免费旋转",
         description1: "玩家将收到与结果中包含的免费旋转符号数量相对应的免费旋转奖金。",
         description2: "免费旋转符号不必位于同一支付线上。",
-        symbolHeader: "符号",
-        descriptionHeader: "描述",
-        having5FreeSpins: "结果中有 5 个免费旋转符号。",
-        having4FreeSpins: "结果中有 4 个免费旋转符号。",
-        having3FreeSpins: "结果中有 3 个免费旋转符号。",
-        get: "Get",
         freeSpinBonus: "免费旋转奖金。",
         note: "请注意",
         freeSpinReel: "注意：“免费旋转”符号必须出现在不同的卷轴上。 例如，如果同一卷轴上有 3 个“免费旋转”符号，系统将计为一个符号。",
@@ -52,11 +47,6 @@ export const cn: INighClubTranslationResource = {
         title: "奖金",
         description1: "结果中的任意位置出现 3、4 或 5 个红利符号将触发红利游戏。",
         description2: "奖金符号不必位于同一支付线上。",
-        symbolHeader: "符号",
-        descriptionHeader: "描述",
-        having5Bonuses: "结果中有 5 个奖金符号。",
-        having4Bonuses: "结果中有 4 个奖金符号。",
-        having3Bonuses: "结果中有 3 个奖金符号。",
         canOpen: "可在奖金游戏中打开",
         itemInBonusGame: "个宝箱。",
         note: "请注意",

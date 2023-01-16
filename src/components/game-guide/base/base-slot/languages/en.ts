@@ -1,25 +1,24 @@
-import { INighClubTranslationResource } from "./types";
+import { ISlotTranslationResource } from "../types";
 
-export const en: INighClubTranslationResource = {
+export const en: ISlotTranslationResource = {
     gameRule: {
         title: "Game Rules",
         description: {
             line1: "The Player selects the Paylines (Lines) and sets the Bet Level you want to place bet before pressing “Spin”.",
             totalBet: "Total Bet",
             paylinesFormular: "= Paylines * Bet Level",
-            note: "Note",
-            newExperience: "Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.",
-            atLeastOnePayline:
-                "25 Paylines are numbered from 1 to 25 and the Player must choose at least one Payline before starting the game.",
-            paylineWinLoss:
+            subDescriptions: [
+                " 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.",
                 "The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.",
+            ],
         },
     },
     payOut: {
         paytable: "Paytable",
-        winningAmount: "The winning amount is calculated according to the betting odds",
+        winningAmount: "The winning amount is calculated according to the betting odds.",
         note: "Note",
         initialStake: "the Payout includes the initial stake.",
+        allWinningAmount: "All winning amounts are instantly added to your account balance when bets are settled.",
     },
     examplePayout: {
         title: "Example",
@@ -37,12 +36,6 @@ export const en: INighClubTranslationResource = {
         title: "Free Spin",
         description1: "Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.",
         description2: "The Free Spin symbols do not have to be on the same payline.",
-        symbolHeader: "Symbol",
-        descriptionHeader: "Description",
-        having5FreeSpins: "Having 5 Free Spin symbols in the result.",
-        having4FreeSpins: "Having 4 Free Spin symbols in the result.",
-        having3FreeSpins: "Having 3 Free Spin symbols in the result.",
-        get: "Get",
         freeSpinBonus: "Free Spins Bonus.",
         note: "Note",
         freeSpinReel:
@@ -57,11 +50,6 @@ export const en: INighClubTranslationResource = {
         title: "Bonus",
         description1: "Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.",
         description2: "The Bonus symbols do not have to be on the same payline.",
-        symbolHeader: "Symbol",
-        descriptionHeader: "Description",
-        having5Bonuses: "Having 5 Bonus symbols in the result.",
-        having4Bonuses: "Having 4 Bonus symbols in the result.",
-        having3Bonuses: "Having 3 Bonus symbols in the result.",
         canOpen: "Can open",
         itemInBonusGame: "items in Bonus Game.",
         note: "Note",

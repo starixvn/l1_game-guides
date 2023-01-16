@@ -1,16 +1,16 @@
-import { INighClubTranslationResource } from "./types";
+import { ISlotTranslationResource } from "../types";
 
-export const th: INighClubTranslationResource = {
+export const th: ISlotTranslationResource = {
     gameRule: {
         title: "กฎของเกม",
         description: {
             line1: "ผู้เล่นเลือกเพย์ไลน์ (Lines) และกำหนดระดับการเดิมพันที่คุณต้องการวางเดิมพันก่อนกด “หมุน”",
             totalBet: "ยอดเดิมพัน",
             paylinesFormular: "= เพย์ไลน์ * ระดับการเดิมพัน",
-            note: "หมายเหตุ",
-            newExperience: "Player can use the “Spacebar” key on PC, instead of the “Spin” button to have a new experience.",
-            atLeastOnePayline: "25 เพย์ไลน์มีหมายเลขตั้งแต่ 1 ถึง 25 และผู้เล่นต้องเลือกอย่างน้อยหนึ่งเพย์ไลน์ก่อนเริ่มเกม",
-            paylineWinLoss: "Win-loss ในแต่ละเพย์ไลน์จะคำนวณตามจำนวนของสัญลักษณ์เดียวกันที่อยู่ในเพย์ไลน์นั้น",
+            subDescriptions: [
+                "25 เพย์ไลน์มีหมายเลขตั้งแต่ 1 ถึง 25 และผู้เล่นต้องเลือกอย่างน้อยหนึ่งเพย์ไลน์ก่อนเริ่มเกม",
+                "Win-loss ในแต่ละเพย์ไลน์จะคำนวณตามจำนวนของสัญลักษณ์เดียวกันที่อยู่ในเพย์ไลน์นั้น",
+            ],
         },
     },
     payOut: {
@@ -18,6 +18,7 @@ export const th: INighClubTranslationResource = {
         winningAmount: "จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย",
         note: "หมายเหตุ",
         initialStake: "การจ่ายเงินจะรวมเงินเดิมพันเริ่มต้นด้วย",
+        allWinningAmount: "จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น",
     },
     examplePayout: {
         title: "ตัวอย่าง",
@@ -35,12 +36,6 @@ export const th: INighClubTranslationResource = {
         title: "ฟรีสปิน",
         description1: "ผู้เล่นจะได้รับโบนัสฟรีสปินตามจำนวนสัญลักษณ์ฟรีสปินในผลลัพธ์",
         description2: "สัญลักษณ์ฟรีสปินไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน",
-        symbolHeader: "สัญลักษณ์",
-        descriptionHeader: "คำอธิบาย",
-        having5FreeSpins: "มี 5 สัญลักษณ์หมุนฟรีในแถว",
-        having4FreeSpins: "มี 4 สัญลักษณ์หมุนฟรีในแถว",
-        having3FreeSpins: "มี 3 สัญลักษณ์หมุนฟรีในแถว",
-        get: "Get",
         freeSpinBonus: "โบนัสฟรีสปิน",
         note: "หมายเหตุ",
         freeSpinReel:
@@ -54,11 +49,6 @@ export const th: INighClubTranslationResource = {
         title: "โบนัส",
         description1: "การมีสัญลักษณ์โบนัส 3, 4 หรือ 5 ปรากฏขึ้นที่ใดก็ได้ในผลลัพธ์จะทำให้เกมโบนัสทำงาน",
         description2: "สัญลักษณ์โบนัสไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน",
-        symbolHeader: "สัญลักษณ์",
-        descriptionHeader: "คำอธิบาย",
-        having5Bonuses: "มี 5 สัญลักษณ์โบนัสในแสดงที่หน้าจอ",
-        having4Bonuses: "มี 4 สัญลักษณ์โบนัสในแสดงที่หน้าจอ",
-        having3Bonuses: "มี 3 สัญลักษณ์โบนัสในแสดงที่หน้าจอ.",
         canOpen: "สามารถเปิด",
         itemInBonusGame: "โบนัสหีบสมบัติในเกม",
         note: "หมายเหตุ",
