@@ -113,7 +113,7 @@ const Demo = () => {
                     height={window.innerHeight}
                     width={window.innerWidth}
                     scrolling="auto"
-                    style={{ border: "none" }}
+                    style={{ border: "none", background: theme === Themes.classicslot ? "#000" : "#FFF" }}
                 />
             )}
         </div>

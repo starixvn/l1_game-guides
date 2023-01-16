@@ -9,6 +9,7 @@ export const Themes = {
     blue: "blue",
     ahcl: "ahcl",
     fourGuardians: "four-guardians",
+    classicslot: "classic-slot-template",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc" };
