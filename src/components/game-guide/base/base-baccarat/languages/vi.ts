@@ -8,7 +8,9 @@ export const baseBaccaratResourcesVi: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "Cách chơi",
-        details: [],
+        getDetails(environment: string | undefined, maxBetMain: number | string) {
+            return [];
+        },
         table: {
             header: {
                 options: "Lựa Chọn",

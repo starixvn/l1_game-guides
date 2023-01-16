@@ -8,7 +8,9 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "遊戲規則",
-        details: [],
+        getDetails(environment: string | undefined, maxBetMain: number | string) {
+            return [];
+        },
         table: {
             header: {
                 options: "選項",

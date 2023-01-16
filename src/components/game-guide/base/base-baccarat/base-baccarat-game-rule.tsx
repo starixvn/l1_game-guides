@@ -4,14 +4,14 @@ import { Markup } from "interweave";
 import { IBaseBaccaratResources } from "./languages/types";
 import { StringFormat } from "../../../../helpers/string-helper";
 
-const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratResources, maxBetMain: string }> = ({ resources, maxBetMain }) => {
+const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratResources, maxBetMain: string, environment: string | undefined }> = ({ resources, maxBetMain, environment }) => {
     const { gameRules } = resources;
     return (
         <>
             <h2>{gameRules.header}</h2>
             <ul className="desc">
                 {
-                    gameRules.details.map((detail, index) => {
+                    gameRules.getDetails(environment, maxBetMain).map((detail, index) => {
                         return <li key={index}>{<Markup content={StringFormat(detail, maxBetMain)} />}</li>
                     })
                 }

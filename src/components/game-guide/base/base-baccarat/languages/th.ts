@@ -8,7 +8,9 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "กฎของเกมส์",
-        details: [],
+        getDetails(environment: string | undefined, maxBetMain: number | string) {
+            return [];
+        },
         table: {
             header: {
                 options: "ตัวเลือก",

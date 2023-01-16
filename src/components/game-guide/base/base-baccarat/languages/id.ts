@@ -8,7 +8,9 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
     },
     gameRules: {
         header: "Aturan Permainan",
-        details: [],
+        getDetails(environment: string | undefined, maxBetMain: number | string) {
+            return [];
+        },
         table: {
             header: {
                 options: "Pilihan",

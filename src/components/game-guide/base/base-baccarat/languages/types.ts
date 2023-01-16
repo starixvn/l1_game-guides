@@ -6,8 +6,8 @@ export interface IBaseBaccaratResources {
         content: string;
     };
     gameRules: {
+        getDetails(environment: string | undefined, maxBetMain: number | string): Array<string>;
         header: string;
-        details: Array<string>;
         table: {
             header: {
                 options: string;
