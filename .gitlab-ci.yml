@@ -1,3 +1,9 @@
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
+
 include:
     - project: "ci/repos-ci/pentagon_l1_game_guides"
       ref: master
