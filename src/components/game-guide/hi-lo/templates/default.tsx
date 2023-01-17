@@ -10,6 +10,7 @@ import { renderToString } from "react-dom/server";
 
 export default class HiLoGuideTemplate extends React.Component<GameGuideProps<{}, {}>, { translationResource: IHiLoTranslationResource }> {
     constructor(props: GameGuideProps<{}, {}>) {
+        console.log(props.locale);
         super(props);
         this.state = {
             translationResource: getHiLoTranslationResource(props.locale),

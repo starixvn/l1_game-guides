@@ -76,6 +76,7 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
                 maxBetFollowChoice={maxBetFollowChoice}
                 isScrollMD5={isScrollMD5}
                 fractionalOddsFormat={fractionalOddsFormat}
+                locale={locale}
             />
         );
     }
@@ -89,6 +90,7 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
             fractionalOddsFormat={fractionalOddsFormat}
+            locale={locale}
         />
     );
 };

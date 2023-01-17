@@ -1,13 +1,10 @@
 import React from "react";
 import { Markup } from "interweave";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditions } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-number";
-import { renderMD5EN } from "../../../shared/md5-number/en";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import BetLimit from "./bet-limit";
-import Payouts from "./payouts";
 
 import Styles from "../casino-hold.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
@@ -23,29 +20,30 @@ class CasinoHoldGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
     S extends BaseState<ICasinoHoldTranslationResource>
 > extends React.PureComponent<P, S> {
-    constructor(props: P) {
+    constructor(props: any) {
         super(props);
         this.state = {
             translationResource: getCasinoHoldTranslationResource(props.locale),
         } as S;
     }
+
     componentDidMount() {
         this.props.isScrollMD5 && ScrollToMD5();
     }
 
     renderIntroduce() {
-        const { main } = this.state.translationResource;
+        const { introduction } = this.state.translationResource;
 
         return (
             <>
-                <h2>{main.introduction}</h2>
-                <p className="content">{main.description}</p>
+                <h2>{introduction.title}</h2>
+                <p className="content">{introduction.description}</p>
                 <p className="content">
-                    {main.md5.sentence1}
+                    {introduction.md5.sentence1}
                     <a href="#md5" className={Styles["link"]}>
-                        {main.md5.sentence2}
+                        {introduction.md5.sentence2}
                     </a>{" "}
-                    {main.md5.sentence3}
+                    {introduction.md5.sentence3}
                 </p>
             </>
         );
@@ -67,7 +65,9 @@ class CasinoHoldGuideTemplate<
             callBet,
             handQualification,
         } = gameRule;
+
         const { maxBetFollowChoice } = this.props;
+
         return (
             <>
                 <h2>{title}</h2>
@@ -87,7 +87,7 @@ class CasinoHoldGuideTemplate<
                         {foldCall.description}
                         <ul className="detail">
                             <li>
-                                <Markup content={foldCall.call} />
+                                <Markup content={foldCall.fold} />
                             </li>
                             <li>
                                 <Markup content={foldCall.call} />
@@ -96,7 +96,9 @@ class CasinoHoldGuideTemplate<
                     </li>
                     <li>{afterClick}</li>
                     <li>{gameRule.theTwo}</li>
-                    <li>{StringFormat(gameRule.maximumTotal)}</li>
+                    <li>
+                        <Markup content={StringFormat(gameRule.maximumTotal, (maxBetFollowChoice?.maxBetRound ?? 0).toString())} />
+                    </li>
                 </ul>
                 <ul className="style-number-dot">
                     <li className="number-dot">
@@ -107,7 +109,17 @@ class CasinoHoldGuideTemplate<
                                 <ul className="desc">
                                     <li>{cardValues.description.line1}</li>
                                     <li>{cardValues.description.line2}</li>
-                                    <li>{cardValues.description.line3}</li>
+                                    <li>
+                                        <Markup
+                                            content={StringFormat(
+                                                cardValues.description.line3,
+                                                `<span class="casino-black">♠</span>`,
+                                                `<span class="casino-black">♣</span>`,
+                                                `<span class="red">♦</span>`,
+                                                `<span class="red">♥</span>`
+                                            )}
+                                        />
+                                    </li>
                                 </ul>
                             </li>
                             <li className="number-dot-number">
@@ -129,7 +141,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.royalFlush}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row1}</td>
+                                                        <td>{handRanking.table.description.royalFlush}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -146,7 +158,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.straightFlush}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row2}</td>
+                                                        <td>{handRanking.table.description.straightFlush}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -163,7 +175,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.fourOfAKind}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row3}</td>
+                                                        <td>{handRanking.table.description.fourOfAKind}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -180,7 +192,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.fullHouse}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row4}</td>
+                                                        <td>{handRanking.table.description.fullHouse}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -197,7 +209,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.flush}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row5}</td>
+                                                        <td>{handRanking.table.description.flush}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -214,7 +226,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.straight}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row6}</td>
+                                                        <td>{handRanking.table.description.straight}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -231,7 +243,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.threeOfAKind}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row7}</td>
+                                                        <td>{handRanking.table.description.threeOfAKind}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -248,7 +260,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.twoPair}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row8}</td>
+                                                        <td>{handRanking.table.description.twoPair}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -265,7 +277,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.pair}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row9}</td>
+                                                        <td>{handRanking.table.description.pair}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -282,7 +294,7 @@ class CasinoHoldGuideTemplate<
                                                         <td>
                                                             <strong>{common.hand.highCard}</strong>
                                                         </td>
-                                                        <td>{handRanking.table.description.row10}</td>
+                                                        <td>{handRanking.table.description.highCard}</td>
                                                         <td>
                                                             <span className={Styles["wrapper-card"]}>
                                                                 <img
@@ -637,80 +649,58 @@ class CasinoHoldGuideTemplate<
                         </ul>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">Betting Option</span>
+                        <span className="font-weight-medium title-text">{gameRule.bettingOption}</span>
                         <ul className="style-number-dot-number ">
                             <li className="number-dot-number">
-                                <span className="title-text">Ante Bet</span>
+                                <span className="title-text">{anteBet.title}</span>
                                 <ul className="desc">
-                                    <li>
-                                        &quot;Ante&quot; Bet is a mandatory option that the player must place bet before any cards are
-                                        dealt.
-                                    </li>
-                                    <li>
-                                        The Player will win Ante Bet if he can make the best possible five-card poker hand using a
-                                        combination of two hole cards and five community cards to beat the Dealer&apos;s hand.
-                                    </li>
+                                    <li>{anteBet.description.line1}</li>
+                                    <li>{anteBet.description.line2}</li>
                                 </ul>
                             </li>
                             <li className="number-dot-number">
-                                <span className="title-text">AA Bet</span>
+                                <span className="title-text">{aaBet.title}</span>
                                 <ul className="desc">
-                                    <li>
-                                        A side bet known as the &quot;AA&quot; bet, is based on the poker value of the player&apos;s two
-                                        cards and the first three community cards. The Player will win &quot;AA&quot; bet if he can achieve
-                                        a pair of aces or better, no matter what Dealer has.
-                                    </li>
-                                    <li>
-                                        &quot;AA&quot; Bet is not related to the Ante bet results. The Player might lose the game, but the
-                                        &quot;AA&quot; Bet might win or vice versa.
-                                    </li>
-                                    <li>
-                                        Note, if the Player selects &quot;FOLD&quot;, he will lose both the Ante bet and the optional
-                                        &quot;AA&quot; bet.
-                                    </li>
+                                    <li>{aaBet.description.line1}</li>
+                                    <li>{aaBet.description.line2}</li>
+                                    <li>{aaBet.description.line3}</li>
                                 </ul>
                             </li>
                             <li className="number-dot-number">
-                                <span className="title-text">Call Bet</span>
+                                <span className="title-text">{callBet.title}</span>
                                 <ul className="desc">
-                                    <li>
-                                        Call bet is an additional bet decided by the Player whether he wants to continue the game round.
-                                        Call bet amount is twice the original Ante bet.{" "}
-                                    </li>
+                                    <li>{callBet.description.line1}</li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">Hand Qualification</span>
+                        <span className="font-weight-medium title-text">{handQualification.title}</span>
                         <ul className="desc">
-                            <li>
-                                The Dealer must have <strong>at least a pair of fours</strong> to make a qualifying hand. If the Dealer
-                                fails to qualify, the Ante bet is paid out according to the payout table while the Call bet will be pushed.
-                            </li>
+                            <li>{handQualification.description}</li>
                         </ul>
                         <div className="table-container text-center">
                             <table className="table">
                                 <thead>
                                     <tr>
                                         <td></td>
-                                        <td>Dealer qualifies</td>
-                                        <td>Dealer does not qualify</td>
+                                        <td>{handQualification.table.title.dealer}</td>
+                                        <td>{handQualification.table.title.DealerDoes}</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Player beats Dealer</td>
-                                        <td>Player wins both the Ante and Call bets.</td>
-                                        <td rowSpan={3}>Player wins the Ante bet, Call bet is pushed.</td>
+                                        <td>{handQualification.table.col1.playerBeat}</td>
+                                        <td>{handQualification.table.col2.playerWins}</td>
+                                        <td rowSpan={3}>{handQualification.table.col3.playerWins}</td>
                                     </tr>
                                     <tr>
-                                        <td>Player does not beat Dealer.</td>
-                                        <td>Player loses both the Ante and Call bets.</td>
+                                        <td>{handQualification.table.col1.player}</td>
+                                        <td>{handQualification.table.col2.playerLoses}</td>
                                     </tr>
                                     <tr>
-                                        <td>Player and Dealer are equal hand.</td>
-                                        <td>Both the Ante and Call bets are pushed.</td>
+                                        <td>{handQualification.table.col1.playerAndDealer}</td>
+                                        <td>{handQualification.table.col2.bothThe}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -721,120 +711,123 @@ class CasinoHoldGuideTemplate<
         );
     }
 
-    renderPayout(odds: any, fractionalOddsFormat: any) {
+    renderPayout() {
+        const { payOuts, common } = this.state.translationResource;
+        const { gameConfigs, fractionalOddsFormat } = this.props;
+        const { odds } = gameConfigs;
         return (
             <>
-                <h2>Payout</h2>
+                <h2>{payOuts.title}</h2>
                 <ul className="desc">
-                    <li>The winning amount is calculated according to the betting odds.</li>
-                    <li>
-                        <strong>Note</strong>, the Payout includes the initial stake.
-                    </li>
-                    <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
+                    <li>{payOuts.description.line1}</li>
+                    <li>{payOuts.description.line2}</li>
+                    <li>{payOuts.description.line3}</li>
                 </ul>
                 <ul className="style-number-dot">
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">Ante bet</span>
+                        <span className="font-weight-medium title-text">{payOuts.anteBet}</span>
                         <div className="table-container text-center">
                             <table className="table table-small">
                                 <thead>
                                     <tr>
-                                        <td>Hand Result</td>
-                                        <td>Odds</td>
+                                        <td>{common.handResult}</td>
+                                        <td>{common.odds}</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Royal Flush</td>
+                                        <td>{common.hand.royalFlush}</td>
                                         <td>{formatOdds(odds?.AnteBet_royalFlush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Straight Flush</td>
+                                        <td>{common.hand.straightFlush}</td>
                                         <td>{formatOdds(odds?.AnteBet_straightFlush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Four of a Kind</td>
+                                        <td>{common.hand.fourOfAKind}</td>
                                         <td>{formatOdds(odds?.AnteBet_fourKind, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Full House</td>
+                                        <td>{common.hand.fullHouse}</td>
                                         <td>{formatOdds(odds?.AnteBet_fullHouse, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Flush</td>
+                                        <td>{common.hand.flush}</td>
                                         <td>{formatOdds(odds?.AnteBet_flush, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Straight</td>
+                                        <td>{common.hand.straight}</td>
                                         <td rowSpan={5}>{formatOdds(odds?.AnteBet_straight, fractionalOddsFormat)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Three of a Kind</td>
+                                        <td>{common.hand.threeOfAKind}</td>
                                     </tr>
                                     <tr>
-                                        <td>Two Pair</td>
+                                        <td>{common.hand.twoPair}</td>
                                     </tr>
                                     <tr>
-                                        <td>Pair</td>
+                                        <td>{common.hand.pair}</td>
                                     </tr>
                                     <tr>
-                                        <td>High card</td>
+                                        <td>{common.hand.highCard}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">Call bet</span>
+                        <span className="font-weight-medium title-text">{payOuts.callBet.title}</span>
                         <ul className="desc">
-                            <li>Player will win the Call bet only if the Dealer qualifies and you beat their hand. </li>
-                            <li>Payout {formatOdds(odds?.CallBet_callBet, fractionalOddsFormat)}</li>
+                            <li>{payOuts.callBet.description.line1}</li>
+                            <li>
+                                {payOuts.callBet.description.line2} {formatOdds(odds?.CallBet_callBet, fractionalOddsFormat)}
+                            </li>
                         </ul>
                     </li>
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">AA bet</span>
+                        <span className="font-weight-medium title-text">{payOuts.aaBet}</span>
                         <div className="table-container">
                             <div className="table-container text-center">
                                 <table className="table table-small">
                                     <thead>
                                         <tr>
-                                            <td>Hand Result</td>
-                                            <td>Odds</td>
+                                            <td>{common.handResult}</td>
+                                            <td>{common.odds}</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Royal Flush</td>
+                                            <td>{common.hand.royalFlush}</td>
                                             <td>{formatOdds(odds?.AABet_royalFlush, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Straight Flush</td>
+                                            <td>{common.hand.straightFlush}</td>
                                             <td>{formatOdds(odds?.AABet_straightFlush, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Four of a Kind</td>
+                                            <td>{common.hand.fourOfAKind}</td>
                                             <td>{formatOdds(odds?.AABet_fourKind, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Full House</td>
+                                            <td>{common.hand.fullHouse}</td>
                                             <td>{formatOdds(odds?.AABet_fullHouse, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Flush</td>
+                                            <td>{common.hand.flush}</td>
                                             <td>{formatOdds(odds?.AABet_flush, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Straight</td>
+                                            <td>{common.hand.straight}</td>
                                             <td rowSpan={5}>{formatOdds(odds?.AABet_straight, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
-                                            <td>Three of a Kind</td>
+                                            <td>{common.hand.threeOfAKind}</td>
                                         </tr>
                                         <tr>
-                                            <td>Two Pair</td>
+                                            <td>{common.hand.twoPair}</td>
                                         </tr>
                                         <tr>
-                                            <td>Pair of Aces</td>
+                                            <td>{common.hand.PairOfAces}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -846,26 +839,28 @@ class CasinoHoldGuideTemplate<
         );
     }
 
-    renderBetLimit(maxBetFollowChoice: any) {
+    renderBetLimit() {
+        const { betLimit } = this.state.translationResource;
+        const { maxBetFollowChoice } = this.props;
         return (
             <>
-                <h2>Bet Limit</h2>
+                <h2>{betLimit.title}</h2>
                 <table className="table table-small text-center">
                     <thead>
                         <tr>
-                            <td>Options</td>
-                            <td>Bet Limit(Min-Max)</td>
+                            <td>{betLimit.table.title.options}</td>
+                            <td>{betLimit.table.title.betLimit}</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Ante</td>
+                            <td>{betLimit.table.content.ante}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetAnteBetChoice}
                             </td>
                         </tr>
                         <tr>
-                            <td>Call</td>
+                            <td>{betLimit.table.content.call}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                             </td>
@@ -881,26 +876,128 @@ class CasinoHoldGuideTemplate<
             </>
         );
     }
-    render() {
-        const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, locale } = this.props;
-        const { odds } = gameConfigs;
 
+    renderMD5() {
+        const { md5 } = this.state.translationResource;
+        const { MD5Technology, MD5Validation } = md5;
+        return (
+            <>
+                <h2> {md5.title} </h2>
+                <ul className="style-number-dot">
+                    <li className="number-dot">
+                        <span className="title-text">{MD5Technology.title}</span>
+                        <ul className="desc">
+                            <li>{MD5Technology.description["MD5 allows players"]}</li>
+                            <li>{MD5Technology.description["The game results"]}</li>
+                            <li>
+                                <Markup content={MD5Technology.description["Players can manually"]} />
+                            </li>
+                        </ul>
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text">{MD5Validation.title}</span>
+                        <ul className="desc">
+                            <li>
+                                <Markup content={MD5Validation.steps.step1} />
+                            </li>
+                            <li>
+                                <Markup content={MD5Validation.steps.step2} />
+                            </li>
+                            <li>
+                                <Markup content={MD5Validation.steps.step3} />
+                            </li>
+                            <li>
+                                <Markup content={MD5Validation.steps.step4} />
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div className="content">{MD5Validation.description}</div>
+                <div className="content">
+                    <Markup content={MD5Validation.example.description} />
+                </div>
+                <>
+                    <ul className="desc">
+                        <li>
+                            <Markup content={MD5Validation.example.step1} />
+                            <img
+                                className="format-img auto-center format-mobile"
+                                src="/static/images/casino-holdem/md5-en.png?v=2"
+                                alt="md5"
+                            />
+                        </li>
+                        <li>
+                            <Markup content={MD5Validation.example.step2} />
+                            <img
+                                className="format-img auto-center format-mobile"
+                                src="/static/images/casino-holdem/result-en.png?v=2"
+                                alt="md5-result"
+                            />
+                            <div>
+                                {MD5Validation.example.note.title}
+                                <ul className="detail">
+                                    <li>
+                                        <Markup
+                                            content={StringFormat(
+                                                MD5Validation.example.note.line1,
+                                                `(
+                                        <span class="casino-black">J♣</span>, <span className="red">10♥</span>)`,
+                                                ` (
+                                            <span class="red">3♦</span>, <span className="casino-black">2♠</span>)`,
+                                                `(<span class="casino-black">K♣</span>, <span class="red">5♥</span>,
+                                            <span class="casino-black">3♠</span>, <span class="red">10♦</span>,
+                                            <span class="red">4♦</span>)`
+                                            )}
+                                        />
+                                    </li>
+                                    <li>
+                                        <Markup
+                                            content={StringFormat(
+                                                MD5Validation.example.note.line2,
+                                                ` (
+                                                    <span class="casino-black">J♣</span>, <span class="red">10♥</span>)`,
+                                                `(<span class="red">3♦</span>, <span class="casino-black">2♠</span>)`
+                                            )}
+                                        />
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <Markup content={MD5Validation.example.step3} />
+                            <img
+                                className="format-img auto-center"
+                                src="/static/images/casino-holdem/hash-darling.png?v=2"
+                                alt="hash-darling"
+                            />
+                        </li>
+                        <li>
+                            <Markup content={MD5Validation.example.step4} />
+                            <img
+                                className="format-img auto-center"
+                                src="/static/images/casino-holdem/md5-checksum.png?v=1"
+                                alt="md5-checksum"
+                            />
+                        </li>
+                    </ul>
+                </>
+            </>
+        );
+    }
+    render() {
         return (
             <>
                 <ul className="game-guide">
                     <li className="guide-item">{this.renderIntroduce()}</li>
                     <li className="guide-item">{this.renderGameRule()}</li>
-                    <li className="guide-item">
-                        <Payouts odds={odds} fractionalOddsFormat={fractionalOddsFormat} />
-                    </li>
-                    <li className="guide-item">
-                        <BetLimit maxBetFollowChoice={maxBetFollowChoice} />
-                    </li>
+                    <li className="guide-item">{this.renderPayout()}</li>
+                    <li className="guide-item">{this.renderBetLimit()}</li>
                     <li id="md5" className="guide-item">
-                        {renderMD5EN(39)}
+                        {this.renderMD5()}
                     </li>
 
-                    {renderTermsAndConditionsEN("", 39)}
+                    {renderTermsAndConditions("", 39, this.props.locale)}
                 </ul>
             </>
         );

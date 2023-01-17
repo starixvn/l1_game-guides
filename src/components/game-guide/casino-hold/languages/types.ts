@@ -9,6 +9,7 @@ type THand = {
     twoPair: string;
     pair: string;
     highCard: string;
+    PairOfAces: string;
 };
 
 export interface ICasinoHoldTranslationResource {
@@ -24,8 +25,8 @@ export interface ICasinoHoldTranslationResource {
         odds: string;
         example: string;
     };
-    main: {
-        introduction: string;
+    introduction: {
+        title: string;
         description: string;
         md5: {
             sentence1: string;
@@ -74,18 +75,19 @@ export interface ICasinoHoldTranslationResource {
                     example: string;
                 };
                 description: {
-                    row1: string;
-                    row2: string;
-                    row3: string;
-                    row4: string;
-                    row5: string;
-                    row6: string;
-                    row7: string;
-                    row8: string;
-                    row9: string;
-                    row10: string;
+                    royalFlush: string;
+                    straightFlush: string;
+                    fourOfAKind: string;
+                    fullHouse: string;
+                    flush: string;
+                    straight: string;
+                    threeOfAKind: string;
+                    twoPair: string;
+                    pair: string;
+                    highCard: string;
                 };
             };
+
             line2: string;
             example: {
                 player: string;
@@ -163,6 +165,10 @@ export interface ICasinoHoldTranslationResource {
                 options: string;
                 betLimit: string;
             };
+            content: {
+                ante: string;
+                call: string;
+            };
         };
     };
     md5: {
@@ -170,9 +176,9 @@ export interface ICasinoHoldTranslationResource {
         MD5Technology: {
             title: string;
             description: {
-                line1: string;
-                line2: string;
-                line3: string;
+                "MD5 allows players": string;
+                "The game results": string;
+                "Players can manually": string;
             };
         };
 
@@ -184,7 +190,7 @@ export interface ICasinoHoldTranslationResource {
                 step3: string;
                 step4: string;
             };
-            desciption: string;
+            description: string;
             example: {
                 description: string;
                 step1: string;
@@ -195,7 +201,7 @@ export interface ICasinoHoldTranslationResource {
                     line2: string;
                 };
                 step3: string;
-                step4: String;
+                step4: string;
             };
         };
     };
