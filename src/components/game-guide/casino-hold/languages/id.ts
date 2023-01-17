@@ -12,7 +12,8 @@ const Hand = {
     pair: "Pair",
     highCard: "High card",
 };
-export const en: ICasinoHoldTranslationResource = {
+
+export const id: ICasinoHoldTranslationResource = {
     common: {
         hand: Hand,
         player: "Player",
@@ -23,7 +24,7 @@ export const en: ICasinoHoldTranslationResource = {
         result: "Result",
         handResult: "Hand Result",
         odds: "Odds",
-        example: "Example"
+        example: "Example",
     },
     main: {
         introduction: "Introduction",
