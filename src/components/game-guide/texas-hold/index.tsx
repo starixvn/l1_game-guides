@@ -9,7 +9,6 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../index.helper";
 import { en } from "./languages/en";
-import { vi } from "./languages/vi";
 import { id as idLanguage } from "./languages/id";
 import { th } from "./languages/th";
 import { zhCN } from "./languages/zh-cn";
@@ -78,7 +77,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
     switch (locale) {
         case locales.vi:
             return (
-                <TexasHoldGuideTemplate
+                <TexasHoldGuideVI
                     gameConfigs={configs}
                     userStakeLevel={userStakeLevel}
                     gameName={gameNameTranslate}
@@ -86,7 +85,6 @@ const TexasHoldGuide = (props: GameGuideBase) => {
                     maxBetFollowChoice={maxBetFollowChoice}
                     isScrollMD5={isScrollMD5}
                     fractionalOddsFormat={fractionalOddsFormat}
-                    language={vi}
                 />
             );
         case locales.id:
