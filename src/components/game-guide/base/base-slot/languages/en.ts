@@ -74,6 +74,6 @@ export const en: ISlotTranslationResource = {
     main: {
         introduction: "Introduction",
         description:
-            "is an online slot game, with attractive gameplay, and gripping graphics. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.",
+            "The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.",
     },
 };

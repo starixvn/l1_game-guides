@@ -68,7 +68,6 @@ export const cn: ISlotTranslationResource = {
     },
     main: {
         introduction: "简介",
-        description:
-            "is an online slot game, with attractive gameplay, and gripping graphics. 游戏包括 5 个卷轴和 3 行，有 11 个不同的符号。如果您选择的同一条支付线上有相同的符号，玩家将获胜。",
+        description: "游戏包括 5 个卷轴和 3 行，有 11 个不同的符号。如果您选择的同一条支付线上有相同的符号，玩家将获胜。",
     },
 };

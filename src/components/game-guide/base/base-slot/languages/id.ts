@@ -74,6 +74,6 @@ export const id: ISlotTranslationResource = {
     main: {
         introduction: "Perkenalan",
         description:
-            "is an online slot game, with attractive gameplay, and gripping graphics. Permainan ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika ada simbol yang sama yang terletak di garis pembayaran yang sama dengan yang Anda pilih.",
+            "Permainan ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika ada simbol yang sama yang terletak di garis pembayaran yang sama dengan yang Anda pilih.",
     },
 };

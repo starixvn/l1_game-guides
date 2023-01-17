@@ -18,9 +18,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
         return (
             <li className="guide-item">
                 <h2>{translationResource.main.introduction}</h2>
-                <p className="content">
-                    “{this.props.gameName}” {translationResource.main.description}
-                </p>
+                <p className="content">{translationResource.main.description}</p>
                 <div className={styles["wrapper-list-icon"]}>
                     <img src={`${this.imageDirectoryName}/list_icon.png#v3`} alt="guide_item_symbol_bg" width={412} height={374} />
                 </div>

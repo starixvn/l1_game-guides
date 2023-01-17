@@ -79,6 +79,6 @@ export const vi: ISlotTranslationResource = {
     main: {
         introduction: "Giới thiệu",
         description:
-            "là thể loại Slot game (game xèng), được xây dựng với giao diện hấp dẫn, với chủ đề Hot Girls & Dance Club. Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.",
+            "Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.",
     },
 };
