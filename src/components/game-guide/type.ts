@@ -28,6 +28,7 @@ export type GameGuideBase = {
     project?: string;
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
+    folderConfigName?: string;
 };
 
 export interface GameConfigsBaseProps {

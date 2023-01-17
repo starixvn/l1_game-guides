@@ -31,3 +31,9 @@ export interface MaxBetChoicesProps {
     maxBetSubChoice: string | number;
     maxBetPlayer: string | number;
 }
+
+export interface BaccaratGuideState {
+    configs: any;
+    maxBetFollowChoice: any;
+    resources: any;
+}

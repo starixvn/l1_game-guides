@@ -1,21 +1,21 @@
-import { th } from "./th";
-import { en } from "./en";
-import { id } from "./id";
-import { cn } from "./cn";
-import { tw } from "./tw";
-import { vi } from "./vi";
 import { getTranslationResource } from "../../../../helpers/resource-helper";
-import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
+import { IMd5BaccaratResources } from "../../baccarat/languages/types";
+import { vipBaccaratResourcesCn } from "./cn";
+import { vipBaccaratResourcesEn } from "./en";
+import { vipBaccaratResourcesId } from "./id";
+import { vipBaccaratResourcesTh } from "./th";
+import { vipBaccaratResourcesTw } from "./tw";
+import { vipBaccaratResourcesVi } from "./vi";
 
-const supportedLanguages: { [name: string]: IBaseBaccaratResources } = {
-    en,
-    th,
-    id,
-    vi,
-    zh_cn: cn,
-    zh_tw: tw,
+const supportedLanguages: { [name: string]: IMd5BaccaratResources } = {
+    en: vipBaccaratResourcesEn,
+    th: vipBaccaratResourcesTh,
+    id: vipBaccaratResourcesId,
+    vi: vipBaccaratResourcesVi,
+    zh_cn: vipBaccaratResourcesCn,
+    zh_tw: vipBaccaratResourcesTw,
 };
 
 export const getVipBaccaratTranslationResource = (langKey: string | undefined) => {
-    return getTranslationResource<IBaseBaccaratResources>(langKey, supportedLanguages, en);
+    return getTranslationResource<IMd5BaccaratResources>(langKey, supportedLanguages, vipBaccaratResourcesEn);
 };

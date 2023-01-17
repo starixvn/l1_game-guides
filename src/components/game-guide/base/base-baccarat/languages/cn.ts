@@ -1,4 +1,3 @@
-import { baseTermAndConditionCn } from "../../terms-and-conditions/languages/cn";
 import { IBaseBaccaratResources } from "./types";
 
 export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
@@ -144,5 +143,4 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
             bankerPair: "庄家一对",
         },
     },
-    termsAndConditions: baseTermAndConditionCn,
 };

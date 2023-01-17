@@ -1,85 +1,87 @@
-import React, { useEffect, useState } from "react";
-import { UserStakeLevelProps } from "../../../pages";
-import { numberWithCommas } from "../../../helpers/number-helper";
+
+
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
-import { GameConfigProps, MaxBetChoicesProps } from "../baccarat/type";
-import BlockchainBaccaratGuideTemplate from "./templates";
+import { BaccaratGuideState } from "../baccarat/type";
+import BaseBaccaratGuide from "../base/base-baccarat";
+import { getBlockchainBaccaratTranslationResource } from "./languages";
+import { Cards } from "../base/base-baccarat/card-model";
+import { Markup } from "interweave";
+import { IBlockchainBaccaratResources } from "./languages/types";
+import Styles from "../base/base-baccarat/base-baccarat.module.scss";
+import BaseBaccaratGameRule from "../base/base-baccarat/base-baccarat-game-rule";
 
-export enum BaccaratId {
-    BlockchainBaccarat = 48,
-}
-
-export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
-    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetPlayer = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
-    const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
-
-    return { maxBetPlayer, maxBetSubChoice, maxBetMain, minBetMain };
+const CutCard: React.FunctionComponent<{ resources: IBlockchainBaccaratResources }> = ({ resources }) => {
+    const { cutCard, burnCard } = resources.extendGameRules;
+    return (
+        <ul className="style-number-dot">
+            <li className="number-dot">
+                <span className="font-weight-medium title-text">{cutCard.header}</span>
+                <ul><li>{cutCard.description} </li></ul>
+                <img className={Styles["cut-card"]} src={`/static/images/blockchain-baccarat/cutcard.png`} alt="cut-card" loading="eager" />
+            </li>
+            <li className="number-dot">
+                <span className="font-weight-medium title-text">{burnCard.header}</span>
+                <ul className="desc"><li>{burnCard.description}</li></ul>
+                <div>
+                    <Markup content={burnCard.noted} />
+                    <div className="table-container">
+                        <table className="table text-center">
+                            <thead>
+                                <tr>
+                                    <th className={Styles["rule-options"]}>{burnCard.firstCard}</th>
+                                    {
+                                        Cards.map((card, index) => <th key={index}>{card.name}</th>)
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>{burnCard.header}</strong></td>
+                                    {
+                                        Cards.map((card, index) => <td key={index}>{card.value}</td>)
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <strong>{burnCard.example.header}</strong>:
+                </div>
+                <ul className="desc">
+                    {
+                        burnCard.example.descriptions.map((description, index) => (
+                            <li key={index}>{description}</li>))
+                    }
+                </ul>
+            </li>
+        </ul>
+    );
 };
 
-const BlockChainBaccaratGuide = (props: GameGuideBase) => {
-    const {
-        id,
-        locale,
-        userStakeLevel,
-        gameConfigs,
-        gameNameTranslate,
-        dynamic,
-        isGetGameConfigs,
-        isScrollMD5,
-        environment,
-        project,
-        fractionalOddsFormat,
-    } = props;
+const BlockChainBaccaratGameRule: React.FunctionComponent<{ environment: string | undefined, resources: IBlockchainBaccaratResources, maxBetMain: string }> = ({ environment, resources, maxBetMain }) => {
+    return (
+        <>
+            <BaseBaccaratGameRule {...{ environment, resources, maxBetMain }} />
+            <CutCard resources={resources} />
+        </>
+    );
+};
 
-    const [configs, setConfigs] = useState<GameConfigProps>();
-    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
-    const getLocalGameConfigs = () => {
-        getGameConfigProject("blockchain-baccarat", project, setConfigs);
-    };
-
-    const getDynamicGameConfig = () => {
-        if (dynamic) {
-            setConfigs(gameConfigs);
-        } else {
-            gameConfigs.odds = configs?.odds;
-            setConfigs(gameConfigs);
-        }
-    };
-
-    useEffect(() => {
-        getLocalGameConfigs();
-    }, []);
-
-    useEffect(() => {
-        if (configs) {
-            if (isGetGameConfigs) {
-                getDynamicGameConfig();
-            }
-            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
-        }
-    }, [configs]);
-
-    if (!configs) {
-        return <></>;
+class BlockChainBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
+    constructor(props: GameGuideBase) {
+        super({ ...props, ...{ folderConfigName: "blockchain-baccarat" } });
     }
 
-    const resource = {
-        gameConfigs: configs,
-        userStakeLevel,
-        gameName: gameNameTranslate,
-        gameId: id,
-        maxBetFollowChoice,
-        isScrollMD5: isScrollMD5,
-        environment,
-        fractionalOddsFormat,
-        locale
+    getResources = () => {
+        return getBlockchainBaccaratTranslationResource(this.props.locale);
+    }
+
+    renderGameRule = () => {
+        return <li className="guide-item"><BlockChainBaccaratGameRule environment={this.props.environment} resources={this.state.resources} maxBetMain={(this.state.maxBetFollowChoice?.maxBetMain ?? 0).toString()} /></li>;
     };
 
-    return <BlockchainBaccaratGuideTemplate {...resource} />
 };
+
 export default BlockChainBaccaratGuide;

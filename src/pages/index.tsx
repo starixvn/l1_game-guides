@@ -146,7 +146,7 @@ const Home = () => {
 export const getStaticProps = async ({ locale = "en" }) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "blackjack", "sicbo", "threecards", "basebaccarat", "blockchainbaccarat", "vipbaccarat"])),
+            ...(await serverSideTranslations(locale, ["common", "blackjack", "sicbo", "threecards"])),
         },
     };
 };

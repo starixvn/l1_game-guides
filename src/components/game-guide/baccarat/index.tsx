@@ -1,120 +1,49 @@
-import React, { useEffect, useState } from "react";
 
-import BaccaratGuideEN from "./en";
-import BaccaratGuideVI from "./vi";
-import BaccaratGuideTW from "./zh_tw";
-import BaccaratGuideCN from "./zh_cn";
-import BaccaratGuideTH from "./th";
-import BaccaratGuideID from "./id";
-import { locales } from "../../../common/constants";
-import { UserStakeLevelProps } from "../../../pages";
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
+import { BaccaratGuideState } from "../baccarat/type";
+import { getBaccaratTranslationResource } from "./languages";
+import BaseBaccaratGuide from "../base/base-baccarat";
+import { IMd5BaccaratResources } from "./languages/types";
+import Md5Content, { Md5Example } from "../base/md5";
+import { IMd5Resources } from "../base/md5/languages/types";
+import { Markup } from "interweave";
+import Styles from "../base/base-baccarat/base-baccarat.module.scss";
 
-export enum BaccaratId {
-    Baccarat = 10,
-    VipBaccarat = 27,
-    BlockchainBaccarat = 48,
-}
+const BaccaratMd5: React.FunctionComponent<{ resources: IMd5BaccaratResources }> = ({ resources }) => (
+    <>
+        <Md5Content resources={resources.md5} />
+        <BaccaratMd5Example resources={resources.md5} />
+    </>
+);
 
-export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
-    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetPlayer = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
-    const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
-
-    return { maxBetPlayer, maxBetSubChoice, maxBetMain, minBetMain };
-};
-
-const BaccaratGuide = (props: GameGuideBase) => {
-    const {
-        id,
-        locale,
-        userStakeLevel,
-        gameConfigs,
-        gameNameTranslate,
-        dynamic,
-        isGetGameConfigs,
-        isScrollMD5,
-        environment,
-        project,
-        fractionalOddsFormat,
-    } = props;
-
-    const [configs, setConfigs] = useState<GameConfigProps>();
-    const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const getLocalGameConfigs = () => {
-        let pathName = "";
-        switch (id) {
-            case BaccaratId.Baccarat:
-                pathName = "baccarat";
-                break;
-            case BaccaratId.BlockchainBaccarat:
-                pathName = "blockchain-baccarat";
-                break;
-            case BaccaratId.VipBaccarat:
-                pathName = "baccarat-vip";
-                break;
-        }
-
-        getGameConfigProject(pathName, project, setConfigs);
-    };
-
-    const getDynamicGameConfig = () => {
-        if (dynamic) {
-            setConfigs(gameConfigs);
-        } else {
-            gameConfigs.odds = configs?.odds;
-            setConfigs(gameConfigs);
-        }
-    };
-
-    useEffect(() => {
-        getLocalGameConfigs();
-    }, []);
-
-    useEffect(() => {
-        if (configs) {
-            if (isGetGameConfigs) {
-                getDynamicGameConfig();
-            }
-            setMaxBetFollowChoice(handleMaxBetChoice(userStakeLevel, configs));
-        }
-    }, [configs]);
-
-    if (!configs) {
-        return <></>;
-    }
-
-    const resource = {
-        gameConfigs: configs,
-        userStakeLevel,
-        gameName: gameNameTranslate,
-        gameId: id,
-        maxBetFollowChoice,
-        isScrollMD5: isScrollMD5,
-        environment,
-        fractionalOddsFormat,
-    };
-
-    switch (locale) {
-        case locales.vi:
-            return <BaccaratGuideVI {...resource} />
-        case locales.id:
-            return <BaccaratGuideID {...resource} />
-        case locales.th:
-            return <BaccaratGuideTH {...resource} />
-        case locales.zh_cn:
-            return <BaccaratGuideCN {...resource} />;
-        case locales.zh_tw:
-            return <BaccaratGuideTW {...resource} />;
-
-        default:
-            return <BaccaratGuideEN {...resource} />
+class BaccaratMd5Example extends Md5Example<{ resources: IMd5Resources }> {
+    renderStep2() {
+        const { example } = this.props.resources;
+        return (<li>
+            {<Markup content={example.details.step2.text} />}
+            <img className="format-img auto-center" src={example.details.step2.imageUrl} alt="md5-result" />
+            <div>
+                {example.details.step2.noted1} <span className={Styles["black"]}>7♠️</span>{" "}
+                <span className={Styles["black"]}>3♠️</span> <span className={Styles["red"]}>7♦️</span>{" "}
+                <span className={Styles["black"]}>K♣️</span> <span className={Styles["black"]}>2♠️</span>{" "}
+                <span className={Styles["red"]}>Q♦️</span> {example.details.step2.noted2}
+            </div>
+        </li>);
     }
 };
+
+class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
+    constructor(props: GameGuideBase) {
+        super({ ...props, ...{ folderConfigName: "baccarat" } });
+    }
+
+    getResources = () => {
+        return getBaccaratTranslationResource(this.props.locale);
+    }
+
+    renderMd5 = () => {
+        return <li className="guide-item" id="md5" ><BaccaratMd5 resources={this.state.resources} /></li>;
+    };
+};
+
 export default BaccaratGuide;
