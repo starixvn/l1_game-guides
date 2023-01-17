@@ -4,10 +4,10 @@ import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import FantanGuideEN from "./en/index";
-import FantanGuideVI from "./vi/index";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
+import FanTanTemplate from "./templates/default";
+import FanTanGuideVI from "./templates/vi";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -77,11 +77,12 @@ const FantanGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         environment,
         fractionalOddsFormat,
+        locale: props.locale,
     };
 
-    if (locale === locales.en) {
-        return <FantanGuideEN {...resource} />;
+    if (locale === locales.vi) {
+        return <FanTanGuideVI {...resource} />;
     }
-    return <FantanGuideVI {...resource} />;
+    return <FanTanTemplate {...resource} />;
 };
 export default FantanGuide;
