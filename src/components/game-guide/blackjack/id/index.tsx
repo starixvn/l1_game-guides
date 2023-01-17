@@ -16,31 +16,33 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
             <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>Pilih nilai chip dan klik pada lingkaran (tempat taruhan) dari masing-masing tangan yang ingin Anda pertaruhkan.</li>
-                <li>Para Pemain dapat bermain dengan lebih dari satu tangan secara bersamaan (hingga 3)</li>
+                <li>Para Player dapat bermain dengan lebih dari satu tangan secara bersamaan (hingga 3).</li>
                 <li>
-                    Klik tombol “Deal” untuk mengonfirmasi taruhan, atau “X” untuk mengatur ulang taruhan Anda. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan setelah kartu dibagikan.
+                    Klik tombol “Deal” untuk mengonfirmasi taruhan, atau “X” untuk mengatur ulang taruhan Anda. Perhatikan, taruhan yang
+                    dipasang tidak dapat dibatalkan setelah kartu dibagikan.
                 </li>
                 <li>
                     Taruhan minimum dan taruhan Maks harus antara {minBet} - {maxBet} dan total taruhan maksimum per tangan adalah {maxBet}
                 </li>
-                <li>                   
-                    Setelah Pemain mengklik tombol “Deal”, dua kartu dibagikan untuk masing-masing tangan Pemain dan Dealer.
-                    Kartu pemain dibagikan menghadap ke atas sementara Dealer - kartu pertama menghadap ke atas, yang lain menghadap ke bawah.
+                <li>
+                    Setelah Player mengklik tombol “Deal”, dua kartu dibagikan untuk masing-masing tangan Player dan Dealer. Kartu Player
+                    dibagikan menghadap ke atas sementara Dealer - kartu pertama menghadap ke atas, yang lain menghadap ke bawah.
                 </li>
                 <li>Kartu dikocok setelah setiap putaran.</li>
                 <ul className="style-number-dot">
                     <li className="number-dot">
-                        <span className="font-weight-medium title-text">Aturan untuk tangan Pemain</span>
+                        <span className="font-weight-medium title-text">Aturan untuk tangan Player</span>
                         <ul className="desc">
                             <li>
-                                Jika Player mendapatkan 21 poin pada dua kartu pertama (Blackjack), Player akan menang secara otomatis, kecuali DeaIer juga memiliki Blackjack.
+                                Jika Player mendapatkan 21 poin pada dua kartu pertama (Blackjack), Player akan menang secara otomatis,
+                                kecuali DeaIer juga memiliki Blackjack.
                             </li>
                             <li>
-                                Ketika Player dan Dealer memiliki Blackjack, hasilnya adalah Push (Tie) dan taruhan dikembalikan ke Player.
+                                Ketika Player dan Dealer memiliki Blackjack, hasilnya adalah Push (Seri) dan taruhan dikembalikan ke Player.
                             </li>
-                            <li>Jika total Player melebihi 21 (Bust). Player kalah, meskipun Dealer juga melebihi 21</li>
+                            <li>Jika total Player melebihi 21 (Hangus). Player kalah, meskipun Dealer juga melebihi 21</li>
                             <li>
-                                Bergantung pada total poin dari dua kartu pertama, Pemain akan memiliki hingga empat opsi: {`"Hit"`},{" "}
+                                Bergantung pada total poin dari dua kartu pertama, Player akan memiliki hingga empat opsi: {`"Hit"`},{" "}
                                 {`"Stand"`}, {`"Double"`}, atau {`"Split"`}, sesuai permainan aturan.
                                 <div className="table-container">
                                     <table className="table text-center">
@@ -64,10 +66,12 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                     <ul className="desc">
                                                         <li>Dapatkan kartu tambahan untuk meningkatkan total tangan Anda.</li>
                                                         <li>
-                                                            Tidak ada batasan jumlah kartu yang dapat Anda tarik hingga nilai total kartu adalah 21 atau Bust.
+                                                            Tidak ada batasan jumlah kartu yang dapat Anda tarik hingga nilai total kartu
+                                                            adalah 21 atau Hangus.
                                                         </li>
                                                         <li>
-                                                            Jika tangan Pemain melebihi 21, pemain kalah untuk tangan itu, tidak peduli apa yang dimiliki Dealer.
+                                                            Jika tangan Player melebihi 21, Player kalah untuk tangan itu, tidak peduli apa
+                                                            yang dimiliki Dealer.
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -84,7 +88,8 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                 <td className="text-start">
                                                     <ul className="desc">
                                                         <li>
-                                                            Klik tombol “Berdiri” Jika Pemain ingin berhenti menggambar kartu dan mengakhiri giliran.
+                                                            Klik tombol “Berdiri” Jika Player ingin berhenti menggambar kartu dan mengakhiri
+                                                            giliran.
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -101,20 +106,24 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                 <td className="text-start">
                                                     <ul className="desc">
                                                         <li>
-                                                            Jika dua kartu pertama dari sebuah tangan memiliki nilai yang sama (misalnya, 6-6 atau J-Q), Pemain dapat membagi kartu menjadi dua tangan yang terpisah.
+                                                            Jika dua kartu pertama dari sebuah tangan memiliki nilai yang sama (misalnya,
+                                                            6-6 atau J-Q), Player dapat membagi kartu menjadi dua tangan yang terpisah.
                                                         </li>
                                                         <li>
-                                                            Setelah “Split” dipilih, taruhan tambahan yang sama dengan taruhan awal Anda akan ditempatkan.
+                                                            Setelah “Split” dipilih, taruhan tambahan yang sama dengan taruhan awal Anda
+                                                            akan ditempatkan.
                                                         </li>
-                                                        <li>Pemain hanya dapat membagi satu kali per tangan.</li>
+                                                        <li>Player hanya dapat membagi satu kali per tangan.</li>
                                                     </ul>
                                                     <strong>Catatan:</strong>
                                                     <ul className="desc">
                                                         <li>
-                                                            Ada pengecualian dengan pemisahan A-A karena hanya satu kartu tambahan yang dibagikan untuk setiap kartu baru.
+                                                            Ada pengecualian dengan pemisahan A-A karena hanya satu kartu tambahan yang
+                                                            dibagikan untuk setiap kartu baru.
                                                         </li>
                                                         <li>
-                                                            Tangan memiliki total 21 poin dengan 2 kartu setelah pemisahan dianggap 21, bukan Blackjack.
+                                                            Tangan memiliki total 21 poin dengan 2 kartu setelah pemisahan dianggap 21,
+                                                            bukan Blackjack.
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -131,8 +140,9 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                 <td className="text-start">
                                                     <ul className="desc">
                                                         <li>
-                                                        Jika total poin dari dua kartu pertama adalah 9, 10, atau 11 poin, Pemain dapat menggandakan taruhan awal dan hanya menerima kartu tambahan.
-                                                        Tangan akan berdiri setelah kartu dibagikan.
+                                                            Jika total poin dari dua kartu pertama adalah 9, 10, atau 11 poin, Player dapat
+                                                            menggandakan taruhan awal dan hanya menerima kartu tambahan. Tangan akan berdiri
+                                                            setelah kartu dibagikan.
                                                         </li>
                                                     </ul>
                                                     <strong>Catatan:</strong> “Double” tidak diterapkan untuk tangan setelah membelah.
@@ -148,10 +158,10 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                         <span className="font-weight-medium title-text"> Aturan untuk tangan Dealer</span>
                         <ul className="desc">
                             <li>
-                                Dealer memulai tangannya setelah pemain selesai. 
-                                Dealer harus menarik {`"16 atau kurang"`} dan berdiri di {`"17 dan lebih"`}.
+                                Dealer memulai tangannya setelah Player selesai. Dealer harus menarik {`"16 atau kurang"`} dan berdiri di{" "}
+                                {`"17 dan lebih"`}.
                             </li>
-                            <li>Jika Player dan Dealer memiliki total yang sama, hasilnya PUSH (Tie) dan taruhan dikembalikan.</li>
+                            <li>Jika Player dan Dealer memiliki total yang sama, hasilnya PUSH (Seri) dan taruhan dikembalikan.</li>
                         </ul>
                     </li>
                 </ul>
@@ -166,10 +176,11 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
             <h2>Pembayaran</h2>
             <ul className="desc">
                 <li>
-                    Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan awal.
+                    Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan
+                    awal.
                 </li>
                 <li>
-                Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
+                    Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                     <div className="table-container">
                         <table className="table text-center table-small left">
                             <thead>
@@ -206,9 +217,10 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} (juga disebut {`"21"`}) adalah permainan kartu kasino yang menyenangkan dan menyenangkan. Permainan ini dimainkan dengan enam dek standar dari 52 kartu (tidak termasuk Joker) yang dikocok bersama.
-                        Di Blackjack, Pemain bermain melawan Dealer, dan tujuan dari permainan ini adalah memiliki total poin kartu Anda sedekat mungkin dengan 21, tanpa melebihi 21.
-                        Pemain akan menang jika total poin kartu Anda lebih dekat ke 21 dari kartu Dealer.                    
+                        {gameName} (juga disebut {`"21"`}) adalah permainan kartu kasino yang menyenangkan dan menyenangkan. Permainan ini
+                        dimainkan dengan enam dek standar dari 52 kartu (tidak termasuk Joker) yang dikocok bersama. Di Blackjack, Player
+                        bermain melawan Dealer, dan tujuan dari permainan ini adalah memiliki total poin kartu Anda sedekat mungkin dengan
+                        21, tanpa melebihi 21. Player akan menang jika total poin kartu Anda lebih dekat ke 21 dari kartu Dealer.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain)}</li>
@@ -216,11 +228,13 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>Aturan Perhitungan Poin</h2>
                     <ul className="desc">
                         <li>
-                        Semua kartu dari 2 hingga 10 dihitung berdasarkan nilai nominal, terlepas dari jenisnya, dan kartu wajah (Jack, Queen, King) dihitung sebagai sepuluh.
+                            Semua kartu dari 2 hingga 10 dihitung berdasarkan nilai nominal, terlepas dari jenisnya, dan kartu wajah (Jack,
+                            Queen, King) dihitung sebagai sepuluh.
                         </li>
                         <li>As dihitung sebagai 1 atau 11, mana yang terbaik untuk tangan Anda. </li>
                         <li>
-                            Tangan dengan Blackjack (21 poin pada dua kartu pertama) akan menang atas 21 yang dicapai dengan 3 kartu atau lebih.
+                            Tangan dengan Blackjack (21 poin pada dua kartu pertama) akan menang atas 21 yang dicapai dengan 3 kartu atau
+                            lebih.
                         </li>
                         <li>Nilai poin kartu:{CardPointValuesTable(t)}</li>
                     </ul>
@@ -231,7 +245,7 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsID("", 23)} 
+                {renderTermsAndConditionsID("", 23)}
             </ul>
         </>
     );

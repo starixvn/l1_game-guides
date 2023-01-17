@@ -3,7 +3,7 @@ export const id: IKenoTranslationResource = {
     introduction: {
         title: "Perkenalan",
         description:
-            "Mega Keno / Mega Keno 2 / Keno Utara / Keno Selatan / Keno Barat / Keno Timur adalah RNG Keno dengan 80 bola. Ada 20 bola yang diambil secara acak dari 80 bola bernomor mulai dari 1 sampai 80. Jumlah total dari 20 bola bernomor yang ditarik akan menentukan menang atau kalah pemain.",
+            "Mega Keno / Mega Keno 2 / Keno North / Keno South /Keno West / Keno East adalah RNG Keno dengan 80 bola. Ada 20 bola yang diambil secara acak dari 80 bola bernomor mulai dari 1 sampai 80. Jumlah total dari 20 bola bernomor yang ditarik akan menentukan menang atau kalah pemain.",
     },
     gameRules: {
         title: "Aturan Permainan",
