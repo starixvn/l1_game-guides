@@ -46,7 +46,7 @@ export const id: TexasHoldemLanguage = {
         "To skip placing bets on Turn or River": "Untuk melewati pemasangan taruhan pada Turn atau River, cukup klik tombol “Check”.",
         "The two personal cards are combined with 5 community cards":
             "Dua kartu pribadi digabungkan dengan 5 kartu komunitas untuk membuat kartu Poker lima kartu terbaik. \
-            Pemain akan menang jika Pemain memiliki tangan yang lebih baik dari Dealer",
+            Pemain akan menang jika Pemain memiliki tangan yang lebih baik dari Dealer.",
         "The maximum total stake per round is": "Total taruhan maksimum per putaran adalah ",
         "Note, placed bets cannot be canceled after cards are dealt":
             "Perhatikan, taruhan yang dipasang tidak dapat dibatalkan setelah kartu dibagikan.",
@@ -62,7 +62,7 @@ export const id: TexasHoldemLanguage = {
         spade: "sekop",
         diamond: "wajik",
         "and club": "dan klub",
-        "have equal value": "memiliki nilai yang sama",
+        "have equal value": "memiliki nilai yang sama.",
         "Hand Ranking": "Peringkat Tangan",
         "List of poker hand ranking levels from highest to lowest.": "Daftar level peringkat tangan poker dari tertinggi ke terendah.",
         Hand: "Tangan",
@@ -108,7 +108,7 @@ export const id: TexasHoldemLanguage = {
         "All winning amounts are": "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
         "The winning amount is calculated":
             "Jumlah kemenangan dihitung berdasarkan odds taruhan. Perhatikan, Pembayaran termasuk taruhan awal.",
-        "If Player’s hand beats Dealer’s hand": "Jika tangan Player mengalahkan tangan Dealer:",
+        "If Player’s hand beats Dealer’s hand": "Jika tangan Player mengalahkan tangan Dealer",
         "With a Three of a Kind or lower": "Dengan Three of a Kind atau lebih rendah",
         "the Call, Turn and River bets are won, and Ante is pushed.": "Taruhan Call, Turn, dan River dimenangkan, dan Ante didorong.",
         "With a Straight or higher": "Dengan Lurus atau lebih tinggi",
@@ -152,9 +152,11 @@ export const id: TexasHoldemLanguage = {
         Example: "Contoh",
         "Check the authenticity and transparency of Poker game results.": "Periksa keaslian dan transparansi hasil permainan Poker.",
         Note: "Catatan",
-        "From left to right, the cards are ":
-            "Dari kiri ke kanan, kartu ditampilkan dalam urutan: Kartu Player (J♣, 3♠), Kartu Dealer (2♥, Q♥), dan lima kartu komunitas (4♦, 6♠, 10♥, 10♦ , 10♣)",
-        "If the Player has swapped his cards ":
-            "Jika Player telah menukar kartunya dengan Dealer maka urutannya adalah: Kartu Dealer (J♣, 3♠), Kartu Player (2♥, Q♥), dan lima kartu komunitas.",
+        "From left to right, the cards are displayed in the order": "Dari kiri ke kanan, kartu ditampilkan dalam urutan",
+        "Player’s cards": "Kartu Player",
+        "Dealer’s cards": "Kartu Dealer",
+        "and the five community cards": "dan lima kartu komunitas",
+        "If the Player has swapped his cards with Dealer then the order will be":
+            "Jika Player telah menukar kartunya dengan Dealer maka urutannya adalah",
     },
 };

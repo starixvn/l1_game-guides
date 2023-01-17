@@ -36,7 +36,7 @@ export const zhCN: TexasHoldemLanguage = {
         Check: "过牌",
         "To skip placing bets on Turn or River": "要跳过在转牌或河牌上下注，只需单击“过牌”按钮。",
         "The two personal cards are combined with 5 community cards":
-            "两张个人牌与 5 张公共牌相结合，组成最好的五张扑克牌。如果闲家的牌好于庄家，闲家将获胜",
+            "两张个人牌与 5 张公共牌相结合，组成最好的五张扑克牌。如果闲家的牌好于庄家，闲家将获胜。",
         "The maximum total stake per round is": "每轮的最大总赌注为 ",
         "Note, placed bets cannot be canceled after cards are dealt": "请注意，发牌后无法取消投注。",
         "Ranking Level": "排名",
@@ -135,9 +135,10 @@ export const zhCN: TexasHoldemLanguage = {
         Example: "示例",
         "Check the authenticity and transparency of Poker game results.": "检查扑克游戏结果的真实性和透明度。",
         Note: "注意",
-        "From left to right, the cards are ":
-            "从左到右，出牌顺序为：闲家牌（J♣、10♥）、庄家牌（3♦、2♠）、五张公共牌（K♣、5♥、3♠、10♦） , 4♦)",
-        "If the Player has swapped his cards ":
-            "如果闲家与庄家交换了他的牌，那么顺序将是：庄家的牌 (J♣, 10♥)，闲家的牌 (3♦, 2♠)，以及五张公共牌。",
+        "From left to right, the cards are displayed in the order": "从左到右，出牌顺序为",
+        "Player’s cards": "闲家牌",
+        "Dealer’s cards": "庄家牌",
+        "and the five community cards": "五张公共牌",
+        "If the Player has swapped his cards with Dealer then the order will be": "如果闲家与庄家交换了他的牌，那么顺序将是",
     },
 };

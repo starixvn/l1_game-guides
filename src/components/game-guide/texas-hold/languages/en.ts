@@ -45,7 +45,7 @@ export const en: TexasHoldemLanguage = {
         "To skip placing bets on Turn or River": "To skip placing bets on Turn or River, simply click on “Check” button.",
         "The two personal cards are combined with 5 community cards":
             "The two personal cards are combined with 5 community cards to make the best five-card Poker hand. The Player will win if\
-    the Player has a better hand than the Dealer",
+    the Player has a better hand than the Dealer.",
         "The maximum total stake per round is": "The maximum total stake per round is ",
         "Note, placed bets cannot be canceled after cards are dealt": "Note, placed bets cannot be canceled after cards are dealt.",
         "Ranking Level": "Ranking Level",
@@ -62,9 +62,9 @@ export const en: TexasHoldemLanguage = {
         spade: "spade",
         diamond: "diamond",
         "and club": "and club",
-        "have equal value": "have equal value",
+        "have equal value": "have equal value.",
         "Hand Ranking": "Hand Ranking",
-        "List of poker hand ranking levels from highest to lowest.": "List of poker hand ranking levels from highest to lowest.",
+        "List of poker hand ranking levels from highest to lowest.": "List of poker hand ranking levels from highest to lowest",
         Hand: "Hand",
         Description: "Description",
         Example: "Example",
@@ -153,11 +153,11 @@ export const en: TexasHoldemLanguage = {
         Example: "Example",
         "Check the authenticity and transparency of Poker game results.": "Check the authenticity and transparency of Poker game results.",
         Note: "Note",
-        "From left to right, the cards are ":
-            "From left to right, the cards are displayed in the order: Player’s cards (J♣, 3♠), \
-            Dealer’s cards (2♥, Q♥), and the five community cards (4♦, 6♠, 10♥, 10♦, 10♣)",
-        "If the Player has swapped his cards ":
-            "If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards \
-            (J♣, 3♠), Player’s cards (2♥, Q♥), and the five community cards.",
+        "From left to right, the cards are displayed in the order": "From left to right, the cards are displayed in the order",
+        "Player’s cards": "Player’s cards",
+        "Dealer’s cards": "Dealer’s cards",
+        "and the five community cards": "and the five community cards",
+        "If the Player has swapped his cards with Dealer then the order will be":
+            "If the Player has swapped his cards with Dealer then the order will be",
     },
 };

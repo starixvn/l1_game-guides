@@ -122,7 +122,10 @@ export type TexasHoldemLanguage = {
         Example: string;
         "Check the authenticity and transparency of Poker game results.": string;
         Note: string;
-        "From left to right, the cards are ": string;
-        "If the Player has swapped his cards ": string;
+        "From left to right, the cards are displayed in the order": string;
+        "Player’s cards": string;
+        "Dealer’s cards": string;
+        "and the five community cards": string;
+        "If the Player has swapped his cards with Dealer then the order will be": string;
     };
 };

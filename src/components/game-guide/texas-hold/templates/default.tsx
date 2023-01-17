@@ -79,7 +79,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                     <span className={Styles["red"]}>♥</span>), {language.gameRules.spade} (
                                     <span className={Styles["black"]}>♠</span>), {language.gameRules.diamond} (
                                     <span className={Styles["red"]}>♦</span>), {language.gameRules["and club"]}(
-                                    <span className={Styles["black"]}>♣</span>) {language.gameRules["have equal value"]}.
+                                    <span className={Styles["black"]}>♣</span>) {language.gameRules["have equal value"]}
                                 </li>
                             </ul>
                         </li>
@@ -714,7 +714,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                     </tbody>
                                 </table>
                             </div>
-                            <div>=&gt; {language.gameRules["Result is a “Tie”"]}.</div>
+                            <div>=&gt; {language.gameRules["Result is a “Tie”"]}</div>
                         </li>
                     </ul>
                 </li>
@@ -876,8 +876,22 @@ export const renderMD5 = (language: TexasHoldemLanguage) => {
                     <li>
                         <strong>{language.md5["Note"]}</strong>
                         <ul className="detail">
-                            <li>{language.md5["From left to right, the cards are "]}</li>
-                            <li>{language.md5["If the Player has swapped his cards "]}</li>
+                            <li>
+                                {language.md5["From left to right, the cards are displayed in the order"]}: {language.md5["Player’s cards"]}{" "}
+                                ( <span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>),{" "}
+                                {language.md5["Dealer’s cards"]} (<span className={Styles["red"]}>2♥</span>,{" "}
+                                <span className={Styles["red"]}>Q♥</span>), {language.md5["and the five community cards"]} (
+                                <span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
+                                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
+                                <span className={Styles["black"]}>10♣</span>)
+                            </li>
+                            <li>
+                                {language.md5["If the Player has swapped his cards with Dealer then the order will be"]}:{" "}
+                                {language.md5["Dealer’s cards"]}( <span className={Styles["black"]}>J♣</span>,{" "}
+                                <span className={Styles["black"]}>3♠</span>), {language.md5["Player’s cards"]}(
+                                <span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>),{" "}
+                                {language.md5["and the five community cards"]}
+                            </li>
                         </ul>
                     </li>
                     <li>
