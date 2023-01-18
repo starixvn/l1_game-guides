@@ -19,8 +19,11 @@ id.main.description =
 cn.main.description =
     "“Nightclub Lady” is an online slot game with a unique theme - Hot Girls & Dance Club, attractive gameplay and gripping graphics that make the game hot and sexier than ever. " +
     cn.main.description;
-vi.main.description =
+tw.main.description =
     "“Nightclub Lady” is an online slot game with a unique theme - Hot Girls & Dance Club, attractive gameplay and gripping graphics that make the game hot and sexier than ever. " +
+    tw.main.description;
+vi.main.description =
+    "“Gái Nhảy” là thể loại Slot game (game xèng), được xây dựng với giao diện hấp dẫn với chủ đề Hot Girls & Dance Club. " +
     vi.main.description;
 
 const supportedLanguages: { [name: string]: ISlotTranslationResource } = {

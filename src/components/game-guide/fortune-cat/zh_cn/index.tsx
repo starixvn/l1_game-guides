@@ -436,7 +436,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const FortuneCatGuideCN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { gameConfigs } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -444,9 +444,8 @@ const FortuneCatGuideCN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        “{gameName}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game
-                        includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same
-                        payline that has been chosen.
+                        “招财猫”是一款招财猫在线老虎机游戏——招财猫是吉祥和繁荣的象征。 该游戏包括 5 个卷轴和 3 行，带有 11 个不同的符号。
+                        如果相同的符号位于已选择的同一条支付线上，玩家将获胜。
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
                         <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />

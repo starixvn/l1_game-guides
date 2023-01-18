@@ -1,6 +1,6 @@
 import React from "react";
 import { GameGuideProps } from "../../type";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, ISlotTranslationResource } from "./types";
 
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
@@ -20,7 +20,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                 <h2>{translationResource.main.introduction}</h2>
                 <p className="content">{translationResource.main.description}</p>
                 <div className={styles["wrapper-list-icon"]}>
-                    <img src={`${this.imageDirectoryName}/list_icon.png#v3`} alt="guide_item_symbol_bg" width={412} height={374} />
+                    <img src={`${this.imageDirectoryName}/list_icon.png#v3`} alt="guide_item_symbol_bg" />
                 </div>
             </li>
         );
@@ -479,13 +479,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                 <h2>{wildResource.title}</h2>
                 <div className={styles["wild-content-ex"]}>
                     <span className={styles["wrapper-wild"]}>
-                        <img
-                            src={`${this.imageDirectoryName}/guide_example_wild.png#v2`}
-                            alt="guide_example_wild"
-                            width={117}
-                            height={54}
-                            loading="eager"
-                        />
+                        <img src={`${this.imageDirectoryName}/guide_example_wild.png#v2`} alt="guide_example_wild" loading="eager" />
                     </span>
 
                     <ul className="desc">
@@ -564,8 +558,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
     abstract getStyles(): { readonly [key: string]: string };
 
-    renderTermAndConditions(styles: { readonly [key: string]: string }) {
-        return renderTermsAndConditionsEN(styles["guide-item"]);
+    renderTermAndConditions(styles: { readonly [key: string]: string }, gameId?: number, locale?: string) {
+        return renderTermsAndConditions(styles["guide-item"], undefined, locale);
     }
 
     render(): React.ReactNode {
@@ -573,6 +567,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
         const { odds } = gameConfigs;
         const translationResource = this.getTranslationResource(locale);
         const styles = this.getStyles();
+        console.log(locale);
 
         return (
             <>
@@ -583,7 +578,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     {this.renderFreeSpin(odds, translationResource, styles)}
                     {this.renderBonus(odds, translationResource, styles)}
                     {this.renderWild(odds, translationResource, styles)}
-                    {this.renderTermAndConditions(styles)}
+                    {this.renderTermAndConditions(styles, undefined, locale)}
                 </ul>
             </>
         );

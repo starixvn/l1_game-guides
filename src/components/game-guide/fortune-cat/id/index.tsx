@@ -469,9 +469,9 @@ const FortuneCatGuideID: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        “{gameName}” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity. The game
-                        includes 5 reels and 3 rows, with 11 different symbols. Players will win if the same symbols are located on the same
-                        payline that has been chosen.
+                        Kucing Keberuntungan adalah permainan slot online dengan kucing keberuntungan yang melambai - simbol keberuntungan
+                        dan kemakmuran. Game ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol
+                        yang sama terletak pada payline yang sama yang telah dipilih.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
                         <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />
