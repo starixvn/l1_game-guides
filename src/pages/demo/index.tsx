@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { v4 as uuidv4 } from "uuid";
 import { TFunction, useTranslation } from "next-i18next";
 
 import { ENVIRONMENT, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
+import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
+import { TLocalStorageData } from "./type";
 
-const SelectOptions = (listData: Object, setData: Function) => {
+const SelectOptions = (listData: Object, setData: Function, value: string) => {
     return (
         <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setData(event.target.value)}>
+            <select className="form-select form-select-lg mb-3" value={value} onChange={(event) => setData(event.target.value)}>
                 {Object.values(listData).map((data, index) => {
                     return (
                         <option key={index} value={data}>
@@ -22,10 +24,10 @@ const SelectOptions = (listData: Object, setData: Function) => {
     );
 };
 
-const renderGameName = (setGameId: Function, t: TFunction) => {
+const renderGameName = (setGameId: Function, t: TFunction, gameId: number) => {
     return (
         <div>
-            <select className="form-select form-select-lg mb-3" onChange={(event) => setGameId(+event.target.value)}>
+            <select className="form-select form-select-lg mb-3" value={gameId} onChange={(event) => setGameId(+event.target.value)}>
                 {Object.values(appSettings.gameSettings).map((guide, index) => {
                     return (
                         <option key={index} value={guide.id}>
@@ -40,7 +42,7 @@ const renderGameName = (setGameId: Function, t: TFunction) => {
 
 const Demo = () => {
     const { t } = useTranslation();
-
+    const configsRef = useRef<HTMLDivElement | null>(null);
     const [linkGuide, setLinkGuide] = useState<string>("");
     const [locale, setLocale] = useState<string>(locales.en);
     const [gameId, setGameId] = useState<number>(1);
@@ -48,70 +50,103 @@ const Demo = () => {
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sc);
     const [minBet, setMinBet] = useState<number>(0);
     const [maxBet, setMaxBet] = useState<number>(2000);
-    const [showConfig, setShowConfig] = useState<boolean>(true);
+    const [isShowConfig, setIsShowConfig] = useState<boolean>(true);
+    const [heighIframeGuide, setHeighIframeGuide] = useState<number>(0);
+
+    useEffect(() => {
+        const configs: TLocalStorageData = getLocalStorageItem(localStorageKeys.configs);
+        if (configs) {
+            setLinkGuide(configs.linkGuide ?? "");
+            setLocale(configs.locale ?? locales.en);
+            setGameId(configs.gameId ?? 1);
+            setTheme(configs.theme ?? Themes.dark);
+            setEnvironment(configs.environment ?? ENVIRONMENT.sc);
+            setMinBet(configs.minBet ?? 0);
+            setMaxBet(configs.maxBet ?? 2000);
+            setIsShowConfig(configs.isShowConfig ? true : false);
+        }
+    }, []);
 
     useEffect(() => {
         if (locale && gameId && theme && environment) {
             let data = `${locale}?gId=${gameId}&t=${theme}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
-            environment == ENVIRONMENT.sc && (data += `&f=${environment}`);
+            environment === ENVIRONMENT.sc && (data += `&f=${environment}`);
             setLinkGuide(`${window.location.origin}/${data}`);
+
+            storeLocalStorageItem(localStorageKeys.configs, {
+                linkGuide,
+                locale,
+                gameId,
+                theme,
+                environment,
+                minBet,
+                maxBet,
+                isShowConfig: isShowConfig ? 1 : 0,
+            });
         }
-    }, [locale, gameId, theme, environment, minBet, maxBet]);
+    }, [locale, gameId, theme, environment, minBet, maxBet, isShowConfig]);
+
+    useEffect(() => {
+        setHeighIframeGuide(window.innerHeight - (configsRef?.current?.clientHeight ?? 0));
+    }, [configsRef, isShowConfig]);
 
     return (
-        <div>
-            <div className="container" style={{ marginBottom: 20, marginTop: 20 }}>
-                <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={() => setShowConfig(!showConfig)}
-                    style={{ fontSize: 14, marginBottom: 10 }}
-                >
-                    {showConfig ? "Collapse Configs" : "Expand Configs"}
-                </button>
-                <div className={showConfig ? "show" : "hide"}>
+        <div id="container-guide" className="container-guide">
+            <div id="configs" style={{ display: "block" }}>
+                <div className="container" style={{ paddingBottom: 20, paddingTop: 20 }} ref={configsRef}>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => setIsShowConfig(!isShowConfig)}
+                        style={{ fontSize: 14, marginBottom: 10 }}
+                    >
+                        {isShowConfig ? "Collapse Configs" : "Expand Configs"}
+                    </button>
                     <div className="col-8">
                         <div className="row">
-                            <div className="col">{renderGameName(setGameId, t)}</div>
-                            <div className="col"> {SelectOptions(locales, setLocale)}</div>
-                        </div>
-                        <div className="row">
-                            <div className="col">{SelectOptions(Themes, setTheme)} </div>
-                            <div className="col"> {SelectOptions(ENVIRONMENT, setEnvironment)}</div>
+                            <div className="col">{renderGameName(setGameId, t, gameId)}</div>
+                            <div className="col"> {SelectOptions(locales, setLocale, locale)}</div>
                         </div>
                     </div>
-
-                    <div className="row">
-                        <h4>User stake level</h4>
+                    <div className={isShowConfig ? "show" : "hide"}>
                         <div className="col-8">
-                            <div className="input-group">
-                                <span className="input-group-text" style={{ fontSize: 14 }}>
-                                    Min bet and Max bet
-                                </span>
-                                <input
-                                    type="number"
-                                    min={0}
-                                    className="form-control"
-                                    value={minBet}
-                                    onChange={(event) => setMinBet(+event.target.value)}
-                                    style={{ fontSize: 14 }}
-                                ></input>
-                                <input
-                                    type="number"
-                                    min={0}
-                                    className="form-control"
-                                    value={maxBet}
-                                    onChange={(event) => setMaxBet(+event.target.value)}
-                                    style={{ fontSize: 14 }}
-                                ></input>
+                            <div className="row">
+                                <div className="col">{SelectOptions(Themes, setTheme, theme)} </div>
+                                <div className="col"> {SelectOptions(ENVIRONMENT, setEnvironment, environment)}</div>
                             </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        Link Guide:{" "}
-                        <a href={linkGuide} rel="noopener noreferrer" target="_blank">
-                            {linkGuide}
-                        </a>
+                        <div className="row">
+                            <h4>User stake level</h4>
+                            <div className="col-8">
+                                <div className="input-group">
+                                    <span className="input-group-text" style={{ fontSize: 14 }}>
+                                        Min bet and Max bet
+                                    </span>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        className="form-control"
+                                        value={minBet}
+                                        onChange={(event) => setMinBet(+event.target.value)}
+                                        style={{ fontSize: 14 }}
+                                    ></input>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        className="form-control"
+                                        value={maxBet}
+                                        onChange={(event) => setMaxBet(+event.target.value)}
+                                        style={{ fontSize: 14 }}
+                                    ></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            Link Guide:{" "}
+                            <a href={linkGuide} rel="noopener noreferrer" target="_blank">
+                                {linkGuide}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,10 +157,9 @@ const Demo = () => {
                     className={"guide-iframe"}
                     src={linkGuide}
                     referrerPolicy="strict-origin-when-cross-origin"
-                    height={window.innerHeight}
+                    height={heighIframeGuide}
                     width={window.innerWidth}
-                    scrolling="auto"
-                    style={{ border: "none", paddingBottom: "25rem" }}
+                    style={{ border: "none", paddingBottom: "20px" }}
                 />
             )}
         </div>
