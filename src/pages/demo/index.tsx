@@ -6,7 +6,17 @@ import { TFunction, useTranslation } from "next-i18next";
 import { ENVIRONMENT, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
-import { TLocalStorageData } from "./type";
+
+type TLocalStorageData = {
+    linkGuide: string;
+    locale: string;
+    gameId: number;
+    theme: string;
+    environment: string;
+    minBet: number;
+    maxBet: number;
+    isShowConfig: number;
+};
 
 const SelectOptions = (listData: Object, setData: Function, value: string) => {
     return (
