@@ -39,6 +39,6 @@ export const id: IFruitSlotTranslationResource = {
     main: {
         introduction: "Perkenalan",
         description:
-            "Fruit Slot adalah mesin slot buah tradisional yang diinovasi untuk memberi pemain pengalaman bermain yang menarik dan mendebarkan.",
+            "Buah Slot adalah mesin slot buah tradisional yang diinovasi untuk memberi pemain pengalaman bermain yang menarik dan mendebarkan.",
     },
 };
