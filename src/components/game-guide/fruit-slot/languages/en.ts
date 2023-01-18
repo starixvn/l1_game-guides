@@ -5,8 +5,7 @@ export const en: IFruitSlotTranslationResource = {
         title: "Game Rules",
         description: {
             line1: "Select the chip value you wish to play. All bets must be placed before the betting time expires.",
-            note: "Please note that",
-            noteText: "the placed bets cannot be canceled.",
+            noteText: "Please note that the placed bets cannot be canceled.",
             theMaxTotalStake: "The maximum total stake per round is",
             thePlayerCanPlaceBets:
                 "The player can place bets on any available options; except for the Big and Small, the player either bet on one of these two bet options.",
@@ -20,20 +19,14 @@ export const en: IFruitSlotTranslationResource = {
     payOut: {
         title: "Payouts",
         winningAmount: "The winning amount is calculated according to the betting odds.",
-        note: "Please note that",
-        noteText: "the payouts include the initial stake.",
+        noteText: "Please note that the payouts include the initial stake.",
         allWinningAmount: "All winning amounts are instantly added to your account balance when bets are settled.",
         bettingOddsTable: "Betting odds table:",
         locales: "en",
     },
     lucky: {
         title: "Lucky Symbols",
-        line1: {
-            whenLuckySymbol: "When the lucky symbol appears, the system sequentially and randomly generates",
-            or: "or",
-            moreResult: "more results; ",
-            exceptLuckySymbols: "except lucky symbols, and the extra generated results are not overlapped.",
-        },
+        line1: "When the lucky symbol appears, the system sequentially and randomly generates <strong style='color: #ff9a00'>2</strong> or <strong style='color: #ff9a00'>3</strong> more results; except lucky symbols, and the extra generated results are not overlapped.",
         line2: "The extra generated results are used to calculate the game result.",
         line3: "Big/Small results will not be regenerated in the lucky spin.",
         example: "Example",
@@ -46,6 +39,6 @@ export const en: IFruitSlotTranslationResource = {
     main: {
         introduction: "Introduction",
         description:
-            " is the traditional fruit slot machine innovated to provide players with an attractive and thrilling gameplay experience.",
+            "Fruit Slot is the traditional fruit slot machine innovated to provide players with an attractive and thrilling gameplay experience.",
     },
 };

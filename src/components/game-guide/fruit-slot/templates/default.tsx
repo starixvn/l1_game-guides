@@ -1,19 +1,18 @@
 import React from "react";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditions, renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../fruit-slot.module.scss";
 import { getFruitSlotTranslationResource } from "../languages";
 import { IFruitSlotTranslationResource } from "../languages/types";
+import { Markup } from "interweave";
 
 class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> {
     renderIntroduction(translationResource: IFruitSlotTranslationResource, gameName: string) {
         return (
             <li className="guide-item">
                 <h2>{translationResource.main.introduction}</h2>
-                <p className="content">
-                    {gameName} {translationResource.main.description}
-                </p>
+                <p className="content">{translationResource.main.description}</p>
             </li>
         );
     }
@@ -26,10 +25,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                 <ul className="desc">
                     <li>
                         {gameRuleResource.description.line1}
-                        <div>
-                            <span className={Styles["text-highlight"]}>{gameRuleResource.description.note}</span>{" "}
-                            {gameRuleResource.description.noteText}
-                        </div>
+                        <div>{gameRuleResource.description.noteText}</div>
                     </li>
                     <li>
                         {gameRuleResource.description.theMaxTotalStake}{" "}
@@ -212,9 +208,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     <ul className="desc">
                         <li>
                             {payOutResource.winningAmount}
-                            <div>
-                                <span className={Styles["text-highlight"]}>{payOutResource.note}</span> {payOutResource.noteText}
-                            </div>
+                            <div>{payOutResource.noteText}</div>
                         </li>
                         <li>{payOutResource.allWinningAmount}</li>
                         <li>{payOutResource.bettingOddsTable}</li>
@@ -233,9 +227,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     <h2>{luckyResource.title}</h2>
                     <ul className="desc">
                         <li>
-                            {luckyResource.line1.whenLuckySymbol} <span className={Styles["text-highlight"]}>2</span>{" "}
-                            {luckyResource.line1.or} <span className={Styles["text-highlight"]}>3</span> {luckyResource.line1.moreResult}{" "}
-                            {luckyResource.line1.exceptLuckySymbols}
+                            <Markup content={luckyResource.line1} />
                         </li>
                         <li>{luckyResource.line2}</li>
                         <li>{luckyResource.line3}</li>
@@ -276,7 +268,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     {this.renderGameRule(translationResource, maxBetFollowChoice)}
                     {this.renderPayouts(translationResource, odds)}
                     {this.renderLuckySymbol(translationResource)}
-                    {renderTermsAndConditionsEN(Styles["guide-item"])}
+                    {renderTermsAndConditions(Styles["guide-item"], undefined, locale)}
                 </ul>
             </>
         );

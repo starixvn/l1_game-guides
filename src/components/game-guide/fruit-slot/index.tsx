@@ -13,7 +13,7 @@ const FruitSlotGuide = (props: GameGuideBase) => {
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
     const getLocalGameConfigs = () => {
-        getGameConfigProject("multiplay-big-small", project, setConfigs);
+        getGameConfigProject("fruit-slot", project, setConfigs);
     };
 
     const getDynamicGameConfig = () => {

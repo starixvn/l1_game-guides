@@ -59,61 +59,59 @@ const Demo = () => {
     }, [locale, gameId, theme, environment, minBet, maxBet]);
 
     return (
-        <div id="container-guide" className="container-guide">
-            <div>
-                <div className="container" style={{ marginBottom: 20, marginTop: 20 }}>
-                    <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() => setShowConfig(!showConfig)}
-                        style={{ fontSize: 14, marginBottom: 10 }}
-                    >
-                        {showConfig ? "Collapse Configs" : "Expand Configs"}
-                    </button>
-                    <div className={showConfig ? "show" : "hide"}>
-                        <div className="col-8">
-                            <div className="row">
-                                <div className="col">{renderGameName(setGameId, t)}</div>
-                                <div className="col"> {SelectOptions(locales, setLocale)}</div>
-                            </div>
-                            <div className="row">
-                                <div className="col">{SelectOptions(Themes, setTheme)} </div>
-                                <div className="col"> {SelectOptions(ENVIRONMENT, setEnvironment)}</div>
-                            </div>
+        <div>
+            <div className="container" style={{ marginBottom: 20, marginTop: 20 }}>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => setShowConfig(!showConfig)}
+                    style={{ fontSize: 14, marginBottom: 10 }}
+                >
+                    {showConfig ? "Collapse Configs" : "Expand Configs"}
+                </button>
+                <div className={showConfig ? "show" : "hide"}>
+                    <div className="col-8">
+                        <div className="row">
+                            <div className="col">{renderGameName(setGameId, t)}</div>
+                            <div className="col"> {SelectOptions(locales, setLocale)}</div>
                         </div>
+                        <div className="row">
+                            <div className="col">{SelectOptions(Themes, setTheme)} </div>
+                            <div className="col"> {SelectOptions(ENVIRONMENT, setEnvironment)}</div>
+                        </div>
+                    </div>
 
-                        <div className="row">
-                            <h4>User stake level</h4>
-                            <div className="col-8">
-                                <div className="input-group">
-                                    <span className="input-group-text" style={{ fontSize: 14 }}>
-                                        Min bet and Max bet
-                                    </span>
-                                    <input
-                                        type="number"
-                                        min={0}
-                                        className="form-control"
-                                        value={minBet}
-                                        onChange={(event) => setMinBet(+event.target.value)}
-                                        style={{ fontSize: 14 }}
-                                    ></input>
-                                    <input
-                                        type="number"
-                                        min={0}
-                                        className="form-control"
-                                        value={maxBet}
-                                        onChange={(event) => setMaxBet(+event.target.value)}
-                                        style={{ fontSize: 14 }}
-                                    ></input>
-                                </div>
+                    <div className="row">
+                        <h4>User stake level</h4>
+                        <div className="col-8">
+                            <div className="input-group">
+                                <span className="input-group-text" style={{ fontSize: 14 }}>
+                                    Min bet and Max bet
+                                </span>
+                                <input
+                                    type="number"
+                                    min={0}
+                                    className="form-control"
+                                    value={minBet}
+                                    onChange={(event) => setMinBet(+event.target.value)}
+                                    style={{ fontSize: 14 }}
+                                ></input>
+                                <input
+                                    type="number"
+                                    min={0}
+                                    className="form-control"
+                                    value={maxBet}
+                                    onChange={(event) => setMaxBet(+event.target.value)}
+                                    style={{ fontSize: 14 }}
+                                ></input>
                             </div>
                         </div>
-                        <div className="row">
-                            Link Guide:{" "}
-                            <a href={linkGuide} rel="noopener noreferrer" target="_blank">
-                                {linkGuide}
-                            </a>
-                        </div>
+                    </div>
+                    <div className="row">
+                        Link Guide:{" "}
+                        <a href={linkGuide} rel="noopener noreferrer" target="_blank">
+                            {linkGuide}
+                        </a>
                     </div>
                 </div>
             </div>
@@ -127,7 +125,7 @@ const Demo = () => {
                     height={window.innerHeight}
                     width={window.innerWidth}
                     scrolling="auto"
-                    style={{ border: "none" }}
+                    style={{ border: "none", paddingBottom: "25rem" }}
                 />
             )}
         </div>

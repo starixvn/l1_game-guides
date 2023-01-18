@@ -3,7 +3,6 @@ export interface IFruitSlotTranslationResource {
         title: string;
         description: {
             line1: string;
-            note: string;
             noteText: string;
             theMaxTotalStake: string;
             thePlayerCanPlaceBets: string;
@@ -17,7 +16,6 @@ export interface IFruitSlotTranslationResource {
     payOut: {
         title: string;
         winningAmount: string;
-        note: string;
         noteText: string;
         allWinningAmount: string;
         bettingOddsTable: string;
@@ -26,12 +24,7 @@ export interface IFruitSlotTranslationResource {
 
     lucky: {
         title: string;
-        line1: {
-            whenLuckySymbol: string;
-            or: string;
-            moreResult: string;
-            exceptLuckySymbols: string;
-        };
+        line1: string;
         line2: string;
         line3: string;
         example: string;
