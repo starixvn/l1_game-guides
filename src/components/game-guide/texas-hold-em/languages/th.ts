@@ -110,7 +110,7 @@ export const th: TexasHoldemLanguage = {
         "Ante (with Three of a Kind or lower)": "Ante (มีสามชนิดหรือต่ำกว่า)",
         Push: "เทหมดหน้าตัก",
         "Ante (with Straight or higher)": "Ante (แบบตรงหรือสูงกว่า)",
-        Call: "เรียกไพ่",
+        Call: "เรียก",
         Turn: "เทิร์น",
         River: " ริเวอร์",
     },
