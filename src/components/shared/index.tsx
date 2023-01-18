@@ -96,30 +96,30 @@ export const renderTermsAndConditionsID = (style = "", gameId?: number) => {
             <ul className="style-number-rule">
                 {gameId === games.bitcoinMaster && (
                     <li className="number-dot">
-                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
-                        extended period of time or is canceled.
+                        Perusahaan berhak membatalkan atau membatalkan taruhan apa pun jika hasil Bitcoin resmi tidak dapat diperoleh dalam
+                        jangka waktu yang lama atau dibatalkan.
                     </li>
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
-                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
-                        considered as “FOLD”.
+                        Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan
+                        tombol {'"Deal"'}. Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. Tangan pemain
+                        dianggap sebagai “FOLD”.
                     </li>
                 )}
                 {gameId === games.texasHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
-                        “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
-                        determined by the following rules:
+                        Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan
+                        tombol {'"Deal"'}. Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam, dan hasil
+                        menang-kalah akan ditentukan dengan aturan berikut:
                         <ul className="detail">
                             <li>
-                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
-                                considered as “FOLD”.
+                                Jika putaran permainan terganggu sebelum Player memilih “CALL” atau “FOLD {"=>"} Tangan Player dianggap
+                                sebagai “FOLD”.
                             </li>
                             <li>
-                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
-                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                                Jika putaran permainan terganggu setelah Player memilih opsi “CALL”, tangan Player dianggap sebagai “CHECK”
+                                untuk Taruhan Putaran dan River {"=>"} Putaran permainan akan diselesaikan seperti biasa.
                             </li>
                         </ul>
                     </li>
@@ -162,30 +162,24 @@ export const renderTermsAndConditionsTH = (style = "", gameId?: number) => {
             <ul className="style-number-rule">
                 {gameId === games.bitcoinMaster && (
                     <li className="number-dot">
-                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
-                        extended period of time or is canceled.
+                        บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันของบิทคอยน์ ในช่วงระยะเวลาที่ขยายออกไปหรือถูกยกเลิก
                     </li>
                 )}
                 {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
-                        “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is
-                        considered as “FOLD”.
+                        รอบเกมที่ยังไม่เสร็จสิ้นสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {'"ตกลง"'}
+                        เกมที่ยังไม่จบจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง มือของผู้เล่นจะถือว่า “หมอบ”
                     </li>
                 )}
                 {gameId === games.texasHoldem && (
                     <li className="number-dot">
-                        The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the
-                        “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be
-                        determined by the following rules:
+                        รอบเกมส์ที่ยังไม่เสร็จสิ้นสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม {'"ตกลง"'}
+                        เกมส์ที่ยังไม่จบจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง และผลแพ้ชนะจะถูกตัดสินตามกฎต่อไปนี้:
                         <ul className="detail">
+                            <li>หากรอบเกมส์หยุดชะงักก่อนที่ผู้เล่นจะเลือก “สู้ ” หรือ “หมอบ {"=>"} มือของผู้เล่นจะถือว่า “หมอบไพ่ทิ้ง”</li>
                             <li>
-                                If the game round is disrupted before the Player selects either “CALL” or “FOLD” {`=>`} The Player’s hand is
-                                considered as “FOLD”.
-                            </li>
-                            <li>
-                                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered
-                                as “CHECK” for Turn and River bet {`=>`} The game round will be settled as normal.
+                                หากรอบเกมส์หยุดชะงักหลังจากผู้เล่นเลือกตัวเลือก {'"CALL"'} มือของผู้เล่นจะถือเป็น {'"ตรวจสอบ"'}
+                                สำหรับการเดิมพันแบบเทิร์นและริเวอร์ {"=>"} รอบเกมจะตัดสินตามปกติ
                             </li>
                         </ul>
                     </li>
@@ -282,9 +276,23 @@ export const renderTermsAndConditionsCN = (style = "", gameId?: number) => {
             <h2>条款和条件</h2>
             <ul className="style-number-rule">
                 {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">如果公司长时间无法获得官方比特币的结果，公司保留取消任何投注的权利。</li>
+                )}
+                {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
-                        extended period of time or is canceled.
+                        未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。
+                        <ul className="detail">
+                            <li>如果在玩家选择“跟注”或“弃牌”之前游戏回合中断 {"=>"} 玩家的牌被视为“弃牌”。</li>
+                            <li>
+                                如果在玩家选择“跟注”选项后游戏回合中断，玩家的手牌将被视为转牌和河牌下注的“CHECK” {"=>"}{" "}
+                                游戏回合将照常结算。
+                            </li>
+                        </ul>
                     </li>
                 )}
                 {gameId === games.blackjack && (
@@ -317,9 +325,23 @@ export const renderTermsAndConditionsTW = (style = "", gameId?: number) => {
             <h2>條款和條件</h2>
             <ul className="style-number-rule">
                 {gameId === games.bitcoinMaster && (
+                    <li className="number-dot">如果公司長時間無法獲得官方比特幣的結果，公司保留取消任何投注的權利。</li>
+                )}
+                {gameId === games.casinoHoldem && (
                     <li className="number-dot">
-                        The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an
-                        extended period of time or is canceled.
+                        未完成的遊戲回合可以恢復，必須在玩家按下“發牌”按鈕後24小時內完成。未完成的遊戲將在24小時後自動結算。玩家的牌被視為“棄牌”。
+                    </li>
+                )}
+                {gameId === games.texasHoldem && (
+                    <li className="number-dot">
+                        未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。
+                        <ul className="detail">
+                            <li>如果在玩家选择“跟注”或“弃牌”之前游戏回合中断 {"=>"} 玩家的牌被视为“弃牌”。</li>
+                            <li>
+                                如果在玩家选择“跟注”选项后游戏回合中断，玩家的手牌将被视为转牌和河牌下注的“CHECK” {"=>"}{" "}
+                                游戏回合将照常结算。
+                            </li>
+                        </ul>
                     </li>
                 )}
                 {gameId === games.blackjack && (
