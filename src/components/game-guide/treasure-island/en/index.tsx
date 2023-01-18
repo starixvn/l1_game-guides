@@ -12,7 +12,7 @@ import {
     renderIconContentBlack,
     renderPayoutsIconFirstLine,
     renderPayoutsIconSecondLine,
-} from "../vi";
+} from "../templates/vi";
 
 const renderGameRule = (minValue: number, maxValue: number) => {
     return (
