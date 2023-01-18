@@ -10,43 +10,43 @@ export const id: TexasHoldemLanguage = {
             Menggunakan dua kartu hole Anda digabungkan dengan lima kartu komunitas untuk membuat kartu Poker lima kartu terbaik.",
         "In addition, a new feature": "Selain itu, fitur baru",
         "MD5 (Message-Digest algorithm 5)": "MD5 (Message-Digest algoritma 5)",
-        "that allows the Player to": "yang memungkinkan Pemain untuk memeriksa keadilan dan keaslian setiap hasil permainan.",
+        "that allows the Player to": "yang memungkinkan Player untuk memeriksa keadilan dan keaslian setiap hasil permainan.",
     },
 
     gameRules: {
         "Game Rules": "Aturan Permainan",
         "Select the desired chip with": "Pilih chip yang diinginkan dengan nilai yang paling cocok untuk Anda dan pasang taruhan di Ante.",
-        "Note, Ante bet is": "Catatan, Taruhan Ante adalah opsi wajib yang harus dipasang oleh Pemain sebelum kartu apa pun dibagikan.",
+        "Note, Ante bet is": "Catatan, Taruhan Ante adalah opsi wajib yang harus dipasang oleh Player sebelum kartu apa pun dibagikan.",
         "Click on the Deal button to":
             "Klik tombol Deal untuk memulai putaran permainan, Player dan Dealer masing-masing menerima dua kartu hole.",
         "Swap Cards": "Tukar Kartu",
         "Swap Cards is":
-            "Tukar Kartu adalah fitur opsional dan dapat DIHIDUPKAN / DIMATIKAN. Hal ini memungkinkan pemain untuk memilih antara menukar kartu \
+            "Tukar Kartu adalah fitur opsional dan dapat DIHIDUPKAN / DIMATIKAN. Hal ini memungkinkan Player untuk memilih antara menukar kartu \
             dua lubangnya dengan kartu Dealer sebelum kartu menghadap ke atas atau menyimpan kartu tanpa perubahan.",
         "Note: The Swap cards feature can": "Catatan: Fitur Tukar kartu hanya dapat ON/OFF sebelum putaran permainan dimulai.",
         "After the two hole cards are":
-            "Setelah dua kartu hole dibagikan dan menghadap ke atas, Pemain harus memutuskan apakah akan CALL atau FOLD.",
+            "Setelah dua kartu hole dibagikan dan menghadap ke atas, Player harus memutuskan apakah akan CALL atau FOLD.",
         FOLD: "FOLD",
-        "the Player will surrender": "Pemain akan menyerahkan tangannya dan kalah taruhan Ante. Putaran permainan telah berakhir.",
+        "the Player will surrender": "Player akan menyerahkan tangannya dan kalah taruhan Ante. Putaran permainan telah berakhir.",
         CALL: "CALL",
         "the Player will continue playing":
-            "Pemain akan terus bermain dengan taruhan Panggilan tambahan, sama dengan dua kali taruhan Ante, dan tiga kartu komunitas \
+            "Player akan terus bermain dengan taruhan Panggilan tambahan, sama dengan dua kali taruhan Ante, dan tiga kartu komunitas \
             (kartu Gagal) dibagikan menghadap ke atas di tengah meja.",
         "Turn & River bet": "Taruhan Turn & River",
         "River bet": "River bet",
-        "are additional bets": "adalah taruhan tambahan yang diputuskan oleh Pemain apakah dia ingin menaikkan taruhannya.",
+        "are additional bets": "adalah taruhan tambahan yang diputuskan oleh Player apakah dia ingin menaikkan taruhannya.",
         "Turn bet": "Turn bet",
         "before a fourth community card is dealt":
-            "sebelum kartu komunitas keempat dibagikan menghadap ke atas (Turn), Pemain dapat meningkatkan taruhan dengan memasang taruhan pada \
+            "sebelum kartu komunitas keempat dibagikan menghadap ke atas (Turn), Player dapat meningkatkan taruhan dengan memasang taruhan pada \
             opsi “Turn” dengan jumlah taruhan yang sama yang ditempatkan pada Ante.",
         "the River is the":
-            "River adalah kartu komunitas kelima dan terakhir. Mirip dengan Taruhan Turn, sebelum kartu River dibagikan, Pemain akan memiliki \
+            "River adalah kartu komunitas kelima dan terakhir. Mirip dengan Taruhan Turn, sebelum kartu River dibagikan, Player akan memiliki \
             opsi untuk memasang taruhan River tambahan.",
         Check: "Check",
         "To skip placing bets on Turn or River": "Untuk melewati pemasangan taruhan pada Turn atau River, cukup klik tombol “Check”.",
         "The two personal cards are combined with 5 community cards":
             "Dua kartu pribadi digabungkan dengan 5 kartu komunitas untuk membuat kartu Poker lima kartu terbaik. \
-            Pemain akan menang jika Pemain memiliki tangan yang lebih baik dari Dealer.",
+            Player akan menang jika Player memiliki tangan yang lebih baik dari Dealer.",
         "The maximum total stake per round is": "Total taruhan maksimum per putaran adalah ",
         "Note, placed bets cannot be canceled after cards are dealt":
             "Perhatikan, taruhan yang dipasang tidak dapat dibatalkan setelah kartu dibagikan.",
@@ -90,15 +90,15 @@ export const id: TexasHoldemLanguage = {
         "Highest card when no higher hand is available": "Kartu tertinggi ketika tidak ada tangan yang lebih tinggi tersedia",
         "The Poker hand consists of five cards":
             "Tangan Poker terdiri dari lima kartu. \
-            Jika Pemain dan Dealer berbagi tangan yang menang, maka masing-masing kartu akan digunakan untuk memecahkan Tie. \
-            Jika kartu tertinggi di tangan Pemain sama, kartu tertinggi kedua harus dibandingkan, dan seterusnya.",
+            Jika Player dan Dealer berbagi tangan yang menang, maka masing-masing kartu akan digunakan untuk memecahkan Tie. \
+            Jika kartu tertinggi di tangan Player sama, kartu tertinggi kedua harus dibandingkan, dan seterusnya.",
         Cards: "Kartu-kartu",
         Combination: "Kombinasi",
         Result: "Hasil",
-        Player: "Pemain",
+        Player: "Player",
         Dealer: "Dealer",
         "Community Cards": "Kartu Komunitas",
-        "The Player wins": "Pemain menang",
+        "The Player wins": "Player menang",
         "The Dealer wins": "Dealer menang",
         "Result is a “Tie”": "Hasilnya adalah “Seri”.",
     },
