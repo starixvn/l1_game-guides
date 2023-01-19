@@ -1,9 +1,10 @@
 import { ENVIRONMENT } from "../../../../common/constants";
+import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
 import { baseBaccaratResourcesVi } from "../../base/base-baccarat/languages/vi";
+import { IMd5Resources } from "../../base/md5/languages/types";
 import { md5ResourcesVi } from "../../base/md5/languages/vi";
-import { IMd5BaccaratResources } from "./types";
 
-export const baccaratResourcesVi: IMd5BaccaratResources = {
+export const baccaratResourcesVi: IBaseBaccaratResources = {
     ...baseBaccaratResourcesVi,
     ...{
         introduction: {
@@ -48,19 +49,20 @@ export const baccaratResourcesVi: IMd5BaccaratResources = {
             },
         },
     },
-    md5: {
-        ...md5ResourcesVi,
-        ...{
-            example: {
-                ...md5ResourcesVi.example,
-                ...{
-                    step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-                    step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-                    step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                    step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                    step2Noted1Text: "Từ trái sang phải,",
-                    step2Noted2Text: "tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.",
-                },
+};
+
+export const md5BaccaratResourcesVi: IMd5Resources = {
+    ...md5ResourcesVi,
+    ...{
+        example: {
+            ...md5ResourcesVi.example,
+            ...{
+                step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
+                step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+                step2Noted1Text: "Từ trái sang phải,",
+                step2Noted2Text: "tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.",
             },
         },
     },

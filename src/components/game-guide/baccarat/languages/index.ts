@@ -1,13 +1,14 @@
-import { baccaratResourcesTh } from "./th";
-import { baccaratResourcesEn } from "./en";
-import { baccaratResourcesId } from "./id";
-import { baccaratResourcesCn } from "./cn";
-import { baccaratResourcesTw } from "./tw";
-import { baccaratResourcesVi } from "./vi";
+import { baccaratResourcesTh, md5BaccaratResourcesTh } from "./th";
+import { baccaratResourcesEn, md5BaccaratResourcesEn } from "./en";
+import { baccaratResourcesId, md5BaccaratResourcesId } from "./id";
+import { baccaratResourcesCn, md5BaccaratResourcesCn } from "./cn";
+import { baccaratResourcesTw, md5BaccaratResourcesTw } from "./tw";
+import { baccaratResourcesVi, md5BaccaratResourcesVi } from "./vi";
 import { getTranslationResource } from "../../../../helpers/resource-helper";
-import { IMd5BaccaratResources } from "./types";
+import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
+import { IMd5Resources } from "../../base/md5/languages/types";
 
-const supportedLanguages: { [name: string]: IMd5BaccaratResources } = {
+const supportedLanguages: { [name: string]: IBaseBaccaratResources } = {
     en: baccaratResourcesEn,
     th: baccaratResourcesTh,
     id: baccaratResourcesId,
@@ -17,5 +18,18 @@ const supportedLanguages: { [name: string]: IMd5BaccaratResources } = {
 };
 
 export const getBaccaratTranslationResource = (langKey: string | undefined) => {
-    return getTranslationResource<IMd5BaccaratResources>(langKey, supportedLanguages, baccaratResourcesEn);
+    return getTranslationResource<IBaseBaccaratResources>(langKey, supportedLanguages, baccaratResourcesEn);
+};
+
+const supportedMd5Languages: { [name: string]: IMd5Resources } = {
+    en: md5BaccaratResourcesEn,
+    th: md5BaccaratResourcesTh,
+    id: md5BaccaratResourcesId,
+    vi: md5BaccaratResourcesVi,
+    zh_cn: md5BaccaratResourcesCn,
+    zh_tw: md5BaccaratResourcesTw,
+};
+
+export const getBaccaratMd5Resource = (langKey: string | undefined) => {
+    return getTranslationResource<IMd5Resources>(langKey, supportedMd5Languages, md5BaccaratResourcesEn);
 };

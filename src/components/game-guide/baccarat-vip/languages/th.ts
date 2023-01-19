@@ -1,7 +1,7 @@
 import { baccaratResourcesTh } from "../../baccarat/languages/th";
-import { IMd5BaccaratResources } from "../../baccarat/languages/types";
+import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
 
-export const vipBaccaratResourcesTh: IMd5BaccaratResources = {
+export const vipBaccaratResourcesTh: IBaseBaccaratResources = {
     ...baccaratResourcesTh,
     ...{
         introduction: {

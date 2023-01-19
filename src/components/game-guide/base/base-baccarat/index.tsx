@@ -50,12 +50,17 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
                 this.setState({ maxBetFollowChoice: handleMaxBetChoice(userStakeLevel, this.configs) })
             }
 
-            this.setState({ resources: this.getResources() })
+            this.setState({ resources: this.getResources() });
+            this.setState({ md5Resources: this.getMd5Resources() })
         });
 
     }
 
     getResources = () => {
+        return {};
+    }
+
+    getMd5Resources = () => {
         return {};
     }
 
@@ -88,7 +93,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
     };
 
     render() {
-        if (!this.state?.resources) {
+        if (!this.state?.resources || !this.state?.md5Resources) {
             return <></>;
         }
 

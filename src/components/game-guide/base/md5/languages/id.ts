@@ -8,7 +8,7 @@ export const md5ResourcesId: IMd5Resources = {
             details: [
                 "MD5 yang memungkinkan pemain untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
                 "Hasil permainan akan dihasilkan secara acak oleh sistem sebelum pemain memasang taruhan.",
-                "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
+                "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>MD5 checksum</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
             ],
         },
         validation: {
@@ -28,7 +28,7 @@ export const md5ResourcesId: IMd5Resources = {
         step2Text: "<strong>Langkah 2:</strong> Salin <strong>Hasil</strong> setelah dipublikasikan.",
         step3Text: "<strong>Langkah 3:</strong> Buka {0} dan tempel Hasil ke kotak MD5.",
         step4Text:
-            "<strong>Langkah 4:</strong> Tekan tombol “hash darling, hash!” dan bandingkan rangkaian daftar periksa MD5 yang baru dibuat dengan Kunci MD5 di Langkah 1.",
+            "<strong>Langkah 4:</strong> Tekan tombol “hash darling, hash!”dan bandingkan rangkaian daftar MD5 checksum yang baru dibuat dengan Kunci MD5 di Langkah 1.",
         step1ImageUrl: "",
         step2ImageUrl: "",
         step3ImageUrl: "",

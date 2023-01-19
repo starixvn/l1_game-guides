@@ -1,18 +1,17 @@
 
 import { GameGuideBase } from "../type";
 import { BaccaratGuideState } from "../baccarat/type";
-import { getBaccaratTranslationResource } from "./languages";
+import { getBaccaratMd5Resource, getBaccaratTranslationResource } from "./languages";
 import BaseBaccaratGuide from "../base/base-baccarat";
-import { IMd5BaccaratResources } from "./languages/types";
 import Md5Content, { Md5Example } from "../base/md5";
 import { IMd5Resources } from "../base/md5/languages/types";
 import { Markup } from "interweave";
 import Styles from "../base/base-baccarat/base-baccarat.module.scss";
 
-const BaccaratMd5: React.FunctionComponent<{ resources: IMd5BaccaratResources }> = ({ resources }) => (
+const BaccaratMd5: React.FunctionComponent<{ resources: IMd5Resources }> = ({ resources }) => (
     <>
-        <Md5Content resources={resources.md5} />
-        <BaccaratMd5Example resources={resources.md5} />
+        <Md5Content resources={resources} />
+        <BaccaratMd5Example resources={resources} />
     </>
 );
 
@@ -41,8 +40,12 @@ class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState>
         return getBaccaratTranslationResource(this.props.locale);
     }
 
+    getMd5Resources = () => {
+        return getBaccaratMd5Resource(this.props.locale);
+    }
+
     renderMd5 = () => {
-        return <li className="guide-item" id="md5" ><BaccaratMd5 resources={this.state.resources} /></li>;
+        return <li className="guide-item" id="md5" ><BaccaratMd5 resources={this.state.md5Resources} /></li>;
     };
 };
 

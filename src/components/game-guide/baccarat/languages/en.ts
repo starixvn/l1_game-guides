@@ -1,9 +1,10 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesEn } from "../../base/base-baccarat/languages/en";
+import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
 import { md5ResourcesEn } from "../../base/md5/languages/en";
-import { IMd5BaccaratResources } from "./types";
+import { IMd5Resources } from "../../base/md5/languages/types";
 
-export const baccaratResourcesEn: IMd5BaccaratResources = {
+export const baccaratResourcesEn: IBaseBaccaratResources = {
     ...baseBaccaratResourcesEn,
     introduction: {
         header: "Introduction",
@@ -40,19 +41,20 @@ export const baccaratResourcesEn: IMd5BaccaratResources = {
             },
         },
     },
-    md5: {
-        ...md5ResourcesEn,
-        ...{
-            example: {
-                ...md5ResourcesEn.example,
-                ...{
-                    step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-                    step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-                    step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                    step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                    step2Noted1Text: "Note: From the left to right,",
-                    step2Noted2Text: "corresponds to the order of dealt cards at the beginning of the game round.",
-                },
+};
+
+export const md5BaccaratResourcesEn: IMd5Resources = {
+    ...md5ResourcesEn,
+    ...{
+        example: {
+            ...md5ResourcesEn.example,
+            ...{
+                step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
+                step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+                step2Noted1Text: "Note: From the left to right,",
+                step2Noted2Text: "corresponds to the order of dealt cards at the beginning of the game round.",
             },
         },
     },

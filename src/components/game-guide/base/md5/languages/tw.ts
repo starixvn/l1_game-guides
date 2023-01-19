@@ -33,11 +33,7 @@ export const md5ResourcesTw: IMd5Resources = {
         step2ImageUrl: "",
         step3ImageUrl: "",
         step4ImageUrl: "",
-        getStep2Noted1Text: function (): string {
-            return "";
-        },
-        getStep2Noted2Text: function (): string {
-            return "";
-        },
+        step2Noted1Text: "",
+        step2Noted2Text: "",
     },
 };

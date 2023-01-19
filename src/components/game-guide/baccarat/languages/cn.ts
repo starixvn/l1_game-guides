@@ -1,9 +1,10 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesCn } from "../../base/base-baccarat/languages/cn";
+import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
 import { md5ResourcesCn } from "../../base/md5/languages/cn";
-import { IMd5BaccaratResources } from "./types";
+import { IMd5Resources } from "../../base/md5/languages/types";
 
-export const baccaratResourcesCn: IMd5BaccaratResources = {
+export const baccaratResourcesCn: IBaseBaccaratResources = {
     ...baseBaccaratResourcesCn,
     ...{
         introduction: {
@@ -41,19 +42,20 @@ export const baccaratResourcesCn: IMd5BaccaratResources = {
             },
         },
     },
-    md5: {
-        ...md5ResourcesCn,
-        ...{
-            example: {
-                ...md5ResourcesCn.example,
-                ...{
-                    step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-                    step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-                    step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                    step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                    step2Noted1Text: "注：从左到右，",
-                    step2Noted2Text: "对应游戏回合开始时的发牌顺序。",
-                },
+};
+
+export const md5BaccaratResourcesCn: IMd5Resources = {
+    ...md5ResourcesCn,
+    ...{
+        example: {
+            ...md5ResourcesCn.example,
+            ...{
+                step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
+                step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+                step2Noted1Text: "注：从左到右，",
+                step2Noted2Text: "对应游戏回合开始时的发牌顺序。",
             },
         },
     },
