@@ -163,6 +163,8 @@ const getGameSetting = async (gameId: number) => {
             return {};
         }
     }
+
+    return {};
 };
 
 export const getServerSideProps = async (context: NextPageContext) => {
