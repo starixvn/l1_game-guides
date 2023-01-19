@@ -23,26 +23,17 @@ export const md5ResourcesId: IMd5Resources = {
         noted: "Jika kedua rangkaian cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum bertaruh.",
     },
     example: {
-        header: "",
-        details: {
-            step1: {
-                text: "",
-                imageUrl: "",
-            },
-            step2: {
-                text: "",
-                imageUrl: "",
-                noted1: "",
-                noted2: "",
-            },
-            step3: {
-                text: "",
-                imageUrl: "",
-            },
-            step4: {
-                text: "",
-                imageUrl: "",
-            },
-        },
+        header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasil permainan",
+        step1Text: "<strong>Langkah 1:</strong> Salin kunci MD5 sebelum hasilnya diumumkan.",
+        step2Text: "<strong>Langkah 2:</strong> Salin <strong>Hasil</strong> setelah dipublikasikan.",
+        step3Text: "<strong>Langkah 3:</strong> Buka {0} dan tempel Hasil ke kotak MD5.",
+        step4Text:
+            "<strong>Langkah 4:</strong> Tekan tombol “hash darling, hash!” dan bandingkan rangkaian daftar periksa MD5 yang baru dibuat dengan Kunci MD5 di Langkah 1.",
+        step1ImageUrl: "",
+        step2ImageUrl: "",
+        step3ImageUrl: "",
+        step4ImageUrl: "",
+        step2Noted1Text: "",
+        step2Noted2Text: "",
     },
 };

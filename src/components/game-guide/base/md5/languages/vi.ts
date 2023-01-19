@@ -23,26 +23,17 @@ export const md5ResourcesVi: IMd5Resources = {
         noted: "Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược.",
     },
     example: {
-        header: "",
-        details: {
-            step1: {
-                text: "",
-                imageUrl: "",
-            },
-            step2: {
-                text: "",
-                imageUrl: "",
-                noted1: "",
-                noted2: "",
-            },
-            step3: {
-                text: "",
-                imageUrl: "",
-            },
-            step4: {
-                text: "",
-                imageUrl: "",
-            },
-        },
+        header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi",
+        step1Text: "<strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.",
+        step2Text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.",
+        step3Text: "<strong>Bước 3:</strong> Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
+        step4Text:
+            "<strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
+        step1ImageUrl: "",
+        step2ImageUrl: "",
+        step3ImageUrl: "",
+        step4ImageUrl: "",
+        step2Noted1Text: "",
+        step2Noted2Text: "",
     },
 };

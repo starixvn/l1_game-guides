@@ -23,26 +23,17 @@ export const md5ResourcesTh: IMd5Resources = {
         noted: "หากสตริงสองสายตรงกัน ให้พิสูจน์ว่าผลลัพธ์ของรอบเกมนั้นโปร่งใส และผลลัพธ์ของเกมส์จะไม่เปลี่ยนแปลงจากผลลัพธ์แบบสุ่มที่สร้างโดยระบบก่อนการเดิมพัน.",
     },
     example: {
-        header: "",
-        details: {
-            step1: {
-                text: "",
-                imageUrl: "",
-            },
-            step2: {
-                text: "",
-                imageUrl: "",
-                noted1: "",
-                noted2: "",
-            },
-            step3: {
-                text: "",
-                imageUrl: "",
-            },
-            step4: {
-                text: "",
-                imageUrl: "",
-            },
-        },
+        header: "<strong>ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์",
+        step1Text: "<strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล",
+        step2Text: "<strong>ขั้นตอนที่ 2:</strong> คัดลอก<strong>ผลลัพธ์</strong>หลังจากเผยแพร่แล้ว",
+        step3Text: "<strong>ขั้นตอนที่ 3:</strong> ไปที่ {0} และวางผลลัพธ์ลงในกล่อง MD5",
+        step4Text:
+            "<strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 ในขั้นตอนที่ 1",
+        step1ImageUrl: "",
+        step2ImageUrl: "",
+        step3ImageUrl: "",
+        step4ImageUrl: "",
+        step2Noted1Text: "",
+        step2Noted2Text: "",
     },
 };

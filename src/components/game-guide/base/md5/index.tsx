@@ -52,17 +52,17 @@ export abstract class Md5Example<P extends { resources: IMd5Resources }> extends
                 </div>
                 <ul className="desc">
                     <li>
-                        {<Markup content={example.details.step1.text} />}
-                        <img className="format-img auto-center" src={example.details.step1.imageUrl} alt="md5-string" />
+                        {<Markup content={example.step1Text} />}
+                        <img className="format-img auto-center" src={example.step1ImageUrl} alt="md5-string" />
                     </li>
                     {this.renderStep2()}
                     <li>
-                        {<Markup content={StringFormat(example.details.step3.text, md5ServicesUrl)} />}
-                        <img className="format-img auto-center" src={example.details.step3.imageUrl} alt="hash-darling" />
+                        {<Markup content={StringFormat(example.step3Text, md5ServicesUrl)} />}
+                        <img className="format-img auto-center" src={example.step3ImageUrl} alt="hash-darling" />
                     </li>
                     <li>
-                        {<Markup content={example.details.step4.text} />}
-                        <img className="format-img auto-center" src={example.details.step4.imageUrl} alt="md5-checksum" />
+                        {<Markup content={example.step4Text} />}
+                        <img className="format-img auto-center" src={example.step4ImageUrl} alt="md5-checksum" />
                     </li>
                 </ul>
             </>

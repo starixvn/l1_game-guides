@@ -20,13 +20,13 @@ class BaccaratMd5Example extends Md5Example<{ resources: IMd5Resources }> {
     renderStep2() {
         const { example } = this.props.resources;
         return (<li>
-            {<Markup content={example.details.step2.text} />}
-            <img className="format-img auto-center" src={example.details.step2.imageUrl} alt="md5-result" />
+            {<Markup content={example.step2Text} />}
+            <img className="format-img auto-center" src={example.step2ImageUrl} alt="md5-result" />
             <div>
-                {example.details.step2.noted1} <span className={Styles["black"]}>7♠️</span>{" "}
+                {example.step2Noted1Text} <span className={Styles["black"]}>7♠️</span>{" "}
                 <span className={Styles["black"]}>3♠️</span> <span className={Styles["red"]}>7♦️</span>{" "}
                 <span className={Styles["black"]}>K♣️</span> <span className={Styles["black"]}>2♠️</span>{" "}
-                <span className={Styles["red"]}>Q♦️</span> {example.details.step2.noted2}
+                <span className={Styles["red"]}>Q♦️</span> {example.step2Noted2Text}
             </div>
         </li>);
     }

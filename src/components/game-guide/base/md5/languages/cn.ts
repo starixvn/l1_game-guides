@@ -23,26 +23,17 @@ export const md5ResourcesCn: IMd5Resources = {
         noted: "如果两个字符串匹配，则证明该局游戏的结果是透明的，并且游戏结果与下注前系统生成的随机结果没有变化。",
     },
     example: {
-        header: "",
-        details: {
-            step1: {
-                text: "",
-                imageUrl: "",
-            },
-            step2: {
-                text: "",
-                imageUrl: "",
-                noted1: "",
-                noted2: "",
-            },
-            step3: {
-                text: "",
-                imageUrl: "",
-            },
-            step4: {
-                text: "",
-                imageUrl: "",
-            },
-        },
+        header: "<strong>示例:</strong> 检查比赛结果的真实性和透明度。",
+        step1Text: "<strong>第一步:</strong> 在公布结果前复制MD5密钥。",
+        step2Text: "<strong>第二步:</strong> 发布后复制结果。",
+        step3Text: "<strong>第三步:</strong> 转到 {0} 并将结果粘贴到 MD5 框中。",
+        step4Text:
+            "<strong>第四步:</strong> 按“hash darling，hash！” 按钮，并将新生成的 MD5 checksum 字符串与步骤 1 中的 MD5 密钥进行比较。",
+        step1ImageUrl: "",
+        step2ImageUrl: "",
+        step3ImageUrl: "",
+        step4ImageUrl: "",
+        step2Noted1Text: "",
+        step2Noted2Text: "",
     },
 };

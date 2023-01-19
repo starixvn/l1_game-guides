@@ -1,35 +1,7 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesTh } from "../../base/base-baccarat/languages/th";
 import { md5ResourcesTh } from "../../base/md5/languages/th";
-import { IMd5Resources } from "../../base/md5/languages/types";
 import { IMd5BaccaratResources } from "./types";
-
-export const md5BaccaratResourcesTh: IMd5Resources = {
-    ...md5ResourcesTh,
-    example: {
-        header: "<strong>ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์",
-        details: {
-            step1: {
-                text: "<strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล",
-                imageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-            },
-            step2: {
-                text: "<strong>ขั้นตอนที่ 2:</strong> คัดลอก<strong>ผลลัพธ์</strong>หลังจากเผยแพร่แล้ว",
-                imageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-                noted1: "หมายเหตุ: จากซ้ายไปขวา,",
-                noted2: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
-            },
-            step3: {
-                text: "<strong>ขั้นตอนที่ 3:</strong> ไปที่ {0} และวางผลลัพธ์ลงในกล่อง MD5",
-                imageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-            },
-            step4: {
-                text: "<strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 ในขั้นตอนที่ 1",
-                imageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-            },
-        },
-    },
-};
 
 export const baccaratResourcesTh: IMd5BaccaratResources = {
     ...baseBaccaratResourcesTh,
@@ -69,5 +41,20 @@ export const baccaratResourcesTh: IMd5BaccaratResources = {
             },
         },
     },
-    md5: md5BaccaratResourcesTh,
+    md5: {
+        ...md5ResourcesTh,
+        ...{
+            example: {
+                ...md5ResourcesTh.example,
+                ...{
+                    step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
+                    step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                    step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+                    step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+                    step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา,",
+                    step2Noted2Text: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
+                },
+            },
+        },
+    },
 };

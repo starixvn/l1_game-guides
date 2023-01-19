@@ -1,35 +1,7 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesVi } from "../../base/base-baccarat/languages/vi";
-import { IMd5Resources } from "../../base/md5/languages/types";
 import { md5ResourcesVi } from "../../base/md5/languages/vi";
 import { IMd5BaccaratResources } from "./types";
-
-export const md5BaccaratResourcesVi: IMd5Resources = {
-    ...md5ResourcesVi,
-    example: {
-        header: " <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi",
-        details: {
-            step1: {
-                text: "<strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.",
-                imageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-            },
-            step2: {
-                text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.",
-                imageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-                noted1: "Từ trái sang phải,",
-                noted2: "tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.",
-            },
-            step3: {
-                text: "<strong>Bước 3:</strong> Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
-                imageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-            },
-            step4: {
-                text: "<strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
-                imageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-            },
-        },
-    },
-};
 
 export const baccaratResourcesVi: IMd5BaccaratResources = {
     ...baseBaccaratResourcesVi,
@@ -76,5 +48,20 @@ export const baccaratResourcesVi: IMd5BaccaratResources = {
             },
         },
     },
-    md5: md5BaccaratResourcesVi,
+    md5: {
+        ...md5ResourcesVi,
+        ...{
+            example: {
+                ...md5ResourcesVi.example,
+                ...{
+                    step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
+                    step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                    step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+                    step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+                    step2Noted1Text: "Từ trái sang phải,",
+                    step2Noted2Text: "tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.",
+                },
+            },
+        },
+    },
 };

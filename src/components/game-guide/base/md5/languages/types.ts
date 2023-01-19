@@ -13,25 +13,15 @@ export interface IMd5Resources {
     };
     example: {
         header: string;
-        details: {
-            step1: {
-                text: string;
-                imageUrl: string;
-            };
-            step2: {
-                text: string;
-                imageUrl: string;
-                noted1: string;
-                noted2: string;
-            };
-            step3: {
-                text: string;
-                imageUrl: string;
-            };
-            step4: {
-                text: string;
-                imageUrl: string;
-            };
-        };
+        step1Text: string;
+        step2Text: string;
+        step3Text: string;
+        step4Text: string;
+        step1ImageUrl: string;
+        step2ImageUrl: string;
+        step3ImageUrl: string;
+        step4ImageUrl: string;
+        step2Noted1Text: string;
+        step2Noted2Text: string;
     };
 }

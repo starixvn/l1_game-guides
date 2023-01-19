@@ -1,5 +1,5 @@
 import { baccaratResourcesCn } from "../../baccarat/languages/cn";
-import { IMd5BaccaratResources } from "./types";
+import { IMd5BaccaratResources } from "../../baccarat/languages/types";
 
 export const vipBaccaratResourcesCn: IMd5BaccaratResources = {
     ...baccaratResourcesCn,
