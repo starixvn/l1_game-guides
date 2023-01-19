@@ -20,7 +20,7 @@ class CasinoHoldGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
     S extends BaseState<ICasinoHoldTranslationResource>
 > extends React.PureComponent<P, S> {
-    constructor(props: any) {
+    constructor(props: P) {
         super(props);
         this.state = {
             translationResource: getCasinoHoldTranslationResource(props.locale),
