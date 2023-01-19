@@ -61,7 +61,7 @@ export const cn: IKenoTranslationResource = {
         earth: "土",
     },
     md5: {
-        example: "<b>示例:</b> 检查比赛结果的真实性和透明度",
+        example: "<b>示例:</b> 检查比赛结果的真实性和透明度。",
         step1: "<b>第一步:</b> 在公布结果前复制MD5密钥。",
         image1: "/static/images/mega-keno/md5_step1_cn.png",
         step2: "<b>第二步:</b> 发布后复制结果。",

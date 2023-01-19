@@ -61,7 +61,7 @@ export const tw: IKenoTranslationResource = {
         earth: "土",
     },
     md5: {
-        example: "<b>示例:</b> 檢查結果的真實性和透明度。",
+        example: "<b>示例:</b> 檢查比賽結果的真實性和透明度。",
         step1: "<b>第一步:</b> 在公佈結果前複製MD5密鑰。",
         image1: "/static/images/mega-keno/md5_step1_tw.png",
         step2: "<b>第二步:</b> 發布後復制結果。",

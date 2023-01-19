@@ -64,7 +64,7 @@ export const cn: IFanTanTranslationResource = {
         ],
     },
     md5: {
-        example: "<b>示例:</b> 检查比赛结果的真实性和透明度",
+        example: "<b>示例:</b> 检查比赛结果的真实性和透明度。",
         note: "<b>注:</b> 40对应游戏回合开始时随机取的珠数",
         step1: "<b>第一步:</b> 在公布结果前复制MD5密钥。",
         step2: "<b>第二步:</b> 发布后复制结果。",

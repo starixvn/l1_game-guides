@@ -74,7 +74,7 @@ export const id: IKenoTranslationResource = {
         earth: "Bumi",
     },
     md5: {
-        example: "<b>Contoh:</b> periksa keaslian dan transparansi hasilnya.",
+        example: "<b>Contoh:</b> periksa keaslian dan transparansi hasil permainan.",
         step1: "<b>Langkah 1:</b> Salin kunci MD5 sebelum hasilnya diumumkan.",
         image1: "/static/images/mega-keno/md5_step1_id.png",
         step2: "<b>Langkah 2:</b> Salin Hasil setelah dipublikasikan.",

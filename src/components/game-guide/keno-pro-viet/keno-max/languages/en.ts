@@ -3,7 +3,7 @@ export const en: IKenoTranslationResource = {
     introduction: {
         title: "Introduction",
         description:
-            "Mega Keno / Mega Keno 2 / Keno North / Keno South /Keno West / Keno East are the RNG Keno with 80 balls. There are 20 balls drawn randomly from 80 numbered balls ranging from 1 to 80. Players place bets on one or more betting options shown on the game table. The total sum of the 20 numbered balls drawn will determine the player‘s win or loss.",
+            "Mega Keno / Mega Keno 2 / Keno North / Keno South /Keno West / Keno East are the RNG Keno with 80 balls. There are 20 balls drawn randomly from 80 numbered balls ranging from 1 to 80. Players place bets on one or more betting options shown on the game table. The total sum of the 20 numbered balls drawn will determine the player’s win or loss.",
     },
     gameRules: {
         title: "Game Rules",
@@ -69,18 +69,18 @@ export const en: IKenoTranslationResource = {
         even: "Even",
         gold: "Gold",
         wood: "Wood",
-        water: "Walter",
+        water: "Water",
         fire: "Fire",
         earth: "Earth",
     },
     md5: {
-        example: "<b>Example:</b> check the authenticity and transparency of the result.",
+        example: "<b>Example:</b> check the authenticity and transparency of game results.",
         step1: "<b>Step 1:</b> Copy the MD5 Key before the result is announced.",
         image1: "/static/images/mega-keno/md5_step1_en.png",
         step2: "<b>Step 2:</b> Copy Result after the system publishes the result.",
         image2: "/static/images/mega-keno/md5_step2_en.png",
         step3: `<b>Step 3:</b> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> and paste the Result into the MD5 box.`,
-        step4: "<b>Step 4:</b> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with the MD5 Key in Step 1.",
+        step4: "<b>Step 4:</b> Press the “hash darling, hash!” button and compare the newly generated MD5 checksum string with the MD5 Key in Step 1.",
         note: "Noted: 363 is the total point of the game result.",
         md5Key: "MD5 Key",
         result: "Result",
