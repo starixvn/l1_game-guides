@@ -1,5 +1,12 @@
 import { IMd5Resources } from "./types";
 
+const steps = {
+    one: "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.",
+    two: "<strong>Bước 2</strong>: Copy <strong>Kết Quả</strong> sau khi kết quả được công bố.",
+    three: "<strong>Bước 3</strong>: Truy cập {0} và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.",
+    four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+};
+
 export const md5ResourcesVi: IMd5Resources = {
     content: {
         header: "MD5 (Message-Digest algorithm 5)",
@@ -13,22 +20,16 @@ export const md5ResourcesVi: IMd5Resources = {
         },
         validation: {
             header: "Tra Cứu MD5",
-            details: [
-                "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game trước khi kết quả được công bố.",
-                "<strong>Bước 2</strong>: Copy <strong>Kết Quả</strong> sau khi kết quả được công bố.",
-                "<strong>Bước 3</strong>: Truy cập {0} và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.",
-                "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
-            ],
+            details: Object.values(steps),
         },
         noted: "Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược.",
     },
     example: {
         header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi",
-        step1Text: "<strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.",
-        step2Text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.",
-        step3Text: "<strong>Bước 3:</strong> Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
-        step4Text:
-            "<strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
+        step1Text: steps.one,
+        step2Text: steps.two,
+        step3Text: steps.three,
+        step4Text: steps.four,
         step1ImageUrl: "",
         step2ImageUrl: "",
         step3ImageUrl: "",

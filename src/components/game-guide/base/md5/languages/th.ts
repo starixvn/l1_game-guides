@@ -1,5 +1,12 @@
 import { IMd5Resources } from "./types";
 
+const steps = {
+    one: "<strong>ขั้นตอนที่ 1</strong>: คัดลอกคีย์ <strong>MD5</strong> ก่อนประกาศผล",
+    two: "<strong>ขั้นตอนที่ 2</strong>: คัดลอก<strong>ผลลัพธ์</strong>หลังจากเผยแพร่แล้ว",
+    three: "<strong>ขั้นตอนที่ 3</strong>: ไปที่ {0} และวางในช่อง MD5",
+    four: "<strong>ขั้นตอนที่ 4</strong>: กดปุ่ม <strong>“แฮชที่รัก แฮช!”</strong> ปุ่มและเปรียบเทียบสตริง MD5 ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 <strong>ในขั้นตอนที่ 1</strong>",
+};
+
 export const md5ResourcesTh: IMd5Resources = {
     content: {
         header: "MD5 (อัลกอริทึมการแยกย่อยข้อความ 5) ",
@@ -13,22 +20,16 @@ export const md5ResourcesTh: IMd5Resources = {
         },
         validation: {
             header: "การตรวจสอบ MD5",
-            details: [
-                "<strong>ขั้นตอนที่ 1</strong>: คัดลอกคีย์ <strong>MD5</strong> ก่อนประกาศผล",
-                "<strong>ขั้นตอนที่ 2</strong>: คัดลอก<strong>ผลลัพธ์</strong>หลังจากเผยแพร่แล้ว",
-                "<strong>ขั้นตอนที่ 3</strong>: ไปที่ {0} และวางในช่อง MD5",
-                "<strong>ขั้นตอนที่ 4</strong>: กดปุ่ม <strong>“แฮชที่รัก แฮช!”</strong> ปุ่มและเปรียบเทียบสตริง MD5 ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 <strong>ในขั้นตอนที่ 1</strong>",
-            ],
+            details: Object.values(steps),
         },
         noted: "หากสตริงสองสายตรงกัน ให้พิสูจน์ว่าผลลัพธ์ของรอบเกมนั้นโปร่งใส และผลลัพธ์ของเกมส์จะไม่เปลี่ยนแปลงจากผลลัพธ์แบบสุ่มที่สร้างโดยระบบก่อนการเดิมพัน.",
     },
     example: {
         header: "<strong>ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์",
-        step1Text: "<strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล",
-        step2Text: "<strong>ขั้นตอนที่ 2:</strong> คัดลอก<strong>ผลลัพธ์</strong>หลังจากเผยแพร่แล้ว",
-        step3Text: "<strong>ขั้นตอนที่ 3:</strong> ไปที่ {0} และวางผลลัพธ์ลงในกล่อง MD5",
-        step4Text:
-            "<strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 ในขั้นตอนที่ 1",
+        step1Text: steps.one,
+        step2Text: steps.two,
+        step3Text: steps.three,
+        step4Text: steps.four,
         step1ImageUrl: "",
         step2ImageUrl: "",
         step3ImageUrl: "",
