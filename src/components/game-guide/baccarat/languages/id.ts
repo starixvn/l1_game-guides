@@ -50,8 +50,8 @@ export const md5BaccaratResourcesId: IMd5Resources = {
         example: {
             ...md5ResourcesId.example,
             ...{
-                step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-                step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+                step1ImageUrl: "/static/images/baccarat/md5_step1_id.png?v=1",
+                step2ImageUrl: "/static/images/baccarat/md5_step2_id.png?v=1",
                 step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
                 step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
                 step2Noted1Text: "Catatan: Dari kiri ke kanan,",

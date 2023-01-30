@@ -39,8 +39,32 @@ const Md5Content: React.FunctionComponent<{ resources: IMd5Resources }> = ({ res
 };
 
 export abstract class Md5Example<P extends { resources: IMd5Resources }> extends React.PureComponent<P>  {
+    renderStep1() {
+        const { example } = this.props.resources;
+        return (<li>
+            {<Markup content={example.step1Text} />}
+            <img className="format-img auto-center" src={example.step1ImageUrl} alt="md5-string" />
+        </li>);
+    }
+
     renderStep2() {
         return <></>;
+    }
+
+    renderStep3() {
+        const { example } = this.props.resources;
+        return (<li>
+            {<Markup content={StringFormat(example.step3Text, md5ServicesUrl)} />}
+            <img className="format-img auto-center" src={example.step3ImageUrl} alt="hash-darling" />
+        </li>);
+    }
+
+    renderStep4() {
+        const { example } = this.props.resources;
+        return (<li>
+            {<Markup content={example.step4Text} />}
+            <img className="format-img auto-center" src={example.step4ImageUrl} alt="md5-checksum" />
+        </li>);
     }
 
     render() {
@@ -51,19 +75,10 @@ export abstract class Md5Example<P extends { resources: IMd5Resources }> extends
                     {<Markup content={example.header} />}
                 </div>
                 <ul className="desc">
-                    <li>
-                        {<Markup content={example.step1Text} />}
-                        <img className="format-img auto-center" src={example.step1ImageUrl} alt="md5-string" />
-                    </li>
+                    {this.renderStep1()}
                     {this.renderStep2()}
-                    <li>
-                        {<Markup content={StringFormat(example.step3Text, md5ServicesUrl)} />}
-                        <img className="format-img auto-center" src={example.step3ImageUrl} alt="hash-darling" />
-                    </li>
-                    <li>
-                        {<Markup content={example.step4Text} />}
-                        <img className="format-img auto-center" src={example.step4ImageUrl} alt="md5-checksum" />
-                    </li>
+                    {this.renderStep3()}
+                    {this.renderStep4()}
                 </ul>
             </>
         );
