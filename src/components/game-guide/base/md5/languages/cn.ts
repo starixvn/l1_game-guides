@@ -4,7 +4,7 @@ const steps = {
     one: "<strong>第一步</strong>: 在公布结果前复制<strong>MD5</strong>密钥。",
     two: "<strong>第二步</strong>: 发布后复制<strong>结果。</strong>",
     three: "<strong>第三步</strong>: 转到 {0} 并将结果粘贴到 MD5 框中。",
-    four: "<strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的<strong>校验和 MD5</strong> 字符串与步骤 1 中的 MD5 密钥进行比较。",
+    four: "<strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的 <strong>MD5 checksum</strong> 字符串与步骤 1 中的 MD5 密钥进行比较。",
 };
 
 export const md5ResourcesCn: IMd5Resources = {

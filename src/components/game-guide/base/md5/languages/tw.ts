@@ -4,7 +4,7 @@ const steps = {
     one: "<strong>第一步</strong>: 在公佈結果前複製<strong>MD5</strong>密鑰。",
     two: "<strong>第二步</strong>: 發布後復制<strong>結果。</strong>",
     three: "<strong>第三步</strong>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
-    four: "<strong>第四步</strong>: 按<strong>“hash darling, hash!”</strong> 按鈕，並將新生成的<strong>校驗和 MD5</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+    four: "<strong>第四步</strong>: 按<strong>“hash darling, hash!”</strong>  按鈕，並將新生成的 <strong> MD5 checksum </strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
 };
 
 export const md5ResourcesTw: IMd5Resources = {
@@ -15,7 +15,7 @@ export const md5ResourcesTw: IMd5Resources = {
             details: [
                 "MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。",
                 "游戏结果将在玩家下注前由系统随机生成。",
-                "玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>結果</strong>）是否匹配。",
+                "玩家可以手动检查下注前生成的结果（<strong>MD5 </strong>密钥）与发布结果（<strong>結果</strong>）是否匹配。",
             ],
         },
         validation: {

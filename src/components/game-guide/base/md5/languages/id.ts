@@ -4,7 +4,7 @@ const steps = {
     one: "<strong>Langkah 1</strong>: Salin kunci <strong>MD5</strong> sebelum hasilnya diumumkan.",
     two: "<strong>Langkah 2</strong>: Salin <strong>Hasil</strong> setelah dipublikasikan.",
     three: "<strong>Langkah 3</strong>: Buka {0} dan tempel Hasil ke kotak MD5.",
-    four: "<strong>Langkah 4</strong>: Tekan tombol <strong>“hash darling, hash!”</strong> dan bandingkan rangkaian daftar periksa MD5 yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
+    four: "<strong>Langkah 4:</strong>: Tekan tombol <strong>“hash darling, hash!”</strong> dan bandingkan rangkaian daftar MD5 checksum yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
 };
 
 export const md5ResourcesId: IMd5Resources = {
