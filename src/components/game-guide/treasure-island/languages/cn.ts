@@ -42,9 +42,9 @@ export const cn: TreasureIslandLanguage = {
         table: {
             headers: ["象征", "描述"],
             getHavingSymbol(symbol: string) {
-                return `Having ${symbol} symbols `;
+                return `结果板上出现 ${symbol} 个符号 `;
             },
-            descriptionContent: "appear on the result board.",
+            descriptionContent: "。",
             payout: "支出 =",
         },
     },

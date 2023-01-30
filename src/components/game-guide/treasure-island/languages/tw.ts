@@ -31,7 +31,7 @@ export const tw: TreasureIslandLanguage = {
         description3(currMaxBet: number) {
             return [
                 "當基本旋轉導致的所有翻滾都被玩完後，獲勝金額會立即添加到您的帳戶餘額中。",
-                `最大贏額限制為 ${currMaxBet} X bet。如果一局的總勝率達到最大勝率，則該局遊戲立即結束。\
+                `最大贏額限制為 ${currMaxBet}X bet。如果一局的總勝率達到最大勝率，則該局遊戲立即結束。\
                 獲勝者將獲得限制，所有剩餘的功能將被沒收。`,
             ];
         },
@@ -43,9 +43,9 @@ export const tw: TreasureIslandLanguage = {
             headers: ["象徵", "描述"],
 
             getHavingSymbol(symbol: string) {
-                return `Having ${symbol} symbols `;
+                return `結果板上出現 ${symbol} 個符號。`;
             },
-            descriptionContent: "appear on the result board.",
+            descriptionContent: "。",
             payout: "支出 =",
         },
     },

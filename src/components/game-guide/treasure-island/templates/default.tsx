@@ -1,347 +1,524 @@
-import React from "react";
-
-import { locales } from "../../../../common/constants";
-import { renderTermsAndConditions, renderTermsAndConditionsEN } from "../../../shared";
-import { GameGuideProps } from "../../type";
-import OddDetailList from "../OddDetail";
-import Styles from "../treasure-island.module.scss";
-import { GameConfigProps } from "../type";
-import { convertOddDetail, renderIconContent, renderIconContentBlack, renderPayoutsIconFirstLine, renderPayoutsIconSecondLine } from "./vi";
-import { getTreasureIslandTranslationResource, getStyles } from "../languages";
-import { TreasureIslandLanguage } from "../languages/types";
 import { Markup } from "interweave";
+import React from "react";
+import { GameGuideProps } from "../../type";
+import { TreasureIslandLanguage } from "../languages/types";
+import OddDetailList from "../OddDetail";
+import { GameConfigProps } from "../type";
+import Styles from "../treasure-island.module.scss";
+import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
+import { renderTermsAndConditions } from "../../../shared";
 
-const renderGameRule = (minValue: number, maxValue: number, resources: TreasureIslandLanguage) => {
-    const { subDescriptions } = resources.gameRules;
-    return (
-        <>
-            <h2>{resources.gameRules.title}</h2>
-            <ul className="desc">
-                <li>
-                    {resources.gameRules.rulePlayerSelect}
-                    <div className="sub-section">
-                        <div className="center">
-                            <div>
-                                <strong>{resources.gameRules.totalBet}</strong> {resources.gameRules.paylinesFormular}
+export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
+    readonly number = "number";
+    readonly numberFirst = "number-first";
+    readonly numberSecond = "number-second";
+    readonly iconBox = "icon-box";
+    renderGameRule(
+        minValue: number,
+        maxValue: number,
+        resources: TreasureIslandLanguage,
+        imageDirectoryName: string,
+        locale: string | undefined
+    ) {
+        const { subDescriptions } = resources.gameRules;
+        return (
+            <>
+                <h2>{resources.gameRules.title}</h2>
+                <ul className="desc">
+                    <li>
+                        {resources.gameRules.rulePlayerSelect}
+                        <div className="sub-section">
+                            <div className="center">
+                                <div>
+                                    <strong>{resources.gameRules.totalBet}</strong> {resources.gameRules.paylinesFormular}
+                                </div>
+                                <img
+                                    src={`${imageDirectoryName}/betcontrol-${locale}.jpg?v2`}
+                                    width={610}
+                                    height={343}
+                                    alt={"bet-control"}
+                                />
                             </div>
-                            <img src={`/static/images/treasure-island/betcontrol-en.jpg?v2`} width={610} height={343} alt={"bet-control"} />
-                        </div>
 
-                        <ul className={Styles["desc-bet-control"]}>
-                            {subDescriptions.map((sub, index) => (
-                                <li key={index}>{sub}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </li>
-                <li>{resources.gameRules.ruleStartSpin}</li>
-                <li>{resources.gameRules.ruleWin}</li>
-                <li>
-                    {resources.gameRules.betLimit} {minValue} - {maxValue}.
-                </li>
-            </ul>
-        </>
-    );
-};
-
-const renderTumbling = (resources: TreasureIslandLanguage) => {
-    return (
-        <>
-            <h2>{resources.tumbling.title}</h2>
-            <ul className="desc">
-                {resources.tumbling.descriptions.map((desc, index) => (
-                    <li key={index}>{desc}</li>
-                ))}
-            </ul>
-        </>
-    );
-};
-
-const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number, resources: TreasureIslandLanguage) => {
-    const { symbols } = odds;
-    const currMaxBet = maxWinPerRound;
-    let oddDetail = convertOddDetail(symbols, false);
-    return (
-        <>
-            <h2>{resources.payout.title}</h2>
-            <ul className="desc">
-                {resources.payout.description1.map((desc1, index) => (
-                    <li key={index}>{<Markup content={desc1} />}</li>
-                ))}
-                <div className="center">{resources.payout.baseBetValue}</div>
-                <li>{resources.payout.description2}</li>
-                <div className="sub-section">
-                    {renderPayoutsIconFirstLine(oddDetail, locales.vi, coin, level)}
-                    {renderPayoutsIconSecondLine(oddDetail, locales.vi, coin, level)}
-                    {renderExamplePayouts(oddDetail[8], coin, level, resources)}
-                </div>
-
-                <li>
-                    The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin have
-                    been played.
-                </li>
-                <li>
-                    The maximum win amount is limited to {currMaxBet}X bet. If the total win of a round reaches the max win value, the game
-                    round immediately ends. The win is awarded up to the limitation and all remaining features are forfeited.
-                </li>
-            </ul>
-        </>
-    );
-};
-
-const renderExamplePayouts = (symbol: OddDetailList, coin: number, level: number, resources: TreasureIslandLanguage) => {
-    const { table } = resources.examplePayout;
-    return (
-        <>
-            <p>
-                {<Markup content={resources.examplePayout.content} />} {+(+(coin * level)).toFixed(2)}
-            </p>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            {table.headers.map((header, index) => (
-                                <th key={index}>{header}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>{renderIconContent(true, "item8", true, true, symbol, "", coin, level, false)}</td>
-                            <td>
-                                {table.getHavingSymbol(symbol.oddItem[0].countString)}{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
-                                {table.descriptionContent} <br></br>
-                                {table.payout} {+(+(symbol.oddItem[0].count * coin * level)).toFixed(2)}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {table.getHavingSymbol(symbol.oddItem[1].countString)}{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
-                                {table.descriptionContent} <br></br>
-                                {table.payout} {+(+(symbol.oddItem[1].count * coin * level)).toFixed(2)}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {table.getHavingSymbol(symbol.oddItem[2].countString)}{" "}
-                                <img src="./static/images/treasure-island/item8.png" width={50} height={50} alt="item8" />{" "}
-                                {table.descriptionContent}
-                                <br></br>
-                                {table.payout} {+(+(symbol.oddItem[2].count * coin * level)).toFixed(2)}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </>
-    );
-};
-
-const renderMultipliers = (resources: TreasureIslandLanguage) => {
-    return (
-        <>
-            <h2>{resources.multipliers.title}</h2>
-            <div className={Styles["center"]}>
-                <img src={`/static/images/treasure-island/multiplier2.png#v3`} alt="multiplier" width={140} height={112} />
-                <img src={`/static/images/treasure-island/multiplier3.png#v3`} alt="multiplier" width={140} height={112} />
-                <img src={`/static/images/treasure-island/multiplier1.png#v3`} alt="multiplier" width={140} height={112} />
-                <img src={`/static/images/treasure-island/multiplier4.png#v3`} alt="multiplier" width={140} height={112} />
-            </div>
-            <ul className="desc">
-                {resources.multipliers.descriptions.map((desc, index) => (
-                    <li key={index}>{desc}</li>
-                ))}
-
-                <div className="sub-section">
-                    <div>{resources.exampleMultipliers.title}</div>
-                    <div className="center">
-                        <img src={`/static/images/treasure-island/reel.jpg#v4`} alt="tumble-multiplier" width={610} height={362} />
-                    </div>
-                    <div className="table-container text-center">
-                        <table className="table text-center table-medium">
-                            <thead>
-                                <tr>
-                                    {resources.exampleMultipliers.tableHeader.map((header, index) => (
-                                        <th key={index}>{header}</th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="./static/images/treasure-island/item1.png" width={50} height={50} alt="item2" />
-                                    </td>
-                                    <td>7</td>
-                                    <td>
-                                        22 <br />
-                                        (20+2)
-                                    </td>
-                                    <td>
-                                        <strong>154</strong>
-                                        <br />
-                                        <strong>(7*22)</strong>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </ul>
-        </>
-    );
-};
-
-const renderFreeSpins = (odds: any, resources: TreasureIslandLanguage) => {
-    const { freeSpins } = odds;
-    const oddDetail = convertOddDetail(freeSpins, true);
-    const { subDescriptions } = resources.freeSpin;
-    const { table, tumbleDescriptions } = resources.exampleFreeSpin;
-    return (
-        <>
-            <h2>{resources.freeSpin.title}</h2>
-            <ul className="desc">
-                <li>
-                    {resources.freeSpin.define}
-                    <div className="sub-section">
-                        <div className="table-container text-center">
-                            <table className="table text-center table-medium">
-                                <thead>
-                                    <tr>
-                                        {subDescriptions.tableHeader.map((header, index) => (
-                                            <th key={index}>{header}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td rowSpan={3}>{renderIconContentBlack("scatter", oddDetail[0], " FREE SPINS")}</td>
-                                        <td>
-                                            {subDescriptions.getSymbolOrMore(oddDetail[0].oddItem[0].countString)}
-                                            <br></br>
-                                            {subDescriptions.getFreeSpin(oddDetail[0].oddItem[0].count)}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            {subDescriptions.getSymbol(oddDetail[0].oddItem[1].countString)}
-                                            <br></br>
-                                            {subDescriptions.getFreeSpin(oddDetail[0].oddItem[1].count)}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            {subDescriptions.getSymbol(oddDetail[0].oddItem[2].countString)}
-                                            <br></br>
-                                            {subDescriptions.getFreeSpin(oddDetail[0].oddItem[2].count)}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-                <li>{resources.freeSpin.getMoreFreeSpin(oddDetail[1].oddItem[0].count)}</li>
-                <li>
-                    {resources.freeSpin.totalMultiplier}
-                    <div className="sub-section">
-                        <div>{resources.exampleFreeSpin.title}</div>
-                        <div className="table-container text-center">
-                            <table className="table text-center table-medium">
-                                <thead>
-                                    <tr>
-                                        {table.headers.map((header, index) => (
-                                            <th key={index}>{header}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#1</td>
-                                        <td>10</td>
-                                        <td>5</td>
-                                        <td>5</td>
-                                        <td>{<Markup content={table.round1Win} />}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#2</td>
-                                        <td>5</td>
-                                        <td>0</td>
-                                        <td>5</td>
-                                        <td>{<Markup content={table.round2Win} />}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#3</td>
-                                        <td>0</td>
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>
-                                            <strong>0</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#4</td>
-                                        <td>7</td>
-                                        <td>3</td>
-                                        <td>
-                                            8 <br />
-                                            (5+3)
-                                        </td>
-                                        <td>{<Markup content={table.round4Win} />}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                            <img src={`/static/images/treasure-island/freespin-en.jpg#v3`} alt="freespin" width={610} height={343} />
-                        </div>
-                        <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                            <img src={`/static/images/treasure-island/tumblewin-en.png#v3`} alt="tumble-win" width={372} height={69} />
-                            <div className={Styles["tumble-desc"]}>
-                                {tumbleDescriptions.map((desc, index) => (
-                                    <div key={index}>{desc}</div>
+                            <ul className={Styles["desc-bet-control"]}>
+                                {subDescriptions.map((sub, index) => (
+                                    <li key={index}>{sub}</li>
                                 ))}
-                            </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>{resources.gameRules.ruleStartSpin}</li>
+                    <li>{resources.gameRules.ruleWin}</li>
+                    <li>
+                        {resources.gameRules.betLimit} {minValue} - {maxValue}.
+                    </li>
+                </ul>
+            </>
+        );
+    }
+
+    renderTumbling(resources: TreasureIslandLanguage) {
+        return (
+            <>
+                <h2>{resources.tumbling.title}</h2>
+                <ul className="desc">
+                    {resources.tumbling.descriptions.map((desc, index) => (
+                        <li key={index}>{desc}</li>
+                    ))}
+                </ul>
+            </>
+        );
+    }
+
+    convertOddDetail(odd: any, isFreeSpin: boolean) {
+        let oddList: OddDetailList[] = [];
+        for (const item in odd) {
+            const symbol = odd[item];
+            let oddDetail: OddDetailList = { oddItem: [] };
+            for (const sub in symbol) {
+                if (!isFreeSpin) {
+                    const from = symbol[sub].from;
+                    const to = symbol[sub].to;
+                    const oddValue = symbol[sub].odds;
+                    oddDetail.oddItem.push({
+                        countString: from + "-" + to,
+                        count: oddValue,
+                    });
+                } else {
+                    oddDetail.oddItem.push({
+                        countString: symbol[sub].count,
+                        count: symbol[sub].odds,
+                    });
+                }
+            }
+            oddList.push(oddDetail);
+        }
+        return oddList;
+    }
+
+    renderPayouts(
+        odds: any,
+        coin: number,
+        level: number,
+        maxWinPerRound: number,
+        resources: TreasureIslandLanguage,
+        imageDirectoryName: string
+    ) {
+        const { symbols } = odds;
+        const currMaxBet = maxWinPerRound;
+        let oddDetail = this.convertOddDetail(symbols, false);
+        return (
+            <>
+                <h2>{resources.payout.title}</h2>
+                <ul className="desc">
+                    {resources.payout.description1.map((desc1, index) => (
+                        <li key={index}>{<Markup content={desc1} />}</li>
+                    ))}
+                    <div className="center">{resources.payout.baseBetValue}</div>
+                    <li>{resources.payout.description2}</li>
+                    <div className="sub-section">
+                        {this.renderPayoutsIconFirstLine(oddDetail, coin, level)}
+                        {this.renderPayoutsIconSecondLine(oddDetail, coin, level)}
+                        {this.renderExamplePayouts(oddDetail[8], coin, level, resources, imageDirectoryName)}
+                    </div>
+
+                    <li>
+                        The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin
+                        have been played.
+                    </li>
+                    <li>
+                        The maximum win amount is limited to {currMaxBet}X bet. If the total win of a round reaches the max win value, the
+                        game round immediately ends. The win is awarded up to the limitation and all remaining features are forfeited.
+                    </li>
+                </ul>
+            </>
+        );
+    }
+
+    renderExamplePayouts(
+        symbol: OddDetailList,
+        coin: number,
+        level: number,
+        resources: TreasureIslandLanguage,
+        imageDirectoryName: string
+    ) {
+        const { table } = resources.examplePayout;
+        return (
+            <>
+                <p>
+                    {<Markup content={resources.examplePayout.content} />} {+(+(coin * level)).toFixed(2)}
+                </p>
+                <div className="table-container text-center">
+                    <table className="table text-center table-medium">
+                        <thead>
+                            <tr>
+                                {table.headers.map((header, index) => (
+                                    <th key={index}>{header}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowSpan={3}>{this.renderIconContent("item8", true, true, symbol, coin, level, false)}</td>
+                                <td>
+                                    {<Markup content={table.getHavingSymbol(symbol.oddItem[0].countString)} />}{" "}
+                                    <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
+                                    {table.descriptionContent} <br></br>
+                                    {table.payout} {+(+(symbol.oddItem[0].count * coin * level)).toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {table.getHavingSymbol(symbol.oddItem[1].countString)}{" "}
+                                    <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
+                                    {table.descriptionContent}
+                                    <br></br>
+                                    {table.payout} {+(+(symbol.oddItem[1].count * coin * level)).toFixed(2)}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {table.getHavingSymbol(symbol.oddItem[2].countString)}{" "}
+                                    <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
+                                    {table.descriptionContent}
+                                    <br></br>
+                                    {table.payout} {+(+(symbol.oddItem[2].count * coin * level)).toFixed(2)}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </>
+        );
+    }
+
+    renderMultipliers(resources: TreasureIslandLanguage, imageDirectoryName: string) {
+        return (
+            <>
+                <h2>{resources.multipliers.title}</h2>
+                <div className={Styles["center"]}>
+                    <img src={`${imageDirectoryName}/multiplier2.png#v3`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier3.png#v3`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier1.png#v3`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier4.png#v3`} alt="multiplier" width={140} height={112} />
+                </div>
+                <ul className="desc">
+                    {resources.multipliers.descriptions.map((desc, index) => (
+                        <li key={index}>{desc}</li>
+                    ))}
+
+                    <div className="sub-section">
+                        <div>{resources.exampleMultipliers.title}</div>
+                        <div className="center">
+                            <img src={`${imageDirectoryName}/reel.jpg#v4`} alt="tumble-multiplier" width={610} height={362} />
+                        </div>
+                        <div className="table-container text-center">
+                            <table className="table text-center table-medium">
+                                <thead>
+                                    <tr>
+                                        {resources.exampleMultipliers.tableHeader.map((header, index) => (
+                                            <th key={index}>{header}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src={`${imageDirectoryName}/item1.png`} width={50} height={50} alt="item2" />
+                                        </td>
+                                        <td>7</td>
+                                        <td>
+                                            22 <br />
+                                            (20+2)
+                                        </td>
+                                        <td>
+                                            <strong>154</strong>
+                                            <br />
+                                            <strong>(7*22)</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </li>
-                <li>{resources.freeSpin.freeSpin24h}</li>
-            </ul>
-        </>
-    );
-};
+                </ul>
+            </>
+        );
+    }
 
-const TreasureIslandGuideTemplate: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName, locale } = props;
-    const { odds, betMultiplier, coin, level, coinValues, betLevels, maxWinPerRound } = gameConfigs;
+    renderFreeSpins(odds: any, resources: TreasureIslandLanguage, imageDirectoryName: string, locale: string | undefined) {
+        const { freeSpins } = odds;
+        const oddDetail = this.convertOddDetail(freeSpins, true);
+        const { subDescriptions } = resources.freeSpin;
+        const { table, tumbleDescriptions } = resources.exampleFreeSpin;
+        return (
+            <>
+                <h2>{resources.freeSpin.title}</h2>
+                <ul className="desc">
+                    <li>
+                        {resources.freeSpin.define}
+                        <div className="sub-section">
+                            <div className="table-container text-center">
+                                <table className="table text-center table-medium">
+                                    <thead>
+                                        <tr>
+                                            {subDescriptions.tableHeader.map((header, index) => (
+                                                <th key={index}>{header}</th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowSpan={3}>{this.renderIconContentBlack("scatter", oddDetail[0], " FREE SPINS")}</td>
+                                            <td>
+                                                {<Markup content={subDescriptions.getSymbolOrMore(oddDetail[0].oddItem[0].countString)} />}
+                                                <br></br>
+                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[0].count)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {<Markup content={subDescriptions.getSymbol(oddDetail[0].oddItem[1].countString)} />}
+                                                <br></br>
+                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[1].count)}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {<Markup content={subDescriptions.getSymbol(oddDetail[0].oddItem[2].countString)} />}
+                                                <br></br>
+                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[2].count)}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                    <li>{resources.freeSpin.getMoreFreeSpin(oddDetail[1].oddItem[0].count)}</li>
+                    <li>
+                        {resources.freeSpin.totalMultiplier}
+                        <div className="sub-section">
+                            <div>{<Markup content={resources.exampleFreeSpin.title} />}</div>
+                            <div className="table-container text-center">
+                                <table className="table text-center table-medium">
+                                    <thead>
+                                        <tr>
+                                            {table.headers.map((header, index) => (
+                                                <th key={index}>{header}</th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#1</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>{<Markup content={table.round1Win} />}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>#2</td>
+                                            <td>5</td>
+                                            <td>0</td>
+                                            <td>5</td>
+                                            <td>{<Markup content={table.round2Win} />}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>#3</td>
+                                            <td>0</td>
+                                            <td>2</td>
+                                            <td>5</td>
+                                            <td>
+                                                <strong>0</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#4</td>
+                                            <td>7</td>
+                                            <td>3</td>
+                                            <td>
+                                                8 <br />
+                                                (5+3)
+                                            </td>
+                                            <td>{<Markup content={table.round4Win} />}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div className={`${Styles["center"]} ${Styles["line"]}`}>
+                                <img src={`${imageDirectoryName}/freespin-${locale}.jpg#v3`} alt="freespin" width={610} height={343} />
+                            </div>
+                            <div className={`${Styles["center"]} ${Styles["line"]}`}>
+                                <img src={`${imageDirectoryName}/tumblewin-${locale}.png#v3`} alt="tumble-win" width={372} height={69} />
+                                <div className={Styles["tumble-desc"]}>
+                                    {tumbleDescriptions.map((desc, index) => (
+                                        <div key={index}>{desc}</div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>{resources.freeSpin.freeSpin24h}</li>
+                </ul>
+            </>
+        );
+    }
 
-    const resources = getTreasureIslandTranslationResource(locale);
-    console.log("TreasureIslandGuideTemplate", locale);
-    const sortedCoinValue = coinValues.sort((a, b) => a - b);
-    const sortedBetLevel = betLevels.sort((a, b) => a - b);
-    const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
-    const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
-    return (
-        <>
-            <ul className="game-guide">
-                <li className="guide-item">
-                    <h2>{resources.introduction.title}</h2>
-                    <p className="content">{resources.introduction.description}</p>
-                    <div className={Styles["wrapper-list-icon"]}>
-                        <img src={`/static/images/treasure-island/list_icon.png#v4`} alt="guide_item_symbol_bg" width={750} height={194} />
-                    </div>
-                </li>
+    renderIconContent(
+        itemName = "item10",
+        isContentTop = false,
+        isGem = false,
+        dataContent: OddDetailList,
+        coin: number,
+        level: number,
+        isReverse = true
+    ) {
+        const imageDirectoryName = getImageDirectoryName();
+        const pathSrc = itemName === "item10" ? `${imageDirectoryName}/` : `${imageDirectoryName}/`;
+        const oddItemList = isReverse ? dataContent.oddItem.reverse() : dataContent.oddItem;
+        return (
+            <div className={Styles["wrapper-icon"]}>
+                <img
+                    src={`${imageDirectoryName}/guide_item_symbol_bg.png?v1`}
+                    width={200}
+                    height={132}
+                    alt={"guide_item_symbol_bg"}
+                    loading="eager"
+                />
 
-                <li className="guide-item">{renderGameRule(minBet, maxBet, resources)}</li>
-                <li className="guide-item">{renderPayouts(odds, coin, level, maxWinPerRound, resources)}</li>
-                <li className="guide-item">{renderTumbling(resources)}</li>
-                <li className="guide-item">{renderMultipliers(resources)}</li>
-                <li className="guide-item">{renderFreeSpins(odds, resources)}</li>
-                {renderTermsAndConditions(Styles["guide-item"], undefined, locale)}
-            </ul>
-        </>
-    );
-};
+                <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
+                <div
+                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                        isGem && Styles["gem-position"]
+                    }`}
+                >
+                    {oddItemList.map((data, index) => {
+                        const value = +(+(data.count * coin * level)).toFixed(2);
 
-export default TreasureIslandGuideTemplate;
+                        return (
+                            <div key={index} className={Styles["icon-content"]}>
+                                <span className={`${Styles[this.number]} ${Styles[this.numberFirst]}`}>{data.countString}</span>
+                                <span className={`${Styles[this.number]} ${Styles[this.numberSecond]}`}>{value}</span>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
+    renderPayoutsIconFirstLine(symbols: OddDetailList[], coin: number, level: number) {
+        return (
+            <>
+                <div className={Styles["icon-container"]}>
+                    {this.renderIconContent("item8", false, false, symbols[8], coin, level)}
+                    {this.renderIconContent("item7", true, false, symbols[7], coin, level)}
+                    {this.renderIconContent("item6", true, false, symbols[6], coin, level)}
+                    {this.renderIconContent("item5", true, false, symbols[5], coin, level)}
+                    {this.renderIconContent("item4", true, false, symbols[4], coin, level)}
+                </div>
+            </>
+        );
+    }
+
+    renderPayoutsIconSecondLine = (symbols: OddDetailList[], coin: number, level: number) => {
+        return (
+            <>
+                <div className={Styles["icon-container"]}>
+                    {this.renderIconContent("item3", true, true, symbols[3], coin, level)}
+                    {this.renderIconContent("item2", true, true, symbols[2], coin, level)}
+                    {this.renderIconContent("item1", true, true, symbols[1], coin, level)}
+                    {this.renderIconContent("item0", false, false, symbols[0], coin, level)}
+                </div>
+            </>
+        );
+    };
+
+    renderCountFreeSpin(count: number) {
+        if (count < 6) {
+            return <span>{count}</span>;
+        } else {
+            return (
+                <span className={`${Styles["ex-wrapper"]}`}>
+                    <span>{count}</span>
+                </span>
+            );
+        }
+    }
+
+    renderIconContentBlack(itemName: string, dataContent: OddDetailList, textAfterNumber: string) {
+        const imageDirectoryName = getImageDirectoryName();
+        return (
+            <span className={Styles["wrapper-icon-dark"]}>
+                <img
+                    className={`${Styles[this.iconBox]}`}
+                    src={`${imageDirectoryName}/guide_item_symbol_bg.png#v2`}
+                    width={269}
+                    height={132}
+                    alt="guide_item_symbol_bg"
+                    loading="eager"
+                />
+
+                <img
+                    className={`${Styles[itemName]} ${Styles["dark"]} ${Styles["scatter"]}`}
+                    src={`${imageDirectoryName}/${itemName}.png`}
+                    alt={itemName}
+                ></img>
+                <div
+                    className={`${Styles["icon-content-wrapper"]} ${
+                        itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
+                    }`}
+                >
+                    {dataContent.oddItem.reverse().map((data, index) => {
+                        return (
+                            <div
+                                key={index}
+                                className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
+                            >
+                                <span className={`${Styles[this.number]} ${Styles[this.numberFirst]}`}>
+                                    {this.renderCountFreeSpin(+data.countString)}
+                                </span>
+                                <span className={`${Styles[this.number]} ${Styles[this.numberSecond]}`}>
+                                    {data.count} {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
+                                </span>
+                            </div>
+                        );
+                    })}
+                </div>
+            </span>
+        );
+    }
+
+    render(): React.ReactNode {
+        const { gameConfigs, locale } = this.props;
+        const { odds, betMultiplier, coin, level, coinValues, betLevels, maxWinPerRound } = gameConfigs;
+        const resources = getTreasureIslandTranslationResource(locale);
+        const imageDirectoryName = getImageDirectoryName();
+        const sortedCoinValue = coinValues.sort((a, b) => a - b);
+        const sortedBetLevel = betLevels.sort((a, b) => a - b);
+        const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
+        const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
+
+        return (
+            <>
+                <ul className="game-guide">
+                    <li className="guide-item">
+                        <h2>{resources.introduction.title}</h2>
+                        <p className="content">{resources.introduction.description}</p>
+                        <div className={Styles["wrapper-list-icon"]}>
+                            <img src={`${imageDirectoryName}/list_icon.png#v4`} alt="guide_item_symbol_bg" width={750} height={194} />
+                        </div>
+                    </li>
+
+                    <li className="guide-item">{this.renderGameRule(minBet, maxBet, resources, imageDirectoryName, locale)}</li>
+                    <li className="guide-item">{this.renderPayouts(odds, coin, level, maxWinPerRound, resources, imageDirectoryName)}</li>
+                    <li className="guide-item">{this.renderTumbling(resources)}</li>
+                    <li className="guide-item">{this.renderMultipliers(resources, imageDirectoryName)}</li>
+                    <li className="guide-item">{this.renderFreeSpins(odds, resources, imageDirectoryName, locale)}</li>
+                    {renderTermsAndConditions(Styles["guide-item"], undefined, locale)}
+                </ul>
+            </>
+        );
+    }
+}

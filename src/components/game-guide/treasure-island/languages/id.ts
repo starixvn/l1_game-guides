@@ -34,7 +34,7 @@ export const id: TreasureIslandLanguage = {
         description3(currMaxBet: number) {
             return [
                 "Jumlah yang menang langsung ditambahkan ke saldo akun Anda ketika semua kejatuhan yang dihasilkan dari putaran dasar telah dimainkan.",
-                `Jumlah kemenangan maksimum terbatas pada ${currMaxBet} X taruhan. Jika total kemenangan suatu ronde mencapai nilai max win, maka ronde permainan langsung berakhir. \
+                `Jumlah kemenangan maksimum terbatas pada ${currMaxBet}X taruhan. Jika total kemenangan suatu ronde mencapai nilai max win, maka ronde permainan langsung berakhir. \
                 Kemenangan diberikan hingga batas dan semua fitur yang tersisa hangus. `,
             ];
         },

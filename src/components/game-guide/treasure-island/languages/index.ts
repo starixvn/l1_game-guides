@@ -7,8 +7,14 @@ import { id } from "./id";
 import Styles from "../treasure-island.module.scss";
 
 import { TreasureIslandLanguage } from "./types";
+import { vi } from "./vi";
+
+export const getImageDirectoryName = (): string => {
+    return "/static/images/treasure-island";
+};
 
 const supportedLanguages: { [name: string]: TreasureIslandLanguage } = {
+    vi: vi,
     en: en,
     th: th,
     id: id,

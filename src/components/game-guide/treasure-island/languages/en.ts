@@ -29,12 +29,12 @@ export const en: TreasureIslandLanguage = {
             "Symbols pay anywhere on the screen.",
             "The Win-loss of each combination will be calculated based on the base bet value.",
         ],
-        baseBetValue: "Base Bet Value= Bet Level * Coin Value",
+        baseBetValue: "Base Bet Value = Bet Level * Coin Value",
         description2: "The payouts table will be updated according to the value of the base bet that you have selected.",
         description3(currMaxBet: number) {
             return [
                 "The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin have been played.",
-                `The maximum win amount is limited to ${currMaxBet} X bet. If the total win of a round reaches the max win value, the game round immediately ends. \
+                `The maximum win amount is limited to ${currMaxBet}X bet. If the total win of a round reaches the max win value, the game round immediately ends. \
                 The win is awarded up to the limitation and all remaining features are forfeited. `,
             ];
         },
@@ -102,7 +102,7 @@ export const en: TreasureIslandLanguage = {
     exampleFreeSpin: {
         title: "Example: The player wins 4 Free Spins",
         table: {
-            headers: ["Round id", "TumbleWin", "Multiplier", "Total Multiplier", "Win"],
+            headers: ["Round id", "Tumble Win", "Multiplier", "Total Multiplier", "Win"],
             round1Win: "<strong>50</strong><br/><strong>(Tumble Win * Total Multiplier)</strong>",
             round2Win: "<strong>5</strong><br/><strong>(Tumble Win)</strong>",
             round4Win: "<strong>56</strong><br/><strong>(Tumble Win * Total Multiplier)</strong>",
