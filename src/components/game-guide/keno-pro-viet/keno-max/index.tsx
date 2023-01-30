@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { GameGuideBase } from "../../type";
 import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";

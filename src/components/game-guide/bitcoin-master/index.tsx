@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import BitcoinMasterGuideEN from "./en";
-import BitcoinMasterGuideVI from "./vi";
 import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../index.helper";
+import BitcoinMasterTemplate from "./templates/default";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -53,23 +51,13 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <BitcoinMasterGuideEN
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-
     return (
-        <BitcoinMasterGuideVI
+        <BitcoinMasterTemplate
             gameConfigs={configs}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
             fractionalOddsFormat={fractionalOddsFormat}
+            locale={locale}
         />
     );
 };
