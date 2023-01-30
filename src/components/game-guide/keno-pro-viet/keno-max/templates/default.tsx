@@ -2,7 +2,6 @@ import React from "react";
 
 import { ENVIRONMENT } from "../../../../../common/constants";
 import { renderTermsAndConditions } from "../../../../shared";
-import { FiveElements } from "../../../../shared/keno/en";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import Styles from "../keno-max.module.scss";
@@ -20,8 +19,12 @@ export default class KenoProGuideTemplate extends React.Component<
     constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps>) {
         super(props);
         this.state = {
-            translationResource: getKenoTranslationResource(props.locale),
+            translationResource: this.getTranslationResult(props.locale),
         };
+    }
+
+    getTranslationResult(locale?: string) {
+        return getKenoTranslationResource(locale);
     }
 
     renderIntroduction() {
@@ -71,49 +74,7 @@ export default class KenoProGuideTemplate extends React.Component<
                         </ul>
                         <div>
                             <Markup content={bettingOptions.example.description} />
-                            <div className="table-container">
-                                <table className="table text-center table-small">
-                                    <thead>
-                                        <tr>
-                                            <th colSpan={10} className="bold">
-                                                <b>{bettingOptions.example.drawResult}</b>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>11</td>
-                                            <td>17</td>
-                                            <td>20</td>
-                                            <td>21</td>
-                                            <td>23</td>
-                                            <td>33</td>
-                                            <td>40</td>
-                                            <td>41</td>
-                                            <td>42</td>
-                                        </tr>
-                                        <tr>
-                                            <td>45</td>
-                                            <td>48</td>
-                                            <td>56</td>
-                                            <td>58</td>
-                                            <td>59</td>
-                                            <td>69</td>
-                                            <td>71</td>
-                                            <td>72</td>
-                                            <td>73</td>
-                                            <td>77</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={10}>
-                                                <strong>{bettingOptions.example.totalSum}</strong> = 883.{" "}
-                                                {bettingOptions.bigSmall.winningText}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div className="table-container">{this.renderTableBigSmall()}</div>
                         </div>
                     </li>
                     <li className="number-dot">
@@ -127,49 +88,7 @@ export default class KenoProGuideTemplate extends React.Component<
                         </ul>
                         <div>
                             <Markup content={bettingOptions.example.description} />
-                            <div className="table-container">
-                                <table className="table text-center table-small">
-                                    <thead>
-                                        <tr>
-                                            <th colSpan={10}>
-                                                <b>{bettingOptions.example.drawResult}</b>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>8</td>
-                                            <td>18</td>
-                                            <td>23</td>
-                                            <td>30</td>
-                                            <td>35</td>
-                                            <td>37</td>
-                                            <td>39</td>
-                                            <td>40</td>
-                                        </tr>
-                                        <tr>
-                                            <td>42</td>
-                                            <td>44</td>
-                                            <td>46</td>
-                                            <td>49</td>
-                                            <td>50</td>
-                                            <td>56</td>
-                                            <td>60</td>
-                                            <td>61</td>
-                                            <td>71</td>
-                                            <td>80</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={10}>
-                                                <strong>{bettingOptions.example.totalSum}</strong> = 798.{" "}
-                                                {bettingOptions.oddEven.winningText}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div className="table-container">{this.renderTableOddEven()}</div>
                         </div>
                     </li>
                     <li className="number-dot">
@@ -183,49 +102,7 @@ export default class KenoProGuideTemplate extends React.Component<
                         </ul>
                         <div>
                             <Markup content={bettingOptions.example.description} />
-                            <div className="table-container">
-                                <table className="table text-center table-small">
-                                    <thead>
-                                        <tr>
-                                            <th colSpan={10}>
-                                                <b>{bettingOptions.example.drawResult}</b>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>5</td>
-                                            <td>10</td>
-                                            <td>11</td>
-                                            <td>15</td>
-                                            <td>19</td>
-                                            <td>20</td>
-                                            <td>27</td>
-                                            <td>29</td>
-                                            <td>35</td>
-                                        </tr>
-                                        <tr>
-                                            <td>37</td>
-                                            <td>40</td>
-                                            <td>42</td>
-                                            <td>47</td>
-                                            <td>48</td>
-                                            <td>52</td>
-                                            <td>57</td>
-                                            <td>62</td>
-                                            <td>68</td>
-                                            <td>71</td>
-                                        </tr>
-                                        <tr>
-                                            <td colSpan={10}>
-                                                <strong>{bettingOptions.example.totalSum}</strong> = 698.{" "}
-                                                {bettingOptions.fiveElement.winningText}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <div className="table-container">{this.renderTableFiveElements()}</div>
                         </div>
                     </li>
                 </ul>
@@ -233,9 +110,72 @@ export default class KenoProGuideTemplate extends React.Component<
         );
     }
 
+    renderTableBigSmall() {
+        const { bettingOptions } = this.state.translationResource;
+        return this.renderBettingOptionsTable(
+            [7, 11, 17, 20, 21, 23, 33, 40, 41, 42],
+            883,
+            bettingOptions.bigSmall.winningText,
+            [45, 48, 56, 58, 59, 69, 71, 72, 73, 77]
+        );
+    }
+
+    renderTableOddEven() {
+        const { bettingOptions } = this.state.translationResource;
+        return this.renderBettingOptionsTable(
+            [4, 5, 8, 18, 23, 30, 35, 37, 39, 40],
+            798,
+            bettingOptions.oddEven.winningText,
+            [42, 44, 46, 49, 50, 56, 60, 61, 71, 80]
+        );
+    }
+
+    renderTableFiveElements() {
+        const { bettingOptions } = this.state.translationResource;
+        return this.renderBettingOptionsTable(
+            [3, 5, 10, 11, 15, 19, 20, 27, 29, 35],
+            698,
+            bettingOptions.fiveElement.winningText,
+            [37, 40, 42, 47, 48, 52, 57, 62, 68, 71]
+        );
+    }
+
+    renderBettingOptionsTable(firstRow: number[], totalSum: number, winningText: string, secondRow?: number[]) {
+        const { bettingOptions } = this.state.translationResource;
+
+        return (
+            <table className="table text-center table-small">
+                <thead>
+                    <tr>
+                        <th colSpan={10} className="bold">
+                            <b>{bettingOptions.example.drawResult}</b>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {firstRow.map((value, index) => (
+                            <td key={index}>{value}</td>
+                        ))}
+                    </tr>
+                    {secondRow && (
+                        <tr>
+                            {secondRow.map((value, index) => (
+                                <td key={index}>{value}</td>
+                            ))}
+                        </tr>
+                    )}
+                    <tr>
+                        <td colSpan={10}>
+                            <strong>{bettingOptions.example.totalSum}</strong> = {totalSum}. {winningText}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        );
+    }
+
     renderPayouts() {
-        const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = this.props;
-        const { odds } = gameConfigs;
         const { payouts } = this.state.translationResource;
 
         return (
@@ -263,63 +203,72 @@ export default class KenoProGuideTemplate extends React.Component<
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{payouts.big}</td>
-                                    <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
-                                    <td rowSpan={4}>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.small}</td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.odd}</td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.even}</td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.gold}</td>
-                                    <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.wood}</td>
-                                    <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.water}</td>
-                                    <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.fire}</td>
-                                    <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{payouts.earth}</td>
-                                    <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
-                                    </td>
-                                </tr>
-                            </tbody>
+                            {this.renderPayoutsTableBody()}
                         </table>
                     </div>
                 </ul>
             </li>
+        );
+    }
+
+    renderPayoutsTableBody() {
+        const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = this.props;
+        const { odds } = gameConfigs;
+        const { payouts } = this.state.translationResource;
+        return (
+            <tbody>
+                <tr>
+                    <td>{payouts.big}</td>
+                    <td rowSpan={4}>{formatOdds(odds?.big, fractionalOddsFormat)}</td>
+                    <td rowSpan={4}>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{payouts.small}</td>
+                </tr>
+                <tr>
+                    <td>{payouts.odd}</td>
+                </tr>
+                <tr>
+                    <td>{payouts.even}</td>
+                </tr>
+                <tr>
+                    <td>{payouts.gold}</td>
+                    <td>{formatOdds(odds?.gold, fractionalOddsFormat)}</td>
+                    <td>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetGold}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{payouts.wood}</td>
+                    <td>{formatOdds(odds?.wood, fractionalOddsFormat)}</td>
+                    <td>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWood}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{payouts.water}</td>
+                    <td>{formatOdds(odds?.water, fractionalOddsFormat)}</td>
+                    <td>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetWater}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{payouts.fire}</td>
+                    <td>{formatOdds(odds?.fire, fractionalOddsFormat)}</td>
+                    <td>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetFire}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{payouts.earth}</td>
+                    <td>{formatOdds(odds?.earth, fractionalOddsFormat)}</td>
+                    <td>
+                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEarth}
+                    </td>
+                </tr>
+            </tbody>
         );
     }
 
@@ -334,11 +283,11 @@ export default class KenoProGuideTemplate extends React.Component<
                         <ul className="desc">
                             <li>
                                 <Markup content={md5.step1} />
-                                {this.renderExampleMD5Step1()}
+                                {this.renderExampleMD5Step1("520e543659d05eb7024f9f76d85479f7")}
                             </li>
                             <li>
                                 <Markup content={md5.step2} />
-                                {this.renderExampleMD5Step2()}
+                                {this.renderExampleMD5Step2("{363}_{#26907421fad9b51da1169691982}")}
                                 <div>{md5.note}</div>
                             </li>
                             <li>
@@ -368,7 +317,7 @@ export default class KenoProGuideTemplate extends React.Component<
         );
     }
 
-    renderExampleMD5Step1() {
+    renderExampleMD5Step1(md5Key: string) {
         const { environment } = this.props;
         const { md5 } = this.state.translationResource;
 
@@ -377,7 +326,7 @@ export default class KenoProGuideTemplate extends React.Component<
         ) : (
             <div className={Styles["md5-section"]}>
                 <span className={`${Styles["text"]}`}>
-                    <strong>{md5.md5Key}:</strong> 520e543659d05eb7024f9f76d85479f7
+                    <strong>{md5.md5Key}:</strong> {md5Key}
                 </span>
                 <div className={Styles["copy-box"]}>
                     <span className={Styles["copy-text"]}>{md5.copy}</span>
@@ -386,7 +335,7 @@ export default class KenoProGuideTemplate extends React.Component<
         );
     }
 
-    renderExampleMD5Step2() {
+    renderExampleMD5Step2(result: string) {
         const { environment } = this.props;
         const { md5 } = this.state.translationResource;
 
@@ -395,7 +344,7 @@ export default class KenoProGuideTemplate extends React.Component<
         ) : (
             <div className={Styles["md5-section"]}>
                 <span className={`${Styles["text"]}`}>
-                    <strong>{md5.result}:</strong> {"{363}_{#26907421fad9b51da1169691982}"}
+                    <strong>{md5.result}:</strong> {result}
                 </span>
                 <div className={Styles["copy-box"]}>
                     <span className={Styles["copy-text"]}>{md5.copy}</span>

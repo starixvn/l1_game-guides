@@ -34,7 +34,7 @@ export const vi: IKenoTranslationResource = {
                 "<b>Lẻ:</b> tổng điểm của 20 trái bóng được rút là một số lẻ.",
                 "<b>Chẵn:</b> tổng điểm của 20 trái bóng được rút là một số chẵn.",
             ],
-            winningText: "Cược vào “CHẴN” thắng.",
+            winningText: "Cược vào CHẴN thắng.",
         },
         fiveElement: {
             title: "Cược Ngũ hành (Kim/Mộc/Thủy/Hỏa/Thổ)",

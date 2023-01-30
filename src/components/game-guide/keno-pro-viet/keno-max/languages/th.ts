@@ -46,9 +46,9 @@ export const th: IKenoTranslationResource = {
             winningText: "ผู้เล่นเดิมพัน ไม้ จะชนะ",
         },
         example: {
-            description: "<b>ตัวอย่าง:</b> ชุดลูกบอล 20 ลูกโดยสุ่มจาก 80 ลูก",
+            description: "<b>ตัวอย่าง:</b> ชุดลูกบอล 20 หมายเลขโดยสุ่มจาก 80 ลูก",
             drawResult: "ผลการจับฉลาก",
-            totalSum: "ยอดรวม",
+            totalSum: "ผลรวม",
         },
     },
     payouts: {
@@ -59,7 +59,7 @@ export const th: IKenoTranslationResource = {
             "จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น",
         ],
         options: "ตัวเลือก",
-        odds: "ราคาต่อรอง",
+        odds: "อัตราต่อรอง",
         betLimit: "วงเงินเดิมพัน",
         min: "ต่ำสุด",
         max: "สูงสุด",
