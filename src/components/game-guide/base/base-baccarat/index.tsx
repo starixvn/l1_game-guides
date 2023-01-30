@@ -89,7 +89,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
     };
 
     renderTermsAndConditions = () => {
-        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.resources.termsAndConditions} /></li>;
+        return <li className="guide-item"><BaseTermsAndConditions locale={this.props.locale} /></li>;
     };
 
     render() {

@@ -1,7 +1,8 @@
 import React from "react";
-import { IBaseTermAndConditionResources } from "./languages/types";
+import { getTermsAndConditionsResource } from "./languages";
 
-const BaseTermsAndConditions: React.FunctionComponent<{ resources: IBaseTermAndConditionResources }> = ({ resources }) => {
+const BaseTermsAndConditions: React.FunctionComponent<{ locale?: string }> = ({ locale }) => {
+    const resources = getTermsAndConditionsResource(locale);
     return (
         <>
             <h2>{resources.header}</h2>
