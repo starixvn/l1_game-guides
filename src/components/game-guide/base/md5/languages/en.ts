@@ -7,7 +7,7 @@ const steps = {
     four: "<strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated <strong>MD5 checksum</strong> with the MD5 Key in <strong>Step 1</strong>.",
 };
 
-export const md5ResourcesEn: IMd5Resources = {
+export const en: IMd5Resources = {
     content: {
         header: "MD5 (Message-Digest algorithm 5)",
         technology: {
@@ -30,11 +30,5 @@ export const md5ResourcesEn: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
-        step1ImageUrl: "",
-        step2ImageUrl: "",
-        step3ImageUrl: "",
-        step4ImageUrl: "",
-        step2Noted1Text: "",
-        step2Noted2Text: "",
     },
 };

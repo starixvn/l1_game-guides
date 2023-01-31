@@ -7,7 +7,7 @@ const steps = {
     four: "<strong>第四步</strong>: 按<strong>“hash darling, hash!”</strong>  按鈕，並將新生成的 <strong> MD5 checksum </strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
 };
 
-export const md5ResourcesTw: IMd5Resources = {
+export const tw: IMd5Resources = {
     content: {
         header: "MD5（消息摘要算法5）",
         technology: {
@@ -30,11 +30,5 @@ export const md5ResourcesTw: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
-        step1ImageUrl: "",
-        step2ImageUrl: "",
-        step3ImageUrl: "",
-        step4ImageUrl: "",
-        step2Noted1Text: "",
-        step2Noted2Text: "",
     },
 };

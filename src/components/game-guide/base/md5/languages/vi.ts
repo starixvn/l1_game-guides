@@ -7,7 +7,7 @@ const steps = {
     four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
 };
 
-export const md5ResourcesVi: IMd5Resources = {
+export const vi: IMd5Resources = {
     content: {
         header: "MD5 (Message-Digest algorithm 5)",
         technology: {
@@ -30,11 +30,5 @@ export const md5ResourcesVi: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
-        step1ImageUrl: "",
-        step2ImageUrl: "",
-        step3ImageUrl: "",
-        step4ImageUrl: "",
-        step2Noted1Text: "",
-        step2Noted2Text: "",
     },
 };

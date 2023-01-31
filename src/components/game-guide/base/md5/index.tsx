@@ -2,78 +2,106 @@ import React from "react";
 import { Markup } from "interweave";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { IMd5Resources } from "./languages/types";
+import { getBaseMD5TranslationResource } from "./languages";
 
 const md5ServicesUrl = "<a href='https://md5.services/' target='_blank' rel='noopener noreferrer'>https://md5.services/</a>";
 
-const Md5Content: React.FunctionComponent<{ resources: IMd5Resources }> = ({ resources }) => {
-    const { content } = resources;
-    return (
-        <>
-            <h2> {content.header}</h2>
-            <ul className="style-number-dot">
-                <li className="number-dot">
-                    <span className="title-text"> {content.technology.header}</span>
-                    <ul className="desc">
-                        {
-                            content.technology.details.map((detail, index) => {
-                                return <li key={index}>{<Markup content={detail} />}</li>
-                            })
-                        }
-                    </ul>
-                </li>
-                <li className="number-dot">
-                    <span className="title-text"> {content.validation.header}</span>
-                    <ul className="desc">
-
-                        {
-                            content.validation.details.map((detail, index) => {
-                                return <li key={index}><Markup content={StringFormat(detail, md5ServicesUrl)} /></li>
-                            })
-                        }
-                    </ul>
-                </li>
-            </ul>
-            <div className="content"> {content.noted} </div>
-        </>
-    );
+type MD5Props = {
+    locale: string | undefined;
+    resources?: IMd5Resources;
+    step1ImageUrl?: string;
+    step2ImageUrl?: string;
+    step3ImageUrl?: string;
+    step4ImageUrl?: string;
+    note?: JSX.Element | string;
 };
 
-export abstract class Md5Example<P extends { resources: IMd5Resources }> extends React.PureComponent<P>  {
+export default class MD5 extends React.Component<MD5Props, { translationResource: IMd5Resources }> {
+    constructor(props: MD5Props) {
+        super(props);
+        this.state = {
+            translationResource: props.resources || getBaseMD5TranslationResource(props.locale),
+        };
+    }
+
+    renderMD5Content() {
+        const { content } = this.state.translationResource;
+        return (
+            <>
+                <h2> {content.header}</h2>
+                <ul className="style-number-dot">
+                    <li className="number-dot">
+                        <span className="title-text"> {content.technology.header}</span>
+                        <ul className="desc">
+                            {content.technology.details.map((detail, index) => {
+                                return <li key={index}>{<Markup content={detail} />}</li>;
+                            })}
+                        </ul>
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text"> {content.validation.header}</span>
+                        <ul className="desc">
+                            {content.validation.details.map((detail, index) => {
+                                return (
+                                    <li key={index}>
+                                        <Markup content={StringFormat(detail, md5ServicesUrl)} />
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </li>
+                </ul>
+                <div className="content"> {content.noted} </div>
+            </>
+        );
+    }
+
     renderStep1() {
-        const { example } = this.props.resources;
-        return (<li>
-            {<Markup content={example.step1Text} />}
-            <img className="format-img auto-center" src={example.step1ImageUrl} alt="md5-string" />
-        </li>);
+        const { example } = this.state.translationResource;
+        return (
+            <li>
+                {<Markup content={example.step1Text} />}
+                <img className="format-img auto-center" src={this.props.step1ImageUrl} alt="md5-string" />
+            </li>
+        );
     }
 
     renderStep2() {
-        return <></>;
+        const { example } = this.state.translationResource;
+        return (
+            <li>
+                {<Markup content={example.step2Text} />}
+                <img className="format-img auto-center" src={this.props.step2ImageUrl} alt="md5-result" />
+                <div>{this.props.note}</div>
+            </li>
+        );
     }
 
     renderStep3() {
-        const { example } = this.props.resources;
-        return (<li>
-            {<Markup content={StringFormat(example.step3Text, md5ServicesUrl)} />}
-            <img className="format-img auto-center" src={example.step3ImageUrl} alt="hash-darling" />
-        </li>);
+        const { example } = this.state.translationResource;
+        return (
+            <li>
+                {<Markup content={StringFormat(example.step3Text, md5ServicesUrl)} />}
+                <img className="format-img auto-center" src={this.props.step3ImageUrl} alt="hash-darling" />
+            </li>
+        );
     }
 
     renderStep4() {
-        const { example } = this.props.resources;
-        return (<li>
-            {<Markup content={example.step4Text} />}
-            <img className="format-img auto-center" src={example.step4ImageUrl} alt="md5-checksum" />
-        </li>);
+        const { example } = this.state.translationResource;
+        return (
+            <li>
+                {<Markup content={example.step4Text} />}
+                <img className="format-img auto-center" src={this.props.step4ImageUrl} alt="md5-checksum" />
+            </li>
+        );
     }
 
-    render() {
-        const { example } = this.props.resources;
+    renderMD5Example() {
+        const { example } = this.state.translationResource;
         return (
             <>
-                <div className="content">
-                    {<Markup content={example.header} />}
-                </div>
+                <div className="content">{<Markup content={example.header} />}</div>
                 <ul className="desc">
                     {this.renderStep1()}
                     {this.renderStep2()}
@@ -83,6 +111,13 @@ export abstract class Md5Example<P extends { resources: IMd5Resources }> extends
             </>
         );
     }
-};
 
-export default Md5Content;
+    render(): React.ReactNode {
+        return (
+            <>
+                {this.renderMD5Content()}
+                {this.renderMD5Example()}
+            </>
+        );
+    }
+}

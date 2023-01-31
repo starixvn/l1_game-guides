@@ -76,5 +76,13 @@ export interface IBaseBaccaratResources {
             bankerPair: string;
         };
     };
+    md5?: {
+        step1ImageUrl: string;
+        step2ImageUrl: string;
+        step3ImageUrl: string;
+        step4ImageUrl: string;
+        step2Noted1Text: string;
+        step2Noted2Text: string;
+    };
     termsAndConditions: IBaseTermAndConditionResources;
 }

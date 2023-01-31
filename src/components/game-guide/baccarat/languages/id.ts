@@ -1,8 +1,6 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesId } from "../../base/base-baccarat/languages/id";
 import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
-import { md5ResourcesId } from "../../base/md5/languages/id";
-import { IMd5Resources } from "../../base/md5/languages/types";
 
 export const baccaratResourcesId: IBaseBaccaratResources = {
     ...baseBaccaratResourcesId,
@@ -42,21 +40,12 @@ export const baccaratResourcesId: IBaseBaccaratResources = {
             },
         },
     },
-};
-
-export const md5BaccaratResourcesId: IMd5Resources = {
-    ...md5ResourcesId,
-    ...{
-        example: {
-            ...md5ResourcesId.example,
-            ...{
-                step1ImageUrl: "/static/images/baccarat/md5_step1_id.png?v=1",
-                step2ImageUrl: "/static/images/baccarat/md5_step2_id.png?v=1",
-                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                step2Noted1Text: "Catatan: Dari kiri ke kanan,",
-                step2Noted2Text: "csesuai dengan urutan kartu yang dibagikan di awal putaran permainan.",
-            },
-        },
+    md5: {
+        step1ImageUrl: "/static/images/baccarat/md5_step1_id.png?v=1",
+        step2ImageUrl: "/static/images/baccarat/md5_step2_id.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step2Noted1Text: "Catatan: Dari kiri ke kanan,",
+        step2Noted2Text: "csesuai dengan urutan kartu yang dibagikan di awal putaran permainan.",
     },
 };

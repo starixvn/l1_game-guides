@@ -7,7 +7,7 @@ const steps = {
     four: "<strong>Langkah 4:</strong>: Tekan tombol <strong>“hash darling, hash!”</strong> dan bandingkan rangkaian daftar MD5 checksum yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
 };
 
-export const md5ResourcesId: IMd5Resources = {
+export const id: IMd5Resources = {
     content: {
         header: "MD5 (Mencerna Pesan Algoritma 5)",
         technology: {
@@ -30,11 +30,5 @@ export const md5ResourcesId: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
-        step1ImageUrl: "",
-        step2ImageUrl: "",
-        step3ImageUrl: "",
-        step4ImageUrl: "",
-        step2Noted1Text: "",
-        step2Noted2Text: "",
     },
 };

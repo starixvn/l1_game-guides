@@ -7,7 +7,7 @@ const steps = {
     four: "<strong>ขั้นตอนที่ 4</strong>:  กดปุ่ม <strong>“hash darling, hash!”</strong> ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 <strong>ในขั้นตอนที่ 1</strong>",
 };
 
-export const md5ResourcesTh: IMd5Resources = {
+export const th: IMd5Resources = {
     content: {
         header: "MD5 (อัลกอริทึมการแยกย่อยข้อความ 5) ",
         technology: {
@@ -30,11 +30,5 @@ export const md5ResourcesTh: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
-        step1ImageUrl: "",
-        step2ImageUrl: "",
-        step3ImageUrl: "",
-        step4ImageUrl: "",
-        step2Noted1Text: "",
-        step2Noted2Text: "",
     },
 };

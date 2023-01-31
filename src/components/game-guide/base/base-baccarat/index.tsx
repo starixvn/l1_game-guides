@@ -26,14 +26,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
 
     constructor(props: P) {
         super(props);
-        const {
-            userStakeLevel,
-            gameConfigs,
-            dynamic,
-            isGetGameConfigs,
-            folderConfigName,
-            project,
-        } = props;
+        const { userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, folderConfigName, project } = props;
 
         import(`/src/components/game-guide/${folderConfigName}/configs/${project}/game-configs.ts`).then((mod: any) => {
             this.configs = mod.default as GameConfigProps;
@@ -46,42 +39,67 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
                         this.configs = gameConfigs;
                     }
                 }
-                this.setState({ configs: this.configs })
-                this.setState({ maxBetFollowChoice: handleMaxBetChoice(userStakeLevel, this.configs) })
+                this.setState({ configs: this.configs });
+                this.setState({ maxBetFollowChoice: handleMaxBetChoice(userStakeLevel, this.configs) });
             }
 
             this.setState({ resources: this.getResources() });
-            this.setState({ md5Resources: this.getMd5Resources() })
         });
-
     }
 
     getResources = () => {
         return {};
-    }
-
-    getMd5Resources = () => {
-        return {};
-    }
+    };
 
     renderIntroduction = () => {
-        return <li className="guide-item"><BaseBaccaratIntroduction resources={this.state.resources} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseBaccaratIntroduction resources={this.state.resources} />
+            </li>
+        );
     };
 
     renderGameRule = () => {
-        return <li className="guide-item"><BaseBaccaratGameRule environment={this.props.environment} resources={this.state.resources} maxBetMain={(this.state.maxBetFollowChoice?.maxBetMain ?? 0).toString()} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseBaccaratGameRule
+                    environment={this.props.environment}
+                    resources={this.state.resources}
+                    maxBetMain={(this.state.maxBetFollowChoice?.maxBetMain ?? 0).toString()}
+                />
+            </li>
+        );
     };
 
     renderPointCalculationRules = () => {
-        return <li className="guide-item"><BaseBaccaratPointCalculationRules resources={this.state.resources} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseBaccaratPointCalculationRules resources={this.state.resources} />
+            </li>
+        );
     };
 
     renderThirdCardRule = () => {
-        return <li className="guide-item"><BaseBaccaratThirdCardRule resources={this.state.resources} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseBaccaratThirdCardRule resources={this.state.resources} />
+            </li>
+        );
     };
 
     renderPayout = () => {
-        return <li className="guide-item"><BaseBaccaratPayout {...{ fractionalOddsFormat: this.props.fractionalOddsFormat, odds: this.configs.odds, maxBetFollowChoice: this.state.maxBetFollowChoice?.maxBetMain ?? 0, resources: this.state.resources }} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseBaccaratPayout
+                    {...{
+                        fractionalOddsFormat: this.props.fractionalOddsFormat,
+                        odds: this.configs.odds,
+                        maxBetFollowChoice: this.state.maxBetFollowChoice?.maxBetMain ?? 0,
+                        resources: this.state.resources,
+                    }}
+                />
+            </li>
+        );
     };
 
     renderMd5 = () => {
@@ -89,11 +107,15 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
     };
 
     renderTermsAndConditions = () => {
-        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.resources.termsAndConditions} /></li>;
+        return (
+            <li className="guide-item">
+                <BaseTermsAndConditions resources={this.state.resources.termsAndConditions} />
+            </li>
+        );
     };
 
     render() {
-        if (!this.state?.resources || !this.state?.md5Resources) {
+        if (!this.state?.resources) {
             return <></>;
         }
 
@@ -112,6 +134,6 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
             </>
         );
     }
-};
+}
 
 export default BaseBaccaratGuide;

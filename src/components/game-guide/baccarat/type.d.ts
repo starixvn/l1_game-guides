@@ -36,5 +36,4 @@ export interface BaccaratGuideState {
     configs: any;
     maxBetFollowChoice: any;
     resources: any;
-    md5Resources: any;
 }

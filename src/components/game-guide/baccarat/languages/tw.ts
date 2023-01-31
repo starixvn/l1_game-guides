@@ -1,8 +1,6 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesTw } from "../../base/base-baccarat/languages/tw";
 import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
-import { md5ResourcesTw } from "../../base/md5/languages/tw";
-import { IMd5Resources } from "../../base/md5/languages/types";
 
 export const baccaratResourcesTw: IBaseBaccaratResources = {
     ...baseBaccaratResourcesTw,
@@ -42,21 +40,12 @@ export const baccaratResourcesTw: IBaseBaccaratResources = {
             },
         },
     },
-};
-
-export const md5BaccaratResourcesTw: IMd5Resources = {
-    ...md5ResourcesTw,
-    ...{
-        example: {
-            ...md5ResourcesTw.example,
-            ...{
-                step1ImageUrl: "/static/images/baccarat/md5_step1_tw.png?v=1",
-                step2ImageUrl: "/static/images/baccarat/md5_step2_tw.png?v=1",
-                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                step2Noted1Text: "注：從左到右，",
-                step2Noted2Text: "對應遊戲回合開始時的發牌順序。",
-            },
-        },
+    md5: {
+        step1ImageUrl: "/static/images/baccarat/md5_step1_tw.png?v=1",
+        step2ImageUrl: "/static/images/baccarat/md5_step2_tw.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step2Noted1Text: "注：從左到右，",
+        step2Noted2Text: "對應遊戲回合開始時的發牌順序。",
     },
 };

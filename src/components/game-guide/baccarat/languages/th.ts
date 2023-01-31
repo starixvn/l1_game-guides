@@ -1,8 +1,6 @@
 import { ENVIRONMENT } from "../../../../common/constants";
 import { baseBaccaratResourcesTh } from "../../base/base-baccarat/languages/th";
 import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types";
-import { md5ResourcesTh } from "../../base/md5/languages/th";
-import { IMd5Resources } from "../../base/md5/languages/types";
 
 export const baccaratResourcesTh: IBaseBaccaratResources = {
     ...baseBaccaratResourcesTh,
@@ -42,21 +40,12 @@ export const baccaratResourcesTh: IBaseBaccaratResources = {
             },
         },
     },
-};
-
-export const md5BaccaratResourcesTh: IMd5Resources = {
-    ...md5ResourcesTh,
-    ...{
-        example: {
-            ...md5ResourcesTh.example,
-            ...{
-                step1ImageUrl: "/static/images/baccarat/md5_step1_th.png?v=1",
-                step2ImageUrl: "/static/images/baccarat/md5_step2_th.png?v=1",
-                step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-                step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
-                step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา,",
-                step2Noted2Text: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
-            },
-        },
+    md5: {
+        step1ImageUrl: "/static/images/baccarat/md5_step1_th.png?v=1",
+        step2ImageUrl: "/static/images/baccarat/md5_step2_th.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา,",
+        step2Noted2Text: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
     },
 };
