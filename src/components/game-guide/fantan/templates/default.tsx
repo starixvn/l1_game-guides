@@ -2,14 +2,13 @@ import { Markup } from "interweave";
 import React from "react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { StringFormat } from "../../../../helpers/string-helper";
-
-import { renderTermsAndConditions } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import Styles from "../fantan.module.scss";
 import { getFanTanTranslationResource } from "../languages";
 import { IFanTanTranslationResource } from "../languages/types";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 export default class FanTanTemplate extends React.Component<
     GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -282,7 +281,7 @@ export default class FanTanTemplate extends React.Component<
                     {this.renderGameRule()}
                     {this.renderPayouts()}
                     {this.renderMD5()}
-                    {renderTermsAndConditions(Styles["guide-item"], undefined, this.props.locale)}
+                    <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
                 </ul>
             </>
         );

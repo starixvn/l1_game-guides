@@ -1,3 +1,4 @@
+import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { IDragonTigerTranslationResource } from "./types";
 
 export const th: IDragonTigerTranslationResource = {
@@ -18,14 +19,12 @@ export const th: IDragonTigerTranslationResource = {
         title: "กฎของเกม",
         twoCards: "จั่วไพ่สองใบ หนึ่งใบสำหรับมังกรและอีกใบสำหรับเสือ ",
         thePlayerBet: "ผู้เล่นเดิมพันมังกรหรือเสือตัวใดตัวหนึ่งจะชนะด้วยไพ่ที่มีมูลค่าสูงกว่า ",
-        thePlayerCan:
-            "ผู้เล่นยังสามารถเดิมพันตัวเลือก “เสมอ” ได้หากพวกเขาทำนายว่ามังกรและเสือจะมีไพ่ที่มีมูลค่าเท่ากันโดยไม่คำนึงถึงชุด",
+        thePlayerCan: "ผู้เล่นยังสามารถเดิมพันตัวเลือก “เสมอ” ได้หากพวกเขาทำนายว่ามังกรและเสือจะมีไพ่ที่มีมูลค่าเท่ากันโดยไม่คำนึงถึงชุด",
         theGameDetermines: "เกมจะตัดสินการชนะหรือแพ้โดยการเปรียบเทียบดอกของไพ่แทนชุด",
         maximum: " K คือค่าสูงสุด ในขณะที่ Ace เป็นค่าต่ำสุด",
         cardPoint: {
             title: "ค่าแต้มของการ์ด:",
-            ranking:
-                "การจัดอันดับไพ่จากต่ำสุดไปสูงสุดมีดังนี้: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10,Jack, Queen, and King.",
+            ranking: "การจัดอันดับไพ่จากต่ำสุดไปสูงสุดมีดังนี้: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10,Jack, Queen, and King.",
             aceStands: "เอซ (A) หมายถึง 1 คะแนน; แจ็ค 11 คะแนน; ควีนมี 12 แต้ม ส่วนคิงมี 13 แต้ม",
             allCards: "ไพ่ทั้งหมดตั้งแต่ 2 ถึง 10 จะนับตามไพ่ที่กำหนดไว้",
         },
@@ -51,4 +50,5 @@ export const th: IDragonTigerTranslationResource = {
         },
         note: "** หมายเหตุ: ผู้เล่นเดิมพันมังกรหรือเสือจะเสีย 50% ของเงินเดิมพันหากผลออกมาเสมอกัน",
     },
+    termsAndConditions: baseTermAndConditionTh,
 };

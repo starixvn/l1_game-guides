@@ -1,9 +1,8 @@
 import React from "react";
 import { GameGuideProps } from "../../type";
-import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, ISlotTranslationResource } from "./types";
-import { PROJECTS } from "../../../../common/constants";
-
+import BaseTermsAndConditions from "../terms-and-conditions/terms-and-conditions";
+import { IBaseTermAndConditionResources } from "../terms-and-conditions/languages/types";
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
     readonly numberFirst = "number-first";
@@ -84,9 +83,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={params.itemName}
                 ></img>
                 <div
-                    className={`${styles["icon-content-wrapper"]} ${params.isContentTop && styles["icon-content-top"]} ${
-                        params.isGem && styles["gem-position"]
-                    }`}
+                    className={`${styles["icon-content-wrapper"]} ${params.isContentTop && styles["icon-content-top"]} ${params.isGem && styles["gem-position"]
+                        }`}
                 >
                     {dataContent.map((data, index) => {
                         return (
@@ -119,9 +117,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={itemName}
                 ></img>
                 <div
-                    className={`${styles["icon-content-wrapper"]} ${
-                        itemName === "item8" ? styles["bonus-position"] : styles["spin-position"]
-                    }`}
+                    className={`${styles["icon-content-wrapper"]} ${itemName === "item8" ? styles["bonus-position"] : styles["spin-position"]
+                        }`}
                 >
                     {dataContent.map((data, index) => {
                         return (
@@ -559,10 +556,13 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
     abstract getStyles(): { readonly [key: string]: string };
 
-    renderTermAndConditions(styles: { readonly [key: string]: string }, gameId?: number, locale?: string) {
-        return renderTermsAndConditions(styles["guide-item"], undefined, locale);
-    }
-
+    renderTermsAndConditions = (resources: IBaseTermAndConditionResources) => {
+        return (
+            <li className="guide-item">
+                <BaseTermsAndConditions resources={resources} />
+            </li>
+        );
+    };
     render(): React.ReactNode {
         const { gameConfigs, locale } = this.props;
         const { odds } = gameConfigs;
@@ -579,7 +579,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     {this.renderFreeSpin(odds, translationResource, styles)}
                     {this.renderBonus(odds, translationResource, styles)}
                     {this.renderWild(odds, translationResource, styles)}
-                    {this.renderTermAndConditions(styles, undefined, locale)}
+                    {this.renderTermsAndConditions(translationResource.termsAndConditions)}
                 </ul>
             </>
         );

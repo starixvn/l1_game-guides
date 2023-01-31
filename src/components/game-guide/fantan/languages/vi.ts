@@ -1,3 +1,4 @@
+import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 import { IFanTanTranslationResource } from "./types";
 export const vi: IFanTanTranslationResource = {
     introduction: {
@@ -69,4 +70,5 @@ export const vi: IFanTanTranslationResource = {
         step3: `<b>Step 3:</b> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> và dán Kết Quả vừa copy vào ô MD5.`,
         step4: "<b>Bước 4:</b> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
     },
+    termsAndConditions: baseTermAndConditionVi,
 };

@@ -6,7 +6,8 @@ import OddDetailList from "../OddDetail";
 import { GameConfigProps } from "../type";
 import Styles from "../treasure-island.module.scss";
 import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
-import { renderTermsAndConditions } from "../../../shared";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
+import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
 
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -389,9 +390,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
                 <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
                 <div
-                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
-                        isGem && Styles["gem-position"]
-                    }`}
+                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
+                        }`}
                 >
                     {oddItemList.map((data, index) => {
                         const value = +(+(data.count * coin * level)).toFixed(2);
@@ -466,9 +466,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={itemName}
                 ></img>
                 <div
-                    className={`${Styles["icon-content-wrapper"]} ${
-                        itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
-                    }`}
+                    className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
+                        }`}
                 >
                     {dataContent.oddItem.reverse().map((data, index) => {
                         return (
@@ -516,7 +515,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     <li className="guide-item">{this.renderTumbling(resources)}</li>
                     <li className="guide-item">{this.renderMultipliers(resources, imageDirectoryName)}</li>
                     <li className="guide-item">{this.renderFreeSpins(odds, resources, imageDirectoryName, locale)}</li>
-                    {renderTermsAndConditions(Styles["guide-item"], undefined, locale)}
+                    <li className="guide-item"><BaseTermsAndConditions resources={resources.termsAndConditions} /></li>
                 </ul>
             </>
         );

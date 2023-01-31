@@ -1,3 +1,5 @@
+import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
+
 export interface TreasureIslandLanguage {
     introduction: {
         title: string;
@@ -72,4 +74,5 @@ export interface TreasureIslandLanguage {
         };
         tumbleDescriptions: Array<string>;
     };
+    termsAndConditions: IBaseTermAndConditionResources;
 }

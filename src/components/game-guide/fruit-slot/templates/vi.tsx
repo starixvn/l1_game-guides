@@ -1,10 +1,10 @@
 import React from "react";
-
-import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { locales } from "../../../../common/constants";
 import Styles from "../fruit-slot.module.scss";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
+import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 
 export const renderPayoutsTable = (odds: any, locale = "vi") => {
     return (
@@ -241,7 +241,7 @@ const FruitSlotGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderLuckySymbol()}
-                {renderTermsAndConditionsVI()}
+                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>
             </ul>
         </>
     );

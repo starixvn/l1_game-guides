@@ -1,3 +1,5 @@
+import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
+
 export interface IFanTanTranslationResource {
     introduction: {
         title: string;
@@ -59,4 +61,5 @@ export interface IFanTanTranslationResource {
         step3: string;
         step4: string;
     };
+    termsAndConditions: IBaseTermAndConditionResources;
 }

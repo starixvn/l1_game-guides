@@ -1,6 +1,4 @@
 import React from "react";
-
-import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../bitcoin-master.module.scss";
@@ -185,17 +183,13 @@ export default class BitcoinMasterTemplate extends React.Component<
         );
     }
 
-    renderTermsAndConditions = () => {
-        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>;
-    };
-
     render(): React.ReactNode {
         return (
             <ul className="game-guide">
                 {this.renderIntroduction()}
                 {this.renderGameRules()}
                 {this.renderPayouts()}
-                {this.renderTermsAndConditions()}
+                <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
             </ul>
         );
     }

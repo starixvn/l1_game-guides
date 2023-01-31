@@ -1,3 +1,4 @@
+import { baseTermAndConditionCn } from "../../base/terms-and-conditions/languages/cn";
 import { IFanTanTranslationResource } from "./types";
 export const cn: IFanTanTranslationResource = {
     introduction: {
@@ -71,4 +72,5 @@ export const cn: IFanTanTranslationResource = {
         step3: `<b>第三步:</b> 转到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 并将结果粘贴到 MD5 框中。`,
         step4: "<b>第四步:</b> 按“hash darling，hash！” 按钮，并将新生成的校验和 MD5 字符串与步骤 1 中的 MD5 密钥进行比较。",
     },
+    termsAndConditions: baseTermAndConditionCn,
 };

@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { TreasureIslandLanguage } from "./types";
 
 export const en: TreasureIslandLanguage = {
@@ -109,4 +110,5 @@ export const en: TreasureIslandLanguage = {
         },
         tumbleDescriptions: ["1. Tumble Win Amount", "2. Total Multiplier: 5+3 =8"],
     },
+    termsAndConditions: baseTermAndConditionEn,
 };

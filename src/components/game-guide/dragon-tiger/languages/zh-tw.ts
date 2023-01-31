@@ -1,3 +1,4 @@
+import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
 import { IDragonTigerTranslationResource } from "./types";
 
 export const tw: IDragonTigerTranslationResource = {
@@ -49,4 +50,5 @@ export const tw: IDragonTigerTranslationResource = {
         },
         note: "** 注意：如果結果為平局，投注龍或虎的玩家將損失 50% 的本金",
     },
+    termsAndConditions: baseTermAndConditionTw,
 };

@@ -1,3 +1,5 @@
+import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
+
 export interface IDragonTigerTranslationResource {
     common: {
         dragon: string;
@@ -47,4 +49,5 @@ export interface IDragonTigerTranslationResource {
         };
         note: string;
     };
+    termsAndConditions: IBaseTermAndConditionResources;
 }

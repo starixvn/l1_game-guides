@@ -1,3 +1,4 @@
+import { baseTermAndConditionId } from "../../terms-and-conditions/languages/id";
 import { ISlotTranslationResource } from "../types";
 
 export const id: ISlotTranslationResource = {
@@ -77,4 +78,5 @@ export const id: ISlotTranslationResource = {
         description:
             "Permainan ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika ada simbol yang sama yang terletak di garis pembayaran yang sama dengan yang Anda pilih.",
     },
+    termsAndConditions: baseTermAndConditionId,
 };

@@ -1,12 +1,12 @@
 import { Markup } from "interweave";
 import React from "react";
 import { StringFormat } from "../../../../helpers/string-helper";
-import { renderTermsAndConditions } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import Styles from "../hi-lo.module.scss";
 import { getHiLoTranslationResource } from "../languages";
 import { IHiLoTranslationResource } from "../languages/types";
 import { renderToString } from "react-dom/server";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 export default class HiLoGuideTemplate extends React.Component<GameGuideProps<{}, {}>, { translationResource: IHiLoTranslationResource }> {
     constructor(props: GameGuideProps<{}, {}>) {
@@ -149,7 +149,7 @@ export default class HiLoGuideTemplate extends React.Component<GameGuideProps<{}
                     {this.renderGameRules()}
                     {this.renderCardValues()}
                     {this.renderPayout()}
-                    {renderTermsAndConditions("", 45, locale)}
+                    <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
                 </ul>
             </>
         );

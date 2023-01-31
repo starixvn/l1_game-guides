@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { IFanTanTranslationResource } from "./types";
 export const en: IFanTanTranslationResource = {
     introduction: {
@@ -71,4 +72,5 @@ export const en: IFanTanTranslationResource = {
         step3: `<b>Step 3:</b> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> and paste the Result into the MD5 box.`,
         step4: "<b>Step 4:</b> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with the MD5 Key in Step 1.",
     },
+    termsAndConditions: baseTermAndConditionEn,
 };

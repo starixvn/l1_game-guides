@@ -1,3 +1,4 @@
+import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
 import { IHiLoTranslationResource } from "./types";
 export const tw: IHiLoTranslationResource = {
     introduction: {
@@ -52,4 +53,5 @@ export const tw: IHiLoTranslationResource = {
         title: "賠付",
         descriptions: ["賠付包括初始投注。", "正確猜測下一張牌是更高還是更低的賠付可能每輪都不同。"],
     },
+    termsAndConditions: baseTermAndConditionTw,
 };

@@ -1,3 +1,4 @@
+import { baseTermAndConditionCn } from "../../base/terms-and-conditions/languages/cn";
 import { IFruitSlotTranslationResource } from "./types";
 
 export const cn: IFruitSlotTranslationResource = {
@@ -39,4 +40,5 @@ export const cn: IFruitSlotTranslationResource = {
         introduction: "介绍",
         description: "水果机是对传统的水果老虎机进行创新，旨在为玩家提供引人入胜且惊险刺激的游戏体验。",
     },
+    termsAndConditions: baseTermAndConditionCn,
 };

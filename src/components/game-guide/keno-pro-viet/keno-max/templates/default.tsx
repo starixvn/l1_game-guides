@@ -1,6 +1,4 @@
 import React from "react";
-
-import { renderTermsAndConditions } from "../../../../shared";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
 import { formatOdds } from "../../../../../helpers/number-helper";
@@ -289,10 +287,6 @@ export default class KenoProGuideTemplate extends React.Component<
         );
     }
 
-    renderTermsAndConditions = () => {
-        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>;
-    };
-
     render() {
         return (
             <ul className="game-guide">
@@ -301,7 +295,7 @@ export default class KenoProGuideTemplate extends React.Component<
                 {this.renderBettingOptions()}
                 {this.renderPayouts()}
                 {this.renderMD5()}
-                {this.renderTermsAndConditions()}
+                <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
             </ul>
         );
     }

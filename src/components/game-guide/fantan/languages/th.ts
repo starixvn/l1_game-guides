@@ -1,3 +1,4 @@
+import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { IFanTanTranslationResource } from "./types";
 export const th: IFanTanTranslationResource = {
     introduction: {
@@ -71,4 +72,5 @@ export const th: IFanTanTranslationResource = {
         step3: `<b>ขั้นตอนที่ 3:</b> ไปที่ <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> และวางผลลัพธ์ลงในกล่อง MD5`,
         step4: "<b>ขั้นตอนที่ 4:</b> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1",
     },
+    termsAndConditions: baseTermAndConditionTh,
 };

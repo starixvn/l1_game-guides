@@ -1,3 +1,4 @@
+import { baseTermAndConditionTw } from "../../terms-and-conditions/languages/tw";
 import { ISlotTranslationResource } from "../types";
 
 export const tw: ISlotTranslationResource = {
@@ -70,4 +71,5 @@ export const tw: ISlotTranslationResource = {
         introduction: "簡介",
         description: "遊戲包括 5 個捲軸和 3 行，有 11 個不同的符號。 如果您選擇的同一條支付線上有相同的符號，玩家將獲勝。",
     },
+    termsAndConditions: baseTermAndConditionTw,
 };

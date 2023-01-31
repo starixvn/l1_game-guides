@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { IFruitSlotTranslationResource } from "./types";
 
 export const en: IFruitSlotTranslationResource = {
@@ -41,4 +42,5 @@ export const en: IFruitSlotTranslationResource = {
         description:
             "Fruit Slot is the traditional fruit slot machine innovated to provide players with an attractive and thrilling gameplay experience.",
     },
+    termsAndConditions: baseTermAndConditionEn,
 };

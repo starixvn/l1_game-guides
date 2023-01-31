@@ -1,3 +1,4 @@
+import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 import { IHiLoTranslationResource } from "./types";
 export const id: IHiLoTranslationResource = {
     introduction: {
@@ -60,4 +61,5 @@ export const id: IHiLoTranslationResource = {
             "Pembayaran untuk menebak dengan benar apakah kartu berikutnya akan lebih tinggi atau lebih rendah dapat bervariasi setiap putaran.",
         ],
     },
+    termsAndConditions: baseTermAndConditionId,
 };

@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { IHiLoTranslationResource } from "./types";
 export const en: IHiLoTranslationResource = {
     introduction: {
@@ -59,4 +60,5 @@ export const en: IHiLoTranslationResource = {
             "The payout for correctly guessing whether the next card will be higher or lower could vary each turn.",
         ],
     },
+    termsAndConditions: baseTermAndConditionEn,
 };
