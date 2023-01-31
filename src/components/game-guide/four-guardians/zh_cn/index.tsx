@@ -321,20 +321,16 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
 };
 
 const renderJackpot = () => {
+    const iconJackpot = (
+        <img className={`${Styles["item10"]} ${Styles["mini"]}`} src="./static/images/four-guardians/L2/en/item10.png" alt="item10"></img>
+    );
     return (
         <li className="guide-item">
-            <h2>Jackpot</h2>
+            <h2>大奖</h2>
             <ul className="desc">
                 <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/L2/en/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
+                    对于在同一条支付线上有 5 个符号 {iconJackpot} 的玩家，头奖是一项大奖。 有 3 个累积奖金奖品对应 3
+                    个投注级别，所有累积奖金都是累进的，每次玩游戏时，部分投注金额会被贡献到累积奖金中，直到一位幸运玩家赢得累积奖金。
                 </li>
             </ul>
 
@@ -342,8 +338,8 @@ const renderJackpot = () => {
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>符号</th>
+                            <th>描述</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -356,10 +352,9 @@ const renderJackpot = () => {
                                 ></img>
                             </td>
                             <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
+                                如果已选择的同一条支付线上有 5 个符号，则玩家将赢得头奖。<br></br>
+                                <strong>注: </strong>
+                                玩家将获得 98% 的头奖奖金。
                             </td>
                         </tr>
                     </tbody>

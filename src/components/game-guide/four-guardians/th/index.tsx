@@ -321,20 +321,17 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
 };
 
 const renderJackpot = () => {
+    const iconJackpot = (
+        <img className={`${Styles["item10"]} ${Styles["mini"]}`} src="./static/images/four-guardians/L2/en/item10.png" alt="item10"></img>
+    );
     return (
         <li className="guide-item">
-            <h2>Jackpot</h2>
+            <h2>รางวัลใหญ่</h2>
             <ul className="desc">
                 <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/L2/en/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
+                    แจ็คพอตเป็นรางวัลใหญ่สำหรับผู้เล่นที่มี 5 สัญลักษณ์ {iconJackpot} อยู่ในแถวเดียวกัน มีรางวัลแจ็คพอต 3
+                    รางวัลที่ตรงกับการเดิมพัน 3 ระดับ และแจ็คพอตทั้งหมดเป็นเพิ่มจำนวนเงิน ซึ่งทุกครั้งที่เล่นเกมส์
+                    ส่วนหนึ่งของจำนวนเงินเดิมพันจะเก็บไว้กับแจ็คพอตจนกว่าผู้เล่นที่โชคดีคนจะชนะแจ็คพอต
                 </li>
             </ul>
 
@@ -342,8 +339,8 @@ const renderJackpot = () => {
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>สัญลักษณ์</th>
+                            <th>คำอธิบาย</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -356,10 +353,9 @@ const renderJackpot = () => {
                                 ></img>
                             </td>
                             <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
+                                ผู้เล่นจะได้รับรางวัลแจ็คพอตหากมีสัญลักษณ์ 5 ตัวอยู่ในแถวเดียวกันกับที่เลือก<br></br>
+                                <strong>หมายเหตุ: </strong>
+                                ผู้เล่นจะได้รับรางวัล 98% ของรางวัลแจ็คพอต
                             </td>
                         </tr>
                     </tbody>

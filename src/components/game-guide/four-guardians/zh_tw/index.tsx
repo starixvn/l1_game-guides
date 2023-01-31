@@ -321,20 +321,16 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
 };
 
 const renderJackpot = () => {
+    const iconJackpot = (
+        <img className={`${Styles["item10"]} ${Styles["mini"]}`} src="./static/images/four-guardians/L2/en/item10.png" alt="item10"></img>
+    );
     return (
         <li className="guide-item">
-            <h2>Jackpot</h2>
+            <h2>大獎</h2>
             <ul className="desc">
                 <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/L2/en/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
+                    對於在同一條支付線上有 5 個符號 {iconJackpot} 的玩家，頭獎是一項大獎。 有 3 個累積獎金獎品對應 3
+                    個投注級別，所有累積獎金都是累進的，每次玩遊戲時，部分投注金額會被貢獻到累積獎金中，直到一位幸運玩家贏得累積獎金。
                 </li>
             </ul>
 
@@ -356,10 +352,9 @@ const renderJackpot = () => {
                                 ></img>
                             </td>
                             <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
+                                如果已選擇的同一條支付線上有 5 個符號，則玩家將贏得頭獎。<br></br>
+                                <strong>注: </strong>
+                                玩家將獲得 98% 的頭獎獎金。
                             </td>
                         </tr>
                     </tbody>
