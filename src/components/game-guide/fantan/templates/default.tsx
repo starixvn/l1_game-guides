@@ -4,12 +4,12 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { StringFormat } from "../../../../helpers/string-helper";
 
 import { renderTermsAndConditions } from "../../../shared";
-import { renderMD5 } from "../../../shared/md5-count-down-timer";
 import { GameGuideProps } from "../../type";
 import Styles from "../fantan.module.scss";
 import { getFanTanTranslationResource } from "../languages";
 import { IFanTanTranslationResource } from "../languages/types";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import MD5 from "../../base/md5";
 
 export default class FanTanTemplate extends React.Component<
     GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -260,42 +260,16 @@ export default class FanTanTemplate extends React.Component<
     renderMD5() {
         const { locale } = this.props;
         const { md5 } = this.state.translationResource;
-
         return (
-            <li id="md5" className="guide-item">
-                {renderMD5(locale)}
-                <p className="content">
-                    <Markup content={md5.example} />
-                </p>
-                <ul className="desc">
-                    <li>
-                        <Markup content={md5.step1} />
-                        <img
-                            className="format-img auto-center"
-                            src={`/static/images/fantan/${locale}/md5_step1.png?v=1`}
-                            alt="md5-string"
-                        />
-                    </li>
-                    <li>
-                        <Markup content={md5.step2} />
-                        <img
-                            className="format-img auto-center"
-                            src={`/static/images/fantan/${locale}/md5_step2.png?v=1`}
-                            alt="md5-result"
-                        />
-                        <div>
-                            <Markup content={md5.note} />
-                        </div>
-                    </li>
-                    <li>
-                        <Markup content={md5.step3} />
-                        <img className="format-img auto-center" src={`/static/images/fantan/md5_step3.png?v=1`} alt="hash-darling" />
-                    </li>
-                    <li>
-                        <Markup content={md5.step4} />
-                        <img className="format-img auto-center" src={`/static/images/fantan/md5_step4.png?v=1`} alt="md5-checksum" />
-                    </li>
-                </ul>
+            <li className="guide-item" id="md5">
+                <MD5
+                    locale={locale}
+                    step1ImageUrl={`/static/images/fantan/${locale}/md5_step1.png?v=1`}
+                    step2ImageUrl={`/static/images/fantan/${locale}/md5_step2.png?v=1`}
+                    step3ImageUrl={"/static/images/fantan/md5_step3.png?v=1"}
+                    step4ImageUrl={"/static/images/fantan/md5_step4.png?v=1"}
+                    note={<div><Markup content={md5.note} /></div>}
+                />
             </li>
         );
     }
