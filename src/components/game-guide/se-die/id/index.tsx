@@ -10,7 +10,7 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
-import { renderMD5ID } from "../../../shared/md5-count-down-timer/id";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -93,55 +93,20 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string, gameId: any) => {
+const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
     return (
-        <>
-            <div className="content">
-                <strong> Contoh:</strong> periksa keaslian dan transparansi hasil permainan.
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>Langkah 1:</strong> Salin kunci MD5 sebelum hasilnya diumumkan.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_id.png?v=5`}
-                        alt="md5-string"
-                    />
-                </li>
-                <li>
-                    <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_id.png?v=5`}
-                        alt="md5-result"
-                    />
-                    <div>Catatan: Merah dan putih sesuai dengan dua sisi tombol.</div>
-                </li>
-                <li>
-                    <strong>Langkah 3:</strong> Buka{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    dan tempel Hasil ke kotak MD5.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                        alt="hash-darling"
-                    />
-                </li>
-                <li>
-                    <strong>Langkah 4:</strong> Tekan tombol {`"hash darling, hash!"`} dan bandingkan rangkaian daftar MD5 checksum yang
-                    baru dibuat dengan Kunci MD5 di Langkah 1.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                        alt="md5-checksum"
-                    />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_id.png?v=5`}
+                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_id.png?v=5`}
+                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+                note={<div>Catatan: Merah dan putih sesuai dengan dua sisi tombol.</div>}
+            />
+        </li>
     );
 };
 
@@ -249,12 +214,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5ID()}
-                        {renderMD5Example(gameName, gameId)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsID()}
             </ul>
         </>

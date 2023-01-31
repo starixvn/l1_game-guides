@@ -10,7 +10,7 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { ENVIRONMENT } from "../../../../common/constants";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
-import { renderMD5TH } from "../../../shared/md5-count-down-timer/th";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -92,58 +92,23 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string, gameId: any) => {
+const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
     return (
-        <>
-            <div className="content">
-                <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
-                        alt="md5-string"
-                    />
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
-                        alt="md5-result"
-                    />
-                    <div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 3: </strong>
-                    ไปที่{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    และวางผลลัพธ์ลงในกล่อง MD5
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                        alt="hash-darling"
-                    />
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์
-                    MD5 ในขั้นตอนที่ 1
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                        alt="md5-checksum"
-                    />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
+                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
+                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_th.png?v=2`}
+                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_th.png?v=2`}
+                note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
+            />
+        </li>
     );
 };
+
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -247,12 +212,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5TH()}
-                        {renderMD5Example(gameName, gameId)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsTH()}
             </ul>
         </>

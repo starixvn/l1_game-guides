@@ -10,7 +10,7 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { ENVIRONMENT } from "../../../../common/constants";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
-import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -87,56 +87,23 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string, gameId: any) => {
+const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
     return (
-        <>
-            <div className="content">
-                <strong> 示例</strong>: 检查结果的真实性和透明度
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>第一步</strong> ：在公布结果前复制MD5密钥。
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
-                        alt="md5-string"
-                    />
-                </li>
-                <li>
-                    <strong>第二步：</strong> 发布后复制结果。
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
-                        alt="md5-result"
-                    />
-                    <div>注：红色和白色对应按钮的两侧。</div>
-                </li>
-                <li>
-                    <strong>第三步:</strong> 转到{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    并将结果粘贴到 MD5 框中。
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                        alt="hash-darling"
-                    />
-                </li>
-                <li>
-                    <strong>第四步:</strong> 按 “hash darling，hash!” 按钮，并将新生成的 MD5 checksum 字符串与步骤 1 中的 MD5 密钥进行比较。
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                        alt="md5-checksum"
-                    />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
+                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
+                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+                note={<div>注：红色和白色对应按钮的两侧。</div>}
+            />
+        </li>
     );
 };
+
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -239,12 +206,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5CN()}
-                        {renderMD5Example(gameName, gameId)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsCN()}
             </ul>
         </>
