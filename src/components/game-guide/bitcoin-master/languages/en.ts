@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const en: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -67,5 +68,13 @@ export const en: IBitcoinMasterTranslationResource = {
             "The Payout includes the initial stake.",
             "All winning amounts are instantly added to your account balance when bets are settled.",
         ],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionEn,
+        ...{
+            details: [
+                "The Company reserves the right to cancel or void any bets if the official Bitcoin result is unobtainable over an extended period of time or is canceled.",
+            ].concat(...baseTermAndConditionEn.details),
+        },
     },
 };

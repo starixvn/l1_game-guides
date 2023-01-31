@@ -1,3 +1,5 @@
+import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
+
 export interface IBitcoinMasterTranslationResource {
     introduction: {
         title: string;
@@ -50,4 +52,5 @@ export interface IBitcoinMasterTranslationResource {
         title: string;
         descriptions: string[];
     };
+    termsAndConditions: IBaseTermAndConditionResources;
 }

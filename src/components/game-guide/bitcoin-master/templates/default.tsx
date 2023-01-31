@@ -9,6 +9,7 @@ import { IBitcoinMasterTranslationResource } from "../languages/types";
 import { getBitcoinMasterTranslationResource } from "../languages";
 import { Markup } from "interweave";
 import { StringFormat } from "../../../../helpers/string-helper";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 export default class BitcoinMasterTemplate extends React.Component<
     GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -184,13 +185,17 @@ export default class BitcoinMasterTemplate extends React.Component<
         );
     }
 
+    renderTermsAndConditions = () => {
+        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>;
+    };
+
     render(): React.ReactNode {
         return (
             <ul className="game-guide">
                 {this.renderIntroduction()}
                 {this.renderGameRules()}
                 {this.renderPayouts()}
-                {renderTermsAndConditions("", 43, this.props.locale)}
+                {this.renderTermsAndConditions()}
             </ul>
         );
     }

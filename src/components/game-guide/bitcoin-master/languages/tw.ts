@@ -1,3 +1,4 @@
+import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const tw: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -58,5 +59,11 @@ export const tw: IBitcoinMasterTranslationResource = {
     payouts: {
         title: "賠率",
         descriptions: ["中獎金額是根據投注賠率計算。", "賠率包括最初下注金額。", "投注結算後，所有獲勝金額都會立即添加到您的賬戶餘額中。"],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionTw,
+        ...{
+            details: ["如果公司長時間無法獲得官方比特幣的結果，公司保留取消任何投注的權利。"].concat(...baseTermAndConditionTw.details),
+        },
     },
 };

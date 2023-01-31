@@ -1,3 +1,4 @@
+import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const vi: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -64,5 +65,13 @@ export const vi: IBitcoinMasterTranslationResource = {
     payouts: {
         title: "Trả thưởng",
         descriptions: ["Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.", "Tiền thắng đã bao gồm tiền cược."],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionVi,
+        ...{
+            details: [
+                "Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp giá trị Bitcoin không thể có trong thời gian dài.",
+            ].concat(...baseTermAndConditionVi.details),
+        },
     },
 };

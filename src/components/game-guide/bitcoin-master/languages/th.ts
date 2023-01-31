@@ -1,3 +1,4 @@
+import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const th: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -66,5 +67,13 @@ export const th: IBitcoinMasterTranslationResource = {
             "การจ่ายเงินนั้นได้รวมเงินเดิมพันเริ่มต้น",
             "จำนวนเงินที่ชนะทั้งหมดจะเพิ่มเข้าในบัญชีของคุณทันทีเมื่อเดิมพันถูกตัดสิน",
         ],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionTh,
+        ...{
+            details: ["บริษัทขอสงวนสิทธิ์ในการยกเลิกหรือโมฆะการเดิมพันของบิทคอยน์ ในช่วงระยะเวลาที่ขยายออกไปหรือถูกยกเลิก"].concat(
+                ...baseTermAndConditionTh.details
+            ),
+        },
     },
 };

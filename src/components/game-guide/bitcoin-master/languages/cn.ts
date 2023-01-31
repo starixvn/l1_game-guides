@@ -1,3 +1,4 @@
+import { baseTermAndConditionCn } from "../../base/terms-and-conditions/languages/cn";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const cn: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -58,5 +59,11 @@ export const cn: IBitcoinMasterTranslationResource = {
     payouts: {
         title: "赔率",
         descriptions: ["中奖金额是根据投注赔率计算。", "赔率包括最初下注金额。", "投注结算后，所有获胜金额都会立即添加到您的账户余额中。"],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionCn,
+        ...{
+            details: ["如果公司长时间无法获得官方比特币的结果，公司保留取消任何投注的权利。"].concat(...baseTermAndConditionCn.details),
+        },
     },
 };

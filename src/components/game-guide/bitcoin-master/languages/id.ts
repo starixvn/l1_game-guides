@@ -1,3 +1,4 @@
+import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 import { IBitcoinMasterTranslationResource } from "./types";
 export const id: IBitcoinMasterTranslationResource = {
     introduction: {
@@ -67,5 +68,13 @@ export const id: IBitcoinMasterTranslationResource = {
             "Pembayaran termasuk taruhan awal.",
             "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
         ],
+    },
+    termsAndConditions: {
+        ...baseTermAndConditionId,
+        ...{
+            details: [
+                "Perusahaan berhak membatalkan atau membatalkan taruhan apa pun jika hasil Bitcoin resmi tidak dapat diperoleh dalam jangka waktu yang lama atau dibatalkan.",
+            ].concat(...baseTermAndConditionId.details),
+        },
     },
 };
