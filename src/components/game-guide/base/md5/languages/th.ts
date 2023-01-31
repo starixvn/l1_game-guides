@@ -30,5 +30,8 @@ export const th: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
+        md5Key: "คีย์ MD5",
+        result: "ผลลัพธ์",
+        copy: "คัดลอก",
     },
 };

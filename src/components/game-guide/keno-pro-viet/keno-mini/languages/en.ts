@@ -1,3 +1,4 @@
+import { baseTermAndConditionEn } from "../../../base/terms-and-conditions/languages/en";
 import { IKenoTranslationResource } from "../../keno-max/languages/types";
 
 export const en: IKenoTranslationResource = {
@@ -75,16 +76,9 @@ export const en: IKenoTranslationResource = {
         earth: "Earth",
     },
     md5: {
-        example: "<b>Example:</b> check the authenticity and transparency of game results.",
-        step1: "<b>Step 1:</b> Copy the MD5 Key before the result is announced.",
         image1: "/static/images/keno-mini/md5_step1_en.png",
-        step2: "<b>Step 2:</b> Copy Result after the system publishes the result.",
         image2: "/static/images/keno-mini/md5_step2_en.png",
-        step3: `<b>Step 3:</b> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> and paste the Result into the MD5 box.`,
-        step4: "<b>Step 4:</b> Press the “hash darling, hash!” button and compare the newly generated MD5 checksum string with the MD5 Key in Step 1.",
         note: "Noted: 237 is the total point of the game result.",
-        md5Key: "MD5 Key",
-        result: "Result",
-        copy: "Copy",
     },
+    termsAndConditions: baseTermAndConditionEn,
 };

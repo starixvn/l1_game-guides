@@ -1,3 +1,4 @@
+import { baseTermAndConditionCn } from "../../../base/terms-and-conditions/languages/cn";
 import { IKenoTranslationResource } from "../../keno-max/languages/types";
 
 export const cn: IKenoTranslationResource = {
@@ -62,16 +63,9 @@ export const cn: IKenoTranslationResource = {
         earth: "土",
     },
     md5: {
-        example: "<b>示例:</b> 检查比赛结果的真实性和透明度。",
-        step1: "<b>第一步:</b> 在公布结果前复制MD5密钥。",
         image1: "/static/images/keno-mini/md5_step1_cn.png",
-        step2: "<b>第二步:</b> 发布后复制结果。",
         image2: "/static/images/keno-mini/md5_step2_cn.png",
-        step3: `<b>第三步:</b> 转到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 并将结果粘贴到 MD5 框中。`,
-        step4: "<b>第四步:</b> 按“hash darling，hash！” 按钮，并将新生成的校验和 MD5 字符串与步骤 1 中的 MD5 密钥进行比较。",
         note: "注：237为比赛成绩的总分。",
-        md5Key: "MD5 钥匙",
-        result: "结果",
-        copy: "复制",
     },
+    termsAndConditions: baseTermAndConditionCn,
 };

@@ -17,5 +17,8 @@ export interface IMd5Resources {
         step2Text: string;
         step3Text: string;
         step4Text: string;
+        md5Key?: string;
+        result?: string;
+        copy?: string;
     };
 }

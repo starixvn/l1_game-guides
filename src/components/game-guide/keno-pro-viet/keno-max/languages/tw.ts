@@ -62,17 +62,9 @@ export const tw: IKenoTranslationResource = {
         earth: "土",
     },
     md5: {
-        example: "<b>示例:</b> 檢查比賽結果的真實性和透明度。",
-        step1: "<b>第一步:</b> 在公佈結果前複製MD5密鑰。",
         image1: "/static/images/mega-keno/md5_step1_tw.png",
-        step2: "<b>第二步:</b> 發布後復制結果。",
         image2: "/static/images/mega-keno/md5_step2_tw.png",
-        step3: `<b>第三步:</b> 轉到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 並將結果粘貼到 MD5 框中。`,
-        step4: "<b>第四步:</b> 按“hash darling，hash！” 按鈕，並將新生成的校驗和 MD5 字符串與步驟 1 中的 MD5 密鑰進行比較。",
         note: "注：363為比賽成績的總分。",
-        md5Key: "MD5 鑰匙",
-        result: "結果",
-        copy: "複製",
     },
     termsAndConditions: baseTermAndConditionTw,
 };

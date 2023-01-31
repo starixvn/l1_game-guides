@@ -16,7 +16,13 @@ type MD5Props = {
     note?: JSX.Element | string;
 };
 
-export default class MD5 extends React.Component<MD5Props, { translationResource: IMd5Resources }> {
+type MD5MobiProps = {
+    environment?: string;
+    md5Key?: string;
+    md5Result?: string;
+};
+
+export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { translationResource: IMd5Resources }> {
     constructor(props: MD5Props) {
         super(props);
         this.state = {

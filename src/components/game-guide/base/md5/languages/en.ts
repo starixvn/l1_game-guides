@@ -30,5 +30,8 @@ export const en: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
+        md5Key: "MD5 Key",
+        result: "Result",
+        copy: "Copy",
     },
 };

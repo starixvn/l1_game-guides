@@ -1,16 +1,14 @@
 import React from "react";
 
-import { ENVIRONMENT } from "../../../../../common/constants";
 import { renderTermsAndConditions } from "../../../../shared";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
-import Styles from "../keno-max.module.scss";
 import { formatOdds } from "../../../../../helpers/number-helper";
 import { IKenoTranslationResource } from "../languages/types";
 import { getKenoTranslationResource } from "../languages";
 import { StringFormat } from "../../../../../helpers/string-helper";
 import { Markup } from "interweave";
-import { renderMD5 } from "../../../../shared/md5-count-down-timer";
+import KenoMD5 from "./md5";
 import BaseTermsAndConditions from "../../../base/terms-and-conditions/terms-and-conditions";
 
 export default class KenoProGuideTemplate extends React.Component<
@@ -274,83 +272,20 @@ export default class KenoProGuideTemplate extends React.Component<
     }
 
     renderMD5() {
+        const { locale, environment } = this.props;
         const { md5 } = this.state.translationResource;
         return (
-            <li id="md5" className="guide-item">
-                {renderMD5(this.props.locale)}
-                {
-                    <div className="content">
-                        <Markup content={md5.example} />
-                        <ul className="desc">
-                            <li>
-                                <Markup content={md5.step1} />
-                                {this.renderExampleMD5Step1("520e543659d05eb7024f9f76d85479f7")}
-                            </li>
-                            <li>
-                                <Markup content={md5.step2} />
-                                {this.renderExampleMD5Step2("{363}_{#26907421fad9b51da1169691982}")}
-                                <div>{md5.note}</div>
-                            </li>
-                            <li>
-                                <Markup content={md5.step3} />
-                                <div className={Styles["wrapper-img-hash"]}>
-                                    <img
-                                        className="format-img auto-center"
-                                        src="/static/images/mega-keno/md5_step3.png?v=1"
-                                        alt="hash-darling"
-                                    />
-                                </div>
-                            </li>
-                            <li>
-                                <Markup content={md5.step4} />
-                                <div className={Styles["wrapper-img"]}>
-                                    <img
-                                        className="format-img auto-center"
-                                        src="/static/images/mega-keno/md5_step4.png?v=1"
-                                        alt="md5-checksum"
-                                    />
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                }
-            </li>
-        );
-    }
-
-    renderExampleMD5Step1(md5Key: string) {
-        const { environment } = this.props;
-        const { md5 } = this.state.translationResource;
-
-        return environment === ENVIRONMENT.sc ? (
-            <img className="format-img auto-center" src={`${md5.image1}?v=2`} alt="md5-string" />
-        ) : (
-            <div className={Styles["md5-section"]}>
-                <span className={`${Styles["text"]}`}>
-                    <strong>{md5.md5Key}:</strong> {md5Key}
-                </span>
-                <div className={Styles["copy-box"]}>
-                    <span className={Styles["copy-text"]}>{md5.copy}</span>
-                </div>
-            </div>
-        );
-    }
-
-    renderExampleMD5Step2(result: string) {
-        const { environment } = this.props;
-        const { md5 } = this.state.translationResource;
-
-        return environment === ENVIRONMENT.sc ? (
-            <img className="format-img auto-center" src={`${md5.image2}?v=3`} alt="md5-string" />
-        ) : (
-            <div className={Styles["md5-section"]}>
-                <span className={`${Styles["text"]}`}>
-                    <strong>{md5.result}:</strong> {result}
-                </span>
-                <div className={Styles["copy-box"]}>
-                    <span className={Styles["copy-text"]}>{md5.copy}</span>
-                </div>
-            </div>
+            <KenoMD5
+                locale={locale}
+                environment={environment}
+                md5Key="520e543659d05eb7024f9f76d85479f7"
+                md5Result="{363}_{#26907421fad9b51da1169691982}"
+                step1ImageUrl={md5.image1}
+                step2ImageUrl={md5.image2}
+                step3ImageUrl="/static/images/mega-keno/md5_step3.png"
+                step4ImageUrl="/static/images/mega-keno/md5_step4.png"
+                note={md5.note}
+            />
         );
     }
 

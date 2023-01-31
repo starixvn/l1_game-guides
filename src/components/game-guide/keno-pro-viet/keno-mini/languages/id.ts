@@ -1,3 +1,4 @@
+import { baseTermAndConditionId } from "../../../base/terms-and-conditions/languages/id";
 import { IKenoTranslationResource } from "../../keno-max/languages/types";
 
 export const id: IKenoTranslationResource = {
@@ -75,16 +76,9 @@ export const id: IKenoTranslationResource = {
         earth: "Bumi",
     },
     md5: {
-        example: "<b>Contoh:</b> periksa keaslian dan transparansi hasil permainan.",
-        step1: "<b>Langkah 1:</b> Salin kunci MD5 sebelum hasilnya diumumkan.",
         image1: "/static/images/keno-mini/md5_step1_id.png",
-        step2: "<b>Langkah 2:</b> Salin Hasil setelah dipublikasikan.",
         image2: "/static/images/keno-mini/md5_step2_id.png",
-        step3: `<b>Langkah 3:</b> Buka <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> dan tempel Hasil ke kotak MD5.`,
-        step4: "<b>Langkah 4:</b> Tekan tombol “hash darling, hash!”dan bandingkan rangkaian daftar periksa MD5 yang baru dibuat dengan Kunci MD5 di Langkah 1.",
         note: "Catatan: 237 adalah total poin dari hasil pertandingan.",
-        md5Key: "Kunci MD5",
-        result: "Hasil",
-        copy: "Salin",
     },
+    termsAndConditions: baseTermAndConditionId,
 };

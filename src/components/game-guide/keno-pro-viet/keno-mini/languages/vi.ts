@@ -1,3 +1,4 @@
+import { baseTermAndConditionVi } from "../../../base/terms-and-conditions/languages/vi";
 import { IKenoTranslationResource } from "../../keno-max/languages/types";
 
 export const vi: IKenoTranslationResource = {
@@ -73,16 +74,9 @@ export const vi: IKenoTranslationResource = {
         earth: "Thổ",
     },
     md5: {
-        example: "<b>Ví dụ:</b> Kiểm tra tính minh bạch trong kết quả",
-        step1: "<b>Bước 1:</b> Copy chuỗi MD5 trước khi kết quả  được công bố.",
         image1: "/static/images/keno-mini/md5_step1_vi.png",
-        step2: "<b>Bước 2:</b> Copy chuỗi dữ liệu trong mục Kết Quả sau khi kết quả được công bố.",
         image2: "/static/images/keno-mini/md5_step2_vi.png",
-        step3: `<b>Step 3:</b> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> và dán Kết Quả vừa copy vào ô MD5.`,
-        step4: "<b>Bước 4:</b> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
         note: "Trong đó 363 là tổng điểm của các quả bóng.",
-        md5Key: "Chuỗi MD5",
-        result: "Kết Quả",
-        copy: "Copy",
     },
+    termsAndConditions: baseTermAndConditionVi,
 };

@@ -1,9 +1,7 @@
-import { Markup } from "interweave";
 import { formatOdds } from "../../../../../helpers/number-helper";
-import { renderMD5 } from "../../../../shared/md5-count-down-timer";
 import KenoProGuideTemplate from "../../keno-max/templates/default";
 import { getKenoMiniTranslationResource } from "../languages";
-import Styles from "../keno-mini.module.scss";
+import KenoMD5 from "../../keno-max/templates/md5";
 
 export default class KenoMiniGuideTemplate extends KenoProGuideTemplate {
     getTranslationResult(locale?: string) {
@@ -90,47 +88,20 @@ export default class KenoMiniGuideTemplate extends KenoProGuideTemplate {
     }
 
     renderMD5() {
+        const { locale, environment } = this.props;
         const { md5 } = this.state.translationResource;
         return (
-            <li id="md5" className="guide-item">
-                {renderMD5(this.props.locale)}
-                {
-                    <div className="content">
-                        <Markup content={md5.example} />
-                        <ul className="desc">
-                            <li>
-                                <Markup content={md5.step1} />
-                                {this.renderExampleMD5Step1("f2bbd32524fe6e2e41eaaaa0eacd6d86")}
-                            </li>
-                            <li>
-                                <Markup content={md5.step2} />
-                                {this.renderExampleMD5Step2("{237}_{#26907421fad9b51da1169691982}")}
-                                <div>{md5.note}</div>
-                            </li>
-                            <li>
-                                <Markup content={md5.step3} />
-                                <div className={Styles["wrapper-img-hash"]}>
-                                    <img
-                                        className="format-img auto-center"
-                                        src="/static/images/keno-mini/md5_step3.png?v=1"
-                                        alt="hash-darling"
-                                    />
-                                </div>
-                            </li>
-                            <li>
-                                <Markup content={md5.step4} />
-                                <div className={Styles["wrapper-img"]}>
-                                    <img
-                                        className="format-img auto-center"
-                                        src="/static/images/keno-mini/md5_step4.png?v=1"
-                                        alt="md5-checksum"
-                                    />
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                }
-            </li>
+            <KenoMD5
+                locale={locale}
+                environment={environment}
+                md5Key="f2bbd32524fe6e2e41eaaaa0eacd6d86"
+                md5Result="{237}_{#26907421fad9b51da1169691982}"
+                step1ImageUrl={md5.image1}
+                step2ImageUrl={md5.image2}
+                step3ImageUrl="/static/images/keno-mini/md5_step3.png"
+                step4ImageUrl="/static/images/keno-mini/md5_step4.png"
+                note={md5.note}
+            />
         );
     }
 }

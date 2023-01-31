@@ -75,17 +75,9 @@ export const th: IKenoTranslationResource = {
         earth: "โลก",
     },
     md5: {
-        example: "<b>ตัวอย่าง:</b> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์",
-        step1: "<b>ขั้นตอนที่ 1:</b> คัดลอกคีย์ MD5 ก่อนประกาศผล",
         image1: "/static/images/mega-keno/md5_step1_th.png",
-        step2: "<b>ขั้นตอนที่ 2:</b> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว",
         image2: "/static/images/mega-keno/md5_step2_th.png",
-        step3: `<b>ขั้นตอนที่ 3:</b> ไปที่ <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> และวางในช่อง MD5`,
-        step4: "<b>ขั้นตอนที่ 4:</b> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1",
         note: "หมายเหตุ: 363 คือแต้มรวมของผลการแข่งขัน",
-        md5Key: "คีย์ MD5",
-        result: "ผลลัพธ์",
-        copy: "คัดลอก",
     },
     termsAndConditions: baseTermAndConditionTh,
 };

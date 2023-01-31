@@ -30,5 +30,8 @@ export const tw: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
+        md5Key: "MD5 鑰匙",
+        result: "結果",
+        copy: "複製",
     },
 };

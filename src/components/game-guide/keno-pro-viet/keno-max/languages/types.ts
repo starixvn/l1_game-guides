@@ -55,17 +55,9 @@ export interface IKenoTranslationResource {
         earth: string;
     };
     md5: {
-        example: string;
-        step1: string;
         image1: string;
-        step2: string;
         image2: string;
-        step3: string;
-        step4: string;
         note: string;
-        md5Key: string;
-        result: string;
-        copy: string;
     };
     termsAndConditions: IBaseTermAndConditionResources;
 }

@@ -30,5 +30,8 @@ export const vi: IMd5Resources = {
         step2Text: steps.two,
         step3Text: steps.three,
         step4Text: steps.four,
+        md5Key: "Chuỗi MD5",
+        result: "Kết Quả",
+        copy: "Copy",
     },
 };
