@@ -11,6 +11,7 @@ import { getKenoTranslationResource } from "../languages";
 import { StringFormat } from "../../../../../helpers/string-helper";
 import { Markup } from "interweave";
 import { renderMD5 } from "../../../../shared/md5-count-down-timer";
+import BaseTermsAndConditions from "../../../base/terms-and-conditions/terms-and-conditions";
 
 export default class KenoProGuideTemplate extends React.Component<
     GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -353,8 +354,11 @@ export default class KenoProGuideTemplate extends React.Component<
         );
     }
 
+    renderTermsAndConditions = () => {
+        return <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>;
+    };
+
     render() {
-        const { locale } = this.props;
         return (
             <ul className="game-guide">
                 {this.renderIntroduction()}
@@ -362,7 +366,7 @@ export default class KenoProGuideTemplate extends React.Component<
                 {this.renderBettingOptions()}
                 {this.renderPayouts()}
                 {this.renderMD5()}
-                {renderTermsAndConditions("", undefined, locale)}
+                {this.renderTermsAndConditions()}
             </ul>
         );
     }

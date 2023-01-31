@@ -1,3 +1,4 @@
+import { baseTermAndConditionVi } from "../../../base/terms-and-conditions/languages/vi";
 import { IKenoTranslationResource } from "./types";
 export const vi: IKenoTranslationResource = {
     introduction: {
@@ -84,4 +85,5 @@ export const vi: IKenoTranslationResource = {
         result: "Kết Quả",
         copy: "Copy",
     },
+    termsAndConditions: baseTermAndConditionVi,
 };

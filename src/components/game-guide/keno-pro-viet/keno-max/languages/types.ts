@@ -1,3 +1,5 @@
+import { IBaseTermAndConditionResources } from "../../../base/terms-and-conditions/languages/types";
+
 export interface IKenoTranslationResource {
     introduction: {
         title: string;
@@ -65,4 +67,5 @@ export interface IKenoTranslationResource {
         result: string;
         copy: string;
     };
+    termsAndConditions: IBaseTermAndConditionResources;
 }

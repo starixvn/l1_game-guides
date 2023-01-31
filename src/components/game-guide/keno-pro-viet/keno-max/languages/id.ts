@@ -1,3 +1,4 @@
+import { baseTermAndConditionId } from "../../../base/terms-and-conditions/languages/id";
 import { IKenoTranslationResource } from "./types";
 export const id: IKenoTranslationResource = {
     introduction: {
@@ -86,4 +87,5 @@ export const id: IKenoTranslationResource = {
         result: "Hasil",
         copy: "Salin",
     },
+    termsAndConditions: baseTermAndConditionId,
 };
