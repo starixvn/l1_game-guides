@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 
-import { ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
+import { ENVIRONMENT } from "../common/constants";
 import GameGuide from "../components/game-guide";
 
 export interface UserStakeLevelProps {
@@ -33,23 +33,19 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number) => {
     let fontFamily = "SanFranciscoDisplay";
     if (env === ENVIRONMENT.sc) {
-        if (GAMES_COMPLETE_TRANSLATE.includes(gameId)) {
-            switch (locale) {
-                case "th":
-                    fontFamily = "Noto-Thai";
-                    break;
-                case "zh_cn":
-                    fontFamily = "Noto-ZH-CN";
-                    break;
-                case "zh_tw":
-                    fontFamily = "Noto-ZH-TW";
-                    break;
-                default:
-                    fontFamily = "Noto";
-                    break;
-            }
-        } else {
-            fontFamily = "Noto";
+        switch (locale) {
+            case "th":
+                fontFamily = "Noto-Thai";
+                break;
+            case "zh_cn":
+                fontFamily = "Noto-ZH-CN";
+                break;
+            case "zh_tw":
+                fontFamily = "Noto-ZH-TW";
+                break;
+            default:
+                fontFamily = "Noto";
+                break;
         }
     }
 
@@ -114,16 +110,9 @@ const Home = () => {
         return <></>;
     }
 
-    const getLocale = () => {
-        if (router?.locale === "vi" || router?.locale === "en") {
-            return router.locale;
-        }
-        return "en";
-    };
-
     const props = {
         gameId,
-        locale: GAMES_COMPLETE_TRANSLATE.includes(gameId) ? router?.locale ?? "en" : getLocale(),
+        locale: router?.locale ?? "en",
         userStakeLevel,
         name,
         gameConfigs,
