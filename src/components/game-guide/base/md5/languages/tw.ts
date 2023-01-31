@@ -11,21 +11,21 @@ export const tw: IMd5Resources = {
     content: {
         header: "MD5（消息摘要算法5）",
         technology: {
-            header: "MD5技术",
+            header: "MD5技術",
             details: [
-                "MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。",
-                "游戏结果将在玩家下注前由系统随机生成。",
-                "玩家可以手动检查下注前生成的结果（<strong>MD5 </strong>密钥）与发布结果（<strong>結果</strong>）是否匹配。",
+                "MD5讓玩家可以通過第三方驗證遊戲結果的真實性和透明度。",
+                "遊戲結果將在玩家下注前由系統隨機生成。",
+                "玩家可以手動檢查下注前生成的結果（<strong>MD5 </strong>密鑰）與發布結果（<strong>結果</strong>）是否匹配。",
             ],
         },
         validation: {
-            header: "MD5 验证",
+            header: "MD5 驗證",
             details: Object.values(steps),
         },
         noted: "如果兩個字符串匹配，則證明該局遊戲的結果是透明的，並且遊戲結果與下注前系統生成的隨機結果沒有變化。",
     },
     example: {
-        header: "<strong> 示例:</strong> 檢查比賽結果的真實性和透明度",
+        header: "<strong> 示例:</strong> 檢查結果的真實性和透明度。",
         step1Text: steps.one,
         step2Text: steps.two,
         step3Text: steps.three,

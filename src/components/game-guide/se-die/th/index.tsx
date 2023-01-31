@@ -98,7 +98,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     return (
         <>
             <div className="content">
-                <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์
+                <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์
             </div>
             <ul className="desc">
                 <li>
@@ -124,7 +124,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                         https://md5.services/
                     </a>{" "}
-                    และวางในช่อง MD5
+                    และวางผลลัพธ์ลงในกล่อง MD5
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}

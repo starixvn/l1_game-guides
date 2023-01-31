@@ -93,7 +93,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
     return (
         <>
             <div className="content">
-                <strong>示例</strong>: 檢查比賽結果的真實性和透明度
+                <strong>示例</strong>: 檢查結果的真實性和透明度
             </div>
             <ul className="desc">
                 <li>
