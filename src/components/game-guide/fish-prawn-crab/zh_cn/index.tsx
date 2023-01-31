@@ -3,9 +3,9 @@ import React from "react";
 import { renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
+import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
 
 export const renderIconChoice = () => {
     return (
@@ -46,18 +46,15 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>游戏规则</h2>
                     <ul className="desc">
-                        <li>The dice cup will be shaken at the beginning of the game round.</li>
-                        <li>When the betting time has expired, the dice results will be displayed. 如果您下注的符号出现，您就赢了。</li>
-                        <li>
-                            Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
-                            be shown during the setting time only.
-                        </li>
+                        <li>骰杯将在游戏回合开始时摇动。</li>
+                        <li>当下注时间结束时，将显示骰子结果。</li>
+                        <li>符号将根据它们在游戏桌上的位置从 1 到 6 编号。 并且分配的号码只会在设置时间内显示。</li>
                         <li>
                             最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetChoice}{" "}
                             之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Betting Odds：
+                            投注赔率：
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} 如果所选符号出现一次。</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} 如果所选符号出现两次。</li>
@@ -86,49 +83,46 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 </li>
                 {environment === ENVIRONMENT.sc && (
                     <li className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5CN()}
                         <div className="content">
-                            <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                            <strong> 示例:</strong> 检查结果的真实性和透明度。
                         </div>
                         <ul className="desc">
                             <li>
-                                <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                                <strong>第一步:</strong> 在公布结果前复制MD5密钥。
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step1_zh_cn.png?v=4"
                                     alt="md5-string"
                                 />
                             </li>
                             <li>
-                                <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                                <strong>第二步:</strong> 发布后复制结果。
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step2_zh_cn.png?v=4"
                                     alt="md5-result"
                                 />
-                                <div>
-                                    Note: From the left to right, &#123;5, 1, 1&#125; correspond to the assigned number of each symbol that
-                                    appears on three dice
-                                </div>
+                                <div>注：从左到右，{"{(5, 1, 1)}"}分别对应出现在三个骰子上的每个符号的指定编号</div>
                             </li>
                             <li>
-                                <strong>Step 3:</strong> Go to{" "}
+                                <strong>第三步:</strong> 转到{" "}
                                 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                     https://md5.services/
                                 </a>{" "}
-                                and paste the Result into the MD5 box.
+                                并将结果粘贴到 MD5 框中。
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
                                     alt="hash-darling"
                                 />
                             </li>
                             <li>
-                                <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                                string with the MD5 string in Step 1.
+                                <strong>第四步:</strong> 按“hash darling，hash！” 按钮，并将新生成的 MD5 checksum 字符串与步骤 1 中的 MD5
+                                密钥进行比较。
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
                                     alt="md5-checksum"
                                 />
                             </li>

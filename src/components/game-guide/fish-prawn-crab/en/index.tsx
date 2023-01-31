@@ -102,7 +102,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step1_en.png?v=4"
                                     alt="md5-string"
                                 />
                             </li>
@@ -110,7 +110,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step2_en.png?v=4"
                                     alt="md5-result"
                                 />
                                 <div>
@@ -126,7 +126,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 and paste the Result into the MD5 box.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=3"
                                     alt="hash-darling"
                                 />
                             </li>
@@ -135,7 +135,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 string with the MD5 string in Step 1.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
                                     alt="md5-checksum"
                                 />
                             </li>

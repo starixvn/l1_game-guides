@@ -3,9 +3,9 @@ import React from "react";
 import { renderTermsAndConditionsID } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
+import { renderMD5ID } from "../../../shared/md5-count-down-timer/id";
 
 export const renderIconChoice = () => {
     return (
@@ -46,14 +46,11 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Aturan Permainan</h2>
                     <ul className="desc">
-                        <li>The dice cup will be shaken at the beginning of the game round.</li>
+                        <li>Cangkir dadu akan dikocok pada awal putaran permainan.</li>
+                        <li>Ketika waktu taruhan telah habis, hasil dadu akan ditampilkan.</li>
                         <li>
-                            When the betting time has expired, the dice results will be displayed. If the symbol you have bet on shows up,
-                            you win.
-                        </li>
-                        <li>
-                            Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
-                            be shown during the setting time only.
+                            Simbol akan diberi nomor dari 1 hingga 6 sesuai dengan posisinya di meja permainan. Dan nomor yang ditetapkan
+                            hanya akan ditampilkan selama waktu pengaturan.
                         </li>
                         <li>
                             Taruhan minimum dan taruhan Maks harus antara {maxBetFollowChoice?.minBetMain} -{" "}
@@ -61,7 +58,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Pembayaran:
+                            Odds taruhan:
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} jika simbol yang dipilih muncul sekali.</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} jika simbol yang dipilih muncul dua kali.</li>
@@ -93,49 +90,49 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 </li>
                 {environment === ENVIRONMENT.sc && (
                     <li className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5ID()}
                         <div className="content">
-                            <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                            <strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.
                         </div>
                         <ul className="desc">
                             <li>
-                                <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                                <strong>Langkah 1:</strong> Salin kunci MD5 sebelum hasilnya diumumkan.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step1_id.png?v=4"
                                     alt="md5-string"
                                 />
                             </li>
                             <li>
-                                <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                                <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step2_id.png?v=4"
                                     alt="md5-result"
                                 />
                                 <div>
-                                    Note: From the left to right, &#123;5, 1, 1&#125; correspond to the assigned number of each symbol that
-                                    appears on three dice
+                                    Catatan: Dari kiri ke kanan, {"{(5, 1, 1)}"} sesuai dengan nomor yang ditetapkan untuk setiap simbol
+                                    yang muncul pada tiga dadu
                                 </div>
                             </li>
                             <li>
-                                <strong>Step 3:</strong> Go to{" "}
+                                <strong>Langkah 3:</strong> Buka{" "}
                                 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                     https://md5.services/
                                 </a>{" "}
-                                and paste the Result into the MD5 box.
+                                dan tempel Hasil ke kotak MD5.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
                                     alt="hash-darling"
                                 />
                             </li>
                             <li>
-                                <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                                string with the MD5 string in Step 1.
+                                <strong>Langkah 4:</strong> Tekan tombol {'"hash darling, hash!"'}dan bandingkan rangkaian daftar MD5
+                                checksum yang baru dibuat dengan Kunci MD5 di Langkah 1.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
                                     alt="md5-checksum"
                                 />
                             </li>

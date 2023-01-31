@@ -3,9 +3,9 @@ import React from "react";
 import { renderTermsAndConditionsTH } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
+import { renderMD5TH } from "../../../shared/md5-count-down-timer/th";
 
 export const renderIconChoice = () => {
     return (
@@ -46,21 +46,17 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>กฎของเกม</h2>
                     <ul className="desc">
-                        <li>The dice cup will be shaken at the beginning of the game round.</li>
+                        <li>ถ้วยลูกเต๋าจะถูกเขย่าเมื่อเริ่มรอบเกมส์</li>
+                        <li>เมื่อหมดเวลาเดิมพันจะแสดงผลลูกเต๋า</li>
                         <li>
-                            When the betting time has expired, the dice results will be displayed. หากสัญลักษณ์ที่คุณเดิมพันปรากฏขึ้น
-                            แสดงว่าคุณชนะ
-                        </li>
-                        <li>
-                            Symbols will be numbered from 1 to 6 according to their position on the game table. And the assigned number will
-                            be shown during the setting time only.
+                            สัญลักษณ์จะมีหมายเลขตั้งแต่ 1 ถึง 6 ตามตำแหน่งบนโต๊ะเกมส์ และหมายเลขที่กำหนดจะแสดงในช่วงเวลาที่ตั้งไว้เท่านั้น
                         </li>
                         <li>
                             เดิมพันขั้นต่ำและเดิมพันสูงสุดต้องอยู่ระหว่าง {maxBetFollowChoice?.minBetMain} -{" "}
                             {maxBetFollowChoice?.maxBetChoice} และเงินเดิมพันรวมสูงสุดต่อรอบคือ {maxBetFollowChoice?.maxBetMain}
                         </li>
                         <li>
-                            Betting Odds:
+                            อัตราเดิมพัน
                             <ul className="detail">
                                 <li>{formatOdds(odds?.single, fractionalOddsFormat)} ถ้าสัญลักษณ์ที่เลือกปรากฏครั้งเดียว.</li>
                                 <li>{formatOdds(odds?.double, fractionalOddsFormat)} ถ้าสัญลักษณ์ที่เลือกปรากฏสองครั้ง</li>
@@ -91,49 +87,48 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 </li>
                 {environment === ENVIRONMENT.sc && (
                     <li className="guide-item">
-                        {renderMD5EN()}
+                        {renderMD5TH()}
                         <div className="content">
-                            <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
+                            <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์
                         </div>
                         <ul className="desc">
                             <li>
-                                <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
+                                <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step1_th.png?v=4"
                                     alt="md5-string"
                                 />
                             </li>
                             <li>
-                                <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
+                                <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_en.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step2_th.png?v=4"
                                     alt="md5-result"
                                 />
                                 <div>
-                                    Note: From the left to right, &#123;5, 1, 1&#125; correspond to the assigned number of each symbol that
-                                    appears on three dice
+                                    หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
                                 </div>
                             </li>
                             <li>
-                                <strong>Step 3:</strong> Go to{" "}
+                                <strong>ขั้นตอนที่ 3:</strong> ไปที่{" "}
                                 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
                                     https://md5.services/
                                 </a>{" "}
-                                and paste the Result into the MD5 box.
+                                และวางผลลัพธ์ลงในกล่อง MD5
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
                                     alt="hash-darling"
                                 />
                             </li>
                             <li>
-                                <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                                string with the MD5 string in Step 1.
+                                <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum
+                                ที่สร้างขึ้นใหม่กับคีย์ MD5 ในขั้นตอนที่ 1
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
                                     alt="md5-checksum"
                                 />
                             </li>

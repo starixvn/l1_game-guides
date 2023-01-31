@@ -88,14 +88,14 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <li className="guide-item">
                         {renderMD5VI()}
                         <div className="content">
-                            <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
+                            <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi
                         </div>
                         <ul className="desc">
                             <li>
                                 <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_vi.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step1_vi.png?v=4"
                                     alt="md5-string"
                                 />
                             </li>
@@ -104,7 +104,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 quả.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_vi.png?v=3"
+                                    src="/static/images/fish-prawn-crab/md5_step2_vi.png?v=4"
                                     alt="md5-result"
                                 />
                                 <div>Từ trái sang phải, &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
@@ -117,7 +117,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_vi.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step3_vi.png?v=2"
                                     alt="hash-darling"
                                 />
                             </li>
@@ -126,7 +126,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 MD5 ở Bước 1.
                                 <img
                                     className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_vi.png?v=1"
+                                    src="/static/images/fish-prawn-crab/md5_step4_vi.png?v=2"
                                     alt="md5-checksum"
                                 />
                             </li>
