@@ -40,7 +40,8 @@ export const id: ISlotTranslationResource = {
         note: "Catatan",
         freeSpinReel:
             "Catatan: Simbol “Putaran Gratis” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Putaran Gratis” pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
-        thereAre4: "Ada 4 simbol “Putaran gratis” di hasil, tetapi 3 simbol terletak di gulungan yang sama.",
+        thereAre4:
+            "Ada 4 simbol “Putaran gratis” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat untuk bonus putaran Gratis.",
         lastFreespin:
             "Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).",
         freeSpinExpired:

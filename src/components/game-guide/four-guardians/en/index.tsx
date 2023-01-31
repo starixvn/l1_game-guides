@@ -12,12 +12,12 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-const renderGameRule = () => {    
+const renderGameRule = (project: string | undefined) => {
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
-                {renderGameRuleContent()}
+                {renderGameRuleContent(project)}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img
                         src={`/static/images/four-guardians/guide_payline.png`}
@@ -39,8 +39,9 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
             <ul className="desc">
                 <li>The winning amount is calculated according to the betting odds.</li>
                 <li>
-                    <strong>Note, </strong>the Payout includes the initial stake.
+                    <strong>Note: </strong>the Payout includes the initial stake.
                 </li>
+                <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
             </ul>
             {renderPayoutsIconFirstLine(odds, project, "en")}
             {renderPayoutsIconSecondLine(odds, project)}
@@ -74,8 +75,9 @@ export const renderIconContent = (
 
             <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png`} alt={itemName}></img>
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
-                    }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
             >
                 {dataContent.map((data, index) => {
                     return (
@@ -101,16 +103,16 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     false,
                     project === PROJECTS.L1
                         ? [
-                            [5, odds[10][5]],
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ]
+                              [5, odds[10][5]],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ]
                         : [
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ],
                     project,
                     locale
                 )}
@@ -294,19 +296,25 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                Having 5 Gem symbols located on the same payline.
+                                Having 5 symbols{" "}
+                                <img src={`./static/images/four-guardians/item1.png`} width={35} height={35} alt="item1"></img> located on
+                                the same payline.
                                 <br></br>Payout = Bet Level * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 4 Gem symbols located on the same payline.
+                                Having 4 symbols{" "}
+                                <img src={`./static/images/four-guardians/item1.png`} width={35} height={35} alt="item1"></img> located on
+                                the same payline.
                                 <br></br>Payout = Bet Level * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Having 3 Gem symbols located on the same payline.
+                                Having 3 symbols{" "}
+                                <img src={`./static/images/four-guardians/item1.png`} width={35} height={35} alt="item1"></img> located on
+                                the same payline.
                                 <br></br>Payout = Bet Level * {odds[1][3]}
                             </td>
                         </tr>
@@ -370,59 +378,43 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
-            <ul className="desc">
-                <li>Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.</li>
-                <li>The Free Spin symbols do not have to be on the same payline.</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item7",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
-                                    " FREE SPINS"
-                                )}
-                            </td>
-                            <td>
-                                Having 5 Free Spin symbols in the result.<br></br>Get {odds[7][5]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 4 Free Spin symbols in the result.<br></br>Get {odds[7][4]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 3 Free Spin symbols in the result.<br></br>Get {odds[7][3]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item7",
+                                [
+                                    [5, odds[7][5]],
+                                    [4, odds[7][4]],
+                                    [3, odds[7][3]],
+                                ],
+                                " FREE SPINS"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>
+                                    Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the
+                                    result.
+                                </li>
+                                <li>The Free Spin symbols do not have to be on the same payline.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The “Free Spin“ symbols must appear in different reels. For example, if there are 3{" "}
-                    {`"Free Spin"`}
+                    <strong> Note:</strong> The “Free Spin” symbols must appear in different reels. For example, if there are 3 “Free Spin”
                     symbols on the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_free_spin.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_free_spin.png?v1`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -450,49 +442,29 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
-            <ul className="desc">
-                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game – Treasure Chest.</li>
-                <li>The Bonus symbols do not have to be on the same payline.</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item8",
-                                    [
-                                        [5, odds[8][5]],
-                                        [4, odds[8][4]],
-                                        [3, odds[8][3]],
-                                    ],
-                                    " BONUS"
-                                )}
-                            </td>
-                            <td>
-                                Having 5 Bonus symbols in the result.<br></br>Can open {odds[8][5]} Treasure Chests in Bonus Game.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 4 Bonus symbols in the result.
-                                <br></br> Can open {odds[8][4]} Treasure Chests in Bonus Game.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 3 Bonus symbols in the result.<br></br>Can open {odds[8][3]} Treasure Chests in Bonus Game.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item8",
+                                [
+                                    [5, odds[8][5]],
+                                    [4, odds[8][4]],
+                                    [3, odds[8][3]],
+                                ],
+                                " BONUS"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
+                                <li>The Bonus symbols do not have to be on the same payline.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
@@ -501,8 +473,9 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_bonus.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_bonus.png?v1`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -511,8 +484,8 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            There are 4 {`"Bonus"`} symbols in the result, but 2 symbols are located on the same reel. The player is only
-                            eligible for 3 Treasure Chests.
+                            There are 4 “Bonus” symbols in the result, but 2 symbols are located on the same reel. The player is only
+                            eligible for 3 items.
                         </span>
                     </div>
                 </li>
@@ -635,7 +608,7 @@ const FourGuardiansGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         />
                     </div>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(project)}</li>
 
                 {renderPayouts(odds, project)}
                 {project === PROJECTS.L2 && renderJackpot()}

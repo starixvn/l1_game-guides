@@ -2,6 +2,7 @@ import React from "react";
 import { GameGuideProps } from "../../type";
 import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, ISlotTranslationResource } from "./types";
+import { PROJECTS } from "../../../../common/constants";
 
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -348,9 +349,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
             <li className="guide-item">
                 <h2>{payOutResource.paytable}</h2>
                 <ul className="desc">
-                    <li>{payOutResource.winningAmount}.</li>
+                    <li>{payOutResource.winningAmount}</li>
                     <li>
-                        <strong>{payOutResource.note}, </strong>
+                        <strong>{payOutResource.note}: </strong>
                         {payOutResource.initialStake}
                     </li>
                     <li>{payOutResource.allWinningAmount}</li>

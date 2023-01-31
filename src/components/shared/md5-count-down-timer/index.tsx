@@ -1,5 +1,5 @@
 import { locales } from "../../../common/constants";
-import { renderMD5VI } from "../../game-guide/multiplay-big-small/vi";
+import { renderMD5VI } from "./vi";
 import { renderMD5EN } from "./en";
 import { renderMD5ID } from "./id";
 import { renderMD5TH } from "./th";

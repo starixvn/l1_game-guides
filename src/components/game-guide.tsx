@@ -40,7 +40,7 @@ const KenoMaxGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-max")
 const KenoMiniGuide = dynamic(() => import("./game-guide/keno-pro-viet/keno-mini"));
 const RouletteGuide = dynamic(() => import("./game-guide/roulette"));
 const LuckyWheelGuide = dynamic(() => import("./game-guide/lucky-wheel"));
-const HeroesSlotGuide = dynamic(() => import("./game-guide/AHCL"));
+const HeroesSlotGuide = dynamic(() => import("./game-guide/heroes-slot"));
 const KenoMatchGuide = dynamic(() => import("./game-guide/keno-match"));
 const KenoPowerGuide = dynamic(() => import("./game-guide/keno-power"));
 const BitCoinMasterGuide = dynamic(() => import("./game-guide/bitcoin-master"));

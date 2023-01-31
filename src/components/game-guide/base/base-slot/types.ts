@@ -41,6 +41,7 @@ export interface ISlotTranslationResource {
             payoutBetLevel: string;
         };
     };
+
     freeSpin: {
         title: string;
         description1: string;

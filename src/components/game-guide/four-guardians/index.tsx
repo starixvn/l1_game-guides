@@ -42,25 +42,25 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
         project: project,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <FourGuardiansGuideVI {...resource} />
+            return <FourGuardiansGuideVI {...resource} />;
         case locales.id:
-            return <FourGuardiansGuideID {...resource} />
+            return <FourGuardiansGuideID {...resource} />;
         case locales.th:
-            return <FourGuardiansGuideTH {...resource} />
+            return <FourGuardiansGuideTH {...resource} />;
         case locales.zh_cn:
             return <FourGuardiansGuideCN {...resource} />;
         case locales.zh_tw:
             return <FourGuardiansGuideTW {...resource} />;
 
         default:
-            return <FourGuardiansGuideEN {...resource} />
-    }      
+            return <FourGuardiansGuideEN {...resource} />;
+    }
 };
 export default FourGuardiansGuide;

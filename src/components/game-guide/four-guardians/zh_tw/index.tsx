@@ -12,12 +12,12 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-const renderGameRule = () => {
+const renderGameRule = (project: string | undefined) => {
     return (
         <>
             <h2>遊戲規則</h2>
             <ul className="desc">
-                {renderGameRuleContent()}
+                {renderGameRuleContent(project)}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img
                         src={`/static/images/four-guardians/guide_payline.png`}
@@ -39,8 +39,9 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
             <ul className="desc">
                 <li>中獎金額根據派彩率計算。</li>
                 <li>
-                    <strong>請注意，</strong>支付包括初始投注。
+                    <strong>請注意: </strong>支付包括初始投注。
                 </li>
+                <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
             </ul>
             {renderPayoutsIconFirstLine(odds, project, "en")}
             {renderPayoutsIconSecondLine(odds, project)}
@@ -74,8 +75,9 @@ export const renderIconContent = (
 
             <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png`} alt={itemName}></img>
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
-                    }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
             >
                 {dataContent.map((data, index) => {
                     return (
@@ -101,16 +103,16 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     false,
                     project === PROJECTS.L1
                         ? [
-                            [5, odds[10][5]],
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ]
+                              [5, odds[10][5]],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ]
                         : [
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ],
                     project,
                     locale
                 )}
@@ -264,6 +266,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
 };
 
 const renderExamplePayout = (odds: number[][], project: string | undefined) => {
+    const item1 = <img src={`./static/images/four-guardians/item1.png`} width={35} height={35} alt="item1"></img>;
     return (
         <>
             <p>
@@ -294,19 +297,19 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                在同一條支付線上有 5 個寶石符號。
+                                有 5 個符號 {item1} 位於同一條支付線上。
                                 <br></br>派彩 = 投注等級 * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                在同一條支付線上有 4 個寶石符號。
+                                有 4 個符號 {item1} 位於同一條支付線上。
                                 <br></br>派彩 = 投注等級 * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                在同一條支付線上有 3 個寶石符號。
+                                有 3 個符號 {item1} 位於同一條支付線上。
                                 <br></br>派彩 = 投注等級 * {odds[1][3]}
                             </td>
                         </tr>
@@ -370,57 +373,40 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>免費旋轉</h2>
-            <ul className="desc">
-                <li>玩家將收到與結果中包含的免費旋轉符號數量相對應的免費旋轉獎金。</li>
-                <li>免費旋轉符號不必位於同一支付線上。</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>符號</th>
-                            <th>描述</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item7",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
-                                    " 免費旋轉"
-                                )}
-                            </td>
-                            <td>
-                                Having 5 Free Spin symbols in the result.<br></br>Get {odds[7][5]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 4 Free Spin symbols in the result.<br></br>Get {odds[7][4]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 3 Free Spin symbols in the result.<br></br>Get {odds[7][3]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item7",
+                                [
+                                    [5, odds[7][5]],
+                                    [4, odds[7][4]],
+                                    [3, odds[7][3]],
+                                ],
+                                " 免费旋转"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>玩家將收到與結果中包含的免費旋轉符號數量相對應的免費旋轉獎金。</li>
+                                <li>免費旋轉符號不必位於同一支付線上。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
-                    <strong>注意：</strong> “免費旋轉”符號必須出現在不同的捲軸上。例如，如果同一捲軸上有 3 個“免費旋轉”符號，系統將計為一個符號。
+                    <strong>注意：</strong> “免費旋轉”符號必須出現在不同的捲軸上。例如，如果同一捲軸上有 3
+                    個“免費旋轉”符號，系統將計為一個符號。
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_free_spin.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_free_spin.png?v1`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -428,14 +414,10 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                             />
                         </div>
 
-                        <span>
-                            結果中有 4 個“免費旋轉”符號，但 3 個符號位於同一個轉軸上。 玩家沒有資格獲得免費旋轉獎金。
-                        </span>
+                        <span>結果中有 4 個“免費旋轉”符號，但 3 個符號位於同一個轉軸上。 玩家沒有資格獲得免費旋轉獎金。</span>
                     </div>
                 </li>
-                <li className="clear-both">
-                    免費旋轉的投注級別和支付線數與上一次旋轉（用戶獲得免費旋轉獎金的旋轉）相同。
-                </li>
+                <li className="clear-both">免費旋轉的投注級別和支付線數與上一次旋轉（用戶獲得免費旋轉獎金的旋轉）相同。</li>
                 <li>玩家必須在發放後 24 小時內完成免費旋轉獎金。未使用的免費旋轉將丟失。</li>
             </ul>
         </li>
@@ -446,60 +428,40 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>獎金</h2>
-            <ul className="desc">
-                <li>結果中的任意位置出現 3、4 或 5 個獎勵符號將觸發獎金遊戲 - 寶箱。</li>
-                <li>獎金符號不必位於同一支付線上。</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>象徵</th>
-                            <th>描述</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item8",
-                                    [
-                                        [5, odds[8][5]],
-                                        [4, odds[8][4]],
-                                        [3, odds[8][3]],
-                                    ],
-                                    " 獎金"
-                                )}
-                            </td>
-                            <td>
-                                結果中有 5 個獎金符號。
-                                <br></br>可在獎金遊戲中打開 {odds[8][5]} 個寶箱。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                結果中有 4 個獎金符號。
-                                <br></br>可在獎金遊戲中打開 {odds[8][4]} 個寶箱。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                結果中有 3 個獎金符號。
-                                <br></br>可在獎金遊戲中打開 {odds[8][3]} 個寶箱。
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item8",
+                                [
+                                    [5, odds[8][5]],
+                                    [4, odds[8][4]],
+                                    [3, odds[8][3]],
+                                ],
+                                " 獎金"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>結果中的任意位置出現 3、4 或 5 個紅利符號將觸發紅利遊戲。</li>
+                                <li>獎金符號不必位於同一支付線上。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
-                    <strong>注意：</strong> 獎金符號必須出現在不同的捲軸中。 例如，如果 2 或 3 個 獎金符號出現在同一個捲軸上，系統將計為一個符號。
+                    <strong>注意：</strong> 獎金符號必須出現在不同的捲軸中。 例如，如果 2 或 3 個
+                    獎金符號出現在同一個捲軸上，系統將計為一個符號。
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_bonus.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_bonus.png?v1`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -507,15 +469,10 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                             />
                         </div>
 
-                        <span>
-                            結果中有 4 個“獎金”符號，但 2 個符號位於同一個捲軸上。玩家只能獲得 3 個寶箱。
-                        </span>
+                        <span>結果中有 4 “Bonus” 個“獎金”符號，但 2 個符號位於同一個捲軸上。玩家有資格獲得 3 件物品。</span>
                     </div>
                 </li>
-                <li>
-                    {" "}
-                    玩家必須在倒計時 120 秒內完成獎金遊戲。這段時間過後，系統會隨機開啟寶箱並結算遊戲回合。
-                </li>
+                <li> 玩家必須在倒計時 120 秒內完成獎金遊戲。這段時間過後，系統會隨機開啟寶箱並結算遊戲回合。</li>
             </ul>
         </li>
     );
@@ -539,7 +496,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 
                 <ul className="desc">
                     <li>
-                        “狂野”符號可以替代除 
+                        “狂野”符號可以替代除
                         <img
                             className={`${Styles["item8"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item8.png"
@@ -556,7 +513,8 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                             className={`${Styles["item10"]} ${Styles["en"]} ${Styles["mini"]}`}
                             src={`./static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project}/item10.png`}
                             alt="item10"
-                        ></img>之外的所有符號
+                        ></img>
+                        之外的所有符號
                     </li>
                     <li>僅支付每條線獲得的最高勝利。</li>
                 </ul>
@@ -583,13 +541,13 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            如果狂野符號是 
+                            如果狂野符號是
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} 派彩 = 投注等級  * {odds[2][3]}
+                            {`=>`} 派彩 = 投注等級 * {odds[2][3]}
                         </li>
                         <li>
                             如果狂野符號是
@@ -598,11 +556,11 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} 派彩 = 投注等級  * {odds[5][3]}
+                            {`=>`} 派彩 = 投注等級 * {odds[5][3]}
                         </li>
                     </ul>
                     <p>
-                        玩家將在這條支付線上獲得最高勝利 {`=>`} 派彩 = 投注等級  * {Math.max(odds[2][3], odds[5][3])}
+                        玩家將在這條支付線上獲得最高勝利 {`=>`} 派彩 = 投注等級 * {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>
             </div>
@@ -619,8 +577,8 @@ const FourGuardiansGuideTW: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                    《{gameName}》是一款在線老虎機遊戲，以龍、麒麟、龜、鳳凰四聖獸的傳說為藍本。 遊戲包括 5 個捲軸和 3 行，有 11 個不同的符號。
-                    如果您選擇的同一條支付線上有相同的符號，玩家將獲勝。
+                        《{gameName}》是一款在線老虎機遊戲，以龍、麒麟、龜、鳳凰四聖獸的傳說為藍本。 遊戲包括 5 個捲軸和 3 行，有 11
+                        個不同的符號。 如果您選擇的同一條支付線上有相同的符號，玩家將獲勝。
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
@@ -629,7 +587,7 @@ const FourGuardiansGuideTW: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         />
                     </div>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(project)}</li>
 
                 {renderPayouts(odds, project)}
                 {project === PROJECTS.L2 && renderJackpot()}
