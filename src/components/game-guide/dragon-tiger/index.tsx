@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import DragonTigerGuideEN from "./en";
-import DragonTigerGuideVI from "./vi";
-import DragonTigerGuideTW from "./zh_tw";
-import DragonTigerGuideCN from "./zh_cn";
-import DragonTigerGuideTH from "./th";
-import DragonTigerGuideID from "./id";
+import DragonTigerGuideVI from "./templates/index";
+import DragonTigerGuideTemplate from "./templates/default";
 import { GameGuideBase } from "../type";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
@@ -59,26 +55,18 @@ const DragonTigerGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,   
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
         fractionalOddsFormat,
+        locale,
     };
 
-    switch(locale) {
-        case locales.vi:
-            return <DragonTigerGuideVI {...resource} />
-        case locales.id:
-            return <DragonTigerGuideID {...resource} />
-        case locales.th:
-            return <DragonTigerGuideTH {...resource} />
-        case locales.zh_cn:
-            return <DragonTigerGuideCN {...resource} />;
-        case locales.zh_tw:
-            return <DragonTigerGuideTW {...resource} />;
+    console.log(locale);
+    if (locale === locales.vi) {
+        return <DragonTigerGuideVI {...resource} />;
+    }
 
-        default:
-            return <DragonTigerGuideEN {...resource} />
-    }    
+    return <DragonTigerGuideTemplate {...resource} />;
 };
 export default DragonTigerGuide;
