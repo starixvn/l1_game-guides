@@ -1,33 +1,12 @@
 import React from "react";
-import { renderTermsAndConditionsCN} from "../../../shared";
+import { renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
 import Styles from "../fish-prawn-crab-vip.module.scss";
-import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderListIcon } from "../en";
 
-export const renderListIcon = (theme: string | undefined) => {
-    const widthIcon1 = theme === Themes.blue ? 100 : 75;
-    const widthIcon2 = theme === Themes.blue ? 95 : 70;
-    return (
-        <>
-            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
-
-            <img
-                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                alt="crooster"
-                width={widthIcon2}
-                height={widthIcon2}
-                loading="lazy"
-            />
-            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
-        </>
-    );
-};
 const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
@@ -38,7 +17,8 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameName} 是传统游戏鱼虾蟹的增强版，具有新的图形界面和更多的投注选项。 游戏使用三个标准骰子，每个骰子包含六个独特的符号（鱼、虾、蟹、公鸡、葫芦和麈）。
+                        {gameName} 是传统游戏鱼虾蟹的增强版，具有新的图形界面和更多的投注选项。
+                        游戏使用三个标准骰子，每个骰子包含六个独特的符号（鱼、虾、蟹、公鸡、葫芦和麈）。
                         游戏的目的是预测掷骰子的结果，玩家下注将出现哪些符号。
                     </p>
                     <div className="icon-wrapper">
@@ -54,11 +34,9 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>游戏规则</h2>
                     <ul className="desc">
-                        <li>
-                            选择您想玩的筹码值。玩家可以对游戏桌上显示的一个或多个投注选项进行投注。
-                        </li>
+                        <li>选择您想玩的筹码值。玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                         <li>所有投注必须在投注时间到期之前进行。 请注意，投注无法取消。</li>
-                        <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
+                        <li>一旦下注时间结束，骰杯将被移除并显示结果。</li>
                         <li>每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
