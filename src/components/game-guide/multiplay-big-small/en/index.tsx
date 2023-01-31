@@ -4,41 +4,22 @@ import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import MD5 from "../../base/md5";
 
-const renderMD5Example = (gameName: string) => {
+const renderMd5En = (locale?: string) => {
     return (
-        <>
-            <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of the game result
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step1_en.png?v=3" alt="md5-string" />
-                </li>
-                <li>
-                    <strong>Step 2:</strong> Copy the <strong>Result</strong> after it is published.
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step2_en.png?v=3" alt="md5-result" />
-                    <div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the value of three dice.</div>
-                </li>
-                <li>
-                    <strong>Step 3:</strong> Go to{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    and paste the Result into the MD5 box.
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step3_en.png?v=1" alt="hash-darling" />
-                </li>
-                <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step4_en.png?v=1" alt="md5-checksum" />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
+                step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+                step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+                step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+                note={<div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the value of three dice.</div>}
+            />
+        </li>
     );
 };
 
@@ -92,12 +73,7 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5EN()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5En(props.locale)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

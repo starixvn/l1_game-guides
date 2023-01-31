@@ -4,40 +4,22 @@ import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsCN } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import MD5 from "../../base/md5";
 
-const renderMD5Example = (gameName: string) => {
+const renderMd5Cn = (locale?: string) => {
     return (
-        <>
-            <div className="content">
-                <strong> 示例:</strong> 检查比赛结果的真实性和透明度
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>第一步:</strong> 在公布结果前复制MD5密钥。
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step1_en.png?v=3" alt="md5-string" />
-                </li>
-                <li>
-                    <strong>第二步:</strong> 发布后复制结果。
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step2_en.png?v=3" alt="md5-result" />
-                    <div>注：从左到右，&#123;6, 2, 5&#125; 分别对应三个骰子的点数。</div>
-                </li>
-                <li>
-                    <strong>第三步:</strong> 转到{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    并将结果粘贴到 MD5 框中。
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step3_en.png?v=1" alt="hash-darling" />
-                </li>
-                <li>
-                    <strong>第四步:</strong> 按 “hash darling，hash!” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step4_en.png?v=1" alt="md5-checksum" />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
+                step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+                step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+                step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+                note={<div>注：从左到右，&#123;6, 2, 5&#125; 分别对应三个骰子的点数。</div>}
+            />
+        </li>
     );
 };
 
@@ -84,12 +66,7 @@ const MultiplayBigSmallGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5CN()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5Cn(props.locale)}
                 {renderTermsAndConditionsCN()}
             </ul>
         </>

@@ -1,44 +1,24 @@
 import React, { useEffect } from "react";
-
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { renderTermsAndConditionsTH } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderMD5TH } from "../../../shared/md5-count-down-timer/th";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import MD5 from "../../base/md5";
 
-const renderMD5Example = (gameName: string) => {
+const renderMd5Th = (locale?: string) => {
     return (
-        <>
-            <div className="content">
-                <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step1_en.png?v=3" alt="md5-string" />
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step2_en.png?v=3" alt="md5-result" />
-                    <div>หมายเหตุ: จากซ้ายไปขวา &#123;6, 2, 5&#125; จะตรงกับแต้มของลูกเต๋าสามลูก</div>
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 3:</strong> ไปที่{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    และวางในช่อง MD5
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step3_en.png?v=1" alt="hash-darling" />
-                </li>
-                <li>
-                    <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5
-                    ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 ในขั้นตอนที่ 1
-                    <img className="format-img auto-center" src="/static/images/mega-bigsmall/md5_step4_en.png?v=1" alt="md5-checksum" />
-                </li>
-            </ul>
-        </>
+        <li className="guide-item" id="md5">
+            <MD5
+                locale={locale}
+                step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
+                step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+                step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+                step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+                note={<div>หมายเหตุ: จากซ้ายไปขวา &#123;6, 2, 5&#125; จะตรงกับแต้มของลูกเต๋าสามลูก</div>}
+            />
+        </li>
     );
 };
 
@@ -89,12 +69,7 @@ const MultiplayBigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5TH()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5Th(props.locale)}
                 {renderTermsAndConditionsTH()}
             </ul>
         </>
