@@ -33,8 +33,8 @@ export const renderMD5TH = () => {
                             และวางในช่อง MD5
                         </li>
                         <li>
-                            <strong>ขั้นตอนที่ 4</strong>: กดปุ่ม <strong>“แฮชที่รัก แฮช!”</strong> ปุ่มและเปรียบเทียบสตริง MD5
-                            ของการตรวจสอบความถูกต้องของข้อมูลที่สร้างขึ้นใหม่กับสตริง MD5 <strong>ในขั้นตอนที่ 1</strong>
+                            <strong>ขั้นตอนที่ 4</strong>: กดปุ่ม <strong>“dash darling, hash”</strong> ปุ่มและเปรียบเทียบสตริง MD5 checksum
+                            ที่สร้างขึ้นใหม่กับคีย์ MD5 <strong>ในขั้นตอนที่ 1</strong>
                         </li>
                     </ul>
                 </li>

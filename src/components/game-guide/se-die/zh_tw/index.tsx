@@ -126,7 +126,7 @@ const renderMD5Example = (gameName: string, gameId: any) => {
                     />
                 </li>
                 <li>
-                    <strong>第四步:</strong> 按 “hash darling，hash!” 按鈕，將新生成的校驗和MD5 字符串與第一步中的 MD5 字符串進行比較。
+                    <strong>第四步:</strong> 按 “hash darling，hash!” 按鈕，並將新生成的 MD5 checksum 字符串與步驟 1 中的 MD5 密鑰進行比較。
                     <img
                         className="format-img auto-center"
                         src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}

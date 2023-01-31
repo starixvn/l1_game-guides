@@ -32,8 +32,8 @@ export const renderMD5CN = () => {
                             并将结果粘贴到 MD5 框中。
                         </li>
                         <li>
-                            <strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的<strong>校验和 MD5</strong>{" "}
-                            字符串与步骤 1 中的 MD5 密钥进行比较。
+                            <strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的
+                            <strong>MD5 checksum</strong> 字符串与步骤 1 中的 MD5 密钥进行比较。
                         </li>
                     </ul>
                 </li>
