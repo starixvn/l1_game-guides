@@ -26,7 +26,7 @@ const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
                 <li>Setelah waktu taruhan berakhir, dealer mengeluarkan mangkuk dari piring dan hasilnya akan ditampilkan.</li>
                 <li>
                     Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Semua taruhan harus
-                    ditempatkan sebelum waktu taruhan berakhir.
+                    ditempatkan sebelum waktu taruhan berakhir. Catatan, taruhan yang dipasang tidak dapat dibatalkan.
                 </li>
                 <li>Total taruhan maksimum per putaran adalah {maxBetMain}</li>
             </ul>
@@ -150,7 +150,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Pembayaran</h2>
                     <ul className="desc">
-                        <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
+                        <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                         <li>Pembayaran termasuk taruhan awal.</li>
                         <li>
                             Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.

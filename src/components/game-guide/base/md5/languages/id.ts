@@ -25,7 +25,7 @@ export const id: IMd5Resources = {
         noted: "Jika kedua rangkaian cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum bertaruh.",
     },
     example: {
-        header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya",
+        header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.",
         step1Text: steps.one,
         step2Text: steps.two,
         step3Text: steps.three,
