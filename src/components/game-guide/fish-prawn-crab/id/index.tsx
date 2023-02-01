@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
-import { renderMD5ID } from "../../../shared/md5-count-down-timer/id";
+import MD5 from "../../base/md5";
 
 export const renderIconChoice = () => {
     return (
@@ -88,57 +88,17 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li className="guide-item">
-                        {renderMD5ID()}
-                        <div className="content">
-                            <strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.
-                        </div>
-                        <ul className="desc">
-                            <li>
-                                <strong>Langkah 1:</strong> Salin kunci MD5 sebelum hasilnya diumumkan.
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_id.png?v=4"
-                                    alt="md5-string"
-                                />
-                            </li>
-                            <li>
-                                <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_id.png?v=4"
-                                    alt="md5-result"
-                                />
-                                <div>
-                                    Catatan: Dari kiri ke kanan, {"{(5, 1, 1)}"} sesuai dengan nomor yang ditetapkan untuk setiap simbol
-                                    yang muncul pada tiga dadu
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Langkah 3:</strong> Buka{" "}
-                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                    https://md5.services/
-                                </a>{" "}
-                                dan tempel Hasil ke kotak MD5.
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
-                                    alt="hash-darling"
-                                />
-                            </li>
-                            <li>
-                                <strong>Langkah 4:</strong> Tekan tombol {'"hash darling, hash!"'}dan bandingkan rangkaian daftar MD5
-                                checksum yang baru dibuat dengan Kunci MD5 di Langkah 1.
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
-                                    alt="md5-checksum"
-                                />
-                            </li>
-                        </ul>
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && <MD5
+                    locale={props.locale}
+                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_id.png?v=4"}
+                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_id.png?v=4"}
+                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                    note={<div>
+                        Catatan: Dari kiri ke kanan, {"{(5, 1, 1)}"} sesuai dengan nomor yang ditetapkan untuk setiap simbol
+                        yang muncul pada tiga dadu
+                    </div>}
+                />}
                 {renderTermsAndConditionsID()}
             </ul>
         </>

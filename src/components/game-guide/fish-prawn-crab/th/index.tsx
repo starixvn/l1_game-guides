@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
-import { renderMD5TH } from "../../../shared/md5-count-down-timer/th";
+import MD5 from "../../base/md5";
 
 export const renderIconChoice = () => {
     return (
@@ -85,56 +85,16 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li className="guide-item">
-                        {renderMD5TH()}
-                        <div className="content">
-                            <strong> ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์
-                        </div>
-                        <ul className="desc">
-                            <li>
-                                <strong>ขั้นตอนที่ 1:</strong> คัดลอกคีย์ MD5 ก่อนประกาศผล
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_th.png?v=4"
-                                    alt="md5-string"
-                                />
-                            </li>
-                            <li>
-                                <strong>ขั้นตอนที่ 2:</strong> คัดลอกผลลัพธ์หลังจากเผยแพร่แล้ว
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_th.png?v=4"
-                                    alt="md5-result"
-                                />
-                                <div>
-                                    หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
-                                </div>
-                            </li>
-                            <li>
-                                <strong>ขั้นตอนที่ 3:</strong> ไปที่{" "}
-                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                    https://md5.services/
-                                </a>{" "}
-                                และวางผลลัพธ์ลงในกล่อง MD5
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
-                                    alt="hash-darling"
-                                />
-                            </li>
-                            <li>
-                                <strong>ขั้นตอนที่ 4:</strong> กดปุ่ม “hash darling, hash!” ปุ่มและเปรียบเทียบสตริง MD5 checksum
-                                ที่สร้างขึ้นใหม่กับคีย์ MD5 ในขั้นตอนที่ 1
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
-                                    alt="md5-checksum"
-                                />
-                            </li>
-                        </ul>
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && <MD5
+                    locale={props.locale}
+                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_th.png?v=4"}
+                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_th.png?v=4"}
+                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                    note={<div>
+                        หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
+                    </div>}
+                />}
                 {renderTermsAndConditionsTH()}
             </ul>
         </>

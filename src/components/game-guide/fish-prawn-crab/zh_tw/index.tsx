@@ -5,7 +5,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
-import { renderMD5TW } from "../../../shared/md5-count-down-timer/zh_tw";
+import MD5 from "../../base/md5";
 
 export const renderIconChoice = () => {
     return (
@@ -81,54 +81,14 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li className="guide-item">
-                        {renderMD5TW()}
-                        <div className="content">
-                            <strong> 示例:</strong> 檢查結果的真實性和透明度。
-                        </div>
-                        <ul className="desc">
-                            <li>
-                                <strong>第一步:</strong> 在公佈結果前複製MD5密鑰。
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step1_zh_tw.png?v=4"
-                                    alt="md5-string"
-                                />
-                            </li>
-                            <li>
-                                <strong>第二步:</strong> 發布後復制結果。
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step2_zh_tw.png?v=4"
-                                    alt="md5-result"
-                                />
-                                <div>注：從左到右，{"{(5, 1, 1)}"}分別對應出現在三個骰子上的每個符號的指定編號</div>
-                            </li>
-                            <li>
-                                <strong>第三步:</strong> Go to{" "}
-                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                    https://md5.services/
-                                </a>{" "}
-                                並將結果粘貼到 MD5 框中。
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step3_en.png?v=2"
-                                    alt="hash-darling"
-                                />
-                            </li>
-                            <li>
-                                <strong>第四步:</strong> 按“hash darling，hash！” 按鈕，並將新生成的 MD5 checksum 字符串與步驟 1 中的 MD5
-                                密鑰進行比較。
-                                <img
-                                    className="format-img auto-center"
-                                    src="/static/images/fish-prawn-crab/md5_step4_en.png?v=2"
-                                    alt="md5-checksum"
-                                />
-                            </li>
-                        </ul>
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && <MD5
+                    locale={props.locale}
+                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_zh_tw.png?v=4"}
+                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_zh_tw.png?v=4"}
+                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                    note={<div>注：從左到右，{"{(5, 1, 1)}"}分別對應出現在三個骰子上的每個符號的指定編號</div>}
+                />}
                 {renderTermsAndConditionsTW()}
             </ul>
         </>
