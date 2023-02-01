@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import TexasHoldGuideTemplate from "./templates/default";
 import TexasHoldGuideVI from "./templates/vi";
 import { locales } from "../../../common/constants";
@@ -13,6 +12,7 @@ import { id as idLanguage } from "./languages/id";
 import { th } from "./languages/th";
 import { zhCN } from "./languages/zh-cn";
 import { zhTW } from "./languages/zh-tw";
+import { TexasHoldemLanguage } from "./languages/types";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -72,91 +72,31 @@ const TexasHoldGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    switch (locale) {
-        case locales.vi:
-            return (
-                <TexasHoldGuideVI
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    locale={locale}
-                />
-            );
-        case locales.id:
-            return (
-                <TexasHoldGuideTemplate
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    language={idLanguage}
-                    locale={locale}
-                />
-            );
-        case locales.th:
-            return (
-                <TexasHoldGuideTemplate
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    language={th}
-                    locale={locale}
-                />
-            );
-        case locales.zh_cn:
-            return (
-                <TexasHoldGuideTemplate
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    language={zhCN}
-                    locale={locale}
-                />
-            );
-        case locales.zh_tw:
-            return (
-                <TexasHoldGuideTemplate
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    language={zhTW}
-                    locale={locale}
-                />
-            );
+    const shareProps = {
+        gameConfigs: configs,
+        userStakeLevel,
+        gameName: gameNameTranslate,
+        gameId: id,
+        maxBetFollowChoice,
+        isScrollMD5,
+        fractionalOddsFormat,
+        locale
+    };
 
-        default:
-            return (
-                <TexasHoldGuideTemplate
-                    gameConfigs={configs}
-                    userStakeLevel={userStakeLevel}
-                    gameName={gameNameTranslate}
-                    gameId={id}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    isScrollMD5={isScrollMD5}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    language={en}
-                    locale={locale}
-                />
-            );
+    if (locale === locales.vi) {
+        return <TexasHoldGuideVI {...shareProps} />;
     }
+
+    let langProp: TexasHoldemLanguage;
+    switch (locale) {
+        case locales.id: langProp = idLanguage; break;
+        case locales.th: langProp = th; break;
+        case locales.zh_cn: langProp = zhCN; break;
+        case locales.zh_tw: langProp = zhTW; break;
+        default: langProp = en; break;
+    }
+
+    return <TexasHoldGuideTemplate {...{ ...shareProps, ...{ language: langProp } }} />;
 };
+
 export default TexasHoldGuide;
