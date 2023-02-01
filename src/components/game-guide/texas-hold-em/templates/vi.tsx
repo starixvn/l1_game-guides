@@ -1,11 +1,20 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-number";
 import Styles from "../texas-hold-em.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
+import TexasTermsAndConditions from "./terms-and-coditions";
+
+const otherTerms = {
+    header: "Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, hệ thống xử lý theo các quy định sau:",
+    descriptions: [
+        "Nếu phiên bị gián đoạn trước khi Người Chơi bấm nút “Theo Bài” đồng nghĩa với Người Chơi chấp nhận “Bỏ Bài”.",
+        "Nếu phiên bị gián đoạn sau khi Người Chơi bấm nút “Theo Bài”, hệ thống sẽ mặc định chọn “Xem” cho các vòng Turn và River. Thắng thua sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số 7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.",
+    ],
+};
 
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
@@ -951,8 +960,16 @@ const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li id="md5" className="guide-item">
                     {renderMD5()}
                 </li>
-
-                {renderTermsAndConditionsVI("", 42)}
+                <TexasTermsAndConditions resources={baseTermAndConditionVi}>
+                    <li className="number-dot">
+                        {otherTerms.header}
+                        <ul className="detail">
+                            {otherTerms.descriptions.map((des, index) => (
+                                <li key={index}>{des}</li>
+                            ))}
+                        </ul>
+                    </li>
+                </TexasTermsAndConditions>
             </ul>
         </div>
     );
