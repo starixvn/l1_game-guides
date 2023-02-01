@@ -1,9 +1,9 @@
 import React from "react";
+
+import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { formatOdds } from "../../../../helpers/number-helper";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
-import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 
 const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
@@ -123,7 +123,7 @@ const DragonTigerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                         </li>
                     </ul>
                 </li>
-                {<li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>}
+                {renderTermsAndConditionsVI()}
             </ul>
         </>
     );

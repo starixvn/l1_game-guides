@@ -1,4 +1,3 @@
-import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { TreasureIslandLanguage } from "./types";
 
 export const th: TreasureIslandLanguage = {
@@ -107,5 +106,4 @@ export const th: TreasureIslandLanguage = {
         },
         tumbleDescriptions: ["1. จำนวนชนะ Tumble", "2. ตัวคูณทั้งหมด: 5+3 =8"],
     },
-    termsAndConditions: baseTermAndConditionTh,
 };

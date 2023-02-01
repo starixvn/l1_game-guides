@@ -1,4 +1,3 @@
-import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { IFruitSlotTranslationResource } from "./types";
 
 export const th: IFruitSlotTranslationResource = {
@@ -42,5 +41,4 @@ export const th: IFruitSlotTranslationResource = {
         description:
             "Fruit Slot เป็นสล็อตเกมผลไม้แบบดั้งเดิมที่คิดค้นขึ้นเพื่อมอบประสบการณ์การเล่นเกมส์ที่น่าดึงดูดและน่าตื่นเต้นแก่ผู้เล่น",
     },
-    termsAndConditions: baseTermAndConditionTh,
 };

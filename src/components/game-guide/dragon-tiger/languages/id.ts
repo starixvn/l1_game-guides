@@ -1,4 +1,3 @@
-import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 import { IDragonTigerTranslationResource } from "./types";
 
 export const id: IDragonTigerTranslationResource = {
@@ -52,5 +51,4 @@ export const id: IDragonTigerTranslationResource = {
         },
         note: "** Catatan: Pemain yang bertaruh pada Dragon atau Tiger akan kehilangan 50% dari taruhannya jika hasilnya seri.",
     },
-    termsAndConditions: baseTermAndConditionId,
 };

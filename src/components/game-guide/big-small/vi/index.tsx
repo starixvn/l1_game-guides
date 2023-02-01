@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
@@ -6,8 +7,6 @@ import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteVN } from "../../../shared/promotion-note/vi";
 import { formatOdds } from "../../../../helpers/number-helper";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
-import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 
 const renderMD5Example = (gameName: string) => {
     return (
@@ -108,7 +107,7 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         {renderMD5Example(gameName)}
                     </li>
                 )}
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>
+                {renderTermsAndConditionsVI()}
             </ul>
         </>
     );

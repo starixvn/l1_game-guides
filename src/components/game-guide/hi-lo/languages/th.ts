@@ -1,4 +1,3 @@
-import { baseTermAndConditionTh } from "../../base/terms-and-conditions/languages/th";
 import { IHiLoTranslationResource } from "./types";
 export const th: IHiLoTranslationResource = {
     introduction: {
@@ -56,5 +55,4 @@ export const th: IHiLoTranslationResource = {
             "การจ่ายเงินสำหรับการทายถูกต้องว่าไพ่ใบต่อไปจะสูงหรือต่ำอาจแตกต่างกันไปในแต่ละรอบ",
         ],
     },
-    termsAndConditions: baseTermAndConditionTh,
 };

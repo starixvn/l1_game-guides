@@ -9,51 +9,49 @@ import BaseTermsAndConditions from "../game-guide/base/terms-and-conditions/term
 import { baseTermAndConditionCn } from "../game-guide/base/terms-and-conditions/languages/cn";
 import { IBaseTermAndConditionResources } from "../game-guide/base/terms-and-conditions/languages/types";
 
-const games = { bitcoinMaster: 43, casinoHoldem: 39, texasHoldem: 42, blackjack: 23 };
-
-export const renderTermsAndConditions = (style = "", locale?: string | undefined, extendDetails: Array<string> = []) => {
+export const renderTermsAndConditions = (locale?: string | undefined, extendDetails: Array<string> = []) => {
     switch (locale) {
         case locales.vi:
-            return renderTermsAndConditionsVI(style, extendDetails);
+            return renderTermsAndConditionsVI(extendDetails);
         case locales.id:
-            return renderTermsAndConditionsID(style, extendDetails);
+            return renderTermsAndConditionsID(extendDetails);
         case locales.th:
-            return renderTermsAndConditionsTH(style, extendDetails);
+            return renderTermsAndConditionsTH(extendDetails);
         case locales.zh_cn:
-            return renderTermsAndConditionsCN(style, extendDetails);
+            return renderTermsAndConditionsCN(extendDetails);
         case locales.zh_tw:
-            return renderTermsAndConditionsTW(style, extendDetails);
+            return renderTermsAndConditionsTW(extendDetails);
         default:
-            return renderTermsAndConditionsEN(style, extendDetails);
+            return renderTermsAndConditionsEN(extendDetails);
     }
 };
 
-export const renderTermsAndConditionsEN = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsEN = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionEn, details: extendDetails.concat(baseTermAndConditionEn.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
-export const renderTermsAndConditionsID = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsID = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionId, details: extendDetails.concat(baseTermAndConditionId.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
-export const renderTermsAndConditionsTH = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsTH = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTh, details: extendDetails.concat(baseTermAndConditionTh.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
-export const renderTermsAndConditionsVI = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsVI = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionVi, details: extendDetails.concat(baseTermAndConditionVi.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
-export const renderTermsAndConditionsCN = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsCN = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionCn, details: extendDetails.concat(baseTermAndConditionCn.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
-export const renderTermsAndConditionsTW = (style = "", extendDetails: Array<string> = []) => {
+export const renderTermsAndConditionsTW = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTw, details: extendDetails.concat(baseTermAndConditionTw.details) };
-    return <li className="guide-item"><BaseTermsAndConditions resources={resources} /></li>
+    return <BaseTermsAndConditions resources={resources} />;
 };

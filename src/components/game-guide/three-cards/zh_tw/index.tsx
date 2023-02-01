@@ -2,13 +2,12 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { useTranslation, TFunction } from "next-i18next";
 
+import { renderTermsAndConditionsTW } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
     const bet = 10;
@@ -221,7 +220,7 @@ const ThreeCardsGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionTw} /></li>
+                {renderTermsAndConditionsTW()}
             </ul>
         </>
     );

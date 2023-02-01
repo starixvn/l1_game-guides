@@ -1,5 +1,3 @@
-import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
-
 export interface IHiLoTranslationResource {
     introduction: {
         title: string;
@@ -46,5 +44,4 @@ export interface IHiLoTranslationResource {
         title: string;
         descriptions: string[];
     };
-    termsAndConditions: IBaseTermAndConditionResources;
 }

@@ -1,4 +1,3 @@
-import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 import { IDragonTigerTranslationResource } from "./types";
 
 export const en: IDragonTigerTranslationResource = {
@@ -52,5 +51,4 @@ export const en: IDragonTigerTranslationResource = {
         },
         note: "**  Note: The players bet on Dragon or Tiger will lose 50% of their stake if the result is a draw.",
     },
-    termsAndConditions: baseTermAndConditionEn,
 };

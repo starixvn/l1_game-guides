@@ -1,11 +1,11 @@
 import React from "react";
+
 import { locales } from "../../../../common/constants";
+import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import OddDetailList from "../OddDetail";
 import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
-import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -521,7 +521,8 @@ const TreasureIslandGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>
+
+                {renderTermsAndConditionsVI()}
             </ul>
         </>
     );

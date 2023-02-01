@@ -1,5 +1,3 @@
-import { IBaseTermAndConditionResources } from "../terms-and-conditions/languages/types";
-
 export type JackpotProps = {
     winningRatio: number;
 };
@@ -78,5 +76,4 @@ export interface ISlotTranslationResource {
         payoutBetLevel: string;
         highestWin: string;
     };
-    termsAndConditions: IBaseTermAndConditionResources;
 }

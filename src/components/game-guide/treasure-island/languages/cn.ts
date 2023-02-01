@@ -1,4 +1,3 @@
-import { baseTermAndConditionCn } from "../../base/terms-and-conditions/languages/cn";
 import { TreasureIslandLanguage } from "./types";
 
 export const cn: TreasureIslandLanguage = {
@@ -107,5 +106,4 @@ export const cn: TreasureIslandLanguage = {
         },
         tumbleDescriptions: ["1. 翻滚赢奖金额", "2.总乘数：5+3 =8"],
     },
-    termsAndConditions: baseTermAndConditionCn,
 };

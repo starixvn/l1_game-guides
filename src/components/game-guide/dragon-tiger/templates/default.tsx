@@ -1,12 +1,14 @@
 import React from "react";
 import { Markup } from "interweave";
+
+import { renderTermsAndConditions } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+
 import Styles from "../dragon-tiger.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { IDragonTigerTranslationResource } from "../languages/types";
 import { getDragonTigerTranslationResource } from "../languages";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -135,7 +137,7 @@ class DragonTigerGuideTemplate<
                     <li className="guide-item">{this.renderIntroduce()}</li>
                     <li className="guide-item">{this.renderGameRule()}</li>
                     <li className="guide-item">{this.renderPayout()}</li>
-                    <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
+                    {renderTermsAndConditions(this.props.locale)}
                 </ul>
             </>
         );

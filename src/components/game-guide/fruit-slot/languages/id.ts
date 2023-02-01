@@ -1,4 +1,3 @@
-import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 import { IFruitSlotTranslationResource } from "./types";
 
 export const id: IFruitSlotTranslationResource = {
@@ -42,5 +41,4 @@ export const id: IFruitSlotTranslationResource = {
         description:
             "Buah Slot adalah mesin slot buah tradisional yang diinovasi untuk memberi pemain pengalaman bermain yang menarik dan mendebarkan.",
     },
-    termsAndConditions: baseTermAndConditionId,
 };

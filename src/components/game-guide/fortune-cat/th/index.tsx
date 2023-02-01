@@ -468,7 +468,7 @@ const FortuneCatGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsTH(Styles["guide-item"])}
+                {renderTermsAndConditionsTH()}
             </ul>
         </>
     );

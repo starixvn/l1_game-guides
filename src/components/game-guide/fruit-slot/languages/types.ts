@@ -1,5 +1,3 @@
-import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
-
 export interface IFruitSlotTranslationResource {
     gameRule: {
         title: string;
@@ -40,5 +38,4 @@ export interface IFruitSlotTranslationResource {
         introduction: string;
         description: string;
     };
-    termsAndConditions: IBaseTermAndConditionResources;
 }

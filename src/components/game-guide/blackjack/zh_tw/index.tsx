@@ -229,7 +229,7 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsTW("", [`未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。<br>
+                {renderTermsAndConditionsTW([`未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。<br>
                             未完成的遊戲將在 24 小時後自動結算。 玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。`])}
             </ul>
         </>

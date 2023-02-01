@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-import { renderTermsAndConditionsEN, renderTermsAndConditionsID } from "../../../shared";
+import { renderTermsAndConditionsID } from "../../../shared";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/id";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
@@ -20,7 +20,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>Setelah waktu taruhan telah berakhir, Bowl akan dihapus dan hasilnya akan ditampilkan.</li>
                 <li>Total taruhan maksimum per putaran adalah {maxBet}</li>
                 <li>
-                    Jumlah total taruhan dari semua pemain yang ditampilkan pada setiap opsi taruhan hanya untuk referensi. 
+                    Jumlah total taruhan dari semua pemain yang ditampilkan pada setiap opsi taruhan hanya untuk referensi.
                     Untuk pasar dan mata uang yang berbeda, totalnya dikonversi berdasarkan tarif internal yang ditetapkan oleh perusahaan.
                 </li>
                 <li className="contentBeforeEmpty">
@@ -282,9 +282,9 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} adalah versi khusus dari game Se Die. Permainan ini terdiri dari 2 set tombol, satu untuk Banker dan satu lagi untuk Player. 
-                        Setiap set termasuk 4 tombol berwarna, di mana setiap tombol memiliki dua sisi berwarna merah dan putih. 
-                        Player memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. 
+                        {gameName} adalah versi khusus dari game Se Die. Permainan ini terdiri dari 2 set tombol, satu untuk Banker dan satu lagi untuk Player.
+                        Setiap set termasuk 4 tombol berwarna, di mana setiap tombol memiliki dua sisi berwarna merah dan putih.
+                        Player memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.
                         Permainan menentukan menang atau kalah berdasarkan jumlah situs merah atau putih yang dihadapi dalam hasil.
                     </p>
                 </li>

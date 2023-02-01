@@ -887,7 +887,7 @@ const TexasHoldGuideTemplate: React.FC<TexasHoldemGameGuideProps> = (props) => {
                     {renderMD5(language, locale)}
                 </li>
                 {
-                    renderTermsAndConditions("", locale, language.extendTermsAndConditionsDetails)
+                    renderTermsAndConditions(locale, language.extendTermsAndConditionsDetails)
                 }
 
             </ul>

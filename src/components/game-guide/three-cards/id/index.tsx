@@ -1,13 +1,13 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { useTranslation, TFunction } from "next-i18next";
+
+import { renderTermsAndConditionsID } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
     const bet = 10;
@@ -157,8 +157,9 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["black"]}`}>
                 <img
-                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${Styles[classMobile]
-                        }`}
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${
+                        Styles[classMobile]
+                    }`}
                     src={`./static/images/three-cards/table_txt_black_id.png`}
                     alt="black"
                 ></img>
@@ -224,7 +225,7 @@ const ThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionId} /></li>
+                {renderTermsAndConditionsID()}
             </ul>
         </>
     );

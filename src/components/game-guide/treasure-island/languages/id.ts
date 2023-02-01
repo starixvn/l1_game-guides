@@ -1,4 +1,3 @@
-import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 import { TreasureIslandLanguage } from "./types";
 
 export const id: TreasureIslandLanguage = {
@@ -111,5 +110,4 @@ export const id: TreasureIslandLanguage = {
         },
         tumbleDescriptions: ["1. Jumlah Jatuh Menang", "2. Pengganda Total: 5+3 =8"],
     },
-    termsAndConditions: baseTermAndConditionId,
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { locales } from "../../../../common/constants";
-import { renderTermsAndConditionsEN, renderTermsAndConditionsTW } from "../../../shared";
+import { renderTermsAndConditionsTW } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import Styles from "../fortune-cat.module.scss";
 import { GameConfigProps } from "../type";
@@ -457,7 +457,7 @@ const FortuneCatGuideTW: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsTW(Styles["guide-item"])}
+                {renderTermsAndConditionsTW()}
             </ul>
         </>
     );

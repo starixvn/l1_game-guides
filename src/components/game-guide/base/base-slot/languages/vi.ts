@@ -1,4 +1,3 @@
-import { baseTermAndConditionVi } from "../../terms-and-conditions/languages/vi";
 import { ISlotTranslationResource } from "../types";
 
 export const vi: ISlotTranslationResource = {
@@ -82,5 +81,4 @@ export const vi: ISlotTranslationResource = {
         description:
             "Trò chơi gồm 3 hàng 5 cột, với tất cả 11 biểu tượng khác nhau. Người chơi sẽ thắng nếu có các biểu tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.",
     },
-    termsAndConditions: baseTermAndConditionVi,
 };

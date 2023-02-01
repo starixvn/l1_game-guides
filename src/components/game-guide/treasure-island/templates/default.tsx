@@ -6,8 +6,7 @@ import OddDetailList from "../OddDetail";
 import { GameConfigProps } from "../type";
 import Styles from "../treasure-island.module.scss";
 import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
-import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
+import { renderTermsAndConditions } from "../../../shared";
 
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -515,7 +514,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     <li className="guide-item">{this.renderTumbling(resources)}</li>
                     <li className="guide-item">{this.renderMultipliers(resources, imageDirectoryName)}</li>
                     <li className="guide-item">{this.renderFreeSpins(odds, resources, imageDirectoryName, locale)}</li>
-                    <li className="guide-item"><BaseTermsAndConditions resources={resources.termsAndConditions} /></li>
+                    {renderTermsAndConditions(locale)}
                 </ul>
             </>
         );

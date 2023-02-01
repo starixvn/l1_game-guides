@@ -1,4 +1,3 @@
-import { baseTermAndConditionTh } from "../../terms-and-conditions/languages/th";
 import { ISlotTranslationResource } from "../types";
 
 export const th: ISlotTranslationResource = {
@@ -76,5 +75,4 @@ export const th: ISlotTranslationResource = {
         description:
             "เกมดังกล่าวประกอบด้วย 5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ ผู้เล่นจะชนะหากมีสัญลักษณ์เดียวกันอยู่บนเพย์ไลน์เดียวกันกับที่คุณเลือก",
     },
-    termsAndConditions: baseTermAndConditionTh,
 };

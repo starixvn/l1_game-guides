@@ -1,4 +1,3 @@
-import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
 import { IFanTanTranslationResource } from "./types";
 export const tw: IFanTanTranslationResource = {
     introduction: {
@@ -72,5 +71,4 @@ export const tw: IFanTanTranslationResource = {
         step3: `<b>第三步:</b> 轉到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 並將結果粘貼到 MD5 框中。`,
         step4: "<b>第四步:</b> 按“hash darling，hash！” 按鈕，並將新生成的校驗和 MD5 字符串與步驟 1 中的 MD5 密鑰進行比較。",
     },
-    termsAndConditions: baseTermAndConditionTw,
 };

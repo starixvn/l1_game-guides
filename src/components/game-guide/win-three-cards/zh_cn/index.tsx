@@ -1,11 +1,10 @@
 import React from "react";
+import { renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
-import { baseTermAndConditionCn } from "../../base/terms-and-conditions/languages/cn";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -382,7 +381,7 @@ const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                         </li>
                     </ul>
                 </li>
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionCn} /></li>
+                {renderTermsAndConditionsCN()}
             </ul>
         </>
     );

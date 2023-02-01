@@ -189,7 +189,7 @@ export default class BitcoinMasterTemplate extends React.Component<
                 {this.renderIntroduction()}
                 {this.renderGameRules()}
                 {this.renderPayouts()}
-                <li className="guide-item"><BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} /></li>
+                <BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} />
             </ul>
         );
     }

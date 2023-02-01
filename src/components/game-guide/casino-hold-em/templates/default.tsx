@@ -998,7 +998,7 @@ class CasinoHoldGuideTemplate<
                         {this.renderMD5()}
                     </li>
 
-                    {renderTermsAndConditions("", this.props.locale, this.state.translationResource.extendTermsAndConditionsDetails)}
+                    {renderTermsAndConditions(this.props.locale, this.state.translationResource.extendTermsAndConditionsDetails)}
                 </ul>
             </>
         );

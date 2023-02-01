@@ -1,8 +1,8 @@
 import React from "react";
 import { GameGuideProps } from "../../type";
+import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, ISlotTranslationResource } from "./types";
-import BaseTermsAndConditions from "../terms-and-conditions/terms-and-conditions";
-import { IBaseTermAndConditionResources } from "../terms-and-conditions/languages/types";
+
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
     readonly numberFirst = "number-first";
@@ -556,13 +556,10 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
     abstract getStyles(): { readonly [key: string]: string };
 
-    renderTermsAndConditions = (resources: IBaseTermAndConditionResources) => {
-        return (
-            <li className="guide-item">
-                <BaseTermsAndConditions resources={resources} />
-            </li>
-        );
-    };
+    renderTermAndConditions(locale?: string) {
+        return renderTermsAndConditions(locale);
+    }
+
     render(): React.ReactNode {
         const { gameConfigs, locale } = this.props;
         const { odds } = gameConfigs;
@@ -579,7 +576,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     {this.renderFreeSpin(odds, translationResource, styles)}
                     {this.renderBonus(odds, translationResource, styles)}
                     {this.renderWild(odds, translationResource, styles)}
-                    {this.renderTermsAndConditions(translationResource.termsAndConditions)}
+                    {this.renderTermAndConditions(locale)}
                 </ul>
             </>
         );

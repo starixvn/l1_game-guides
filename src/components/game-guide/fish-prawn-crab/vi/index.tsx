@@ -134,7 +134,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
                     </li>
                 )}
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>
+                <BaseTermsAndConditions resources={baseTermAndConditionVi} />
             </ul>
         </>
     );

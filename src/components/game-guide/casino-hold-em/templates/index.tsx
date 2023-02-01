@@ -1010,7 +1010,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                     <li id="md5" className="guide-item">
                         {this.renderMD5()}
                     </li>
-                    {renderTermsAndConditionsVI("", ['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
+                    {renderTermsAndConditionsVI(['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
                         nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24\
                         tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.'])}
                 </ul>

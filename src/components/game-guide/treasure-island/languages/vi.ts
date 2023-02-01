@@ -1,4 +1,3 @@
-import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 import { TreasureIslandLanguage } from "./types";
 
 export const vi: TreasureIslandLanguage = {
@@ -111,5 +110,4 @@ export const vi: TreasureIslandLanguage = {
         },
         tumbleDescriptions: ["1. Tiền Thắng Nổ Sập", "2. Tổng Số Nhân: 5+3 = 8"],
     },
-    termsAndConditions: baseTermAndConditionVi,
 };

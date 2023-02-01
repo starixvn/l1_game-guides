@@ -1,11 +1,11 @@
 import React from "react";
+import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../fruit-slot.module.scss";
 import { getFruitSlotTranslationResource } from "../languages";
 import { IFruitSlotTranslationResource } from "../languages/types";
 import { Markup } from "interweave";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> {
     renderIntroduction(translationResource: IFruitSlotTranslationResource, gameName: string) {
@@ -268,7 +268,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     {this.renderGameRule(translationResource, maxBetFollowChoice)}
                     {this.renderPayouts(translationResource, odds)}
                     {this.renderLuckySymbol(translationResource)}
-                    <li className="guide-item"><BaseTermsAndConditions resources={translationResource.termsAndConditions} /></li>
+                    {renderTermsAndConditions(locale)}
                 </ul>
             </>
         );

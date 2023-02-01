@@ -1,4 +1,3 @@
-import { baseTermAndConditionEn } from "../../terms-and-conditions/languages/en";
 import { ISlotTranslationResource } from "../types";
 
 export const en: ISlotTranslationResource = {
@@ -77,5 +76,4 @@ export const en: ISlotTranslationResource = {
         description:
             "The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same symbols located on the same payline that you have chosen.",
     },
-    termsAndConditions: baseTermAndConditionEn,
 };

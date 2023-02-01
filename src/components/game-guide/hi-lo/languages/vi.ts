@@ -1,4 +1,3 @@
-import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
 import { IHiLoTranslationResource } from "./types";
 export const vi: IHiLoTranslationResource = {
     introduction: {
@@ -56,5 +55,4 @@ export const vi: IHiLoTranslationResource = {
         title: "Trả thưởng",
         descriptions: ["Mỗi lượt dự đoán sẽ có mức thưởng khác nhau trên từng lựa chọn Cao/Thấp.", "Tiền thắng đã bao gồm tiền cược."],
     },
-    termsAndConditions: baseTermAndConditionVi,
 };

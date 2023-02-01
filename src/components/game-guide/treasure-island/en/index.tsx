@@ -1,5 +1,7 @@
 import React from "react";
+
 import { locales } from "../../../../common/constants";
+import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameGuideProps } from "../../type";
 import OddDetailList from "../OddDetail";
 import Styles from "../treasure-island.module.scss";
@@ -11,8 +13,6 @@ import {
     renderPayoutsIconFirstLine,
     renderPayoutsIconSecondLine,
 } from "../templates/vi";
-import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 const renderGameRule = (minValue: number, maxValue: number) => {
     return (
@@ -316,7 +316,7 @@ const TreasureIslandGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pr
                 <li className="guide-item">{renderTumbling()}</li>
                 <li className="guide-item">{renderMultipliers()}</li>
                 <li className="guide-item">{renderFreeSpins(odds, coin, level)}</li>
-                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionEn} /></li>
+                {renderTermsAndConditionsEN()}
             </ul>
         </>
     );
