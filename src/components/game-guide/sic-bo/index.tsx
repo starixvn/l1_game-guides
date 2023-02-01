@@ -70,13 +70,14 @@ const SicBoGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,        
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
         fractionalOddsFormat,
+        locale
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
             return <SicBoGuideVI {...resource} />
         case locales.id:
@@ -90,6 +91,6 @@ const SicBoGuide = (props: GameGuideBase) => {
 
         default:
             return <SicBoGuideEN {...resource} />
-    }    
+    }
 };
 export default SicBoGuide;

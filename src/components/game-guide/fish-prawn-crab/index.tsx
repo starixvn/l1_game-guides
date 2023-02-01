@@ -68,14 +68,15 @@ const FishPrawnCrab = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,      
-        environment,  
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
+        environment,
         fractionalOddsFormat,
+        locale
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
             return <FishPrawnCrabGuideVI {...resource} />
         case locales.id:

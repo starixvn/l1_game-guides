@@ -68,15 +68,16 @@ const BigSmallGuide = (props: GameGuideBase) => {
     }
     const resource = {
         gameConfigs: configs,
-        gameName: gameNameTranslate,  
+        gameName: gameNameTranslate,
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
+        locale
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
             return <BigSmallGuideVI {...resource} />
         case locales.id:
@@ -90,6 +91,6 @@ const BigSmallGuide = (props: GameGuideBase) => {
 
         default:
             return <BigSmallGuideEN {...resource} />
-    }    
+    }
 };
 export default BigSmallGuide;

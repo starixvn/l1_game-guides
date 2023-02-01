@@ -7,40 +7,7 @@ import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
-
-const renderMD5Example = (gameName: string) => {
-    return (
-        <>
-            <div className="content">
-                <strong> 示例</strong>：检查比赛结果的真实性和透明度
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>第一步：</strong> 在公布结果前复制MD5密钥。
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step1_cn.png?v=4" alt="md5-string" />
-                </li>
-                <li>
-                    <strong> 第二步：</strong> 发布后复制结果。
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step2_cn.png?v=4" alt="md5-result" />
-                    <div>注：从左到右，&#123;6, 2, 5&#125; 分别对应三个骰子的点数。</div>
-                </li>
-                <li>
-                    <strong>第三步</strong>: 转到{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    并将结果粘贴到 MD5 框中。
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step3_en.png?v=1" alt="hash-darling" />
-                </li>
-                <li>
-                    <strong> 第四步：</strong>按 “hash darling，hash!” 按钮，将新生成的校验和MD5 字符串与第一步中的 MD5 字符串进行比较。
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step4_en.png?v=1" alt="md5-checksum" />
-                </li>
-            </ul>
-        </>
-    );
-};
+import MD5 from "../../base/md5";
 
 const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -92,12 +59,14 @@ const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                         {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5CN()}
-                        {renderMD5Example(gameName)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && <MD5
+                    locale={props.locale}
+                    step1ImageUrl={"/static/images/big-small/md5_step1_cn.png?v=3"}
+                    step2ImageUrl={"/static/images/big-small/md5_step2_cn.png?v=3"}
+                    step3ImageUrl={"/static/images/big-small/md5_step3_en.png?v=1"}
+                    step4ImageUrl={"/static/images/big-small/md5_step4_en.png?v=1"}
+                    note={<div>注：从左到右，&#123;6, 2, 5&#125; 分别对应三个骰子的点数。</div>}
+                />}
                 {renderTermsAndConditionsCN()}
             </ul>
         </>
