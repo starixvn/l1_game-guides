@@ -5,8 +5,8 @@ import { renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../sic-bo.module.scss";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { formatOdds } from "../../../../helpers/number-helper";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -18,7 +18,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>一旦投注时间结束，骰子杯将被移除并显示结果。</li>
                 <li>每轮最大总赌注为 {maxBet}</li>
                 <li>
-                    每个投注选项显示的所有玩家的总投注额仅供参考。 
+                    每个投注选项显示的所有玩家的总投注额仅供参考。
                     对于不同的市场和货币，总和是根据公司设定的内部汇率换算的。
                 </li>
             </ul>
@@ -182,7 +182,7 @@ const SicBoGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameName}是一种在亚洲广受欢迎的赌场骰子游戏。 该游戏使用三个标准骰子进行。 
+                        {gameName}是一种在亚洲广受欢迎的赌场骰子游戏。 该游戏使用三个标准骰子进行。
                         这个游戏的目的是预测掷骰子的结果。 玩家可以投注特定的骰子结果和骰子的总价值。
                     </p>
                 </li>
@@ -246,36 +246,14 @@ const SicBoGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderPayouts(odds, maxBetFollowChoice, t, fractionalOddsFormat)}
-                <li className="guide-item">
-                    {renderMD5EN()}
-                    <div className="content">
-                        <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
-                    </div>
-                    <ul className="desc">
-                        <li>
-                            <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step1_cn.png?v=4" alt="md5-string" />
-                        </li>
-                        <li>
-                            <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step2_cn.png?v=4" alt="md5-result" />
-                            <div>Note: From the left to right, &#123;3, 2, 1&#125; correspond to the the value of three dice.</div>
-                        </li>
-                        <li>
-                            <strong>Step 3:</strong> Go to{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            and paste the Result into the MD5 box.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step3_en.png?v=1" alt="hash-darling" />
-                        </li>
-                        <li>
-                            <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                            string with the MD5 string in Step 1.
-                            <img className="format-img auto-center" src="/static/images/sicbo/md5_step4_en.png?v=1" alt="md5-checksum" />
-                        </li>
-                    </ul>
-                </li>
+                <MD5
+                    locale={props.locale}
+                    step1ImageUrl={"/static/images/sicbo/md5_step1_cn.png?v=3"}
+                    step2ImageUrl={"/static/images/sicbo/md5_step2_cn.png?v=3"}
+                    step3ImageUrl={"/static/images/sicbo/md5_step3_en.png?v=1"}
+                    step4ImageUrl={"/static/images/sicbo/md5_step4_en.png?v=1"}
+                    note={<div>注：从左到右， &#123;3, 2, 1&#125; 分别对应三个骰子的点数。</div>}
+                />
                 {renderTermsAndConditionsCN()}
             </ul>
         </>
