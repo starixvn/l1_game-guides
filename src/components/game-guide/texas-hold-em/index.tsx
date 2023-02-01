@@ -72,8 +72,6 @@ const TexasHoldGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    console.log("locale ", locale, locales);
-
     switch (locale) {
         case locales.vi:
             return (

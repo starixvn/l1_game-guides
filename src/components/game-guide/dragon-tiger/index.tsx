@@ -62,7 +62,6 @@ const DragonTigerGuide = (props: GameGuideBase) => {
         locale,
     };
 
-    console.log(locale);
     if (locale === locales.vi) {
         return <DragonTigerGuideVI {...resource} />;
     }

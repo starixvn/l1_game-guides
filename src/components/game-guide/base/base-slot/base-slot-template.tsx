@@ -565,7 +565,6 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
         const { odds } = gameConfigs;
         const translationResource = this.getTranslationResource(locale);
         const styles = this.getStyles();
-        console.log(locale);
 
         return (
             <>
