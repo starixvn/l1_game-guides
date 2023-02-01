@@ -10,7 +10,7 @@ import MD5 from "../../base/md5";
 import { Markup } from "interweave";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { renderToString } from "react-dom/server";
-import TexasTermsAndConditions from "./terms-and-coditions";
+import { renderTermsAndConditions } from "../../../shared";
 
 type TexasHoldemGameGuideProps = GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { language: TexasHoldemLanguage };
 
@@ -886,18 +886,10 @@ const TexasHoldGuideTemplate: React.FC<TexasHoldemGameGuideProps> = (props) => {
                 <li id="md5" className="guide-item">
                     {renderMD5(language, locale)}
                 </li>
-                <li className="guide-item">
-                    <TexasTermsAndConditions resources={language.termsAndConditions}>
-                        <li className="number-dot">
-                            {language.otherTerms.header}
-                            <ul className="detail">
-                                {language.otherTerms.descriptions.map((des, index) => (
-                                    <li key={index}>{des}</li>
-                                ))}
-                            </ul>
-                        </li>
-                    </TexasTermsAndConditions>
-                </li>
+                {
+                    renderTermsAndConditions("", locale, language.extendTermsAndConditionsDetails)
+                }
+
             </ul>
         </>
     );

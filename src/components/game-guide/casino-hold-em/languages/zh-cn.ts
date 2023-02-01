@@ -208,4 +208,7 @@ export const cn: ICasinoHoldTranslationResource = {
             },
         },
     },
+    extendTermsAndConditionsDetails: [
+        "未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。",
+    ],
 };

@@ -18,7 +18,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                 <li>选择筹码值并单击您要下注的每手牌的圆圈（下注点）</li>
                 <li>玩家可以同时玩多只手（最多 3 只）</li>
                 <li>
-                点击“Deal”按钮确认投注，或点击“X”重置您的投注。 请注意，发牌后无法取消投注。
+                    点击“Deal”按钮确认投注，或点击“X”重置您的投注。 请注意，发牌后无法取消投注。
                 </li>
                 <li>
                     最小赌注和最大赌注必须在 {minBet} - {maxBet} 之间，每手的最大总赌注为 {maxBet}
@@ -227,7 +227,8 @@ const BlackjackGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsCN("", 23)}        
+                {renderTermsAndConditionsCN("", ['未完成的游戏回合可以恢复，并且必须在玩家按下“发牌”按钮后的 24 小时内完成。<br>\
+                            未完成的游戏将在 24 小时后自动结算。 玩家的手牌被视为&#34;停牌&#34;，系统将根据中断时桌上的牌计算输赢。'])}
             </ul>
         </>
     );

@@ -1,6 +1,5 @@
 import { TexasHoldemLanguage } from "./types";
 import { id as BaseMD5Resource } from "../../base/md5/languages/id";
-import { baseTermAndConditionId } from "../../base/terms-and-conditions/languages/id";
 
 export const id: TexasHoldemLanguage = {
     introduction: {
@@ -155,12 +154,15 @@ export const id: TexasHoldemLanguage = {
             line2: "If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards {0}, Player’s cards {1}, and the five community cards.",
         },
     },
-    termsAndConditions: baseTermAndConditionId,
-    otherTerms: {
-        header: "Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan tombol “Deal”. Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam, dan hasil menang-kalah akan ditentukan dengan aturan berikut:",
-        descriptions: [
-            "Jika putaran permainan terganggu sebelum Player memilih “CALL” atau “FOLD => Tangan Player dianggap sebagai “FOLD”.",
-            "Jika putaran permainan terganggu setelah Player memilih opsi “CALL”, tangan Player dianggap sebagai “CHECK” untuk Taruhan Putaran dan River => Putaran permainan akan diselesaikan seperti biasa.",
-        ],
-    },
+    extendTermsAndConditionsDetails: [
+        `Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan tombol "Deal". Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam, dan hasil menang-kalah akan ditentukan dengan aturan berikut:
+        <ul className="detail">
+            <li>
+                Jika putaran permainan terganggu sebelum Player memilih “CALL” atau “FOLD => Tangan Player dianggap sebagai “FOLD”.
+            </li>
+            <li>
+                Jika putaran permainan terganggu setelah Player memilih opsi “CALL”, tangan Player dianggap sebagai “CHECK” untuk Taruhan Putaran dan River => Putaran permainan akan diselesaikan seperti biasa.
+            </li>
+        </ul>`,
+    ],
 };

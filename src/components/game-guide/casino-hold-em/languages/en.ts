@@ -211,4 +211,8 @@ export const en: ICasinoHoldTranslationResource = {
             },
         },
     },
+    extendTermsAndConditionsDetails: [
+        "The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the\
+    “Deal” button. The unfinished game will be automatically settled after 24 hours. The player&apos;s hand is considered as “FOLD”.",
+    ],
 };

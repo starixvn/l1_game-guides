@@ -208,4 +208,7 @@ export const tw: ICasinoHoldTranslationResource = {
             },
         },
     },
+    extendTermsAndConditionsDetails: [
+        "未完成的遊戲回合可以恢復，必須在玩家按下“發牌”按鈕後24小時內完成。未完成的遊戲將在24小時後自動結算。玩家的牌被視為“棄牌”。",
+    ],
 };

@@ -1,6 +1,5 @@
 import { TexasHoldemLanguage } from "./types";
 import { en as BaseMD5Resource } from "../../base/md5/languages/en";
-import { baseTermAndConditionEn } from "../../base/terms-and-conditions/languages/en";
 
 export const en: TexasHoldemLanguage = {
     introduction: {
@@ -155,12 +154,15 @@ export const en: TexasHoldemLanguage = {
             line2: "If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards {0}, Player’s cards {1}, and the five community cards.",
         },
     },
-    termsAndConditions: baseTermAndConditionEn,
-    otherTerms: {
-        header: "The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be determined by the following rules:",
-        descriptions: [
-            "If the game round is disrupted before the Player selects either “CALL” or “FOLD” => The Player’s hand is considered as “FOLD”.",
-            "If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered as “CHECK” for Turn and River bet => The game round will be settled as normal.",
-        ],
-    },
+    extendTermsAndConditionsDetails: [
+        `The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be determined by the following rules:
+        <ul className="detail">
+            <li>
+                If the game round is disrupted before the Player selects either “CALL” or “FOLD” => The Player’s hand is considered as “FOLD”.
+            </li>
+            <li>
+                If the game round is disrupted after the Player selects the “CALL” option, the Player’s hand is considered as “CHECK” for Turn and River bet => The game round will be settled as normal.
+            </li>
+        </ul>`,
+    ],
 };

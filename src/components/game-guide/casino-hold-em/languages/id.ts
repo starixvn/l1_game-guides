@@ -213,4 +213,9 @@ export const id: ICasinoHoldTranslationResource = {
             },
         },
     },
+    extendTermsAndConditionsDetails: [
+        'Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan\
+        tombol "Deal". Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. Tangan pemain\
+        dianggap sebagai “FOLD”.',
+    ],
 };

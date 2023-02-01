@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { CardPointValuesTable } from "..";
 import Styles from "../blackjack.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderTermsAndConditionsVI } from "../../../shared";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
     const wrapperImg = "wrapper-img";
@@ -224,34 +225,10 @@ const BlackjackGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-
-                <li className="guide-item">
-                    <h2>Các quy định trong game</h2>
-                    <ul className="style-number-rule">
-                        <li className="number-dot">
-                            Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi
-                            bấm nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng,
-                            đồng nghĩa với Người Chơi đã chấp nhận “Dừng, không rút thêm bài”. Hệ thống sẽ tự động tính toán kết quả thắng
-                            thua dựa trên các lá bài đang có của Người Chơi.
-                        </li>
-                        <li className="number-dot">
-                            Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược trong trường hợp hệ thống xảy ra bất kỳ lỗi kỹ
-                            thuật nào, bao gồm nhưng không hạn chế bởi các lỗi về phần mềm, phần cứng hoặc mạng kết nối.
-                        </li>
-                        <li className="number-dot">
-                            Công ty có quyền hủy hoặc làm mất hiệu lực đối với mọi lượt cược khi nghi ngờ khách hàng có những hoạt động gian
-                            lận, tham gia lừa đảo, câu kết, rửa tiền hay các hoạt động bất hợp pháp khác.
-                        </li>
-                        <li className="number-dot">
-                            Công ty có quyền hủy hoặc làm mất hiệu lực mọi lượt cược khi có lỗi (thuộc về con người hay yếu tố khác) hoặc sự
-                            cố hệ thống dẫn đến việc sử dụng sai tỷ lệ trả thưởng.
-                        </li>
-                        <li className="number-dot">
-                            Tất cả các lượt cược vào các phiên cược đã được chấp nhận vẫn sẽ có hiệu lực ngay cả khi sau đó thành viên đăng
-                            xuất hoặc bị ngắt kết nối khỏi hệ thống game vì bất kỳ lý do gì.
-                        </li>
-                    </ul>
-                </li>
+                {renderTermsAndConditionsVI("", ['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi\
+                            bấm nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng,\
+                            đồng nghĩa với Người Chơi đã chấp nhận “Dừng, không rút thêm bài”. Hệ thống sẽ tự động tính toán kết quả thắng\
+                            thua dựa trên các lá bài đang có của Người Chơi.'])}
             </ul>
         </>
     );

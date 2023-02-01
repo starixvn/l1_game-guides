@@ -1,12 +1,12 @@
 import React from "react";
-
-import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderIconChoice } from "../en";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
+import { baseTermAndConditionVi } from "../../base/terms-and-conditions/languages/vi";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, environment, fractionalOddsFormat } = props;
@@ -134,7 +134,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
                     </li>
                 )}
-                {renderTermsAndConditionsVI()}
+                <li className="guide-item"><BaseTermsAndConditions resources={baseTermAndConditionVi} /></li>
             </ul>
         </>
     );

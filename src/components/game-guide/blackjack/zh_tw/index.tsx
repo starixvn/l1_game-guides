@@ -119,7 +119,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                             </tr>
                                             <tr>
                                                 <td>
-                                                加倍
+                                                    加倍
                                                     <img
                                                         className={Styles[wrapperImg]}
                                                         src="./static/images/blackjack/guide_double.png"
@@ -129,7 +129,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                 <td className="text-start">
                                                     <ul className="desc">
                                                         <li>
-                                                            如果前兩張牌的總點數為 9、10 或 11 點，則玩家可以將原來的賭注翻倍並只獲得一張額外的牌。 
+                                                            如果前兩張牌的總點數為 9、10 或 11 點，則玩家可以將原來的賭注翻倍並只獲得一張額外的牌。
                                                             發牌後，手牌將站立。
                                                         </li>
                                                     </ul>
@@ -163,7 +163,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolea
             <h2>支出</h2>
             <ul className="desc">
                 <li>
-                    中獎金額根據派彩率計算。 
+                    中獎金額根據派彩率計算。
                     <strong>請注意，</strong> 支付包括初始投注。
                 </li>
                 <li>
@@ -204,7 +204,7 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameName}（也稱為“21”）是一款有趣且令人愉快的賭場紙牌遊戲。 
+                        {gameName}（也稱為“21”）是一款有趣且令人愉快的賭場紙牌遊戲。
                         遊戲使用六副標準的 52 張牌（不包括 Joker）洗牌。 在二十一點中，玩家與莊家對戰，遊戲的目的是讓您的牌的總點數盡可能接近 21，但不超過 21。
                         如果您的牌的總點數比莊家的牌更接近 21，則玩家將獲勝。
                     </p>
@@ -214,11 +214,11 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>積分計算規則</h2>
                     <ul className="desc">
                         <li>
-                        從 2 到 10 的所有牌都按面值計算，無論花色如何，面牌（J、Queen、King）計為 10
+                            從 2 到 10 的所有牌都按面值計算，無論花色如何，面牌（J、Queen、King）計為 10
                         </li>
                         <li>一張 A 算作 1 或 11，以最適合您的手牌為準。</li>
                         <li>
-                        擁有 21 點的手牌（前兩張牌上 21 點）將勝過使用 3 張或更多牌獲得的 21 點。
+                            擁有 21 點的手牌（前兩張牌上 21 點）將勝過使用 3 張或更多牌獲得的 21 點。
                         </li>
                         <li>卡點值：{CardPointValuesTable(t)}</li>
                     </ul>
@@ -229,7 +229,8 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsTW("", 23)}        
+                {renderTermsAndConditionsTW("", [`未完成的遊戲回合可以恢復，並且必須在玩家按下“發牌”按鈕後的 24 小時內完成。<br>
+                            未完成的遊戲將在 24 小時後自動結算。 玩家的手牌被視為&#34;停牌&#34;，系統將根據中斷時桌上的牌計算輸贏。`])}
             </ul>
         </>
     );

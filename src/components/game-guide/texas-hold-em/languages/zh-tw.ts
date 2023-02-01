@@ -1,6 +1,5 @@
 import { TexasHoldemLanguage } from "./types";
 import { tw as BaseMD5Resource } from "../../base/md5/languages/tw";
-import { baseTermAndConditionTw } from "../../base/terms-and-conditions/languages/tw";
 
 export const zhTW: TexasHoldemLanguage = {
     introduction: {
@@ -139,12 +138,13 @@ export const zhTW: TexasHoldemLanguage = {
             line2: "如果閒家與莊家交換了他的牌，那麼順序將是：莊家的牌 {0}，閒家的牌 {1}，以及五張公共牌。",
         },
     },
-    termsAndConditions: baseTermAndConditionTw,
-    otherTerms: {
-        header: "未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。",
-        descriptions: [
-            "如果在玩家选择“跟注”或“弃牌”之前游戏回合中断 => 玩家的牌被视为“弃牌”。",
-            "如果在玩家选择“跟注”选项后游戏回合中断，玩家的手牌将被视为转牌和河牌下注的“CHECK” => 游戏回合将照常结算。",
-        ],
-    },
+    extendTermsAndConditionsDetails: [
+        `未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。
+        <ul className="detail">
+            <li>如果在玩家选择“跟注”或“弃牌”之前游戏回合中断 => 玩家的牌被视为“弃牌”。</li>
+            <li>
+                如果在玩家选择“跟注”选项后游戏回合中断，玩家的手牌将被视为转牌和河牌下注的“CHECK” => 游戏回合将照常结算。
+            </li>
+        </ul>`,
+    ],
 };

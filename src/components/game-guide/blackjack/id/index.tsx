@@ -245,7 +245,10 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsID("", 23)}
+                {renderTermsAndConditionsID("", ['Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain\
+                            menekan tombol "Deal".<br>\
+                            Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. Tangan pemain dianggap STAND dan\
+                            sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.'])}
             </ul>
         </>
     );

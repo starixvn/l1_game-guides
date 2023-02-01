@@ -205,4 +205,5 @@ export interface ICasinoHoldTranslationResource {
             };
         };
     };
+    extendTermsAndConditionsDetails: string[];
 }

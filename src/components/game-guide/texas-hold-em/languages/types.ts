@@ -1,5 +1,4 @@
 import { IMd5Resources } from "../../base/md5/languages/types";
-import { IBaseTermAndConditionResources } from "../../base/terms-and-conditions/languages/types";
 
 export type TexasHoldemLanguage = {
     introduction: {
@@ -110,9 +109,5 @@ export type TexasHoldemLanguage = {
             line2: string;
         };
     };
-    termsAndConditions: IBaseTermAndConditionResources;
-    otherTerms: {
-        header: string;
-        descriptions: string[];
-    };
+    extendTermsAndConditionsDetails: string[];
 };
