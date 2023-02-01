@@ -95,18 +95,14 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return (
-        <li className="guide-item" id="md5">
-            <MD5
-                locale={locale}
-                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
-                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
-                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_th.png?v=2`}
-                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_th.png?v=2`}
-                note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
-            />
-        </li>
-    );
+    return <MD5
+        locale={locale}
+        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
+        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
+        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_th.png?v=2`}
+        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_th.png?v=2`}
+        note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
+    />;
 };
 
 

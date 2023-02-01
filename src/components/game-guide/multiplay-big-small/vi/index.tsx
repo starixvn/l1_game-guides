@@ -9,18 +9,14 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
 
 const renderMd5Vi = (locale?: string) => {
-    return (
-        <li className="guide-item" id="md5">
-            <MD5
-                locale={locale}
-                step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_vi.png?v=3"}
-                step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_vi.png?v=3"}
-                step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_vi.png?v=1"}
-                step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_vi.png?v=1"}
-                note={<div>Trong đó &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
-            />
-        </li>
-    );
+    return <MD5
+        locale={locale}
+        step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_vi.png?v=3"}
+        step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_vi.png?v=3"}
+        step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_vi.png?v=1"}
+        step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_vi.png?v=1"}
+        note={<div>Trong đó &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
+    />;
 };
 
 const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

@@ -120,10 +120,10 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
 
     render(): React.ReactNode {
         return (
-            <>
+            <li className="guide-item" id="md5">
                 {this.renderMD5Content()}
                 {this.renderMD5Example()}
-            </>
+            </li>
         );
     }
 }

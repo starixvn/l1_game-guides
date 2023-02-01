@@ -17,24 +17,20 @@ class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState>
     renderMd5 = () => {
         const { md5 } = this.state.resources;
 
-        return (
-            <li className="guide-item" id="md5">
-                <MD5
-                    locale={this.props.locale}
-                    step1ImageUrl={md5.step1ImageUrl}
-                    step2ImageUrl={md5.step2ImageUrl}
-                    step3ImageUrl={md5.step3ImageUrl}
-                    step4ImageUrl={md5.step4ImageUrl}
-                    note={
-                        <>
-                            {md5.step2Noted1Text} <span className={Styles["black"]}>7♠️</span> <span className={Styles["black"]}>3♠️</span>{" "}
-                            <span className={Styles["red"]}>7♦️</span> <span className={Styles["black"]}>K♣️</span>{" "}
-                            <span className={Styles["black"]}>2♠️</span> <span className={Styles["red"]}>Q♦️</span> {md5.step2Noted2Text}
-                        </>
-                    }
-                />
-            </li>
-        );
+        return <MD5
+            locale={this.props.locale}
+            step1ImageUrl={md5.step1ImageUrl}
+            step2ImageUrl={md5.step2ImageUrl}
+            step3ImageUrl={md5.step3ImageUrl}
+            step4ImageUrl={md5.step4ImageUrl}
+            note={
+                <>
+                    {md5.step2Noted1Text} <span className={Styles["black"]}>7♠️</span> <span className={Styles["black"]}>3♠️</span>{" "}
+                    <span className={Styles["red"]}>7♦️</span> <span className={Styles["black"]}>K♣️</span>{" "}
+                    <span className={Styles["black"]}>2♠️</span> <span className={Styles["red"]}>Q♦️</span> {md5.step2Noted2Text}
+                </>
+            }
+        />;
     };
 }
 

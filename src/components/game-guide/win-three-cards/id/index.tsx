@@ -4,7 +4,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderMD5ID } from "../../../shared/md5-count-down-timer/id";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -338,7 +338,7 @@ export const renderRankingLevel = () => {
 };
 
 const WinThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -357,55 +357,17 @@ const WinThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderCardType()}
                 {renderRankingLevel()}
-                <li className="guide-item">
-                    {renderMD5ID()}
-                    <div className="content">
-                        <strong> Contoh:</strong> periksa keaslian dan transparansi hasil permainan {gameName}
-                    </div>
-                    <ul className="desc">
-                        <li>
-                            <strong>Langkah 1:</strong> Salin Kunci MD5 sebelum hasilnya diumumkan.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_id.png?v=3"
-                                alt="md5-string"
-                            />
-                        </li>
-                        <li>
-                            <strong>Langkah 2:</strong> Salin Hasil setelah dipublikasikan.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_id.png?v=3"
-                                alt="md5-result"
-                            />
-                            <div>
-                                Catatan: Dari kiri ke kanan, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ sesuai dengan urutan kartu yang dibagikan di awal
-                                putaran permainan.
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Langkah 3:</strong> Buka{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            dan rekatkan Hasil ke kotak MD5.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step3_vi.png?v=1"
-                                alt="hash-darling"
-                            />
-                        </li>
-                        <li>
-                            <strong>Langkah 4:</strong> Tekan tombol “hash darling, hash!” dan bandingkan rangkaian daftar periksa MD5 yang
-                            baru dibuat dengan Kunci MD5 di Langkah 1.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step4_vi.png?v=1"
-                                alt="md5-checksum"
-                            />
-                        </li>
-                    </ul>
-                </li>
+                <MD5
+                    locale={locale}
+                    step1ImageUrl={"/static/images/win-three-cards/md5_step1_id.png?v=3"}
+                    step2ImageUrl={"/static/images/win-three-cards/md5_step2_id.png?v=3"}
+                    step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
+                    step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
+                    note={<div>
+                        Catatan: Dari kiri ke kanan, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ sesuai dengan urutan kartu yang dibagikan di awal
+                        putaran permainan.
+                    </div>}
+                />
                 {renderTermsAndConditionsID()}
             </ul>
         </>

@@ -96,18 +96,14 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return (
-        <li className="guide-item" id="md5">
-            <MD5
-                locale={locale}
-                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
-                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
-                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                note={<div>Note: Red and white correspond to two sides of the button.</div>}
-            />
-        </li>
-    );
+    return <MD5
+        locale={locale}
+        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_en.png?v=5`}
+        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_en.png?v=5`}
+        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+        note={<div>Note: Red and white correspond to two sides of the button.</div>}
+    />;
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

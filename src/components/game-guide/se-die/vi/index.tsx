@@ -186,18 +186,14 @@ const renderPayoutTable = (
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return (
-        <li className="guide-item" id="md5">
-            <MD5
-                locale={locale}
-                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_vi.png?v=5`}
-                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_vi.png?v=5`}
-                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_vi.png?v=2`}
-                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_vi.png?v=2`}
-                note={<div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>}
-            />
-        </li>
-    );
+    return <MD5
+        locale={locale}
+        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_vi.png?v=5`}
+        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_vi.png?v=5`}
+        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_vi.png?v=2`}
+        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_vi.png?v=2`}
+        note={<div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>}
+    />;
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

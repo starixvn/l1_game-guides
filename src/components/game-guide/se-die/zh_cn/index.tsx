@@ -90,18 +90,14 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return (
-        <li className="guide-item" id="md5">
-            <MD5
-                locale={locale}
-                step1ImageUrl={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
-                step2ImageUrl={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
-                step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                note={<div>注：红色和白色对应按钮的两侧。</div>}
-            />
-        </li>
-    );
+    return <MD5
+        locale={locale}
+        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
+        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
+        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+        note={<div>注：红色和白色对应按钮的两侧。</div>}
+    />;
 };
 
 

@@ -827,36 +827,34 @@ export const renderMD5 = (language: TexasHoldemLanguage, locale: string | undefi
             <span className={Styles["black"]}>10♣</span>)
         </>
     );
-    return (
-        <MD5
-            locale={locale}
-            resources={md5.md5Base}
-            step1ImageUrl={`/static/images/texas-hold-em/md5_${locale}.png`}
-            step2ImageUrl={`/static/images/texas-hold-em/md5_result_${locale}.png`}
-            step3ImageUrl="/static/images/texas-hold-em/hash-darling.png"
-            step4ImageUrl="/static/images/texas-hold-em/md5-checksum.png"
-            note={
-                <>
-                    <strong>{md5.md5Note.title}</strong>
-                    <ul className="detail">
-                        <li>
-                            <Markup
-                                content={StringFormat(
-                                    md5.md5Note.line1,
-                                    renderToString(playerCards),
-                                    renderToString(dealerCards),
-                                    renderToString(communityCards)
-                                )}
-                            />
-                        </li>
-                        <li>
-                            <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
-                        </li>
-                    </ul>
-                </>
-            }
-        />
-    );
+    return <MD5
+        locale={locale}
+        resources={md5.md5Base}
+        step1ImageUrl={`/static/images/texas-hold-em/md5_${locale}.png`}
+        step2ImageUrl={`/static/images/texas-hold-em/md5_result_${locale}.png`}
+        step3ImageUrl="/static/images/texas-hold-em/hash-darling.png"
+        step4ImageUrl="/static/images/texas-hold-em/md5-checksum.png"
+        note={
+            <>
+                <strong>{md5.md5Note.title}</strong>
+                <ul className="detail">
+                    <li>
+                        <Markup
+                            content={StringFormat(
+                                md5.md5Note.line1,
+                                renderToString(playerCards),
+                                renderToString(dealerCards),
+                                renderToString(communityCards)
+                            )}
+                        />
+                    </li>
+                    <li>
+                        <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                    </li>
+                </ul>
+            </>
+        }
+    />;
 };
 
 const TexasHoldGuideTemplate: React.FC<TexasHoldemGameGuideProps> = (props) => {

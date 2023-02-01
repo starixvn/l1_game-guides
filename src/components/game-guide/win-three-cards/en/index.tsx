@@ -3,8 +3,8 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import { formatOdds } from "../../../../helpers/number-helper";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -335,7 +335,7 @@ export const renderRankingLevel = () => {
 };
 
 const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -353,55 +353,17 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderCardType()}
                 {renderRankingLevel()}
-                <li className="guide-item">
-                    {renderMD5EN()}
-                    <div className="content">
-                        <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
-                    </div>
-                    <ul className="desc">
-                        <li>
-                            <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_en.png?v=3"
-                                alt="md5-string"
-                            />
-                        </li>
-                        <li>
-                            <strong>Step 2:</strong> Copy the Result after it is published.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_en.png?v=3"
-                                alt="md5-result"
-                            />
-                            <div>
-                                Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning
-                                of the game round.
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Step 3:</strong> Go to{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            and paste the Result into the MD5 box.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step3_vi.png?v=1"
-                                alt="hash-darling"
-                            />
-                        </li>
-                        <li>
-                            <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                            string with the MD5 string in Step 1.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step4_vi.png?v=1"
-                                alt="md5-checksum"
-                            />
-                        </li>
-                    </ul>
-                </li>
+                <MD5
+                    locale={locale}
+                    step1ImageUrl={"/static/images/win-three-cards/md5_step1_en.png?v=3"}
+                    step2ImageUrl={"/static/images/win-three-cards/md5_step2_en.png?v=3"}
+                    step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
+                    step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
+                    note={<div>
+                        Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning
+                        of the game round.
+                    </div>}
+                />
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
