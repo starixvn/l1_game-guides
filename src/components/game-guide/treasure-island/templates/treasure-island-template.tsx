@@ -71,10 +71,10 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
     }
 
     convertOddDetail(odd: any, isFreeSpin: boolean) {
-        let oddList: OddDetailList[] = [];
+        const oddList: OddDetailList[] = [];
         for (const item in odd) {
             const symbol = odd[item];
-            let oddDetail: OddDetailList = { oddItem: [] };
+            const oddDetail: OddDetailList = { oddItem: [] };
             for (const sub in symbol) {
                 if (!isFreeSpin) {
                     const from = symbol[sub].from;
@@ -106,7 +106,8 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
     ) {
         const { symbols } = odds;
         const currMaxBet = maxWinPerRound;
-        let oddDetail = this.convertOddDetail(symbols, false);
+        const oddDetail = this.convertOddDetail(symbols, false);
+
         return (
             <>
                 <h2>{resources.payout.title}</h2>
@@ -137,6 +138,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         resources: TreasureIslandLanguage,
         imageDirectoryName: string
     ) {
+        const oddItems = [...symbol.oddItem].reverse();
         const { table } = resources.examplePayout;
         return (
             <>
@@ -154,30 +156,30 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                         </thead>
                         <tbody>
                             <tr>
-                                <td rowSpan={3}>{this.renderIconContent("item8", true, true, symbol, coin, level, false)}</td>
+                                <td rowSpan={3}>{this.renderIconContent("item8", true, true, symbol, coin, level)}</td>
                                 <td>
-                                    {<Markup content={table.getHavingSymbol(symbol.oddItem[0].countString)} />}{" "}
+                                    {<Markup content={table.getHavingSymbol(oddItems[0].countString)} />}{" "}
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent} <br></br>
-                                    {table.payout} {+(+(symbol.oddItem[0].count * coin * level)).toFixed(2)}
+                                    {table.payout} {+(+(oddItems[0].count * coin * level)).toFixed(2)}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    {table.getHavingSymbol(symbol.oddItem[1].countString)}{" "}
+                                    {table.getHavingSymbol(oddItems[1].countString)}{" "}
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent}
                                     <br></br>
-                                    {table.payout} {+(+(symbol.oddItem[1].count * coin * level)).toFixed(2)}
+                                    {table.payout} {+(+(oddItems[1].count * coin * level)).toFixed(2)}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    {table.getHavingSymbol(symbol.oddItem[2].countString)}{" "}
+                                    {table.getHavingSymbol(oddItems[2].countString)}{" "}
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent}
                                     <br></br>
-                                    {table.payout} {+(+(symbol.oddItem[2].count * coin * level)).toFixed(2)}
+                                    {table.payout} {+(+(oddItems[2].count * coin * level)).toFixed(2)}
                                 </td>
                             </tr>
                         </tbody>
@@ -244,6 +246,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
     renderFreeSpins(odds: any, resources: TreasureIslandLanguage, imageDirectoryName: string, locale: string | undefined) {
         const { freeSpins } = odds;
         const oddDetail = this.convertOddDetail(freeSpins, true);
+        const oddItems = [...oddDetail[0].oddItem].reverse();
         const { subDescriptions } = resources.freeSpin;
         const { table, tumbleDescriptions } = resources.exampleFreeSpin;
         return (
@@ -266,23 +269,23 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                         <tr>
                                             <td rowSpan={3}>{this.renderIconContentBlack("scatter", oddDetail[0], " FREE SPINS")}</td>
                                             <td>
-                                                {<Markup content={subDescriptions.getSymbolOrMore(oddDetail[0].oddItem[0].countString)} />}
+                                                {<Markup content={subDescriptions.getSymbolOrMore(oddItems[0].countString)} />}
                                                 <br></br>
-                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[0].count)}
+                                                {subDescriptions.getFreeSpin(oddItems[0].count)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                {<Markup content={subDescriptions.getSymbol(oddDetail[0].oddItem[1].countString)} />}
+                                                {<Markup content={subDescriptions.getSymbol(oddItems[1].countString)} />}
                                                 <br></br>
-                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[1].count)}
+                                                {subDescriptions.getFreeSpin(oddItems[1].count)}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                {<Markup content={subDescriptions.getSymbol(oddDetail[0].oddItem[2].countString)} />}
+                                                {<Markup content={subDescriptions.getSymbol(oddItems[2].countString)} />}
                                                 <br></br>
-                                                {subDescriptions.getFreeSpin(oddDetail[0].oddItem[2].count)}
+                                                {subDescriptions.getFreeSpin(oddItems[2].count)}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -370,8 +373,9 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         isReverse = true
     ) {
         const imageDirectoryName = getImageDirectoryName();
-        const pathSrc = itemName === "item10" ? `${imageDirectoryName}/` : `${imageDirectoryName}/`;
-        const oddItemList = isReverse ? dataContent.oddItem.reverse() : dataContent.oddItem;
+        const pathSrc = `${imageDirectoryName}/`;
+        const oddItemReverse = [...dataContent.oddItem];
+        const oddItemList = isReverse ? oddItemReverse.reverse() : dataContent.oddItem;
         return (
             <div className={Styles["wrapper-icon"]}>
                 <img
@@ -444,6 +448,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
 
     renderIconContentBlack(itemName: string, dataContent: OddDetailList, textAfterNumber: string) {
         const imageDirectoryName = getImageDirectoryName();
+        const oddItems = [...dataContent.oddItem].reverse();
         return (
             <span className={Styles["wrapper-icon-dark"]}>
                 <img
@@ -465,7 +470,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                         itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
                     }`}
                 >
-                    {dataContent.oddItem.reverse().map((data, index) => {
+                    {oddItems.map((data, index) => {
                         return (
                             <div
                                 key={index}
