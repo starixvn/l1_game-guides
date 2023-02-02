@@ -89,18 +89,18 @@ ul {
     .guide-item {
         counter-increment: guide-list;
 
-        &:before {
-            content: counter(guide-list) ". ";
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: var(--title-font-size);
-        }
-
         h2 {
             display: inline-block;
             font-size: var(--title-font-size);
             font-weight: 500;
             color: var(--primary-color);
+
+            &:before {
+                content: counter(guide-list) ". ";
+                color: var(--primary-color);
+                font-weight: 500;
+                font-size: var(--title-font-size);
+            }
         }
     }
 
@@ -113,7 +113,7 @@ ul {
         margin-bottom: 1rem;
 
         > li {
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             font-weight: normal;
 
             &:before {
@@ -252,7 +252,7 @@ ul {
         margin-bottom: 1rem;
 
         .number-dot {
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             counter-increment: number-dot-list;
             &:before {
                 content: counter(guide-list) "." counter(number-dot-list) " ";

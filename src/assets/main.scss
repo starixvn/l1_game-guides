@@ -252,31 +252,34 @@
 }
 
 [data-theme="classic-slot-template"] {
-    --primary-color: #ffd700;
+    --primary-color: #eabf01;
     --text-color: #fff;
-    --page-background: transparent;
+    --page-background: #040605;
+
+    // heading
+    --heading1: #fff;
 
     // scrollbar
     --scrollbar-background: #312f3d;
-    --scrollbar-thumb-background: #be3e35;
+    --scrollbar-thumb-background: #ddb402;
 
     // font-size
     --font-size: 2rem;
     --font-size-table: 2rem;
 
     // table
-    --table-background: #181626;
-    --table-border: #eeae6e;
+    --table-background: #292929;
+    --table-border: #323232;
     --table-color: #fff;
-    --table-header-background: #6f0d0f;
+    --table-header-background: #141414;
     --table-header-color: #fff;
-    --border-line: #eeae6e 1px solid;
+    --border-line: #323232 1px solid;
 
     // symbol wrapper
-    --symbol-wrapper-bg: #370c26;
-    --symbol-wrapper-border: #fff200;
+    --symbol-wrapper-bg: #171516;
+    --symbol-wrapper-border: transparent;
     --symbol-wrapper-number-color: #fff;
-    --symbol-wrapper-number-highlight-color: #ffd700;
+    --symbol-wrapper-number-highlight-color: #eabf01;
     --symbol-wrapper-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -326,7 +329,7 @@ label {
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .font-weight-normal {

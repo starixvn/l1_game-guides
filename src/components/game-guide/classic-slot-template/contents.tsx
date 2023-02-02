@@ -1,8 +1,9 @@
-import React from "react";
 import { Trans, useTranslation } from "next-i18next";
+import React from "react";
+
+import appSettings from "../../../common/app-settings";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
-import appSettings from "../../../common/app-settings";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -13,7 +14,7 @@ let imgSrc = "";
 const renderGameRule = (t: Function) => {
     return (
         <>
-            <h2>{t("GameRule-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("GameRule-title")}</h2>
             <ul className="desc">
                 <li>
                     {t("GameRule-line-1")}
@@ -35,7 +36,7 @@ const renderGameRule = (t: Function) => {
 const renderPayouts = (odds: number[][], t: Function) => {
     return (
         <li className="guide-item">
-            <h2>{t("Paytable-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("Paytable-title")}</h2>
             <ul className="desc">
                 <li>{t("Paytable-line-1")}</li>
                 <li>
@@ -176,8 +177,8 @@ const renderExamplePayout = (odds: number[][], t: Function) => {
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>{t("Common-symbol")}</th>
-                            <th>{t("Common-Description")}</th>
+                            <th className="bold">{t("Common-symbol")}</th>
+                            <th className="bold">{t("Common-Description")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -230,7 +231,7 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2>{t("FreeSpin-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("FreeSpin-title")}</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     7,
@@ -253,7 +254,6 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
-                            <div className={Styles["overlay"]}></div>
                         </div>
 
                         <span>{t("FreeSpin-line-4")}</span>
@@ -272,7 +272,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2>{t("Bonus-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("Bonus-title")}</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     8,
@@ -295,7 +295,6 @@ const renderBonus = (odds: number[][], t: Function) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
-                            <div className={Styles["overlay"]}></div>
                         </div>
 
                         <span>{t("Bonus-line-4")}</span>
@@ -310,7 +309,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 const renderWild = (odds: number[][], t: Function) => {
     return (
         <li className="guide-item">
-            <h2>{t("Wild-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("Wild-title")}</h2>
             <div className={Styles["wild-content"]}>
                 <span className={Styles["wrapper-wild"]}>{generateSymbol(9)}</span>
 
@@ -350,7 +349,7 @@ const renderWild = (odds: number[][], t: Function) => {
 const renderTermsAndConditions = (t: Function) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2>{t("TermsAndConditions-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("TermsAndConditions-title")}</h2>
             <ul className="style-number-rule">
                 <li className="number-dot">{t("TermsAndConditions-line-1")}</li>
                 <li className="number-dot">{t("TermsAndConditions-line-2")}</li>
@@ -370,7 +369,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>{t("Introduction-title")}</h2>
+                    <h2 className={Styles["heading1"]}>{t("Introduction-title")}</h2>
                     <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[10, 6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
