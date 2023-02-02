@@ -67,7 +67,7 @@ const Home = () => {
     const [name, setName] = useState<string>("");
     const router = useRouter();
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const [gameConfigs, setGameConfigs] = useState<GameConfigs>({});
+    const [gameConfigs, setGameConfigs] = useState<GameConfigs>();
     const [dynamic, setDynamic] = useState<boolean>(true);
     const [isGetGameConfigs, setIsGetGameConfigs] = useState<boolean>(true);
     const [isScrollMD5, setIsScrollMD5] = useState<boolean>(false);
@@ -76,6 +76,20 @@ const Home = () => {
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
 
     const getTemplateFollowEnv = () => {
+        const props = {
+            gameId,
+            locale: router?.locale ?? "en",
+            userStakeLevel,
+            name,
+            gameConfigs,
+            dynamic,
+            isScrollMD5,
+            isGetGameConfigs,
+            environment,
+            isInPromotionTime,
+            fractionalOddsFormat,
+        };
+
         if (environment === ENVIRONMENT.si) {
             return <GameGuideMini {...props} />;
         }
@@ -123,20 +137,6 @@ const Home = () => {
     if (isLoading) {
         return <></>;
     }
-
-    const props = {
-        gameId,
-        locale: router?.locale ?? "en",
-        userStakeLevel,
-        name,
-        gameConfigs,
-        dynamic,
-        isScrollMD5,
-        isGetGameConfigs,
-        environment,
-        isInPromotionTime,
-        fractionalOddsFormat,
-    };
 
     return (
         <div ref={wrapperRef} id="container-guide" className="container-guide">

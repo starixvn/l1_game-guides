@@ -1,9 +1,0 @@
-{
-    "m_intro": "is an exciting dice game played with three dice. The players place bets and predict the total points of the three dice are BIG or SMALL.",
-    "m_winning_condition_l1": "The player can bet on either BIG or SMALL, but not on both.",
-    "m_winning_condition_l2": "BIG: the total points of three dice >= 11",
-    "m_winning_condition_l3": "SMALL: the total points of the three dice <= 10 ",
-    "m_winning_condition_l4": "Balanced Betting Pool: if the total amounts bet on BIG and SMALL are different then the gap amount will be refunded to the players who have the latest bet ticket.",
-    "m_winning_condition_l5": "<strongExample:</strong> Player A bets 100 on BIG, player B bets 40 on SMALL, and C bets 80 on SMALL. To balance the total amounts bet on BIG and SMALL, the system will refund 20 to player C.",
-    "m_bet_limit_l1": "Min bet and Max bet must be between {{minBet}} - {{maxBet}} and the maximum total stake per round is {{maxBet}}"
-}
