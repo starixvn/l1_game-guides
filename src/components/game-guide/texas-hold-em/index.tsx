@@ -6,13 +6,13 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
 import { en } from "./languages/en";
 import { id as idLanguage } from "./languages/id";
 import { th } from "./languages/th";
 import { zhCN } from "./languages/zh-cn";
 import { zhTW } from "./languages/zh-tw";
 import { TexasHoldemLanguage } from "./languages/types";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -80,7 +80,7 @@ const TexasHoldGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         isScrollMD5,
         fractionalOddsFormat,
-        locale
+        locale,
     };
 
     if (locale === locales.vi) {
@@ -89,11 +89,21 @@ const TexasHoldGuide = (props: GameGuideBase) => {
 
     let langProp: TexasHoldemLanguage;
     switch (locale) {
-        case locales.id: langProp = idLanguage; break;
-        case locales.th: langProp = th; break;
-        case locales.zh_cn: langProp = zhCN; break;
-        case locales.zh_tw: langProp = zhTW; break;
-        default: langProp = en; break;
+        case locales.id:
+            langProp = idLanguage;
+            break;
+        case locales.th:
+            langProp = th;
+            break;
+        case locales.zh_cn:
+            langProp = zhCN;
+            break;
+        case locales.zh_tw:
+            langProp = zhTW;
+            break;
+        default:
+            langProp = en;
+            break;
     }
 
     return <TexasHoldGuideTemplate {...{ ...shareProps, ...{ language: langProp } }} />;

@@ -4,12 +4,12 @@ import FourGuardiansGuideEN from "./en";
 import FourGuardiansGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 import FourGuardiansGuideID from "./id";
 import FourGuardiansGuideTH from "./th";
 import FourGuardiansGuideCN from "./zh_cn";
 import FourGuardiansGuideTW from "./zh_tw";
+import { getGameConfigProject } from "../../index.helper";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;

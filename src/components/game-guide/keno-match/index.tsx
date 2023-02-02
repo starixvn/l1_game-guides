@@ -7,7 +7,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
+import { getGameConfigProject } from "../../index.helper";
 
 export const minPayoutBlue = 1.06;
 export const minPayoutRed = 1.06;

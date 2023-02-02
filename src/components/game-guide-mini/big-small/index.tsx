@@ -4,7 +4,8 @@ import BigSmallGuideTemplate from "./template";
 import { GameGuideBase } from "../../game-guide/type";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
-import { getGameConfigProject, handleMaxBetChoice } from "../../game-guide/index.helper";
+import { handleMaxBetChoice } from "../../game-guide/index.helper";
+import { getGameConfigProject } from "../../index.helper";
 
 const BigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -23,7 +24,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
     const getLocalGameConfigs = () => {
-        getGameConfigProject("big-small", project, setConfigs);
+        getGameConfigProject("big-small", project, setConfigs, "game-guide-mini");
     };
 
     const getDynamicGameConfig = () => {

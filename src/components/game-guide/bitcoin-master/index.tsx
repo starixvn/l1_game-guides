@@ -4,8 +4,8 @@ import { GameGuideBase } from "../type";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../index.helper";
 import BitcoinMasterTemplate from "./templates/default";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;

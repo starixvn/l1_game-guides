@@ -3,8 +3,9 @@ import dynamic from "next/dynamic";
 
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../index.helper";
+import { handleMaxBetChoiceKenoPro } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import { getGameConfigProject } from "../../index.helper";
 
 const KenoProMaxGuideEN = dynamic(() => import("./en"));
 const KenoProMaxGuideVI = dynamic(() => import("./vi"));

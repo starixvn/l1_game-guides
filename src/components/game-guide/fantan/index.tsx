@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import FanTanTemplate from "./templates/default";
 import FanTanGuideVI from "./templates/vi";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;

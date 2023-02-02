@@ -5,13 +5,13 @@ import WinThreeCardsGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../index.helper";
 import WinThreeCardsGuideID from "./id";
 import WinThreeCardsGuideTH from "./th";
 import WinThreeCardsGuideZH_CN from "./zh_cn";
 import WinThreeCardsGuideZH_TW from "./zh_tw";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;

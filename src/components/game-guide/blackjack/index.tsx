@@ -9,8 +9,9 @@ import BlackjackGuideCN from "./zh_cn";
 import BlackjackGuideTW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import { getGameConfigProject } from "../../index.helper";
 
 const BlackjackGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -56,18 +57,18 @@ const BlackjackGuide = (props: GameGuideBase) => {
 
     switch (locale) {
         case locales.vi:
-            return <BlackjackGuideVI {...resource} />
+            return <BlackjackGuideVI {...resource} />;
         case locales.id:
-            return <BlackjackGuideID {...resource} />
+            return <BlackjackGuideID {...resource} />;
         case locales.th:
-            return <BlackjackGuideTH {...resource} />
+            return <BlackjackGuideTH {...resource} />;
         case locales.zh_cn:
             return <BlackjackGuideCN {...resource} />;
         case locales.zh_tw:
             return <BlackjackGuideTW {...resource} />;
 
         default:
-            return <BlackjackGuideEN {...resource} />
+            return <BlackjackGuideEN {...resource} />;
     }
 };
 

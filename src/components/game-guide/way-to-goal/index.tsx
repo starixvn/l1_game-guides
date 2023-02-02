@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 import { WayToGoalTemplate } from "./templates/default";
 import WayToGoalGuideVI from "./templates/vi";
+import { getGameConfigProject } from "../../index.helper";
 
 const WayToGoalGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;

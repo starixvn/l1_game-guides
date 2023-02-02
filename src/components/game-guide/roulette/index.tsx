@@ -11,7 +11,7 @@ import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../index.helper";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -65,25 +65,25 @@ const RouletteGuide = (props: GameGuideBase) => {
 
     const resource = {
         gameConfigs: configs,
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,     
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
         fractionalOddsFormat,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <RouletteGuideVI {...resource} />
+            return <RouletteGuideVI {...resource} />;
         case locales.id:
-            return <RouletteGuideID {...resource} />
+            return <RouletteGuideID {...resource} />;
         case locales.th:
-            return <RouletteGuideTH {...resource} />
+            return <RouletteGuideTH {...resource} />;
         case locales.zh_cn:
             return <RouletteGuideCN {...resource} />;
         case locales.zh_tw:
             return <RouletteGuideTW {...resource} />;
 
         default:
-            return <RouletteGuideEN {...resource} />
-    }      
+            return <RouletteGuideEN {...resource} />;
+    }
 };
 export default RouletteGuide;

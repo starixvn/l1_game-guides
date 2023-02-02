@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { GameGuideBase } from "../type";
 import { GameConfigProps } from "./type";
-import { getGameConfigProject } from "../index.helper";
 import TreasureIslandGuideTemplate from "./templates/default";
+import { getGameConfigProject } from "../../index.helper";
 
 const TreasureIslandGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;

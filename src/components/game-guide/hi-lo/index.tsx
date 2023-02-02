@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
 import { GameConfigProps } from "../big-small/type";
-import { getGameConfigProject } from "../index.helper";
 import HiLoGuideTemplate from "./templates/default";
 import HiLoGuideVI from "./templates/vi";
+import { getGameConfigProject } from "../../index.helper";
 
 const HiLoGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {

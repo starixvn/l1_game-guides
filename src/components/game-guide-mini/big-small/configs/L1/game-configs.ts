@@ -5,7 +5,7 @@ const odds = {
 
 const GameConfigs = {
     maxBetPerChoices: {},
-    maxBet: 2000,
+    maxBet: 4000,
     minBet: 1,
     odds: odds,
 };

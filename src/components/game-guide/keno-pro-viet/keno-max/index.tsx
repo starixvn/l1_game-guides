@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { GameGuideBase } from "../../type";
-import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.helper";
+import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import KenoProGuideTemplate from "./templates/default";
+import { getGameConfigProject } from "../../../index.helper";
 
 const KenoMaxGuide = (props: GameGuideBase) => {
     const {

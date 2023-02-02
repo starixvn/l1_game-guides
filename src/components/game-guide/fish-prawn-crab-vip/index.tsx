@@ -11,7 +11,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -61,25 +61,25 @@ const FishPrawnCrabVIP = (props: GameGuideBase) => {
     const resource = {
         gameConfigs: configs,
         userStakeLevel,
-        gameName: gameNameTranslate,  
-        maxBetFollowChoice,        
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
         fractionalOddsFormat,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <FishPrawnCrabGuideVI {...resource} />
+            return <FishPrawnCrabGuideVI {...resource} />;
         case locales.id:
-            return <FishPrawnCrabGuideID {...resource} />
+            return <FishPrawnCrabGuideID {...resource} />;
         case locales.th:
-            return <FishPrawnCrabGuideTH {...resource} />
+            return <FishPrawnCrabGuideTH {...resource} />;
         case locales.zh_cn:
             return <FishPrawnCrabGuideCN {...resource} />;
         case locales.zh_tw:
             return <FishPrawnCrabGuideTW {...resource} />;
 
         default:
-            return <FishPrawnCrabGuideEN {...resource} />
-    }    
+            return <FishPrawnCrabGuideEN {...resource} />;
+    }
 };
 export default FishPrawnCrabVIP;

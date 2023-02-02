@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import FruitSlotGuideVI from "./templates/vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import FruitSlotGuideTemplate from "./templates/default";
+import { getGameConfigProject } from "../../index.helper";
 
 const FruitSlotGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment, project } = props;
