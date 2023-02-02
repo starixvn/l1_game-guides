@@ -6,3 +6,7 @@ include:
     - project: "ci/repos-ci/pentagon_l2_game_guides"
       ref: master
       file: "gitlab-ci-mixing.yml"
+
+
+unit-test-js:
+  image: hub.lumigame.com/base/node:16.15-slim
