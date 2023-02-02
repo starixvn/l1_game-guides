@@ -30,7 +30,7 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number) => {
     let fontFamily = "SanFranciscoDisplay";
-    if (env === ENVIRONMENT.sc) {
+    if (env !== ENVIRONMENT.sm) {
         switch (locale) {
             case "th":
                 fontFamily = "Noto-Thai";
@@ -53,7 +53,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
 
 const handleEnv = (queryParams: object | any) => {
     if (queryParams?.f) {
-        return queryParams.f ?? ENVIRONMENT.sc;
+        return queryParams.f;
     }
 
     return ENVIRONMENT.sm;
