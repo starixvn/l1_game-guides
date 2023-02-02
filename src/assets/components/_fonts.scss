@@ -11,26 +11,6 @@
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("/static/fonts/roboto/Roboto-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Roboto";
-    src: url("/static/fonts/roboto/Roboto-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("/static/fonts/roboto/Roboto-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-display: swap;
-}
-
-@font-face {
     font-family: "Noto";
     src: url("/static/fonts/noto/NotoSerif-Regular.ttf") format("truetype");
     font-weight: 500;
@@ -97,5 +77,19 @@
     font-family: "SanFranciscoDisplay";
     src: url("/static/fonts/SF-Pro-Display-Semibold.otf") format("opentype");
     font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Kodchasan";
+    src: url("/static/fonts/kodchasan/Kodchasan-ExtraLight.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Kodchasan";
+    src: url("/static/fonts/kodchasan/Kodchasan-Bold.ttf") format("truetype");
+    font-weight: 700;
     font-display: swap;
 }
