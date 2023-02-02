@@ -6,10 +6,7 @@ import { GameGuideProps } from "../../../game-guide/type";
 import { IBigSmallMiniTranslationResource } from "../languages/types";
 import { getBigSmallMiniTranslationResource } from "../languages";
 import { StringFormat } from "../../../../helpers/string-helper";
-
-export interface BaseState<TranslationResource> {
-    translationResource: TranslationResource;
-}
+import { BaseState } from "../../game-guide-mini";
 
 class BigSmallGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,

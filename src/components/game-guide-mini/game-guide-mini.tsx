@@ -7,7 +7,12 @@ import { GAMES_MINI } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 
+export interface BaseState<TranslationResource> {
+    translationResource: TranslationResource;
+}
+
 const BigSmallGuide = dynamic(() => import("./big-small"));
+const SeDieMiniGuideTemplate = dynamic(() => import("./se-die-mini"));
 
 class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
@@ -16,9 +21,10 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
         switch (gameId) {
             case GAMES_MINI.BIG_SMALL:
                 return <BigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.MINI_SE_DIE:
+                return <SeDieMiniGuideTemplate key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.FISH_PRAWN_CRAB:
             case GAMES_MINI.DRAGON_TIGER:
-            case GAMES_MINI.MINI_SE_DIE:
             case GAMES_MINI.BACCARAT:
             case GAMES_MINI.HILO:
                 return <></>;
