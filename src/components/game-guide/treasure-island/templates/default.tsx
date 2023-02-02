@@ -8,7 +8,7 @@ import Styles from "../treasure-island.module.scss";
 import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
 import { renderTermsAndConditions } from "../../../shared";
 
-export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
+export default abstract class TreasureIslandGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
     readonly numberFirst = "number-first";
     readonly numberSecond = "number-second";
@@ -81,7 +81,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     const to = symbol[sub].to;
                     const oddValue = symbol[sub].odds;
                     oddDetail.oddItem.push({
-                        countString: from + "-" + to,
+                        countString: `${from}-${to}`,
                         count: oddValue,
                     });
                 } else {
@@ -122,14 +122,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                         {this.renderExamplePayouts(oddDetail[8], coin, level, resources, imageDirectoryName)}
                     </div>
 
-                    <li>
-                        The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin
-                        have been played.
-                    </li>
-                    <li>
-                        The maximum win amount is limited to {currMaxBet}X bet. If the total win of a round reaches the max win value, the
-                        game round immediately ends. The win is awarded up to the limitation and all remaining features are forfeited.
-                    </li>
+                    {resources.payout.description3(currMaxBet).map((desc3, index) => (
+                        <li key={index}>{desc3}</li>
+                    ))}
                 </ul>
             </>
         );
@@ -389,8 +384,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
                 <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
                 <div
-                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
-                        }`}
+                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                        isGem && Styles["gem-position"]
+                    }`}
                 >
                     {oddItemList.map((data, index) => {
                         const value = +(+(data.count * coin * level)).toFixed(2);
@@ -465,8 +461,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={itemName}
                 ></img>
                 <div
-                    className={`${Styles["icon-content-wrapper"]} ${itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
-                        }`}
+                    className={`${Styles["icon-content-wrapper"]} ${
+                        itemName === "item8" ? Styles["bonus-position"] : Styles["spin-position"]
+                    }`}
                 >
                     {dataContent.oddItem.reverse().map((data, index) => {
                         return (

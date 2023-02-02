@@ -184,6 +184,8 @@ const GameConfigs = {
     coinValues: [0.5, 1, 2, 0.05, 0.1],
     maxWinPerRound: 20,
     odds: Odds,
+    coin: 0.01,
+    level: 5,
 };
 
 export default GameConfigs;

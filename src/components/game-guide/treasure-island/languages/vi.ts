@@ -4,8 +4,8 @@ export const vi: TreasureIslandLanguage = {
     introduction: {
         title: "Giới thiệu",
         description:
-            "Treasure Island là một thể loại Slot game xếp tầng (Game xèng xếp tầng) trực tuyến đã trở nên cực kỳ phổ biến với người chơi vì nó mang lại nhiều cơ hội chiến thắng hơn so với các Slot game kiểu cũ. \
-            Trò chơi bao gồm sáu cột, năm hàng và mười biểu tượng khác nhau.",
+            "Treasure Island là một thể loại Slot game xếp tầng (Game xèng xếp tầng) trực tuyến đã trở nên cực kỳ phổ biến với người chơi vì nó mang lại nhiều cơ hội chiến thắng hơn so với các Slot game kiểu cũ. " +
+            "Trò chơi bao gồm sáu cột, năm hàng và mười biểu tượng khác nhau.",
     },
 
     gameRules: {
@@ -34,8 +34,8 @@ export const vi: TreasureIslandLanguage = {
         description3(currMaxBet: number) {
             return [
                 "Tổng số tiền thắng cược sẽ được cộng ngay vào tài khoản của người chơi khi phiên kết thúc.",
-                `Số tiền thắng tối đa của một phiên là ${currMaxBet}X tiền cược. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì phiên chơi sẽ ngay lập tức kết thúc. \
-                Tổng số tiền thắng sẽ được trả đến mức thắng tối đa, các tính năng còn lại sẽ không được tính vào số tiền thắng cuối cùng.`,
+                `Số tiền thắng tối đa của một phiên là ${currMaxBet}X tiền cược. Nếu tổng số tiền thắng của một phiên đạt mức tối đa thì phiên chơi sẽ ngay lập tức kết thúc. ` +
+                    `Tổng số tiền thắng sẽ được trả đến mức thắng tối đa, các tính năng còn lại sẽ không được tính vào số tiền thắng cuối cùng.`,
             ];
         },
     },
@@ -94,8 +94,8 @@ export const vi: TreasureIslandLanguage = {
             return `Trong lượt Free Spins, nếu có 4 hoặc nhiều hơn 4 biểu tượng SCATTER xuất hiện ở bảng kết quả, người chơi sẽ được thưởng thêm ${value} lượt Free Spins.`;
         },
         totalMultiplier:
-            "Trong phiên của Free Spins, khi xuất hiện biểu tượng Số Nhân và kết quả Nổ Sập là thắng, giá trị Số Nhân sẽ được cộng dồn vào Tổng Số Nhân. \
-            Giá trị Tổng Số Nhân được sử dụng để tính toán tiền thưởng.",
+            "Trong phiên của Free Spins, khi xuất hiện biểu tượng Số Nhân và kết quả Nổ Sập là thắng, giá trị Số Nhân sẽ được cộng dồn vào Tổng Số Nhân. " +
+            "Giá trị Tổng Số Nhân được sử dụng để tính toán tiền thưởng.",
         freeSpin24h:
             "Người chơi phải hoàn tất các lượt quay miễn phí trong vòng 24 tiếng tính từ thời điểm trúng Free Spin, sau khoảng thời gian này, các lượt quay chưa sử dụng sẽ bị hủy.",
     },

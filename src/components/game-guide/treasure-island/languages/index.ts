@@ -25,7 +25,3 @@ const supportedLanguages: { [name: string]: TreasureIslandLanguage } = {
 export const getTreasureIslandTranslationResource = (langKey: string | undefined) => {
     return getTranslationResource<TreasureIslandLanguage>(langKey, supportedLanguages, en);
 };
-
-export const getStyles = () => {
-    return Styles;
-};

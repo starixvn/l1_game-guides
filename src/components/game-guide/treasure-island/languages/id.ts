@@ -4,8 +4,8 @@ export const id: TreasureIslandLanguage = {
     introduction: {
         title: "Perkenalan",
         description:
-            "Pulau Harta Karun adalah permainan slot cascading online yang telah menjadi sangat populer di kalangan pemain online karena menawarkan banyak peluang untuk menang jika dibandingkan dengan mesin slot model lama. \
-            Permainan ini terdiri dari enam gulungan, lima baris, dan sepuluh simbol berbeda.",
+            "Pulau Harta Karun adalah permainan slot cascading online yang telah menjadi sangat populer di kalangan pemain online karena menawarkan " +
+            "banyak peluang untuk menang jika dibandingkan dengan mesin slot model lama. Permainan ini terdiri dari enam gulungan, lima baris, dan sepuluh simbol berbeda.",
     },
 
     gameRules: {
@@ -34,8 +34,8 @@ export const id: TreasureIslandLanguage = {
         description3(currMaxBet: number) {
             return [
                 "Jumlah yang menang langsung ditambahkan ke saldo akun Anda ketika semua kejatuhan yang dihasilkan dari putaran dasar telah dimainkan.",
-                `Jumlah kemenangan maksimum terbatas pada ${currMaxBet}X taruhan. Jika total kemenangan suatu ronde mencapai nilai max win, maka ronde permainan langsung berakhir. \
-                Kemenangan diberikan hingga batas dan semua fitur yang tersisa hangus. `,
+                `Jumlah kemenangan maksimum terbatas pada ${currMaxBet}X taruhan. Jika total kemenangan suatu ronde mencapai nilai max win, ` +
+                    `maka ronde permainan langsung berakhir. Kemenangan diberikan hingga batas dan semua fitur yang tersisa hangus. `,
             ];
         },
     },
@@ -94,8 +94,9 @@ export const id: TreasureIslandLanguage = {
             return `Setiap kali 4 atau lebih simbol SCATTER muncul selama putaran Free Spins, ${value} Free Spins tambahan akan diberikan.`;
         },
         totalMultiplier:
-            "Selama durasi putaran Free Spins, setiap kali simbol Pengali baru muncul dan putaran menghasilkan kemenangan, nilai Pengali ditambahkan ke total pengali. \
-            Nilai Pengganda Total digunakan untuk menghitung jumlah Win.",
+            "Selama durasi putaran Free Spins, setiap kali simbol Pengali baru muncul dan putaran menghasilkan kemenangan, " +
+            "nilai Pengali ditambahkan ke total pengali. Nilai Pengganda Total digunakan untuk menghitung jumlah Win.",
+
         freeSpin24h:
             "Pemain harus menyelesaikan Bonus Free Spins dalam waktu 24 jam setelah dikeluarkan. Free Spins yang tidak digunakan akan hilang.",
     },

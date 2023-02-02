@@ -4,8 +4,8 @@ export const en: TreasureIslandLanguage = {
     introduction: {
         title: "Introduction",
         description:
-            "Treasure Island is an online cascading slot game that has become extremely popular with online gamers as it offers multiple chances to win when compared to the older-style slot machines. \
-            The game consists of six reels, five rows, and ten different symbols.",
+            "Treasure Island is an online cascading slot game that has become extremely popular with online gamers as it offers multiple chances to win " +
+            "when compared to the older-style slot machines. The game consists of six reels, five rows, and ten different symbols.",
     },
 
     gameRules: {
@@ -34,8 +34,8 @@ export const en: TreasureIslandLanguage = {
         description3(currMaxBet: number) {
             return [
                 "The winning amounts is instantly added to your account balance when all of the tumbles resulting from a base spin have been played.",
-                `The maximum win amount is limited to ${currMaxBet}X bet. If the total win of a round reaches the max win value, the game round immediately ends. \
-                The win is awarded up to the limitation and all remaining features are forfeited. `,
+                `The maximum win amount is limited to ${currMaxBet}X bet. If the total win of a round reaches the max win value, the game round immediately ends. ` +
+                    `The win is awarded up to the limitation and all remaining features are forfeited. `,
             ];
         },
     },
@@ -94,8 +94,8 @@ export const en: TreasureIslandLanguage = {
             return `Whenever 4 or more SCATTER symbols appear during the Free Spins round, ${value} additional free spins are awarded.`;
         },
         totalMultiplier:
-            "For the whole duration of Free Spins rounds, whenever any new Multiplier symbols appear and the spinning result in the win, the Multiplier value is added to the total multiplier. \
-            The Total Multiplier value is used to calculate the Win amount.",
+            "For the whole duration of Free Spins rounds, whenever any new Multiplier symbols appear and the spinning result in the win, " +
+            " the Multiplier value is added to the total multiplier. The Total Multiplier value is used to calculate the Win amount.",
         freeSpin24h: "The Player must complete the Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.",
     },
 
