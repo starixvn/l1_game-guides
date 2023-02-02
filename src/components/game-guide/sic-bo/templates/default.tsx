@@ -27,7 +27,7 @@ export default class SicBoTemplate extends React.Component<
         return (
             <li className="guide-item">
                 <h2>{introduction.title}</h2>
-                <p className="content">{introduction.title}</p>
+                <p className="content">{introduction.description}</p>
             </li>
         );
     }
