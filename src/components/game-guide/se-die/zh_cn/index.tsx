@@ -90,16 +90,17 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return <MD5
-        locale={locale}
-        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
-        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
-        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-        note={<div>注：红色和白色对应按钮的两侧。</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={`/static/images/${currentGameType}/md5_step1_cn.png?v=5`}
+            step2ImageUrl={`/static/images/${currentGameType}/md5_step2_cn.png?v=5`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+            note={<div>注：红色和白色对应按钮的两侧。</div>}
+        />
+    );
 };
-
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -138,7 +139,8 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>支付</h2>
                     <ul className="desc">
-                        <li>中奖金额根据派彩率计算。 支付包括初始本金。</li>
+                        <li>中奖金额根据投注赔率计算。</li>
+                        <li>支付包括初始本金。</li>
                         <li>
                             投注结算后，所有中奖金额都会立即添加到您的账户余额中。
                             <div className="table-container">

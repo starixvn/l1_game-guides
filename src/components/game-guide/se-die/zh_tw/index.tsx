@@ -90,14 +90,16 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return <MD5
-        locale={locale}
-        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_tw.png?v=5`}
-        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_tw.png?v=5`}
-        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-        note={<div>注：紅色和白色對應按鈕的兩側。</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={`/static/images/${currentGameType}/md5_step1_tw.png?v=5`}
+            step2ImageUrl={`/static/images/${currentGameType}/md5_step2_tw.png?v=5`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+            note={<div>注：紅色和白色對應按鈕的兩側。</div>}
+        />
+    );
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
@@ -137,7 +139,8 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>支付</h2>
                     <ul className="desc">
-                        <li>中獎金額根據派彩率計算。 支付包括初始本金。</li>
+                        <li>中獎金額根據投注賠率計算。</li>
+                        <li>支付包括初始本金。</li>
                         <li>
                             投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。
                             <div className="table-container">

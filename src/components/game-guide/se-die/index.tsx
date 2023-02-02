@@ -102,6 +102,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         environment,
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
+        locale,
     };
 
     switch (locale) {

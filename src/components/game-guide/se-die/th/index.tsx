@@ -95,16 +95,17 @@ const renderStatistical = () => {
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return <MD5
-        locale={locale}
-        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
-        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
-        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_th.png?v=2`}
-        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_th.png?v=2`}
-        note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
+            step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+            note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
+        />
+    );
 };
-
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -144,7 +145,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน</li>
                         <li>การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>
                             จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
