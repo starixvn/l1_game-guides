@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import SicBoGuideEN from "./en";
-import SicBoGuideVI from "./vi";
-import SicBoGuideTW from "./zh_tw";
-import SicBoGuideCN from "./zh_cn";
-import SicBoGuideTH from "./th";
-import SicBoGuideID from "./id";
 import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../index.helper";
+import SicBoTemplate from "./templates/default";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -74,23 +68,8 @@ const SicBoGuide = (props: GameGuideBase) => {
         gameName: gameNameTranslate,
         maxBetFollowChoice,
         fractionalOddsFormat,
-        locale
+        locale,
     };
-
-    switch (locale) {
-        case locales.vi:
-            return <SicBoGuideVI {...resource} />
-        case locales.id:
-            return <SicBoGuideID {...resource} />
-        case locales.th:
-            return <SicBoGuideTH {...resource} />
-        case locales.zh_cn:
-            return <SicBoGuideCN {...resource} />;
-        case locales.zh_tw:
-            return <SicBoGuideTW {...resource} />;
-
-        default:
-            return <SicBoGuideEN {...resource} />
-    }
+    return <SicBoTemplate {...resource} />;
 };
 export default SicBoGuide;

@@ -959,10 +959,11 @@ const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li id="md5" className="guide-item">
                     {renderMD5()}
                 </li>
-                {renderTermsAndConditionsVI([`Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm
+                {renderTermsAndConditionsVI([
+                    `Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm Người Chơi bấm
                         nút “Chia Bài”. Trong trường hợp Người Chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24 tiếng, hệ thống
                         xử lý theo các quy định sau:
-                        <ul className="detail">
+                        <ul class="detail">
                             <li>
                                 Nếu phiên bị gián đoạn trước khi Người Chơi bấm nút “Theo Bài” đồng nghĩa với Người Chơi chấp nhận “Bỏ Bài”.
                             </li>
@@ -971,7 +972,8 @@ const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                                 Turn và River. Thắng thua sẽ được phân định dựa trên kết quả 5 lá bài tốt nhất có thể kết hợp trong tổng số
                                 7 lá bài (2 lá được chia cho mỗi bên và 5 lá bài chung) của Người Chơi và Nhà Cái.
                             </li>
-                        </ul> `])}
+                        </ul> `,
+                ])}
             </ul>
         </div>
     );

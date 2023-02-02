@@ -156,7 +156,7 @@ export const en: TexasHoldemLanguage = {
     },
     extendTermsAndConditionsDetails: [
         `The unfinished game round can be recovered and must be finished within 24 hours from the time the Player presses the “Deal” button. The unfinished game will be automatically settled after 24 hours, and the Win-loss result will be determined by the following rules:
-        <ul className="detail">
+        <ul class="detail">
             <li>
                 If the game round is disrupted before the Player selects either “CALL” or “FOLD” => The Player’s hand is considered as “FOLD”.
             </li>

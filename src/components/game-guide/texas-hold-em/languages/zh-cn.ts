@@ -140,7 +140,7 @@ export const zhCN: TexasHoldemLanguage = {
     },
     extendTermsAndConditionsDetails: [
         `未完成的游戏回合可以恢复，必须在玩家按下“发牌”按钮后24小时内完成。未完成的游戏将在24小时后自动结算。玩家的牌被视为“弃牌”。
-        <ul className="detail">
+        <ul class="detail">
             <li>如果在玩家选择“跟注”或“弃牌”之前游戏回合中断 => 玩家的牌被视为“弃牌”。</li>
             <li>
                 如果在玩家选择“跟注”选项后游戏回合中断，玩家的手牌将被视为转牌和河牌下注的“CHECK” => 游戏回合将照常结算。

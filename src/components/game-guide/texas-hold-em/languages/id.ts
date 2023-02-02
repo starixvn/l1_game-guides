@@ -156,7 +156,7 @@ export const id: TexasHoldemLanguage = {
     },
     extendTermsAndConditionsDetails: [
         `Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Player menekan tombol "Deal". Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam, dan hasil menang-kalah akan ditentukan dengan aturan berikut:
-        <ul className="detail">
+        <ul class="detail">
             <li>
                 Jika putaran permainan terganggu sebelum Player memilih “CALL” atau “FOLD => Tangan Player dianggap sebagai “FOLD”.
             </li>
