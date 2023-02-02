@@ -7,7 +7,7 @@ import MD5 from "../base/md5";
 
 class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
     constructor(props: GameGuideBase) {
-        super({ ...props, ...{ folderConfigName: "baccarat" } });
+        super(props);
     }
 
     getResources = () => {

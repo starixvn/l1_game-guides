@@ -79,11 +79,11 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.KENO_PRO_MAX:
                 return <KenoProMaxGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BACCARAT:
-                return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+                return <BaccaratGuide key={`game-${gameId}`} {...gameGuideProps} folderConfigName="baccarat" />;
             case GAMES.VIP_BACCARAT:
-                return <VipBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+                return <VipBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} folderConfigName="baccarat-vip" />;
             case GAMES.BLOCKCHAIN_BACCARAT:
-                return <BlockchainBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} />;
+                return <BlockchainBaccaratGuide key={`game-${gameId}`} {...gameGuideProps} folderConfigName="blockchain-baccarat" />;
             case GAMES.KENO_MAX:
             case GAMES.KENO_MAX_2:
             case GAMES.KENO_EAST:

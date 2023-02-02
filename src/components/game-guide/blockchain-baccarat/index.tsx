@@ -71,7 +71,7 @@ const BlockChainBaccaratGameRule: React.FunctionComponent<{ environment: string 
 
 class BlockChainBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
     constructor(props: GameGuideBase) {
-        super({ ...props, ...{ folderConfigName: "blockchain-baccarat" } });
+        super(props);
     }
 
     getResources = () => {
