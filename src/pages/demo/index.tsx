@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { v4 as uuidv4 } from "uuid";
 import { TFunction, useTranslation } from "next-i18next";
 
-import { ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
+import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
 
@@ -71,6 +71,7 @@ const Demo = () => {
     const [maxBet, setMaxBet] = useState<number>(2000);
     const [isShowConfig, setIsShowConfig] = useState<boolean>(true);
     const [heighIframeGuide, setHeighIframeGuide] = useState<number>(0);
+    const [backgroundIframe, setBackgroundIframe] = useState<string>("");
 
     useEffect(() => {
         const configs: TLocalStorageData = getLocalStorageItem(localStorageKeys.configs);
@@ -91,6 +92,7 @@ const Demo = () => {
             let data = `${locale}?gId=${gameId}&t=${theme}&minBet=${minBet}&maxBet=${maxBet}&c=0`;
             environment !== ENVIRONMENT.sm && (data += `&f=${environment}`);
             setLinkGuide(`${window.location.origin}/${data}`);
+            setBackgroundIframe(BACKGROUND_THEMES?.[theme]);
 
             storeLocalStorageItem(localStorageKeys.configs, {
                 linkGuide,
@@ -178,7 +180,7 @@ const Demo = () => {
                     referrerPolicy="strict-origin-when-cross-origin"
                     height={heighIframeGuide}
                     width={window.innerWidth}
-                    style={{ border: "none", paddingBottom: "20px" }}
+                    style={{ border: "none", paddingBottom: "20px", background: backgroundIframe }}
                 />
             )}
         </div>

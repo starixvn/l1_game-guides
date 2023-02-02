@@ -9,6 +9,24 @@ export const Themes = {
     blue: "blue",
     ahcl: "ahcl",
     fourGuardians: "four-guardians",
+    nightclub: "nightclub",
+    treasureIsland: "treasure-island",
+    wayToGoal: "way-to-goal",
+    fruitSlot: "fruit-slot",
+    fortuneCat: "fortune-cat",
+};
+
+export const BACKGROUND_THEMES: IObjectKeys = {
+    [Themes.light]: "#FFF",
+    [Themes.dark]: "transparent",
+    [Themes.blue]: "#000",
+    [Themes.ahcl]: "#e3d3b2",
+    [Themes.fourGuardians]: "#0e373e",
+    [Themes.nightclub]: "#000",
+    [Themes.treasureIsland]: "#2a212f",
+    [Themes.wayToGoal]: "#11305b",
+    [Themes.fruitSlot]: "#2d2c2e",
+    [Themes.fortuneCat]: "#060223",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si" };
