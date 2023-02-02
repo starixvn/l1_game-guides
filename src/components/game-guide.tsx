@@ -4,6 +4,7 @@ import React from "react";
 
 import appSettings from "../common/app-settings";
 import { GAMES } from "../common/constants";
+import { isNewSlotGame } from "../helpers/game-helper";
 import { UserStakeLevelProps } from "../pages";
 
 type Props = {
@@ -102,7 +103,7 @@ const GameGuide: React.FC<Props> = (props) => {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 
-        if (gameSetting.Type == 2 && gameSetting.GameId > 62) {
+        if (isNewSlotGame(gameSetting.Type, gameSetting.GameId)) {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 

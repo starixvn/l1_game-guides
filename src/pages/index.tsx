@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
 import { ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
 import GameGuide from "../components/game-guide";
+import { isNewSlotGame } from "../helpers/game-helper";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -31,9 +32,12 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
     }
 };
 
-const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number) => {
+const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
     let fontFamily = "SanFranciscoDisplay";
+
     if (env === ENVIRONMENT.sc) {
+        fontFamily = "Noto";
+
         if (GAMES_COMPLETE_TRANSLATE.includes(gameId)) {
             switch (locale) {
                 case "th":
@@ -49,9 +53,11 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
                     fontFamily = "Noto";
                     break;
             }
-        } else {
-            fontFamily = "Noto";
         }
+    }
+
+    if (isNewSlotGame(gameType, gameId)) {
+        fontFamily = "Kodchasan";
     }
 
     document.documentElement.style.fontFamily = fontFamily;
@@ -94,7 +100,8 @@ const Home = (prop: any) => {
             const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
             setIsLoading(false);
             setGameId(CheckIsInteger(queryParams?.gId));
-            changeFontFamilyFollowLanguage(router?.locale ?? "en", env, gameId);
+            const { gameSetting } = prop;
+            changeFontFamilyFollowLanguage(router?.locale ?? "en", env, queryParams?.gId, gameSetting.Type);
             setEnvironment(env);
             setName(queryParams?.name);
             setDisplayName(queryParams?.displayName);
