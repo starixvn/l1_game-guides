@@ -54,27 +54,17 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return (
-            <KenoPowerGuideEN
-                gameConfigs={configs}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <KenoPowerGuideVI
-            gameConfigs={configs}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
+    const shareProps = {
+        gameConfigs: configs,
+        userStakeLevel,
+        gameName: gameNameTranslate,
+        gameId: id,
+        maxBetFollowChoice,
+        fractionalOddsFormat,
+        locale
+    };
+
+    return locale === locales.en ? <KenoPowerGuideEN {...shareProps} /> : <KenoPowerGuideVI {...shareProps} />
 };
+
 export default KenoPowerGuide;

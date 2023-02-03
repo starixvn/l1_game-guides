@@ -6,6 +6,7 @@ import { GameGuideProps } from "../../type";
 import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import Styles from "../keno-match.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
+import KenoMatchMD5 from "../../keno-match/md5";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
@@ -205,60 +206,18 @@ const KenoPowerGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
-                <li id="md5" className="guide-item">
-                    {renderMD5VI()}
-                    <div className="content">
-                        <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả của {gameName}
-                        <ul className="desc">
-                            <li>
-                                <strong>Bước 1</strong>: Copy chuỗi MD5 trước khi kết quả được công bố.
-                                <div className={Styles["md5-section"]}>
-                                    <span className={`${Styles["text"]}`}>
-                                        <strong>Chuỗi MD5:</strong> 96f67fca97c5ed9547ac67fd4a428747
-                                    </span>
-                                    <div className={Styles["copy-box"]}>
-                                        <span className={Styles["copy-text"]}>Copy</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Bước 2</strong>: Copy chuỗi dữ liệu trong mục Kết Quả sau khi kết quả được công bố.
-                                <div className={Styles["md5-section"]}>
-                                    <span className={`${Styles["text"]}`}>
-                                        <strong>Kết Quả:</strong> {`{`}
-                                        <span className={Styles["blue"]}>899</span>;<span className={Styles["red"]}>807</span>
-                                        {`}_{#336772f6b52eadd147e9c5ceeaa}`}
-                                    </span>
-                                    <div className={Styles["copy-box"]}>
-                                        <span className={Styles["copy-text"]}>Copy</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    Trong đó <span className={Styles["blue"]}>899</span> là kết quả của Đội Xanh và{" "}
-                                    <span className={Styles["red"]}>807</span> là kết quả Đội Đỏ
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Bước 3</strong>: Truy cập{" "}
-                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                    https://md5.services/
-                                </a>{" "}
-                                và dán Kết Quả vừa copy vào ô MD5.
-                                <div className={Styles["wrapper-img-hash"]}>
-                                    <img src={`/static/images/keno-power/md5-hash.png#1`} alt="md5-copy" loading="eager" />
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Bước 4</strong>: Bấm nút <i>“hash darling, hash!”</i>. So sánh chuỗi MD5 checksum vừa được tạo ra và
-                                chuỗi MD5 ở Bước 1.
-                                <div className={Styles["wrapper-img"]}>
-                                    <img src={`/static/images/keno-power/md5.png#1`} alt="md5-copy" loading="eager" />
-                                </div>
-                            </li>
-                        </ul>
-                        Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.
-                    </div>
-                </li>
+                <KenoMatchMD5
+                    locale={props.locale}
+                    environment={props.environment}
+                    md5Key="96f67fca97c5ed9547ac67fd4a428747"
+                    md5Result={`{<span class=${Styles["blue"]}>899</span>;<span class=${Styles["red"]}>807</span>}_{#336772f6b52eadd147e9c5ceeaa}`}
+                    step3ImageUrl="/static/images/keno-power/md5-hash.png#1"
+                    step4ImageUrl="/static/images/keno-power/md5.png#1"
+                    note={<div>
+                        Trong đó <span className={Styles["blue"]}>899</span> là kết quả của Đội Xanh và
+                        <span className={Styles["red"]}>807</span> là kết quả Đội Đỏ
+                    </div>}
+                />
                 {renderTermsAndConditionsVI()}
             </ul>
         </div>

@@ -4,9 +4,9 @@ import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import Styles from "../keno-match.module.scss";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
+import KenoMatchMD5 from "../md5";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
@@ -185,9 +185,8 @@ const renderPayouts = (
     fractionalOddsFormat: boolean | undefined
 ) => {
     const getMinMaxOdd = (min: number, max: number | undefined) => {
-        return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${
-            fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
-        }`;
+        return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
+            }`;
     };
     return (
         <>
@@ -401,59 +400,18 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
                 <li className="guide-item">{renderBettingOptions()}</li>
                 <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
-                <li id="md5" className="guide-item">
-                    {renderMD5EN()}
-                    <div className="content">
-                        <strong>Example</strong>: check the authenticity and transparency of First Half’s results of {gameName}
-                        <ul className="desc">
-                            <li>
-                                <strong>Step 1</strong>: Copy the MD5 Key before the First Haft’s result is announced.
-                                <div className={Styles["md5-section"]}>
-                                    <span className={`${Styles["text"]}`}>
-                                        <strong>MD5 Key:</strong> 8489717e21867fa5420b055e5abd2b46
-                                    </span>
-                                    <div className={Styles["copy-box"]}>
-                                        <span className={Styles["copy-text"]}>Copy</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Step 2</strong>: Copy Result after the system publishes the Frist Half’s result.
-                                <div className={Styles["md5-section"]}>
-                                    <span className={`${Styles["text"]}`}>
-                                        <strong>Result:</strong> {`{`}
-                                        <span className={Styles["blue"]}>363</span>;<span className={Styles["red"]}>467</span>
-                                        {`}_{#26907421fad9b51da1169691982}`}
-                                    </span>
-                                    <div className={Styles["copy-box"]}>
-                                        <span className={Styles["copy-text"]}>Copy</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are
-                                    first haft result of Team Blue and Team Red respectively
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Step 3</strong>: Go to{" "}
-                                <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                    https://md5.services/
-                                </a>{" "}
-                                and paste the Result into the MD5 box
-                                <div className={Styles["wrapper-img"]}>
-                                    <img src={`/static/images/keno-match/md5-hash.png#1`} alt="md5-copy" loading="eager" />
-                                </div>
-                            </li>
-                            <li>
-                                <strong>Step 4</strong>: Press the “hash darling, hash!” button and compare the newly generated checksum MD5
-                                string with the MD5 Key in Step 1
-                                <div className={Styles["wrapper-img"]}>
-                                    <img src={`/static/images/keno-match/md5.png#1`} alt="md5-copy" loading="eager" />
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                <KenoMatchMD5
+                    locale={props.locale}
+                    environment={props.environment}
+                    md5Key="96f67fca97c5ed9547ac67fd4a428747"
+                    md5Result={`{<span class=${Styles["blue"]}>363</span>;<span class=${Styles["red"]}>467</span>}_{#26907421fad9b51da1169691982}`}
+                    step3ImageUrl="/static/images/keno-match/md5-hash.png#1"
+                    step4ImageUrl="/static/images/keno-match/md5.png#1"
+                    note={<div>
+                        Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are
+                        first haft result of Team Blue and Team Red respectively
+                    </div>}
+                />
                 {renderTermsAndConditionsEN()}
             </ul>
         </>
