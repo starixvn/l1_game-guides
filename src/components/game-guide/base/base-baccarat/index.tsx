@@ -1,7 +1,6 @@
 import React from "react";
-import { UserStakeLevelProps } from "../../../../pages";
+
 import { BaccaratGuideState, GameConfigProps } from "../../baccarat/type";
-import { numberWithCommas } from "../../../../helpers/number-helper";
 import { GameGuideBase } from "../../type";
 import BaseBaccaratThirdCardRule from "./base-baccarat-third-card-rule";
 import BaseBaccaratPayout from "./base-baccarat-payouts";
@@ -10,16 +9,7 @@ import BaseBaccaratPointCalculationRules from "./base-baccarat-point-calculation
 import BaseBaccaratGameRule from "./base-baccarat-game-rule";
 import BaseBaccaratIntroduction from "./base-baccarat-introduction";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-
-const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
-    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetPlayer = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
-    const maxBetSubChoice = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
-
-    return { maxBetPlayer, maxBetSubChoice, maxBetMain, minBetMain };
-};
+import { handleMaxBetChoice } from "../../../shared/baccarat";
 
 abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuideState> extends React.PureComponent<P, S> {
     private configs: any;
