@@ -1,7 +1,7 @@
 import Styles from "../fortune-cat.module.scss";
 import { getFortuneCatTranslationResource } from "../languages";
-import SlotGuideTemplate from "../../base/base-slot/base-slot-template";
-import { ISlotTranslationResource } from "../../base/base-slot/types";
+import SlotGuideTemplate from "../../base/base-classic-slot/base-slot-template";
+import { ISlotTranslationResource } from "../../base/base-classic-slot/types";
 
 export class FortuneCatTemplate extends SlotGuideTemplate {
     get imageDirectoryName(): string {

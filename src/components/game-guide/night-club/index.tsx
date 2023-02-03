@@ -3,7 +3,7 @@ import { NightClubTemplate } from "./templates/default";
 import NightClubGuideVI from "./templates/vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { GameConfigProps } from "../base/base-slot/types";
+import { GameConfigProps } from "../base/base-classic-slot/types";
 import { getGameConfigProject } from "../../index.helper";
 
 const NightClubGuide = (props: GameGuideBase) => {

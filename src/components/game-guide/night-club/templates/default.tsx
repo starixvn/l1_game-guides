@@ -1,7 +1,7 @@
 import Styles from "../nightclub.module.scss";
 import { getNightClubTranslationResource } from "../languages";
-import SlotGuideTemplate from "../../base/base-slot/base-slot-template";
-import { ISlotTranslationResource } from "../../base/base-slot/types";
+import SlotGuideTemplate from "../../base/base-classic-slot/base-slot-template";
+import { ISlotTranslationResource } from "../../base/base-classic-slot/types";
 
 export class NightClubTemplate extends SlotGuideTemplate {
     get imageDirectoryName(): string {

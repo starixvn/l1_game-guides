@@ -6,6 +6,7 @@
         "dev": "next dev -p 3001",
         "dev-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next dev -p 3001",
         "build": "next build",
+        "build-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
         "start": "PORT=5000 next start",
         "lint": "next lint",
         "test": "jest",

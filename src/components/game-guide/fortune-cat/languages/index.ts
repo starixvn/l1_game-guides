@@ -1,11 +1,11 @@
-import { th } from "../../base/base-slot/languages/th";
-import { en } from "../../base/base-slot/languages/en";
-import { id } from "../../base/base-slot/languages/id";
-import { cn } from "../../base/base-slot/languages/cn";
-import { tw } from "../../base/base-slot/languages/tw";
-import { vi } from "../../base/base-slot/languages/vi";
+import { th } from "../../base/base-classic-slot/languages/th";
+import { en } from "../../base/base-classic-slot/languages/en";
+import { id } from "../../base/base-classic-slot/languages/id";
+import { cn } from "../../base/base-classic-slot/languages/cn";
+import { tw } from "../../base/base-classic-slot/languages/tw";
+import { vi } from "../../base/base-classic-slot/languages/vi";
 import { getTranslationResource } from "../../../../helpers/resource-helper";
-import { ISlotTranslationResource } from "../../base/base-slot/types";
+import { ISlotTranslationResource } from "../../base/base-classic-slot/types";
 
 en.main.description =
     "“Fortune Cat” is an online slot game with the waving lucky cat - a symbol of good fortune and prosperity.  " + en.main.description;
