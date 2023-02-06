@@ -6,7 +6,11 @@ import { GameGuideProps } from "../../type";
 import Styles from "../casino-hold-em.module.scss";
 import CasinoHoldGuideTemplate from "./default";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-
+import MD5 from "../../base/md5";
+import { renderToString } from "react-dom/server";
+import { Markup } from "interweave";
+import { vi as BaseMD5Resource } from "../../base/md5/languages/vi";
+import { StringFormat } from "../../../../helpers/string-helper";
 class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfigProps, MaxBetChoicesProps>, any> {
     renderIntroduce() {
         return (
@@ -883,122 +887,88 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
         );
     }
 
-    renderMD5() {
-        return (
+    renderMD5(locale?: string) {
+        const md5 = {
+            md5Base: {
+                content: {
+                    ...BaseMD5Resource.content,
+                    validation: {
+                        header: BaseMD5Resource.content.validation.header,
+                        details: [
+                            "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.",
+                            "<strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi bấm nút &quot;Theo Bài&quot;.",
+                            "<strong>Bước 3:</strong>: Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
+                            "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+                        ],
+                    },
+                    noted: "  Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi các lá bài được mở.",
+                },
+                example: {
+                    ...BaseMD5Resource.example,
+                    header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả.",
+                    step1Text: "<strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.",
+                    step2Text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi bấm nút &quot;Theo Bài&quot;",
+                },
+            },
+            md5Note: {
+                line1: "Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi {0}, 2 lá của Nhà Cái {1} và 5 lá bài Chung {2}",
+                line2: "Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái {0}, 2 lá của Người Chơi {1} và 5 lá bài Chung.",
+                line3: "Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước khi Người Chơi bấm nút Chia Bài.",
+            },
+        };
+
+        const playerCards = (
             <>
-                <>
-                    <h2> MD5 (Message-Digest algorithm 5) </h2>
-                    <ul className="style-number-dot">
-                        <li className="number-dot">
-                            <span className="title-text">Công nghệ MD5</span>
-                            <ul className="desc">
-                                <li>
-                                    <strong>MD5</strong> là công nghệ cho phép Người Chơi xác thực và kiểm tra tính minh bạch của kết quả
-                                    trò chơi thông qua bên thứ ba.
-                                </li>
-                                <li>Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên trước khi Người Chơi mở bài. </li>
-                                <li>
-                                    Người Chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi mở bài (Chuỗi{" "}
-                                    <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (Chuỗi <strong>Kết Quả</strong>).
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="number-dot">
-                            <span className="title-text">Tra cứu MD5</span>
-                            <ul className="desc">
-                                <li>
-                                    <span>
-                                        <strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia
-                                        Bài&quot;.
-                                    </span>
-                                </li>
-                                <li>
-                                    <span>
-                                        <strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi bấm nút &quot;Theo Bài&quot;.
-                                    </span>
-                                </li>
-                                <li>
-                                    <strong>Bước 3</strong>: Truy cập{" "}
-                                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                        https://md5.services/
-                                    </a>{" "}
-                                    và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.
-                                </li>
-                                <li>
-                                    <strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi{" "}
-                                    <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <div className="content">
-                        Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu
-                        nhiên trước khi các lá bài được mở.
-                    </div>
-                    <div className="content">
-                        <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả
-                    </div>
-
-                    <ul className="desc">
-                        <li>
-                            <strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.
-                            <img
-                                className="format-img auto-center format-mobile"
-                                src="/static/images/casino-hold-em/md5_vi.png?v=3"
-                                alt="md5"
-                            />
-                        </li>
-                        <li>
-                            <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi bấm nút &quot;Theo Bài&quot;
-                            <img
-                                className="format-img auto-center format-mobile"
-                                src="/static/images/casino-hold-em/md5_result_vi.png?v=3"
-                                alt="md5-result"
-                            />
-                            <ul className="detail">
-                                <li>
-                                    Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi (<span className="casino-black">J♣</span>,{" "}
-                                    <span className="red">10♥</span>), 2 lá của Nhà Cái (<span className="red">3♦</span>,{" "}
-                                    <span className="casino-black">2♠</span>) và 5 lá bài Chung (<span className="casino-black">K♣</span>,{" "}
-                                    <span className="red">5♥</span>, <span className="casino-black">3♠</span>,{" "}
-                                    <span className="red">10♦</span>, <span className="red">4♦</span>)
-                                </li>
-                                <li>
-                                    Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái (
-                                    <span className="casino-black">J♣</span>, <span className="red">10♥</span>), 2 lá của Người Chơi (
-                                    <span className="red">3♦</span>, <span className="casino-black">2♠</span>) và 5 lá bài Chung.
-                                </li>
-                                <li>Lưu ý: Đây là kết quả được hệ thống tạo ra ngẫu nhiên trước khi Người Chơi bấm nút Chia Bài.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Bước 3:</strong> Truy cập{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            và dán chuỗi Kết Quả vừa copy vào ô MD5.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/casino-hold-em/hash-darling.png?v=3"
-                                alt="hash-darling"
-                            />
-                        </li>
-                        <li>
-                            <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5
-                            ở Bước 1.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/casino-hold-em/md5-checksum.png?v=3"
-                                alt="md5-checksum"
-                            />
-                        </li>
-                    </ul>
-                    <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
-                </>
+                (<span className="casino-black">J♣</span>,
+                <span className="red">10♥</span>)
             </>
         );
+        const dealerCards = (
+            <>
+                (<span className="red">3♦</span>,
+                <span className="casino-black">2♠</span>)
+            </>
+        );
+        const communityCards = (
+            <>
+                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,
+                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,
+                <span className={Styles["black"]}>10♣</span>)
+            </>
+        );
+
+        return <MD5
+            locale={locale}
+            resources={md5.md5Base}
+            step1ImageUrl={`/static/images/casino-hold-em/md5_vi.png?v=3`}
+            step2ImageUrl={`/static/images/casino-hold-em/md5_result_vi.png?v=3`}
+            step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=3"
+            step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=3"
+            note={
+                <>
+                    <ul className="detail">
+                        <li>
+                            <Markup
+                                content={StringFormat(
+                                    md5.md5Note.line1,
+                                    renderToString(playerCards),
+                                    renderToString(dealerCards),
+                                    renderToString(communityCards)
+                                )}
+                            />
+                        </li>
+                        <li>
+                            <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                        </li>
+                        <li>
+                            {md5.md5Note.line3}
+                        </li>
+                    </ul>
+                </>
+            }
+        />
     }
+
     render() {
         return (
             <>
@@ -1007,9 +977,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                     <li className="guide-item">{this.renderGameRule()}</li>
                     <li className="guide-item">{this.renderPayout()}</li>
                     <li className="guide-item">{this.renderBetLimit()}</li>
-                    <li id="md5" className="guide-item">
-                        {this.renderMD5()}
-                    </li>
+                    {this.renderMD5(this.props.locale)}
                     {renderTermsAndConditionsVI(['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
                         nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24\
                         tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.'])}

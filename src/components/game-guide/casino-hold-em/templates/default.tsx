@@ -11,6 +11,7 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { ICasinoHoldTranslationResource } from "../languages/types";
 import { getCasinoHoldTranslationResource } from "../languages";
 import { StringFormat } from "../../../../helpers/string-helper";
+import MD5 from "../../base/md5";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -877,115 +878,57 @@ class CasinoHoldGuideTemplate<
         );
     }
 
-    renderMD5() {
-        const { md5 } = this.state.translationResource;
-        const { MD5Technology, MD5Validation } = md5;
-        const { locale } = this.props;
-        return (
+    renderMD5(language: ICasinoHoldTranslationResource, locale: string | undefined) {
+        const { md5 } = language;
+        const playerCards = (
             <>
-                <h2> {md5.title} </h2>
-                <ul className="style-number-dot">
-                    <li className="number-dot">
-                        <span className="title-text">{MD5Technology.title}</span>
-                        <ul className="desc">
-                            <li>{MD5Technology.description["MD5 allows players"]}</li>
-                            <li>{MD5Technology.description["The game results"]}</li>
-                            <li>
-                                <Markup content={MD5Technology.description["Players can manually"]} />
-                            </li>
-                        </ul>
-                    </li>
-                    <li className="number-dot">
-                        <span className="title-text">{MD5Validation.title}</span>
-                        <ul className="desc">
-                            <li>
-                                <Markup content={MD5Validation.steps.step1} />
-                            </li>
-                            <li>
-                                <Markup content={MD5Validation.steps.step2} />
-                            </li>
-                            <li>
-                                <Markup content={MD5Validation.steps.step3} />
-                            </li>
-                            <li>
-                                <Markup content={MD5Validation.steps.step4} />
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <div className="content">{MD5Validation.description}</div>
-                <div className="content">
-                    <Markup content={MD5Validation.example.description} />
-                </div>
-                <>
-                    <ul className="desc">
-                        <li>
-                            <Markup content={MD5Validation.example.step1} />
-                            <img
-                                className="format-img auto-center format-mobile"
-                                src={`/static/images/casino-hold-em/md5_${locale}.png?v=3`}
-                                alt="md5"
-                            />
-                        </li>
-                        <li>
-                            <Markup content={MD5Validation.example.step2} />
-                            <img
-                                className="format-img auto-center format-mobile"
-                                src={`/static/images/casino-hold-em/md5_result_${locale}.png?v=4`}
-                                alt="md5_result"
-                            />
-                            <div>
-                                {MD5Validation.example.note.title}
-                                <ul className="detail">
-                                    <li>
-                                        <Markup
-                                            content={StringFormat(
-                                                MD5Validation.example.note.line1,
-                                                `(
-                                        <span class="casino-black">J♣</span>, <span className="red">10♥</span>)`,
-                                                ` (
-                                            <span class="red">3♦</span>, <span className="casino-black">2♠</span>)`,
-                                                `(<span class="casino-black">K♣</span>, <span class="red">5♥</span>,
-                                            <span class="casino-black">3♠</span>, <span class="red">10♦</span>,
-                                            <span class="red">4♦</span>)`
-                                            )}
-                                        />
-                                    </li>
-                                    <li>
-                                        <Markup
-                                            content={StringFormat(
-                                                MD5Validation.example.note.line2,
-                                                ` (
-                                                    <span class="casino-black">J♣</span>, <span class="red">10♥</span>)`,
-                                                `(<span class="red">3♦</span>, <span class="casino-black">2♠</span>)`
-                                            )}
-                                        />
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <Markup content={MD5Validation.example.step3} />
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/casino-hold-em/hash-darling.png?v=3"
-                                alt="hash-darling"
-                            />
-                        </li>
-                        <li>
-                            <Markup content={MD5Validation.example.step4} />
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/casino-hold-em/md5-checksum.png?v=2"
-                                alt="md5-checksum"
-                            />
-                        </li>
-                    </ul>
-                </>
+                (<span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>)
             </>
         );
+        const dealerCards = (
+            <>
+                (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>)
+            </>
+        );
+        const communityCards = (
+            <>
+                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
+                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
+                <span className={Styles["black"]}>10♣</span>)
+            </>
+        );
+        return (
+            <MD5
+                locale={locale}
+                resources={md5.md5Base}
+                step1ImageUrl={`/static/images/texas-hold-em/md5_${locale}.png`}
+                step2ImageUrl={`/static/images/texas-hold-em/md5_result_${locale}.png`}
+                step3ImageUrl="/static/images/texas-hold-em/hash-darling.png"
+                step4ImageUrl="/static/images/texas-hold-em/md5-checksum.png"
+                note={
+                    <>
+                        <strong>{md5.md5Note.title}</strong>
+                        <ul className="detail">
+                            <li>
+                                <Markup
+                                    content={StringFormat(
+                                        md5.md5Note.line1,
+                                        renderToString(playerCards),
+                                        renderToString(dealerCards),
+                                        renderToString(communityCards)
+                                    )}
+                                />
+                            </li>
+                            <li>
+                                <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                            </li>
+                        </ul>
+                    </>
+                }
+            />
+        );
     }
+
     render() {
         return (
             <>
@@ -994,10 +937,7 @@ class CasinoHoldGuideTemplate<
                     <li className="guide-item">{this.renderGameRule()}</li>
                     <li className="guide-item">{this.renderPayout()}</li>
                     <li className="guide-item">{this.renderBetLimit()}</li>
-                    <li id="md5" className="guide-item">
-                        {this.renderMD5()}
-                    </li>
-
+                    {renderMD5(language, locale)}
                     {renderTermsAndConditions(this.props.locale, this.state.translationResource.extendTermsAndConditionsDetails)}
                 </ul>
             </>
