@@ -121,7 +121,7 @@ const renderPayouts = (
             <h2>{payOut.title}</h2>
             <ul className="desc">
                 <li>{payOut.description1} </li>
-                <li>{payOut.description2} </li>
+                {payOut.description2 !== "" && <li>{payOut.description2} </li>}
                 <li>
                     {payOut.description3}
                     <div className="table-container">
@@ -132,7 +132,7 @@ const renderPayouts = (
                                     <th>{common.options}</th>
                                     <th>{payOut.odds}</th>
                                     <th>
-                                        {payOut.betLimit}
+                                        <Markup content={StringFormat(payOut.betLimit)} />
                                     </th>
                                 </tr>
                             </thead>
@@ -163,7 +163,7 @@ const renderPayouts = (
                                     <td className="text-start">{common.odd}</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>{common.teamBlueBigSmall}</td>
+                                    <td rowSpan={2}>  <Markup content={StringFormat(common.teamBlueBigSmall)} /></td>
                                     <td className="text-start">{common.big}</td>
                                     <td rowSpan={4}>{formatOdds(odds?.blueBig, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
@@ -174,7 +174,7 @@ const renderPayouts = (
                                     <td className="text-start">{common.small}</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>{common.teamRedBigSmall}</td>
+                                    <td rowSpan={2}>  <Markup content={StringFormat(common.teamRedBigSmall)} /></td>
                                     <td className="text-start">{common.big}</td>
                                 </tr>
                                 <tr>
@@ -189,7 +189,7 @@ const renderPayouts = (
     );
 };
 
-const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const KenoPowerGuideTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, locale, gameName } = props;
     const { odds } = gameConfigs;
     const resources = getPowerKenoTranslationResource(locale);
@@ -216,4 +216,4 @@ const KenoPowerGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
         </>
     );
 };
-export default KenoPowerGuideEN;
+export default KenoPowerGuideTemplate;

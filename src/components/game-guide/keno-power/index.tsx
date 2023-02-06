@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import KenoPowerGuideEN from "./en";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
+import KenoPowerGuideTemplate from "./templates";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -52,7 +52,7 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    const shareProps = {
+    return <KenoPowerGuideTemplate {... {
         gameConfigs: configs,
         userStakeLevel,
         gameName: gameNameTranslate,
@@ -60,9 +60,7 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         fractionalOddsFormat,
         locale
-    };
-
-    return <KenoPowerGuideEN {...shareProps} />
+    }} />
 };
 
 export default KenoPowerGuide;

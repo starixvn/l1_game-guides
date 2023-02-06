@@ -46,11 +46,11 @@ export const vi: IPowerKenoTranslationResource = {
     },
     payOut: {
         title: "Trả thưởng",
-        description1: "  <li>Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.",
-        description2: "Tỷ lệ cược đã bao gồm tiền vốn.",
-        description3: "",
+        description1: "Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.",
+        description2: "",
+        description3: "Tỷ lệ cược đã bao gồm tiền vốn.",
         odds: "Tỷ Lệ Trả Thưởng",
         betLimit: "Hạn Mức Cược <br></br>(Min - Max)",
     },
-    md5noted: " Trong đó  <span class={0}>899</span> là kết quả của Đội Xanh và <span class={1}>807</span> là kết quả Đội Đỏ",
+    md5noted: "Trong đó  <span class={0}>899</span> là kết quả của Đội Xanh và <span class={1}>807</span> là kết quả Đội Đỏ",
 };
