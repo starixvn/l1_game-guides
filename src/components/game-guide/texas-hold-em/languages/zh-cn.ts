@@ -1,5 +1,10 @@
 import { TexasHoldemLanguage } from "./types";
-import { cn as BaseMD5Resource } from "../../base/md5/languages/cn";
+const steps = {
+    one: "<b>第一步</b>: 按下 Deal 按钮后复制 MD5 密钥。",
+    two: "<b>第二步</b>: 按呼叫按钮后复制结果。",
+    three: "<b>第三步</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
+    four: "<b>第四步</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的 <strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+};
 
 export const zhCN: TexasHoldemLanguage = {
     introduction: {
@@ -109,27 +114,33 @@ export const zhCN: TexasHoldemLanguage = {
         Turn: "转牌",
         River: "河牌",
     },
-
     md5: {
         md5Base: {
             content: {
-                ...BaseMD5Resource.content,
-                validation: {
-                    header: BaseMD5Resource.content.validation.header,
+                header: "MD5（消息摘要算法5）",
+                technology: {
+                    header: "MD5技术",
                     details: [
-                        "<b>第一步</b>: 按下 Deal 按钮后复制 MD5 密钥。",
-                        "<b>第二步</b>: 按呼叫按钮后复制结果。",
-                        "<b>第三步</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
-                        "<b>第四步</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的 <strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+                        "MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。",
+                        "游戏结果将在翻牌前由系统随机生成。",
+                        "玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>结果</strong>）是否匹配。",
                     ],
+                },
+                validation: {
+                    header: "MD5 验证",
+                    details: Object.values(steps),
                 },
                 noted: "如果两个字符串匹配，则证明该游戏回合的结果是透明的，并且游戏结果与系统在揭牌前产生的随机结果没有变化。",
             },
             example: {
-                ...BaseMD5Resource.example,
-                header: "<b>示例:</b> 检查扑克游戏结果的真实性和透明度。",
-                step1Text: "<strong>第一步</strong>: 按下 Deal 按钮后复制 MD5 密钥。",
-                step2Text: "<strong>第二步</strong>: 按呼叫按钮后复制结果。",
+                header: "<strong>示例:</strong> 檢查結果的真實性和透明度。",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "MD5 钥匙",
+                result: "结果",
+                copy: "复制",
             },
         },
         md5Note: {

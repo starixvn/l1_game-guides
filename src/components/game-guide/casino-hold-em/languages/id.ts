@@ -1,5 +1,12 @@
 import { ICasinoHoldTranslationResource } from "./types";
 
+const steps = {
+    one: "<b>Langkah 1</b>: Salin Kunci MD5 setelah menekan tombol Deal.",
+    two: "<b>Langkah 2</b>: Salin Hasil setelah menekan tombol Panggil.",
+    three: "<b>Langkah 3</b>: Buka {0} dan rekatkan Hasil ke kotak MD5.",
+    four: "<b>Langkah 4</b>: Tekan tombol <b>“hash darling, hash!</b>” dan bandingkan rangkaian daftar <strong>MD5 checksum</strong> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
+};
+
 const Hand = {
     royalFlush: "Royal Flush",
     straightFlush: "Straight Flush",
@@ -178,39 +185,38 @@ export const id: ICasinoHoldTranslationResource = {
         },
     },
     md5: {
-        title: "MD5 (Message-Digest algorithm 5)",
-        MD5Technology: {
-            title: "Teknologi MD5",
-            description: {
-                "MD5 allows players":
-                    "MD5 memungkinkan Player untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
-                "The game results": "Hasil permainan akan dibuat secara acak oleh sistem sebelum kartu dibuka.",
-                "Players can manually":
-                    "Player dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum kartu terungkap (Kunci MD5) dan hasil penerbitan (Hasil string) dicocokkan.",
+        md5Base: {
+            content: {
+                header: "MD5 (Mencerna Pesan Algoritma 5)",
+                technology: {
+                    header: "MD5 teknologi",
+                    details: [
+                        "MD5 yang memungkinkan pemain untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
+                        "Hasil permainan akan dibuat secara acak oleh sistem sebelum kartu dibuka.",
+                        "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
+                    ],
+                },
+                validation: {
+                    header: "Validasi MD5",
+                    details: Object.values(steps),
+                },
+                noted: "Jika keduanya cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum kartu dibuka.",
+            },
+            example: {
+                header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "Kunci MD5",
+                result: "Hasil",
+                copy: "Salin",
             },
         },
-        MD5Validation: {
-            title: "Validasi MD5",
-            steps: {
-                step1: "<strong>Langkah 1</strong>: Salin Kunci MD5 setelah menekan tombol Deal.",
-                step2: "<strong>Langkah 2</strong>: Salin Hasil setelah menekan tombol Panggil.",
-                step3: `<string>Langkah 3</string>: Buka <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> dan rekatkan Hasil ke kotak MD5.`,
-                step4: "<string>Langkah 4</string>: Tekan tombol “<strong>hash darling, hash!</strong>” tombol dan bandingkan string checksum MD5 yang baru dibuat dengan string MD5 di Langkah 1.",
-            },
-            description:
-                "Jika keduanya cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum kartu dibuka.",
-            example: {
-                description: "Contoh: cek keaslian dan transparansi hasil permainan Poker.",
-                step1: "<strong>Langkah 1</strong>: Salin Kunci MD5 setelah menekan tombol Deal.",
-                step2: "<strong>Langkah 2</strong>: Salin Hasil setelah menekan tombol Panggil.",
-                note: {
-                    title: "Catatan:",
-                    line1: "Dari kiri ke kanan, kartu ditampilkan dalam urutan: kartu Player {0}, kartu Dealer {1}, dan lima kartu komunitas {2}",
-                    line2: "Jika Player telah menukar kartunya dengan Dealer maka urutannya adalah: kartu Dealer {0}, kartu Pemain {1}, dan lima kartu komunitas.",
-                },
-                step3: `<string>Langkah 3</string>: Buka <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> dan rekatkan Hasil ke kotak MD5.`,
-                step4: "<string>Langkah 4</string>: Tekan tombol “<strong>hash darling, hash!</strong>” tombol dan bandingkan string checksum MD5 yang baru dibuat dengan string MD5 di Langkah 1.",
-            },
+        md5Note: {
+            title: "Catatan:",
+            line1: "Dari kiri ke kanan, kartu ditampilkan dalam urutan: kartu Player {0}, kartu Dealer {1}, dan lima kartu komunitas {2}",
+            line2: "Jika Player telah menukar kartunya dengan Dealer maka urutannya adalah: kartu Dealer {0}, kartu Pemain {1}, dan lima kartu komunitas.",
         },
     },
     extendTermsAndConditionsDetails: [

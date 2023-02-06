@@ -9,7 +9,6 @@ import { renderTermsAndConditionsVI } from "../../../shared";
 import { Markup } from "interweave";
 import MD5 from "../../base/md5";
 import { StringFormat } from "../../../../helpers/string-helper";
-import { vi as BaseMD5Resource } from "../../base/md5/languages/vi";
 import { renderToString } from "react-dom/server";
 
 
@@ -819,26 +818,40 @@ const renderPayouts = (
 };
 
 export const renderMD5 = (locale?: string) => {
+    const steps = {
+        one: "<strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.",
+        two: "<strong>Bước 2:</strong> Copy chuỗi <strong>Kết Quả</strong> sau khi lá bài chung thứ 5 (lá River) được chia",
+        three: "<strong>Bước 3:</strong>: Truy cập {0} và dán Kết Quả vừa copy vào ô MD5.",
+        four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+    };
+
     const md5 = {
         md5Base: {
             content: {
-                ...BaseMD5Resource.content,
-                validation: {
-                    header: BaseMD5Resource.content.validation.header,
+                header: "MD5 (Message-Digest algorithm 5)",
+                technology: {
+                    header: "Công nghệ MD5",
                     details: [
-                        "<strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.",
-                        "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi sau khi lá bài chung thứ 5 được chia.",
-                        "<strong>Bước 3:</strong>: Truy cập {0} và dán Kết Quả vừa copy vào ô MD5.",
-                        "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+                        "<strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi thông qua bên thứ ba.",
+                        "Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên ngay khi Người Chơi bấm nút chia bài (Chuỗi<strong>MD5</strong>)",
+                        "Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược (Chuỗi <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (<strong>Kết Quả</strong>).",
                     ],
+                },
+                validation: {
+                    header: "Tra Cứu MD5",
+                    details: Object.values(steps),
                 },
                 noted: "Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi các lá bài được mở.",
             },
             example: {
-                ...BaseMD5Resource.example,
-                header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả.",
-                step1Text: "<strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.",
-                step2Text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi sau khi lá bài chung thứ 5 được chia.",
+                header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "Chuỗi MD5",
+                result: "Kết Quả",
+                copy: "Copy",
             },
         },
         md5Note: {

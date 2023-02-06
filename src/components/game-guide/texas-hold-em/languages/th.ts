@@ -1,5 +1,11 @@
 import { TexasHoldemLanguage } from "./types";
-import { th as BaseMD5Resource } from "../../base/md5/languages/th";
+
+const steps = {
+    one: "<b>ขั้นตอนที่ 1</b>: คัดลอกคีย์ MD5 หลังจากกดปุ่มดีล",
+    two: "<b>ขั้นตอนที่ 2</b>: คัดลอกผลลัพธ์หลังจากแจกไพ่ใบที่ห้า (ริเวอร์)",
+    three: "<b>ขั้นตอนที่ 3</b>: ไปที่ {0} และวางผลลัพธ์ลงในกล่อง MD5",
+    four: "<b>ขั้นตอนที่ 4</b>: กดปุ่ม <strong>“hash darling, hash!”</strong> ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 <strong>ในขั้นตอนที่ 1</strong>",
+};
 
 export const th: TexasHoldemLanguage = {
     introduction: {
@@ -118,27 +124,34 @@ export const th: TexasHoldemLanguage = {
     md5: {
         md5Base: {
             content: {
-                ...BaseMD5Resource.content,
-                validation: {
-                    header: BaseMD5Resource.content.validation.header,
+                header: "MD5 (อัลกอริทึมการแยกย่อยข้อความ 5) ",
+                technology: {
+                    header: "เทคโนโลยี MD5",
                     details: [
-                        "<b>ขั้นตอนที่ 1</b>: คัดลอกคีย์ MD5 หลังจากกดปุ่มดีล",
-                        "<b>ขั้นตอนที่ 2</b>: คัดลอกผลลัพธ์หลังจากแจกไพ่ใบที่ห้า (ริเวอร์)",
-                        "<b>ขั้นตอนที่ 3</b>: ไปที่ {0} และวางผลลัพธ์ลงในกล่อง MD5",
-                        "<b>ขั้นตอนที่ 4</b>: กดปุ่ม <strong>“hash darling, hash!”</strong> ปุ่มและเปรียบเทียบสตริง MD5 checksum ที่สร้างขึ้นใหม่กับคีย์ MD5 <strong>ในขั้นตอนที่ 1</strong>",
+                        "MD5 ที่ช่วยให้ผู้เล่นตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์ผ่านบุคคลอื่นๆ",
+                        "ผลลัพธ์ของเกมส์จะถูกสุ่มโดยระบบก่อนที่ไพ่จะถูกเปิดเผย",
+                        "ผู้เล่นสามารถตรวจสอบด้วยตนเอง (<strong>คีย์ MD5</strong>) และผลลัพธ์ที่โชว์นั้น (<strong>ผลลัพธ์</strong>) ตรงกันหรือไม่",
                     ],
+                },
+                validation: {
+                    header: "การตรวจสอบ MD5",
+                    details: Object.values(steps),
                 },
                 noted: "หากสองสตริงตรงกัน ให้พิสูจน์ว่าผลลัพธ์ของรอบเกมส์นั้นโปร่งใส และผลลัพธ์ของเกมส์จะไม่เปลี่ยนแปลงจากผลลัพธ์แบบสุ่มที่สร้างโดยระบบก่อนแจกไพ่",
             },
             example: {
-                ...BaseMD5Resource.example,
-                header: "<b>ตัวอย่าง:</b> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์ของเกมส์โป๊กเกอร์",
-                step1Text: "<strong>ขั้นตอนที่ 1</strong>: คัดลอกคีย์ MD5 หลังจากกดปุ่มดีล",
-                step2Text: "<strong>ขั้นตอนที่ 2</strong>: คัดลอกผลลัพธ์หลังจากแจกไพ่ใบที่ห้า (ริเวอร์)",
+                header: "<strong>ตัวอย่าง:</strong> ตรวจสอบความถูกต้องและความโปร่งใสของผลลัพธ์",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "คีย์ MD5",
+                result: "ผลลัพธ์",
+                copy: "คัดลอก",
             },
         },
         md5Note: {
-            title: "จดหมาย",
+            title: "จดหมาย:",
             line1: "จากซ้ายไปขวา ไพ่จะแสดงตามลำดับ: ไพ่ของผู้เล่น {0}, ไพ่ของเจ้ามือ {1} และไพ่กองกลางห้าใบ {2}",
             line2: "หากผู้เล่นสลับไพ่กับเจ้ามือ ลำดับจะเป็น: ไพ่ของเจ้ามือ {0}, ไพ่ของผู้เล่น {1} และไพ่กองกลางห้าใบ",
         },

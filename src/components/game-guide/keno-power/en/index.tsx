@@ -3,7 +3,6 @@ import React from "react";
 import { renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
 import Styles from "../keno-match.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 import KenoMatchMD5 from "../../keno-match/md5";

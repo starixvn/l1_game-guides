@@ -12,6 +12,7 @@ import { ICasinoHoldTranslationResource } from "../languages/types";
 import { getCasinoHoldTranslationResource } from "../languages";
 import { StringFormat } from "../../../../helpers/string-helper";
 import MD5 from "../../base/md5";
+import { renderToString } from "react-dom/server";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -882,29 +883,29 @@ class CasinoHoldGuideTemplate<
         const { md5 } = language;
         const playerCards = (
             <>
-                (<span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>)
+                (<span className="casino-black">J♣</span>, <span className="red">10♥</span>)
             </>
         );
         const dealerCards = (
             <>
-                (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>)
+                (<span className="red">3♦</span>, <span className="casino-black">2♠</span>)
             </>
         );
         const communityCards = (
             <>
-                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
-                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
-                <span className={Styles["black"]}>10♣</span>)
+                (<span className="casino-black">K♣</span>, <span className="red">5♥</span>,
+                <span className="casino-black">3♠</span>, <span className="red">10♦</span>,
+                <span className="red">4♦</span>)
             </>
         );
         return (
             <MD5
                 locale={locale}
                 resources={md5.md5Base}
-                step1ImageUrl={`/static/images/texas-hold-em/md5_${locale}.png`}
-                step2ImageUrl={`/static/images/texas-hold-em/md5_result_${locale}.png`}
-                step3ImageUrl="/static/images/texas-hold-em/hash-darling.png"
-                step4ImageUrl="/static/images/texas-hold-em/md5-checksum.png"
+                step1ImageUrl={`/static/images/casino-hold-em/md5-${locale}.png?v=5`}
+                step2ImageUrl={`/static/images/casino-hold-em/result-${locale}.png?v=5`}
+                step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=5"
+                step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=5"
                 note={
                     <>
                         <strong>{md5.md5Note.title}</strong>
@@ -937,7 +938,7 @@ class CasinoHoldGuideTemplate<
                     <li className="guide-item">{this.renderGameRule()}</li>
                     <li className="guide-item">{this.renderPayout()}</li>
                     <li className="guide-item">{this.renderBetLimit()}</li>
-                    {renderMD5(language, locale)}
+                    {this.renderMD5(this.state.translationResource, this.props.locale)}
                     {renderTermsAndConditions(this.props.locale, this.state.translationResource.extendTermsAndConditionsDetails)}
                 </ul>
             </>

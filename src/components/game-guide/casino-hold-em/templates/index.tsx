@@ -9,8 +9,8 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
 import { renderToString } from "react-dom/server";
 import { Markup } from "interweave";
-import { vi as BaseMD5Resource } from "../../base/md5/languages/vi";
 import { StringFormat } from "../../../../helpers/string-helper";
+import { ICasinoHoldTranslationResource } from "../languages/types";
 class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfigProps, MaxBetChoicesProps>, any> {
     renderIntroduce() {
         return (
@@ -887,27 +887,41 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
         );
     }
 
-    renderMD5(locale?: string) {
+    renderMD5(language: ICasinoHoldTranslationResource, locale: string | undefined) {
+        const steps = {
+            one: "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.",
+            two: "<strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi bấm nút &quot;Theo Bài&quot;.",
+            three: "<strong>Bước 3:</strong>: Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
+            four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+        };
+
         const md5 = {
             md5Base: {
                 content: {
-                    ...BaseMD5Resource.content,
-                    validation: {
-                        header: BaseMD5Resource.content.validation.header,
+                    header: "MD5 (Message-Digest algorithm 5)",
+                    technology: {
+                        header: "Công nghệ MD5",
                         details: [
-                            "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.",
-                            "<strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi bấm nút &quot;Theo Bài&quot;.",
-                            "<strong>Bước 3:</strong>: Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
-                            "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
+                            "<strong>MD5</strong> là công nghệ cho phép người chơi xác thực và kiểm tra tính minh bạch của kết quả trò chơi thông qua bên thứ ba.",
+                            "Kết quả trò chơi sẽ được hệ thống tạo ngẫu nhiên ngay khi Người Chơi bấm nút chia bài (Chuỗi<strong>MD5</strong>)",
+                            "Người chơi sẽ kiểm tra sự đồng nhất giữa kết quả được hệ thống tạo ra ngẫu nhiên trước khi đặt cược (Chuỗi <strong>MD5</strong>) và kết quả cuối cùng sau khi được công bố (<strong>Kết Quả</strong>).",
                         ],
                     },
-                    noted: "  Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi các lá bài được mở.",
+                    validation: {
+                        header: "Tra Cứu MD5",
+                        details: Object.values(steps),
+                    },
+                    noted: "Nếu 2 chuỗi trùng khớp, chứng minh kết quả được công bố không thay đổi so với kết quả được hệ thống tạo ra ngẫu nhiên trước khi các lá bài được mở.",
                 },
                 example: {
-                    ...BaseMD5Resource.example,
-                    header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả.",
-                    step1Text: "<strong>Bước 1:</strong> Copy chuỗi MD5 sau khi bấm nút &quot;Chia Bài&quot;.",
-                    step2Text: "<strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục Kết Quả sau khi bấm nút &quot;Theo Bài&quot;",
+                    header: "<strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi",
+                    step1Text: steps.one,
+                    step2Text: steps.two,
+                    step3Text: steps.three,
+                    step4Text: steps.four,
+                    md5Key: "Chuỗi MD5",
+                    result: "Kết Quả",
+                    copy: "Copy",
                 },
             },
             md5Note: {
@@ -919,20 +933,18 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
 
         const playerCards = (
             <>
-                (<span className="casino-black">J♣</span>,
-                <span className="red">10♥</span>)
+                (<span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>)
             </>
         );
         const dealerCards = (
             <>
-                (<span className="red">3♦</span>,
-                <span className="casino-black">2♠</span>)
+                (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>)
             </>
         );
         const communityCards = (
             <>
-                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,
-                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,
+                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
+                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
                 <span className={Styles["black"]}>10♣</span>)
             </>
         );
@@ -940,10 +952,10 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
         return <MD5
             locale={locale}
             resources={md5.md5Base}
-            step1ImageUrl={`/static/images/casino-hold-em/md5_vi.png?v=3`}
-            step2ImageUrl={`/static/images/casino-hold-em/md5_result_vi.png?v=3`}
-            step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=3"
-            step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=3"
+            step1ImageUrl={`/static/images/casino-hold-em/md5-vi.png?v=5`}
+            step2ImageUrl={`/static/images/casino-hold-em/result-vi.png?v=5`}
+            step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=5"
+            step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=5"
             note={
                 <>
                     <ul className="detail">
@@ -960,15 +972,13 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                         <li>
                             <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
                         </li>
-                        <li>
-                            {md5.md5Note.line3}
+                        <li>{md5.md5Note.line3}
                         </li>
                     </ul>
                 </>
             }
         />
-    }
-
+    };
     render() {
         return (
             <>
@@ -977,7 +987,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                     <li className="guide-item">{this.renderGameRule()}</li>
                     <li className="guide-item">{this.renderPayout()}</li>
                     <li className="guide-item">{this.renderBetLimit()}</li>
-                    {this.renderMD5(this.props.locale)}
+                    {this.renderMD5(this.state.translationResource, this.props.locale)}
                     {renderTermsAndConditionsVI(['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
                         nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24\
                         tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.'])}

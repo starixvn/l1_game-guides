@@ -1,5 +1,10 @@
 import { ICasinoHoldTranslationResource } from "./types";
-
+const steps = {
+    one: "<b>第一步</b>: 按下 Deal 按钮后复制 MD5 密钥。",
+    two: "<b>第二步</b>: 按呼叫按钮后复制结果。",
+    three: "<b>第三步</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
+    four: "<b>第四步</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的 <strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+};
 const Hand = {
     royalFlush: "皇家同花顺",
     straightFlush: "同花顺",
@@ -175,37 +180,38 @@ export const cn: ICasinoHoldTranslationResource = {
         },
     },
     md5: {
-        title: "MD5 (Message-Digest algorithm 5)",
-        MD5Technology: {
-            title: "MD5技术",
-            description: {
-                "MD5 allows players": "MD5 允许玩家通过第三方检查游戏结果的真实性和透明度。",
-                "The game results": "游戏结果将在翻牌前由系统随机生成。",
-                "Players can manually":
-                    "玩家可以手动检查翻牌前生成的结果 (<strong>MD5</strong> Key) 和发布的结果 (string <strong>Result</strong>) 是否匹配。",
+        md5Base: {
+            content: {
+                header: "MD5（消息摘要算法5）",
+                technology: {
+                    header: "MD5技术",
+                    details: [
+                        "MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。",
+                        "游戏结果将在翻牌前由系统随机生成。",
+                        "玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>结果</strong>）是否匹配。",
+                    ],
+                },
+                validation: {
+                    header: "MD5 验证",
+                    details: Object.values(steps),
+                },
+                noted: "如果两个字符串匹配，则证明该游戏回合的结果是透明的，并且游戏结果与系统在揭牌前产生的随机结果没有变化。",
+            },
+            example: {
+                header: "<strong>示例:</strong> 檢查結果的真實性和透明度。",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "MD5 钥匙",
+                result: "结果",
+                copy: "复制",
             },
         },
-        MD5Validation: {
-            title: "MD5 验证",
-            steps: {
-                step1: "<strong>第 1 步</strong>: 按下 Deal 按钮后复制 MD5 密钥。",
-                step2: "<strong>第 3 步</strong>: 按呼叫按钮后复制结果。",
-                step3: `<string>第 3 步</string>: 转到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 并将结果粘贴到 MD5 框中。`,
-                step4: "<string>第 4 步</string>: 按 “<strong>hash darling, hash!</strong>” 按钮，将新生成的校验和 MD5 字符串与步骤 1 中的 MD5 字符串进行比较。",
-            },
-            description: "如果两个字符串匹配，则证明该游戏回合的结果是透明的，并且游戏结果与系统在揭牌前产生的随机结果没有变化。",
-            example: {
-                description: "示例：检查扑克游戏结果的真实性和透明度。",
-                step1: "<strong>第 1 步</strong>: 按下 Deal 按钮后复制 MD5 密钥。",
-                step2: "<strong>第 2 步</strong>: 按呼叫按钮后复制结果。",
-                note: {
-                    title: "注意",
-                    line1: "从左到右，出牌顺序为：闲家牌 {0}、庄家牌 {1}、五张公共牌 {2}",
-                    line2: "如果闲家与庄家交换了他的牌，那么顺序将是：庄家的牌 {0}，闲家的牌 {1}，以及五张公共牌。",
-                },
-                step3: `<string>第 3 步</string>: 转到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 并将结果粘贴到 MD5 框中。`,
-                step4: "<string>第 4 步</string>: 按 “<strong>hash darling, hash!</strong>” 按钮，将新生成的校验和 MD5 字符串与步骤 1 中的 MD5 字符串进行比较。",
-            },
+        md5Note: {
+            title: "注意",
+            line1: "从左到右，出牌顺序为：闲家牌 {0}、庄家牌 {1}、五张公共牌 {2}",
+            line2: "如果闲家与庄家交换了他的牌，那么顺序将是：庄家的牌 {0}，闲家的牌 {1}，以及五张公共牌。",
         },
     },
     extendTermsAndConditionsDetails: [

@@ -1,5 +1,11 @@
 import { TexasHoldemLanguage } from "./types";
-import { id as BaseMD5Resource } from "../../base/md5/languages/id";
+
+const steps = {
+    one: "<b>Langkah 1</b>: Salin kunci MD5 setelah menekan tombol Deal.",
+    two: "<b>Langkah 2</b>: Salin Hasil setelah kartu komunitas kelima (River) dibagikan.",
+    three: "<b>Langkah 3</b>: Buka {0} dan rekatkan Hasil ke kotak MD5.",
+    four: "<b>Langkah 4</b>: Tekan tombol <b>“hash darling, hash!</b>” dan bandingkan rangkaian daftar <strong>MD5 checksum</strong> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
+};
 
 export const id: TexasHoldemLanguage = {
     introduction: {
@@ -129,29 +135,36 @@ export const id: TexasHoldemLanguage = {
     md5: {
         md5Base: {
             content: {
-                ...BaseMD5Resource.content,
-                validation: {
-                    header: BaseMD5Resource.content.validation.header,
+                header: "MD5 (Mencerna Pesan Algoritma 5)",
+                technology: {
+                    header: "MD5 teknologi",
                     details: [
-                        "<b>Langkah 1</b>: Salin kunci MD5 setelah menekan tombol Deal.",
-                        "<b>Langkah 2</b>: Salin Hasil setelah kartu komunitas kelima (River) dibagikan.",
-                        "<b>Langkah 3</b>: Buka {0} dan rekatkan Hasil ke kotak MD5.",
-                        "<b>Langkah 4</b>: Tekan tombol <b>“hash darling, hash!</b>” dan bandingkan rangkaian daftar <strong>MD5 checksum</strong> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
+                        "MD5 yang memungkinkan pemain untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
+                        "Hasil permainan akan dibuat secara acak oleh sistem sebelum kartu dibuka.",
+                        "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
                     ],
+                },
+                validation: {
+                    header: "Validasi MD5",
+                    details: Object.values(steps),
                 },
                 noted: "Jika dua senar cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum kartu dibagikan.",
             },
             example: {
-                ...BaseMD5Resource.example,
-                header: "<b>Contoh:</b> Periksa keaslian dan transparansi hasil permainan Poker.",
-                step1Text: "<strong>Langkah 1</strong>: Salin kunci MD5 setelah menekan tombol Deal.",
-                step2Text: "<strong>Langkah 2</strong>: Salin Hasil setelah kartu komunitas kelima (River) dibagikan.",
+                header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.",
+                step1Text: steps.one,
+                step2Text: steps.two,
+                step3Text: steps.three,
+                step4Text: steps.four,
+                md5Key: "Kunci MD5",
+                result: "Hasil",
+                copy: "Salin",
             },
         },
         md5Note: {
-            title: "Note",
-            line1: "From left to right, the cards are displayed in the order: Player’s cards {0}, Dealer’s cards {1}, and the five community cards {2}",
-            line2: "If the Player has swapped his cards with Dealer then the order will be: Dealer’s cards {0}, Player’s cards {1}, and the five community cards.",
+            title: "Catatan:",
+            line1: "Dari kiri ke kanan, kartu ditampilkan dalam urutan: Kartu Player {0}, Kartu Dealer {1}, dan lima kartu komunitas {2}",
+            line2: "Jika Player telah menukar kartunya dengan Dealer maka urutannya adalah: Kartu Dealer {0}, Kartu Player {1}, dan lima kartu komunitas.",
         },
     },
     extendTermsAndConditionsDetails: [

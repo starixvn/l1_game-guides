@@ -1,3 +1,5 @@
+import { IMd5Resources } from "../../base/md5/languages/types";
+
 type THand = {
     royalFlush: string;
     straightFlush: string;
@@ -172,37 +174,11 @@ export interface ICasinoHoldTranslationResource {
         };
     };
     md5: {
-        title: string;
-        MD5Technology: {
+        md5Base: IMd5Resources;
+        md5Note: {
             title: string;
-            description: {
-                "MD5 allows players": string;
-                "The game results": string;
-                "Players can manually": string;
-            };
-        };
-
-        MD5Validation: {
-            title: string;
-            steps: {
-                step1: string;
-                step2: string;
-                step3: string;
-                step4: string;
-            };
-            description: string;
-            example: {
-                description: string;
-                step1: string;
-                step2: string;
-                note: {
-                    title: string;
-                    line1: string;
-                    line2: string;
-                };
-                step3: string;
-                step4: string;
-            };
+            line1: string;
+            line2: string;
         };
     };
     extendTermsAndConditionsDetails: string[];
