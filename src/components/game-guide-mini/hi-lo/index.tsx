@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GameConfigProps } from "../big-small/type";;
+import { GameConfigProps } from "../big-small/type";
 import { getGameConfigProject } from "../../index.helper";
 import { GameGuideBase } from "../../game-guide/type";
 import HiLoMiniGuideTemplate from "./templates";
@@ -9,7 +9,7 @@ const HiLoMiniGuide = (props: GameGuideBase) => {
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
-        getGameConfigProject("hi-lo", project, setConfigs);
+        getGameConfigProject("hi-lo", project, setConfigs, "game-guide-mini");
     };
 
     const getDynamicGameConfig = () => {

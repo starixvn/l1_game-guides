@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameGuideBase } from "../../game-guide/type";
 import FishPrawnCrabMiniGuideTemplate from "./template";
@@ -18,22 +17,12 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const FishPrawnCrabMiniGuide = (props: GameGuideBase) => {
-    const {
-        locale,
-        gameConfigs,
-        gameNameTranslate,
-        dynamic,
-        userStakeLevel,
-        isGetGameConfigs,
-        environment,
-        project,
-        fractionalOddsFormat,
-    } = props;
+    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, isGetGameConfigs, project } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
     const getLocalGameConfigs = () => {
-        getGameConfigProject("fish-prawn-crab", project, setConfigs);
+        getGameConfigProject("fish-prawn-crab", project, setConfigs, "game-guide-mini");
     };
 
     const getDynamicGameConfig = () => {

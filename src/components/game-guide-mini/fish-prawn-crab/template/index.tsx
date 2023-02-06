@@ -52,7 +52,7 @@ class FishPrawnCrabMiniGuideTemplate<
                             content={StringFormat(
                                 betLimit.description,
                                 (maxBetFollowChoice?.minBetMain ?? 0).toString(),
-                                (maxBetFollowChoice?.maxBetMain ?? 0).toString(),
+                                (maxBetFollowChoice?.maxBetChoice ?? 0).toString(),
                                 (maxBetFollowChoice?.maxBetMain ?? 0).toString()
                             )}
                         />

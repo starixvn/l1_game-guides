@@ -17,6 +17,8 @@ const BaccaratMiniGuideTemplate = dynamic(() => import("./baccarat"));
 const HiLoMiniGuide = dynamic(() => import("./hi-lo"));
 const FishPrawnCrabMiniGuide = dynamic(() => import("./fish-prawn-crab"));
 
+const DragonTigerMiniGuide = dynamic(() => import("./dragon-tiger"));
+
 class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
         const { gameId } = this.props;
@@ -31,6 +33,7 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
             case GAMES_MINI.FISH_PRAWN_CRAB:
                 return <FishPrawnCrabMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.DRAGON_TIGER:
+                return <DragonTigerMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.HILO:
                 return <HiLoMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
