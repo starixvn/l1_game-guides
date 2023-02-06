@@ -1,0 +1,15 @@
+.guide-item-instant {
+
+    &:before {
+        color: var(--primary-color);
+        font-weight: 500;
+        font-size: var(--title-font-size);
+    }
+
+    h2 {
+        display: inline-block;
+        font-size: var(--title-font-size);
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+}

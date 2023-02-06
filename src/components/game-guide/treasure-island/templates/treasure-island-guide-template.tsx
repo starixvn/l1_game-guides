@@ -374,8 +374,8 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
     ) {
         const imageDirectoryName = getImageDirectoryName();
         const pathSrc = `${imageDirectoryName}/`;
-        const oddItemReverse = [...dataContent.oddItem];
-        const oddItemList = isReverse ? oddItemReverse.reverse() : dataContent.oddItem;
+        const oddItems = [...dataContent.oddItem].reverse();
+        const oddItemList = isReverse ? oddItems : dataContent.oddItem;
         return (
             <div className={Styles["wrapper-icon"]}>
                 <img
