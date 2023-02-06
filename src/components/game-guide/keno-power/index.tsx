@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import KenoPowerGuideEN from "./en";
-import KenoPowerGuideVI from "./vi";
-import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
@@ -64,7 +62,7 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         locale
     };
 
-    return locale === locales.en ? <KenoPowerGuideEN {...shareProps} /> : <KenoPowerGuideVI {...shareProps} />
+    return <KenoPowerGuideEN {...shareProps} />
 };
 
 export default KenoPowerGuide;

@@ -131,7 +131,6 @@ export const id: TexasHoldemLanguage = {
         Turn: "Turn",
         River: "River",
     },
-
     md5: {
         md5Base: {
             content: {
