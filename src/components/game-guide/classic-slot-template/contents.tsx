@@ -319,6 +319,7 @@ const renderWild = (odds: number[][], t: Function) => {
                         {generateSymbol(8, false, true)},{generateSymbol(7, false, true)}
                         {t("Wild-word-and")}
                         {generateSymbol(10, false, true)}
+                        {t("Wild-line-1-extend")}
                     </li>
                     <li>{t("Wild-line-2")}</li>
                 </ul>
