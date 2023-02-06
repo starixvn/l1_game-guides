@@ -32,6 +32,12 @@ const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Func
     }
 };
 
+const FontLocaleMapper: { [key: string]: string } = {
+    th: "Noto-Thai",
+    zh_cn: "Noto-ZH-CN",
+    zh_tw: "Noto-ZH-TW",
+};
+
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
     let fontFamily = "SanFranciscoDisplay";
 
@@ -39,25 +45,12 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
         fontFamily = "Noto";
 
         if (GAMES_COMPLETE_TRANSLATE.includes(gameId)) {
-            switch (locale) {
-                case "th":
-                    fontFamily = "Noto-Thai";
-                    break;
-                case "zh_cn":
-                    fontFamily = "Noto-ZH-CN";
-                    break;
-                case "zh_tw":
-                    fontFamily = "Noto-ZH-TW";
-                    break;
-                default:
-                    fontFamily = "Noto";
-                    break;
-            }
+            fontFamily = FontLocaleMapper[locale] ?? "Noto";
         }
-    }
 
-    if (isNewSlotGame(gameType, gameId)) {
-        fontFamily = "Kodchasan";
+        if (isNewSlotGame(gameType, gameId)) {
+            fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
+        }
     }
 
     document.documentElement.style.fontFamily = fontFamily;
