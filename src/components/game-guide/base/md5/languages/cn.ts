@@ -22,10 +22,10 @@ export const cn: IMd5Resources = {
             header: "MD5 验证",
             details: Object.values(steps),
         },
-        noted: "如果兩個字符串匹配，則證明該局遊戲的結果是透明的，並且遊戲結果與下注前系統生成的隨機結果沒有變化。",
+        noted: "如果两个字符串匹配，则证明该局游戏的结果是透明的，并且游戏结果与下注前系统生成的随机结果没有变化。",
     },
     example: {
-        header: "<strong>示例:</strong> 檢查結果的真實性和透明度。",
+        header: "<strong>示例:</strong> 检查结果的真实性和透明度。",
         step1Text: steps.one,
         step2Text: steps.two,
         step3Text: steps.three,

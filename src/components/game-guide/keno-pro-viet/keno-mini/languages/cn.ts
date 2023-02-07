@@ -5,7 +5,7 @@ export const cn: IKenoTranslationResource = {
     introduction: {
         title: "简介",
         description:
-            "Keno Mini / Keno Mini 2 是带有 40 个球的 RNG Keno。从 40 个编号为 1 到 40 的球中随机抽取 10 个球。 玩家对游戏桌上显示的一个或多个投注选项下注。抽取的 10 个编号球的总和将决定玩家的输赢。",
+            "Keno Mini / Keno Mini 2 是带有 40 个球的 RNG Keno。从 40 个编号为 1 到 40 的球中随机抽取 10 个球。玩家对游戏桌上显示的一个或多个投注选项下注。抽取的 10 个编号球的总和将决定玩家的输赢。",
     },
     gameRules: {
         title: "游戏规则",
