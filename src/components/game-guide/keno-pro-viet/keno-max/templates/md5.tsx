@@ -5,7 +5,7 @@ import Styles from "../keno-max.module.scss";
 
 export default class KenoMD5 extends MD5 {
     renderStep1() {
-        return this.props.environment === ENVIRONMENT.sc ? super.renderStep1() : this.renderStep1OnMobile();;
+        return this.props.environment === ENVIRONMENT.sc ? super.renderStep1() : this.renderStep1OnMobile();
     }
 
     renderStep1OnMobile() {
@@ -15,11 +15,9 @@ export default class KenoMD5 extends MD5 {
         return (
             <li>
                 {<Markup content={example.step1Text} />}
-                {
-                    this.buildTwoFirstStepsContentOnMobile(example.md5Key, md5Key)
-                }
+                {this.buildTwoFirstStepsContentOnMobile(example.md5Key, md5Key)}
             </li>
-        )
+        );
     }
 
     renderStep2() {
@@ -33,12 +31,10 @@ export default class KenoMD5 extends MD5 {
         return (
             <li>
                 {<Markup content={example.step2Text} />}
-                {
-                    this.buildTwoFirstStepsContentOnMobile(example.result, md5Result)
-                }
+                {this.buildTwoFirstStepsContentOnMobile(example.result, md5Result)}
                 <div>{this.props.note}</div>
             </li>
-        )
+        );
     }
 
     buildTwoFirstStepsContentOnMobile(title?: string, content?: string) {
@@ -53,6 +49,6 @@ export default class KenoMD5 extends MD5 {
                     <span className={Styles["copy-text"]}>{example.copy}</span>
                 </div>
             </div>
-        )
+        );
     }
 }

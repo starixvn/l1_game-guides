@@ -6,11 +6,7 @@ import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { FiveElements } from "../../../shared/keno/id";
 
-const payouts = (
-    odds: OddsProMaxProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>Pembayaran</h2>

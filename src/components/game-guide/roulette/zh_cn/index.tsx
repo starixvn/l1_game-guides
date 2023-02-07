@@ -9,11 +9,7 @@ import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>游戏规则</h2>
@@ -113,7 +109,7 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -246,7 +242,7 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat:
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tiers</span>
@@ -312,7 +308,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -385,7 +381,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisins</span>
@@ -468,7 +464,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Zero</span>
@@ -535,7 +531,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
@@ -606,7 +602,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>投注选项</h2>
@@ -620,7 +616,7 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
     );
 };
 
-const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>跟注</h2>

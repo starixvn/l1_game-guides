@@ -9,25 +9,22 @@ import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>กฎของเกม</h2>
             <ul className="desc">
                 <li>เลือกมูลค่าชิปที่คุณต้องการเล่น การเดิมพันทั้งหมดจะต้องเสร็จสิ้นก่อนที่เวลาการเดิมพันจะสิ้นสุดลง </li>
-                <li>คลิกปุ่ม &#34;ยืนยัน&#34; เพื่อเสร็จสิ้น หรือ X เพื่อรีเซ็ตการเดิมพันของคุณ หมายเหตุ การเดิมพันที่ยืนยันแล้วไม่สามารถยกเลิกได้</li>
-
                 <li>
-                เมื่อหมดเวลาเดิมพัน วงล้อจะหมุนโดยให้ลูกบอลหมุนไปในทิศทางตรงกันข้ามกับการหมุนของวงล้อ
+                    คลิกปุ่ม &#34;ยืนยัน&#34; เพื่อเสร็จสิ้น หรือ X เพื่อรีเซ็ตการเดิมพันของคุณ หมายเหตุ
+                    การเดิมพันที่ยืนยันแล้วไม่สามารถยกเลิกได้
                 </li>
+
+                <li>เมื่อหมดเวลาเดิมพัน วงล้อจะหมุนโดยให้ลูกบอลหมุนไปในทิศทางตรงกันข้ามกับการหมุนของวงล้อ</li>
                 <li>หมายเลขที่ชนะจะอยู่ในช่องที่ลูกบอลตกลงไป</li>
                 <li>ผู้เล่นสามารถเดิมพันมากกว่าหนึ่งตัวเลือกที่แสดงอยู่บนโต๊ะเกม</li>
                 <li>
-                    จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย <strong>หมายเหตุ</strong>  การจ่ายเงินจะรวมเงินการเดิมพันเริ่มต้น
+                    จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย <strong>หมายเหตุ</strong> การจ่ายเงินจะรวมเงินการเดิมพันเริ่มต้น
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
@@ -35,7 +32,7 @@ const renderGameRule = (
                                     <th>ประเภทการเดิมพัน</th>
                                     <th>อัตราต่อรอง</th>
                                     <th>
-                                        วงเงินเดิมพัน  <br></br> (ต่ำสุด - สูงสุด)
+                                        วงเงินเดิมพัน <br></br> (ต่ำสุด - สูงสุด)
                                     </th>
                                     <th>เดิมพันรวมสูงสุดต่อรอบ</th>
                                 </tr>
@@ -116,10 +113,7 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -143,8 +137,9 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>คอลัมน์: </strong>เดิมพันตัวเลขทั้งสิบสองหมายเลข (ไม่รวมศูนย์)<br></br>
-                                    + วางชิปของคุณในพื้นที่ที่มีเครื่องหมาย &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34; ที่ท้ายคอลัมน์                                    
+                                    <strong>คอลัมน์: </strong>เดิมพันตัวเลขทั้งสิบสองหมายเลข (ไม่รวมศูนย์)<br></br>+
+                                    วางชิปของคุณในพื้นที่ที่มีเครื่องหมาย &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34;
+                                    ที่ท้ายคอลัมน์
                                 </div>
                             </div>
                         </td>
@@ -154,8 +149,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>แยก: </strong>เดิมพันสองตัวเลขที่อยู่ติดกัน แนวนอนหรือแนวตั้ง<br></br>
-                                    + วางชิปของคุณบนเส้นแบ่งระหว่างตัวเลขสอง
+                                    <strong>แยก: </strong>เดิมพันสองตัวเลขที่อยู่ติดกัน แนวนอนหรือแนวตั้ง<br></br>+
+                                    วางชิปของคุณบนเส้นแบ่งระหว่างตัวเลขสอง
                                 </div>
                             </div>
                         </td>
@@ -163,8 +158,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>โหล :</strong> เดิมพันเลขสิบสองเลขเรียงกัน<br></br>
-                                    + วางชิปของคุณในพื้นที่ใดจุดหนึ่งจากสามส่วนที่มีเครื่องหมาย {`"1-12", "13-24" หรือ "25-36"`}.
+                                    <strong>โหล :</strong> เดิมพันเลขสิบสองเลขเรียงกัน<br></br>+
+                                    วางชิปของคุณในพื้นที่ใดจุดหนึ่งจากสามส่วนที่มีเครื่องหมาย {`"1-12", "13-24" หรือ "25-36"`}.
                                 </div>
                             </div>
                         </td>
@@ -174,8 +169,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>ตรง: </strong>เดิมพันตัวเลขสามตัวติดต่อกันที่อยู่บนบรรทัดเดียวกัน<br></br>
-                                    + วางชิปของคุณไว้ที่ขอบด้านนอกของสามหมายเลข
+                                    <strong>ตรง: </strong>เดิมพันตัวเลขสามตัวติดต่อกันที่อยู่บนบรรทัดเดียวกัน<br></br>+
+                                    วางชิปของคุณไว้ที่ขอบด้านนอกของสามหมายเลข
                                 </div>
                             </div>
                         </td>
@@ -193,8 +188,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>สามเหลี่ยม: </strong>เดิมพันสามตัวเลขที่อยู่ติดกัน 0, 1, 2 หรือ 0, 2, 3<br></br>
-                                    + วางชิปของคุณที่มุมที่ตัดกันของ (0, 1 และ 2) หรือ (0, 2 และ 3)
+                                    <strong>สามเหลี่ยม: </strong>เดิมพันสามตัวเลขที่อยู่ติดกัน 0, 1, 2 หรือ 0, 2, 3<br></br>+
+                                    วางชิปของคุณที่มุมที่ตัดกันของ (0, 1 และ 2) หรือ (0, 2 และ 3)
                                 </div>
                             </div>
                         </td>
@@ -231,8 +226,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>สี่ตัวเลข: </strong>เดิมพันสี่ตัวเลข 0, 1, 2, 3<br></br>
-                                    + วางชิปของคุณที่มุมตัดกันของ 0 และแถวของ 1, 2, 3
+                                    <strong>สี่ตัวเลข: </strong>เดิมพันสี่ตัวเลข 0, 1, 2, 3<br></br>+ วางชิปของคุณที่มุมตัดกันของ 0
+                                    และแถวของ 1, 2, 3
                                 </div>
                             </div>
                         </td>
@@ -243,8 +238,7 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>แถว : </strong>แทงสองแถวติดกัน<br></br>
-                                    + วางชิปของคุณที่ส่วนท้ายของสองแถวบนทางแยกระหว่างกัน
+                                    <strong>แถว : </strong>แทงสองแถวติดกัน<br></br>+ วางชิปของคุณที่ส่วนท้ายของสองแถวบนทางแยกระหว่างกัน
                                 </div>
                             </div>
                         </td>
@@ -256,15 +250,13 @@ const renderBetChipsNotice = (
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tiers</span>
             <ul className="desc">
                 <li>การเดิมพัน The Tiers นั้นประกอบด้วยหมายเลข 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33 </li>
-                <li>
-                    ในการเล่นการเดิมพัน Tiers จะมีการนำชิปถูกวางแยกไว้ 6 ที่: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36)
-                </li>
+                <li>ในการเล่นการเดิมพัน Tiers จะมีการนำชิปถูกวางแยกไว้ 6 ที่: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36)</li>
             </ul>
             <p>
                 <strong>ตัวอย่าง: </strong>ผู้เล่นเลือกมูลค่าชิป 10 และคลิกที่ตัวเลือก Tiger , จะมีค่าราคา 6 ชิป สำหรับตัวเลือกนี้:
@@ -324,7 +316,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -397,7 +389,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisins</span>
@@ -480,19 +472,19 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Zero</span>
             <ul className="desc">
                 <li>การเดิมพัน Zero ประกอบด้วยตัวเลข 12, 35, 3, 26, 0, 32, 15</li>
                 <li>
-                    ในการเล่นการเดิมพัน Zero  จะมีการนำชิปสี่ชิปมาวางบน:
+                    ในการเล่นการเดิมพัน Zero จะมีการนำชิปสี่ชิปมาวางบน:
                     <ul className="plus">
                         <li>หนึ่งชิปสำหรับการเดิมพันแบบสเตรท (26)</li>
                         <li>สามชิปสำหรับแยกสาม (0, 3), (12, 15), (32, 35)</li>
                     </ul>
-                </li>                
+                </li>
             </ul>
             <p>
                 <strong>ตัวอย่าง: </strong>ผู้เล่นเลือกมูลค่าชิป 10 และคลิกที่ตัวเลือกศูนย์ จะมีค่าราคา4 ชิปสำหรับตัวเลือกนี้:
@@ -547,22 +539,24 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
             <p>
-                Neighbors นั้นสร้างด้วยตัวเลข 5 ตัว โดยในจำนวนนี้ผู้เล่นเลือกหมายเลขหนึ่ง ร่วมกับตัวเลขสองตัวที่อยู่ทางด้านซ้ายและด้านขวาของหมายเลขนั้นบนวงล้อ
+                Neighbors นั้นสร้างด้วยตัวเลข 5 ตัว โดยในจำนวนนี้ผู้เล่นเลือกหมายเลขหนึ่ง
+                ร่วมกับตัวเลขสองตัวที่อยู่ทางด้านซ้ายและด้านขวาของหมายเลขนั้นบนวงล้อ
             </p>
             <ul className="desc">
-                <li>ในการเล่นการเดิมพัน Neighbors  จะมีการนำชิปห้าชิปมาวางในการเดิมพันแบบตรง 5 ครั้ง</li>
+                <li>ในการเล่นการเดิมพัน Neighbors จะมีการนำชิปห้าชิปมาวางในการเดิมพันแบบตรง 5 ครั้ง</li>
             </ul>
 
             <div className={Styles["wrapper-img-circle"]}>
                 <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
             </div>
             <p>
-                <strong>ตัวอย่าง: </strong>ผู้เล่นเลือกมูลค่าชิป 10 และคลิกที่หมายเลข 27 สำหรับการเดิมพันเพื่อนบ้าน จะมีราคา 5 ชิปสำหรับการเดิมพันแบบตรง 5 ครั้ง: (36), (13), (27), (6), (34)
+                <strong>ตัวอย่าง: </strong>ผู้เล่นเลือกมูลค่าชิป 10 และคลิกที่หมายเลข 27 สำหรับการเดิมพันเพื่อนบ้าน จะมีราคา 5
+                ชิปสำหรับการเดิมพันแบบตรง 5 ครั้ง: (36), (13), (27), (6), (34)
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -619,29 +613,28 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined, 
-) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>ตัวเลือกการเดิมพัน</h2>
             <p>
-                ประเภทการเดิมพันรูเล็ตแบ่งออกเป็นสองประเภท: การเดิมพันภายในและการเดิมพันภายนอก 
-                การเดิมพันที่วางบนตัวเลขนั้นเรียกว่าการเดิมพัน (ตรง, แยก,ทาง) และในขณะที่การเดิมพันที่คุณวางนอกช่องหมายเลขจะเรียกว่าการเดิมพันภายนอก (คี่/คู่, แดง/ดำ, ใหญ่/เล็ก, คอลัมน์ และ โหล)
+                ประเภทการเดิมพันรูเล็ตแบ่งออกเป็นสองประเภท: การเดิมพันภายในและการเดิมพันภายนอก
+                การเดิมพันที่วางบนตัวเลขนั้นเรียกว่าการเดิมพัน (ตรง, แยก,ทาง)
+                และในขณะที่การเดิมพันที่คุณวางนอกช่องหมายเลขจะเรียกว่าการเดิมพันภายนอก (คี่/คู่, แดง/ดำ, ใหญ่/เล็ก, คอลัมน์ และ โหล)
             </p>
-            {renderGameRuleImage(fractionalOddsFormat, "th")}  
+            {renderGameRuleImage(fractionalOddsFormat, "th")}
             {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
 };
 
-const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>การเดิมพันโทร</h2>
             <p>
-                การเดิมพันโทรหรือการเดิมพันฝรั่งเศสเป็นตัวเลือกการเดิมพันพิเศษซึ่งเป็นชุดเดิมพันที่กำหนดไว้ล่วงหน้า มี 5 ตัวเลือก: Tiers, Voisins du Zero, Orphelins, Zero, Neighbors
+                การเดิมพันโทรหรือการเดิมพันฝรั่งเศสเป็นตัวเลือกการเดิมพันพิเศษซึ่งเป็นชุดเดิมพันที่กำหนดไว้ล่วงหน้า มี 5 ตัวเลือก: Tiers,
+                Voisins du Zero, Orphelins, Zero, Neighbors
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
@@ -675,9 +668,9 @@ const RouletteGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        รูเล็ตเป็นเกมการพนันเรียบง่ายแต่เป็นที่น่าสนใจ เกมนี้เล่นด้วยลูกบอลและวงล้อรูเล็ตซึ่งประกอบด้วยสล็อต 37 ช่อง ตัวเลขตั้งแต่ 0 ถึง 36 
-                        แต่ละช่องจะมีสีแดงหรือสีดำ ในขณะที่ช่อง “0” เป็นสีเขียว ผู้เล่นทายตัวเลขว่าในที่สุดลูกบอลจะลงในหมุนวงล้อใด 
-                        หากลูกบอลตกอยู่ในหมายเลขที่คุณเลือก คุณจะชนะ ;มิฉะนั้น ,คุณแพ้
+                        รูเล็ตเป็นเกมการพนันเรียบง่ายแต่เป็นที่น่าสนใจ เกมนี้เล่นด้วยลูกบอลและวงล้อรูเล็ตซึ่งประกอบด้วยสล็อต 37 ช่อง
+                        ตัวเลขตั้งแต่ 0 ถึง 36 แต่ละช่องจะมีสีแดงหรือสีดำ ในขณะที่ช่อง “0” เป็นสีเขียว
+                        ผู้เล่นทายตัวเลขว่าในที่สุดลูกบอลจะลงในหมุนวงล้อใด หากลูกบอลตกอยู่ในหมายเลขที่คุณเลือก คุณจะชนะ ;มิฉะนั้น ,คุณแพ้
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>

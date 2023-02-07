@@ -51,13 +51,15 @@ const renderGameRule = (maxBet: string | undefined) => {
                     </div>
                 </li>
                 <li>
-                    Pemain dapat meningkatkan jumlah taruhan mereka dengan memasang taruhan lain dengan pilihan yang sama sebelum waktu taruhan berakhir.
+                    Pemain dapat meningkatkan jumlah taruhan mereka dengan memasang taruhan lain dengan pilihan yang sama sebelum waktu
+                    taruhan berakhir.
                 </li>
                 <li>Total taruhan maksimum per putaran adalah {maxBet}. Catatan, taruhan yang dipasang tidak dapat dibatalkan.</li>
                 <li>
-                    Balanced Betting Pool: jika jumlah total taruhan pada GANJIL dan GENAP berbeda maka jumlah selisih akan dikembalikan ke pemain yang memiliki tiket taruhan terbaru.<br></br>
-                    <strong>Contoh:</strong> Pemain A bertaruh 100 pada GANJIL, pemain B bertaruh 30 pada GENAP, dan C bertaruh 90 pada GENAP.
-                    Untuk menyeimbangkan jumlah total taruhan pada GANJIL dan GENAP, sistem akan mengembalikan 20 ke pemain C.
+                    Balanced Betting Pool: jika jumlah total taruhan pada GANJIL dan GENAP berbeda maka jumlah selisih akan dikembalikan ke
+                    pemain yang memiliki tiket taruhan terbaru.<br></br>
+                    <strong>Contoh:</strong> Pemain A bertaruh 100 pada GANJIL, pemain B bertaruh 30 pada GENAP, dan C bertaruh 90 pada
+                    GENAP. Untuk menyeimbangkan jumlah total taruhan pada GANJIL dan GENAP, sistem akan mengembalikan 20 ke pemain C.
                 </li>
             </ul>
         </>
@@ -76,7 +78,7 @@ const renderStatisticTable = () => {
 };
 
 const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
 
     return (
@@ -87,16 +89,15 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <p className="content">
                         Spesial Se Die adalah versi mini dari game Se Die yang hanya menyertakan dua pilihan taruhan GANJIL dan GENAP.
                         Permainan ini dimainkan dengan 4 tombol berwarna, masing-masing tombol memiliki dua sisi berwarna merah dan putih.
-                        Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain, pemain menang.
+                        Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain,
+                        pemain menang.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 <li className="guide-item">
                     <h2>Pembayaran</h2>
                     <ul className="desc">
-                        <li>
-                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Catatan, pembayaran termasuk taruhan awal.
-                        </li>
+                        <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Catatan, pembayaran termasuk taruhan awal.</li>
                         <li>
                             Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                             <div className="table-container">
@@ -106,7 +107,7 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <th>Pilihan</th>
                                             <th>Pembayaran</th>
                                             <th>
-                                                Batas Taruhan  <br /> (Min - Maks)
+                                                Batas Taruhan <br /> (Min - Maks)
                                             </th>
                                         </tr>
                                     </thead>

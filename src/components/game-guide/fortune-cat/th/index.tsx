@@ -9,7 +9,6 @@ import { GameConfigProps } from "../type";
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
-const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
@@ -447,7 +446,7 @@ const renderWild = (odds: number[][]) => {
 };
 
 const FortuneCatGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameConfigs, gameName } = props;
+    const { gameConfigs } = props;
     const { odds } = gameConfigs;
     return (
         <>

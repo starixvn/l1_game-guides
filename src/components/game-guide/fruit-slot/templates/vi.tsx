@@ -133,7 +133,7 @@ export const renderPayoutsTable = (odds: any, locale = "vi") => {
 
 export const renderItemSymbol = (odds: OddsProps, itemName: string, isTextImages: boolean, locale = "vi") => {
     const pathSrc = "./static/images/fruit-slot/item_";
-    const itemTextName = itemName + "_" + locale;
+    const itemTextName = `${itemName}_${locale}`;
     const symbol = isTextImages ? itemTextName : itemName;
 
     return (

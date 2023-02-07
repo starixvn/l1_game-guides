@@ -19,9 +19,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>请注意，投注无法取消。</li>
                 <li>一旦投注时间结束，碗将被移除并显示结果。</li>
                 <li>每轮最大总赌注为 {maxBet}</li>
-                <li>
-                    每个投注选项显示的所有玩家的总投注额仅供参考。对于不同的市场和货币，总和是根据公司设定的内部汇率换算的。
-                </li>
+                <li>每个投注选项显示的所有玩家的总投注额仅供参考。对于不同的市场和货币，总和是根据公司设定的内部汇率换算的。</li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center table-medium">
@@ -158,11 +156,7 @@ const renderGameRuleTable = (data: string[]) => {
     );
 };
 
-const renderPayouts = (
-    odds: object | any,
-    maxBetFollowChoice: undefined | MaxBetChoicesProps,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBetChoicesProps, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>支付</h2>
@@ -281,8 +275,9 @@ const SeDieGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>简介</h2>
                     <p className="content">
-                        {gameName} 是色碟游戏的特殊版本。 游戏由 2 组按钮组成，一组用于庄家，一组用于玩家。 每组包括 4 个彩色按钮，其中，每个按钮都有红色和白色的两侧。
-                        玩家对游戏桌上显示的一个或多个投注选项下注。 游戏根据结果中面对的红色或白色站点的数量来确定输赢。
+                        {gameName} 是色碟游戏的特殊版本。 游戏由 2 组按钮组成，一组用于庄家，一组用于玩家。 每组包括 4
+                        个彩色按钮，其中，每个按钮都有红色和白色的两侧。 玩家对游戏桌上显示的一个或多个投注选项下注。
+                        游戏根据结果中面对的红色或白色站点的数量来确定输赢。
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>

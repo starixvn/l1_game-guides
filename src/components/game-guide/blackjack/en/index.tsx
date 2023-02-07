@@ -170,7 +170,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -244,10 +244,12 @@ const BlackjackGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsEN(['The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press \
+                {renderTermsAndConditionsEN([
+                    'The unfinished game round can be recovered and must be finished within 24 hours from the time the Player press \
                             the "Deal" button. <br>\
                             The unfinished game will be automatically settled after 24 hours. The player’s hands are considered as STAND and \
-                            the system will calculate win-loss based on the cards that were on the table at the point of interruption.'])}
+                            the system will calculate win-loss based on the cards that were on the table at the point of interruption.',
+                ])}
             </ul>
         </>
     );

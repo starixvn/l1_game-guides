@@ -5,7 +5,6 @@ import { ENVIRONMENT } from "../../../../common/constants";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import { StatisticalTable } from "../../../shared/se-die/vi";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die.module.scss";
@@ -122,7 +121,7 @@ const renderPayoutTable = (
     odds: OddsProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
     gameId: number,
-    fractionalOddsFormat: boolean | undefined
+    fractionalOddsFormat = false
 ) => {
     return (
         <>
@@ -182,18 +181,19 @@ const renderPayoutTable = (
     );
 };
 
-
 const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
-    return <MD5
-        locale={locale}
-        step1ImageUrl={`/static/images/${currentGameType}/md5_step1_vi.png?v=5`}
-        step2ImageUrl={`/static/images/${currentGameType}/md5_step2_vi.png?v=5`}
-        step3ImageUrl={`/static/images/${currentGameType}/md5_step3_vi.png?v=2`}
-        step4ImageUrl={`/static/images/${currentGameType}/md5_step4_vi.png?v=2`}
-        note={<div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={`/static/images/${currentGameType}/md5_step1_vi.png?v=5`}
+            step2ImageUrl={`/static/images/${currentGameType}/md5_step2_vi.png?v=5`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3_vi.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4_vi.png?v=2`}
+            note={<div>Trong đó màu đỏ và trắng là hai mặt của đồng xu.</div>}
+        />
+    );
 };
 
 const SeDieGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

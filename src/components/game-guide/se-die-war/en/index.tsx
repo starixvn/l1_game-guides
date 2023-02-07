@@ -159,11 +159,7 @@ const renderGameRuleTable = (data: string[]) => {
     );
 };
 
-const renderPayouts = (
-    odds: object | any,
-    maxBetFollowChoice: undefined | MaxBetChoicesProps,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBetChoicesProps, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>

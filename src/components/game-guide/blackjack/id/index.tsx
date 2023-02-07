@@ -170,7 +170,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Pembayaran</h2>
@@ -245,10 +245,12 @@ const BlackjackGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsID(['Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain\
+                {renderTermsAndConditionsID([
+                    'Putaran permainan yang belum selesai dapat dipulihkan dan harus diselesaikan dalam waktu 24 jam sejak Pemain\
                             menekan tombol "Deal".<br>\
                             Permainan yang belum selesai akan diselesaikan secara otomatis setelah 24 jam. Tangan pemain dianggap STAND dan\
-                            sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.'])}
+                            sistem akan menghitung menang-kalah berdasarkan kartu yang ada di meja pada titik interupsi.',
+                ])}
             </ul>
         </>
     );

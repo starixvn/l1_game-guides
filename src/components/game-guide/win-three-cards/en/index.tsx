@@ -75,11 +75,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -359,10 +355,12 @@ const WinThreeCardsGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     step2ImageUrl={"/static/images/win-three-cards/md5_step2_en.png?v=3"}
                     step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
                     step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
-                    note={<div>
-                        Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning
-                        of the game round.
-                    </div>}
+                    note={
+                        <div>
+                            Note: From left to right, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ corresponds to the order of dealt cards at the beginning of
+                            the game round.
+                        </div>
+                    }
                 />
                 {renderTermsAndConditionsEN()}
             </ul>

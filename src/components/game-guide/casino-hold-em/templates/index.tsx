@@ -949,36 +949,39 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
             </>
         );
 
-        return <MD5
-            locale={locale}
-            resources={md5.md5Base}
-            step1ImageUrl={`/static/images/casino-hold-em/md5-vi.png?v=5`}
-            step2ImageUrl={`/static/images/casino-hold-em/result-vi.png?v=5`}
-            step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=5"
-            step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=5"
-            note={
-                <>
-                    <ul className="detail">
-                        <li>
-                            <Markup
-                                content={StringFormat(
-                                    md5.md5Note.line1,
-                                    renderToString(playerCards),
-                                    renderToString(dealerCards),
-                                    renderToString(communityCards)
-                                )}
-                            />
-                        </li>
-                        <li>
-                            <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
-                        </li>
-                        <li>{md5.md5Note.line3}
-                        </li>
-                    </ul>
-                </>
-            }
-        />
-    };
+        return (
+            <MD5
+                locale={locale}
+                resources={md5.md5Base}
+                step1ImageUrl={`/static/images/casino-hold-em/md5-vi.png?v=5`}
+                step2ImageUrl={`/static/images/casino-hold-em/result-vi.png?v=5`}
+                step3ImageUrl="/static/images/casino-hold-em/hash-darling.png?v=5"
+                step4ImageUrl="/static/images/casino-hold-em/md5-checksum.png?v=5"
+                note={
+                    <>
+                        <ul className="detail">
+                            <li>
+                                <Markup
+                                    content={StringFormat(
+                                        md5.md5Note.line1,
+                                        renderToString(playerCards),
+                                        renderToString(dealerCards),
+                                        renderToString(communityCards)
+                                    )}
+                                />
+                            </li>
+                            <li>
+                                <Markup
+                                    content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))}
+                                />
+                            </li>
+                            <li>{md5.md5Note.line3}</li>
+                        </ul>
+                    </>
+                }
+            />
+        );
+    }
     render() {
         return (
             <>
@@ -988,9 +991,11 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                     <li className="guide-item">{this.renderPayout()}</li>
                     <li className="guide-item">{this.renderBetLimit()}</li>
                     {this.renderMD5(this.state.translationResource, this.props.locale)}
-                    {renderTermsAndConditionsVI(['Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
+                    {renderTermsAndConditionsVI([
+                        "Nếu phiên đang chơi bị gián đoạn, hệ thống sẽ bảo lưu kết quả trong vòng 24 tiếng tính từ thời điểm người chơi bấm\
                         nút &quot;Chia Bài&quot;. Trong trường hợp người chơi không thể hoàn tất phiên bị gián đoạn trong thời gian 24\
-                        tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.'])}
+                        tiếng, đồng nghĩa với người chơi đã chấp nhận &quot;Bỏ Bài&quot;.",
+                    ])}
                 </ul>
             </>
         );

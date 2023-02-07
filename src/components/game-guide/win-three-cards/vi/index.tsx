@@ -76,11 +76,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Trả Thưởng</h2>
@@ -364,9 +360,11 @@ const WinThreeCardsGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     step2ImageUrl={"/static/images/win-three-cards/md5_step2_vi.png?v=3"}
                     step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
                     step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
-                    note={<div>
-                        Từ trái sang phải, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.
-                    </div>}
+                    note={
+                        <div>
+                            Từ trái sang phải, 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.
+                        </div>
+                    }
                 />
                 {renderTermsAndConditionsVI()}
             </ul>

@@ -182,11 +182,7 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
     );
 };
 
-const renderPayouts = (
-    odds: object | any,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: object | any, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng </h2>

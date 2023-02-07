@@ -60,7 +60,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
 
     renderItemSymbol(locales: string, odds: OddsProps | undefined, itemName: string, isTextImages: boolean) {
         const pathSrc = "./static/images/fruit-slot/item_";
-        const itemTextName = itemName + "_" + locales;
+        const itemTextName = `${itemName}_${locales}`;
         const symbol = isTextImages ? itemTextName : itemName;
 
         return (

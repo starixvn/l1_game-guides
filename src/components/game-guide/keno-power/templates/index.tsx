@@ -20,10 +20,9 @@ const renderGameRule = (resources: IPowerKenoTranslationResource, maxBetRound: n
         <>
             <h2>{gameRule.title}</h2>
             <ul className="desc">
-                {
-                    gameRule.details.map((detail, index) => (
-                        <li key={index}>{StringFormat(detail, maxBetRound.toString())}</li>))
-                }
+                {gameRule.details.map((detail, index) => (
+                    <li key={index}>{StringFormat(detail, maxBetRound.toString())}</li>
+                ))}
                 <li className="contentBeforeEmpty">{renderBettingOptions(resources)}</li>
             </ul>
         </>
@@ -113,7 +112,7 @@ const renderPayouts = (
     resources: IPowerKenoTranslationResource,
     odds: OddsProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
+    fractionalOddsFormat = false
 ) => {
     const { payOut, common } = resources;
     return (
@@ -163,7 +162,10 @@ const renderPayouts = (
                                     <td className="text-start">{common.odd}</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>  <Markup content={StringFormat(common.teamBlueBigSmall)} /></td>
+                                    <td rowSpan={2}>
+                                        {" "}
+                                        <Markup content={StringFormat(common.teamBlueBigSmall)} />
+                                    </td>
                                     <td className="text-start">{common.big}</td>
                                     <td rowSpan={4}>{formatOdds(odds?.blueBig, fractionalOddsFormat)}</td>
                                     <td rowSpan={4}>
@@ -174,7 +176,10 @@ const renderPayouts = (
                                     <td className="text-start">{common.small}</td>
                                 </tr>
                                 <tr>
-                                    <td rowSpan={2}>  <Markup content={StringFormat(common.teamRedBigSmall)} /></td>
+                                    <td rowSpan={2}>
+                                        {" "}
+                                        <Markup content={StringFormat(common.teamRedBigSmall)} />
+                                    </td>
                                     <td className="text-start">{common.big}</td>
                                 </tr>
                                 <tr>

@@ -29,7 +29,7 @@ const renderHowToPLay = (maxBet: string | undefined) => {
     );
 };
 
-const renderGameRule = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderGameRule = () => {
     return (
         <li className="guide-item">
             <h2>Luật Chơi</h2>
@@ -114,18 +114,18 @@ const renderGameRule = (odds: OddsProps | undefined, fractionalOddsFormat: boole
             <div>
                 <strong>Ví dụ:</strong>
                 <ul className={Styles["many-example"]}>
-                    <li>{BettingOptions4Sets(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsSpecial(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsHead(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptionsTail(odds, fractionalOddsFormat)}</li>
-                    <li>{BettingOptions27Sets(odds, fractionalOddsFormat)}</li>
+                    <li>{BettingOptions4Sets()}</li>
+                    <li>{BettingOptionsSpecial()}</li>
+                    <li>{BettingOptionsHead()}</li>
+                    <li>{BettingOptionsTail()}</li>
+                    <li>{BettingOptions27Sets()}</li>
                 </ul>
             </div>
         </li>
     );
 };
 
-const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions4Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>a) Cược Đề Đầu</div>
@@ -159,7 +159,7 @@ const BettingOptions4Sets = (odds: OddsProps | undefined, fractionalOddsFormat: 
     );
 };
 
-const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsSpecial = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>b) Cược Đề Đặc Biệt</div>
@@ -193,7 +193,7 @@ const BettingOptionsSpecial = (odds: OddsProps | undefined, fractionalOddsFormat
     );
 };
 
-const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsHead = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>c) Cược Số Đầu</div>
@@ -228,7 +228,7 @@ const BettingOptionsHead = (odds: OddsProps | undefined, fractionalOddsFormat: b
     );
 };
 
-const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptionsTail = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>d) Cược Số Đuôi</div>
@@ -261,7 +261,7 @@ const BettingOptionsTail = (odds: OddsProps | undefined, fractionalOddsFormat: b
         </>
     );
 };
-const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const BettingOptions27Sets = () => {
     return (
         <>
             <div className={Styles[exampleTitle]}>e) Cược Lô</div>
@@ -397,11 +397,7 @@ const BettingOptions27Sets = (odds: OddsProps | undefined, fractionalOddsFormat:
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>
@@ -753,7 +749,7 @@ const LotteryGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderHowToPLay(maxBetFollowChoice?.maxBetMain)}
-                {renderGameRule(odds, fractionalOddsFormat)}
+                {renderGameRule()}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsVI()}

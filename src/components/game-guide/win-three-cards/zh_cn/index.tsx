@@ -64,11 +64,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>赔付</h2>
@@ -341,9 +337,7 @@ const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                     step2ImageUrl={"/static/images/win-three-cards/md5_step2_cn.png?v=3"}
                     step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
                     step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
-                    note={<div>
-                        注: 从左到右， 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ 对应游戏回合开始时的发牌顺序.
-                    </div>}
+                    note={<div>注: 从左到右， 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ 对应游戏回合开始时的发牌顺序.</div>}
                 />
                 {renderTermsAndConditionsCN()}
             </ul>

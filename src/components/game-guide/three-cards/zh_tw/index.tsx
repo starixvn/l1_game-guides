@@ -9,10 +9,7 @@ import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
-    const bet = 10;
-    const winRed = bet * (odds?.red ?? 0);
-    const winDiamonds = bet * (odds?.diamonds ?? 0);
+const renderGameRule = (maxBet: string | undefined) => {
     const imgRed = "img-red";
     return (
         <>
@@ -79,11 +76,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>支付</h2>
@@ -154,8 +147,9 @@ export const renderChoiceImage = (locale = "en", isSM: boolean, t: TFunction) =>
             </div>
             <div className={`${Styles[wrapperImg]} ${Styles["black"]}`}>
                 <img
-                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${Styles[classMobile]
-                        }`}
+                    className={`${Styles[imgCustomize]} ${locale === locales.en ? Styles["black-en"] : Styles["black"]} ${
+                        Styles[classMobile]
+                    }`}
                     src={`./static/images/three-cards/table_txt_black_cn.png`}
                     alt="black"
                 ></img>
@@ -217,7 +211,7 @@ const ThreeCardsGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsTW()}

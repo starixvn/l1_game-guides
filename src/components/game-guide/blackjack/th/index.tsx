@@ -159,7 +159,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
     );
 };
 
-const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>การจ่ายเงิน</h2>
@@ -228,9 +228,11 @@ const BlackjackGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                {renderTermsAndConditionsTH(['รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม "ดีล" <br>\
+                {renderTermsAndConditionsTH([
+                    'รอบเกมที่ยังไม่จบสามารถกู้คืนได้และต้องเสร็จสิ้นภายใน 24 ชั่วโมงนับจากเวลาที่ผู้เล่นกดปุ่ม "ดีล" <br>\
                             เกมที่ยังไม่เสร็จจะถูกตัดสินโดยอัตโนมัติหลังจาก 24 ชั่วโมง มือของผู้เล่นถือเป็นยึดหลักและระบบจะคำนวณ ชนะ-แพ้\
-                            ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก'])}
+                            ตามไพ่ที่อยู่บนโต๊ะเมื่อหยุดชะงัก',
+                ])}
             </ul>
         </>
     );

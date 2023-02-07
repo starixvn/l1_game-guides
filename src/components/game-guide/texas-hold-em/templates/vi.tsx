@@ -11,7 +11,6 @@ import MD5 from "../../base/md5";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { renderToString } from "react-dom/server";
 
-
 const renderGameRule = (maxBet: string | number | undefined) => {
     return (
         <>
@@ -741,11 +740,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>Trả thưởng</h2>
@@ -879,34 +874,36 @@ export const renderMD5 = (locale?: string) => {
         </>
     );
 
-    return <MD5
-        locale={locale}
-        resources={md5.md5Base}
-        step1ImageUrl={`/static/images/texas-hold-em/md5_vi.png#v2`}
-        step2ImageUrl={`/static/images/texas-hold-em/md5_result_vi.png#v2`}
-        step3ImageUrl="/static/images/texas-hold-em/hash-darling.png#v2"
-        step4ImageUrl="static/images/texas-hold-em/md5-checksum.png#v2"
-        note={
-            <>
-                <strong>{md5.md5Note.title}</strong>
-                <ul className="detail">
-                    <li>
-                        <Markup
-                            content={StringFormat(
-                                md5.md5Note.line1,
-                                renderToString(playerCards),
-                                renderToString(dealerCards),
-                                renderToString(communityCards)
-                            )}
-                        />
-                    </li>
-                    <li>
-                        <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
-                    </li>
-                </ul>
-            </>
-        }
-    />
+    return (
+        <MD5
+            locale={locale}
+            resources={md5.md5Base}
+            step1ImageUrl={`/static/images/texas-hold-em/md5_vi.png#v2`}
+            step2ImageUrl={`/static/images/texas-hold-em/md5_result_vi.png#v2`}
+            step3ImageUrl="/static/images/texas-hold-em/hash-darling.png#v2"
+            step4ImageUrl="static/images/texas-hold-em/md5-checksum.png#v2"
+            note={
+                <>
+                    <strong>{md5.md5Note.title}</strong>
+                    <ul className="detail">
+                        <li>
+                            <Markup
+                                content={StringFormat(
+                                    md5.md5Note.line1,
+                                    renderToString(playerCards),
+                                    renderToString(dealerCards),
+                                    renderToString(communityCards)
+                                )}
+                            />
+                        </li>
+                        <li>
+                            <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                        </li>
+                    </ul>
+                </>
+            }
+        />
+    );
 };
 
 const TexasHoldGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

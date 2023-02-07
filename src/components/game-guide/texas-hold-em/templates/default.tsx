@@ -730,7 +730,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
 const renderPayouts = (
     odds: OddsProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined,
+    fractionalOddsFormat = false,
     language: TexasHoldemLanguage
 ) => {
     return (
