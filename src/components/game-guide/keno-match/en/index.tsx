@@ -1,50 +1,53 @@
 import React from "react";
 
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { minPayoutBlue, minPayoutRed, minPayoutOver, minPayoutUnder } from "../index";
 import Styles from "../keno-match.module.scss";
 import { formatOdds, numberWithCommas } from "../../../../helpers/number-helper";
 import KenoMatchMD5 from "../md5";
+import { IPowerSoccerTranslationResource } from "../languages/types";
+import { StringFormat } from "../../../../helpers/string-helper";
+import { Markup } from "interweave";
+import { getPowerSoccerTranslationResource } from "../languages";
 
 const classBetTeamWd = "bet-team-wd";
 const classBetOptionWd = "bet-option-wd";
 const classBetOddWd = "bet-odd-wd";
-const renderGameRule = (maxBetRound: number | string) => {
+const renderGameRule = (resources: IPowerSoccerTranslationResource, maxBetRound: number | string) => {
+    const { gameRule } = resources;
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>{gameRule.title}</h2>
             <ul className="desc">
-                <li>Make sure you bet an amount you’re comfortable with.</li>
-                <li>Players can bet on one or more betting options shown on the game table.</li>
-                <li>All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.</li>
-                <li>The maximum total stake per round is {maxBetRound}</li>
+                {
+                    gameRule.details.map((detail, index) => (
+                        <li key={index}>{StringFormat(detail, maxBetRound.toString())}</li>))
+                }
             </ul>
         </>
     );
 };
 
-const renderBettingOptions = () => {
+const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
+    const { common, gameRule } = resources;
+    const { bettingOptions } = gameRule;
     return (
         <>
-            <h2>Betting Options</h2>
+            <h2>{bettingOptions.text}</h2>
             <ul className="desc">
                 <li>
-                    Each round has two draws, with the first draw is for {`"`}First Half{`"`} result and the second is for {`"`}Full Time
-                    {`"`}.
+                    {bettingOptions.description1}
                 </li>
                 <li>
-                    The Player will have two different intervals to place bet:
+                    {bettingOptions.description2}
                     <ul className="detail">
                         <li>
-                            Place bets before any numbers are drawn for the “First Half” result, you can place bets on “First Half” and
-                            “Full Time”, applicable to all bet types. The payout ratio is fixed and stays the same across all game rounds.
+                            {bettingOptions.description3}
                         </li>
                         <li>
-                            <strong> Live Betting</strong>: Place bets right after the results of the First Half for both teams are
-                            announced. <strong>Note</strong>, only place bets in {`"`}Full Time{`"`}. The payout ratio will change based on
-                            the result of the “First Half”.
+                            <Markup content={StringFormat(bettingOptions.description4)} />
                         </li>
                     </ul>
                 </li>
@@ -53,122 +56,118 @@ const renderBettingOptions = () => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th colSpan={2}>Options</th>
-                                    <th>Winning Conditions</th>
+                                    <th colSpan={2}> {common.options}</th>
+                                    <th>{bettingOptions.winningConditions}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Team Blue
+                                        {common.teamBlue}
                                     </td>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}> {common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points of 10 randomly drawn numbers for team Blue {`>`} team Red. <br />+
-                                        All bets will be refunded if the total points of both teams are equal.
+                                        {bettingOptions.firstHalfTeamBlueDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of team Blue {`>`} team Red. <br />+ All
-                                        bets will be refunded if the total points of both teams are equal.
+                                        {bettingOptions.fullTimeTeamBlueDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Team Red
+                                        {common.teamRed}
                                     </td>
-                                    <td className="text-start">First Half</td>
+                                    <td className="text-start">{common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points of 10 randomly drawn numbers for team Red {`>`} team Blue. <br />+
-                                        All bets will be refunded if the total points of both teams are equal.
+                                        {bettingOptions.firstHalfTeamRedDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of team Red {`>`} team Blue. <br />+ All
-                                        bets will be refunded if the total points of both teams are equal.
+                                        {bettingOptions.fullTimeTeamRedDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Over
+                                        {common.over}
                                     </td>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams {`>=`} 811
+                                        {bettingOptions.firstHalfOverDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams {`>=`} 1621
+                                        {bettingOptions.fullTimeOverDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Under
+                                        {common.under}
                                     </td>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams {`<`} 811
+                                        {bettingOptions.firstHalfUnderDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams {`<`} 1621
+                                        {bettingOptions.fullTimeUnderDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Even
+                                        {common.even}
                                     </td>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams are an even number.
+                                        {bettingOptions.firstHalfEvenDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams are an even number.
+                                        {bettingOptions.fullTimeEvenDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                        Odd
+                                        {common.odd}
                                     </td>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>First Half</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
                                     <td className="text-start">
-                                        Player wins if the total points (in the First Half) of both teams are an odd number.
+                                        {bettingOptions.firstHalfOddnDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        Player wins if the total points (First Half + Full Time) of both teams are an odd number.
+                                        {bettingOptions.fullTimeOddDescription}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                    <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -180,6 +179,7 @@ const renderBettingOptions = () => {
 };
 
 const renderPayouts = (
+    resources: IPowerSoccerTranslationResource,
     odds: OddsProps | undefined,
     maxBetFollowChoice: MaxBetChoicesProps | undefined,
     fractionalOddsFormat: boolean | undefined
@@ -188,116 +188,112 @@ const renderPayouts = (
         return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
             }`;
     };
+    const { payOut, common } = resources;
     return (
         <>
-            <h2>Payouts</h2>
+            <h2>{payOut.title}</h2>
             <ul className="desc">
-                <li>The winning amount is calculated according to the betting odds.</li>
-                <li>The Payout includes the initial stake.</li>
+                <li>{payOut.description1} </li>
+                {payOut.description2 !== "" && <li>{payOut.description2} </li>}
                 <li>
-                    All winning amounts are instantly added to your account balance when bets are settled.
+                    {payOut.description3}
                     <ul className="game-guide-alpha">
                         <li>
-                            <strong>a) Place bets before any numbers are drawn for the “First Half” result</strong>
+                            <strong>{payOut.firstHalfPayout}</strong>
                             <div className={`table-container ${Styles["table-payouts-bet"]}`}>
                                 <table className="table text-center table-medium">
                                     <thead>
                                         <tr>
                                             <th colSpan={2} className={Styles["payouts-option-width"]}>
-                                                Options
+                                                {common.options}
                                             </th>
-                                            <th>Odds</th>
+                                            <th>{payOut.odds}</th>
                                             <th>
-                                                Bet Limit <br></br>(Min-Max)
+                                                <Markup content={StringFormat(payOut.betLimit)} />
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td rowSpan={2}>Team Blue</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}> {common.teamBlue}</td>
+                                            <td className="text-start"> {common.firstHalf}</td>
                                             <td rowSpan={2}>{formatOdds(odds?.fhBlue, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetBlueChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                         <tr>
-                                            <td rowSpan={2}>Team Red</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}>{common.teamRed}</td>
+                                            <td className="text-start">{common.firstHalf}</td>
                                             <td rowSpan={2}>{formatOdds(odds?.fhRed, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRedChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                         <tr>
-                                            <td rowSpan={2}>Over</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}>{common.over}</td>
+                                            <td className="text-start">{common.firstHalf}</td>
                                             <td rowSpan={2}>{formatOdds(odds?.fhOver, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetOverChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                         <tr>
-                                            <td rowSpan={2}>Under</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}>{common.under}</td>
+                                            <td className="text-start">{common.firstHalf}</td>
                                             <td rowSpan={2}>{formatOdds(odds?.fhUnder, fractionalOddsFormat)}</td>
                                             <td rowSpan={2}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetUnderChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                         <tr>
-                                            <td rowSpan={2}>Even</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}>{common.even}</td>
+                                            <td className="text-start">{common.firstHalf}</td>
                                             <td rowSpan={4}>{formatOdds(odds?.fhEven, fractionalOddsFormat)}</td>
                                             <td rowSpan={4}>
                                                 {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetEvenChoice}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                         <tr>
-                                            <td rowSpan={2}>Odd</td>
-                                            <td className="text-start">First Half</td>
+                                            <td rowSpan={2}>{common.odd}</td>
+                                            <td className="text-start">{common.firstHalf}</td>
                                         </tr>
                                         <tr>
-                                            <td className="text-start">Full Time</td>
+                                            <td className="text-start">{common.fullTime}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </li>
                         <li>
-                            <strong>b) Live Betting</strong>
+                            <strong>{payOut.liveBettingPayout.text}</strong>
                             <div>
-                                For bet options <strong>Team Blue/Red - Full Time (Live)</strong> and{" "}
-                                <strong>Over/Under - Full Time (Live)</strong>
+                                <Markup content={StringFormat(payOut.liveBettingPayout.mainDescription)} />
                                 <ul className="detail">
-                                    <li>
-                                        The payout ratio will vary depending on the {`"`}First Half{`"`} result of both teams
-                                    </li>
-                                    <li>The maximum bet limit will change according to the payout ratio.</li>
+                                    <li>{payOut.liveBettingPayout.description1}</li>
+                                    <li>{payOut.liveBettingPayout.description2}</li>
                                 </ul>
                                 <ul className="desc">
                                     <li>
-                                        <strong>Team Blue/Red - Full Time (Live)</strong>: Payout is only available when the total score
-                                        difference between Team Blue and Team Red in the {`"`}First Half{`"`}, is between -150 and 150
+                                        <Markup content={StringFormat(payOut.liveBettingPayout.highLightDescription1)} />
                                     </li>
                                     <li>
-                                        <strong>Over/Under - Full Time (Live)</strong>: Payout is only available when the total score in the
-                                        “First Half” of both teams is between 661 and 980
+                                        <Markup content={StringFormat(payOut.liveBettingPayout.highLightDescription2)} />
                                     </li>
                                     <li className="contentBeforeEmpty">
                                         <div className={`table-container ${Styles["table-payouts-bet-live"]}`}>
@@ -305,22 +301,22 @@ const renderPayouts = (
                                                 <thead>
                                                     <tr>
                                                         <th colSpan={2} rowSpan={2}>
-                                                            Options
+                                                            {common.options}
                                                         </th>
                                                         <th rowSpan={2}>
-                                                            Payouts<br></br>(Min - Max)
+                                                            <Markup content={StringFormat(payOut.betLimit)} />
                                                         </th>
-                                                        <th colSpan={2}>Bet Limit</th>
+                                                        <th colSpan={2}>{payOut.liveBettingPayout.betLimit}</th>
                                                     </tr>
                                                     <tr>
                                                         <th className={Styles["payouts-min-wd"]}>Min</th>
-                                                        <th>Max</th>
+                                                        <th>{payOut.liveBettingPayout.max}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Blue</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.teamBlue}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td className={Styles[classBetOddWd]}>
                                                             {getMinMaxOdd(minPayoutBlue, odds?.liveFTBlue)}
                                                         </td>
@@ -330,32 +326,32 @@ const renderPayouts = (
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Team Red</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.teamRed}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td className={Styles[classBetOddWd]}>
                                                             {getMinMaxOdd(minPayoutRed, odds?.liveFTRed)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Over</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.over}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td className={Styles[classBetOddWd]}>
                                                             {getMinMaxOdd(minPayoutOver, odds?.liveFTOver)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Under</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.under}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td className={Styles[classBetOddWd]}>
                                                             {getMinMaxOdd(minPayoutUnder, odds?.liveFTUnder)}
                                                         </td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Even</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.even}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td rowSpan={2} className={Styles[classBetTeamWd]}>
                                                             {formatOdds(odds?.liveFTEven, fractionalOddsFormat)}
                                                         </td>
@@ -363,8 +359,8 @@ const renderPayouts = (
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>Odd</td>
-                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>Full Time (Live)</td>
+                                                        <td className={`text-start ${Styles[classBetTeamWd]}`}>{common.odd}</td>
+                                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTimeLive}</td>
                                                         <td>{maxBetFollowChoice?.minBetRound}</td>
                                                         <td>{maxBetFollowChoice?.maxBetEvenLiveChoice}</td>
                                                     </tr>
@@ -383,23 +379,19 @@ const renderPayouts = (
 };
 
 const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
+    const resources = getPowerSoccerTranslationResource(locale);
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
-                    <p className="content">
-                        {gameName} consists of 2 sets of numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers
-                        (from 01 to 80). The system will randomly draw 20 numbers (no duplicates) for each team, of which 10 numbers are
-                        drawn for “First Half” and 10 numbers are drawn for “Full Time”. The object of this game is to predict the total
-                        score of the numbers drawn for each team.
-                    </p>
+                    <h2>{resources.main.introduction}</h2>
+                    <p className="content">{StringFormat(resources.main.description, gameName)}</p>
                 </li>
-                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetRound ?? 0)}</li>
-                <li className="guide-item">{renderBettingOptions()}</li>
-                <li className="guide-item">{renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
+                <li className="guide-item">{renderGameRule(resources, maxBetFollowChoice?.maxBetRound ?? 0)}</li>
+                <li className="guide-item">{renderBettingOptions(resources)}</li>
+                <li className="guide-item">{renderPayouts(resources, odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
                 <KenoMatchMD5
                     locale={props.locale}
                     environment={props.environment}
@@ -407,12 +399,9 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     md5Result={`{<span class=${Styles["blue"]}>363</span>;<span class=${Styles["red"]}>467</span>}_{#26907421fad9b51da1169691982}`}
                     step3ImageUrl="/static/images/keno-match/md5-hash.png#1"
                     step4ImageUrl="/static/images/keno-match/md5.png#1"
-                    note={<div>
-                        Noted: <span className={Styles["blue"]}>363</span> and <span className={Styles["red"]}>467</span> are
-                        first haft result of Team Blue and Team Red respectively
-                    </div>}
+                    note={<div>{<Markup content={StringFormat(resources.md5noted, Styles["blue"], Styles["red"])} />}</div>}
                 />
-                {renderTermsAndConditionsEN()}
+                {renderTermsAndConditions(locale)}
             </ul>
         </>
     );

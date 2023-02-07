@@ -82,6 +82,6 @@ const KenoMatchGuide = (props: GameGuideBase) => {
         locale
     };
 
-    return locale === locales.en ? <KenoMatchGuideEN {...shareProps} /> : <KenoMatchGuideVI {...shareProps} />
-};
+    return locale === locales.vi ? <KenoMatchGuideVI {...shareProps} /> : <KenoMatchGuideEN {...shareProps} />;
+}
 export default KenoMatchGuide;
