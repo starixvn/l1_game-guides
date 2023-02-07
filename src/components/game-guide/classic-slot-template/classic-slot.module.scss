@@ -119,10 +119,9 @@
 }
 
 .wild-content {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
     align-items: center;
-    margin: 1rem;
+    grid-template-columns: 10rem 1fr;
 }
 
 .wrapper-symbols-content {
