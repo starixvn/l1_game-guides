@@ -15,11 +15,12 @@ export const en: IBlockchainBaccaratResources = {
                 "Cut Card: a special card is used to indicate where the shoe will end and all cards will be reshuffled. Cut Card will  be inserted in the middle of the card pack (416 cards) at the beginning of the new shoe.",
         },
         burnCard: {
-            header: "Burn Card",
+            header: "Burn Value",
             description:
-                "After the Cut Card has been inserted, there is a burn card process. The number of card that will be burned (discard without using), is dependent on the value of the first card taken out of the new Shoe.",
+                "After the Cut Card has been inserted, there is a burn card process. The number of cards that will be burned (discard without using), is dependent on the value of the first card taken out of the new Shoe.",
             noted: "<strong>Note</strong>: The first card on top of the card pack (416 cards) is also discarded.",
             firstCard: "First Card",
+            burnValue: "Burn Value",
             example: {
                 header: "Example",
                 descriptions: [

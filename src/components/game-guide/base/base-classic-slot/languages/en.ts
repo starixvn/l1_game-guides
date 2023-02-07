@@ -54,7 +54,7 @@ export const en: ISlotTranslationResource = {
         itemInBonusGame: "items in Bonus Game.",
         note: "Note",
         bonusReel:
-            "The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing on the same reel, the system will count as one symbol.",
+            "The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols are on the same reel, the system will count as one symbol.",
         thereAre4: "There are 4",
         eligible: "symbols in the result, but 2 symbols are located on the same reel. The player is only eligible for 3 items.",
         bonusExpired:

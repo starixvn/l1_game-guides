@@ -96,7 +96,7 @@ export const baseBaccaratResourcesVi: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "Quy tắc rút bài Nhà Cái",
-            firstDescription: "If the Player hand gets the third card then the Banker draws a third card according to the following rules:",
+            firstDescription: "",
             cardsTotal: "Tổng điểm 2 lá bài đầu tiên",
             action: "Nhà Cái được rút khi lá thứ ba của Nhà Con là:",
             examples: [
@@ -142,7 +142,7 @@ export const baseBaccaratResourcesVi: IBaseBaccaratResources = {
             noted: "",
             options: "Lựa Chọn",
             odds: "Tỷ Lệ Trả Thưởng",
-            betLimit: "Giới Hạn Cược (Min - Max)",
+            betLimit: "Giới Hạn Cược </br> (Min - Max)",
             player: "Nhà Con",
             banker: "Nhà Cái",
             big: "Tài",

@@ -21,7 +21,7 @@ const BaseBaccaratGameRule: React.FunctionComponent<{ resources: IBaseBaccaratRe
                             <thead>
                                 <tr>
                                     <th className={Styles["rule-options"]}>{gameRules.table.header.options}</th>
-                                    <th>{gameRules.table.header.options}</th>
+                                    <th>{gameRules.table.header.descriptions}</th>
                                 </tr>
                             </thead>
                             <tbody>

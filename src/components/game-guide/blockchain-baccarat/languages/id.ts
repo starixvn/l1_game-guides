@@ -20,6 +20,7 @@ export const id: IBlockchainBaccaratResources = {
                 "Setelah Cut Kartu dimasukkan, ada proses burn card. Jumlah kartu yang akan dibakar (dibuang tanpa dipakai), tergantung dari nilai kartu pertama yang dikeluarkan dari Shoe baru.",
             noted: "<strong>Catatan</strong>: Kartu pertama di atas paket kartu (416 kartu) juga dibuang. ",
             firstCard: "Kartu Pertama",
+            burnValue: "Nilai Burn",
             example: {
                 header: "Contoh",
                 descriptions: [

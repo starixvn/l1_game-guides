@@ -91,7 +91,7 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "庄家的规则",
-            firstDescription: " 如果闲家拿到第三张牌，庄家根据以下规则抽第三张牌：",
+            firstDescription: "- 如果闲家拿到第三张牌，庄家根据以下规则抽第三张牌：",
             cardsTotal: "庄家的前两张牌总数",
             action: "当闲家的第三张牌有点值时，庄家抽牌：",
             examples: [
@@ -134,7 +134,7 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
             noted: "<strong>注意：</strong> 如果结果为平局，所有对闲家和庄家的投注将被退还。",
             options: "选项",
             odds: "赔率",
-            betLimit: "投注限额 <br></br>（最小最大）",
+            betLimit: "投注限额 </br>（最小最大）",
             player: "闲家",
             banker: "庄家一对",
             big: "大",

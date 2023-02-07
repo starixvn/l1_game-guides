@@ -34,18 +34,18 @@ export const id: ISlotTranslationResource = {
     },
     freeSpin: {
         title: "Free Spin",
-        description1: "Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.",
+        description1: "Pemain akan menerima Bonus Free Spin sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.",
         description2: "Simbol Free Spin tidak harus berada di payline yang sama.",
         freeSpinBonus: "Bonus Putaran Gratis.",
         note: "Catatan",
         freeSpinReel:
-            "Catatan: Simbol “Putaran Gratis” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Putaran Gratis” pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
+            "Catatan: Simbol “Free Spin” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Free Spin” pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
         thereAre4:
-            "Ada 4 simbol “Putaran gratis” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat untuk bonus putaran Gratis.",
+            "Ada 4 simbol “Free Spin” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat untuk bonus Free Spin.",
         lastFreespin:
-            "Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).",
+            "Free Spin dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Free Spin).",
         freeSpinExpired:
-            "Pemain harus menyelesaikan Bonus Putaran Gratis dalam waktu 24 jam setelah diterbitkan. Putaran Gratis yang tidak digunakan akan hilang.",
+            "Pemain harus menyelesaikan Bonus Free Spin dalam waktu 24 jam setelah diterbitkan. Free Spin yang tidak digunakan akan hilang.",
     },
     bonus: {
         title: "Bonus",
@@ -55,7 +55,7 @@ export const id: ISlotTranslationResource = {
         itemInBonusGame: " Peti Harta Karun di Game Bonus.",
         note: "Catatan",
         bonusReel:
-            "Catatan: Simbol Bonus harus muncul di gulungan yang berbeda. Misalnya, jika 2 atau 3 simbol Bonus muncul di gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
+            "Simbol Bonus harus muncul di gulungan yang berbeda. Misalnya, jika 2 atau 3 simbol Bonus muncul di gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
         thereAre4: "Ada 4",
         eligible: "simbol “Bonus” di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi syarat untuk 3 item.",
         bonusExpired:
@@ -68,7 +68,7 @@ export const id: ISlotTranslationResource = {
         endSubstitute: "",
         onlyHighest: "Hanya kemenangan tertinggi yang dicapai per baris yang dibayarkan.",
         example: "Contoh",
-        ifwild: "Jika simbol Liar adalah",
+        ifwild: "Jika simbol Wild adalah",
         payoutBetLevel: "Pembayaran = Level Taruhan ",
         highestWin: "Pemain akan mendapatkan kemenangan tertinggi pada payline ini",
     },

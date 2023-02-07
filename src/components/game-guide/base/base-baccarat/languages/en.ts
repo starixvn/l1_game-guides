@@ -95,7 +95,7 @@ export const baseBaccaratResourcesEn: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "Rules for the Banker hand",
-            firstDescription: "If the Player hand gets the third card then the Banker draws a third card according to the following rules:",
+            firstDescription: "- If the Player hand gets the third card then the Banker draws a third card according to the following rules:",
             cardsTotal: "Banker’s first two cards total",
             action: "Banker draws when the Player’s third card has a point value:",
             examples: [
@@ -144,7 +144,7 @@ export const baseBaccaratResourcesEn: IBaseBaccaratResources = {
             noted: "<strong>Note:</strong> All bets on Player and Banker will be refunded if the result is a draw.",
             options: "Options",
             odds: "Odds",
-            betLimit: "Bet Limit <br></br>(Min-Max)",
+            betLimit: "Bet Limit </br>(Min-Max)",
             player: "Player",
             banker: "Banker",
             big: "Big",

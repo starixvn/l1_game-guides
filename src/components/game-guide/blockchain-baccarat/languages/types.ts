@@ -11,6 +11,7 @@ export interface IBlockchainBaccaratResources extends IBaseBaccaratResources {
             description: string;
             noted: string;
             firstCard: string;
+            burnValue: string;
             example: {
                 header: string;
                 descriptions: Array<string>;

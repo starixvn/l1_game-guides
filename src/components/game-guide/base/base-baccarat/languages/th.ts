@@ -61,7 +61,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
             firstTwoCard: "ไพ่สองใบแรก",
             thirdCard: "ไพ่ใบที่สาม",
             totals: "ยอดรวม",
-            basedTotal: ">คะแนนรวมตามกฎBaccarat",
+            basedTotal: "คะแนนรวมตามกฎบาคาร่า",
         },
     },
     thirdCardRules: {
@@ -91,7 +91,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "กฎสำหรับมือของเจ้ามือ",
-            firstDescription: "หากมือของผู้เล่นได้ไพ่ใบที่สาม เจ้ามือจะจั่วไพ่ใบที่สามตามกฎต่อไปนี้:",
+            firstDescription: "- หากมือของผู้เล่นได้ไพ่ใบที่สาม เจ้ามือจะจั่วไพ่ใบที่สามตามกฎต่อไปนี้:",
             cardsTotal: "ไพ่สองใบแรกของเจ้ามือทั้งหมด",
             action: "เจ้ามือจะเสมอ เมื่อไพ่ใบที่สามของผู้เล่นมีคะแนน",
             examples: [
@@ -121,7 +121,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
                 },
                 {
                     twoCardsTotal: "8 หรือ 9",
-                    action: "&#34;ไพ่ป๊อก&#34; และจะไม่มีการแจกไพ่อีกต่อไป ผู้เล่นและเจ้ามือจะยุติ",
+                    action: "“ไพ่ป๊อก” และจะไม่มีการแจกไพ่อีกต่อไป ผู้เล่นและเจ้ามือจะยุติ",
                 },
             ],
             secondDescription: [
@@ -140,7 +140,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
             noted: "<strong>หมายเหตุ:</strong> การเดิมพันทั้งหมดของผู้เล่นและเจ้ามือจะได้รับเงินคืนหากผลเสมอกัน",
             options: "ตัวเลือก",
             odds: "อัตราต่อรอง",
-            betLimit: "ขีด จำกัด การเดิมพัน  <br></br>(ต่ำสุด สูงสุด)",
+            betLimit: "ขีด จำกัด การเดิมพัน </br>(ต่ำสุด สูงสุด)",
             player: "ผู้เล่น",
             banker: "เจ้ามือ",
             big: "ใหญ่",

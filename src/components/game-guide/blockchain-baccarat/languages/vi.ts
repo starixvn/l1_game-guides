@@ -19,9 +19,10 @@ export const vi: IBlockchainBaccaratResources = {
             description:
                 "“Burn Card” là hành động bỏ đi 1 số lá bài trước khi bắt đầu game. Số lá bài bị bỏ tùy thuộc vào giá trị “Burn Card” của lá đầu tiên trong 416 lá.",
             noted: " <strong>Lưu ý</strong>: lá đầu tiên cũng sẽ bị loại bỏ trong quá trình “Burn Card”",
-            firstCard: "First Card",
+            firstCard: "Lá đầu tiên",
+            burnValue: "Giá trị “Burn Card”",
             example: {
-                header: "<strong>Ví dụ</strong>",
+                header: "Ví dụ",
                 descriptions: [
                     "Lá đầu tiên 5 => Có 6 lá bài sẽ bị loại bỏ trước khi chơi gồm lá đầu tiên và 5 lá kế tiếp",
                     "Lá đầu tiên K => Có 11 lá bài sẽ bị loại bỏ trước khi chơi gồm lá đầu tiên và 10 lá kế tiếp",

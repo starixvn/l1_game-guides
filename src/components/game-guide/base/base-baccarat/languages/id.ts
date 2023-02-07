@@ -63,7 +63,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         examples: {
             firstTwoCard: "Dua Kartu Pertama",
             thirdCard: "Kartu Ketiga",
-            totals: "Totals",
+            totals: "Total",
             basedTotal: "Total Poin Berdasarkan Aturan Baccarat",
         },
     },
@@ -71,7 +71,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         header: "Aturan Kartu Ketiga",
         descriptions: [
             "Kartu ketiga akan dibagikan sesuai dengan aturan ketat permainan.",
-            "Jika total poin dari dua kartu pertama dari kedua tangan adalah 8 atau 9, ini disebut “Alami” dan tidak ada lagi kartu yang dibagikan, baik pemain maupun bankir berdiri.",
+            "Jika total poin dari dua kartu pertama dari kedua tangan adalah 8 atau 9, ini disebut “Alami” dan tidak ada lagi kartu yang dibagikan, baik Player maupun Banker berdiri.",
         ],
         playerHand: {
             header: "Aturan untuk tangan Pemain",
@@ -94,7 +94,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "Aturan untuk kartu Banker",
-            firstDescription: "Jika tangan Player mendapatkan kartu ketiga maka Banker menarik kartu ketiga sesuai dengan aturan berikut:",
+            firstDescription: "- Jika tangan Player mendapatkan kartu ketiga maka Banker menarik kartu ketiga sesuai dengan aturan berikut:",
             cardsTotal: "Total dua kartu pertama Banker",
             action: "Banker menarik ketika kartu ketiga Player memiliki nilai poin:",
             examples: [
@@ -143,7 +143,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             noted: "<strong>Catatan:</strong> Semua taruhan Player dan Banker akan dikembalikan jika hasilnya seri.",
             options: "Pilihan",
             odds: "Odds",
-            betLimit: "Batas Taruhan  <br></br>(Min Maks)",
+            betLimit: "Batas Taruhan </br>(Min Maks)",
             player: "Player",
             banker: "Banker",
             big: "Besar",
