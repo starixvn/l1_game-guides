@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import KenoMatchGuideEN from "./en";
-import KenoMatchGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
+import KenoMatchGuideTemplate from "./template";
 
 export const minPayoutBlue = 1.06;
 export const minPayoutRed = 1.06;
@@ -72,7 +71,7 @@ const KenoMatchGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    const shareProps = {
+    return <KenoMatchGuideTemplate {...{
         gameConfigs: configs,
         userStakeLevel,
         gameName: gameNameTranslate,
@@ -80,8 +79,6 @@ const KenoMatchGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         fractionalOddsFormat,
         locale
-    };
-
-    return locale === locales.vi ? <KenoMatchGuideVI {...shareProps} /> : <KenoMatchGuideEN {...shareProps} />;
+    }} />;
 }
 export default KenoMatchGuide;

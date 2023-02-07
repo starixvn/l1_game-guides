@@ -2,92 +2,90 @@ import { IPowerSoccerTranslationResource } from "./types";
 
 export const vi: IPowerSoccerTranslationResource = {
     common: {
-        bettypes: "Bet Types",
-        options: "Options",
-        teamBlue: "Team Blue",
-        teamRed: "Team Red",
-        odd: "Odd",
-        even: "Even",
-        firstHalf: "First Half",
-        fullTime: "Full Time",
-        fullTimeLive: "Full Time (Live)",
-        over: "Over",
-        under: "Under",
+        bettypes: "Loại Cược",
+        options: "Lựa Chọn",
+        teamBlue: "Đội Xanh",
+        teamRed: "Đội Đỏ",
+        odd: "Lẻ",
+        even: "Chẵn",
+        firstHalf: "Hiệp 1",
+        fullTime: "Toàn trận",
+        fullTimeLive: "Toàn trận (Live)",
+        over: "Tài",
+        under: "Xỉu",
     },
     main: {
-        introduction: "Introduction",
+        introduction: "Giới thiệu",
         description:
-            "{0} consists of 2 sets of numbers, one for “Team Blue”, and another for “Team Red”, each set of 80 numbers\
-        (from 01 to 80). The system will randomly draw 20 numbers (no duplicates) for each team, of which 10 numbers are\
-        drawn for “First Half” and 10 numbers are drawn for “Full Time”. The object of this game is to predict the total\
-        score of the numbers drawn for each team.",
+            "{0} gồm 2 bộ số, một cho Đội Xanh và một cho Đội Đỏ, mỗi bộ gồm 80 số (từ 01 đến 80). Hệ thống sẽ rút ngẫu\
+            nhiên 20 số (không trùng lặp) cho mỗi đội, trong đó 10 số được rút cho “Hiệp 1” và 10 số được rút cho “Toàn Trận”.\
+            Người chơi đặt cược và dự đoán tổng điểm của các số được rút cho mỗi đội.",
     },
     gameRule: {
-        title: "Game Rules",
+        title: "Cách chơi",
         details: [
-            "Make sure you bet an amount you’re comfortable with.",
-            "Players can bet on one or more betting options shown on the game table.",
+            "Người chơi nhấp vào lựa chọn mong muốn và hoàn tất việc đặt cược trước khi hết thời gian quy định. ",
+            "Bạn có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược.",
             "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
-            "The maximum total stake per round is {0}",
+            "Tổng tiền cược tối đa cho 1 phiên là {0}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
         ],
         bettingOptions: {
-            text: "Betting Options",
-            description1: 'Each round has two draws, with the first draw is for "First Half" result and the second is for "Full Time".',
-            description2: "The Player will have two different intervals to place bet:",
+            text: "Luật chơi",
+            description1: "Mỗi phiên sẽ có 2 đợt mở số, đợt một dành cho kết quả “Hiệp 1”, đợt hai dành cho “Toàn trận”.",
+            description2: "Người chơi có 2 khoảng thời gian đặt cược:",
             description3:
-                "Place bets before any numbers are drawn for the “First Half” result, you can place bets on “First Half” and “Full Time”, applicable to all bet types. The payout ratio is fixed and stays the same across all game rounds.",
+                "Đặt cược trước khi công bố kết quả Hiệp 1, bạn có thể đặt cược cho “Hiệp 1” và “Toàn trận”, áp dụng cho tất cả các loại cược. Tỷ lệ cược được cố định và giữ nguyên qua các phiên chơi.",
             description4:
-                ' <strong> Live Betting</strong>: Place bets right after the results of the First Half for both teams are\
-            announced. <strong>Note</strong>, only place bets in "Full Time". The payout ratio will change based on\
-            the result of the “First Half”.',
-            winningConditions: "Winning Conditions",
+                "<strong>Đặt cược Live</strong>: đặt cược ngay sau khi công bố kết quả 10 số được rút ngẫu nhiên trong “Hiệp 1”\
+                cho “Đội Xanh” và “Đội Đỏ”. <strong>Lưu ý</strong>: bạn chỉ có thể đặt vào “Toàn trận”. Tỷ lệ cược sẽ thay đổi\
+                dựa trên kết quả của “Hiệp 1”.",
+            winningConditions: "Điều Kiện Thắng",
 
             firstHalfTeamBlueDescription:
-                "Player wins if the total points of 10 randomly drawn numbers for team Blue > team Red. <br />+ All bets will be refunded if the total points of both teams are equal.",
+                "Thắng nếu tổng điểm 10 số được rút cho Đội Xanh > Đội Đỏ. <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.",
             fullTimeTeamBlueDescription:
-                "Player wins if the total points (First Half + Full Time) of team Blue > team Red. <br />+ All bets will be refunded if the total points of both teams are equal.",
+                "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Xanh > Đội Đỏ. <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.",
 
             firstHalfTeamRedDescription:
-                "Player wins if the total points of 10 randomly drawn numbers for team Red > team Blue. <br />+ All bets will be refunded if the total points of both teams are equal.",
+                "Thắng nếu tổng điểm 10 số được rút cho Đội Đỏ > Đội Xanh. <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.",
             fullTimeTeamRedDescription:
-                "Player wins if the total points (First Half + Full Time) of team Red > team Blue. <br />+ All bets will be refunded if the total points of both teams are equal.",
+                "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) cho Đội Đỏ > Đội Xanh. <br />+ Tiền cược sẽ được hoàn trả nếu tổng điểm 2 đội bằng nhau.",
 
-            firstHalfOverDescription: "Player wins if the total points (in the First Half) of both teams >= 811",
-            fullTimeOverDescription: "Player wins if the total points (First Half + Full Time) of both teams >= 1621",
+            firstHalfOverDescription: "Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội >= 811",
+            fullTimeOverDescription: "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội >= 1621",
 
-            firstHalfUnderDescription: "Player wins if the total points (in the First Half) of both teams < 811",
-            fullTimeUnderDescription: "Player wins if the total points (First Half + Full Time) of both teams < 1621",
+            firstHalfUnderDescription: "Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội < 811",
+            fullTimeUnderDescription: "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội < 1621",
 
-            firstHalfEvenDescription: "Player wins if the total points (in the First Half) of both teams are an even number.",
-            fullTimeEvenDescription: "Player wins if the total points (First Half + Full Time) of both teams are an even number.",
+            firstHalfEvenDescription: "Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số chẵn.",
+            fullTimeEvenDescription: "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số chẵn.",
 
-            firstHalfOddnDescription: "Player wins if the total points (in the First Half) of both teams are an odd number.",
-            fullTimeOddDescription: "Player wins if the total points (First Half + Full Time) of both teams are an odd number.",
+            firstHalfOddnDescription: "Thắng nếu tổng điểm (trong Hiệp 1) của cả 2 đội là số lẻ",
+            fullTimeOddDescription: "Thắng nếu tổng điểm (Toàn trận + Hiệp 1) của cả hai đội là số lẻ.",
         },
     },
     payOut: {
-        title: "Payouts",
-        description1: "The winning amount is calculated according to the betting odds.",
-        description2: "The Payout includes the initial stake.",
-        description3: "All winning amounts are instantly added to your account balance when bets are settled.",
-        odds: "Odds",
-        betLimit: "Payouts<br></br>(Min - Max)",
-        firstHalfPayout: "a) Place bets before any numbers are drawn for the “First Half” result",
+        title: "Trả thưởng",
+        description1: "",
+        description2: "",
+        description3: "Tỷ lệ cược đã bao gồm tiền vốn.",
+        odds: "Tỷ Lệ Trả Thưởng",
+        betLimit: "Hạn Mức Cược<br></br>(Min - Max)",
+        firstHalfPayout: "a) Đặt cược trước khi công bố kết quả Hiệp 1",
         liveBettingPayout: {
-            text: "b) Live Betting",
-            mainDescription:
-                "For bet options <strong>Team Blue/Red - Full Time (Live)</strong> and <strong>Over/Under - Full Time (Live)</strong>",
-            description1: 'The payout ratio will vary depending on the "First Half" result of both teams',
-            description2: "The maximum bet limit will change according to the payout ratio.",
+            text: "b) Đặt cược Live",
+            mainDescription: "Với loại cược <strong>Đội Xanh/Đỏ - Toàn trận (Live)</strong> và <strong>Tài/Xỉu - Toàn trận (Live)</strong>",
+            description1: "Tỷ lệ cược sẽ thay đổi tùy vào kết quả “Hiệp 1” của 2 đội.",
+            description2: "Hạn mức cược tối đa sẽ thay đổi tùy vào tỷ lệ cược.",
             highLightDescription1:
-                '<strong>Team Blue/Red - Full Time (Live)</strong>: Payout is only available when the total score difference between Team Blue and Team Red in the "First Half", is between -150 and 150',
+                "<strong>Đội Xanh/Đội Đỏ - Toàn trận (Live)</strong>: Tỷ lệ cược chỉ khả dụng khi tổng điểm chênh lệch trong “Hiệp 1” giữa Đội Xanh và Đội Đỏ từ -150 đến 150",
             highLightDescription2:
-                " <strong>Over/Under - Full Time (Live)</strong>: Payout is only available when the total score in the “First Half” of both teams is between 661 and 980",
+                "<strong>Tài/Xỉu - Toàn trận (Live)</strong>: Payout is only available when the total score in the “First Half” of both teams is between 661 and 980",
             min: "Min",
             max: "Max",
-            betLimit: "Bet Limit",
+            betLimit: "Hạn Mức Cược",
+            maximumBetLimit: " Mức cược tối đa sẽ thay đổi tùy vào tỷ lệ cược.",
         },
     },
-    md5noted:
-        "Noted: <span class={0}>363</span> and <span class={1}>467</span> are first haft result of Team Blue and Team Red respectively",
+    md5noted: "Trong đó <span class={0}>363</span> là kết quả của Đội Xanh và <span class={1}>467</span> là kết quả Đội Đỏ trong Hiệp 1.",
 };

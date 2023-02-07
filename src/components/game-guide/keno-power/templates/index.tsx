@@ -163,7 +163,6 @@ const renderPayouts = (
                                 </tr>
                                 <tr>
                                     <td rowSpan={2}>
-                                        {" "}
                                         <Markup content={StringFormat(common.teamBlueBigSmall)} />
                                     </td>
                                     <td className="text-start">{common.big}</td>

@@ -67,13 +67,13 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                     </td>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}> {common.firstHalf}</td>
                                     <td className="text-start">
-                                        {bettingOptions.firstHalfTeamBlueDescription}
+                                        <Markup content={StringFormat(bettingOptions.firstHalfTeamBlueDescription)} />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        {bettingOptions.fullTimeTeamBlueDescription}
+                                        <Markup content={StringFormat(bettingOptions.fullTimeTeamBlueDescription)} />
                                     </td>
                                 </tr>
                                 <tr>
@@ -85,13 +85,13 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                     </td>
                                     <td className="text-start">{common.firstHalf}</td>
                                     <td className="text-start">
-                                        {bettingOptions.firstHalfTeamRedDescription}
+                                        <Markup content={StringFormat(bettingOptions.firstHalfTeamRedDescription)} />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
                                     <td rowSpan={2} className="text-start">
-                                        {bettingOptions.fullTimeTeamRedDescription}
+                                        <Markup content={StringFormat(bettingOptions.fullTimeTeamRedDescription)} />
                                     </td>
                                 </tr>
                                 <tr>
@@ -193,7 +193,7 @@ const renderPayouts = (
         <>
             <h2>{payOut.title}</h2>
             <ul className="desc">
-                <li>{payOut.description1} </li>
+                {payOut.description1 !== "" && <li>{payOut.description1} </li>}
                 {payOut.description2 !== "" && <li>{payOut.description2} </li>}
                 <li>
                     {payOut.description3}
@@ -322,7 +322,7 @@ const renderPayouts = (
                                                         </td>
                                                         <td> {maxBetFollowChoice?.minBetRound}</td>
                                                         <td rowSpan={4} className="text-start">
-                                                            The maximum bet limit will change according to the payout ratio.
+                                                            {payOut.liveBettingPayout.maximumBetLimit}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -378,7 +378,7 @@ const renderPayouts = (
     );
 };
 
-const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const KenoMatchGuideTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     const resources = getPowerSoccerTranslationResource(locale);
@@ -406,4 +406,4 @@ const KenoMatchGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
         </>
     );
 };
-export default KenoMatchGuideEN;
+export default KenoMatchGuideTemplate;

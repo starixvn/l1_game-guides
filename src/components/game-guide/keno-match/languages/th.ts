@@ -81,6 +81,7 @@ export const th: IPowerSoccerTranslationResource = {
             min: "ต่ำสุด",
             max: "สูงสุด",
             betLimit: "วงเงินเดิมพัน",
+            maximumBetLimit: "วงเงินเดิมพันสูงสุดจะเปลี่ยนแปลงตามอัตราการจ่ายเงิน",
         },
     },
     md5noted: "หมายเหตุ: <span class={0}>363</span> และ  <span class={1}>467</span> เป็นผลการแข่งขันครึ่งแรกของทีมน้ำเงินและทีมแดงตามลำดับ",

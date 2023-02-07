@@ -86,6 +86,7 @@ export const en: IPowerSoccerTranslationResource = {
             min: "Min",
             max: "Max",
             betLimit: "Bet Limit",
+            maximumBetLimit: "The maximum bet limit will change according to the payout ratio.",
         },
     },
     md5noted:

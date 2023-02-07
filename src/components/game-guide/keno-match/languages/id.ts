@@ -87,6 +87,7 @@ export const id: IPowerSoccerTranslationResource = {
             min: "Min",
             max: "Pembayaran hanya tersedia ketika skor total di “Babak Pertama” kedua tim antara 661 dan 980",
             betLimit: "Batas Taruhan",
+            maximumBetLimit: "Batas maksimum taruhan akan berubah sesuai dengan rasio pembayaran.",
         },
     },
     md5noted:

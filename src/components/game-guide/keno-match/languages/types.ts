@@ -63,6 +63,7 @@ export interface IPowerSoccerTranslationResource {
             description2: string;
             highLightDescription1: string;
             highLightDescription2: string;
+            maximumBetLimit: string;
             min: string;
             max: string;
             betLimit: string;
