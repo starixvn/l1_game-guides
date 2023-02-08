@@ -1,10 +1,10 @@
 import { ICasinoHoldTranslationResource } from "./types";
 
 const steps = {
-    one: "<b>第一步</b>: 按下 Deal 按鈕後復制 MD5 密鑰。",
+    one: "<b>第一步</b>: 按下 Deal 按鈕後復制 MD5 鑰匙。",
     two: "<b>第二步</b>: 按呼叫按鈕後復制結果。",
-    three: "<b>Step 3</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
-    four: "<b>Step 4</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的<strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+    three: "<b>第三步</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
+    four: "<b>第四步</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的 <strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 鑰匙進行比較。",
 };
 
 const Hand = {
@@ -40,7 +40,7 @@ export const tw: ICasinoHoldTranslationResource = {
             "Casino Hold'em是德州撲克的一種變體。遊戲使用標準的 52 張牌（不包括王牌）進行，每輪結束後洗牌。玩家將與莊家對戰，此遊戲的目標是使用兩張底牌和五張公共牌的組合來獲得最好的五張撲克手牌來擊敗莊家。",
         md5: {
             sentence1: "此外，一項新功能——",
-            sentence2: "MD5 (Message-Digest algorithm 5)",
+            sentence2: "MD5（消息摘要算法5）",
             sentence3: "允許玩家檢查每場比賽結果的公平性和真實性。",
         },
     },
@@ -53,7 +53,7 @@ export const tw: ICasinoHoldTranslationResource = {
             line4: "三張公共牌（翻牌）在桌子中間面朝上發。",
         },
         swapCard: {
-            title: "交換卡",
+            title: "換牌",
             description:
                 "交換卡是一項可選功能，可以打開/關閉。它允許玩家選擇在牌面揭開之前將自己的兩張底牌與莊家的牌交換，或者保留底牌不變。",
         },
@@ -63,9 +63,9 @@ export const tw: ICasinoHoldTranslationResource = {
             fold: "<strong>棄牌</strong>: 玩家將放棄他的牌並輸掉底注和可選的 AA 賭注。遊戲回合結束。",
             call: "<strong>跟注</strong>: 玩家將繼續下注額外的跟注，等於底注的兩倍。",
         },
-        afterClick: "點擊 CALL 按鈕後，最後兩張公共牌被發出，閒家和莊家都將顯示他們的牌面值。",
+        afterClick: "點擊 跟注 按鈕後，最後兩張公共牌被發出，閒家和莊家都將顯示他們的牌面值。",
         theTwo: "兩張個人牌與 5 張公共牌相結合，組成最好的五張撲克牌。",
-        thePlayer: "如果閒家的牌比莊家好，閒家將贏得底注",
+        thePlayer: "如果閒家的牌比莊家好，閒家將贏得底注。",
         maximumTotal: "每輪的最大總賭注為 {0}。請注意，發牌後無法取消投注。",
         rankingLevel: "排名等級",
         cardValues: {
@@ -190,7 +190,7 @@ export const tw: ICasinoHoldTranslationResource = {
                     details: [
                         "MD5讓玩家可以通過第三方驗證遊戲結果的真實性和透明度。",
                         "遊戲結果將在翻牌前由系統隨機生成。",
-                        "玩家可以手動檢查下注前生成的結果（<strong>MD5 </strong>密鑰）與發布結果（<strong>結果</strong>）是否匹配。",
+                        "玩家可以手動檢查翻牌前生成的結果（<strong>MD5 </strong> 鑰匙）和發布的結果（<strong>結果</strong>）是否匹配。",
                     ],
                 },
                 validation: {
@@ -200,7 +200,7 @@ export const tw: ICasinoHoldTranslationResource = {
                 noted: "如果兩個字符串匹配，則證明該遊戲回合的結果是透明的，並且遊戲結果與系統在揭牌前產生的隨機結果沒有變化。",
             },
             example: {
-                header: "<strong> 示例:</strong> 檢查結果的真實性和透明度。",
+                header: "<strong> 示例:</strong> 檢查撲克遊戲結果的真實性和透明度。",
                 step1Text: steps.one,
                 step2Text: steps.two,
                 step3Text: steps.three,

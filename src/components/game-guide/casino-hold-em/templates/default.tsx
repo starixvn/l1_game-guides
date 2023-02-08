@@ -97,7 +97,10 @@ class CasinoHoldGuideTemplate<
                         </ul>
                     </li>
                     <li>{afterClick}</li>
-                    <li>{gameRule.theTwo}</li>
+                    <li>
+                        {gameRule.theTwo}
+                        {gameRule.thePlayer}
+                    </li>
                     <li>
                         <Markup content={StringFormat(gameRule.maximumTotal, (maxBetFollowChoice?.maxBetRound ?? 0).toString())} />
                     </li>
@@ -115,10 +118,10 @@ class CasinoHoldGuideTemplate<
                                         <Markup
                                             content={StringFormat(
                                                 cardValues.description.line3,
+                                                `<span class="red">♥</span>`,
                                                 `<span class="casino-black">♠</span>`,
-                                                `<span class="casino-black">♣</span>`,
                                                 `<span class="red">♦</span>`,
-                                                `<span class="red">♥</span>`
+                                                `<span class="casino-black">♣</span>`
                                             )}
                                         />
                                     </li>
@@ -893,9 +896,8 @@ class CasinoHoldGuideTemplate<
         );
         const communityCards = (
             <>
-                (<span className="casino-black">K♣</span>, <span className="red">5♥</span>,
-                <span className="casino-black">3♠</span>, <span className="red">10♦</span>,
-                <span className="red">4♦</span>)
+                (<span className="casino-black">K♣</span>, <span className="red">5♥</span>,<span className="casino-black">3♠</span>,{" "}
+                <span className="red">10♦</span>,<span className="red">4♦</span>)
             </>
         );
         return (
@@ -921,7 +923,9 @@ class CasinoHoldGuideTemplate<
                                 />
                             </li>
                             <li>
-                                <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                                <Markup
+                                    content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))}
+                                />
                             </li>
                         </ul>
                     </>

@@ -1,10 +1,10 @@
 import { TexasHoldemLanguage } from "./types";
 
 const steps = {
-    one: "<b>第一步</b>: 按下 Deal 按鈕後復制 MD5 密鑰。",
+    one: "<b>第一步</b>: 按下 Deal 按鈕後復制 MD5 鑰匙。",
     two: "<b>第二步</b>: 按呼叫按鈕後復制結果。",
-    three: "<b>Step 3</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
-    four: "<b>Step 4</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的<strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 密鑰進行比較。",
+    three: "<b>第三步</b>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
+    four: "<b>第四步</b>: 按 <b>“hash darling, hash!</b>” 按鈕，並將新生成的 <strong>MD5 checksum</strong> 字符串與步驟 1 中的 MD5 鑰匙進行比較。",
 };
 
 export const zhTW: TexasHoldemLanguage = {
@@ -16,7 +16,7 @@ export const zhTW: TexasHoldemLanguage = {
             此游戏的目标是获得比庄家排名更高的扑克牌。\
             使用你的两张底牌和五张公共牌来创造最好的五张扑克手牌。",
         "In addition, a new feature": "此外，还有一项新功能",
-        "MD5 (Message-Digest algorithm 5)": "MD5 (Message-Digest algorithm 5)",
+        "MD5 (Message-Digest algorithm 5)": "MD5（消息摘要算法5）",
         "that allows the Player to": "允许玩家检查每场比赛结果的公平性和真实性。",
     },
 
@@ -124,7 +124,7 @@ export const zhTW: TexasHoldemLanguage = {
                     details: [
                         "MD5讓玩家可以通過第三方驗證遊戲結果的真實性和透明度。",
                         "遊戲結果將在翻牌前由系統隨機生成。",
-                        "玩家可以手動檢查下注前生成的結果（<strong>MD5 </strong>密鑰）與發布結果（<strong>結果</strong>）是否匹配。",
+                        "玩家可以手動檢查翻牌前生成的結果（<strong>MD5 </strong> 鑰匙）與發布結果（<strong>結果</strong>）是否匹配。",
                     ],
                 },
                 validation: {
@@ -134,7 +134,7 @@ export const zhTW: TexasHoldemLanguage = {
                 noted: "如果兩個字符串匹配，則證明該遊戲回合的結果是透明的，並且遊戲結果與系統在揭牌前產生的隨機結果沒有變化。",
             },
             example: {
-                header: "<strong> 示例:</strong> 檢查結果的真實性和透明度。",
+                header: "<strong> 示例:</strong> 檢查撲克遊戲結果的真實性和透明度。",
                 step1Text: steps.one,
                 step2Text: steps.two,
                 step3Text: steps.three,

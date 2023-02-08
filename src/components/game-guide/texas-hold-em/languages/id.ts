@@ -3,7 +3,7 @@ import { TexasHoldemLanguage } from "./types";
 const steps = {
     one: "<b>Langkah 1</b>: Salin kunci MD5 setelah menekan tombol Deal.",
     two: "<b>Langkah 2</b>: Salin Hasil setelah kartu komunitas kelima (River) dibagikan.",
-    three: "<b>Langkah 3</b>: Buka {0} dan rekatkan Hasil ke kotak MD5.",
+    three: "<b>Langkah 3</b>: Buka {0} dan tempel Hasil ke kotak MD5.",
     four: "<b>Langkah 4</b>: Tekan tombol <b>“hash darling, hash!</b>” dan bandingkan rangkaian daftar <strong>MD5 checksum</strong> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
 };
 
@@ -16,7 +16,7 @@ export const id: TexasHoldemLanguage = {
             Tujuan dari permainan ini adalah untuk mendapatkan kartu Poker dengan peringkat lebih tinggi dari Dealer. \
             Menggunakan dua kartu hole Anda digabungkan dengan lima kartu komunitas untuk membuat kartu Poker lima kartu terbaik.",
         "In addition, a new feature": "Selain itu, fitur baru",
-        "MD5 (Message-Digest algorithm 5)": "MD5 (Message-Digest algoritma 5)",
+        "MD5 (Message-Digest algorithm 5)": "MD5 (Mencerna Pesan Algoritma 5)",
         "that allows the Player to": "yang memungkinkan Player untuk memeriksa keadilan dan keaslian setiap hasil permainan.",
     },
 
@@ -140,7 +140,7 @@ export const id: TexasHoldemLanguage = {
                     details: [
                         "MD5 yang memungkinkan pemain untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
                         "Hasil permainan akan dibuat secara acak oleh sistem sebelum kartu dibuka.",
-                        "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
+                        "Player dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum kartu terungkap (<strong>Kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) dicocokkan.",
                     ],
                 },
                 validation: {
@@ -150,7 +150,7 @@ export const id: TexasHoldemLanguage = {
                 noted: "Jika dua senar cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum kartu dibagikan.",
             },
             example: {
-                header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.",
+                header: "<strong> Contoh:</strong> Periksa keaslian dan transparansi hasil permainan Poker.",
                 step1Text: steps.one,
                 step2Text: steps.two,
                 step3Text: steps.three,

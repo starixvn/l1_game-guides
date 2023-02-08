@@ -3,7 +3,7 @@ import { ICasinoHoldTranslationResource } from "./types";
 const steps = {
     one: "<b>Langkah 1</b>: Salin Kunci MD5 setelah menekan tombol Deal.",
     two: "<b>Langkah 2</b>: Salin Hasil setelah menekan tombol Panggil.",
-    three: "<b>Langkah 3</b>: Buka {0} dan rekatkan Hasil ke kotak MD5.",
+    three: "<b>Langkah 3</b>: Buka {0} dan tempel Hasil ke kotak MD5.",
     four: "<b>Langkah 4</b>: Tekan tombol <b>“hash darling, hash!</b>” dan bandingkan rangkaian daftar <strong>MD5 checksum</strong> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.",
 };
 
@@ -18,7 +18,7 @@ const Hand = {
     twoPair: "Dua Pair",
     pair: "Pair",
     highCard: "Kartu tinggi",
-    PairOfAces: "Pair of Aces",
+    PairOfAces: "Sepasang As",
 };
 
 export const id: ICasinoHoldTranslationResource = {
@@ -31,7 +31,7 @@ export const id: ICasinoHoldTranslationResource = {
         combination: "Kombinasi",
         result: "Hasil",
         handResult: "Hasil Tangan",
-        odds: "Peluang ",
+        odds: "Odds ",
         example: "Contoh",
     },
     introduction: {
@@ -40,7 +40,7 @@ export const id: ICasinoHoldTranslationResource = {
             "Casino Hold'em adalah varian dari Texas Hold'em Poker. Permainan ini dimainkan dengan setumpuk 52 kartu standar (tidak termasuk Joker), dan kartu dikocok setelah setiap putaran. Player akan bermain melawan Dealer dan tujuan permainan ini adalah untuk mencapai kartu poker lima kartu terbaik menggunakan kombinasi dua kartu hole dan lima kartu komunitas untuk mengalahkan tangan Dealer.",
         md5: {
             sentence1: "Selain itu, fitur baru -",
-            sentence2: "MD5 (Message-Digest algorithm 5)",
+            sentence2: "MD5 (Mencerna Pesan Algoritma 5)",
             sentence3: "memungkinkan Player untuk memeriksa keadilan dan keaslian setiap hasil permainan.",
         },
     },
@@ -66,7 +66,7 @@ export const id: ICasinoHoldTranslationResource = {
         afterClick:
             "Setelah mengklik tombol CALL, dua kartu komunitas terakhir dibagikan dan Player dan Dealer akan mengungkapkan nilai kartu mereka.",
         theTwo: "Dua kartu pribadi digabungkan dengan 5 kartu komunitas untuk membuat kartu Poker lima kartu terbaik.",
-        thePlayer: "Player akan memenangkan taruhan Ante jika Pemain memiliki kartu yang lebih baik daripada Dealer",
+        thePlayer: "Player akan memenangkan taruhan Ante jika Pemain memiliki kartu yang lebih baik daripada Dealer.",
         maximumTotal:
             "Total maksimum taruhan per putaran adalah {0}. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan setelah kartu dibagikan.",
         rankingLevel: "Tingkat Peringkat",
@@ -80,7 +80,7 @@ export const id: ICasinoHoldTranslationResource = {
         },
         handRanking: {
             title: "Peringkat Tangan",
-            line1: "Peringkat Tangan",
+            line1: "Daftar level peringkat tangan poker dari tertinggi ke terendah",
             table: {
                 title: {
                     hand: "Tangan",
@@ -166,7 +166,7 @@ export const id: ICasinoHoldTranslationResource = {
             title: "Taruhan panggilan",
             description: {
                 line1: "Player akan memenangkan taruhan Panggilan hanya jika Dealer memenuhi syarat dan Anda mengalahkan kartu mereka.",
-                line2: "Peluang taruhan ",
+                line2: "Odds taruhan ",
             },
         },
         aaBet: "Taruhan AA",
@@ -193,7 +193,7 @@ export const id: ICasinoHoldTranslationResource = {
                     details: [
                         "MD5 yang memungkinkan pemain untuk memeriksa keaslian dan transparansi hasil permainan melalui pihak ke-3.",
                         "Hasil permainan akan dibuat secara acak oleh sistem sebelum kartu dibuka.",
-                        "Pemain dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum bertaruh (<strong>kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong>) cocok atau tidak.",
+                        "Player dapat secara manual memeriksa apakah hasil yang dihasilkan sebelum kartu terungkap (<strong>Kunci MD5</strong>) dan hasil penerbitan (<strong>Hasil</strong> string) dicocokkan.",
                     ],
                 },
                 validation: {
@@ -203,7 +203,7 @@ export const id: ICasinoHoldTranslationResource = {
                 noted: "Jika keduanya cocok, buktikan bahwa hasil putaran permainan itu transparan dan hasil permainan tidak berubah dari hasil acak yang dihasilkan oleh sistem sebelum kartu dibuka.",
             },
             example: {
-                header: "<strong> Contoh:</strong> periksa keaslian dan transparansi hasilnya.",
+                header: "<strong> Contoh:</strong> cek keaslian dan transparansi hasil permainan Poker.",
                 step1Text: steps.one,
                 step2Text: steps.two,
                 step3Text: steps.three,
