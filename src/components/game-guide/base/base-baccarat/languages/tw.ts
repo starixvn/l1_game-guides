@@ -61,7 +61,7 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
             firstTwoCard: "前兩張牌",
             thirdCard: "第三張牌",
             totals: "總計",
-            basedTotal: "基於Baccarat 規則的總分 ",
+            basedTotal: "基於百家樂規則的總分",
         },
     },
     thirdCardRules: {
@@ -136,7 +136,7 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
             odds: "賠率",
             betLimit: "投注限額 </br>（最小最大）",
             player: "閒家",
-            banker: "莊家一對",
+            banker: "莊家",
             big: "大",
             small: "小",
             tie: "平局",

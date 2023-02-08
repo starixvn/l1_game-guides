@@ -4,9 +4,9 @@ export const id: ISlotTranslationResource = {
     gameRule: {
         title: "Aturan Permainan",
         description: {
-            line1: "Pemain memilih Paylines (Garis) dan menetapkan Level Taruhan yang ingin Anda pasang sebelum menekan “ Putar ”.",
+            line1: "Pemain memilih Paylines (Garis) dan menetapkan Tingkat Taruhan yang ingin Anda pasang sebelum menekan “ Putar ”.",
             totalBet: "Total Taruhan",
-            paylinesFormular: "= Paylines * Level Taruhan",
+            paylinesFormular: "= Paylines * Tingkat Taruhan",
             subDescriptions: [
                 "25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.",
                 "Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.",
