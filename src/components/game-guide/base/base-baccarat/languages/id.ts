@@ -18,23 +18,23 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             },
             contents: [
                 {
-                    choice: "Pemain",
+                    choice: "Player",
                     rule: "Tangan Player akan menang jika total poin Player lebih tinggi dari Banker.",
                 },
                 {
-                    choice: "Bankir",
+                    choice: "Banker",
                     rule: "Tangan Banker akan menang jika total poin Banker lebih tinggi dari Player.",
                 },
                 {
-                    choice: "Mengikat",
-                    rule: "Punter menang jika dua tangan (Pemain dan Bankir) telah selesai dengan total yang sama.",
+                    choice: "Seri",
+                    rule: "Punter menang jika dua tangan (Player dan Banker) telah selesai dengan total yang sama.",
                 },
                 {
-                    choice: "Pasangan pemain",
+                    choice: "Player Pair",
                     rule: "Punter menang jika dua kartu pertama Pemain adalah sepasang, terlepas dari jenisnya.",
                 },
                 {
-                    choice: "Pasangan bankir",
+                    choice: "Banker Pair",
                     rule: "Punter menang jika dua kartu pertama Banker adalah sepasang, terlepas dari jenisnya.",
                 },
                 {
@@ -148,7 +148,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             banker: "Banker",
             big: "Besar",
             small: "Kecil",
-            tie: "Mengikat",
+            tie: "Seri",
             playerPair: "Pasangan Player",
             bankerPair: "Pasangan Banker",
         },

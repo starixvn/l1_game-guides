@@ -17,9 +17,9 @@ export const cn: IBlockchainBaccaratResources = {
         burnCard: {
             header: "烧牌",
             description: "切牌后，会有一个烧牌的过程。将被烧牌的卡片数量（舍弃并不参与到牌局中）取决于新发牌箱中取出的第一张牌的牌面值。",
-            noted: "<strong>注意</strong> 第一张牌也将会被舍弃。",
+            noted: "<strong>注意</strong>: 第一张牌也将会被舍弃。",
             firstCard: "第一张牌",
-            burnValue: "Burn Value",
+            burnValue: "销牌值",
             example: {
                 header: "例子：",
                 descriptions: [
