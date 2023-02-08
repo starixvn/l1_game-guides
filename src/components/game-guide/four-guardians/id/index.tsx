@@ -483,7 +483,6 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                     </div>
                 </li>
                 <li>
-                    {" "}
                     Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur. Setelah periode ini, sistem akan
                     membuka Peti secara acak dan menyelesaikan putaran permainan.
                 </li>

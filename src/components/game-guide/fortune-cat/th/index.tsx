@@ -284,7 +284,7 @@ const renderExamplePayout = (odds: number[][]) => {
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
-            <h2>ฟรีสปิน</h2>
+            <h2>Free Spin</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     "item7",
@@ -293,18 +293,18 @@ const renderFreeSpin = (odds: number[][]) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " ฟรีสปิน"
+                    " Free Spin"
                 )}
                 <ul className="desc">
-                    <li>ผู้เล่นจะได้รับโบนัสฟรีสปินตามจำนวนสัญลักษณ์ฟรีสปินในผลลัพธ์</li>
-                    <li>สัญลักษณ์ฟรีสปินไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
+                    <li>ผู้เล่นจะได้รับโบนัส “Free Spin” ตามจำนวนสัญลักษณ์ฟรีสปินที่มีในผลลัพธ์</li>
+                    <li>สัญลักษณ์ “Free Spin” ไม่จำเป็นต้องอยู่ในเพย์ไลน์เดียวกัน</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
                     <strong> หมายเหตุ:</strong>
-                    สัญลักษณ์ “ฟรีสปิน” ต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากมีสัญลักษณ์ “หมุนฟรี” 3 อันบนรีลเดียวกัน
+                    สัญลักษณ์ “Free Spin” ต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากมีสัญลักษณ์ “Free Spin” 3 อันบนรีลเดียวกัน
                     ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
@@ -318,14 +318,16 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            มี 4 สัญลักษณ์ “หมุนฟรี” ในผลลัพธ์ แต่มี 3 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นไม่มีสิทธิ์รับโบนัสหมุนฟรี
+                            มี 4 สัญลักษณ์ “Free Spin” ในผลลัพธ์ แต่มี 3 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นไม่มีสิทธิ์ได้รับโบนัส “Free
+                            Spin”
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    ฟรีสปิน ผู้เล่นที่ระดับการเดิมพันเดียวกันและจำนวนเพย์ไลน์เดียวกันกับการหมุนรอบสุดท้าย (เพียงยูสเซอร์ได้รับโบนัสสปินฟรี)
+                    “Free Spin” จะเล่นที่ระดับเดิมพันเดียวกันและจำนวนเพย์ไลน์เท่ากันกับการหมุนครั้งล่าสุด (การหมุนที่ผู้ใช้ได้รับโบนัส “Free
+                    Spin”)
                 </li>
-                <li>ผู้เล่นต้องเสร็จสิ้นในการโบนัสฟรีสปินให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังจากที่ออกให้ ฟรีสปินที่ไม่ได้ใช้จะเป็นโมฆะ</li>
+                <li>ผู้เล่นต้องทำโบนัส “Free Spin” ให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังจากออก “Free Spin” ที่ไม่ได้ใช้จะหายไป</li>
             </ul>
         </li>
     );
@@ -334,7 +336,7 @@ const renderFreeSpin = (odds: number[][]) => {
 const renderBonus = (odds: number[][]) => {
     return (
         <li className="guide-item">
-            <h2>โบนัส</h2>
+            <h2>Bonus</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     "item8",
@@ -343,32 +345,31 @@ const renderBonus = (odds: number[][]) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " บนัส"
+                    " Bonus"
                 )}
                 <ul className="desc">
-                    <li>การมีสัญลักษณ์โบนัส 3, 4 หรือ 5 ปรากฏขึ้นที่ใดก็ได้ในผลลัพธ์จะทำให้เกมโบนัสทำงาน</li>
-                    <li>สัญลักษณ์โบนัสไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
+                    <li>การมีสัญลักษณ์ “Bonus” 3, 4 หรือ 5 ปรากฏขึ้นที่ใดก็ได้ในผลลัพธ์จะทำให้เกม “โบนัส” ปรากฏขึ้น</li>
+                    <li>สัญลักษณ์ “Bonus”ไม่จำเป็นต้องอยู่ในเพย์ไลน์เดียวกัน</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong> หมายเหตุ:</strong> สัญลักษณ์โบนัสต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากสัญลักษณ์โบนัส 2 หรือ 3
-                    ปรากฏบนวงล้อเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
+                    <strong> หมายเหตุ:</strong> สัญลักษณ์ “Bonus” จะต้องปรากฏในวงล้อต่างๆ ตัวอย่างเช่น หากสัญลักษณ์ “Bonus” 2 หรือ 3
+                    ตัวอยู่บนรีลเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img src="/static/images/fortune-cat/guide_example_bonus.png#v4" alt="guide_example_bonus" loading="eager" />
                         </div>
 
                         <span>
-                            มี 4 สัญลักษณ์ “โบนัส” ในเกม แต่มี 2 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นมีสิทธิ์ได้รับเพียง 3 รายการเท่านั้น
+                            ผลลัพธ์มีสัญลักษณ์ “Bonus” 4 สัญลักษณ์ แต่ 2 สัญลักษณ์อยู่บนรีลเดียวกัน ผู้เล่นจะได้รับสิทธิ์เพียง 3
+                            รายการเท่านั้น
                         </span>
                     </div>
                 </li>
                 <li>
-                    {" "}
-                    ผู้เล่นต้องทำโบนัสของเกมให้เสร็จสิ้นภายใน 120 วินาที นับจากนับถอยหลัง หลังจากช่วงเวลานี้
-                    ระบบจะสุ่มเปิดหีบและตัดสินรอบเกม
+                    ผู้เล่นต้องทำเกม “Bonus” ให้เสร็จภายใน 120 วินาทีหลังจากนับถอยหลัง หลังจากช่วงเวลานี้ ระบบจะสุ่มเปิดหีบและตัดสินรอบเกม
                 </li>
             </ul>
         </li>
@@ -387,7 +388,7 @@ const renderWild = (odds: number[][]) => {
 
                 <ul className="desc">
                     <li>
-                        สัญลักษณ์ “Wild ” สามารถใช้แทนสัญลักษณ์ทั้งหมดได้ ยกเว้น
+                        สัญลักษณ์ “Wild” สามารถใช้แทนสัญลักษณ์ทั้งหมดได้ ยกเว้น
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png" alt="item8"></img>,
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>
                         และ
@@ -455,7 +456,7 @@ const FortuneCatGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     <h2>แนะนำ</h2>
                     <p className="content">
                         “แมวนำโชค” เป็นเกมส์สล็อตออนไลน์ที่มีแมวกวักนำโชคซึ่งเป็นสัญลักษณ์ของความโชคดีและความเจริญรุ่งเรือง เกมส์ประกอบด้วย
-                        5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ ผู้เล่นจะชนะหากสัญลักษณ์เดียวกันอยู่บนเพย์ไลน์เดียวกันกับที่เลือก
+                        5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
                         <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />

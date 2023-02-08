@@ -285,7 +285,7 @@ const renderExamplePayout = (odds: number[][]) => {
 const renderFreeSpin = (odds: number[][]) => {
     return (
         <li className="guide-item">
-            <h2>免费旋转</h2>
+            <h2>Free Spin</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     "item7",
@@ -294,18 +294,18 @@ const renderFreeSpin = (odds: number[][]) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " 免费旋转"
+                    " Free Spin"
                 )}
                 <ul className="desc">
-                    <li>玩家将收到与结果中包含的免费旋转符号数量相对应的免费旋转奖金。</li>
-                    <li>免费旋转符号不必位于同一支付线上。</li>
+                    <li>玩家将收到与结果中包含的Free Spin符号数量相对应的免费旋转奖金。</li>
+                    <li>Free Spin符号不必位于同一支付线上。</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong>注意：</strong> “免费旋转”符号必须出现在不同的卷轴上。 例如，如果同一卷轴上有 3
-                    个“免费旋转”符号，系统将计为一个符号。
+                    <strong>注意：</strong> “Free Spin”符号必须出现在不同的卷轴上。 例如，如果同一卷轴上有 3 个“Free
+                    Spin”符号，系统将计为一个符号。
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -317,11 +317,11 @@ const renderFreeSpin = (odds: number[][]) => {
                             />
                         </div>
 
-                        <span>结果中有 4 个“免费旋转”符号，但 3 个符号位于同一个转轴上。玩家没有资格获得免费旋转奖金。</span>
+                        <span>结果中有 4 个“Free Spin”符号，但 3 个符号位于同一个转轴上。玩家没有资格获得Free Spin奖金。</span>
                     </div>
                 </li>
-                <li className="clear-both">免费旋转的投注级别和支付线数与上一次旋转（用户获得免费旋转奖金的旋转）相同。</li>
-                <li>玩家必须在发放后 24 小时内完成免费旋转奖金。 未使用的免费旋转将丢失。</li>
+                <li className="clear-both">Free Spin的投注级别和支付线数与上一次旋转（用户获得Free Spin奖金的旋转）相同。</li>
+                <li>玩家必须在发放后 24 小时内完成Free Spin奖金。 未使用的Free Spin将丢失。</li>
             </ul>
         </li>
     );
@@ -330,7 +330,7 @@ const renderFreeSpin = (odds: number[][]) => {
 const renderBonus = (odds: number[][]) => {
     return (
         <li className="guide-item">
-            <h2>奖金</h2>
+            <h2>Bonus</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     "item8",
@@ -339,27 +339,27 @@ const renderBonus = (odds: number[][]) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " 奖金"
+                    " Bonus"
                 )}
                 <ul className="desc">
-                    <li>结果中的任意位置出现 3、4 或 5 个红利符号将触发红利游戏。</li>
-                    <li>奖金符号不必位于同一支付线上。</li>
+                    <li>结果中的任意位置出现 3、4 或 5 个Bonus符号将触发Bonus游戏。</li>
+                    <li>Bonus符号不必位于同一支付线上。</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <strong> 注意：</strong> 奖金符号必须出现在不同的卷轴中。 例如，如果 2 或 3 个
-                    奖金符号出现在同一个卷轴上，系统将计为一个符号。
+                    <strong> 注意：</strong>Bonus符号必须出现在不同的卷轴中。例如，如果 2 或 3 个
+                    Bonus符号出现在同一个卷轴上，系统将计为一个符号。
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img src="/static/images/fortune-cat/guide_example_bonus.png#v4" alt="guide_example_bonus" loading="eager" />
                         </div>
 
-                        <span>结果中有 4 个“奖金”符号，但 2 个符号位于同一个卷轴上。 玩家有資格获得 3 件物品。</span>
+                        <span>结果中有 4 个“Bonus”符号，但 2 个符号位于同一个卷轴上。玩家有資格获得 3 件物品。</span>
                     </div>
                 </li>
-                <li> 玩家必须在倒计时 120 秒内完成奖金游戏。 这段时间过后，系统会随机开启宝箱并结算游戏回合。</li>
+                <li>玩家必须在倒计时 120 秒内完成Bonus游戏。这段时间过后，系统会随机开启宝箱并结算游戏回合。</li>
             </ul>
         </li>
     );
@@ -369,7 +369,7 @@ const renderWild = (odds: number[][]) => {
     const wrapperWildImg = "wrapper-wild-img";
     return (
         <li className="guide-item">
-            <h2>狂野</h2>
+            <h2>Wild</h2>
             <div className={Styles["wild-content-ex"]}>
                 <span className={Styles["wrapper-wild"]}>
                     <img src="/static/images/fortune-cat/guide_example_wild.png#v3" alt="guide_example_wild" loading="eager" />
@@ -377,7 +377,7 @@ const renderWild = (odds: number[][]) => {
 
                 <ul className="desc">
                     <li>
-                        “狂野”符号可以替代除
+                        “Wild”符号可以替代除
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png" alt="item8"></img>,
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>和
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10_small.png#v2" alt="item10"></img>
