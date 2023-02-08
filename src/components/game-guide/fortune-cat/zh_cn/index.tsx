@@ -294,7 +294,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " Free Spin"
+                    " FREE SPINS"
                 )}
                 <ul className="desc">
                     <li>玩家将收到与结果中包含的Free Spin符号数量相对应的免费旋转奖金。</li>
@@ -339,7 +339,7 @@ const renderBonus = (odds: number[][]) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " Bonus"
+                    " BONUS"
                 )}
                 <ul className="desc">
                     <li>结果中的任意位置出现 3、4 或 5 个Bonus符号将触发Bonus游戏。</li>

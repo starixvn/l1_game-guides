@@ -380,7 +380,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                                     [4, odds[7][4]],
                                     [3, odds[7][3]],
                                 ],
-                                " Free Spin"
+                                " FREE SPINS"
                             )}
                         </td>
                         <td>
@@ -441,7 +441,7 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                                     [4, odds[8][4]],
                                     [3, odds[8][3]],
                                 ],
-                                " Bonus"
+                                " BONUS"
                             )}
                         </td>
                         <td>

@@ -379,7 +379,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                                     [4, odds[7][4]],
                                     [3, odds[7][3]],
                                 ],
-                                " Free Spin"
+                                " FREE SPINS"
                             )}
                         </td>
                         <td>
@@ -434,7 +434,7 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                                     [4, odds[8][4]],
                                     [3, odds[8][3]],
                                 ],
-                                " Bonus"
+                                " BONUS"
                             )}
                         </td>
                         <td>
@@ -491,7 +491,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 
                 <ul className="desc">
                     <li>
-                        “狂野”符号可以替代除
+                        “Wild”符号可以替代除
                         <img
                             className={`${Styles["item8"]} ${Styles["mini"]}`}
                             src="./static/images/four-guardians/item8.png"
@@ -515,7 +515,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                 </ul>
             </div>
             <div>
-                <strong>ตัวอย่าง</strong>
+                <strong>例子</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>

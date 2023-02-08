@@ -294,7 +294,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " Free Spin"
+                    " FREE SPINS"
                 )}
                 <ul className="desc">
                     <li>玩家將收到與結果中包含的Free Spin符號數量相對應的免費旋轉獎金。</li>
@@ -304,7 +304,7 @@ const renderFreeSpin = (odds: number[][]) => {
 
             <ul className="desc">
                 <li>
-                    <strong> 注意:</strong> “Free Spin”符號必須出現在不同的捲軸上。例如，如果同一捲軸上有 3 個“Free
+                    <strong> 例如:</strong> “Free Spin”符號必須出現在不同的捲軸上。例如，如果同一捲軸上有 3 個“Free
                     Spin”符號，系統將計為一個符號。
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
@@ -339,7 +339,7 @@ const renderBonus = (odds: number[][]) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " Bonus"
+                    " BONUS"
                 )}
                 <ul className="desc">
                     <li>結果中的任意位置出現 3、4 或 5 個Bonus符號將觸發Bonus遊戲。</li>

@@ -293,7 +293,7 @@ const renderFreeSpin = (odds: number[][]) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    " Free Spin"
+                    " FREE SPINS"
                 )}
                 <ul className="desc">
                     <li>ผู้เล่นจะได้รับโบนัส “Free Spin” ตามจำนวนสัญลักษณ์ฟรีสปินที่มีในผลลัพธ์</li>
@@ -345,7 +345,7 @@ const renderBonus = (odds: number[][]) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    " Bonus"
+                    " BONUS"
                 )}
                 <ul className="desc">
                     <li>การมีสัญลักษณ์ “Bonus” 3, 4 หรือ 5 ปรากฏขึ้นที่ใดก็ได้ในผลลัพธ์จะทำให้เกม “โบนัส” ปรากฏขึ้น</li>
