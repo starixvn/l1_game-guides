@@ -469,7 +469,7 @@ const FortuneCatGuideID: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                     <h2>Introduction</h2>
                     <p className="content">
                         “Fortune Cat” adalah permainan slot online dengan kucing keberuntungan yang melambai - simbol keberuntungan dan
-                        kemakmuran.Game ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol yang
+                        kemakmuran. Game ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol yang
                         sama terletak pada payline yang sama yang telah dipilih.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>

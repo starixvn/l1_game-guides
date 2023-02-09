@@ -65,6 +65,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
         isScrollMD5: isScrollMD5,
         environment,
         fractionalOddsFormat,
+        locale,
     };
 
     switch (locale) {
