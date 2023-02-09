@@ -100,8 +100,8 @@ const renderMd5 = (gameId: any, locale?: string) => {
             locale={locale}
             step1ImageUrl={`/static/images/${currentGameType}/md5_step1_th.png?v=5`}
             step2ImageUrl={`/static/images/${currentGameType}/md5_step2_th.png?v=5`}
-            step3ImageUrl={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-            step4ImageUrl={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4.png?v=2`}
             note={<div>หมายเหตุ: สีแดงและสีขาวตรงกับสองด้านของปุ่ม</div>}
         />
     );

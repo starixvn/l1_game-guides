@@ -43,8 +43,8 @@ export const baccaratResourcesTh: IBaseBaccaratResources = {
     md5: {
         step1ImageUrl: "/static/images/baccarat/md5_step1_th.png?v=1",
         step2ImageUrl: "/static/images/baccarat/md5_step2_th.png?v=1",
-        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
         step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา,",
         step2Noted2Text: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
     },

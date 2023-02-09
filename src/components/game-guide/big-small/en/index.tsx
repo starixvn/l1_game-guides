@@ -68,14 +68,16 @@ const BigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/big-small/md5_step1_en.png?v=3"}
-                    step2ImageUrl={"/static/images/big-small/md5_step2_en.png?v=3"}
-                    step3ImageUrl={"/static/images/big-small/md5_step3_en.png?v=1"}
-                    step4ImageUrl={"/static/images/big-small/md5_step4_en.png?v=1"}
-                    note={<div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the the value of three dice.</div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/big-small/md5_step1_en.png?v=3"}
+                        step2ImageUrl={"/static/images/big-small/md5_step2_en.png?v=3"}
+                        step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
+                        step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
+                        note={<div>Note: From the left to right, &#123;6, 2, 5&#125; correspond to the the value of three dice.</div>}
+                    />
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

@@ -931,24 +931,6 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
             },
         };
 
-        const playerCards = (
-            <>
-                (<span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>)
-            </>
-        );
-        const dealerCards = (
-            <>
-                (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>)
-            </>
-        );
-        const communityCards = (
-            <>
-                (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
-                <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
-                <span className={Styles["black"]}>10♣</span>)
-            </>
-        );
-
         return (
             <MD5
                 locale={locale}
@@ -961,19 +943,10 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                     <>
                         <ul className="detail">
                             <li>
-                                <Markup
-                                    content={StringFormat(
-                                        md5.md5Note.line1,
-                                        renderToString(playerCards),
-                                        renderToString(dealerCards),
-                                        renderToString(communityCards)
-                                    )}
-                                />
+                                <Markup content={StringFormat(md5.md5Note.line1, "(J♣ 10♥)", "(3♦ 2♠)", "(K♣ 5♥ 3♠ 10♦ 4♦)")} />
                             </li>
                             <li>
-                                <Markup
-                                    content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))}
-                                />
+                                <Markup content={StringFormat(md5.md5Note.line2, "(J♣ 10♥)", "(3♦ 2♠)")} />
                             </li>
                             <li>{md5.md5Note.line3}</li>
                         </ul>

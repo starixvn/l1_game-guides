@@ -42,8 +42,8 @@ export const baccaratResourcesEn: IBaseBaccaratResources = {
     md5: {
         step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
         step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
-        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
         step2Noted1Text: "Note: From the left to right,",
         step2Noted2Text: "corresponds to the order of dealt cards at the beginning of the game round.",
     },

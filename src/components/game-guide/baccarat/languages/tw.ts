@@ -43,8 +43,8 @@ export const baccaratResourcesTw: IBaseBaccaratResources = {
     md5: {
         step1ImageUrl: "/static/images/baccarat/md5_step1_tw.png?v=1",
         step2ImageUrl: "/static/images/baccarat/md5_step2_tw.png?v=1",
-        step3ImageUrl: "/static/images/baccarat/md5_step3_en.png?v=1",
-        step4ImageUrl: "/static/images/baccarat/md5_step4_en.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
         step2Noted1Text: "注：從左到右，",
         step2Noted2Text: "對應遊戲回合開始時的發牌順序。",
     },

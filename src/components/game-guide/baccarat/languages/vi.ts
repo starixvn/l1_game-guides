@@ -50,8 +50,8 @@ export const baccaratResourcesVi: IBaseBaccaratResources = {
     md5: {
         step1ImageUrl: "/static/images/baccarat/md5_step1_vi.png?v=1",
         step2ImageUrl: "/static/images/baccarat/md5_step2_vi.png?v=1",
-        step3ImageUrl: "/static/images/baccarat/md5_step3_vi.png?v=1",
-        step4ImageUrl: "/static/images/baccarat/md5_step4_vi.png?v=1",
+        step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
+        step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
         step2Noted1Text: "Từ trái sang phải,",
         step2Noted2Text: "tương ứng với thứ tự được chia của mỗi lá bài khi bắt đầu phiên.",
     },

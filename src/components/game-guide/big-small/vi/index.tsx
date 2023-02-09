@@ -66,14 +66,16 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                         {renderPromotionNoteVN(isInPromotionTime)}
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/big-small/md5_step1_vi.png?v=3"}
-                    step2ImageUrl={"/static/images/big-small/md5_step2_vi.png?v=3"}
-                    step3ImageUrl={"/static/images/big-small/md5_step3_vi.png?v=1"}
-                    step4ImageUrl={"/static/images/big-small/md5_step4_vi.png?v=1"}
-                    note={<div>Từ trái sang phải, &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/big-small/md5_step1_vi.png?v=3"}
+                        step2ImageUrl={"/static/images/big-small/md5_step2_vi.png?v=3"}
+                        step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
+                        step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
+                        note={<div>Từ trái sang phải, &#123;6, 5, 2&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
+                    />
+                )}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>

@@ -59,14 +59,16 @@ const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                         {renderPromotionNoteEN(isInPromotionTime)}
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/big-small/md5_step1_tw.png?v=3"}
-                    step2ImageUrl={"/static/images/big-small/md5_step2_tw.png?v=3"}
-                    step3ImageUrl={"/static/images/big-small/md5_step3_en.png?v=1"}
-                    step4ImageUrl={"/static/images/big-small/md5_step4_en.png?v=1"}
-                    note={<div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/big-small/md5_step1_tw.png?v=3"}
+                        step2ImageUrl={"/static/images/big-small/md5_step2_tw.png?v=3"}
+                        step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
+                        step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
+                        note={<div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>}
+                    />
+                )}
                 {renderTermsAndConditionsTW()}
             </ul>
         </>

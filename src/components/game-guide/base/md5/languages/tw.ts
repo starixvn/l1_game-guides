@@ -1,7 +1,7 @@
 import { IMd5Resources } from "./types";
 
 const steps = {
-    one: "<strong>第一步</strong>: 在公佈結果前複製<strong>MD5</strong> 鑰匙。",
+    one: "<strong>第一步</strong>: 在公佈結果前複製 <strong>MD5</strong> 鑰匙。",
     two: "<strong>第二步</strong>: 發布後復制<strong>結果。</strong>",
     three: "<strong>第三步</strong>: 轉到 {0} 並將結果粘貼到 MD5 框中。",
     four: "<strong>第四步</strong>: 按<strong>“hash darling, hash!”</strong>  按鈕，並將新生成的 <strong> MD5 checksum </strong> 字符串與步驟 1 中的 MD5 鑰匙進行比較。",

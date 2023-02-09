@@ -122,7 +122,7 @@ export const id: TexasHoldemLanguage = {
         "All bets (Ante, Call, Turn, and River) will win.": "Semua taruhan (Ante, Call, Turn, dan River) akan menang.",
         "Payout and Bet Limit": "Peluang dan Batas Taruhan",
         Option: "Pilihan",
-        Odds: "Peluang ",
+        Odds: "Odds ",
         "Bet Limit (Min-Max)": "Batas Taruhan (Min-Max)",
         "Ante (with Three of a Kind or lower)": "Ante (dengan Three of a Kind atau lebih rendah)",
         Push: "Push",

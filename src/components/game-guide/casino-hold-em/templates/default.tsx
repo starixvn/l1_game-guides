@@ -884,22 +884,6 @@ class CasinoHoldGuideTemplate<
 
     renderMD5(language: ICasinoHoldTranslationResource, locale: string | undefined) {
         const { md5 } = language;
-        const playerCards = (
-            <>
-                (<span className="casino-black">J♣</span>, <span className="red">10♥</span>)
-            </>
-        );
-        const dealerCards = (
-            <>
-                (<span className="red">3♦</span>, <span className="casino-black">2♠</span>)
-            </>
-        );
-        const communityCards = (
-            <>
-                (<span className="casino-black">K♣</span>, <span className="red">5♥</span>,<span className="casino-black">3♠</span>,{" "}
-                <span className="red">10♦</span>,<span className="red">4♦</span>)
-            </>
-        );
         return (
             <MD5
                 locale={locale}
@@ -913,19 +897,10 @@ class CasinoHoldGuideTemplate<
                         <strong>{md5.md5Note.title}</strong>
                         <ul className="detail">
                             <li>
-                                <Markup
-                                    content={StringFormat(
-                                        md5.md5Note.line1,
-                                        renderToString(playerCards),
-                                        renderToString(dealerCards),
-                                        renderToString(communityCards)
-                                    )}
-                                />
+                                <Markup content={StringFormat(md5.md5Note.line1, "(J♣ 10♥)", "(3♦ 2♠)", "(K♣ 5♥ 3♠ 10♦ 4♦)")} />
                             </li>
                             <li>
-                                <Markup
-                                    content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))}
-                                />
+                                <Markup content={StringFormat(md5.md5Note.line2, "(J♣ 10♥)", "(3♦ 2♠)")} />
                             </li>
                         </ul>
                     </>
