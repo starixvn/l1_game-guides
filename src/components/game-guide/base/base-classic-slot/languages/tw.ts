@@ -51,8 +51,8 @@ export const tw: ISlotTranslationResource = {
         itemInBonusGame: "個寶箱。",
         note: "注意",
         bonusReel: "Bonus符號必須出現在不同的捲軸中。 例如，如果 2 或 3 個 Bonus符號出現在同一個捲軸上，系統將計為一個符號。",
-        thereAre4: "結果中有 4",
-        eligible: "個“獎金”符號，但 2 個符號位於同一個捲軸上。玩家有資格獲得 3 件物品。",
+        thereAre4: "結果中有 4 個",
+        eligible: "符號，但 2 個符號位於同一個捲軸上。玩家有資格獲得 3 件物品。",
         bonusExpired: "玩家必須在倒計時 120 秒內完成Bonus遊戲。這段時間過後，系統會隨機開啟寶箱並結算遊戲回合。",
     },
     wild: {

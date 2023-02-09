@@ -58,9 +58,9 @@ export const vi: ISlotTranslationResource = {
         note: "Lưu ý",
         bonusReel:
             "Các biểu tượng “Bonus” phải nằm trên các cột khác nhau. Ví dụ, nếu có 2 biểu tượng “Bonus” nằm trên cùng một cột, hệ thống sẽ tính là 1 biểu tượng.",
-        thereAre4: "Có 4",
+        thereAre4: "Có 4 biểu tượng",
         eligible:
-            "biểu tượng “Bonus” trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được 3 lần mở thưởng.",
+            "trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được 3 lần mở thưởng.",
         bonusExpired:
             "Người chơi sẽ có 2 phút để hoàn tất việc mở thưởng. Nếu sau 2 phút, người chơi vẫn không thể hoàn tất, hệ thống sẽ mở ngẫu nhiên các phần thưởng cho đến khi hết lượt. Kết quả sẽ được lưu trong mục Lịch sử phiên.",
     },

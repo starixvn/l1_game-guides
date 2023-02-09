@@ -15,7 +15,7 @@ export const id: ISlotTranslationResource = {
     },
     payOut: {
         paytable: "Tabel Pembayaran",
-        winningAmount: "Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.",
+        winningAmount: "Jumlah kemenangan dihitung berdasarkan odds taruhan.",
         note: "Catatan",
         initialStake: "Pembayaran termasuk taruhan awal.",
         allWinningAmount: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
@@ -39,11 +39,11 @@ export const id: ISlotTranslationResource = {
         freeSpinBonus: "Bonus Putaran Gratis.",
         note: "Catatan",
         freeSpinReel:
-            "Catatan: Simbol “Free Spin” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Free Spin” pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
+            "Simbol “Free Spin” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Free Spin” pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
         thereAre4:
             "Ada 4 simbol “Free Spin” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat untuk bonus Free Spin.",
         lastFreespin:
-            "Free Spin dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Free Spin).",
+            "Free Spin dimainkan pada Tingkat Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir (putaran di mana Pengguna mendapatkan Bonus Free Spin).",
         freeSpinExpired:
             "Pemain harus menyelesaikan Bonus Free Spin dalam waktu 24 jam setelah diterbitkan. Free Spin yang tidak digunakan akan hilang.",
     },
@@ -56,10 +56,10 @@ export const id: ISlotTranslationResource = {
         note: "Catatan",
         bonusReel:
             "Simbol Bonus harus muncul di gulungan yang berbeda. Misalnya, jika 2 atau 3 simbol Bonus muncul di gulungan yang sama, sistem akan dihitung sebagai satu simbol.",
-        thereAre4: "Ada 4",
-        eligible: "simbol “Bonus” di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi syarat untuk 3 item.",
+        thereAre4: "Ada 4 simbol",
+        eligible: "di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi syarat untuk 3 item.",
         bonusExpired:
-            "Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur. Setelah periode ini, sistem akan membuka Peti secara acak dan menyelesaikan putaran permainan.",
+            "Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur. Setelah periode ini, sistem akan membuka item secara acak dan menyelesaikan putaran permainan.",
     },
     wild: {
         title: "Wild",
@@ -69,12 +69,12 @@ export const id: ISlotTranslationResource = {
         onlyHighest: "Hanya kemenangan tertinggi yang dicapai per baris yang dibayarkan.",
         example: "Contoh",
         ifwild: "Jika simbol Wild adalah",
-        payoutBetLevel: "Pembayaran = Level Taruhan ",
+        payoutBetLevel: "Pembayaran = Tingkat Taruhan ",
         highestWin: "Pemain akan mendapatkan kemenangan tertinggi pada payline ini",
     },
     main: {
         introduction: "Perkenalan",
         description:
-            "Permainan ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika ada simbol yang sama yang terletak di garis pembayaran yang sama dengan yang Anda pilih.",
+            "Game ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol yang sama terletak pada payline yang sama yang telah dipilih.",
     },
 };
