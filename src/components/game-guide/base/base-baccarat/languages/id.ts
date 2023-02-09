@@ -75,7 +75,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         ],
         playerHand: {
             header: "Aturan untuk tangan Player",
-            cardsTotal: "Total dua kartu pertama player",
+            cardsTotal: "Total dua kartu pertama Player",
             action: "Tindakan",
             examples: [
                 {
@@ -88,7 +88,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
                 },
                 {
                     twoCardsTotal: "8 atau 9",
-                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik player maupun banker berdiri.",
+                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik Player maupun Banker berdiri.",
                 },
             ],
         },
@@ -124,7 +124,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
                 },
                 {
                     twoCardsTotal: "8 atau 9",
-                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik player maupun banker berdiri",
+                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik Player maupun Banker berdiri",
                 },
             ],
             secondDescription: [
