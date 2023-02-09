@@ -31,7 +31,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
                 },
                 {
                     choice: "Player Pair",
-                    rule: "Punter menang jika dua kartu pertama Pemain adalah sepasang, terlepas dari jenisnya.",
+                    rule: "Punter menang jika dua kartu pertama Player adalah sepasang, terlepas dari jenisnya.",
                 },
                 {
                     choice: "Banker Pair",
@@ -74,8 +74,8 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             "Jika total poin dari dua kartu pertama dari kedua tangan adalah 8 atau 9, ini disebut “Alami” dan tidak ada lagi kartu yang dibagikan, baik Player maupun Banker berdiri.",
         ],
         playerHand: {
-            header: "Aturan untuk tangan Pemain",
-            cardsTotal: "Total dua kartu pertama pemain",
+            header: "Aturan untuk tangan Player",
+            cardsTotal: "Total dua kartu pertama player",
             action: "Tindakan",
             examples: [
                 {
@@ -84,11 +84,11 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
                 },
                 {
                     twoCardsTotal: "6 atau 7",
-                    action: "Pemain selalu berdiri.",
+                    action: "Player selalu berdiri.",
                 },
                 {
                     twoCardsTotal: "8 atau 9",
-                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik pemain maupun bankir berdiri.",
+                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik player maupun banker berdiri.",
                 },
             ],
         },
@@ -100,7 +100,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             examples: [
                 {
                     twoCardsTotal: "0, 1, 2",
-                    action: "Bankir selalu menarik kartu ketiga.",
+                    action: "Banker selalu menarik kartu ketiga.",
                 },
                 {
                     twoCardsTotal: "3",
@@ -120,11 +120,11 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
                 },
                 {
                     twoCardsTotal: "7",
-                    action: "Bankir selalu berdiri.",
+                    action: "Banker selalu berdiri.",
                 },
                 {
                     twoCardsTotal: "8 atau 9",
-                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik pemain maupun bankir berdiri",
+                    action: "“Alami” dan tidak ada lagi kartu yang dibagikan, baik player maupun banker berdiri",
                 },
             ],
             secondDescription: [
@@ -143,14 +143,14 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             noted: "<strong>Catatan:</strong> Semua taruhan Player dan Banker akan dikembalikan jika hasilnya seri.",
             options: "Pilihan",
             odds: "Odds",
-            betLimit: "Batas Taruhan </br>(Min Maks)",
+            betLimit: "Batas Taruhan </br>(Min - Maks)",
             player: "Player",
             banker: "Banker",
             big: "Besar",
             small: "Kecil",
             tie: "Seri",
-            playerPair: "Pasangan Player",
-            bankerPair: "Pasangan Banker",
+            playerPair: "Player Pair",
+            bankerPair: "Banker Pair",
         },
     },
     termsAndConditions: baseTermAndConditionId,

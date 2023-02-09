@@ -140,7 +140,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
             noted: "<strong>หมายเหตุ:</strong> การเดิมพันทั้งหมดของผู้เล่นและเจ้ามือจะได้รับเงินคืนหากผลเสมอกัน",
             options: "ตัวเลือก",
             odds: "อัตราต่อรอง",
-            betLimit: "ขีด จำกัด การเดิมพัน </br>(ต่ำสุด สูงสุด)",
+            betLimit: "ขีด จำกัด การเดิมพัน </br>(ต่ำสุด - สูงสุด)",
             player: "ผู้เล่น",
             banker: "เจ้ามือ",
             big: "ใหญ่",

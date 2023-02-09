@@ -134,7 +134,7 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
             noted: "<strong>注意：</strong> 如果结果为平局，所有对闲家和庄家的投注将被退还。",
             options: "选项",
             odds: "赔率",
-            betLimit: "投注限额 </br>（最小最大）",
+            betLimit: "投注限额 </br>（最小 - 最大）",
             player: "闲家",
             banker: "庄家",
             big: "大",
