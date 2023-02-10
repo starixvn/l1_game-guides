@@ -4,8 +4,9 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
-import { ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
+import { buildVersion, ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
 import GameGuide from "../components/game-guide";
+import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewSlotGame } from "../helpers/game-helper";
 
 export interface UserStakeLevelProps {
@@ -143,9 +144,11 @@ const Home = (prop: any) => {
 
     const gameGuideComponent = <GameGuide {...props} />;
     return (
-        <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {!isGetGameConfigs ? gameGuideComponent : gameConfigs && gameGuideComponent}
-        </div>
+        <ImgVersionProvider value={{ imgVersion: buildVersion }}>
+            <div ref={wrapperRef} id="container-guide" className="container-guide">
+                {!isGetGameConfigs ? gameGuideComponent : gameConfigs && gameGuideComponent}
+            </div>
+        </ImgVersionProvider>
     );
 };
 

@@ -2,6 +2,7 @@ import { Trans, useTranslation } from "next-i18next";
 import React from "react";
 
 import appSettings from "../../../common/app-settings";
+import { useImgVersionContext } from "../../../contexts/img-version";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
 
@@ -9,7 +10,8 @@ const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
 const freeSpinContentEX = "wrapper-symbols-content";
-let imgSrc = "";
+let imgSrc = "",
+    imgVer = "";
 
 const renderGameRule = (t: Function) => {
     return (
@@ -26,7 +28,11 @@ const renderGameRule = (t: Function) => {
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")}</li>
                 <div className={Styles["payline"]}>
-                    <img src={`${appSettings.resourceUrl}_shared/classicslot/payline-guide.png`} alt="guide_payline" loading="eager" />
+                    <img
+                        src={`${appSettings.resourceUrl}_shared/classicslot/payline-guide.png?v=${imgVer}`}
+                        alt="guide_payline"
+                        loading="eager"
+                    />
                 </div>
             </ul>
         </>
@@ -51,14 +57,16 @@ const renderPayouts = (odds: number[][], t: Function) => {
     );
 };
 
-const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false) => (
-    <img
-        key={`symbol-${iconIndex}`}
-        className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
-        src={`${imgSrc}/symbol-${iconIndex}.png`}
-        alt={`symbol_${iconIndex}.`}
-    />
-);
+const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false) => {
+    return (
+        <img
+            key={`symbol-${iconIndex}`}
+            className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
+            src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
+            alt={`symbol_${iconIndex}.`}
+        />
+    );
+};
 
 const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
@@ -363,8 +371,10 @@ const renderTermsAndConditions = (t: Function) => {
 
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslation("classicslot");
+    const { imgVersion } = useImgVersionContext();
     const { odds, name, displayName } = props;
     imgSrc = appSettings.resourceUrl + name;
+    imgVer = imgVersion ?? "";
 
     return (
         <>
