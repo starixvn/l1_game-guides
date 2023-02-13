@@ -66,7 +66,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>
                             ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้
                         </li>
-                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>
                             จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
                             <div>
@@ -85,16 +85,20 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_th.png?v=4"}
-                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_th.png?v=4"}
-                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
-                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
-                    note={<div>
-                        หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
-                    </div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_th.png?v=4"}
+                        step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_th.png?v=4"}
+                        step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                        step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                        note={
+                            <div>
+                                หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
+                            </div>
+                        }
+                    />
+                )}
                 {renderTermsAndConditionsTH()}
             </ul>
         </>

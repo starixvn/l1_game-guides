@@ -93,7 +93,7 @@ const SeDieGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>
                             จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น
                             <div className="table-container">

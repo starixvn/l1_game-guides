@@ -37,7 +37,7 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>ตารางการจ่าย</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน</li>
                 <li>
                     <strong>หมายเหตุ: </strong> การจ่ายเงินจะรวมเงินเดิมพันเริ่มต้นด้วย
                 </li>

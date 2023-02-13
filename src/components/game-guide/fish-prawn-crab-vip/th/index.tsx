@@ -43,7 +43,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย โปรดทราบว่าการจ่ายเงินจะรวมเงินเดิมพันเริ่มต้น</li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน โปรดทราบว่าการจ่ายเงินจะรวมเงินเดิมพันเริ่มต้น</li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
                         <li className="contentBeforeEmpty">
                             <div className="table-container">

@@ -82,7 +82,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
         <li className="guide-item">
             <h2>การจ่ายเงิน</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย.</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน.</li>
                 <li>การจ่ายเงินจะรวมกับเงินเดิมพันเริ่มต้นด้วย.</li>
                 <li>
                     จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น.

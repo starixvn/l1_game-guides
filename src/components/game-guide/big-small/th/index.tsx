@@ -58,7 +58,7 @@ const BigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <ul className="desc">
                         <li>การจ่ายเงินสำหรับ สูง, ต่ำ คือ {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
-                            จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย <strong>หมายเหตุ</strong> การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น
+                            จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน <strong>หมายเหตุ</strong> การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น
                         </li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
                         {renderPromotionNoteEN(isInPromotionTime)}

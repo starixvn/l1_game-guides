@@ -68,6 +68,6 @@ export const tw: ISlotTranslationResource = {
     },
     main: {
         introduction: "簡介",
-        description: "遊戲包括 5 個捲軸和 3 行，有 11 個不同的符號。 如果您選擇的同一條支付線上有相同的符號，玩家將獲勝。",
+        description: "該遊戲包括 5 個捲軸和 3 行，帶有 11 個不同的符號。如果相同的符號位於已選擇的同一條支付線上，玩家將獲勝。",
     },
 };

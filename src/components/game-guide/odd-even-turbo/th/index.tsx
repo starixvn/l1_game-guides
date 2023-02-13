@@ -49,7 +49,7 @@ const OddEvenTurboGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
                         <li>การจ่ายเงินสำหรับ คี่,คู่ คือ {formatOdds(odds?.even, fractionalOddsFormat)}</li>
-                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
                     </ul>
                 </li>

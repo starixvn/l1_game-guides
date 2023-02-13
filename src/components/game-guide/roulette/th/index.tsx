@@ -24,7 +24,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                 <li>หมายเลขที่ชนะจะอยู่ในช่องที่ลูกบอลตกลงไป</li>
                 <li>ผู้เล่นสามารถเดิมพันมากกว่าหนึ่งตัวเลือกที่แสดงอยู่บนโต๊ะเกม</li>
                 <li>
-                    จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย <strong>หมายเหตุ</strong> การจ่ายเงินจะรวมเงินการเดิมพันเริ่มต้น
+                    จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน <strong>หมายเหตุ</strong> การจ่ายเงินจะรวมเงินการเดิมพันเริ่มต้น
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
