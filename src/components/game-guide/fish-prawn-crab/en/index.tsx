@@ -90,17 +90,21 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_en.png?v=4"}
-                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_en.png?v=4"}
-                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
-                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
-                    note={<div>
-                        Note: From the left to right, &#123;5, 1, 1&#125; correspond to the assigned number of each symbol that
-                        appears on three dice
-                    </div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_en.png?v=4"}
+                        step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_en.png?v=4"}
+                        step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                        step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                        note={
+                            <div>
+                                Note: From the left to right, &#123;3, 1, 2&#125; correspond to the assigned number of each symbol that
+                                appears on three dice
+                            </div>
+                        }
+                    />
+                )}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

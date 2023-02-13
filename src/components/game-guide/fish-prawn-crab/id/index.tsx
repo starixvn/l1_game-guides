@@ -88,17 +88,21 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_id.png?v=4"}
-                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_id.png?v=4"}
-                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
-                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
-                    note={<div>
-                        Catatan: Dari kiri ke kanan, {"{(5, 1, 1)}"} sesuai dengan nomor yang ditetapkan untuk setiap simbol
-                        yang muncul pada tiga dadu
-                    </div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_id.png?v=4"}
+                        step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_id.png?v=4"}
+                        step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                        step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                        note={
+                            <div>
+                                Catatan: Dari kiri ke kanan, {"{3, 1, 2}"} sesuai dengan nomor yang ditetapkan untuk setiap simbol yang
+                                muncul pada tiga dadu
+                            </div>
+                        }
+                    />
+                )}
                 {renderTermsAndConditionsID()}
             </ul>
         </>

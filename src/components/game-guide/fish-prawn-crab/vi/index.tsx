@@ -84,14 +84,16 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_vi.png?v=4"}
-                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_vi.png?v=4"}
-                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_vi.png?v=4"}
-                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_vi.png?v=4"}
-                    note={<div>Từ trái sang phải, &#123;6, 2, 5&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_vi.png?v=4"}
+                        step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_vi.png?v=4"}
+                        step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_vi.png?v=4"}
+                        step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_vi.png?v=4"}
+                        note={<div>Từ trái sang phải, &#123;3, 1, 2&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
+                    />
+                )}
                 <BaseTermsAndConditions resources={baseTermAndConditionVi} />
             </ul>
         </>

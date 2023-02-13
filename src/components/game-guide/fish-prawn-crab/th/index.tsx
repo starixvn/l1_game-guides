@@ -93,9 +93,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
                         step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
                         note={
-                            <div>
-                                หมายเหตุ: จากซ้ายไปขวา {"{(5, 1, 1)}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก
-                            </div>
+                            <div>หมายเหตุ: จากซ้ายไปขวา {"{3, 1, 2}"} จะตรงกับหมายเลขที่กำหนดของแต่ละสัญลักษณ์ที่ปรากฏบนลูกเต๋าสามลูก</div>
                         }
                     />
                 )}

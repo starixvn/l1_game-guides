@@ -81,14 +81,16 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         </li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
-                    locale={props.locale}
-                    step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_zh_tw.png?v=4"}
-                    step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_zh_tw.png?v=4"}
-                    step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
-                    step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
-                    note={<div>注：從左到右，{"{(5, 1, 1)}"}分別對應出現在三個骰子上的每個符號的指定編號</div>}
-                />}
+                {environment === ENVIRONMENT.sc && (
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_zh_tw.png?v=4"}
+                        step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_zh_tw.png?v=4"}
+                        step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
+                        step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}
+                        note={<div>注：從左到右，{"{3, 1, 2}"} 分別對應出現在三個骰子上的每個符號的指定編號</div>}
+                    />
+                )}
                 {renderTermsAndConditionsTW()}
             </ul>
         </>

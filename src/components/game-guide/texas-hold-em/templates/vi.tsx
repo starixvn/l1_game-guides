@@ -851,28 +851,10 @@ export const renderMD5 = (locale?: string) => {
         },
         md5Note: {
             title: "Note",
-            line1: "Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi {0}, 2 lá của Nhà Cái{1} và 5 lá bài Chung {2}",
-            line2: " Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái{0}, 2 lá của Người Chơi {1} và 5 lá bài Chung.",
+            line1: "Kết quả bài sẽ được hiển thị theo thứ tự: 2 lá của Người Chơi {0}, 2 lá của Nhà Cái {1} và 5 lá bài Chung {2}",
+            line2: " Trong trường hợp Người chơi hoán đổi bài với Nhà Cái khi đó thứ tự sẽ thay đổi thành: 2 lá của Nhà Cái {0}, 2 lá của Người Chơi {1} và 5 lá bài Chung.",
         },
     };
-
-    const playerCards = (
-        <>
-            (<span className={Styles["black"]}>J♣</span>, <span className={Styles["black"]}>3♠</span>)
-        </>
-    );
-    const dealerCards = (
-        <>
-            (<span className={Styles["red"]}>2♥</span>, <span className={Styles["red"]}>Q♥</span>)
-        </>
-    );
-    const communityCards = (
-        <>
-            (<span className={Styles["red"]}>4♦</span>, <span className={Styles["black"]}>6♠</span>,{" "}
-            <span className={Styles["red"]}>10♥</span>, <span className={Styles["red"]}>10♦</span>,{" "}
-            <span className={Styles["black"]}>10♣</span>)
-        </>
-    );
 
     return (
         <MD5
@@ -887,17 +869,10 @@ export const renderMD5 = (locale?: string) => {
                     <strong>{md5.md5Note.title}</strong>
                     <ul className="detail">
                         <li>
-                            <Markup
-                                content={StringFormat(
-                                    md5.md5Note.line1,
-                                    renderToString(playerCards),
-                                    renderToString(dealerCards),
-                                    renderToString(communityCards)
-                                )}
-                            />
+                            <Markup content={StringFormat(md5.md5Note.line1, "(J♣, 3♠)", "(2♥, Q♥)", "(4♦, 6♠, 10♥, 10♦, 10♣)")} />
                         </li>
                         <li>
-                            <Markup content={StringFormat(md5.md5Note.line2, renderToString(playerCards), renderToString(dealerCards))} />
+                            <Markup content={StringFormat(md5.md5Note.line2, "(J♣, 3♠)", "(2♥, Q♥)")} />
                         </li>
                     </ul>
                 </>
