@@ -99,7 +99,7 @@ class CasinoHoldGuideTemplate<
                     <li>{afterClick}</li>
                     <li>
                         {gameRule.theTwo}
-                        {gameRule.thePlayer}
+                        {` ${gameRule.thePlayer}`}
                     </li>
                     <li>
                         <Markup content={StringFormat(gameRule.maximumTotal, (maxBetFollowChoice?.maxBetRound ?? 0).toString())} />

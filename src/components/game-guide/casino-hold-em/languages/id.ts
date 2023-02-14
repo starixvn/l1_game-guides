@@ -39,7 +39,7 @@ export const id: ICasinoHoldTranslationResource = {
         description:
             "Casino Hold'em adalah varian dari Texas Hold'em Poker. Permainan ini dimainkan dengan setumpuk 52 kartu standar (tidak termasuk Joker), dan kartu dikocok setelah setiap putaran. Player akan bermain melawan Dealer dan tujuan permainan ini adalah untuk mencapai kartu poker lima kartu terbaik menggunakan kombinasi dua kartu hole dan lima kartu komunitas untuk mengalahkan tangan Dealer.",
         md5: {
-            sentence1: "Selain itu, fitur baru -",
+            sentence1: "Selain itu, fitur baru - ",
             sentence2: "MD5 (Mencerna Pesan Algoritma 5)",
             sentence3: "memungkinkan Player untuk memeriksa keadilan dan keaslian setiap hasil permainan.",
         },

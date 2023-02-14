@@ -120,7 +120,7 @@ export const en: TexasHoldemLanguage = {
         "the Call, Turn and River bets are won, and Ante is pushed.": "the Call, Turn and River bets are won, and Ante is pushed.",
         "With a Straight or higher": "With a Straight or higher",
         "All bets (Ante, Call, Turn, and River) will win.": "All bets (Ante, Call, Turn, and River) will win.",
-        "Payout and Bet Limit": "Payout and Bet Limit",
+        "Payout and Bet Limit": "Odds and Bet Limit",
         Option: "Option",
         Odds: "Odds",
         "Bet Limit (Min-Max)": "Bet Limit (Min-Max)",

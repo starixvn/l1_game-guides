@@ -21,7 +21,7 @@ export const zhCN: TexasHoldemLanguage = {
     gameRules: {
         "Game Rules": "游戏规则",
         "Select the desired chip with": "选择价值最适合您的筹码，然后下注底注。",
-        "Note, Ante bet is": "请注意，底注是一个强制性选项，玩家必须在发牌前下注。",
+        "Note, Ante bet is": "注意，底注是一个强制性选项，玩家必须在发牌前下注。",
         "Click on the Deal button to": "点击发牌按钮开始游戏，闲家和庄家各获得两张底牌。",
         "Swap Cards": "换牌",
         "Swap Cards is": "交换卡是一项可选功能，可以打开/关闭。它允许玩家选择在开牌之前将他的底牌与庄家的底牌交换，或者保持牌不变。",
