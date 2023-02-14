@@ -11,7 +11,7 @@
     "GameRule-line-3": "每条支付线上的赢输将根据位于该支付线上的相同符号的数量计算。",
     "Paytable-title": "赔率表",
     "Paytable-line-1": "中奖金额根据派彩率计算。",
-    "Paytable-line-2": "<strong>请注意: </strong>支付包括初始投注。",
+    "Paytable-line-2": "<strong>注意: </strong>支付包括初始投注。",
     "Paytable-line-3": "投注结算后，所有中奖金额都会立即添加到您的账户余额中。",
     "Paytbale-example-description-1": "有 {{numOfSymbols}} 个符号 ",
     "Paytbale-example-description-2": " 位于同一条支付线上。",
