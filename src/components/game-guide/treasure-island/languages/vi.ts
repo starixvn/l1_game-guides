@@ -4,7 +4,7 @@ export const vi: TreasureIslandLanguage = {
     introduction: {
         title: "Giới thiệu",
         description:
-            "Treasure Island là một thể loại Slot game xếp tầng (Game xèng xếp tầng) trực tuyến đã trở nên cực kỳ phổ biến với người chơi vì nó mang lại nhiều cơ hội chiến thắng hơn so với các Slot game kiểu cũ. " +
+            "Đảo Châu Báu là một thể loại Slot game xếp tầng (Game xèng xếp tầng) trực tuyến đã trở nên cực kỳ phổ biến với người chơi vì nó mang lại nhiều cơ hội chiến thắng hơn so với các Slot game kiểu cũ. " +
             "Trò chơi bao gồm sáu cột, năm hàng và mười biểu tượng khác nhau.",
     },
 

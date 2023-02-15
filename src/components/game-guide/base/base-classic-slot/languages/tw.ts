@@ -9,6 +9,7 @@ export const tw: ISlotTranslationResource = {
             paylinesFormular: "= 支付線 * 投注水平",
             subDescriptions: [
                 "25 條支付線從 1 到 25 編號，玩家必須在開始遊戲前至少選擇一條支付線。",
+                "默認情況下，所有具有最低投注級別的支付線將在開始時被選中。",
                 "每條支付線上的贏輸將根據位於該支付線上的相同符號的數量計算。",
             ],
         },
@@ -53,7 +54,7 @@ export const tw: ISlotTranslationResource = {
         bonusReel: "Bonus符號必須出現在不同的捲軸中。 例如，如果 2 或 3 個 Bonus符號出現在同一個捲軸上，系統將計為一個符號。",
         thereAre4: "結果中有 4 個",
         eligible: "符號，但 2 個符號位於同一個捲軸上。玩家有資格獲得 3 件物品。",
-        bonusExpired: "玩家必須在倒計時 120 秒內完成Bonus遊戲。這段時間過後，系統會隨機開啟寶箱並結算遊戲回合。",
+        bonusExpired: "玩家必須在倒計時 120 秒內完成Bonus遊戲。這段時間過後，系統會隨機開啟物品並結算遊戲回合。",
     },
     wild: {
         title: "Wild",

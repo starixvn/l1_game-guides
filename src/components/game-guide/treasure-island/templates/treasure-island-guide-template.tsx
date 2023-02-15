@@ -194,10 +194,10 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
             <>
                 <h2>{resources.multipliers.title}</h2>
                 <div className={Styles["center"]}>
-                    <img src={`${imageDirectoryName}/multiplier2.png#v3`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier3.png#v3`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier1.png#v3`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier4.png#v3`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier2.png?v=4`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier3.png?v=4`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier1.png?v=4`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier4.png?v=4`} alt="multiplier" width={140} height={112} />
                 </div>
                 <ul className="desc">
                     {resources.multipliers.descriptions.map((desc, index) => (
@@ -207,7 +207,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <div className="sub-section">
                         <div>{resources.exampleMultipliers.title}</div>
                         <div className="center">
-                            <img src={`${imageDirectoryName}/reel.jpg#v4`} alt="tumble-multiplier" width={610} height={362} />
+                            <img src={`${imageDirectoryName}/reel.jpg?v=4`} alt="tumble-multiplier" width={610} height={362} />
                         </div>
                         <div className="table-container text-center">
                             <table className="table text-center table-medium">
@@ -345,10 +345,10 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                 </table>
                             </div>
                             <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                                <img src={`${imageDirectoryName}/freespin-${locale}.jpg#v3`} alt="freespin" width={610} height={343} />
+                                <img src={`${imageDirectoryName}/freespin-${locale}.jpg?v=4`} alt="freespin" width={610} height={343} />
                             </div>
                             <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                                <img src={`${imageDirectoryName}/tumblewin-${locale}.png#v3`} alt="tumble-win" width={372} height={69} />
+                                <img src={`${imageDirectoryName}/tumblewin-${locale}.png?v=4`} alt="tumble-win" width={372} height={69} />
                                 <div className={Styles["tumble-desc"]}>
                                     {tumbleDescriptions.map((desc, index) => (
                                         <div key={index}>{desc}</div>
@@ -453,7 +453,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
             <span className={Styles["wrapper-icon-dark"]}>
                 <img
                     className={`${Styles[this.iconBox]}`}
-                    src={`${imageDirectoryName}/guide_item_symbol_bg.png#v2`}
+                    src={`${imageDirectoryName}/guide_item_symbol_bg.png?v=4`}
                     width={269}
                     height={132}
                     alt="guide_item_symbol_bg"
@@ -507,7 +507,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                         <h2>{resources.introduction.title}</h2>
                         <p className="content">{resources.introduction.description}</p>
                         <div className={Styles["wrapper-list-icon"]}>
-                            <img src={`${imageDirectoryName}/list_icon.png#v4`} alt="guide_item_symbol_bg" width={750} height={194} />
+                            <img src={`${imageDirectoryName}/list_icon.png?v=4`} alt="guide_item_symbol_bg" width={750} height={194} />
                         </div>
                     </li>
 

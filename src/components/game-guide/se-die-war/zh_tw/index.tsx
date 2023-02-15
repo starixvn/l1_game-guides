@@ -16,7 +16,7 @@ const renderGameRule = (maxBet: string | undefined) => {
             <h2>遊戲規則</h2>
             <ul className="desc">
                 <li>選擇您想要的籌碼值。所有投注必須在投注時間到期之前進行。</li>
-                <li>請注意，投注無法取消。</li>
+                <li>注意，投注無法取消。</li>
                 <li>一旦投注時間結束，碗將被移除並顯示結果。</li>
                 <li>每輪最大總賭注為 {maxBet}</li>
                 <li>每個投注選項顯示的所有玩家的總投注額僅供參考。 對於不同的市場和貨幣，總和是根據公司設定的內部匯率換算的。</li>
@@ -161,7 +161,7 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
         <li className="guide-item">
             <h2>支付</h2>
             <ul className="desc">
-                <li>中獎金額根據派彩率計算。請注意，支付包括初始股份。</li>
+                <li>中獎金額根據派彩率計算。注意，支付包括初始股份。</li>
                 <li>
                     投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。
                     <div className="table-container">

@@ -35,7 +35,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>遊戲規則</h2>
                     <ul className="desc">
                         <li>選擇您想玩的籌碼值。 玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。</li>
-                        <li>所有投注必須在投注時間到期之前進行。 請注意，投注無法取消。</li>
+                        <li>所有投注必須在投注時間到期之前進行。 注意，投注無法取消。</li>
                         <li>一旦下注時間結束，骰杯將被移除並顯示結果。</li>
                         <li>每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
@@ -44,7 +44,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>支出</h2>
                     <ul className="desc">
                         <li>
-                            中獎金額根據派彩率計算 <strong>請注意，</strong> 支付包括初始投注。
+                            中獎金額根據派彩率計算 <strong>注意，</strong> 支付包括初始投注。
                         </li>
                         <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
                         <li className="contentBeforeEmpty">

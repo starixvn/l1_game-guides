@@ -21,7 +21,7 @@ const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
                 <li>下注時間結束後，莊家將碗從盤子上移開，結果將顯示。</li>
-                <li>玩家可以在遊戲桌上顯示的一個或多個投注選項上下注。所有投注必須在投注時間結束前進行。 請注意，下注不能取消。</li>
+                <li>玩家可以在遊戲桌上顯示的一個或多個投注選項上下注。所有投注必須在投注時間結束前進行。 注意，下注不能取消。</li>
                 <li>每輪最大總賭注為 {maxBetMain}</li>
             </ul>
         </>

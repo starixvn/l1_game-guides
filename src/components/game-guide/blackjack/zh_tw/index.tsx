@@ -17,7 +17,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
             <ul className="desc">
                 <li>選擇籌碼值並單擊您要下注的每手牌的圓圈（下注點）</li>
                 <li>玩家可以同時玩多隻手（最多 3 只）</li>
-                <li>點擊“Deal”按鈕確認投注，或點擊“X”重置您的投注。請注意，發牌後無法取消投注。</li>
+                <li>點擊“Deal”按鈕確認投注，或點擊“X”重置您的投注。注意，發牌後無法取消投注。</li>
                 <li>
                     最小賭注和最大賭注必須在 {minBet} - {maxBet} 之間，每手的最大總賭注為 {maxBet}
                 </li>
@@ -142,7 +142,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
             <ul className="desc">
                 <li>
                     中獎金額根據派彩率計算。
-                    <strong>請注意，</strong> 支付包括初始投注。
+                    <strong>注意，</strong> 支付包括初始投注。
                 </li>
                 <li>
                     投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。

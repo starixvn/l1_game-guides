@@ -263,7 +263,7 @@ const KenoProMaxGuideZHTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>遊戲規則</h2>
                     <ul className="desc">
-                        <li>所有投注必須在投注時間到期之前進行。請注意，投注無法取消。</li>
+                        <li>所有投注必須在投注時間到期之前進行。注意，投注無法取消。</li>
                         <li>投注時間一到，系統將隨機抽取20個編號的球並顯示結果。</li>
                         <li>每輪最大總賭注為 {maxBetRound}</li>
                     </ul>

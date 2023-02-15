@@ -24,7 +24,7 @@ export const cn: IPowerSoccerTranslationResource = {
         details: [
             "确保您下注合适的金额。",
             "玩家可以在游戏桌上显示的一个或多个投注选项上下注。",
-            "所有投注必须在投注时间结束前完成。 请注意，下注不能取消。",
+            "所有投注必须在投注时间结束前完成。 注意，下注不能取消。",
             "每轮最大总赌注为 {0}",
         ],
         bettingOptions: {
@@ -34,7 +34,7 @@ export const cn: IPowerSoccerTranslationResource = {
             description3:
                 "在“上半场”结果开出任何号码前下注，您可以对“上半场”和“全场”进行下注，适用于所有投注类型。 支付比率是固定的，并且在所有游戏回合中保持不变。",
             description4:
-                " <strong>现场投注</strong>: 在两队上半场的结果公布后立即进行投注。 请注意，只能在“全场”下注。 支付比率将根据“上半场”的结果而变化。",
+                " <strong>现场投注</strong>: 在两队上半场的结果公布后立即进行投注。 注意，只能在“全场”下注。 支付比率将根据“上半场”的结果而变化。",
             winningConditions: "获奖条件",
 
             firstHalfTeamBlueDescription:

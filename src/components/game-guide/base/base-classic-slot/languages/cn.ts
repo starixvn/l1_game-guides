@@ -9,6 +9,7 @@ export const cn: ISlotTranslationResource = {
             paylinesFormular: "= 支付线 * 投注水平",
             subDescriptions: [
                 "25 条支付线从 1 到 25 编号，玩家必须在开始游戏前至少选择一条支付线。",
+                "默认情况下，所有具有最低投注级别的支付线将在开始时被选中。",
                 "每条支付线上的赢输将根据位于该支付线上的相同符号的数量计算。",
             ],
         },
@@ -53,7 +54,7 @@ export const cn: ISlotTranslationResource = {
         bonusReel: "Bonus符号必须出现在不同的卷轴中。例如，如果 2 或 3 个 Bonus符号出现在同一个卷轴上，系统将计为一个符号。",
         thereAre4: "结果中有 4 个",
         eligible: "符号，但 2 个符号位于同一个卷轴上。玩家有資格获得 3 件物品。",
-        bonusExpired: "玩家必须在倒计时 120 秒内完成Bonus游戏。这段时间过后，系统会随机开启宝箱并结算游戏回合。",
+        bonusExpired: "玩家必须在倒计时 120 秒内完成Bonus游戏。这段时间过后，系统会随机开启物品并结算游戏回合。",
     },
     wild: {
         title: "Wild",

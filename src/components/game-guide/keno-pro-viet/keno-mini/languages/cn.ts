@@ -10,7 +10,7 @@ export const cn: IKenoTranslationResource = {
     gameRules: {
         title: "游戏规则",
         description: {
-            lines: ["所有投注必须在投注时间到期之前进行。请注意，投注无法取消。", "下注时间结束后，将显示结果。"],
+            lines: ["所有投注必须在投注时间到期之前进行。注意，投注无法取消。", "下注时间结束后，将显示结果。"],
             maximum: "每轮最大总赌注为 {0}",
             otherLine: undefined,
         },

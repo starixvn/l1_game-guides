@@ -29,7 +29,7 @@ export const tw: IDragonTigerTranslationResource = {
         },
         playerCanBet: "玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。",
         allBets: "所有投注必須在投注時間到期之前進行。",
-        note: "請注意，投注無法取消。",
+        note: "注意，投注無法取消。",
         theStandard: "52 張牌（不包括小丑）的標準牌組在每輪後洗牌。",
     },
     payOuts: {

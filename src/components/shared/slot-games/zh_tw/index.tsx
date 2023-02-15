@@ -12,6 +12,7 @@ export const renderGameRuleContent = (project: string | undefined) => {
             </li>
 
             <li>25 條支付線從 1 到 25 編號，玩家必須在開始遊戲前至少選擇一條支付線。</li>
+            <li>默認情況下，所有具有最低投注級別的支付線將在開始時被選中。</li>
             <li>每條支付線上的贏輸將根據位於該支付線上的相同符號的數量計算。</li>
             {project === PROJECTS.L2 && <li>投注金額有3種選擇； 對於每個選項，玩家將有機會贏得誘人的頭獎。</li>}
         </>

@@ -23,6 +23,7 @@ const renderGameRule = () => {
                 </li>
 
                 <li>25 เพย์ไลน์มีหมายเลขตั้งแต่ 1 ถึง 25 และผู้เล่นต้องเลือกอย่างน้อยหนึ่งเพย์ไลน์ก่อนเริ่มเกม</li>
+                <li>ตามค่าเริ่มต้น เพย์ไลน์ทั้งหมดที่มีระดับการเดิมพันขั้นต่ำจะถูกเลือกในตอนเริ่มต้น</li>
                 <li>Win-loss ในแต่ละเพย์ไลน์จะคำนวณตามจำนวนของสัญลักษณ์เดียวกันที่อยู่ในเพย์ไลน์นั้น</li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />

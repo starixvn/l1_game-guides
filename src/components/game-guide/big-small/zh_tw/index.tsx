@@ -33,7 +33,7 @@ const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                             <li>大: 如果三個骰子的總點數 &gt;= 11，玩家將獲勝 </li>
                             <li>小: 如果三個骰子的總點數 &lt;= 10，則玩家獲勝 </li>
                         </ul>
-                        <li>玩家可以在下注時間結束前通過使用相同選項再次下注來增加賭注金額。 請注意，投注無法取消。</li>
+                        <li>玩家可以在下注時間結束前通過使用相同選項再次下注來增加賭注金額。 注意，投注無法取消。</li>
                         <li>
                             最小賭注和最大賭注必須在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}{" "}
                             之間，每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}
@@ -53,7 +53,7 @@ const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                     <ul className="desc">
                         <li>大, 小的賠率為 {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
-                            中獎金額根據派彩率計算。 <strong>請注意</strong>, 支付包括初始投注。
+                            中獎金額根據派彩率計算。 <strong>注意</strong>, 支付包括初始投注。
                         </li>
                         <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
                         {renderPromotionNoteEN(isInPromotionTime)}

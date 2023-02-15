@@ -12,11 +12,11 @@ export const id: TreasureIslandLanguage = {
         title: "Aturan Permainan",
         rulePlayerSelect: "Pemain memilih atau menyesuaikan jumlah taruhan yang paling cocok untuk Anda sebelum menekan tombol “Putar”.",
         totalBet: "Total taruhan",
-        paylinesFormular: "= Tingkat Taruhan * Nilai Koin * Pengganda Taruhan",
+        paylinesFormular: "= Tingkat Taruhan * Nilai Koin * Pengali Taruhan",
         subDescriptions: [
             "1. Nilai koin adalah jumlah yang ingin Anda keluarkan per baris dalam game.",
             "2. Level taruhan adalah jumlah koin per baris.",
-            "3. Pengganda Taruhan adalah pengganda yang digunakan untuk menghitung Total Taruhan dengan mengalikan Level Taruhan dan Nilai Koin. Pengganda Taruhan: 20x.",
+            "3. Pengali Taruhan adalah pengganda yang digunakan untuk menghitung Total Taruhan dengan mengalikan Level Taruhan dan Nilai Koin. Pengali Taruhan: 20x.",
         ],
         ruleStartSpin: "Pemain dapat menekan tombol “Putar”, atau gunakan tombol Spasi/Enter pada keyboard untuk memulai putaran.",
         ruleWin: "Jumlah total simbol yang sama di layar pada akhir putaran menentukan nilai Kemenangan",
@@ -102,7 +102,7 @@ export const id: TreasureIslandLanguage = {
     },
 
     exampleFreeSpin: {
-        title: "Example: The player wins 4 Free Spins",
+        title: "Contoh: Pemain memenangkan 4 Free Spins",
         table: {
             headers: ["ID bulat", "Jatuh Menang", "Pengali", "Pengganda Total", "Menang"],
             round1Win: "<strong>50</strong><br/><strong>(Jatuh Menang * Pengganda Total)</strong>",

@@ -44,7 +44,7 @@ export const zhCN: TexasHoldemLanguage = {
         "The two personal cards are combined with 5 community cards":
             "两张个人牌与 5 张公共牌相结合，组成最好的五张扑克牌。如果闲家的牌好于庄家，闲家将获胜。",
         "The maximum total stake per round is": "每轮的最大总赌注为 ",
-        "Note, placed bets cannot be canceled after cards are dealt": "请注意，发牌后无法取消投注。",
+        "Note, placed bets cannot be canceled after cards are dealt": "注意，发牌后无法取消投注。",
         "Ranking Level": "排名",
         "Card Values": "牌面值",
         "The card’s value is ": "牌面值从高到低依次为：Ace (A)、King (K)、Queen (Q)、Jack (J)、10、9、8、7、6、5、4、 3 和 2。",
@@ -97,7 +97,7 @@ export const zhCN: TexasHoldemLanguage = {
     payout: {
         Payout: "赔率",
         "All winning amounts are": "投注结算后，所有获胜金额都会立即添加到您的账户余额中。",
-        "The winning amount is calculated": "中奖金额根据投注赔率计算。请注意，支出包括初始本金。",
+        "The winning amount is calculated": "中奖金额根据投注赔率计算。注意，支出包括初始本金。",
         "If Player’s hand beats Dealer’s hand": "如果闲家的牌胜过庄家的牌",
         "With a Three of a Kind or lower": "拥有同类三张或更小的牌",
         "the Call, Turn and River bets are won, and Ante is pushed.": "跟注、转牌和河牌下注获胜，底注被推。",

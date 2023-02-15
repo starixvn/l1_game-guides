@@ -46,7 +46,7 @@ export const cn: ICasinoHoldTranslationResource = {
         title: "游戏规则",
         description: {
             line1: "选择最适合您的筹码并将筹码放在底注或 AA 红利投注上。",
-            line2: "请注意，底注是一个强制性选项，玩家必须在发牌前下注。",
+            line2: "注意，底注是一个强制性选项，玩家必须在发牌前下注。",
             line3: "点击发牌按钮开始游戏回合，闲家和庄家各获得两张底牌。",
             line4: "三张公共牌（翻牌）在桌子中间面朝上发。",
         },
@@ -64,7 +64,7 @@ export const cn: ICasinoHoldTranslationResource = {
         afterClick: "点击 跟注 按钮后，最后两张公共牌被发出，闲家和庄家都将显示他们的牌面值。",
         theTwo: "两张个人牌与 5 张公共牌相结合，组成最好的五张扑克牌。",
         thePlayer: "如果闲家的牌比庄家好，闲家将赢得底注。",
-        maximumTotal: "每轮的最大总赌注为 {0}。请注意，发牌后无法取消投注。",
+        maximumTotal: "每轮的最大总赌注为 {0}。注意，发牌后无法取消投注。",
         rankingLevel: "排名等级",
         cardValues: {
             title: "牌面值",
@@ -116,7 +116,7 @@ export const cn: ICasinoHoldTranslationResource = {
             description: {
                 line1: "称为“AA”的附加赌注是基于玩家的两张牌和前三张公共牌的扑克价值。无论庄家有什么牌，如果闲家能拿到一对 A 或更好的牌，他将赢得“AA”赌注。",
                 line2: "“AA”投注与底注结果无关。玩家可能会输掉游戏，但“AA”投注可能会赢，反之亦然。",
-                line3: "请注意，如果玩家选择“弃牌”，他将输掉底注和可选的“AA”赌注。",
+                line3: "注意，如果玩家选择“弃牌”，他将输掉底注和可选的“AA”赌注。",
             },
         },
         callBet: {
@@ -153,7 +153,7 @@ export const cn: ICasinoHoldTranslationResource = {
         title: "赔付表",
         description: {
             line1: "中奖金额根据投注赔率计算。",
-            line2: "请注意，支出包括初始本金。",
+            line2: "注意，支出包括初始本金。",
             line3: "投注结算后，所有获胜金额都会立即添加到您的账户余额中。",
         },
         anteBet: "底注",

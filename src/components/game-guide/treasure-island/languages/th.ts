@@ -63,7 +63,7 @@ export const th: TreasureIslandLanguage = {
         descriptions: [
             "สัญลักษณ์ตัวคูณมีอยู่ในวงล้อทั้งหมด และสามารถตีแบบสุ่มระหว่างการหมุน, และ tumble ทั้งในเกมส์พื้นฐานและการหมุนฟรี",
             "เมื่อใดก็ตามที่สัญลักษณ์ตัวคูณแสดง จะใช้ค่าตัวคูณแบบสุ่มจาก 2 เท่า ถึง 500 เท่า",
-            "ในตอนท้ายของ Tumbles ค่าของสัญลักษณ์ตัวคูณจะถูกเพิ่มและคูณด้วยค่า Tumble ชนะ เพื่อคำนวณจำนวนเงินที่ชนะ",
+            "ในตอนท้ายของ Tumbles ค่าของสัญลักษณ์ตัวคูณจะถูกเพิ่มและคูณด้วยค่า ชนะ Tumble เพื่อคำนวณจำนวนเงินที่ชนะ",
         ],
     },
 
@@ -73,10 +73,10 @@ export const th: TreasureIslandLanguage = {
     },
 
     freeSpin: {
-        title: "คุณสมบัติฟรีสปิน",
-        define: "คุณลักษณะการหมุนฟรีจะมอบให้เมื่อมีสัญลักษณ์ SCATTER 4 ตัวขึ้นไปปรากฏขึ้นที่ใดก็ได้บนหน้าจอ",
+        title: "คุณสมบัติFree Spins",
+        define: "ฟีเจอร์ Free Spins จะมอบให้เมื่อมีสัญลักษณ์ SCATTER 4 ตัวขึ้นไปปรากฏขึ้นที่ใดก็ได้บนหน้าจอ",
         subDescriptions: {
-            tableHeader: ["Symbol", "Description"],
+            tableHeader: ["สัญลักษณ์", "คำอธิบาย"],
             getSymbolOrMore(symbol: string) {
                 return `มีสัญลักษณ์ Scatter ${symbol} ตัวขึ้นไปในผลลัพธ์`;
             },
@@ -84,25 +84,25 @@ export const th: TreasureIslandLanguage = {
                 return `มีสัญลักษณ์ Scatter ${symbol} ตัวขึ้นไปในผลลัพธ์`;
             },
             getFreeSpin(count: number) {
-                return `รับ “${count}” โบนัสฟรีสปิน`;
+                return `รับ “${count}” โบนัสFree Spins`;
             },
         },
         getMoreFreeSpin(value: number) {
-            return `เมื่อใดก็ตามที่สัญลักษณ์ SCATTER 4 ตัวหรือมากกว่าปรากฏขึ้นในระหว่างรอบฟรีสปิน จะได้รับ ${value} ฟรีสปินเพิ่มเติม`;
+            return `เมื่อใดก็ตามที่สัญลักษณ์ SCATTER 4 ตัวหรือมากกว่าปรากฏขึ้นในระหว่างรอบFree Spins จะได้รับ ${value} Free Spinsเพิ่มเติม`;
         },
         totalMultiplier:
-            "ตลอดระยะเวลาของรอบฟรีสปิน เมื่อใดก็ตามที่สัญลักษณ์ตัวคูณใหม่ปรากฏขึ้นและผลการหมุนในการชนะ ค่าตัวคูณจะถูกเพิ่มเข้าไปในตัวคูณทั้งหมด " +
+            "ตลอดระยะเวลาของรอบFree Spins เมื่อใดก็ตามที่สัญลักษณ์ตัวคูณใหม่ปรากฏขึ้นและผลการหมุนในการชนะ ค่าตัวคูณจะถูกเพิ่มเข้าไปในตัวคูณทั้งหมด " +
             "มูลค่าตัวคูณทั้งหมดจะใช้ในการคำนวณจำนวนเงินที่ชนะ",
-        freeSpin24h: "ผู้เล่นต้องทำโบนัสฟรีสปินให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังได้รับ มิฉะนั้นฟรีสปินที่ไม่ได้ใช้จะหายไป",
+        freeSpin24h: "ผู้เล่นต้องทำโบนัสFree Spinsให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังได้รับ มิฉะนั้นFree Spinsที่ไม่ได้ใช้จะหายไป",
     },
 
     exampleFreeSpin: {
-        title: "ตัวอย่าง: ผู้เล่นชนะ 4 ฟรีสปิน",
+        title: "ตัวอย่าง: ผู้เล่นชนะ 4 Free Spins",
         table: {
             headers: ["รหัสรอบ", "ชนะ Tumble", "ตัวคูณ", "ตัวคูณทั้งหมด", "ชนะ"],
-            round1Win: "<strong>50</strong><br/><strong>(Tumble ชนะ* ตัวคูณทั้งหมด)</strong>",
+            round1Win: "<strong>50</strong><br/><strong>(ชนะ Tumble* ตัวคูณทั้งหมด)</strong>",
             round2Win: "<strong>5</strong><br/><strong>(ชนะ Tumble)</strong>",
-            round4Win: "<strong>56</strong><br/><strong>(Tumble ชนะ* ตัวคูณทั้งหมด)</strong>",
+            round4Win: "<strong>56</strong><br/><strong>(ชนะ Tumble* ตัวคูณทั้งหมด)</strong>",
         },
         tumbleDescriptions: ["1. จำนวนชนะ Tumble", "2. ตัวคูณทั้งหมด: 5+3 =8"],
     },

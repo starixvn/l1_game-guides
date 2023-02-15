@@ -869,10 +869,10 @@ export const renderMD5 = (locale?: string) => {
                     <strong>{md5.md5Note.title}</strong>
                     <ul className="detail">
                         <li>
-                            <Markup content={StringFormat(md5.md5Note.line1, "(J♣, 3♠)", "(2♥, Q♥)", "(4♦, 6♠, 10♥, 10♦, 10♣)")} />
+                            <Markup content={StringFormat(md5.md5Note.line1, "(Q♥, 4♥)", "(3♠, 8♥)", "(A♦, J♦, K♥, 3♥, 3♣)")} />
                         </li>
                         <li>
-                            <Markup content={StringFormat(md5.md5Note.line2, "(J♣, 3♠)", "(2♥, Q♥)")} />
+                            <Markup content={StringFormat(md5.md5Note.line2, "(Q♥, 4♥)", "(3♠, 8♥)")} />
                         </li>
                     </ul>
                 </>

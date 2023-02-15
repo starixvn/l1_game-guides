@@ -24,6 +24,7 @@ const renderGameRule = () => {
                 </li>
 
                 <li>25 條支付線從 1 到 25 編號，玩家必須在開始遊戲前至少選擇一條支付線。</li>
+                <li>默認情況下，所有具有最低投注級別的支付線將在開始時被選中。</li>
                 <li>每條支付線上的贏輸將根據位於該支付線上的相同符號的數量計算。</li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
@@ -40,7 +41,7 @@ const renderPayouts = (odds: number[][]) => {
             <ul className="desc">
                 <li>中獎金額根據投注賠率計算。</li>
                 <li>
-                    <strong>請注意: </strong> 支付包括初始投注。
+                    <strong>注意: </strong> 支付包括初始投注。
                 </li>
                 <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
             </ul>

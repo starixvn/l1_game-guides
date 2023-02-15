@@ -9,6 +9,7 @@ export const en: ISlotTranslationResource = {
             paylinesFormular: "= Paylines * Bet Level",
             subDescriptions: [
                 " 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.",
+                "By default, all Paylines with the minimum Bet Level will be selected at the beginning.",
                 "The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.",
             ],
         },

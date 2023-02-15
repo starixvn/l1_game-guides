@@ -15,12 +15,12 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
             <h2>遊戲規則</h2>
             <ul className="desc">
                 <li>選擇您想玩的籌碼值。所有投注必須在投注時間結束前完成。</li>
-                <li>點擊“確認”按鈕完成，或點擊{`"X"`}重置您的投注。請注意，已確認的投注不能取消。</li>
+                <li>點擊“確認”按鈕完成，或點擊{`"X"`}重置您的投注。注意，已確認的投注不能取消。</li>
                 <li>一旦下注時間結束，輪盤將隨著滾珠以與輪盤旋轉相反的方向旋轉。</li>
                 <li>中獎號碼由球落入的槽位決定。</li>
                 <li>玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。</li>
                 <li>
-                    中獎金額根據派彩率計算。 <strong>請注意，</strong> 支付包括初始投注。
+                    中獎金額根據派彩率計算。 <strong>注意，</strong> 支付包括初始投注。
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>

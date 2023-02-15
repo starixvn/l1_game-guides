@@ -15,12 +15,12 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
             <h2>游戏规则</h2>
             <ul className="desc">
                 <li>选择您想玩的筹码值。 所有投注必须在投注时间结束前完成。</li>
-                <li>点击“确认”按钮完成，或点击“X”重置您的投注。 请注意，已确认的投注不能取消。</li>
+                <li>点击“确认”按钮完成，或点击“X”重置您的投注。 注意，已确认的投注不能取消。</li>
                 <li>一旦下注时间结束，轮盘将随着滚珠以与轮盘旋转相反的方向旋转。</li>
                 <li>中奖号码由球落入的槽位决定。</li>
                 <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                 <li>
-                    中奖金额根据派彩率计算。 <strong>请注意，</strong> 支付包括初始投注。
+                    中奖金额根据派彩率计算。 <strong>注意，</strong> 支付包括初始投注。
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>

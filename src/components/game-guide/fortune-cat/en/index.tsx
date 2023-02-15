@@ -23,6 +23,7 @@ const renderGameRule = () => {
                 </li>
 
                 <li> 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.</li>
+                <li>By default, all Paylines with the minimum Bet Level will be selected at the beginning.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />

@@ -9,14 +9,16 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
 
 const renderMd5Tw = (locale?: string) => {
-    return <MD5
-        locale={locale}
-        step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
-        step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
-        step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
-        step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
-        note={<div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
+            step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+            step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+            step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+            note={<div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>}
+        />
+    );
 };
 
 const MultiplayBigSmallGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
@@ -45,7 +47,7 @@ const MultiplayBigSmallGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                             <li>大: 如果三個骰子的總點數 &gt;= 11，玩家將獲勝 </li>
                             <li>小: 如果三個骰子的總點數 &lt;= 10，則玩家獲勝 </li>
                         </ul>
-                        <li>玩家可以在下注時間結束前通過使用相同選項再次下注來增加賭注金額。 請注意，投注無法取消。</li>
+                        <li>玩家可以在下注時間結束前通過使用相同選項再次下注來增加賭注金額。 注意，投注無法取消。</li>
                         <li>
                             最小賭注和最大賭注必須在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}{" "}
                             之間，每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}

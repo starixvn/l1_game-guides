@@ -12,6 +12,7 @@ export const renderGameRuleContent = (project: string | undefined) => {
             </li>
 
             <li>25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.</li>
+            <li>Secara default, semua Paylines dengan Level Taruhan minimum akan dipilih di awal.</li>
             <li>Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.</li>
             {project === PROJECTS.L2 && (
                 <li>

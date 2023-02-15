@@ -16,7 +16,7 @@ const renderGameRule = (maxBet: string | undefined) => {
             <h2>遊戲規則</h2>
             <ul className="desc">
                 <li>玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。</li>
-                <li>所有投注必須在投注時間到期之前進行。請注意，投注無法取消。</li>
+                <li>所有投注必須在投注時間到期之前進行。注意，投注無法取消。</li>
                 <li>下注時間一到，就會翻牌。</li>
                 <li>每輪最大總賭注為 {maxBet}</li>
                 <li>

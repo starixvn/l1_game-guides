@@ -50,13 +50,11 @@ const renderGameRule = (maxBet: string | undefined) => {
                         </table>
                     </div>
                 </li>
-                <li>
-                    玩家可以在下注時間到期之前通過使用相同選項再次下注來增加賭注金額。
-                </li>
-                <li>每輪的最大總賭注為 {maxBet}。 請注意，投注無法取消。</li>
+                <li>玩家可以在下注時間到期之前通過使用相同選項再次下注來增加賭注金額。</li>
+                <li>每輪的最大總賭注為 {maxBet}。 注意，投注無法取消。</li>
                 <li>
                     平衡投注池：如果奇偶投注的總金額不同，則差額將退還給擁有最新投注單的玩家。<br></br>
-                    <strong>例子</strong>: 玩家 A 在單上下注 100，玩家 B 在雙上下注 30， C 在雙上下注 90。 
+                    <strong>例子</strong>: 玩家 A 在單上下注 100，玩家 B 在雙上下注 30， C 在雙上下注 90。
                     為平衡單雙投注的總金額，系統將退還20給玩家C。
                 </li>
             </ul>
@@ -85,7 +83,7 @@ const SeDieGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameName} 是色碟遊戲的迷你版，僅包含單和雙兩種投注選項。 遊戲用 4 個彩色按鈕進行，每個按鈕都有紅色和白色的兩側。 
+                        {gameName} 是色碟遊戲的迷你版，僅包含單和雙兩種投注選項。 遊戲用 4 個彩色按鈕進行，每個按鈕都有紅色和白色的兩側。
                         這個遊戲的目的是預測 4 個按鈕的結果。如果結果與玩家的賭注相符，則玩家獲勝。
                     </p>
                 </li>
@@ -93,9 +91,7 @@ const SeDieGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>支付</h2>
                     <ul className="desc">
-                        <li>
-                            中獎金額根據派彩率計算。 注意， 支付包括初始本金。
-                        </li>
+                        <li>中獎金額根據派彩率計算。 注意， 支付包括初始本金。</li>
                         <li>
                             投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。
                             <div className="table-container">
@@ -105,7 +101,7 @@ const SeDieGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                                             <th>選項</th>
                                             <th>賠率</th>
                                             <th>
-                                            投注限額 <br /> （最小 - 最大）
+                                                投注限額 <br /> （最小 - 最大）
                                             </th>
                                         </tr>
                                     </thead>

@@ -9,6 +9,7 @@ export const id: ISlotTranslationResource = {
             paylinesFormular: "= Paylines * Tingkat Taruhan",
             subDescriptions: [
                 "25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.",
+                "Secara default, semua Paylines dengan Level Taruhan minimum akan dipilih di awal.",
                 "Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.",
             ],
         },

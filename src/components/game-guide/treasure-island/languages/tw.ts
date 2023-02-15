@@ -74,8 +74,8 @@ export const tw: TreasureIslandLanguage = {
     },
 
     freeSpin: {
-        title: "免費旋轉功能",
-        define: "當屏幕上的任意位置出現 4 個或更多 SCATTER 符號時，即授予免費旋轉功能。",
+        title: "Free Spins功能",
+        define: "當屏幕上的任意位置出現 4 個或更多 SCATTER 符號時，即授予Free Spins功能。",
         subDescriptions: {
             tableHeader: ["象徵", "描述"],
             getSymbolOrMore(symbol: string) {
@@ -85,20 +85,20 @@ export const tw: TreasureIslandLanguage = {
                 return `結果中有 ${symbol} 個 Scatter 符號。`;
             },
             getFreeSpin(count: number) {
-                return `獲得 “${count}” 免費旋轉獎金。`;
+                return `獲得 “${count}” Free Spins獎金。`;
             },
         },
         getMoreFreeSpin(value: number) {
-            return `每當免費旋轉回合中出現 4 個或更多 SCATTER 符號時，將獎勵 ${value} 次額外的免費旋轉。`;
+            return `每當免費旋轉回合中出現 4 個或更多 SCATTER 符號時，將獎勵 ${value} 次額外的Free Spins。`;
         },
         totalMultiplier:
-            "在免費旋轉回合的整個持續時間內，只要出現任何新的乘數符號並且旋轉導致獲勝，乘數值就會添加到總乘數中。" +
+            "在Free Spins回合的整個持續時間內，只要出現任何新的乘數符號並且旋轉導致獲勝，乘數值就會添加到總乘數中。" +
             "總乘數值用於計算獲勝金額。",
-        freeSpin24h: "玩家必須在發放免費旋轉獎金後的 24 小時內完成。未使用的免費旋轉將丟失。",
+        freeSpin24h: "玩家必須在發放Free Spins獎金後的 24 小時內完成。未使用的免費旋轉將丟失。",
     },
 
     exampleFreeSpin: {
-        title: "示例：玩家贏得 4 次免費旋轉",
+        title: "示例：玩家贏得 4 次Free Spins",
         table: {
             headers: ["回合編號", "翻滾贏", "乘數", "總乘數", "贏"],
             round1Win: "<strong>50</strong><br/><strong>(翻滾獲勝 * 總乘數)</strong>",

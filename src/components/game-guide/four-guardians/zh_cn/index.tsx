@@ -39,7 +39,7 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
             <ul className="desc">
                 <li>中奖金额根据派彩率计算。</li>
                 <li>
-                    <strong>请注意:</strong>支付包括初始投注。
+                    <strong>注意:</strong>支付包括初始投注。
                 </li>
                 <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
             </ul>
