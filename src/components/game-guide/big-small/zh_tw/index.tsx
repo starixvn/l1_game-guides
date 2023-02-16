@@ -5,9 +5,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { formatOdds } from "../../../../helpers/number-helper";
 import MD5 from "../../base/md5";
+import { renderPromotionNoteTW } from "../../../shared/promotion-note/zh_tw";
 
 const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -56,7 +56,7 @@ const BigSmallGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                             中獎金額根據派彩率計算。 <strong>注意</strong>, 支付包括初始投注。
                         </li>
                         <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteTW(isInPromotionTime)}
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

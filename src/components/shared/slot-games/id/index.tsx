@@ -5,14 +5,14 @@ export const renderGameRuleContent = (project: string | undefined) => {
     return (
         <>
             <li>
-                Pemain memilih Paylines (Garis) dan menetapkan Level Taruhan yang ingin Anda pasang sebelum menekan &#34;Putar&#34;.
+                Pemain memilih Paylines (Garis) dan menetapkan Tingkat Taruhan yang ingin Anda pasang sebelum menekan &#34;Putar&#34;.
                 <div className="text-center">
-                    <strong>Total Taruhan</strong> = Paylines * Level Taruhan
+                    <strong>Total Taruhan</strong> = Paylines * Tingkat Taruhan
                 </div>
             </li>
 
             <li>25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.</li>
-            <li>Secara default, semua Paylines dengan Level Taruhan minimum akan dipilih di awal.</li>
+            <li>Secara default, semua Paylines dengan Tingkat Taruhan minimum akan dipilih di awal.</li>
             <li>Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.</li>
             {project === PROJECTS.L2 && (
                 <li>

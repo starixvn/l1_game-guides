@@ -9,7 +9,7 @@ export const tw: IDragonTigerMiniTranslationResource = {
             compareCardValue: "遊戲通過比較拍的點數而不是花色來決定輸贏。",
             cardPointValues: "",
             cardValues: ["“A”代表1分；“J”代表11分；“Q”代表12分；“K”代表13分。", "（2到10）牌的牌面值為面上值。"],
-            shuffleCard: "一幅標準的50張撲克牌(不包括王牌）將在每輪結束後洗牌。",
+            shuffleCard: "一幅標準的52張撲克牌(不包括王牌）將在每輪結束後洗牌。",
         },
     },
     betLimit: {

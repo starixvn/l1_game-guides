@@ -8,9 +8,9 @@ import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/tw
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import { formatOdds } from "../../../../helpers/number-helper";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { ENVIRONMENT } from "../../../../common/constants";
 import MD5 from "../../base/md5";
+import { renderPromotionNoteTW } from "../../../shared/promotion-note/zh_tw";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -200,7 +200,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 </table>
                             </div>
                         </li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteTW(isInPromotionTime)}
                     </ul>
                 </li>
                 {renderStatistical()}

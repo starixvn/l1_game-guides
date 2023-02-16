@@ -71,7 +71,7 @@ export const zhTW: TexasHoldemLanguage = {
         "Full House": "葫蘆",
         "Three of a Kind and a Pair": "三條和一對",
         Flush: "同花",
-        "Five cards in the same suit": "五張同花色的牌，按順序排列",
+        "Five cards in the same suit": "五張同花色的牌",
         Straight: "順子",
         "Five cards a rank sequence": "五張牌一個等級順序",
         "Three of a Kind": "三條",

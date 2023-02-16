@@ -1,7 +1,7 @@
 import { IHiLoMiniTranslationResource } from "./types";
 export const en: IHiLoMiniTranslationResource = {
     introduction:
-        "The game is played with a standard 52-card deck (excluding Joker). The aim of the game is to guess whether the next card to be dealt will be higher or lower than the current one.",
+        "The game is played with a standard 52-card deck (excluding the Joker). The aim of the game is to guess whether the next card to be dealt will be higher or lower than the current one.",
     winningCondition: {
         title: "Winning Conditions",
         description: {

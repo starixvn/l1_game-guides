@@ -360,7 +360,7 @@ const renderBonus = (odds: number[][]) => {
                         <span>結果中有 4 個“Bonus”符號，但 2 個符號位於同一個捲軸上。玩家有資格獲得 3 件物品。</span>
                     </div>
                 </li>
-                <li>玩家必須在倒計時 120 秒內完成Bonus遊戲。這段時間過後，系統會隨機開啟寶箱並結算遊戲回合。</li>
+                <li>玩家必須在倒計時 120 秒內完成Bonus遊戲。這段時間過後，系統會隨機開啟物品並結算遊戲回合。</li>
             </ul>
         </li>
     );
@@ -409,7 +409,7 @@ const renderWild = (odds: number[][]) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            如果狂野符號是
+                            如果Wild符號是
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item2_small.png"
@@ -418,7 +418,7 @@ const renderWild = (odds: number[][]) => {
                             {`=>`} 派彩 = 投注等級 * {odds[2][3]}
                         </li>
                         <li>
-                            如果狂野符號是
+                            如果Wild符號是
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item5_small.png"

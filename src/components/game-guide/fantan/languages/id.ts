@@ -20,7 +20,7 @@ export const id: IFanTanTranslationResource = {
                 "Pemain memilih nilai chip dan menempatkannya pada opsi taruhan yang diinginkan. Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir. Perhatikan bahwa, taruhan yang dipasang tidak dapat dibatalkan.",
                 "Pemain dapat memasang taruhan pada opsi apa pun yang tersedia kecuali Ganjil dan Genap, pemain hanya dapat bertaruh pada Ganjil atau Genap.",
             ],
-            maxBet: "Total taruhan maksimum per putaran adalah {0}.",
+            maxBet: "Total taruhan maksimum per putaran adalah {0}",
         },
         winningCondition: {
             odd: "Manik-manik yang tersisa adalah angka Ganjil",

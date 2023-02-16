@@ -16,7 +16,7 @@ export const cn: IHiLoMiniTranslationResource = {
             spade: ")、黑桃 (",
             diamond: ")、方块 (",
             andClub: ") 和梅花 (",
-            equalValue: ") 具有相同的价值。",
+            equalValue: ") 具有相同价值。",
         },
     },
     payout: {

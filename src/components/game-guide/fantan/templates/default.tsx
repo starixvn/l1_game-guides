@@ -49,7 +49,7 @@ export default class FanTanTemplate extends React.Component<
                             <Markup content={des} />
                         </li>
                     ))}
-                    <li>{StringFormat(example.maxBet, `${maxBetFollowChoice?.maxBetMain}`)}.</li>
+                    <li>{StringFormat(example.maxBet, `${maxBetFollowChoice?.maxBetMain}`)}</li>
                 </ul>
             </li>
         );
@@ -260,14 +260,20 @@ export default class FanTanTemplate extends React.Component<
     renderMD5() {
         const { locale } = this.props;
         const { md5 } = this.state.translationResource;
-        return <MD5
-            locale={locale}
-            step1ImageUrl={`/static/images/fantan/${locale}/md5_step1.png?v=1`}
-            step2ImageUrl={`/static/images/fantan/${locale}/md5_step2.png?v=1`}
-            step3ImageUrl={"/static/images/fantan/md5_step3.png?v=1"}
-            step4ImageUrl={"/static/images/fantan/md5_step4.png?v=1"}
-            note={<div><Markup content={md5.note} /></div>}
-        />;
+        return (
+            <MD5
+                locale={locale}
+                step1ImageUrl={`/static/images/fantan/${locale}/md5_step1.png?v=1`}
+                step2ImageUrl={`/static/images/fantan/${locale}/md5_step2.png?v=1`}
+                step3ImageUrl={"/static/images/fantan/md5_step3.png?v=1"}
+                step4ImageUrl={"/static/images/fantan/md5_step4.png?v=1"}
+                note={
+                    <div>
+                        <Markup content={md5.note} />
+                    </div>
+                }
+            />
+        );
     }
 
     render(): React.ReactNode {

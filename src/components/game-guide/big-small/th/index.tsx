@@ -5,9 +5,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { formatOdds } from "../../../../helpers/number-helper";
 import MD5 from "../../base/md5";
+import { renderPromotionNoteTH } from "../../../shared/promotion-note/th";
 
 const BigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -61,7 +61,7 @@ const BigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน <strong>หมายเหตุ</strong> การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น
                         </li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteTH(isInPromotionTime)}
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

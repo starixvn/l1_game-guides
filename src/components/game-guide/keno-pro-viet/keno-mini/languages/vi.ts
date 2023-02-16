@@ -76,7 +76,7 @@ export const vi: IKenoTranslationResource = {
     md5: {
         image1: "/static/images/keno-mini/md5_step1_vi.png",
         image2: "/static/images/keno-mini/md5_step2_vi.png",
-        note: "Trong đó 363 là tổng điểm của các quả bóng.",
+        note: "Trong đó 237 là tổng điểm của các quả bóng.",
     },
     termsAndConditions: baseTermAndConditionVi,
 };

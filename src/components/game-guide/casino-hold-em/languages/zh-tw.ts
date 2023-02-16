@@ -90,7 +90,7 @@ export const tw: ICasinoHoldTranslationResource = {
                     straightFlush: "五張同花色的牌，按順序排列",
                     fourOfAKind: "四張相同等級的牌",
                     fullHouse: "三條和一对",
-                    flush: "五張同花色的牌，按順序排列",
+                    flush: "五張同花色的牌",
                     straight: "五張牌一個等級順序",
                     threeOfAKind: "三张相同等级的牌",
                     twoPair: "兩對不同等級",

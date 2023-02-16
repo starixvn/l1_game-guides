@@ -16,16 +16,16 @@ const renderGameRule = () => {
             <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>
-                    Pemain memilih Paylines (Garis) dan menetapkan Level Taruhan yang ingin Anda pasang sebelum menekan “Putar”.
+                    Pemain memilih Paylines (Garis) dan menetapkan Tingkat Taruhan yang ingin Anda pasang sebelum menekan “Putar”.
                     <div className="text-center">
-                        <strong>Total Taruhan</strong> = Paylines * Level Taruhan
+                        <strong>Total Taruhan</strong> = Paylines * Tingkat Taruhan
                     </div>
                 </li>
 
                 <li>
                     25 Payline diberi nomor dari 1 hingga 25 dan Pemain harus memilih setidaknya satu Payline sebelum memulai permainan.
                 </li>
-                <li>Secara default, semua Paylines dengan Level Taruhan minimum akan dipilih di awal.</li>
+                <li>Secara default, semua Paylines dengan Tingkat Taruhan minimum akan dipilih di awal.</li>
                 <li>
                     Menang-kalah pada setiap Payline akan dihitung berdasarkan jumlah simbol yang sama yang terletak di Payline tersebut.
                 </li>
@@ -304,7 +304,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     " FREE SPINS"
                 )}
                 <ul className="desc">
-                    <li>Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.</li>
+                    <li>Pemain akan menerima Bonus Free Spin sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.</li>
                     <li>Simbol Free Spin tidak harus berada di payline yang sama.</li>
                 </ul>
             </div>
@@ -312,8 +312,8 @@ const renderFreeSpin = (odds: number[][]) => {
             <ul className="desc">
                 <li>
                     <strong> Catatan: </strong>
-                    Simbol “Putaran Gratis” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Putaran Gratis” pada
-                    gulungan yang sama, sistem akan dihitung sebagai satu simbol.
+                    Simbol “Free Spin” harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol “Free Spin” pada gulungan yang
+                    sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -326,18 +326,18 @@ const renderFreeSpin = (odds: number[][]) => {
                         </div>
 
                         <span>
-                            Ada 4 simbol “Putaran gratis” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi
-                            syarat untuk bonus putaran Gratis.
+                            Ada 4 simbol “Free Spin” di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi syarat
+                            untuk bonus Free Spin.
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
-                    (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).
+                    Free Spin dimainkan pada Tingkat Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
+                    (putaran di mana Pengguna mendapatkan Bonus Free Spin).
                 </li>
                 <li>
-                    Pemain harus menyelesaikan Bonus Putaran Gratis dalam waktu 24 jam setelah diterbitkan. Putaran Gratis yang tidak
-                    digunakan akan hilang.
+                    Pemain harus menyelesaikan Bonus Free Spin dalam waktu 24 jam setelah diterbitkan. Free Spin yang tidak digunakan akan
+                    hilang.
                 </li>
             </ul>
         </li>
@@ -382,7 +382,7 @@ const renderBonus = (odds: number[][]) => {
                 <li>
                     {" "}
                     Pemain harus menyelesaikan Game Bonus dalam waktu 120 detik dari hitungan mundur. Setelah periode ini, sistem akan
-                    membuka Peti secara acak dan menyelesaikan putaran permainan.
+                    membuka item secara acak dan menyelesaikan putaran permainan.
                 </li>
             </ul>
         </li>
@@ -432,7 +432,7 @@ const renderWild = (odds: number[][]) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            Jika simbol Liar adalah
+                            Jika simbol Wild adalah
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item2_small.png"
@@ -441,7 +441,7 @@ const renderWild = (odds: number[][]) => {
                             {`=>`} Pembayaran = Tingkat Taruhan * {odds[2][3]}
                         </li>
                         <li>
-                            Jika simbol Liar adalah
+                            Jika simbol Wild adalah
                             <img
                                 className={Styles["symbol-small"]}
                                 src="./static/images/fortune-cat/item5_small.png"

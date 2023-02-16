@@ -330,7 +330,7 @@ const renderJackpot = () => {
             <ul className="desc">
                 <li>
                     Jackpot adalah hadiah utama bagi Pemain yang memiliki 5 simbol {iconJackpot} yang terletak pada payline yang sama. Ada 3
-                    hadiah Jackpot sesuai dengan 3 level taruhan dan semua Jackpot bersifat progresif, di mana setiap kali permainan
+                    hadiah Jackpot sesuai dengan 3 Tingkat Taruhan dan semua Jackpot bersifat progresif, di mana setiap kali permainan
                     dimainkan, sebagian dari jumlah taruhan dikontribusikan ke Jackpot hingga satu Pemain yang beruntung memenangkan
                     Jackpot.
                 </li>
@@ -421,7 +421,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                     </div>
                 </li>
                 <li className="clear-both">
-                    Putaran Gratis dimainkan pada Level Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
+                    Putaran Gratis dimainkan pada Tingkat Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
                     (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).
                 </li>
                 <li>
@@ -559,7 +559,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                                 src="./static/images/four-guardians/item2.png"
                                 alt="item2-mini"
                             ></img>
-                            {`=>`} Pembayaran = Level Taruhan * {odds[2][3]}
+                            {`=>`} Pembayaran = Tingkat Taruhan * {odds[2][3]}
                         </li>
                         <li>
                             Jika simbol Liar adalah
@@ -568,11 +568,11 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                                 src="./static/images/four-guardians/item5.png"
                                 alt="item5-mini"
                             ></img>
-                            {`=>`} Pembayaran = Level Taruhan * {odds[5][3]}
+                            {`=>`} Pembayaran = Tingkat Taruhan * {odds[5][3]}
                         </li>
                     </ul>
                     <p>
-                        Pemain akan mendapatkan kemenangan tertinggi pada payline ini {`=>`} Pembayaran = Level Taruhan *{" "}
+                        Pemain akan mendapatkan kemenangan tertinggi pada payline ini {`=>`} Pembayaran = Tingkat Taruhan *{" "}
                         {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>

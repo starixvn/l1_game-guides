@@ -9,8 +9,8 @@ import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedO
 import { formatOdds } from "../../../../helpers/number-helper";
 import { ENVIRONMENT } from "../../../../common/constants";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import MD5 from "../../base/md5";
+import { renderPromotionNoteCN } from "../../../shared/promotion-note/zh_cn";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -200,7 +200,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 </table>
                             </div>
                         </li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteCN(isInPromotionTime)}
                     </ul>
                 </li>
                 {renderStatistical()}

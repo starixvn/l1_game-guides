@@ -8,6 +8,6 @@ export const tw: IFishPrawnCrabMiniTranslationResource = {
     },
     betLimit: {
         title: "投注金額",
-        description: "最小賭注和最大賭注必須在{0} - {1} 每輪的最大賭注為{2}。",
+        description: "最小賭注和最大賭注必須在{0} - {1}直接，每輪的最大賭注為{2}。",
     },
 };

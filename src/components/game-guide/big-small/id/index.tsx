@@ -5,9 +5,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
 import { formatOdds } from "../../../../helpers/number-helper";
 import MD5 from "../../base/md5";
+import { renderPromotionNoteID } from "../../../shared/promotion-note/id";
 
 const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -66,7 +66,7 @@ const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             awal.
                         </li>
                         <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteID(isInPromotionTime)}
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (

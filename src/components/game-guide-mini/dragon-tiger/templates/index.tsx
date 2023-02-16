@@ -46,6 +46,7 @@ class DragonTigerMiniGuideTemplate<
                             <li key={index}>{cardValue}</li>
                         ))}
                     </ul>
+                    <li>{description.shuffleCard}</li>
                 </ul>
             </>
         );

@@ -15,8 +15,8 @@ export const id: TreasureIslandLanguage = {
         paylinesFormular: "= Tingkat Taruhan * Nilai Koin * Pengali Taruhan",
         subDescriptions: [
             "1. Nilai koin adalah jumlah yang ingin Anda keluarkan per baris dalam game.",
-            "2. Level taruhan adalah jumlah koin per baris.",
-            "3. Pengali Taruhan adalah pengganda yang digunakan untuk menghitung Total Taruhan dengan mengalikan Level Taruhan dan Nilai Koin. Pengali Taruhan: 20x.",
+            "2. Tingkat Taruhan adalah jumlah koin per baris.",
+            "3. Pengali Taruhan adalah pengganda yang digunakan untuk menghitung Total Taruhan dengan mengalikan Tingkat Taruhan dan Nilai Koin. Pengali Taruhan: 20x.",
         ],
         ruleStartSpin: "Pemain dapat menekan tombol “Putar”, atau gunakan tombol Spasi/Enter pada keyboard untuk memulai putaran.",
         ruleWin: "Jumlah total simbol yang sama di layar pada akhir putaran menentukan nilai Kemenangan",
