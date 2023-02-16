@@ -39,7 +39,7 @@ export const en: ICasinoHoldTranslationResource = {
         description:
             "Casino Hold’em is a variant of Texas Hold’em Poker. The game is played with a standard 52-card deck (excluding the Joker), and the cards are shuffled after each round. The Player will play against the Dealer and the object of this game is to achieve the best possible five-card poker hand using a combination of two hole cards and five community cards to beat the Dealer’s hand.",
         md5: {
-            sentence1: "In addition, a new feature -",
+            sentence1: "In addition, a new feature - ",
             sentence2: "MD5 (Message-Digest algorithm 5)",
             sentence3: "allows the Player to check the fairness and authenticity of every game result.",
         },
