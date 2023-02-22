@@ -6,7 +6,6 @@ import { StringFormat } from "../../../../helpers/string-helper";
 import { BaseState } from "../../game-guide-mini";
 import { getDragonTigerTranslationResource } from "../languages";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import Styles from "../dragon-tiger.module.scss";
 
 class DragonTigerMiniGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -103,8 +102,8 @@ class DragonTigerMiniGuideTemplate<
             <>
                 <ul className="game-guide">
                     <li>{this.renderIntroduction()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderWinningCondition()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderBetLimit()}</li>
+                    <li className="guide-item-instant">{this.renderWinningCondition()}</li>
+                    <li className="guide-item-instant">{this.renderBetLimit()}</li>
                 </ul>
             </>
         );

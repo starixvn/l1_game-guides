@@ -96,9 +96,9 @@ class BaccaratMiniGuideTemplate<
         return (
             <>
                 <ul className="game-guide">
-                    <li className="guide-item">{this.renderIntroduction()}</li>
-                    <li className="guide-item">{this.renderGameRules()}</li>
-                    <li className="guide-item">{this.renderPayouts()}</li>
+                    <li className="guide-item-instant">{this.renderIntroduction()}</li>
+                    <li className="guide-item-instant">{this.renderGameRules()}</li>
+                    <li className="guide-item-instant">{this.renderPayouts()}</li>
                 </ul>
             </>
         );

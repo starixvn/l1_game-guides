@@ -7,7 +7,6 @@ import { StringFormat } from "../../../../helpers/string-helper";
 import { BaseState } from "../../game-guide-mini";
 import { IFishPrawnCrabMiniTranslationResource } from "../languages/types";
 import { getFishPrawnCrabMiniTranslationResource } from "../languages";
-import Styles from "../fish-prawn-crab.module.scss";
 
 class FishPrawnCrabMiniGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -67,8 +66,8 @@ class FishPrawnCrabMiniGuideTemplate<
             <>
                 <ul className="game-guide">
                     <li>{this.renderIntroduction()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderWinningCondition()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderBetLimit()}</li>
+                    <li className="guide-item-instant">{this.renderWinningCondition()}</li>
+                    <li className="guide-item-instant">{this.renderBetLimit()}</li>
                 </ul>
             </>
         );

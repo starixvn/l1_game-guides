@@ -108,8 +108,8 @@ class SeDieMiniGuideTemplate<
             <>
                 <ul className="game-guide">
                     <li>{this.renderIntroduction()}</li>
-                    <li className="guide-item">{this.renderWinningCondition()}</li>
-                    <li className="guide-item">{this.renderBetLimit()}</li>
+                    <li className="guide-item-instant">{this.renderWinningCondition()}</li>
+                    <li className="guide-item-instant">{this.renderBetLimit()}</li>
                 </ul>
             </>
         );

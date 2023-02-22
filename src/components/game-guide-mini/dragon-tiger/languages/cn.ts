@@ -1,6 +1,6 @@
 import { IDragonTigerMiniTranslationResource } from "./types";
 export const cn: IDragonTigerMiniTranslationResource = {
-    introduction: "龙虎是一款采用52张扑克牌（不包含王牌）的游戏。有3种投注选项：”龙“，”虎“和“和”",
+    introduction: "龙虎是一款采用52张扑克牌（不包含王牌）的游戏。有3种投注选项：“龙”, “虎”和“和”",
     winningCondition: {
         title: "获胜条件",
         description: {

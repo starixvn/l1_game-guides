@@ -81,8 +81,8 @@ class HiLoMiniGuideTemplate<
             <>
                 <ul className="game-guide">
                     <li>{this.renderIntroduction()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderWinningCondition()}</li>
-                    <li className={Styles["guide-item-instant"]}>{this.renderPayout()}</li>
+                    <li className="guide-item-instant">{this.renderWinningCondition()}</li>
+                    <li className="guide-item-instant">{this.renderPayout()}</li>
                 </ul>
             </>
         );

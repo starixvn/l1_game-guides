@@ -11,7 +11,7 @@ export const vi: IFishPrawnCrabMiniTranslationResource = {
         ],
     },
     betLimit: {
-        title: "Bet Limit",
+        title: "Hạn mức cược",
         description: "Hạn mức cược từ {0} đến {1} cho một lần đặt cược và tổng tiền cược tối đa cho 1 phiên là {2}",
     },
 };

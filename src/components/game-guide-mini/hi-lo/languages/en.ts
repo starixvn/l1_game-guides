@@ -11,7 +11,7 @@ export const en: IHiLoMiniTranslationResource = {
             playContinue:
                 "Continue playing the next turn, the result card for the turn will become the base card for the next turn, and the payout of the turn will be the bet amount for the next turn.",
             unfinishedGame:
-                "The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo).If the Player cannot complete a turn within 2 minutes:",
+                "The Player will have 2 minutes to complete a turn (decide to select either Hi or Lo). If the Player cannot complete a turn within 2 minutes:",
             firstTurn:
                 "The system will randomly select the Hi or Lo for the first turn that the User has clicked or tapped on the “Play” button.",
             otherTurns: "Other turns will be treated as “Collect”.",

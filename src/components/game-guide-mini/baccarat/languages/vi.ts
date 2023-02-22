@@ -31,7 +31,7 @@ export const vi: IBaccaratMiniTranslationResource = {
             rows: {
                 player: "Nhà Con",
                 banker: "Nhà Cái",
-                tie: "Hoà",
+                tie: "Hòa",
             },
         },
     },
