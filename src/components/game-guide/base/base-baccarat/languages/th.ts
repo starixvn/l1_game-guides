@@ -7,7 +7,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
         content: "",
     },
     gameRules: {
-        header: "กฎของเกมส์",
+        header: "กฎของเกม",
         getDetails(environment: string | undefined, maxBetMain: number | string) {
             return [];
         },
@@ -55,7 +55,7 @@ export const baseBaccaratResourcesTh: IBaseBaccaratResources = {
                 cardPointValues: "ค่าคะแนนของไพ่:",
                 details: ["ไพ่ (2 ถึง 9) ถูกนับตามมูลค่าหน้าไพ่", "ไพ่ 10 ใบหรือหน้า (Jack, Queen, King) มีค่าเป็น 0 และ Aces มีค่า 1"],
             },
-            paragraph2: "เมื่อแต้มรวมเกินเก้า หลักแรกของยอดรวมจะลดลง และหลักที่สองคือมูลค่าของมื",
+            paragraph2: "เมื่อแต้มรวมเกินเก้า หลักแรกของยอดรวมจะลดลง และหลักที่สองคือมูลค่าของมือ",
         },
         examples: {
             firstTwoCard: "ไพ่สองใบแรก",

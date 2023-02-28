@@ -45,7 +45,7 @@ export const cn: IBitcoinMasterTranslationResource = {
     },
     table: {
         betType: "投注选项",
-        options: "选项",
+        options: "选择",
         winningConditions: "获胜条件",
         odds: "赔率",
         betLimit: "投注选项限额 <br />(最小 最大)",
@@ -58,7 +58,7 @@ export const cn: IBitcoinMasterTranslationResource = {
     },
     payouts: {
         title: "赔率",
-        descriptions: ["中奖金额是根据投注赔率计算。", "赔率包括最初下注金额。", "投注结算后，所有获胜金额都会立即添加到您的账户余额中。"],
+        descriptions: ["中奖金额根据投注赔率计算。", "赔率包括最初下注金额。", "投注结算后，所有获胜金额都会立即添加到您的账户余额中。"],
     },
     termsAndConditions: {
         ...baseTermAndConditionCn,

@@ -39,7 +39,7 @@ export const th: IBitcoinMasterTranslationResource = {
             },
             evenOdd: {
                 title: "คู่/คี่",
-                description: "+ ราคาผลลัพธ์เป็นเลขคี่ (58,011) วางเดิมพันที่ “Odd” จะชนะ",
+                description: "+ ราคาผลลัพธ์เป็นเลขคี่ (58,011) วางเดิมพันที่ “คี่” จะชนะ",
             },
         },
         balancedBettingPool:
@@ -57,7 +57,7 @@ export const th: IBitcoinMasterTranslationResource = {
         up: "ขึ้น",
         down: "ลง",
         evenOdd: "คู่/คี่",
-        even: "คูู่่",
+        even: "คู่",
         odd: "คี่",
     },
     payouts: {

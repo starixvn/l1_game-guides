@@ -6,9 +6,9 @@ export const baccaratResourcesCn: IBaseBaccaratResources = {
     ...baseBaccaratResourcesCn,
     ...{
         introduction: {
-            header: "介紹",
+            header: "简介",
             content:
-                "百家乐 - 是百家乐的增强版，具有更高的下注限额。游戏使用一副标准的 52 张牌（不包括 Joker）。 共有 7 种投注选项，投注者可以投注游戏桌上显示的一个或多个投注选项。",
+                "百家乐是赌场中最常玩的纸牌游戏之一。游戏使用一副标准的 52 张牌（不包括 Joker）。 共有 7 种投注选项，投注者可以投注游戏桌上显示的一个或多个投注选项。",
         },
     },
     gameRules: {

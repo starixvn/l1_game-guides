@@ -120,7 +120,7 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
                     action: "莊家始終站立。",
                 },
                 {
-                    twoCardsTotal: "8 or 9",
+                    twoCardsTotal: "8 或 9",
                     action: "“自然”，不再發牌，閒家和莊家都站著。",
                 },
             ],

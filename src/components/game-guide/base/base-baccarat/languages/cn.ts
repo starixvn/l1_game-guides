@@ -49,7 +49,7 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
         },
     },
     pointRules: {
-        header: "积分计算规则s",
+        header: "积分计算规则",
         descriptions: {
             paragraph1: {
                 cardPointValues: "卡点值：",

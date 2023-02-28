@@ -6,9 +6,9 @@ export const baccaratResourcesTw: IBaseBaccaratResources = {
     ...baseBaccaratResourcesTw,
     ...{
         introduction: {
-            header: "介紹",
+            header: "簡介",
             content:
-                "百家樂 - 是百家樂的增強版，具有更高的下注限額。遊戲使用一副標準的 52 張牌（不包括 Joker）。 共有 7 種投注選項，投注者可以投注遊戲桌上顯示的一個或多個投注選項。",
+                "百家樂是賭場中最常玩的紙牌遊戲之一。遊戲使用一副標準的 52 張牌（不包括 Joker）。 共有 7 種投注選項，投注者可以投注遊戲桌上顯示的一個或多個投注選項。",
         },
     },
     gameRules: {
@@ -17,7 +17,7 @@ export const baccaratResourcesTw: IBaseBaccaratResources = {
             getDetails(environment: string | undefined, maxBetMain: number | string) {
                 let details: Array<string> = ["閒家和莊家，每手牌以 2 張牌面朝下開始。"];
 
-                if (environment === ENVIRONMENT.sm) {
+                if (environment === ENVIRONMENT.sc || environment === ENVIRONMENT.sm) {
                     details = details.concat(["下注者預測兩手牌中哪一方會獲勝。"]);
                 }
 

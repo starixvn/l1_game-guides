@@ -7,7 +7,7 @@ export const baccaratResourcesEn: IBaseBaccaratResources = {
     introduction: {
         header: "Introduction",
         content:
-            "Baccarat - is an enhanced version of Baccarat with higher betting limits. The game is played with one standard 52-card deck (excluding Joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table.",
+            "Baccarat is one of the most often-played card games in the casino. The game is played with one standard 52-card deck (excluding Joker). There are 7 betting options and Punters can bet on one or more betting options shown on the game table.",
     },
     gameRules: {
         ...baseBaccaratResourcesEn.gameRules,
@@ -27,7 +27,6 @@ export const baccaratResourcesEn: IBaseBaccaratResources = {
                 }
 
                 return details.concat([
-                    "Player and Banker, each hand will start with 2 face - down cards.",
                     "Another betting option is “Tie” if the Punters predict two hands will end in equal totals or they can also bet on Big, Small, Player Pair, or Banker Pair options.",
                     "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
                     `The maximum total stake per round is ${maxBetMain}`,

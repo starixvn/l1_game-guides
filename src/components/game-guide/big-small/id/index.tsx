@@ -47,7 +47,7 @@ const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                             Anda menang.
                         </li>
                         <li>
-                            Balanced Betting Pool: jika jumlah total taruhan pada BIG dan KECIL berbeda maka jumlah selisih akan
+                            Balanced Betting Pool: jika jumlah total taruhan pada BESAR dan KECIL berbeda maka jumlah selisih akan
                             dikembalikan ke pemain yang memiliki tiket taruhan terbaru.
                             <p>
                                 <strong>Contoh:</strong> Pemain A bertaruh 100 pada BESAR, pemain B bertaruh 40 pada KECIL, dan C bertaruh
@@ -60,7 +60,7 @@ const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Pembayaran</h2>
                     <ul className="desc">
-                        <li>Pembayaran di Big, Small adalah {formatOdds(odds?.big, fractionalOddsFormat)}</li>
+                        <li>Pembayaran di Besar, Kecil adalah {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
                             Jumlah kemenangan dihitung berdasarkan odds taruhan. <strong>Catatan</strong>, pembayaran termasuk taruhan awal.
                         </li>

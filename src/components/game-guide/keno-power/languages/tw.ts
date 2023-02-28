@@ -26,7 +26,7 @@ export const tw: IPowerKenoTranslationResource = {
         details: [
             "確保您下注合適的金額。",
             "玩家可以在遊戲桌上顯示的一個或多個投注選項上下注。",
-            "所有投注必須在投注時間結束前完成。注意，下注不能取消。",
+            "所有投注必须在投注时间结束前完成。 请注意，下注不能取消。",
             "每輪最大總賭注為 {0}",
         ],
         bettingOptions: {

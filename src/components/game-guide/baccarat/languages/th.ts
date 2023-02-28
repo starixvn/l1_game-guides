@@ -6,18 +6,18 @@ export const baccaratResourcesTh: IBaseBaccaratResources = {
     ...baseBaccaratResourcesTh,
     ...{
         introduction: {
-            header: "บทนำ",
+            header: "แนะนำ",
             content:
-                "บาคาร่า - เป็นรุ่นปรับปรุงของบาคาร่าพร้อมวงเงินเดิมพันที่สูงขึ้น เกมนี้เล่นด้วยสำรับไพ่มาตรฐาน 52 ใบ (ไม่รวม Joker) มีตัวเลือกการเดิมพัน 7 แบบ และผู้พนันสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม",
+                "บาคาร่าเป็นหนึ่งในเกมไพ่ที่มีผู้เล่นบ่อยที่สุดในคาสิโน เกมนี้เล่นด้วยสำรับไพ่มาตรฐาน 52 ใบ (ไม่รวม Joker) มีตัวเลือกการเดิมพัน 7 แบบ และผู้พนันสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม",
         },
     },
     gameRules: {
         ...baseBaccaratResourcesTh.gameRules,
         ...{
             getDetails(environment: string | undefined, maxBetMain: number | string) {
-                let details: Array<string> = ["ผู้เล่นและเจ้ามือแต่ละมือจะเริ่มต้นด้วยไพ่ 2 ใบคว่ำหน้"];
+                let details: Array<string> = ["ผู้เล่นและเจ้ามือแต่ละมือจะเริ่มต้นด้วยไพ่ 2 ใบคว่ำหน้า"];
 
-                if (environment === ENVIRONMENT.sm) {
+                if (environment === ENVIRONMENT.sc || environment === ENVIRONMENT.sm) {
                     details = details.concat(["ผู้เล่นทำนายว่ามือใดในสองมือจะชนะ"]);
                 }
 
@@ -45,7 +45,7 @@ export const baccaratResourcesTh: IBaseBaccaratResources = {
         step2ImageUrl: "/static/images/baccarat/md5_step2_th.png?v=1",
         step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
         step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
-        step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา,",
+        step2Noted1Text: "หมายเหตุ: จากซ้ายไปขวา",
         step2Noted2Text: "สอดคล้องกับลำดับของไพ่ที่แจกเมื่อเริ่มรอบเกมส์",
     },
 };

@@ -24,7 +24,7 @@ export const tw: IPowerSoccerTranslationResource = {
         details: [
             "確保您下注合適的金額。",
             "玩家可以在遊戲桌上顯示的一個或多個投注選項上下注。",
-            "所有投注必須在投注時間結束前完成。注意，下注不能取消。",
+            "所有投注必须在投注时间结束前完成。 请注意，下注不能取消。",
             "每輪最大總賭注為  {0}",
         ],
         bettingOptions: {
@@ -63,7 +63,7 @@ export const tw: IPowerSoccerTranslationResource = {
         description2: "支出包括初始股份。",
         description3: "投注結算後，所有獲勝金額都會立即添加到您的賬戶餘額中。",
         odds: "賠率",
-        betLimit: "投注限額<br></br>（最小-最大)",
+        betLimit: "支出<br></br>（最小-最大)",
         firstHalfPayout: "a) 在“上半場”結果開出任何數字之前下注",
         liveBettingPayout: {
             text: "b) 現場投注",
