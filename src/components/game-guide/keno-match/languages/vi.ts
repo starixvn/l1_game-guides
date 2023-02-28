@@ -26,7 +26,6 @@ export const vi: IPowerSoccerTranslationResource = {
         details: [
             "Người chơi nhấp vào lựa chọn mong muốn và hoàn tất việc đặt cược trước khi hết thời gian quy định. ",
             "Bạn có thể đặt cược vào nhiều lựa chọn cùng lúc và không bị giới hạn số lần đặt cược.",
-            "All bets must be placed before the betting time expires. Note, placed bets cannot be canceled.",
             "Tổng tiền cược tối đa cho 1 phiên là {0}. <strong>Lưu ý</strong>, không thể hủy cược sau khi đặt.",
         ],
         bettingOptions: {
@@ -80,7 +79,7 @@ export const vi: IPowerSoccerTranslationResource = {
             highLightDescription1:
                 "<strong>Đội Xanh/Đội Đỏ - Toàn trận (Live)</strong>: Tỷ lệ cược chỉ khả dụng khi tổng điểm chênh lệch trong “Hiệp 1” giữa Đội Xanh và Đội Đỏ từ -150 đến 150",
             highLightDescription2:
-                "<strong>Tài/Xỉu - Toàn trận (Live)</strong>: Payout is only available when the total score in the “First Half” of both teams is between 661 and 980",
+                "<strong>Tài/Xỉu - Toàn trận (Live)</strong>: Tỷ lệ cược chỉ khả dụng khi tổng điểm trong “Hiệp 1” của cả Đội Xanh và Đội Đỏ từ 661 đến 980",
             min: "Min",
             max: "Max",
             betLimit: "Hạn Mức Cược",

@@ -6,13 +6,13 @@ export const id: IPowerSoccerTranslationResource = {
         options: "Pilihan",
         teamBlue: "Tim Biru",
         teamRed: "Tim Merah",
-        odd: "Genap",
-        even: "Ganjil",
+        odd: "Ganjil",
+        even: "Genap",
         firstHalf: "Babak Pertama",
         fullTime: "Waktu penuh",
         fullTimeLive: "Purna Waktu (Langsung)",
-        over: "Over",
-        under: "Under",
+        over: "Besar",
+        under: "Kecil",
     },
     main: {
         introduction: "Perkenalan",
@@ -41,7 +41,7 @@ export const id: IPowerSoccerTranslationResource = {
             description4:
                 ' <strong>Taruhan Langsung</strong>: Pasang taruhan tepat setelah hasil Babak Pertama untuk kedua tim diumumkan. \
                 Perhatikan, hanya tempatkan taruhan di "Penuh Waktu". Rasio pembayaran akan berubah berdasarkan hasil “Babak Pertama”.',
-            winningConditions: "Winning Conditions",
+            winningConditions: "Syarat Menang",
 
             firstHalfTeamBlueDescription:
                 "Pemain menang jika total poin dari 10 angka yang diambil secara acak untuk tim Biru > tim Merah. <br />+ Semua taruhan akan dikembalikan jika total poin kedua tim sama.",
@@ -83,9 +83,9 @@ export const id: IPowerSoccerTranslationResource = {
             highLightDescription1:
                 '<strong>Tim Biru/Merah - Penuh Waktu (Langsung)</strong>:Pembayaran hanya tersedia ketika perbedaan skor total antara Tim Biru dan Tim Merah di "Babak Pertama", antara -150 dan 150',
             highLightDescription2:
-                "<strong>Over/Under - Purna Waktu (Langsung):</strong>: Pembayaran hanya tersedia ketika skor total di “Babak Pertama” kedua tim antara 661 dan 980",
+                "<strong>Besar/Kecil - Purna Waktu (Langsung)</strong>: Pembayaran hanya tersedia ketika skor total di “Babak Pertama” kedua tim antara 661 dan 980",
             min: "Min",
-            max: "Pembayaran hanya tersedia ketika skor total di “Babak Pertama” kedua tim antara 661 dan 980",
+            max: "Maks ",
             betLimit: "Batas Taruhan",
             maximumBetLimit: "Batas maksimum taruhan akan berubah sesuai dengan rasio pembayaran.",
         },

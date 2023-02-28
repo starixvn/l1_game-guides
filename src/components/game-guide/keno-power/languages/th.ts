@@ -5,7 +5,7 @@ export const th: IPowerKenoTranslationResource = {
         bettypes: "ประเภทการเดิมพัน",
         options: "ตัวเลือก",
         teamBlueRed: "ทีมน้ำเงิน/ทีมแดง",
-        sumBigSmall: "ผลรวมใหญ่ / เล็ก",
+        sumBigSmall: "ผลรวมใหญ่/เล็ก",
         sumEvenOdd: "ผลรวมคู่/คี่",
         teamBlueBigSmall: "ทีมน้ำเงินใหญ่/เล็ก",
         teamRedBigSmall: "ทีมแดงใหญ่/เล็ก",

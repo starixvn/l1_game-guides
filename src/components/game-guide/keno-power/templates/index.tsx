@@ -85,7 +85,7 @@ const renderBettingOptions = (resources: IPowerKenoTranslationResource) => {
                             <Markup content={StringFormat(common.teamBlueBigSmall)} />
                         </td>
                         <td className={`text-start ${Styles[classBetOptionWd]}`}> {common.big}</td>
-                        <td className="text-start">{bettingOptions.sumBigDescription}</td>
+                        <td className="text-start">{bettingOptions.teamBlueBigDescription}</td>
                     </tr>
                     <tr>
                         <td className={`text-start ${Styles[classBetOptionWd]}`}> {common.small}</td>

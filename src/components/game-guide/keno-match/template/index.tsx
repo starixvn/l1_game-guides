@@ -21,10 +21,11 @@ const renderGameRule = (resources: IPowerSoccerTranslationResource, maxBetRound:
         <>
             <h2>{gameRule.title}</h2>
             <ul className="desc">
-                {
-                    gameRule.details.map((detail, index) => (
-                        <li key={index}>{StringFormat(detail, maxBetRound.toString())}</li>))
-                }
+                {gameRule.details.map((detail, index) => (
+                    <li key={index}>
+                        <Markup content={StringFormat(detail, maxBetRound.toString())} />
+                    </li>
+                ))}
             </ul>
         </>
     );
@@ -37,15 +38,11 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
         <>
             <h2>{bettingOptions.text}</h2>
             <ul className="desc">
-                <li>
-                    {bettingOptions.description1}
-                </li>
+                <li>{bettingOptions.description1}</li>
                 <li>
                     {bettingOptions.description2}
                     <ul className="detail">
-                        <li>
-                            {bettingOptions.description3}
-                        </li>
+                        <li>{bettingOptions.description3}</li>
                         <li>
                             <Markup content={StringFormat(bettingOptions.description4)} />
                         </li>
@@ -102,9 +99,7 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                         {common.over}
                                     </td>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
-                                    <td className="text-start">
-                                        {bettingOptions.firstHalfOverDescription}
-                                    </td>
+                                    <td className="text-start">{bettingOptions.firstHalfOverDescription}</td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
@@ -120,9 +115,7 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                         {common.under}
                                     </td>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
-                                    <td className="text-start">
-                                        {bettingOptions.firstHalfUnderDescription}
-                                    </td>
+                                    <td className="text-start">{bettingOptions.firstHalfUnderDescription}</td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
@@ -138,9 +131,7 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                         {common.even}
                                     </td>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
-                                    <td className="text-start">
-                                        {bettingOptions.firstHalfEvenDescription}
-                                    </td>
+                                    <td className="text-start">{bettingOptions.firstHalfEvenDescription}</td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
@@ -156,9 +147,7 @@ const renderBettingOptions = (resources: IPowerSoccerTranslationResource) => {
                                         {common.odd}
                                     </td>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.firstHalf}</td>
-                                    <td className="text-start">
-                                        {bettingOptions.firstHalfOddnDescription}
-                                    </td>
+                                    <td className="text-start">{bettingOptions.firstHalfOddnDescription}</td>
                                 </tr>
                                 <tr>
                                     <td className={`text-start ${Styles[classBetOptionWd]}`}>{common.fullTime}</td>
@@ -185,8 +174,9 @@ const renderPayouts = (
     fractionalOddsFormat: boolean | undefined
 ) => {
     const getMinMaxOdd = (min: number, max: number | undefined) => {
-        return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
-            }`;
+        return `${fractionalOddsFormat ? numberWithCommas(min - 1) : min} - ${
+            fractionalOddsFormat && max ? numberWithCommas(max - 1) : max
+        }`;
     };
     const { payOut, common } = resources;
     return (
@@ -304,12 +294,12 @@ const renderPayouts = (
                                                             {common.options}
                                                         </th>
                                                         <th rowSpan={2}>
-                                                            <Markup content={StringFormat(payOut.betLimit)} />
+                                                            <Markup content={StringFormat(payOut.title)} />
                                                         </th>
                                                         <th colSpan={2}>{payOut.liveBettingPayout.betLimit}</th>
                                                     </tr>
                                                     <tr>
-                                                        <th className={Styles["payouts-min-wd"]}>Min</th>
+                                                        <th className={Styles["payouts-min-wd"]}>{payOut.liveBettingPayout.min}</th>
                                                         <th>{payOut.liveBettingPayout.max}</th>
                                                     </tr>
                                                 </thead>

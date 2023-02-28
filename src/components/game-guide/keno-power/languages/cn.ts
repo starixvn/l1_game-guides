@@ -26,7 +26,7 @@ export const cn: IPowerKenoTranslationResource = {
         details: [
             "确保您下注合适的金额。",
             "玩家可以在游戏桌上显示的一个或多个投注选项上下注。",
-            "所有投注必须在投注时间结束前完成。 注意，下注不能取消。",
+            "所有投注必须在投注时间结束前完成。 请注意，下注不能取消。",
             "每轮最大总赌注为 {0}",
         ],
         bettingOptions: {
@@ -48,7 +48,7 @@ export const cn: IPowerKenoTranslationResource = {
         description1: "中奖金额根据投注赔率计算。",
         description2: "支出包括初始股份。",
         description3: "投注结算后，所有获胜金额都会立即添加到您的账户余额中。",
-        odds: "选项",
+        odds: "赔率",
         betLimit: "投注限额 <br></br>（最小最大）",
     },
     md5noted: "注： <span class={0}>899</span> 和 <span class={1}>807</span>分别是蓝队和红队的成绩。",

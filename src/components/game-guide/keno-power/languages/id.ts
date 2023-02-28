@@ -46,7 +46,7 @@ export const id: IPowerKenoTranslationResource = {
         },
     },
     payOut: {
-        title: "4. Pembayaran",
+        title: "Pembayaran",
         description1: "Jumlah kemenangan dihitung berdasarkan odds taruhan.",
         description2: "Pembayaran termasuk taruhan awal.",
         description3: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
