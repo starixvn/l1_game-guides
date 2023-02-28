@@ -27,6 +27,7 @@ const renderGameRule = (t: Function) => {
 
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")}</li>
+                <li>{t("GameRule-line-4")}</li>
                 <div className={Styles["payline"]}>
                     <img
                         src={`${appSettings.resourceUrl}_shared/classicslot/payline-guide.png?v=${imgVer}`}
@@ -181,53 +182,51 @@ const renderExamplePayout = (odds: number[][], t: Function) => {
             <p>
                 <strong>{t("Common-example")}</strong>
             </p>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th className="bold">{t("Common-symbol")}</th>
-                            <th className="bold">{t("Common-Description")}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                <div className="d-center">
-                                    {renderIconContent(1, [
-                                        [5, odds[1][5]],
-                                        [4, odds[1][4]],
-                                        [3, odds[1][3]],
-                                    ])}
-                                </div>
-                            </td>
-                            <td>
-                                {t("Paytbale-example-description-1", { numOfSymbols: 5 })}
-                                {generateSymbol(1, false, true)}
-                                {t("Paytbale-example-description-2")}
-                                <br></br>
-                                {t("Paytbale-example-description-3", { odd: odds[1][5] })}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {t("Paytbale-example-description-1", { numOfSymbols: 4 })}
-                                {generateSymbol(1, false, true)}
-                                {t("Paytbale-example-description-2")}
-                                <br></br>
-                                {t("Paytbale-example-description-3", { odd: odds[1][4] })}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {t("Paytbale-example-description-1", { numOfSymbols: 3 })}
-                                {generateSymbol(1, false, true)}
-                                {t("Paytbale-example-description-2")}
-                                <br></br>
-                                {t("Paytbale-example-description-3", { odd: odds[1][3] })}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <div className={`${Styles["example"]} table-medium`}>
+                <div className={Styles["header"]}>
+                    <div className={Styles["col"]}>{t("Common-symbol")}</div>
+                    <div className={Styles["line"]}></div>
+                    <div className={Styles["col"]}>{t("Common-description")}</div>
+                </div>
+                <div className={Styles["body"]}>
+                    <div className={`${Styles["col"]} d-center-all`}>
+                        <div className="d-center">
+                            {renderIconContent(1, [
+                                [5, odds[1][5]],
+                                [4, odds[1][4]],
+                                [3, odds[1][3]],
+                            ])}
+                        </div>
+                    </div>
+                    <div className={Styles["line"]}></div>
+                    <div className={`${Styles["col"]} ${Styles["has-rows"]}`}>
+                        <div className={Styles["row"]}>
+                            {t("Paytbale-example-description-1", { numOfSymbols: 5 })}
+                            {generateSymbol(1, false, true)}
+                            {t("Paytbale-example-description-2")}
+                            <br></br>
+                            {t("Paytbale-example-description-3", { odd: odds[1][5] })}
+                        </div>
+                        <div className={Styles["line"]}></div>
+                        <div className={Styles["row"]}>
+                            {" "}
+                            {t("Paytbale-example-description-1", { numOfSymbols: 4 })}
+                            {generateSymbol(1, false, true)}
+                            {t("Paytbale-example-description-2")}
+                            <br></br>
+                            {t("Paytbale-example-description-3", { odd: odds[1][4] })}
+                        </div>
+                        <div className={Styles["line"]}></div>
+                        <div className={Styles["row"]}>
+                            {t("Paytbale-example-description-1", { numOfSymbols: 3 })}
+                            {generateSymbol(1, false, true)}
+                            {t("Paytbale-example-description-2")}
+                            <br></br>
+                            {t("Paytbale-example-description-3", { odd: odds[1][3] })}
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

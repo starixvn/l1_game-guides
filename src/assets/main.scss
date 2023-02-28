@@ -379,6 +379,12 @@ html[data-theme="way-to-goal"] {
     justify-content: center;
 }
 
+.d-center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .show {
     display: block;
 }

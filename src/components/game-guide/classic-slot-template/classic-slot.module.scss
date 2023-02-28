@@ -176,3 +176,45 @@
     grid-template-columns: 28rem 1fr;
     align-items: center;
 }
+
+.example {
+    margin: auto auto 2rem;
+    text-align: center;
+
+    .header {
+        display: grid;
+        grid-template-columns: 25rem 0.1rem 3fr;
+        background-color: var(--table-header-background);
+        border-radius: 1rem 1rem 0 0;
+        font-weight: bold;
+        color: var(--table-header-color);
+    }
+
+    .body {
+        display: grid;
+        grid-template-columns: 25rem 0.1rem 3fr;
+        border-radius: 0 0 1rem 1rem;
+        background-color: var(--table-background);
+        color: var(--table-color);
+    }
+
+    .col,
+    .row {
+        min-height: 3.6rem;
+        padding: 1rem;
+    }
+
+    .has-rows {
+        display: grid;
+        padding: 0;
+
+        .line {
+            width: 100%;
+            height: 0.1rem;
+        }
+    }
+
+    .line {
+        background-color: var(--table-border);
+    }
+}
