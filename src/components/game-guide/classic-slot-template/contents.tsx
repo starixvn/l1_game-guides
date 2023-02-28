@@ -79,6 +79,10 @@ const renderIconContent = (symbol: number, dataContent: number[][]) => {
 
             <div>
                 {dataContent.map((data, index) => {
+                    if (!data[1]) {
+                        return;
+                    }
+
                     return (
                         <div key={index} className={Styles["symbol-content"]}>
                             <span className={Styles[number]}>{data[0]}</span>
