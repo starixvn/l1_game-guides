@@ -109,16 +109,19 @@ const renderPayoutsIconFirstLine = (odds: number[][]) => {
                     [5, odds[10][5]],
                     [4, odds[10][4]],
                     [3, odds[10][3]],
+                    [2, odds[10][2]],
                 ])}
                 {renderIconContent(6, [
                     [5, odds[6][5]],
                     [4, odds[6][4]],
                     [3, odds[6][3]],
+                    [2, odds[6][2]],
                 ])}
                 {renderIconContent(5, [
                     [5, odds[5][5]],
                     [4, odds[5][4]],
                     [3, odds[5][3]],
+                    [2, odds[5][2]],
                 ])}
             </div>
         </>
@@ -133,21 +136,25 @@ const renderPayoutsIconSecondLine = (odds: number[][]) => {
                     [5, odds[4][5]],
                     [4, odds[4][4]],
                     [3, odds[4][3]],
+                    [2, odds[4][2]],
                 ])}
                 {renderIconContent(3, [
                     [5, odds[3][5]],
                     [4, odds[3][4]],
                     [3, odds[3][3]],
+                    [2, odds[3][2]],
                 ])}
                 {renderIconContent(2, [
                     [5, odds[2][5]],
                     [4, odds[2][4]],
                     [3, odds[2][3]],
+                    [2, odds[2][2]],
                 ])}
                 {renderIconContent(1, [
                     [5, odds[1][5]],
                     [4, odds[1][4]],
                     [3, odds[1][3]],
+                    [2, odds[1][2]],
                 ])}
                 {renderIconContent(0, [
                     [5, odds[0][5]],

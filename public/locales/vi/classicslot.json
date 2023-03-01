@@ -1,5 +1,5 @@
 {
-    "Common-example": "Ví dụ",
+    "Common-example": "Ví dụ:",
     "Common-symbol": "Biểu Tượng",
     "Common-description": "Mô Tả",
     "Introduction-title": "Giới thiệu",
@@ -31,7 +31,7 @@
     "Bonus-line-2": "Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.",
     "Bonus-line-3": "<strong> Lưu ý:</strong> Các biểu tượng “Bonus” phải nằm trên các cột khác nhau. Ví dụ, nếu có 2 biểu tượng “Bonus” nằm trên cùng một cột, hệ thống sẽ tính là 1 biểu tượng.",
     "Bonus-line-4": "Có 4 biểu tượng “Bonus” trong kết quả, nhưng do có 2 biểu tượng nằm trên cùng một cột. Người chơi chỉ nhận được 3 lần mở thưởng.",
-    "Bonus-line-5": "Người chơi sẽ có 2 phút để hoàn tất việc mở thưởng. Nếu sau 2 phút, người chơi vẫn không thể hoàn tất, hệ thống sẽ mở ngẫu nhiên các phần thưởng cho đến khi hết lượt. Kết quả sẽ được lưu trong mục Lịch sử phiên.",
+    "Bonus-line-5": "Người chơi sẽ có 2 phút để hoàn tất việc mở thưởng. Nếu sau 2 phút, người chơi vẫn không thể hoàn tất, hệ thống sẽ mở ngẫu nhiên các phần thưởng cho đến khi hết lượt.",
     "Wild-title": "Wild",
     "Wild-line-1": "Biểu tượng “Wild” có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ",
     "Wild-word-and": "và",

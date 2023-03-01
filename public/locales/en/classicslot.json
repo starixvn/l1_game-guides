@@ -1,5 +1,5 @@
 {
-    "Common-example": "Example",
+    "Common-example": "Example:",
     "Common-symbol": "Symbol",
     "Common-description": "Description",
     "Introduction-title": "Introduction",
@@ -31,7 +31,7 @@
     "Bonus-line-2": "The Bonus symbols do not have to be on the same payline.",
     "Bonus-line-3": "<strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing on the same reel, the system will count as one symbol.",
     "Bonus-line-4": "There are 4 “Bonus” symbols in the result, but 2 symbols are located on the same reel. The player is only eligible for 3 items.",
-    "Bonus-line-5": "Players have to complete the Bonus Game within 120 seconds countdown. After this period, the system will randomly open items and settle the game round.",
+    "Bonus-line-5": "Players have to complete the Bonus Game within 120 seconds of countdown. After this period, the system will randomly open items and settle the game round.",
     "Wild-title": "Wild",
     "Wild-line-1": "“Wild” symbol can substitute for all symbols except",
     "Wild-word-and": "and",
