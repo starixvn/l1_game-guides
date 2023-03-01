@@ -68,7 +68,7 @@ export const th: ISlotTranslationResource = {
         onlyHighest: "จะจ่ายเฉพาะการชนะที่ทำได้สูงสุดต่อ Line เท่านั้น",
         example: "ตัวอย่าง",
         ifwild: "หากสัญลักษณ์ Wild คือ",
-        payoutBetLevel: "การจ่ายเงิน = ระดับการเดิมพัน ",
+        payoutBetLevel: "การจ่ายเงิน = ระดับการเดิมพัน *",
         highestWin: "ผู้เล่นจะได้รับชัยชนะสูงสุดในเพย์ไลน์นี้",
     },
     main: {

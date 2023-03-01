@@ -64,7 +64,7 @@ export const cn: ISlotTranslationResource = {
         onlyHighest: "仅支付每条线获得的最高胜利。",
         example: "例子",
         ifwild: "如果Wild符号是",
-        payoutBetLevel: "派彩 = 投注等级 ",
+        payoutBetLevel: "派彩 = 投注等级 *",
         highestWin: "玩家将在这条支付线上获得最高胜利",
     },
     main: {

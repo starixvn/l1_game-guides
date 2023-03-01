@@ -14,7 +14,7 @@ const OddEvenTurboGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} เป็นเกมลูกเต๋าง่ายๆ ที่คล้ายกับเกม สูงต่ำ.
+                        {gameName}เป็นเกมลูกเต๋าง่ายๆ ที่คล้ายกับเกม สูงต่ำ.
                         เกมนี้เล่นด้วยลูกเต๋าสามลูกและผู้เล่นทำนายแต้มรวมของลูกเต๋าสามลูกเป็นคี่หรือคู่
                     </p>
                 </li>

@@ -70,12 +70,12 @@ export const id: ISlotTranslationResource = {
         onlyHighest: "Hanya kemenangan tertinggi yang dicapai per baris yang dibayarkan.",
         example: "Contoh",
         ifwild: "Jika simbol Wild adalah",
-        payoutBetLevel: "Pembayaran = Tingkat Taruhan ",
+        payoutBetLevel: "Pembayaran = Tingkat Taruhan *",
         highestWin: "Pemain akan mendapatkan kemenangan tertinggi pada payline ini",
     },
     main: {
         introduction: "Perkenalan",
         description:
-            "Game ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol yang sama terletak pada payline yang sama yang telah dipilih.",
+            "Gim ini mencakup 5 gulungan dan 3 baris, dengan 11 simbol berbeda. Pemain akan menang jika simbol yang sama terletak pada payline yang sama yang telah dipilih.",
     },
 };
