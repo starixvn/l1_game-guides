@@ -526,7 +526,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                 </ul>
             </div>
             <div>
-                <strong>Contoh</strong>
+                <strong>ตัวอย่าง</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>

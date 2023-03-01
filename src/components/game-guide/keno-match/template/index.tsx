@@ -294,7 +294,7 @@ const renderPayouts = (
                                                             {common.options}
                                                         </th>
                                                         <th rowSpan={2}>
-                                                            <Markup content={StringFormat(payOut.title)} />
+                                                            <Markup content={StringFormat(payOut.betLimit)} />
                                                         </th>
                                                         <th colSpan={2}>{payOut.liveBettingPayout.betLimit}</th>
                                                     </tr>

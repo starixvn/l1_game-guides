@@ -387,9 +387,7 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                         </td>
                         <td>
                             <ul className="desc">
-                                <li>
-                                    Pemain akan menerima Bonus Putaran Gratis sesuai dengan jumlah simbol Putaran Gratis yang ada di hasil.
-                                </li>
+                                <li>Pemain akan menerima Bonus Free Spin sesuai dengan jumlah simbol Free Spin yang ada di hasil.</li>
                                 <li>Simbol Free Spin tidak harus berada di payline yang sama.</li>
                             </ul>
                         </td>
@@ -399,8 +397,8 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
 
             <ul className="desc">
                 <li>
-                    <strong>Catatan:</strong> Simbol &#34;Putaran Gratis&#34; harus muncul di gulungan yang berbeda. Misalnya, jika ada 3
-                    simbol &#34;Putaran Gratis&#34; pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.
+                    <strong>Catatan:</strong> Simbol &#34;Free Spin&#34; harus muncul di gulungan yang berbeda. Misalnya, jika ada 3 simbol
+                    &#34;Free Spin&#34; pada gulungan yang sama, sistem akan dihitung sebagai satu simbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
@@ -415,18 +413,18 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            Ada 4 simbol &#34;Putaran gratis&#34; di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak
-                            memenuhi syarat untuk bonus putaran Gratis.
+                            Ada 4 simbol &#34;Free Spin&#34; di hasil, tetapi 3 simbol terletak di gulungan yang sama. Pemain tidak memenuhi
+                            syarat untuk bonus Free Spin.
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                    Putaran Gratis dimainkan pada Tingkat Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
-                    (putaran di mana Pengguna mendapatkan Bonus Putaran Gratis).
+                    Free Spin dimainkan pada Tingkat Taruhan yang sama dan jumlah garis pembayaran yang sama dengan putaran terakhir
+                    (putaran di mana Pengguna mendapatkan Bonus Free Spin).
                 </li>
                 <li>
-                    Pemain harus menyelesaikan Bonus Putaran Gratis dalam waktu 24 jam setelah diterbitkan. Putaran Gratis yang tidak
-                    digunakan akan hilang.
+                    Pemain harus menyelesaikan Bonus Free Spin dalam waktu 24 jam setelah diterbitkan. Free Spin yang tidak digunakan akan
+                    hilang.
                 </li>
             </ul>
         </li>
@@ -477,8 +475,8 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                             />
                         </div>
                         <span>
-                            Ada 4 “Bonus” simbol “Bonus” di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi
-                            syarat untuk 3 item.
+                            Ada 4 simbol “Bonus” di hasil, tetapi 2 simbol terletak di gulungan yang sama. Pemain hanya memenuhi syarat
+                            untuk 3 item.
                         </span>
                     </div>
                 </li>
@@ -553,7 +551,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            Jika simbol Liar adalah
+                            Jika simbol Wild adalah
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
@@ -562,7 +560,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                             {`=>`} Pembayaran = Tingkat Taruhan * {odds[2][3]}
                         </li>
                         <li>
-                            Jika simbol Liar adalah
+                            Jika simbol Wild adalah
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item5.png"

@@ -536,7 +536,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            如果狂野符號是
+                            如果Wild符號是
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
@@ -545,7 +545,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                             {`=>`} 派彩 = 投注等級 * {odds[2][3]}
                         </li>
                         <li>
-                            如果狂野符號是
+                            如果Wild符號是
                             <img
                                 className={`${Styles["item5"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item5.png"

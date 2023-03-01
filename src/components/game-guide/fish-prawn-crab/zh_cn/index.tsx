@@ -61,7 +61,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <li>{formatOdds(odds?.triple, fractionalOddsFormat)} 如果所选符号出现三次。</li>
                             </ul>
                         </li>
-                        <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。 注意，下注不能取消。</li>
+                        <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。 注意，投注无法取消。</li>
                         <li>中奖金额根据投注赔率计算。支付包括初始投注。</li>
                         <li>
                             投注结算后，所有中奖金额都会立即添加到您的账户余额中。
