@@ -20,7 +20,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                 <li>中奖号码由球落入的槽位决定。</li>
                 <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                 <li>
-                    中奖金额根据派彩率计算。 <strong>注意，</strong> 支付包括初始投注。
+                    中奖金额根据投注赔率计算。 <strong>注意，</strong> 支付包括初始投注。
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>

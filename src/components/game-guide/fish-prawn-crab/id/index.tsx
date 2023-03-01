@@ -69,7 +69,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Catatan, taruhan
                             yang dipasang tidak dapat dibatalkan.
                         </li>
-                        <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Pembayaran termasuk taruhan awal.</li>
+                        <li>Jumlah kemenangan dihitung berdasarkan odds taruhan. Pembayaran termasuk taruhan awal.</li>
                         <li>
                             Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                             <div>

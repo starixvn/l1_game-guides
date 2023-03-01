@@ -2,8 +2,8 @@ import { IDragonTigerTranslationResource } from "./types";
 
 export const id: IDragonTigerTranslationResource = {
     common: {
-        dragon: "Naga",
-        tiger: "Harimau",
+        dragon: "Dragon",
+        tiger: "Tiger",
         tie: "Seri",
     },
     introduction: {
@@ -37,7 +37,7 @@ export const id: IDragonTigerTranslationResource = {
     payOuts: {
         title: "Pembayaran",
         description: {
-            theWinning: "Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. ",
+            theWinning: "Jumlah kemenangan dihitung berdasarkan odds taruhan. ",
             thePayout: "Pembayaran termasuk taruhan awal.",
             allWinning: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
         },

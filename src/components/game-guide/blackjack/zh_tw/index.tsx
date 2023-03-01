@@ -15,8 +15,8 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
         <>
             <h2>遊戲規則</h2>
             <ul className="desc">
-                <li>選擇籌碼值並單擊您要下注的每手牌的圓圈（下注點）</li>
-                <li>玩家可以同時玩多隻手（最多 3 只）</li>
+                <li>選擇籌碼值並單擊您要下注的每手牌的圓圈（下注點）。</li>
+                <li>玩家可以同時玩多隻手（最多 3 只）。</li>
                 <li>點擊“Deal”按鈕確認投注，或點擊“X”重置您的投注。注意，發牌後無法取消投注。</li>
                 <li>
                     最小賭注和最大賭注必須在 {minBet} - {maxBet} 之間，每手的最大總賭注為 {maxBet}
@@ -27,9 +27,9 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                     <li className="number-dot">
                         <span className="font-weight-medium title-text">玩家手牌規則</span>
                         <ul className="desc">
-                            <li>如果玩家在前兩張牌（二十一點）上獲得 21 點，玩家將自動獲勝，除了發牌者也有二十一點。</li>
-                            <li>當閒家和莊家都擁有二十一點時，結果為平局（平局），賭注返還給閒家。</li>
-                            <li>如果玩家的總點數超過 21（破產）。玩家輸了，即使莊家也超過 21</li>
+                            <li>如果玩家在前兩張牌（21點）上獲得 21 點，玩家將自動獲勝，除了發牌者也有21點。</li>
+                            <li>當閒家和莊家都擁有21點時，結果為平局（平局），賭注返還給閒家。</li>
+                            <li>如果玩家的總點數超過 21（爆掉）。玩家輸了，即使莊家也超過 21</li>
                             <li>
                                 根據遊戲規則，根據前兩張牌的總點數，玩家最多有四個選項：“拿牌”、“停牌”、“加倍”或“分牌”。
                                 <div className="table-container">
@@ -53,7 +53,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
                                                 <td className="text-start">
                                                     <ul className="desc">
                                                         <li>獲得一張額外的牌來提高你的手牌總數。</li>
-                                                        <li>在總手牌值達到 21 或破產之前，您可以抽的牌數量沒有限制。</li>
+                                                        <li>在總手牌值達到 21 或爆掉之前，您可以抽的牌數量沒有限制。</li>
                                                         <li>如果玩家的手牌超過 21，則無論莊家有什麼牌，玩家都會輸掉該手牌。</li>
                                                     </ul>
                                                 </td>
@@ -141,7 +141,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
             <h2>支出</h2>
             <ul className="desc">
                 <li>
-                    中獎金額根據派彩率計算。
+                    中獎金額根據投注賠率計算。
                     <strong>注意，</strong> 支付包括初始投注。
                 </li>
                 <li>
@@ -156,7 +156,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>二十一點贏</td>
+                                    <td>21點贏</td>
                                     <td>{formatOdds(odds?.blackjack, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
@@ -183,7 +183,7 @@ const BlackjackGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <h2>簡介</h2>
                     <p className="content">
                         {gameName}（也稱為“21”）是一款有趣且令人愉快的賭場紙牌遊戲。 遊戲使用六副標準的 52 張牌（不包括 Joker）洗牌。
-                        在二十一點中，玩家與莊家對戰，遊戲的目的是讓您的牌的總點數盡可能接近 21，但不超過 21。
+                        在21點中，玩家與莊家對戰，遊戲的目的是讓您的牌的總點數盡可能接近 21，但不超過 21。
                         如果您的牌的總點數比莊家的牌更接近 21，則玩家將獲勝。
                     </p>
                 </li>

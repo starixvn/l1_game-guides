@@ -53,7 +53,7 @@ const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                     <ul className="desc">
                         <li>大, 小的赔率为 {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
-                            中奖金额根据派彩率计算。 <strong>注意</strong>, 支付包括初始投注。
+                            中奖金额根据投注赔率计算。 <strong>注意</strong>, 支付包括初始投注。
                         </li>
                         <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
                         {renderPromotionNoteCN(isInPromotionTime)}

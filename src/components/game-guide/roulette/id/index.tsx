@@ -26,8 +26,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                 <li>Nomor pemenang ditentukan oleh slot tempat bola jatuh.</li>
                 <li>Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.</li>
                 <li>
-                    Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan
-                    awal.
+                    Jumlah kemenangan dihitung berdasarkan odds taruhan. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan awal.
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>

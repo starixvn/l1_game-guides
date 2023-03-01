@@ -130,7 +130,7 @@ export const baseBaccaratResourcesTw: IBaseBaccaratResources = {
     payouts: {
         header: "支出",
         descriptions: {
-            details: ["中獎金額根據派彩率計算。", "支付包括初始投注。", "投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。"],
+            details: ["中獎金額根據投注賠率計算。", "支付包括初始投注。", "投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。"],
             noted: "<strong>注意：</strong> 如果結果為平局，所有對閒家和莊家的投注將被退還。",
             options: "選項",
             odds: "賠率",

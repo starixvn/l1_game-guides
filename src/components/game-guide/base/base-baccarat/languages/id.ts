@@ -94,7 +94,8 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         },
         bankerHand: {
             header: "Aturan untuk kartu Banker",
-            firstDescription: "- Jika tangan Player mendapatkan kartu ketiga maka Banker menarik kartu ketiga sesuai dengan aturan berikut:",
+            firstDescription:
+                "- Jika tangan Player mendapatkan kartu ketiga maka Banker menarik kartu ketiga sesuai dengan aturan berikut:",
             cardsTotal: "Total dua kartu pertama Banker",
             action: "Banker menarik ketika kartu ketiga Player memiliki nilai poin:",
             examples: [
@@ -136,7 +137,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
         header: "Pembayaran",
         descriptions: {
             details: [
-                "Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.",
+                "Jumlah kemenangan dihitung berdasarkan odds taruhan.",
                 "Pembayaran termasuk taruhan awal.",
                 "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
             ],

@@ -81,7 +81,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
         <li className="guide-item">
             <h2>支付</h2>
             <ul className="desc">
-                <li>中奖金额根据派彩率计算。</li>
+                <li>中奖金额根据投注赔率计算。</li>
                 <li>支付包括初始投注。</li>
                 <li>
                     投注结算后，所有中奖金额都会立即添加到您的账户余额中。

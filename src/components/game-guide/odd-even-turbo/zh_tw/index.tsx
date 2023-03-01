@@ -45,7 +45,7 @@ const OddEvenTurboGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <ul className="desc">
                         <li>單, 雙的賠率為 {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>
-                            中獎金額根據派彩率計算。 <strong>注意,</strong> 支付包括初始投注。
+                            中獎金額根據投注賠率計算。 <strong>注意,</strong> 支付包括初始投注。
                         </li>
                         <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
                     </ul>

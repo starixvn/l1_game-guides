@@ -35,7 +35,7 @@ export const cn: IDragonTigerTranslationResource = {
     payOuts: {
         title: "支出",
         description: {
-            theWinning: "中奖金额根据派彩率计算。",
+            theWinning: "中奖金额根据投注赔率计算。",
             thePayout: "支付包括初始投注。",
             allWinning: "投注结算后，所有中奖金额都会立即添加到您的账户余额中。",
         },

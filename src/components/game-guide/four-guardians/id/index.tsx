@@ -37,7 +37,7 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>Tabel Pembayaran</h2>
             <ul className="desc">
-                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                 <li>
                     <strong>Catatan:</strong> Pembayaran termasuk taruhan awal.
                 </li>

@@ -37,7 +37,7 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>赔率表</h2>
             <ul className="desc">
-                <li>中奖金额根据派彩率计算。</li>
+                <li>中奖金额根据投注赔率计算。</li>
                 <li>
                     <strong>注意:</strong>支付包括初始投注。
                 </li>

@@ -91,7 +91,7 @@ const SeDieGuideZH_TW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>支付</h2>
                     <ul className="desc">
-                        <li>中獎金額根據派彩率計算。 注意， 支付包括初始本金。</li>
+                        <li>中獎金額根據投注賠率計算。 注意， 支付包括初始本金。</li>
                         <li>
                             投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。
                             <div className="table-container">

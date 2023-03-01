@@ -130,7 +130,7 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
     payouts: {
         header: "支出",
         descriptions: {
-            details: ["中奖金额根据派彩率计算。", "支付包括初始投注。", "投注结算后，所有中奖金额都会立即添加到您的账户余额中。"],
+            details: ["中奖金额根据投注赔率计算。", "支付包括初始投注。", "投注结算后，所有中奖金额都会立即添加到您的账户余额中。"],
             noted: "<strong>注意：</strong> 如果结果为平局，所有对闲家和庄家的投注将被退还。",
             options: "选项",
             odds: "赔率",
@@ -144,5 +144,5 @@ export const baseBaccaratResourcesCn: IBaseBaccaratResources = {
             bankerPair: "庄家一对",
         },
     },
-    termsAndConditions: baseTermAndConditionCn
+    termsAndConditions: baseTermAndConditionCn,
 };

@@ -57,8 +57,7 @@ const OddEvenTurboGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <ul className="desc">
                         <li>Pembayaran pada GANJIL, GENAP adalah {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>
-                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Catatan,</strong> pembayaran termasuk taruhan
-                            awal.
+                            Jumlah kemenangan dihitung berdasarkan odds taruhan. <strong>Catatan,</strong> pembayaran termasuk taruhan awal.
                         </li>
                         <li>Semua jumlah pemenang langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
                     </ul>

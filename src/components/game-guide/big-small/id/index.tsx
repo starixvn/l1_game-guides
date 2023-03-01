@@ -62,8 +62,7 @@ const BigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     <ul className="desc">
                         <li>Pembayaran di Big, Small adalah {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>
-                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Catatan</strong>, pembayaran termasuk taruhan
-                            awal.
+                            Jumlah kemenangan dihitung berdasarkan odds taruhan. <strong>Catatan</strong>, pembayaran termasuk taruhan awal.
                         </li>
                         <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
                         {renderPromotionNoteID(isInPromotionTime)}

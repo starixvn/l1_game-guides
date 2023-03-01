@@ -111,7 +111,7 @@ class DragonTigerGuideTemplate<
                                         <td rowSpan={3}>{maxBetFollowChoice?.maxBetMain}</td>
                                     </tr>
                                     <tr>
-                                        <td>{common.tie}</td>
+                                        <td>{common.tiger}</td>
                                     </tr>
                                     <tr>
                                         <td>{common.tie}</td>
