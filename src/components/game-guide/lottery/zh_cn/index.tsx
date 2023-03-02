@@ -374,7 +374,10 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
         <li className="guide-item">
             <h2>支付</h2>
             <ul className="desc">
-                <li>中奖金额根据投注赔率计算。 注意，支付包括初始投注。</li>
+                <li>中奖金额根据投注赔率计算。</li>
+                <li>
+                    <strong>注意</strong>，支付包括初始投注。
+                </li>
                 <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
             </ul>
             <table className={`table text-center table-medium`}>
@@ -383,7 +386,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                         <th colSpan={2}>选项</th>
                         <th>赔率</th>
                         <th>
-                            投注限额 <br></br>（最小最大
+                            投注限额 <br></br>（最小最大)
                         </th>
                         <th className={Styles["payout-max-total-width"]}>每轮最大总赌注</th>
                     </tr>

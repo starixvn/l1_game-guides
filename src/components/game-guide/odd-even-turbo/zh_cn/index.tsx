@@ -21,7 +21,7 @@ const OddEvenTurboGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <h2>游戏规则</h2>
                     <ul className="desc">
                         <li>骰杯在游戏开始时摇动。</li>
-                        <li>玩家可以下注大或小，但不能同时下注。</li>
+                        <li>在下注时间内，玩家可以下注大或小，但不能同时下注。</li>
                         <ul className="detail">
                             <li>单数：如果三个骰子的总点数为奇数，则玩家获胜。 </li>
                             <li>双数：如果三个骰子的总点数为偶数，则玩家获胜。 </li>

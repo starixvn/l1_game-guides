@@ -37,7 +37,7 @@ const renderBettingOptions = () => {
                 <tbody>
                     <tr>
                         <td colSpan={2} className="text-center">
-                            พิเศษ
+                            4 ชุด
                         </td>
                         <td>
                             <p>เลือกหมายเลขที่คุณต้องการเดิมพันตั้งแต่ 00 ถึง 99 หากหมายเลขที่เลือกตกเป็นของรางวัลที่เจ็ด ผู้เล่นจะชนะ</p>
@@ -127,7 +127,7 @@ const renderBettingOptions = () => {
 const BettingOptions4Sets = () => {
     return (
         <>
-            <div className={Styles[exampleTitle]}>a) พิเศษ</div>
+            <div className={Styles[exampleTitle]}>a) 4 ชุด</div>
             <ul className="desc">
                 <li>วางเดิมพันสองหมายเลข: 07, 77</li>
                 <li>ผลลัพธ์สุดท้าย:</li>
@@ -136,7 +136,7 @@ const BettingOptions4Sets = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -167,7 +167,7 @@ const BettingOptionsSpecial = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -198,7 +198,7 @@ const BettingOptionsHead = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -230,7 +230,7 @@ const BettingOptionsTail = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -261,7 +261,7 @@ const BettingOptions27Sets = () => {
                 <thead>
                     <tr>
                         <th>รางวัล</th>
-                        <th colSpan={12}>RNG ลอตเตอรี่</th>
+                        <th colSpan={12}>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -388,7 +388,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
         <li className="guide-item">
             <h2>การจ่ายเงิน</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน </li>
+                <li>หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                 <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
             </ul>
             <table className={`table text-center table-medium`}>
@@ -404,7 +405,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                 </thead>
                 <tbody>
                     <tr>
-                        <td colSpan={2}>พิเศษ</td>
+                        <td colSpan={2}>4 ชุด</td>
                         <td>{formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
@@ -475,7 +476,7 @@ const renderViewStatistic = () => {
         <li className="guide-item">
             <h2>สถิติ</h2>
             <ul className="desc">
-                <li>สถิติข้อมูลอ้างอิงจาก 2 หลักสุดท้ายของ 27 ผล RNG ลอตเตอรี่ เพื่อช่วยผู้เล่นในการเลือกหมายเลขโปรด</li>
+                <li>สถิติข้อมูลอ้างอิงจาก 2 หลักสุดท้ายของ 27 ผล RNG ล็อตเตอรี่ พื่อช่วยผู้เล่นในการเลือกหมายเลขโปรด</li>
                 <li>
                     สถิติข้อมูลการเดิมพันล่าสุดแต่ละประเภทใน 100 รอบ
                     <ul className={Styles[statsList]}>
@@ -500,7 +501,7 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles[exampleTitle]}>a) พิเศษ, พิเศษ, 27 ชุด </div>
+                            <div className={Styles[exampleTitle]}>a) 4 ชุด, พิเศษ, 27 ชุด </div>
                             <ul className={Styles[statsList]}>
                                 <li>
                                     10 ตัวเลขที่เกิดขึ้นมากที่สุด (แสดงเป็นสี<span className={Styles["text-red"]}>แดง</span>)
@@ -532,7 +533,7 @@ const renderViewStatistic = () => {
                             <p>นับการเกิดขึ้นของแต่ละตัวเลขตั้งแต่ 0-9</p>
                             <ul className={Styles[statsList]}>
                                 <li>
-                                    หากปรากฏรวม {`>`} 10 จะแสดงเป็นสี <span className={Styles["text-red"]}>แดง</span>.
+                                    หากปรากฏรวม {`>`} 10 จะแสดงเป็นสี<span className={Styles["text-red"]}>แดง</span>.
                                 </li>
                                 <li>
                                     หากปรากฏรวม {`<=`} 10 จะแสดงเป็นสี
@@ -599,7 +600,7 @@ const LotteryGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                                 <thead>
                                     <tr>
                                         <th>รางวัล</th>
-                                        <th colSpan={12}>RNG ลอตเตอรี่</th>
+                                        <th colSpan={12}>RNG ล็อตเตอรี่</th>
                                         <th>จำนวนผลลัพธ์</th>
                                     </tr>
                                 </thead>

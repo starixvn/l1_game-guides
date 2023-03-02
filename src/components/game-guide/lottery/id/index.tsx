@@ -17,7 +17,7 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>Pilih nilai chip yang ingin Anda mainkan. Semua taruhan harus diselesaikan sebelum waktu taruhan berakhir.</li>
                 <li>Perhatikan, taruhan yang dipasang tidak dapat dibatalkan.</li>
                 <li>Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.</li>
-                <li>Total taruhan maksimum per putaran adala {maxBet}</li>
+                <li>Total taruhan maksimum per putaran adalah {maxBet}</li>
             </ul>
         </li>
     );
@@ -139,7 +139,7 @@ const BettingOptions4Sets = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -170,7 +170,7 @@ const BettingOptionsSpesial = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -201,7 +201,7 @@ const BettingOptionsHead = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -233,7 +233,7 @@ const BettingOptionsTail = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -264,7 +264,7 @@ const BettingOptions27Sets = () => {
                 <thead>
                     <tr>
                         <th>Hadiah</th>
-                        <th colSpan={12}>Lotere RNG</th>
+                        <th colSpan={12}>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -392,13 +392,16 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>Pembayaran</h2>
             <ul className="desc">
                 <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
-                <li>Catatan, Pembayaran termasuk taruhan awal.</li>
+                <li>
+                    <strong>Catatan</strong>, Pembayaran termasuk taruhan awal.
+                </li>
+                <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
             </ul>
             <table className={`table text-center table-medium`}>
                 <thead>
                     <tr>
                         <th colSpan={2}>Pilihan</th>
-                        <th>Pembayaran</th>
+                        <th>Odds</th>
                         <th>
                             Batas Taruhan <br></br>(Min Maks)
                         </th>
@@ -479,7 +482,7 @@ const renderViewStatistic = () => {
             <h2>Statistik</h2>
             <ul className="desc">
                 <li>
-                    Statistik data didasarkan pada dua digit terakhir dari 27 hasil Lotere RNG, untuk membantu pemain dalam memilih nomor
+                    Statistik data didasarkan pada dua digit terakhir dari 27 hasil RNG Lotere, untuk membantu pemain dalam memilih nomor
                     favorit mereka.
                 </li>
                 <li>
@@ -616,7 +619,7 @@ const LotteryGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                                 <thead>
                                     <tr>
                                         <th>Hadiah</th>
-                                        <th colSpan={12}>Lotere RNG</th>
+                                        <th colSpan={12}>RNG Lotere</th>
                                         <th>Jumlah Hasil</th>
                                     </tr>
                                 </thead>

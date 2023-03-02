@@ -60,7 +60,7 @@ export const tw: ISlotTranslationResource = {
         title: "Wild",
         substitute: "“Wild”符號可以替代除",
         and: "和",
-        endSubstitute: "",
+        endSubstitute: "之外的所有符號",
         onlyHighest: "僅支付每條線獲得的最高勝利。",
         example: "例子",
         ifwild: "如果Wild符號是",

@@ -600,7 +600,7 @@ const LotteryGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}, also known as “Lô Đề”, is an online lottery game that is very popular in Vietnam. The player places bet
+                        {gameName} is an online lottery game that is very popular in Vietnam. The player places bet
                         on the numbers you like, the game determines the win or loss by matching the numbers based on 27 results of 8
                         prizes.
                     </p>

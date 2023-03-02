@@ -22,7 +22,7 @@ const OddEvenTurboGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <h2>Aturan Permainan</h2>
                     <ul className="desc">
                         <li>Cangkir dadu dikocok di awal putaran permainan.</li>
-                        <li>Para pemain dapat bertaruh pada BESAR atau KECIL, tetapi tidak pada keduanya.</li>
+                        <li>Selama waktu taruhan, para pemain dapat bertaruh pada BESAR atau KECIL, tetapi tidak pada keduanya.</li>
                         <ul className="detail">
                             <li>GANJIL: pemain akan menang jika total poin dari tiga dadu adalah angka ganjil. </li>
                             <li>GENAP: pemain akan menang jika total poin dari tiga dadu adalah angka genap. </li>
