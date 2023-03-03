@@ -22,13 +22,13 @@ const OddEvenTurboGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <h2> Game Rules</h2>
                     <ul className="desc">
                         <li>The dice cup is shaken at the beginning of the game round.</li>
-                        <li>During the betting time, The players can bet on either ODD or EVEN, but not on both.</li>
+                        <li>During the betting time, the players can bet on either ODD or EVEN, but not on both.</li>
                         <ul className="detail">
-                            <li>ODD: the player will win if the total points of three dice is an odd number. </li>
-                            <li>EVEN: the player will win if the total points of three dice is an even number. </li>
+                            <li>ODD: the player will win if the total points of three dice are an odd number. </li>
+                            <li>EVEN: the player will win if the total points of three dice are an even number. </li>
                         </ul>
                         <li>
-                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Clear button if you want to
+                            Make sure you bet an amount you’re comfortable with. Click Confirm to complete or Cancel button if you want to
                             reset all your bets.
                         </li>
                         <li>

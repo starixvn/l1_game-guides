@@ -84,7 +84,7 @@ export default class SicBoTemplate extends React.Component<
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{table.big}</td>
+                                        <td>{table.small}</td>
                                         <td className="text-start">
                                             <ul className="plus">
                                                 {bettingOptions.description.small.map((des, index) => (

@@ -71,8 +71,8 @@ const renderGameRule = (maxBet: string | undefined) => {
             </p>
             <ul className="desc">
                 <li>
-                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
-                    <span className={Styles[imgRed]}>♦</span>) in the results.
+                    Bertaruh pada opsi Berlian. Pembayaran akan sama jika hasilnya adalah 1, 2, atau 3 berlian (
+                    <span className={Styles[imgRed]}>♦</span>).
                 </li>
             </ul>
         </>

@@ -68,8 +68,7 @@ const renderGameRule = (maxBet: string | undefined) => {
             </p>
             <ul className="desc">
                 <li>
-                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
-                    <span className={Styles[imgRed]}>♦</span>) in the results.
+                    押注钻石选项。 如果结果中有 1、2 或 3 颗钻石 (<span className={Styles[imgRed]}>♦</span>)，则赔率将相同。
                 </li>
             </ul>
         </>

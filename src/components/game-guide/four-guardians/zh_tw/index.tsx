@@ -572,7 +572,7 @@ const FourGuardiansGuideTW: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        《{gameName}》是一款在線老虎機遊戲，以龍、麒麟、龜、鳳凰四聖獸的傳說為藍本。 遊戲包括 5 個捲軸和 3 行，有 11
+                        {gameName} 是一款在線老虎機遊戲，以龍、麒麟、龜、鳳凰四聖獸的傳說為藍本。 遊戲包括 5 個捲軸和 3 行，有 11
                         個不同的符號。 如果您選擇的同一條支付線上有相同的符號，玩家將獲勝。
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>

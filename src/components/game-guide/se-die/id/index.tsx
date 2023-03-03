@@ -127,7 +127,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
             case 58:
                 return miniSeDieDescription;
             case 22:
-                return "adalah versi lain dari game Se Die dengan batas taruhan yang lebih tinggi.";
+                return "adalah versi lain dari game Se Die dengan batas taruhan yang lebih tinggi. ";
             default:
                 return "adalah permainan populer di negara-negara Asia. ";
         }

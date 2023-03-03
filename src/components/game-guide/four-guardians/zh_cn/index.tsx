@@ -570,9 +570,9 @@ const FourGuardiansGuideCN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
         <>
             <ul className="game-guide">
                 <li className="guide-item">
-                    <h2>Introduction</h2>
+                    <h2>简介</h2>
                     <p className="content">
-                        《{gameName}》是一款在线老虎机游戏，以龙、麒麟、龟、凤凰四圣兽的传说为蓝本。 游戏包括 5 个卷轴和 3 行，有 11
+                        {gameName}是一款在线老虎机游戏，以龙、麒麟、龟、凤凰四圣兽的传说为蓝本。 游戏包括 5 个卷轴和 3 行，有 11
                         个不同的符号。 如果您选择的同一条支付线上有相同的符号，玩家将获胜。
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>

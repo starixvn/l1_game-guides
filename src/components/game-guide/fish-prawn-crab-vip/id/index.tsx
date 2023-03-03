@@ -51,8 +51,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>Pembayaran</h2>
                     <ul className="desc">
                         <li>
-                            Jumlah yang menang dihitung sesuai dengan rasio pembayaran.
-                            <strong>Catatan,</strong> pembayaran termasuk taruhan awal
+                            Jumlah kemenangan dihitung berdasarkan odds taruhan. <b>Catatan,</b> pembayaran termasuk taruhan awal
                         </li>
                         <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
                         <li className="contentBeforeEmpty">

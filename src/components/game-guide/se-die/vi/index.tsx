@@ -130,7 +130,7 @@ const renderPayoutTable = (
                     <thead>
                         <tr>
                             <th>Lựa Chọn</th>
-                            <th>{SeDieMini.includes(gameId) && "Tỷ Lệ "}Trả Thưởng</th>
+                            <th>Tỷ Lệ Trả Thưởng</th>
                             <th className={Styles["bet-limit-width"]}>Giới Hạn Cược (Min - Max)</th>
                         </tr>
                     </thead>

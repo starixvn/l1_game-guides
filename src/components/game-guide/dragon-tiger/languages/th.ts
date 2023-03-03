@@ -9,7 +9,7 @@ export const th: IDragonTigerTranslationResource = {
     introduction: {
         title: "แนะนำ",
         description: {
-            dragonTiger: "มังกร เสือ เป็นเกมไพ่ที่เล่นง่ายคล้ายกับ บาคาร่า ",
+            dragonTiger: "เสือมังกร เป็นเกมไพ่ที่เล่นง่ายคล้ายกับ บาคาร่า ",
             theGame: "เกมนี้เล่นด้วยสำรับไพ่มาตรฐาน 52 ใบหนึ่งสำรับ (ไม่รวม Joker) ",
             thereAre: "มีตัวเลือกการเดิมพัน 3 แบบ: มังกร เสือ และเสมอ",
         },
