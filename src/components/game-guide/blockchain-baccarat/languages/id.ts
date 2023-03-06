@@ -12,7 +12,7 @@ export const id: IBlockchainBaccaratResources = {
         cutCard: {
             header: " Potong Kartu",
             description:
-                "Potong Kartu : kartu khusus digunakan untuk menunjukkan di mana sepatu akan berakhir dan semua kartu akan dikocok ulang. Potong Kartu:  akan dimasukkan di tengah paket kartu (416 kartu) di awal sepatu baru.",
+                "Potong Kartu: kartu khusus digunakan untuk menunjukkan di mana sepatu akan berakhir dan semua kartu akan dikocok ulang. Potong Kartu:  akan dimasukkan di tengah paket kartu (416 kartu) di awal sepatu baru.",
         },
         burnCard: {
             header: "Burn Card",

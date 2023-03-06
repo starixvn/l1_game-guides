@@ -76,7 +76,7 @@ export const id: IKenoTranslationResource = {
         earth: "Bumi",
     },
     md5: {
-        image1: "/static/images/keno-mini/md5_step1_id.png",
+        image1: "/static/images/keno-mini/md5_step1_id.png?v=3",
         image2: "/static/images/keno-mini/md5_step2_id.png",
         note: "Catatan: 237 adalah total poin dari hasil pertandingan.",
     },

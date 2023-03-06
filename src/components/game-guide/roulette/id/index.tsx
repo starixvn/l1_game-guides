@@ -63,7 +63,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Segitiga</td>
+                                    <td>Segi tiga</td>
                                 </tr>
                                 <tr>
                                     <td>Sudut</td>
@@ -191,7 +191,7 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Segitiga: </strong>taruhan pada tiga angka yang berdampingan 0, 1, 2 atau 0, 2, 3<br></br>+
+                                    <strong>Segi tiga: </strong>taruhan pada tiga angka yang berdampingan 0, 1, 2 atau 0, 2, 3<br></br>+
                                     Tempatkan chip Anda di sudut berpotongan (0, 1, dan 2) atau (0, 2, dan 3)
                                 </div>
                             </div>
@@ -408,7 +408,7 @@ const renderCallBetVoisins = (fractionalOddsFormat = false) => {
                     Untuk memainkan taruhan Voisins, sembilan chip akan diambil yang ditempatkan pada:
                     <ul className="plus">
                         <li>Lima chip untuk lima Split: (12, 15), (18, 21), (32, 35), (19, 22), (4, 7)</li>
-                        <li>Dua chip untuk Segitiga: (0, 2, 3) </li>
+                        <li>Dua chip untuk Segi tiga: (0, 2, 3) </li>
                         <li>Dua chip untuk Tendangan Sudut: (25, 26, 28, 29)</li>
                     </ul>
                 </li>

@@ -81,8 +81,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>Payouts</h2>
             <ul className="desc">
                 <li>
-                    The winning amount is calculated according to the betting odds. <br></br>
-                    <strong>Note:</strong> the payouts include the initial stake.
+                    The winning amount is calculated according to the betting odds.
+                    <strong> Note:</strong> the payouts include the initial stake.
                 </li>
                 <li>
                     All winning amounts are instantly added to your account balance when bets are settled.

@@ -139,7 +139,9 @@ export default class SicBoTemplate extends React.Component<
                                 <th className={Styles["bet-option-width"]}>{table.options}</th>
                                 <th className={Styles["bet-choice-width"]}>{table.choices}</th>
                                 <th>{table.odds}</th>
-                                <th className={Styles["bet-limit-width"]}>{table.betLimit}</th>
+                                <th className={Styles["bet-limit-width"]}>
+                                    <Markup content={table.betLimit} />
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

@@ -492,7 +492,6 @@ const renderCallBetZero = (fractionalOddsFormat = false) => {
                         <li>Three chips for three Splits (0, 3), (12, 15), (32, 35)</li>
                     </ul>
                 </li>
-                <li>Người chơi chọn mệnh giá chip và nhấp vào Zero, một lần đặt cược sẽ tốn 4 chip cho 3 cược đôi và 1 cược đơn.</li>
             </ul>
             <p>
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:

@@ -256,7 +256,7 @@ const KenoProMaxGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} Max adalah permainan angka yang sangat populer yang dimainkan di seluruh dunia. Permainan ini dimainkan
+                        {gameName} adalah permainan angka yang sangat populer yang dimainkan di seluruh dunia. Permainan ini dimainkan
                         dengan 20 bola bernomor yang diambil secara acak dari 80 bola bernomor mulai dari 1 hingga 80. Pemain memasang
                         taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Jumlah total dari 20 bola bernomor
                         yang ditarik akan menentukan menang atau kalah pemain.

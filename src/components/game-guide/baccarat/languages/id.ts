@@ -8,7 +8,7 @@ export const baccaratResourcesId: IBaseBaccaratResources = {
         introduction: {
             header: "Perkenalan",
             content:
-                "Baccarat adalah salah satu permainan kartu yang paling sering dimainkan di kasino. Permainan ini dimainkan dengan satu dek 52 kartu standar (tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
+                "Bakarat adalah salah satu permainan kartu yang paling sering dimainkan di kasino. Permainan ini dimainkan dengan satu dek 52 kartu standar (tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
         },
     },
     gameRules: {

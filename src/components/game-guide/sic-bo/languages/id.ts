@@ -41,7 +41,7 @@ export const id: ISicBoTranslationResource = {
         choices: "Pilihan",
         description: "Keterangan",
         odds: "Odds",
-        betLimit: "Batas Taruhan (Min - Maks)",
+        betLimit: "Batas Taruhan <br/> (Min - Maks)",
         big: "Besar",
         small: "Kecil",
         anyTriple: "Triple apa saja",

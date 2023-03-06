@@ -82,8 +82,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>Trả Thưởng</h2>
             <ul className="desc">
                 <li>
-                    Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả. <br></br>
-                    <strong>Lưu ý:</strong> Tiền thắng đã bao gồm tiền cược.
+                    Hệ thống sẽ tiến hành trả thưởng ngay khi phiên chơi có kết quả.
+                    <strong> Lưu ý:</strong> Tiền thắng đã bao gồm tiền cược.
                 </li>
                 <div className="table-container">
                     <table className="table text-center table-small">

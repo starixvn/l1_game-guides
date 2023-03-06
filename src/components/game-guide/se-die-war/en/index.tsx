@@ -281,7 +281,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                         {gameName} is a special version of the Se Die game. The game consists of 2 sets of buttons, one for the Banker and
                         one for the Player. Each set includes 4 colored buttons, in which, each button has two sides colored in red and
                         white. Players place bets on one or more betting options shown on the game table. The game determines the win or
-                        loss based on the number of red or white sites faced up in the result
+                        loss based on the number of red or white sites faced up in the result.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>

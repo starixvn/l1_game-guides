@@ -70,8 +70,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>赔付</h2>
             <ul className="desc">
                 <li>
-                    贏奖金额根据投注赔率计算。 <br></br>
-                    <strong>注意：</strong>赔付包括初始本金。
+                    贏奖金额根据投注赔率计算。
+                    <strong> 注意：</strong>赔付包括初始本金。
                 </li>
                 <li>
                     投注结算后，所有获胜金额都会立即添加到您的账户余额中。

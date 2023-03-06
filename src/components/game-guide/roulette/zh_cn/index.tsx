@@ -621,7 +621,7 @@ const renderCallBet = (fractionalOddsFormat = false) => {
         <li className="guide-item">
             <h2>跟注</h2>
             <p>
-                跟注或法式投注是特殊的投注选项，它们是一组预定义的投注。 有 5 个选项：Tiers)、Voisins du Zero、Orphelins、Zero、Neighbors。
+                跟注或法式投注是特殊的投注选项，它们是一组预定义的投注。 有 5 个选项：Tiers、Voisins du Zero、Orphelins、Zero、Neighbors。
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>

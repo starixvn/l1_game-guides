@@ -31,7 +31,7 @@ export const cn: ISicBoTranslationResource = {
         choices: "选择",
         description: "描述",
         odds: "赔率",
-        betLimit: "投注限额（最小最大）",
+        betLimit: "投注限额 <br/>（最小最大）",
         big: "大",
         small: "小",
         anyTriple: "任何三倍",

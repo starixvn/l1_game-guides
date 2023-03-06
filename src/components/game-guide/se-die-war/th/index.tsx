@@ -80,7 +80,7 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
     return (
         <>
             <tr>
-                <td rowSpan={9}>{isBanker ? "Banker" : "Player"}</td>
+                <td rowSpan={9}>{isBanker ? "ผู้เจ้ามือ" : "ผู้เล่น"}</td>
                 <td rowSpan={2}>คี่</td>
                 <td>3 แดง 1 ขาว</td>
                 {renderThreeRedOneWhite()}

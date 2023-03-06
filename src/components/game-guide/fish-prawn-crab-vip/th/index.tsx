@@ -52,7 +52,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>ตัวเลือก</th>
                                             <th>เงื่อนไขการชนะ</th>
-                                            <th>อัตราต่อรอง</th>
+                                            <th style={{ width: 200 }}>อัตราต่อรอง</th>
                                             <th className={Styles["min-max-width"]}>
                                                 วงเงินเดิมพัน <br></br>(ต่ำสุด - สูงสุด)
                                             </th>

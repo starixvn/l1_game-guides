@@ -61,7 +61,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Pilihan</th>
                                             <th>Kondisi Kemenangan</th>
-                                            <th>Odds</th>
+                                            <th style={{ width: 150 }}>Odds</th>
                                             <th className={Styles["min-max-width"]}>
                                                 Batas Taruhan <br></br>(Min - Maks)
                                             </th>
@@ -123,7 +123,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             <strong>Simbol Tertentu</strong>
                             <ul className="detail">
                                 <li>Pasang taruhan pada “Ikan” dan hasilnya Ikan, Labu, Kepiting maka pemain menang.</li>
-                                <li>Pasang taruhan pada “Ikan” dan hasilnya Labu, Kepiting, Kepiting maka pemain kalah</li>
+                                <li>Pasang taruhan pada “Ikan” dan hasilnya Labu, Kepiting, Kepiting maka pemain kalah.</li>
                             </ul>
                         </li>
 

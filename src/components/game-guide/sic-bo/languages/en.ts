@@ -40,7 +40,7 @@ export const en: ISicBoTranslationResource = {
         choices: "Choices",
         description: "Description",
         odds: "Odds",
-        betLimit: "Bet Limit (Min-Max)",
+        betLimit: "Bet Limit <br/> (Min-Max)",
         big: "Big",
         small: "Small",
         anyTriple: "Any Triple",

@@ -12,8 +12,8 @@ const renderMd5Tw = (locale?: string) => {
     return (
         <MD5
             locale={locale}
-            step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
-            step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+            step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_tw.png?v=3"}
+            step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_tw.png?v=3"}
             step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
             step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
             note={<div>注：從左到右，&#123;6, 2, 5&#125;分別對應三個骰子的點數。</div>}

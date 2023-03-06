@@ -91,7 +91,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 {environment === ENVIRONMENT.sc && (
                     <MD5
                         locale={props.locale}
-                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_id.png?v=4"}
+                        step1ImageUrl={"/static/images/fish-prawn-crab/md5_step1_id.png?v=5"}
                         step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_id.png?v=4"}
                         step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_en.png?v=4"}
                         step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_en.png?v=4"}

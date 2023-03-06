@@ -81,8 +81,8 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <h2>Pembayaran</h2>
             <ul className="desc">
                 <li>
-                    Jumlah kemenangan dihitung berdasarkan odds taruhan. <br></br>
-                    <strong>Catatan:</strong> pembayaran termasuk taruhan awal.
+                    Jumlah kemenangan dihitung berdasarkan odds taruhan.
+                    <strong> Catatan:</strong> pembayaran termasuk taruhan awal.
                 </li>
                 <li>
                     Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.

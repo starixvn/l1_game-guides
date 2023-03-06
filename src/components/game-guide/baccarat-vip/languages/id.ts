@@ -7,7 +7,7 @@ export const vipBaccaratResourcesId: IBaseBaccaratResources = {
         introduction: {
             header: "Perkenalan",
             content:
-                "VIP Bakarat adalah versi Baccarat yang disempurnakan dengan batas taruhan yang lebih tinggi. Permainan ini dimainkan dengan satu dek 52 kartu standar (tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
+                "VIP Bakarat adalah versi Bakarat yang disempurnakan dengan batas taruhan yang lebih tinggi. Permainan ini dimainkan dengan satu dek 52 kartu standar (tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
         },
     },
 };

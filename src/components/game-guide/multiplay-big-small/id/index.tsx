@@ -9,14 +9,16 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
 
 const renderMd5Id = (locale?: string) => {
-    return <MD5
-        locale={locale}
-        step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
-        step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
-        step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
-        step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
-        note={<div>Catatan: Dari kiri ke kanan, &#123;6, 2, 5&#125; sesuai dengan nilai tiga dadu.</div>}
-    />;
+    return (
+        <MD5
+            locale={locale}
+            step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_id.png?v=3"}
+            step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_id.png?v=3"}
+            step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+            step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+            note={<div>Catatan: Dari kiri ke kanan, &#123;6, 2, 5&#125; sesuai dengan nilai tiga dadu.</div>}
+        />
+    );
 };
 
 const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {

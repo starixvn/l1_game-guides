@@ -1,7 +1,7 @@
 import { ICasinoHoldTranslationResource } from "./types";
 
 const steps = {
-    one: "<b>Step 1</b>: Copy the MD5 Key after pressing the Deal button..",
+    one: "<b>Step 1</b>: Copy the MD5 Key after pressing the Deal button.",
     two: "<b>Step 2</b>: Copy the Result after pressing the Call button.",
     three: "<b>Step 3</b>: Go to {0} and paste the Result into the MD5 box.",
     four: "<b>Step 4</b>: Press the <b>“hash darling, hash!</b>” button and compare the newly generated <strong>MD5 checksum</strong> with the MD5 string in <strong>Step 1</strong>.",

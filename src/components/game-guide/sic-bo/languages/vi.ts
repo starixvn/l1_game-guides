@@ -33,7 +33,7 @@ export const vi: ISicBoTranslationResource = {
         choices: "Lựa chọn",
         description: "Điều kiện thắng",
         odds: "Tỷ lệ trả thưởng",
-        betLimit: "Giới hạn cược (Min - Max)",
+        betLimit: "Giới hạn cược <br/> (Min - Max)",
         big: "Tài",
         small: "Xỉu",
         anyTriple: "Bộ Ba Bất Kỳ",
