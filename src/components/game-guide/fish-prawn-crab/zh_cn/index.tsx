@@ -39,7 +39,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="text">葫芦</div>
                         <div className="text">公鸡</div>
                         <div className="text">鱼</div>
-                        <div className="text">螃蟹</div>
+                        <div className="text">蟹</div>
                         <div className="text">虾</div>
                     </div>
                 </li>
@@ -73,7 +73,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <strong>{numberWithCommas(10 * (odds?.single ?? 0))}</strong>
                                     </li>
                                     <li>
-                                        在“螃蟹”上投注 10 并出现两个螃蟹符号，那么您将获得{" "}
+                                        在“蟹”上投注 10 并出现两个螃蟹符号，那么您将获得{" "}
                                         <strong>{numberWithCommas(10 * (odds?.double ?? 0))}</strong>
                                     </li>
                                 </ul>

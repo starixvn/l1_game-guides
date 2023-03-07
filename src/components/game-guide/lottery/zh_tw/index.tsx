@@ -113,7 +113,7 @@ const renderBettingOptions = () => {
 const BettingOptions4Sets = () => {
     return (
         <>
-            <div className={Styles[exampleTitle]}>a) 4 套</div>
+            <div className={Styles[exampleTitle]}>a) 4套</div>
             <ul className="desc">
                 <li>對兩個數字下注：07、77</li>
                 <li>最終結果：</li>
@@ -238,7 +238,7 @@ const BettingOptionsTail = () => {
 const BettingOptions27Sets = () => {
     return (
         <>
-            <div className={Styles[exampleTitle]}>e) 27 套</div>
+            <div className={Styles[exampleTitle]}>e) 27套</div>
             <ul className="desc">
                 <li>下註四個數字：05、12、77、85</li>
                 <li>最終結果：</li>
@@ -469,13 +469,13 @@ const renderViewStatistic = () => {
                     最近 100 輪每種投注類型的數據統計
                     <ul className={Styles[statsList]}>
                         <li>
-                            <strong>4 套</strong>: 以七等獎成績統計。
+                            <strong>4套</strong>: 以七等獎成績統計。
                         </li>
                         <li>
                             <strong>特別</strong>: 根據特別獎最後2位數字統計。
                         </li>
                         <li>
-                            <strong>27 套</strong>: 以8個獎項27個結果的後2位統計。
+                            <strong>27套</strong>: 以8個獎項27個結果的後2位統計。
                         </li>
                         <li>
                             <strong>頭</strong>: 按特等獎的十位數統計。
@@ -489,7 +489,7 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles[exampleTitle]}>a) 4 套, 特別, 27 套 </div>
+                            <div className={Styles[exampleTitle]}>a) 4套, 特別, 27套 </div>
                             <ul className={Styles[statsList]}>
                                 <li>
                                     出現次數最多的 10 個數字 (<span className={Styles["text-red"]}>以紅色</span>顯示)
@@ -499,7 +499,7 @@ const renderViewStatistic = () => {
                                 </li>
                             </ul>
                             <p className="bold">例子:</p>
-                            <p>投注{`"4 套"`}類型的數據統計</p>
+                            <p>投注{`"4套"`}類型的數據統計</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>44</span>
@@ -507,7 +507,7 @@ const renderViewStatistic = () => {
                                 </div>
                                 <p>在過去的 100 輪比賽中，44 號共有 24 次獲得第 7 名</p>
                             </div>
-                            <p>投注{`"27 套"`}類型的數據統計</p>
+                            <p>投注{`"27套"`}類型的數據統計</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>00</span>

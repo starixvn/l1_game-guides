@@ -27,7 +27,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="text">葫芦</div>
                         <div className="text">公鸡</div>
                         <div className="text">鱼</div>
-                        <div className="text">螃蟹</div>
+                        <div className="text">蟹</div>
                         <div className="text">虾</div>
                     </div>
                 </li>

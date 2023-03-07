@@ -9,7 +9,7 @@ export const id: IDragonTigerTranslationResource = {
     introduction: {
         title: "Perkenalan",
         description: {
-            dragonTiger: "Dragon Tiger adalah permainan kartu sederhana yang mirip dengan Baccarat. ",
+            dragonTiger: "Dragon Tiger adalah permainan kartu sederhana yang mirip dengan Bakarat. ",
             theGame: "Permainan ini dimainkan dengan satu dek standar 52 kartu (tidak termasuk Joker). ",
             thereAre: "Ada 3 pilihan taruhan: Dragon, Tiger, dan Seri.",
         },

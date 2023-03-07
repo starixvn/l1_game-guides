@@ -64,7 +64,7 @@ export const baseBaccaratResourcesId: IBaseBaccaratResources = {
             firstTwoCard: "Dua Kartu Pertama",
             thirdCard: "Kartu Ketiga",
             totals: "Total",
-            basedTotal: "Total Poin Berdasarkan Aturan Baccarat",
+            basedTotal: "Total Poin Berdasarkan Aturan Bakarat",
         },
     },
     thirdCardRules: {

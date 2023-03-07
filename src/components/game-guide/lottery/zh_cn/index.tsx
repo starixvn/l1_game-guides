@@ -469,13 +469,13 @@ const renderViewStatistic = () => {
                     最近 100 轮每种投注类型的数据统计
                     <ul className={Styles[statsList]}>
                         <li>
-                            <strong>4 套</strong>: 以七等奖成绩统计。
+                            <strong>4套</strong>: 以七等奖成绩统计。
                         </li>
                         <li>
                             <strong>特别</strong>: 根据特别奖最后2位数字统计。
                         </li>
                         <li>
-                            <strong>27 套</strong>: 以8个奖项27个结果的后2位统计。
+                            <strong>27套</strong>: 以8个奖项27个结果的后2位统计。
                         </li>
                         <li>
                             <strong>头</strong>: 按特等奖的十位数统计。
@@ -489,7 +489,7 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles[exampleTitle]}>a) 4 套，特殊，27 套</div>
+                            <div className={Styles[exampleTitle]}>a) 4套，特殊，27套</div>
                             <ul className={Styles[statsList]}>
                                 <li>
                                     出现次数最多的 10 个数字 (<span className={Styles["text-red"]}>以红色显示</span>)
@@ -499,7 +499,7 @@ const renderViewStatistic = () => {
                                 </li>
                             </ul>
                             <p className="bold">例子:</p>
-                            <p>投注{`"4 套"`}类型的数据统计</p>
+                            <p>投注{`"4套"`}类型的数据统计</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>44</span>
@@ -507,7 +507,7 @@ const renderViewStatistic = () => {
                                 </div>
                                 <p>在过去的 100 轮比赛中，44 号共有 24 次获得第 7 名</p>
                             </div>
-                            <p>投注{`"27 套"`}类型的数据统计</p>
+                            <p>投注{`"27套"`}类型的数据统计</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>00</span>

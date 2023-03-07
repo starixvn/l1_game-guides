@@ -76,7 +76,7 @@ const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetC
                                     <td>Empat Angka</td>
                                 </tr>
                                 <tr>
-                                    <td>Garis</td>
+                                    <td>Line</td>
                                     <td>{formatOdds(odds?.line, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}

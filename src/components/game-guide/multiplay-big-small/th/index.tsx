@@ -42,7 +42,7 @@ const MultiplayBigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     <h2>กฎของเกม</h2>
                     <ul className="desc">
                         <li>สำหรับแต่ละโต๊ะ ถ้วยลูกเต๋าจะถูกเขย่าเมื่อเริ่มรอบเกมส์</li>
-                        <li>ผู้เล่นสามารถเดิมพันได้ทั้งสูงหรือต่ำ แต่ไม่ใช่ทั้งสองอย่าง</li>
+                        <li>ผู้เล่นสามารถเดิมพันได้ทั้งใหญ่หรือเล็ก แต่ไม่ใช่ทั้งสองอย่าง</li>
                         <ul className="detail">
                             <li>ใหญ่: ผู้เล่นจะชนะถ้าแต้มรวมของลูกเต๋าสามลูก &gt;= 11</li>
                             <li>เล็ก: ผู้เล่นจะชนะหากแต้มรวมของลูกเต๋าสามลูก &lt;= 10</li>
@@ -61,7 +61,7 @@ const MultiplayBigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>การจ่ายเงินสำหรับ สูง, ต่ำ คือ {formatOdds(odds?.big, fractionalOddsFormat)}</li>
+                        <li>การจ่ายเงินสำหรับ ใหญ่ เล็ก คือ {formatOdds(odds?.big, fractionalOddsFormat)}</li>
                         <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน</li>
                         <li>การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>

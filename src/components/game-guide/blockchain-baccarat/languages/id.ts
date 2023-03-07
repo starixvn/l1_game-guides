@@ -6,7 +6,7 @@ export const id: IBlockchainBaccaratResources = {
     introduction: {
         header: "Perkenalan",
         content:
-            "Baccarat Blockchain - permainan kartu dengan Jaminan Keadilan, terobosan baru dengan teknologi blockchain. Permainan ini menggunakan 8 tumpukan kartu (416 kartu tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
+            "Bakarat Blockchain - permainan kartu dengan Jaminan Keadilan, terobosan baru dengan teknologi blockchain. Permainan ini menggunakan 8 tumpukan kartu (416 kartu tidak termasuk Joker). Ada 7 opsi taruhan dan Penumpang dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.",
     },
     extendGameRules: {
         cutCard: {
