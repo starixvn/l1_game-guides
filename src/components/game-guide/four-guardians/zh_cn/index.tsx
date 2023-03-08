@@ -353,7 +353,7 @@ const renderJackpot = () => {
                             </td>
                             <td>
                                 如果已选择的同一条支付线上有 5 个符号，则玩家将赢得头奖。<br></br>
-                                <strong>注: </strong>
+                                <strong>注意: </strong>
                                 玩家将获得 98% 的头奖奖金。
                             </td>
                         </tr>

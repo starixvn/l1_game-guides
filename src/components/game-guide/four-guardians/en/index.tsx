@@ -361,7 +361,7 @@ const renderJackpot = () => {
                                 ></img>
                             </td>
                             <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
+                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that has been
                                 chosen.<br></br>
                                 <strong>Note: </strong>
                                 Player will receive 98% of the Jackpot prize.
@@ -598,8 +598,8 @@ const FourGuardiansGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                     <h2>Introduction</h2>
                     <p className="content">
                         {gameName} is an online slot game, built on the legend story of Four Holy Beasts as Dragon, Qilin, Turtle, and
-                        Phoenix. The game includes 5 reels and 3 rows, with 11 different symbols. Players will win if there are the same
-                        symbols located on the same payline that you have chosen.
+                        Phoenix. The game includes 5 reels and 3 rows, with 11 different symbols. The Player will win if the same symbols
+                        are located on the same payline that has been chosen.
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
                         <img
