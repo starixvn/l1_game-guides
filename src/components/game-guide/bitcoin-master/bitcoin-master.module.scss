@@ -11,6 +11,11 @@
     img {
         width: 100%;
     }
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr 1fr;
+        height: 8rem;
+    }
 }
 .wrapper-binance {
     max-width: 13.8rem;

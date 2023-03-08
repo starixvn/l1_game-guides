@@ -120,6 +120,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -137,6 +138,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -154,6 +156,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -171,6 +174,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -188,6 +192,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -205,6 +210,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -222,6 +228,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -239,6 +246,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -256,6 +264,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -273,6 +282,7 @@ const renderGameRule = (maxBet: string | number | undefined) => {
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>

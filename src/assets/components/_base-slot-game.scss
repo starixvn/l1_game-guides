@@ -17,6 +17,19 @@
     transform: scale(0.9);
 }
 
+.wrapper-img-payline {
+    max-width: 40rem;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 786px) {
+        max-width: 84.4rem;
+    }
+}
+
 .wrapper-list-icon {
     margin: 0 auto;
     max-width: 38.5rem;
@@ -40,7 +53,13 @@
     }
 
     @media (max-width: 576px) {
-        transform: scale(0.9);
+        max-width: 16rem;
+        max-height: 13.5rem;
+        margin: 0;
+
+        img {
+            width: 100%;
+        }
     }
 
     .icon-content-top {
@@ -50,6 +69,10 @@
     .gem-position {
         right: 4.5rem;
         grid-column-gap: 1rem;
+
+        @media (max-width: 576px) {
+            right: 3rem;
+        }
     }
 }
 
@@ -101,6 +124,10 @@
         right: 1.7rem;
         top: 3.7rem;
     }
+
+    @media (max-width: 576px) {
+        right: 3rem;
+    }
 }
 
 .number {
@@ -114,6 +141,10 @@
     &.number-second {
         color: #f3d603;
         text-align: right;
+    }
+
+    @media (max-width: 576px) {
+        font-size: 1.4rem;
     }
 }
 
@@ -192,8 +223,15 @@
 .wrapper-free-spin-ex {
     max-width: 33.3rem;
     max-height: 12.6rem;
-    float: left;
+    display: inline-block;
     margin-right: 1rem;
+}
+
+.wrapper-free-spin-text {
+    display: inline-block;
+    @media (max-width: 576px) {
+        display: block;
+    }
 }
 
 .wrapper-ex-wild {
@@ -203,6 +241,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+
         .wrapper-wild-img {
             margin-right: 1rem !important;
         }
@@ -213,4 +253,39 @@
 }
 .bonus-symbol-width {
     min-width: 13rem;
+}
+
+.guide-flex {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+
+        .guide-img {
+            align-self: center;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .example-symbol .wrapper-icon {
+        max-height: 22rem;
+        > img:first-child {
+            height: 22rem;
+        }
+
+        .icon-content-top {
+            top: 12rem;
+            right: initial;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .customize {
+            left: 50%;
+            top: 4rem;
+            transform: translateX(-50%);
+        }
+    }
 }

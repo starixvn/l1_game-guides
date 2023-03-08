@@ -8,4 +8,8 @@
 
 .options-width {
     min-width: 14rem;
+
+    @media (max-width: 576px) {
+        min-width: 12rem;
+    }
 }

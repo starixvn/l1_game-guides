@@ -1,4 +1,5 @@
-[data-theme="light"] .error-page {
+[data-theme="light"] .error-page,
+[data-theme="info-site"] .error-page {
     --error-page-background: #fff;
     --error-page-text-color: #2aa2d2;
 }

@@ -6,9 +6,11 @@ import { GameGuideProps } from "../../type";
 import { renderPayoutsIconFirstLine, renderPayoutsIconSecondLine, renderIconContentBlack, renderIconContent } from "../en";
 import Styles from "../four-guardians.module.scss";
 import { PROJECTS } from "../../../../common/constants";
+import { isMobile } from "react-device-detect";
 
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
+    const imgMobile = isMobile ? "_mobile" : "";
     return (
         <>
             <h2>Cách chơi</h2>
@@ -21,14 +23,8 @@ const renderGameRule = () => {
                 <li>Mặc định 25 dòng cược cùng mức cược nhỏ nhất sẽ được chọn khi người chơi mở game.</li>
                 <li>
                     Thắng thua trên mỗi dòng cược sẽ được tính dựa trên số lượng các biểu tượng giống nhau nằm trên dòng cược đó.
-                    <div className={Styles["wrapper-img-rectangle"]}>
-                        <img
-                            src={`/static/images/four-guardians/guide_payline.png`}
-                            alt="guide_payline"
-                            width={844}
-                            height={165}
-                            loading="eager"
-                        />
+                    <div className={Styles["wrapper-img-payline"]}>
+                        <img src={`/static/images/four-guardians/guide_payline${imgMobile}.png`} alt="guide_payline" loading="eager" />
                     </div>
                 </li>
             </ul>
@@ -70,7 +66,7 @@ const renderExamplePayouts = (odds: number[][], project: string | undefined) => 
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>
+                            <td rowSpan={3} className={Styles["example-symbol"]}>
                                 {renderIconContent(
                                     true,
                                     "item1",
@@ -152,54 +148,29 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
-            <ul className="desc">
-                <li>
-                    Free Spin hay còn gọi là lượt quay miễn phí, người chơi sẽ nhận được số lượt quay miễn phí tương ứng với số biểu tượng
-                    “Free Spin” quay được.
-                </li>
-                <li>Các biểu tượng “Free Spin” không bắt buộc phải nằm trên cùng một dòng cược.</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>Biểu Tượng</th>
-                            <th> Mô Tả</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item7",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
-                                    " FREE SPINS"
-                                )}
-                            </td>
-                            <td>
-                                Nếu có <strong>5</strong> biểu tượng Free Spin trong kết quả. <br></br> Bạn nhận {odds[7][5]} lượt quay miễn
-                                phí.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nếu có <strong>4</strong> biểu tượng Free Spin trong kết quả. <br></br>Bạn nhận {odds[7][4]} lượt quay miễn
-                                phí.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nếu có <strong>3</strong> biểu tượng Free Spin trong kết quả.<br></br>Bạn nhận {odds[7][3]} lượt quay miễn
-                                phí.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className={Styles["guide-flex"]}>
+                <div className={Styles["guide-img"]}>
+                    {renderIconContentBlack(
+                        "item7",
+                        [
+                            [5, odds[7][5]],
+                            [4, odds[7][4]],
+                            [3, odds[7][3]],
+                        ],
+                        " FREE SPINS"
+                    )}
+                </div>
+                <div className={Styles["guide-text"]}>
+                    <ul className="desc">
+                        <li>
+                            Free Spin hay còn gọi là lượt quay miễn phí, người chơi sẽ nhận được số lượt quay miễn phí tương ứng với số biểu
+                            tượng “Free Spin” quay được.
+                        </li>
+                        <li>Các biểu tượng “Free Spin” không bắt buộc phải nằm trên cùng một dòng cược.</li>
+                    </ul>
+                </div>
             </div>
+
             <p>
                 <strong>Lưu ý: </strong>
             </p>
@@ -210,8 +181,9 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project
-                                    }/guide_example_free_spin.png`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/vi` : project
+                                }/guide_example_free_spin.png`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -241,56 +213,26 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
-            <ul className="desc">
-                <li>
-                    Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus
-                    <img
-                        className={`${Styles["item8"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/item8.png"
-                        alt="item8"
-                    ></img>
-                    quay được.
-                </li>
-                <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>Biểu Tượng</th>
-                            <th> Mô Tả</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item8",
-                                    [
-                                        [5, odds[8][5]],
-                                        [4, odds[8][4]],
-                                        [3, odds[8][3]],
-                                    ],
-                                    " BONUS"
-                                )}
-                            </td>
-                            <td>
-                                Nếu có <strong>5</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][5]} lần mở thưởng.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nếu có <strong>4</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][4]} lần mở thưởng.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Nếu có <strong>3</strong> biểu tượng Bonus trong kết quả.<br></br> Bạn nhận {odds[8][3]} lần mở thưởng.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className={Styles["guide-flex"]}>
+                <div className={Styles["guide-img"]}>
+                    {renderIconContentBlack(
+                        "item8",
+                        [
+                            [5, odds[8][5]],
+                            [4, odds[8][4]],
+                            [3, odds[8][3]],
+                        ],
+                        " BONUS"
+                    )}
+                </div>
+                <div className={Styles["guide-text"]}>
+                    <ul className="desc">
+                        <li>Người chơi sẽ nhận được cơ hội tham gia mở thưởng tương ứng với số biểu tượng Bonus.</li>
+                        <li>Các biểu tượng Bonus không bắt buộc phải nằm trên cùng một dòng cược.</li>
+                    </ul>
+                </div>
             </div>
+
             <p>
                 <strong>Lưu ý: </strong>
             </p>
@@ -301,8 +243,9 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/vi` : project
-                                    }/guide_example_bonus.png`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/vi` : project
+                                }/guide_example_bonus.png`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}

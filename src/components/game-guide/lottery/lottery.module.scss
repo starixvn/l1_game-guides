@@ -129,6 +129,16 @@
             font-size: 1.8rem;
         }
     }
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+[data-theme="info-site"] {
+    .text-white {
+        color: var(--text-color);
+    }
 }
 
 .rule-options-width {

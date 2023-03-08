@@ -67,7 +67,7 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
         return (
             <li>
                 {<Markup content={example.step1Text} />}
-                <img className="format-img auto-center" src={this.props.step1ImageUrl} alt="md5-string" />
+                <img className="format-img auto-center md5-sample" src={this.props.step1ImageUrl} alt="md5-string" />
             </li>
         );
     }
@@ -77,7 +77,7 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
         return (
             <li>
                 {<Markup content={example.step2Text} />}
-                <img className="format-img auto-center" src={this.props.step2ImageUrl} alt="md5-result" />
+                <img className="format-img auto-center md5-sample" src={this.props.step2ImageUrl} alt="md5-result" />
                 <div>{this.props.note}</div>
             </li>
         );

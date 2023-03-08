@@ -284,7 +284,7 @@
 }
 
 [data-theme="info-site"] {
-    --page-background: #fff;
+    --page-background: transparent;
     --primary-color: #ff9a00;
     --text-color: #2c2f3e;
 
@@ -293,8 +293,8 @@
     --scrollbar-thumb-background: #828282;
 
     // font-size
-    --font-size: 1.4rem;
-    --font-size-table: 1.4rem;
+    --font-size: 1.5rem;
+    --font-size-table: 1.5rem;
 
     // dot
     --dot-even-text-color: #828282;
@@ -309,6 +309,11 @@
     --table-header-background: #97b4e8;
     --table-header-color: #2c2f3e;
     --border-line: none;
+
+    html {
+        font-family: "SanFranciscoDisplay", sans-serif !important;
+        font-size: 1.6rem;
+    }
 }
 
 html {
@@ -392,6 +397,10 @@ label {
 
 .sub-section {
     padding-left: 1.6rem;
+
+    @media (max-width: 576px) {
+        padding-left: 0;
+    }
 }
 
 html[data-theme="way-to-goal"] {

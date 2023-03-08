@@ -2,6 +2,7 @@ import React from "react";
 import { GameGuideProps } from "../../type";
 import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, ISlotTranslationResource } from "./types";
+import { isMobile } from "react-device-detect";
 
 export default abstract class SlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -28,6 +29,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
 
     renderGameRule(resource: ISlotTranslationResource, styles: { readonly [key: string]: string }) {
         const gameRuleResource = resource.gameRule;
+        const imgMobile = isMobile ? "_mobile" : "";
+
         return (
             <li className="guide-item">
                 <h2>{gameRuleResource.title}</h2>
@@ -43,14 +46,8 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                         return <li key={index}>{data}</li>;
                     })}
 
-                    <div className={styles["wrapper-img-rectangle"]}>
-                        <img
-                            src={`${this.imageDirectoryName}/guide_payline.png`}
-                            alt="guide_payline"
-                            width={834}
-                            height={159}
-                            loading="eager"
-                        />
+                    <div className={styles["wrapper-img-payline"]}>
+                        <img src={`${this.imageDirectoryName}/guide_payline.png`} alt="guide_payline" loading="eager" />
                     </div>
                 </ul>
             </li>
@@ -83,8 +80,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={params.itemName}
                 ></img>
                 <div
-                    className={`${styles["icon-content-wrapper"]} ${params.isContentTop && styles["icon-content-top"]} ${params.isGem && styles["gem-position"]
-                        }`}
+                    className={`${styles["icon-content-wrapper"]} ${params.isContentTop && styles["icon-content-top"]} ${
+                        params.isGem && styles["gem-position"]
+                    }`}
                 >
                     {dataContent.map((data, index) => {
                         return (
@@ -117,8 +115,9 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                     alt={itemName}
                 ></img>
                 <div
-                    className={`${styles["icon-content-wrapper"]} ${itemName === "item8" ? styles["bonus-position"] : styles["spin-position"]
-                        }`}
+                    className={`${styles["icon-content-wrapper"]} ${
+                        itemName === "item8" ? styles["bonus-position"] : styles["spin-position"]
+                    }`}
                 >
                     {dataContent.map((data, index) => {
                         return (
@@ -292,7 +291,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                         </thead>
                         <tbody>
                             <tr>
-                                <td rowSpan={3}>
+                                <td rowSpan={3} className={styles["example-symbol"]}>
                                     {this.renderIconContent(
                                         [
                                             [5, odds[1][5]],
@@ -365,30 +364,26 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
         return (
             <li className="guide-item">
                 <h2>{freeSpinResource.title}</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                {this.renderIconContentBlack(
-                                    "item7",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
-                                    " FREE SPINS",
-                                    styles
-                                )}
-                            </td>
-                            <td>
-                                <ul className="desc">
-                                    <li>{freeSpinResource.description1}</li>
-                                    <li>{freeSpinResource.description2}</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className={styles["guide-flex"]}>
+                    <div className={styles["guide-img"]}>
+                        {this.renderIconContentBlack(
+                            "item7",
+                            [
+                                [5, odds[7][5]],
+                                [4, odds[7][4]],
+                                [3, odds[7][3]],
+                            ],
+                            " FREE SPINS",
+                            styles
+                        )}
+                    </div>
+                    <div className={styles["guide-text"]}>
+                        <ul className="desc">
+                            <li>{freeSpinResource.description1}</li>
+                            <li>{freeSpinResource.description2}</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <ul className="desc">
                     <li>
@@ -404,7 +399,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                                 />
                             </div>
 
-                            <span>{freeSpinResource.thereAre4}</span>
+                            <span className={styles["wrapper-free-spin-text"]}>{freeSpinResource.thereAre4}</span>
                         </div>
                     </li>
                     <li className="clear-both">{freeSpinResource.lastFreespin}</li>
@@ -419,30 +414,26 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
         return (
             <li className="guide-item">
                 <h2>{bonusResource.title}</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                {this.renderIconContentBlack(
-                                    "item8",
-                                    [
-                                        [5, odds[8][5]],
-                                        [4, odds[8][4]],
-                                        [3, odds[8][3]],
-                                    ],
-                                    " BONUS",
-                                    styles
-                                )}
-                            </td>
-                            <td>
-                                <ul className="desc">
-                                    <li>{bonusResource.description1}</li>
-                                    <li>{bonusResource.description2}</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className={styles["guide-flex"]}>
+                    <div className={styles["guide-img"]}>
+                        {this.renderIconContentBlack(
+                            "item8",
+                            [
+                                [5, odds[8][5]],
+                                [4, odds[8][4]],
+                                [3, odds[8][3]],
+                            ],
+                            " BONUS",
+                            styles
+                        )}
+                    </div>
+                    <div className={styles["guide-text"]}>
+                        <ul className="desc">
+                            <li>{bonusResource.description1}</li>
+                            <li>{bonusResource.description2}</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <ul className="desc">
                     <li>
@@ -458,7 +449,7 @@ export default abstract class SlotGuideTemplate extends React.Component<GameGuid
                                 />
                             </div>
 
-                            <span>
+                            <span className={styles["wrapper-free-spin-text"]}>
                                 {bonusResource.thereAre4} {`“Bonus”`} {bonusResource.eligible}
                             </span>
                         </div>

@@ -155,6 +155,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -172,6 +173,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -189,6 +191,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -206,6 +209,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -223,6 +227,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -240,6 +245,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -257,6 +263,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -274,6 +281,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -291,6 +299,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -308,6 +317,7 @@ class CasinoHoldGuideTemplate<
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>

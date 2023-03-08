@@ -7,6 +7,7 @@ import { GameConfigProps } from "../type";
 import Styles from "../treasure-island.module.scss";
 import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
 import { renderTermsAndConditions } from "../../../shared";
+import { isMobileOnly } from "react-device-detect";
 
 export default abstract class TreasureIslandGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -33,9 +34,8 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                     <strong>{resources.gameRules.totalBet}</strong> {resources.gameRules.paylinesFormular}
                                 </div>
                                 <img
+                                    className="img-responsive"
                                     src={`${imageDirectoryName}/betcontrol-${locale}.jpg?v2`}
-                                    width={610}
-                                    height={343}
                                     alt={"bet-control"}
                                 />
                             </div>
@@ -117,7 +117,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     ))}
                     <div className="center">{resources.payout.baseBetValue}</div>
                     <li>{resources.payout.description2}</li>
-                    <div className="sub-section">
+                    <div className={`${Styles["payout-example"]} sub-section`}>
                         {this.renderPayoutsIconFirstLine(oddDetail, coin, level)}
                         {this.renderPayoutsIconSecondLine(oddDetail, coin, level)}
                         {this.renderExamplePayouts(oddDetail[8], coin, level, resources, imageDirectoryName)}
@@ -156,7 +156,9 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                         </thead>
                         <tbody>
                             <tr>
-                                <td rowSpan={3}>{this.renderIconContent("item8", true, true, symbol, coin, level)}</td>
+                                <td rowSpan={3} className={Styles["example-symbol"]}>
+                                    {this.renderIconContent("item8", true, true, symbol, coin, level)}
+                                </td>
                                 <td>
                                     {<Markup content={table.getHavingSymbol(oddItems[0].countString)} />}{" "}
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
@@ -207,7 +209,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <div className="sub-section">
                         <div>{resources.exampleMultipliers.title}</div>
                         <div className="center">
-                            <img src={`${imageDirectoryName}/reel.jpg?v=4`} alt="tumble-multiplier" width={610} height={362} />
+                            <img className="img-responsive" src={`${imageDirectoryName}/reel.jpg?v=4`} alt="tumble-multiplier" />
                         </div>
                         <div className="table-container text-center">
                             <table className="table text-center table-medium">
@@ -345,10 +347,14 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                 </table>
                             </div>
                             <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                                <img src={`${imageDirectoryName}/freespin-${locale}.jpg?v=4`} alt="freespin" width={610} height={343} />
+                                <img className="img-responsive" src={`${imageDirectoryName}/freespin-${locale}.jpg?v=4`} alt="freespin" />
                             </div>
                             <div className={`${Styles["center"]} ${Styles["line"]}`}>
-                                <img src={`${imageDirectoryName}/tumblewin-${locale}.png?v=4`} alt="tumble-win" width={372} height={69} />
+                                <img
+                                    className="img-responsive"
+                                    src={`${imageDirectoryName}/tumblewin-${locale}.png?v=4`}
+                                    alt="tumble-win"
+                                />
                                 <div className={Styles["tumble-desc"]}>
                                     {tumbleDescriptions.map((desc, index) => (
                                         <div key={index}>{desc}</div>

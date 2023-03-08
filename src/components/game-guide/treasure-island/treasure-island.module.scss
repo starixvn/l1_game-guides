@@ -1,8 +1,12 @@
 @import "../../../assets/components/base-slot-game";
 
-[class*="item"].customize {    
+[class*="item"].customize {
     top: 14%;
     left: -1%;
+
+    @media (max-width: 576px) {
+        left: -8%;
+    }
 }
 
 .scatter {
@@ -105,20 +109,27 @@
 .wrapper-icon {
     .customize {
         transform: scale(0.7);
+        @media (max-width: 576px) {
+            transform: scale(0.45);
+        }
     }
     &-dark .scatter {
         transform: scale(0.54);
         position: absolute;
     }
-    .icon-content{
+    .icon-content {
         grid-template-columns: 5rem 2rem;
     }
     .icon-content-wrapper {
         right: 3.6rem;
+
+        @media (max-width: 576px) {
+            right: 1.9rem;
+        }
     }
 }
 
-.center{
+.center {
     text-align: center;
 }
 .line {
@@ -129,8 +140,12 @@
     display: flex;
     justify-content: space-between;
     padding: 0 20rem;
-    .orange{
-        color: #F3673B;
+    .orange {
+        color: #f3673b;
+    }
+
+    @media (max-width: 576px) {
+        padding: 0;
     }
 }
 .desc-bet-control {
@@ -149,4 +164,46 @@
     }
 }
 
+.payout-example {
+    @media (max-width: 576px) {
+        padding-left: 0;
+    }
+}
 
+@media (max-width: 576px) {
+    .example-symbol .wrapper-icon .customize {
+        transform: translateX(-50%) scale(0.7);
+        top: 14%;
+    }
+    .wrapper-icon-dark {
+        width: 13rem;
+        height: 20rem;
+        margin: 0;
+        transform: scale(1);
+
+        .icon-box {
+            height: 100%;
+            max-height: initial;
+        }
+
+        .scatter {
+            transform: translateX(-50%) scale(0.54);
+            left: 50%;
+        }
+
+        .spin-position {
+            right: unset;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 9.7rem;
+        }
+
+        .free-spin {
+            grid-template-columns: 2.6rem 9rem;
+        }
+
+        span {
+            font-size: 1.2rem;
+        }
+    }
+}

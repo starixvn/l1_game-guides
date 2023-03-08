@@ -1,4 +1,5 @@
 [data-theme="light"] .game-guide,
+[data-theme="info-site"] .game-guide,
 [data-theme="dark"] .game-guide {
     // text-size
     --big-title-font-size: 1.8rem;
@@ -46,6 +47,23 @@
     --big-title-font-size: 2.6rem;
     --title-font-size: 2.4rem;
     --sub-title-font-size: 2.3rem;
+}
+
+[data-theme="info-site"] {
+    --grid-gap-FPC: 0 0.8rem;
+    body {
+        font-family: "SanFranciscoDisplay", sans-serif !important;
+        font-size: 1.6rem;
+    }
+    @media (max-width: 560px) {
+        .md5-sample {
+            width: 100%;
+        }
+    }
+
+    ul li {
+        letter-spacing: 0.5px;
+    }
 }
 
 ul {
@@ -106,6 +124,9 @@ ul {
 
     .content {
         padding-left: 1rem;
+        @media (max-width: 576px) {
+            padding-left: 0;
+        }
     }
 
     .desc {
@@ -122,6 +143,10 @@ ul {
             &.contentBeforeEmpty:before {
                 content: "" !important;
             }
+        }
+
+        @media (max-width: 576px) {
+            padding-left: 0;
         }
     }
 
@@ -321,6 +346,12 @@ ul {
     width: 100%;
 }
 
+.img-responsive {
+    @media (max-width: 567px) {
+        width: 100%;
+    }
+}
+
 // sedie
 %dot {
     position: relative;
@@ -390,6 +421,10 @@ ul {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (max-width: 576px) {
+        width: 100%;
+    }
 }
 
 .red {

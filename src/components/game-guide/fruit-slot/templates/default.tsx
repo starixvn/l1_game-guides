@@ -6,6 +6,7 @@ import Styles from "../fruit-slot.module.scss";
 import { getFruitSlotTranslationResource } from "../languages";
 import { IFruitSlotTranslationResource } from "../languages/types";
 import { Markup } from "interweave";
+import { buildVersion } from "../../../../common/constants";
 
 class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> {
     renderIntroduction(translationResource: IFruitSlotTranslationResource, gameName: string) {
@@ -65,7 +66,11 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
 
         return (
             <div className={Styles["wrapper-symbol"]}>
-                <img className={`${Styles[itemName]} ${Styles["icon"]}`} src={`${pathSrc}${symbol}.png?v2`} alt={symbol}></img>
+                <img
+                    className={`${Styles[itemName]} ${Styles["icon"]}`}
+                    src={`${pathSrc}${symbol}.png?v=${buildVersion}`}
+                    alt={symbol}
+                ></img>
                 <span>1:{odds?.[itemName]}</span>
             </div>
         );
@@ -78,7 +83,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                 <div className={Styles["symbol-container"]}>
                     <div className={Styles["symbol-group"]}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -91,7 +96,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     </div>
                     <div className={Styles["symbol-group"]}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -104,7 +109,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     </div>
                     <div className={Styles["symbol-group"]}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -117,7 +122,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     </div>
                     <div className={Styles["symbol-group"]}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -128,9 +133,9 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                             {this.renderItemSymbol(locales, odds, "bell3", false)}
                         </div>
                     </div>
-                    <div className={Styles["symbol-group"]}>
+                    <div className={`${Styles["symbol-group"]} ${Styles["fix-height"]}`}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -141,9 +146,9 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                             {this.renderItemSymbol(locales, odds, "watermelon3", false)}
                         </div>
                     </div>
-                    <div className={Styles["symbol-group"]}>
+                    <div className={`${Styles["symbol-group"]} ${Styles["fix-height"]}`}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -156,7 +161,7 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     </div>
                     <div className={`${Styles["symbol-group"]} ${Styles["fix-height"]}`}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
@@ -167,9 +172,9 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                             {this.renderItemSymbol(locales, odds, "tripleSeven3", false)}
                         </div>
                     </div>
-                    <div className={Styles["symbol-group"]}>
+                    <div className={`${Styles["symbol-group"]} ${Styles["bar-height"]}`}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_3item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_3item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={284}
                             alt={"gameguide_2item_bg"}
@@ -183,13 +188,14 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
                     </div>
                     <div className={`${Styles["symbol-group"]} ${Styles["fix-height"]}`}>
                         <img
-                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v1`}
+                            src={`/static/images/fruit-slot/gameguide_2item_bg.png?v=${buildVersion}`}
                             width={272}
                             height={190}
                             alt={"gameguide_2item_bg"}
                             loading="eager"
+                            className={Styles["icon-bigsmall"]}
                         />
-                        <div className={Styles["icon-wrapper"]}>
+                        <div className={`${Styles["icon-wrapper"]}`}>
                             {this.renderItemSymbol(locales, odds, "big", true)}
                             {this.renderItemSymbol(locales, odds, "small", true)}
                         </div>

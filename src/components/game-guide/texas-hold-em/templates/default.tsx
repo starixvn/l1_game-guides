@@ -115,6 +115,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -132,6 +133,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -149,6 +151,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -166,6 +169,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -183,6 +187,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -200,6 +205,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -217,6 +223,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -234,6 +241,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -251,6 +259,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -268,6 +277,7 @@ const renderGameRule = (maxBet: string | number | undefined, language: TexasHold
                                                                 width={275}
                                                                 height={65}
                                                                 loading="eager"
+                                                                className={Styles["card-sample"]}
                                                             />
                                                         </span>
                                                     </td>
@@ -759,8 +769,8 @@ const renderPayouts = (
                             <thead>
                                 <tr>
                                     <td>{language.payout.Option}</td>
-                                    <td>{language.payout.Odds}</td>
-                                    <td>{language.payout["Bet Limit (Min-Max)"]}</td>
+                                    <td className={Styles["table-width-odds"]}>{language.payout.Odds}</td>
+                                    <td className={Styles["table-width-bet-limit"]}>{language.payout["Bet Limit (Min-Max)"]}</td>
                                 </tr>
                             </thead>
                             <tbody>

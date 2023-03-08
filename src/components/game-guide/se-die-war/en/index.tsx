@@ -271,7 +271,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
-    const pathImg = theme === Themes.light ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
+    const pathImg = theme === Themes.light || Themes.infoSite ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
     return (
         <>
             <ul className="game-guide">

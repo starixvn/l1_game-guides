@@ -43,7 +43,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         crab, rooster, gourd, and stag). The objective of the game is to predict the outcome of the dice roll, players place
                         bets on which symbols will appear.
                     </p>
-                    <div className="icon-wrapper">
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
                         {renderListIcon(theme)}
                         <div className="text">Stag</div>
                         <div className="text">Gourd</div>
@@ -79,7 +79,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Options</th>
                                             <th>Winning Conditions</th>
-                                            <th style={{ width: 150 }}>Odds</th>
+                                            <th className={Styles["odd-width"]}>Odds</th>
                                             <th className={Styles["min-max-width"]}>
                                                 Bet Limit <br></br>(Min - Max)
                                             </th>

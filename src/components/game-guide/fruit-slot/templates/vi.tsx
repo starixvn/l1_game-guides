@@ -100,7 +100,7 @@ export const renderPayoutsTable = (odds: any, locale = "vi") => {
                     {renderItemSymbol(odds, "tripleSeven3", false)}
                 </div>
             </div>
-            <div className={Styles["symbol-group"]}>
+            <div className={`${Styles["symbol-group"]} ${Styles["bar-height"]}`}>
                 <img
                     src={`/static/images/fruit-slot/gameguide_3item_bg.png?v1`}
                     width={272}
@@ -121,6 +121,7 @@ export const renderPayoutsTable = (odds: any, locale = "vi") => {
                     height={190}
                     alt={"gameguide_2item_bg"}
                     loading="eager"
+                    className={Styles["icon-bigsmall"]}
                 />
                 <div className={Styles["icon-wrapper"]}>
                     {renderItemSymbol(odds, "big", true, locale)}

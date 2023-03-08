@@ -1,9 +1,78 @@
 @import "../../../assets/components/base-slot-game";
 
 [data-theme="info-site"] {
-    .wrapper-symbol span {
-        font-size: 2rem;
-        color: #fff;
+    .symbol-group {
+        position: relative;
+        > img {
+            width: 18rem;
+            height: 13rem;
+
+            @media (max-width: 576px) {
+                width: 15rem;
+            }
+        }
+    }
+
+    .wrapper-symbol {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        span {
+            position: absolute;
+            right: 1.2rem;
+            top: -0.7rem;
+            width: 5rem;
+            font-size: 1.7rem;
+            color: #fff;
+        }
+
+        > img {
+            position: absolute;
+            top: -4rem;
+            left: -0.7rem;
+            transform: scale(0.7);
+        }
+    }
+
+    .symbol-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 70rem;
+        justify-content: center;
+    }
+
+    .fix-height,
+    .bar-height {
+        height: 14rem;
+
+        > img {
+            height: 14rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    [data-theme="info-site"] {
+        .symbol-group {
+            // height: 19rem;
+            > img {
+                width: 18rem;
+            }
+        }
+        .wrapper-symbol {
+            span {
+                right: 2.2rem;
+                top: -0.7rem;
+            }
+
+            > img {
+                top: -4rem;
+                left: 0.5rem;
+            }
+        }
     }
 }
 
@@ -64,4 +133,10 @@
 .text-highlight {
     font-weight: 600;
     color: var(--primary-color);
+}
+
+@media (max-width: 576px) {
+    .icon-bigsmall {
+        width: 18rem !important;
+    }
 }

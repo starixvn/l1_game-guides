@@ -133,6 +133,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -150,6 +151,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -167,6 +169,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -184,6 +187,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -201,6 +205,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -218,6 +223,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -235,6 +241,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -252,6 +259,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -269,6 +277,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>
@@ -286,6 +295,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
                                                                     width={275}
                                                                     height={65}
                                                                     loading="eager"
+                                                                    className={Styles["card-sample"]}
                                                                 />
                                                             </span>
                                                         </td>

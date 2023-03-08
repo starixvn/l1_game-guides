@@ -12,20 +12,16 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
+import { isMobile } from "react-device-detect";
 const renderGameRule = (project: string | undefined) => {
+    const imgMobile = isMobile ? "_mobile" : "";
     return (
         <>
             <h2>Game Rules</h2>
             <ul className="desc">
                 {renderGameRuleContent(project)}
-                <div className={Styles["wrapper-img-rectangle"]}>
-                    <img
-                        src={`/static/images/four-guardians/guide_payline.png`}
-                        alt="guide_payline"
-                        width={844}
-                        height={165}
-                        loading="eager"
-                    />
+                <div className={Styles["wrapper-img-payline"]}>
+                    <img src={`/static/images/four-guardians/guide_payline${imgMobile}.png`} alt="guide_payline" loading="eager" />
                 </div>
             </ul>
         </>
@@ -281,7 +277,7 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>
+                            <td rowSpan={3} className={Styles["example-symbol"]}>
                                 {renderIconContent(
                                     true,
                                     "item1",
@@ -378,32 +374,27 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Free Spin</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            {renderIconContentBlack(
-                                "item7",
-                                [
-                                    [5, odds[7][5]],
-                                    [4, odds[7][4]],
-                                    [3, odds[7][3]],
-                                ],
-                                " FREE SPINS"
-                            )}
-                        </td>
-                        <td>
-                            <ul className="desc">
-                                <li>
-                                    Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the
-                                    result.
-                                </li>
-                                <li>The Free Spin symbols do not have to be on the same payline.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className={Styles["guide-flex"]}>
+                <div className={Styles["guide-img"]}>
+                    {renderIconContentBlack(
+                        "item7",
+                        [
+                            [5, odds[7][5]],
+                            [4, odds[7][4]],
+                            [3, odds[7][3]],
+                        ],
+                        " FREE SPINS"
+                    )}
+                </div>
+                <div className={Styles["guide-text"]}>
+                    <ul className="desc">
+                        <li>
+                            Players will receive Free Spins Bonus corresponding to the number of Free Spins symbols having in the result.
+                        </li>
+                        <li>The Free Spin symbols do not have to be on the same payline.</li>
+                    </ul>
+                </div>
+            </div>
 
             <ul className="desc">
                 <li>
@@ -442,29 +433,23 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
             <h2>Bonus</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            {renderIconContentBlack(
-                                "item8",
-                                [
-                                    [5, odds[8][5]],
-                                    [4, odds[8][4]],
-                                    [3, odds[8][3]],
-                                ],
-                                " BONUS"
-                            )}
-                        </td>
-                        <td>
-                            <ul className="desc">
-                                <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
-                                <li>The Bonus symbols do not have to be on the same payline.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className={Styles["guide-img"]}>
+                {renderIconContentBlack(
+                    "item8",
+                    [
+                        [5, odds[8][5]],
+                        [4, odds[8][4]],
+                        [3, odds[8][3]],
+                    ],
+                    " BONUS"
+                )}
+            </div>
+            <div className={Styles["guide-text"]}>
+                <ul className="desc">
+                    <li>Having 3, 4, or 5 Bonus symbols appearing anywhere in the result will trigger the Bonus Game.</li>
+                    <li>The Bonus symbols do not have to be on the same payline.</li>
+                </ul>
+            </div>
 
             <ul className="desc">
                 <li>

@@ -3,6 +3,10 @@
 %item {
     max-width: 10rem;
     max-height: 10rem;
+    @media (max-width: 576px) {
+        max-width: 7rem;
+        max-height: 7rem;
+    }
 }
 
 .item0 {
@@ -10,6 +14,10 @@
     &.customize {
         top: 13%;
         left: 5%;
+        @media (max-width: 576px) {
+            top: 20%;
+            left: 10%;
+        }
     }
 }
 .item1 {
@@ -17,6 +25,10 @@
     &.customize {
         top: 13%;
         left: 7%;
+        @media (max-width: 576px) {
+            top: 20%;
+            left: 10%;
+        }
     }
 }
 .item2 {
@@ -24,6 +36,10 @@
     &.customize {
         top: 14%;
         left: 5%;
+        @media (max-width: 576px) {
+            top: 23%;
+            left: 8%;
+        }
     }
     &.mini {
         max-width: 4.5rem;
@@ -36,6 +52,10 @@
     &.customize {
         top: 13%;
         left: 6%;
+        @media (max-width: 576px) {
+            top: 23%;
+            left: 10%;
+        }
     }
 }
 .item4 {
@@ -43,6 +63,11 @@
     &.customize {
         top: 13%;
         left: 8%;
+
+        @media (max-width: 576px) {
+            top: 22%;
+            left: 10%;
+        }
     }
 }
 .item5 {
@@ -50,6 +75,11 @@
     &.customize {
         top: 12%;
         left: 6%;
+
+        @media (max-width: 576px) {
+            top: 22%;
+            left: 10%;
+        }
     }
     &.mini {
         max-width: 4rem;
@@ -62,6 +92,11 @@
     &.customize {
         top: 13%;
         left: 9%;
+
+        @media (max-width: 576px) {
+            top: 22%;
+            left: 10%;
+        }
     }
 }
 .item7 {
@@ -101,6 +136,10 @@
     &.customize {
         top: 13%;
         left: 9%;
+        @media (max-width: 576px) {
+            top: 23%;
+            left: 10%;
+        }
     }
 }
 .item10 {
@@ -108,6 +147,10 @@
     &.customize {
         top: 14%;
         left: 5%;
+        @media (max-width: 576px) {
+            top: 24%;
+            left: 11%;
+        }
     }
 
     &.mini {

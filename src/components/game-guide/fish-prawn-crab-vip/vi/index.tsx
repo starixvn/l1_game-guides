@@ -21,7 +21,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         dẫn.Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt, mỗi mặt sẽ có một biểu tượng (linh vật) ứng với một cửa trên
                         bàn chơi.
                     </p>
-                    <div className="icon-wrapper">
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
                         {renderListIcon(theme)}
                         <div className="text">Nai</div>
                         <div className="text">Bầu</div>
@@ -57,7 +57,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Lựa Chọn</th>
                                             <th>Điều Kiện Thắng</th>
-                                            <th style={{ width: 200 }}>Tỷ Lệ Trả Thưởng</th>
+                                            <th className={Styles["odd-width"]}>Tỷ Lệ Trả Thưởng</th>
                                             <th className={Styles["min-max-width"]}>
                                                 Giới Hạn Cược <br /> (Min - Max)
                                             </th>
