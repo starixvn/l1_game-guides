@@ -130,6 +130,19 @@
     }
 }
 
+[data-theme="info-site"] {
+    .icon-content .text {
+        color: #f3d603;
+    }
+
+    .number {
+        &.number-first,
+        &.number-second {
+            color: #fff;
+        }
+    }
+}
+
 .wild-content-ex {
     grid-template-columns: 12.6rem 1fr;
     align-items: center;

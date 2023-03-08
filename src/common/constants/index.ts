@@ -15,6 +15,7 @@ export const Themes = {
     wayToGoal: "way-to-goal",
     fruitSlot: "fruit-slot",
     fortuneCat: "fortune-cat",
+    infoSite: "info-site",
 };
 
 export const BACKGROUND_THEMES: IObjectKeys = {
@@ -28,6 +29,7 @@ export const BACKGROUND_THEMES: IObjectKeys = {
     [Themes.wayToGoal]: "#11305b",
     [Themes.fruitSlot]: "#2d2c2e",
     [Themes.fortuneCat]: "#060223",
+    [Themes.infoSite]: "#FFF",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si" };

@@ -1,5 +1,12 @@
 @import "../../../assets/components/base-slot-game";
 
+[data-theme="info-site"] {
+    .wrapper-symbol span {
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
 %item {
     max-width: 8.8rem;
     height: auto;
@@ -13,7 +20,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    max-width: 86rem;  
+    max-width: 86rem;
     margin: 0 auto;
     grid-row-gap: 1.5rem;
 }
@@ -29,7 +36,7 @@
     display: flex;
     flex-flow: column;
     bottom: 0;
-    justify-content: space-around;   
+    justify-content: space-around;
 }
 
 .fix-height {
