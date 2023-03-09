@@ -91,7 +91,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         step2ImageUrl={"/static/images/fish-prawn-crab/md5_step2_vi.png?v=4"}
                         step3ImageUrl={"/static/images/fish-prawn-crab/md5_step3_vi.png?v=4"}
                         step4ImageUrl={"/static/images/fish-prawn-crab/md5_step4_vi.png?v=4"}
-                        note={<div>Từ trái sang phải, &#123;3, 1, 2&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
+                        note={<div>Từ trái sang phải, &#123;3, 1, 2&#125; sẽ tương ứng với giá trị được gán cho từng biểu tượng xuất hiện trên ba viên xúc xắc.</div>}
                     />
                 )}
                 <BaseTermsAndConditions resources={baseTermAndConditionVi} />
