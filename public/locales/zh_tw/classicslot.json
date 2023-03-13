@@ -3,7 +3,7 @@
     "Common-symbol": "符號",
     "Common-description": "描述",
     "Introduction-title": "簡介",
-    "Introduction-content": "《{{gameName}}》 是一款在線老虎機遊戲，具有吸引人的遊戲玩法和引人入勝的畫面。該遊戲包括 5 個捲軸和 3 行，帶有 11 個不同的符號。如果相同的符號位於已選擇的同一條支付線上，則玩家將獲勝。",
+    "Introduction-content": "“{{gameName}}” 是一款在線老虎機遊戲，具有吸引人的遊戲玩法和引人入勝的畫面。該遊戲包括 5 個捲軸和 3 行，帶有 11 個不同的符號。如果相同的符號位於已選擇的同一條支付線上，則玩家將獲勝。",
     "GameRule-title": "遊戲規則",
     "GameRule-totalBet": "<strong>總投注</strong> = 支付線 * 投注水平",
     "GameRule-line-1": "玩家在按下“旋轉”之前選擇支付線（線）並設置您要下注的下注級別。",

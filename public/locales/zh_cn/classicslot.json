@@ -3,7 +3,7 @@
     "Common-symbol": "符号",
     "Common-description": "描述",
     "Introduction-title": "简介",
-    "Introduction-content": "《{{gameName}}》 是一款在线老虎机游戏，具有吸引人的游戏玩法和引人入胜的画面。 该游戏包括 5 个卷轴和 3 行，带有 11 个不同的符号。 如果相同的符号位于已选择的同一条支付线上，则玩家将获胜。",
+    "Introduction-content": "“{{gameName}}” 是一款在线老虎机游戏，具有吸引人的游戏玩法和引人入胜的画面。 该游戏包括 5 个卷轴和 3 行，带有 11 个不同的符号。 如果相同的符号位于已选择的同一条支付线上，则玩家将获胜。",
     "GameRule-title": "游戏规则",
     "GameRule-totalBet": "<strong>总投注</strong> = 支付线 * 投注水平",
     "GameRule-line-1": "玩家在按下“旋转”之前选择支付线（线）并设置您要下注的下注级别。",
