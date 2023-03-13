@@ -4,12 +4,13 @@ import MultiplayBigSmallGuideEN from "./en";
 import MultiplayBigSmallGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import MultiplayBigSmallGuideID from "./id";
 import MultiplayBigSmallGuideTH from "./th";
 import MultiplayBigSmallGuideCN from "./zh_cn";
 import MultiplayBigSmallGuideTW from "./zh_tw";
+import { getGameConfigProject } from "../../index.helper";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -59,27 +60,28 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
 
     const resource = {
         gameConfigs: configs,
-        gameName: gameNameTranslate,  
+        gameName: gameNameTranslate,
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
-        environment,       
+        environment,
         fractionalOddsFormat,
+        locale,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <MultiplayBigSmallGuideVI {...resource} />
+            return <MultiplayBigSmallGuideVI {...resource} />;
         case locales.id:
-            return <MultiplayBigSmallGuideID {...resource} />
+            return <MultiplayBigSmallGuideID {...resource} />;
         case locales.th:
-            return <MultiplayBigSmallGuideTH {...resource} />
+            return <MultiplayBigSmallGuideTH {...resource} />;
         case locales.zh_cn:
             return <MultiplayBigSmallGuideCN {...resource} />;
         case locales.zh_tw:
             return <MultiplayBigSmallGuideTW {...resource} />;
 
         default:
-            return <MultiplayBigSmallGuideEN {...resource} />
-    }     
+            return <MultiplayBigSmallGuideEN {...resource} />;
+    }
 };
 export default MultiplayBigSmallGuide;

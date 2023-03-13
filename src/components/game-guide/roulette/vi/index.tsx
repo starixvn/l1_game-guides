@@ -117,7 +117,7 @@ const renderBetChipsNotice = () => {
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text"> Cược Tiers</span>
@@ -182,7 +182,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Orphelins</span>
@@ -254,7 +254,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Voisins</span>
@@ -343,7 +343,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Zero</span>
@@ -409,7 +409,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Cược Neighbors</span>
@@ -481,10 +481,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined, 
-) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Luật chơi</h2>
@@ -493,7 +490,7 @@ const renderBettingOptions = (
                 cược trong là cược vào các ô số cụ thể trên bàn cược. Cược ngoài là người chơi đặt cược vào các lựa chọn như cược Đỏ Đen,
                 Chẵn Lẻ, cược Tá, cược Tài Xỉu, cược Cột.
             </p>
-            {renderGameRuleImage(fractionalOddsFormat, "vi")}  
+            {renderGameRuleImage(fractionalOddsFormat, "vi")}
             {renderBetChipsNotice()}
             <ul className="style-number-dot">
                 <li className="number-dot">
@@ -632,11 +629,7 @@ const renderBettingOptions = (
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Trả thưởng</h2>

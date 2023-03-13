@@ -9,17 +9,16 @@ import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>Pilih nilai chip yang ingin Anda mainkan. Semua taruhan harus diselesaikan sebelum waktu taruhan berakhir.</li>
-                <li>Klik tombol “Konfirmasi” untuk menyelesaikan, atau X untuk mengatur ulang taruhan Anda. Catatan, taruhan yang dikonfirmasi tidak dapat dibatalkan. </li>
+                <li>
+                    Klik tombol “Konfirmasi” untuk menyelesaikan, atau X untuk mengatur ulang taruhan Anda. Catatan, taruhan yang
+                    dikonfirmasi tidak dapat dibatalkan.{" "}
+                </li>
 
                 <li>
                     Setelah waktu taruhan habis, roda akan berputar dengan bola menggelinding ke arah yang berlawanan dengan putaran roda.
@@ -27,7 +26,7 @@ const renderGameRule = (
                 <li>Nomor pemenang ditentukan oleh slot tempat bola jatuh.</li>
                 <li>Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.</li>
                 <li>
-                    Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan awal.
+                    Jumlah kemenangan dihitung berdasarkan odds taruhan. <strong>Perhatikan,</strong> Pembayaran termasuk taruhan awal.
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
@@ -35,7 +34,7 @@ const renderGameRule = (
                                     <th>Jenis Taruhan</th>
                                     <th>Pembayaran</th>
                                     <th>
-                                        Batas Taruhan  <br></br> (Min-Maks)
+                                        Batas Taruhan <br></br> (Min-Maks)
                                     </th>
                                     <th>Jumlah Taruhan Maksimum Per Putaran</th>
                                 </tr>
@@ -64,7 +63,7 @@ const renderGameRule = (
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Segitiga</td>
+                                    <td>Segi tiga</td>
                                 </tr>
                                 <tr>
                                     <td>Sudut</td>
@@ -77,7 +76,7 @@ const renderGameRule = (
                                     <td>Empat Angka</td>
                                 </tr>
                                 <tr>
-                                    <td>Garis</td>
+                                    <td>Line</td>
                                     <td>{formatOdds(odds?.line, fractionalOddsFormat)}</td>
                                     <td>
                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetLine}
@@ -116,10 +115,7 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -135,7 +131,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Straight Up:</strong> taruhan pada nomor tertentu.<br></br>+ Tempatkan chip Anda langsung di nomor tunggal mana pun (termasuk Nol)
+                                    <strong>Straight Up:</strong> taruhan pada nomor tertentu.<br></br>+ Tempatkan chip Anda langsung di
+                                    nomor tunggal mana pun (termasuk Nol)
                                 </div>
                             </div>
                         </td>
@@ -143,8 +140,9 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Kolom: </strong>taruhan pada semua dua belas angka (tidak termasuk Nol)<br></br>
-                                    + Tempatkan chip Anda di salah satu area bertanda &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34; di akhir kolom. 
+                                    <strong>Kolom: </strong>taruhan pada semua dua belas angka (tidak termasuk Nol)<br></br>+ Tempatkan chip
+                                    Anda di salah satu area bertanda &#34;{formatOdds(odds?.column, fractionalOddsFormat)}&#34; di akhir
+                                    kolom.
                                 </div>
                             </div>
                         </td>
@@ -154,8 +152,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Split: </strong>bertaruh pada dua angka yang bersebelahan, baik horizontal maupun vertikal.<br></br>
-                                    + Tempatkan chip Anda pada garis di antara dua angka apa pun.
+                                    <strong>Split: </strong>bertaruh pada dua angka yang bersebelahan, baik horizontal maupun vertikal.
+                                    <br></br>+ Tempatkan chip Anda pada garis di antara dua angka apa pun.
                                 </div>
                             </div>
                         </td>
@@ -163,8 +161,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Dozen: </strong>taruhan pada dua belas nomor berurutan.<br></br>
-                                    + Tempatkan chip Anda di salah satu dari tiga area bertanda {`"1-12", "13-24" atau "25-36"`}.
+                                    <strong>Dozen: </strong>taruhan pada dua belas nomor berurutan.<br></br>+ Tempatkan chip Anda di salah
+                                    satu dari tiga area bertanda {`"1-12", "13-24" atau "25-36"`}.
                                 </div>
                             </div>
                         </td>
@@ -174,8 +172,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Street: </strong>taruhan pada tiga nomor berurutan yang terletak di baris yang sama.<br></br>
-                                    + Tempatkan chip Anda di tepi luar ketiga angka.
+                                    <strong>Street: </strong>taruhan pada tiga nomor berurutan yang terletak di baris yang sama.<br></br>+
+                                    Tempatkan chip Anda di tepi luar ketiga angka.
                                 </div>
                             </div>
                         </td>
@@ -193,8 +191,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Segitiga: </strong>taruhan pada tiga angka yang berdampingan 0, 1, 2 atau 0, 2, 3<br></br>
-                                    + Tempatkan chip Anda di sudut berpotongan (0, 1, dan 2) atau (0, 2, dan 3)
+                                    <strong>Segi tiga: </strong>taruhan pada tiga angka yang berdampingan 0, 1, 2 atau 0, 2, 3<br></br>+
+                                    Tempatkan chip Anda di sudut berpotongan (0, 1, dan 2) atau (0, 2, dan 3)
                                 </div>
                             </div>
                         </td>
@@ -202,7 +200,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Ganjil/Genap: </strong>bertaruh apakah hasil akhirnya adalah Ganjil atau Genap (tidak termasuk Nol)
+                                    <strong>Ganjil/Genap: </strong>bertaruh apakah hasil akhirnya adalah Ganjil atau Genap (tidak termasuk
+                                    Nol)
                                 </div>
                             </div>
                         </td>
@@ -231,8 +230,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Empat angka: </strong>bertaruh pada empat angka 0, 1, 2, 3 <br></br>
-                                    + Tempatkan chip Anda di sudut berpotongan 0 dan baris 1, 2, 3
+                                    <strong>Empat angka: </strong>bertaruh pada empat angka 0, 1, 2, 3 <br></br>+ Tempatkan chip Anda di
+                                    sudut berpotongan 0 dan baris 1, 2, 3
                                 </div>
                             </div>
                         </td>
@@ -243,8 +242,8 @@ const renderBetChipsNotice = (
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>Line: </strong>taruhan pada dua baris yang berdampingan.<br></br>
-                                    + Tempatkan chip Anda di ujung dua baris di persimpangan di antara mereka.
+                                    <strong>Line: </strong>taruhan pada dua baris yang berdampingan.<br></br>+ Tempatkan chip Anda di ujung
+                                    dua baris di persimpangan di antara mereka.
                                 </div>
                             </div>
                         </td>
@@ -256,14 +255,15 @@ const renderBetChipsNotice = (
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tingkat</span>
             <ul className="desc">
                 <li>Taruhan Tiers termasuk angka 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33 </li>
                 <li>
-                    Untuk memainkan taruhan Tiers, akan diambil enam chip yang ditempatkan pada enam Split: (5, 8), (10, 11), (13, 16), (23, 24), (27, 30), (33, 36)
+                    Untuk memainkan taruhan Tiers, akan diambil enam chip yang ditempatkan pada enam Split: (5, 8), (10, 11), (13, 16), (23,
+                    24), (27, 30), (33, 36)
                 </li>
             </ul>
             <p>
@@ -324,7 +324,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -339,7 +339,8 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
                 </li>
             </ul>
             <p>
-                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan klik opsi Orphelins, akan dikenakan biaya 5 chip untuk pilihan ini:
+                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan klik opsi Orphelins, akan dikenakan biaya 5 chip untuk pilihan
+                ini:
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -397,7 +398,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisin</span>
@@ -407,13 +408,14 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
                     Untuk memainkan taruhan Voisins, sembilan chip akan diambil yang ditempatkan pada:
                     <ul className="plus">
                         <li>Lima chip untuk lima Split: (12, 15), (18, 21), (32, 35), (19, 22), (4, 7)</li>
-                        <li>Dua chip untuk Segitiga: (0, 2, 3) </li>
+                        <li>Dua chip untuk Segi tiga: (0, 2, 3) </li>
                         <li>Dua chip untuk Tendangan Sudut: (25, 26, 28, 29)</li>
                     </ul>
                 </li>
             </ul>
             <p>
-                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan mengklik opsi Voisins, akan dikenakan biaya 9 chip untuk pilihan ini:
+                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan mengklik opsi Voisins, akan dikenakan biaya 9 chip untuk pilihan
+                ini:
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -480,7 +482,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Nol</span>
@@ -492,7 +494,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
                         <li>Satu chip untuk taruhan Lurus (26)</li>
                         <li>Tiga chip untuk tiga Split (0, 3), (12, 15), (32, 35)</li>
                     </ul>
-                </li>                
+                </li>
             </ul>
             <p>
                 <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan klik opsi Nol, akan dikenakan biaya 4 chip untuk pilihan ini:
@@ -547,12 +549,13 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tetangga</span>
             <p>
-                Tetangga dibuat dengan 5 angka, di antaranya satu angka dipilih oleh pemain, bersama dengan dua angka yang terletak di sisi kiri dan kanan angka itu di roda.
+                Tetangga dibuat dengan 5 angka, di antaranya satu angka dipilih oleh pemain, bersama dengan dua angka yang terletak di sisi
+                kiri dan kanan angka itu di roda.
             </p>
             <ul className="desc">
                 <li>Untuk memainkan taruhan Tetangga akan diambil lima chip yang ditempatkan pada 5 taruhan Lurus.</li>
@@ -562,7 +565,8 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
                 <img src="/static/images/roulette/game_guide-neighbors_1.png" alt="game_guide-neighbors_1" loading="lazy" />
             </div>
             <p>
-                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan klik angka 27 untuk taruhan Tetangga, maka akan dikenakan biaya 5 chip untuk lima taruhan Lurus: (36), (13), (27), (6), (34)
+                <strong>Contoh: </strong>Pemain memilih nilai chip 10, dan klik angka 27 untuk taruhan Tetangga, maka akan dikenakan biaya 5
+                chip untuk lima taruhan Lurus: (36), (13), (27), (6), (34)
             </p>
             <div className={Styles[wrapperImg]}>
                 {fractionalOddsFormat ? (
@@ -619,30 +623,28 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined,    
-) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Opsi Taruhan</h2>
             <p>
-                Jenis taruhan Roulette dibagi menjadi dua kategori: taruhan dalam dan taruhan luar. 
-                Taruhan yang dipasang pada angka itu sendiri disebut taruhan dalam (Lurus, Split, Jalan...), sedangkan taruhan yang dipasang di luar bidang angka disebut taruhan luar (Ganjil/Genap, Merah/Hitam, Besar/Kecil, Kolom dan Lusin)
+                Jenis taruhan Roulette dibagi menjadi dua kategori: taruhan dalam dan taruhan luar. Taruhan yang dipasang pada angka itu
+                sendiri disebut taruhan dalam (Lurus, Split, Jalan...), sedangkan taruhan yang dipasang di luar bidang angka disebut taruhan
+                luar (Ganjil/Genap, Merah/Hitam, Besar/Kecil, Kolom dan Lusin)
             </p>
-            {renderGameRuleImage(fractionalOddsFormat, "id")}  
+            {renderGameRuleImage(fractionalOddsFormat, "id")}
             {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
 };
 
-const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Taruhan Panggilan</h2>
             <p>
-                Taruhan Panggilan atau Taruhan Prancis adalah opsi taruhan khusus yang merupakan kumpulan taruhan yang telah ditentukan sebelumnya. 
-                Ada 5 pilihan: Tiers, Voisins du Zero, Orphelins, Zero, Neighbors.
+                Taruhan Panggilan atau Taruhan Prancis adalah opsi taruhan khusus yang merupakan kumpulan taruhan yang telah ditentukan
+                sebelumnya. Ada 5 pilihan: Tiers, Voisins du Zero, Orphelins, Zero, Neighbors.
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
@@ -676,9 +678,10 @@ const RouletteGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} adalah permainan judi yang sederhana namun menarik. Permainan ini dimainkan dengan bola dan roda roulette yang terdiri dari tiga puluh tujuh slot, diberi nomor dari 0 hingga 36.
-                        Setiap slot berwarna merah atau hitam, sedangkan slot “0” berwarna hijau.
-                        Para pemain memprediksi jumlah bola yang akhirnya akan berhenti setelah roda berputar. Jika bola jatuh ke nomor yang Anda pilih, Anda akan menang; jika tidak, Anda kalah.
+                        {gameName} adalah permainan judi yang sederhana namun menarik. Permainan ini dimainkan dengan bola dan roda roulette
+                        yang terdiri dari tiga puluh tujuh slot, diberi nomor dari 0 hingga 36. Setiap slot berwarna merah atau hitam,
+                        sedangkan slot “0” berwarna hijau. Para pemain memprediksi jumlah bola yang akhirnya akan berhenti setelah roda
+                        berputar. Jika bola jatuh ke nomor yang Anda pilih, Anda akan menang; jika tidak, Anda kalah.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>

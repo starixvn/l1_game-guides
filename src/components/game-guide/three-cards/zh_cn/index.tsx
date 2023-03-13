@@ -9,17 +9,14 @@ import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
-    const bet = 10;
-    const winRed = bet * (odds?.red ?? 0);
-    const winDiamonds = bet * (odds?.diamonds ?? 0);
+const renderGameRule = (maxBet: string | undefined) => {
     const imgRed = "img-red";
     return (
         <>
             <h2>游戏规则</h2>
             <ul className="desc">
                 <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
-                <li>所有投注必须在投注时间到期之前进行。请注意，投注无法取消。</li>
+                <li>所有投注必须在投注时间到期之前进行。注意，投注无法取消。</li>
                 <li>下注时间一到，就会翻牌。</li>
                 <li>每轮最大总赌注为 {maxBet}</li>
                 <li>
@@ -71,24 +68,19 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
-                    <span className={Styles[imgRed]}>♦</span>) in the results.
+                    押注钻石选项。 如果结果中有 1、2 或 3 颗钻石 (<span className={Styles[imgRed]}>♦</span>)，则赔率将相同。
                 </li>
             </ul>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>支付</h2>
             <ul className="desc">
-                <li>中奖金额根据派彩率计算。</li>
+                <li>中奖金额根据投注赔率计算。</li>
                 <li>支付包括初始投注。</li>
                 <li>
                     投注结算后，所有中奖金额都会立即添加到您的账户余额中。
@@ -218,7 +210,7 @@ const ThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsCN()}

@@ -9,7 +9,6 @@ import { GameConfigProps } from "../type";
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
-const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
 const renderGameRule = () => {
     return (
@@ -24,6 +23,7 @@ const renderGameRule = () => {
                 </li>
 
                 <li> 25 Paylines are numbered from 1 to 25, and the Player must choose at least one Payline before starting the game.</li>
+                <li>By default, all Paylines with the minimum Bet Level will be selected at the beginning.</li>
                 <li>The Win-loss on each Payline will be calculated based on the number of the same symbols located on that Payline.</li>
                 <div className={Styles["payline-wrapper"]}>
                     <img src={`/static/images/fortune-cat/guide_payline.png`} alt="guide_payline" loading="eager" />
@@ -358,8 +358,8 @@ const renderBonus = (odds: number[][]) => {
 
             <ul className="desc">
                 <li>
-                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols appearing
-                    on the same reel, the system will count as one symbol.
+                    <strong> Note:</strong> The Bonus symbols must appear in different reels. For example, if 2 or 3 Bonus symbols are on
+                    the same reel, the system will count as one symbol.
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img src="/static/images/fortune-cat/guide_example_bonus.png#v4" alt="guide_example_bonus" loading="eager" />
@@ -474,7 +474,7 @@ const FortuneCatGuideEN: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsEN(Styles["guide-item"])}
+                {renderTermsAndConditionsEN()}
             </ul>
         </>
     );

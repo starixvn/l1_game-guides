@@ -2,46 +2,11 @@ import React, { useEffect } from "react";
 import { renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
-import { renderMD5VI } from "../../../shared/md5-count-down-timer/vi";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
 import { renderPromotionNoteVN } from "../../../shared/promotion-note/vi";
 import { formatOdds } from "../../../../helpers/number-helper";
-
-const renderMD5Example = (gameName: string) => {
-    return (
-        <>
-            <div className="content">
-                <strong> Ví dụ:</strong> Kiểm tra tính minh bạch của kết quả trò chơi {gameName}
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>Bước 1:</strong> Copy chuỗi MD5 trước khi công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step1_vi.png?v=3" alt="md5-string" />
-                </li>
-                <li>
-                    <strong>Bước 2:</strong> Copy chuỗi dữ liệu trong mục <strong>Kết Quả</strong> sau khi hệ thống công bố kết quả.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step2_vi.png?v=3" alt="md5-result" />
-                    <div>Từ trái sang phải, &#123;1, 5, 6&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>
-                </li>
-                <li>
-                    <strong>Bước 3:</strong> Truy cập{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step3_vi.png?v=1" alt="hash-darling" />
-                </li>
-                <li>
-                    <strong>Bước 4:</strong> Bấm nút “hash darling, hash!”. So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước
-                    1.
-                    <img className="format-img auto-center" src="/static/images/big-small/md5_step4_vi.png?v=1" alt="md5-checksum" />
-                </li>
-            </ul>
-            <div className="content">Nếu 2 chuỗi trùng khớp, chứng minh kết quả của phiên đó là minh bạch.</div>
-        </>
-    );
-};
+import MD5 from "../../base/md5";
 
 const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
@@ -102,10 +67,14 @@ const BigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPro
                     </ul>
                 </li>
                 {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5VI()}
-                        {renderMD5Example(gameName)}
-                    </li>
+                    <MD5
+                        locale={props.locale}
+                        step1ImageUrl={"/static/images/big-small/md5_step1_vi.png?v=3"}
+                        step2ImageUrl={"/static/images/big-small/md5_step2_vi.png?v=3"}
+                        step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
+                        step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
+                        note={<div>Từ trái sang phải, &#123;6, 5, 2&#125; sẽ tương ứng với giá trị của ba viên xúc xắc.</div>}
+                    />
                 )}
                 {renderTermsAndConditionsVI()}
             </ul>

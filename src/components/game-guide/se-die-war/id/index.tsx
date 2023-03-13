@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-import { renderTermsAndConditionsEN, renderTermsAndConditionsID } from "../../../shared";
+import { renderTermsAndConditionsID } from "../../../shared";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
 import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/id";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
@@ -20,8 +20,8 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>Setelah waktu taruhan telah berakhir, Bowl akan dihapus dan hasilnya akan ditampilkan.</li>
                 <li>Total taruhan maksimum per putaran adalah {maxBet}</li>
                 <li>
-                    Jumlah total taruhan dari semua pemain yang ditampilkan pada setiap opsi taruhan hanya untuk referensi. 
-                    Untuk pasar dan mata uang yang berbeda, totalnya dikonversi berdasarkan tarif internal yang ditetapkan oleh perusahaan.
+                    Jumlah total taruhan dari semua pemain yang ditampilkan pada setiap opsi taruhan hanya untuk referensi. Untuk pasar dan
+                    mata uang yang berbeda, totalnya dikonversi berdasarkan tarif internal yang ditetapkan oleh perusahaan.
                 </li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
@@ -159,16 +159,12 @@ const renderGameRuleTable = (data: string[]) => {
     );
 };
 
-const renderPayouts = (
-    odds: object | any,
-    maxBetFollowChoice: undefined | MaxBetChoicesProps,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBetChoicesProps, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Pembayaran</h2>
             <ul className="desc">
-                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran. Catatan, pembayaran termasuk taruhan awal.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan. Catatan, pembayaran termasuk taruhan awal.</li>
                 <li>
                     Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                     <div className="table-container">
@@ -250,7 +246,7 @@ const renderPayouts = (
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Banker  - 1 Merah</td>
+                                    <td>Banker - 1 Merah</td>
                                 </tr>
                                 <tr>
                                     <td>Banker - 4 Merah</td>
@@ -282,10 +278,10 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} adalah versi khusus dari game Se Die. Permainan ini terdiri dari 2 set tombol, satu untuk Banker dan satu lagi untuk Player. 
-                        Setiap set termasuk 4 tombol berwarna, di mana setiap tombol memiliki dua sisi berwarna merah dan putih. 
-                        Player memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. 
-                        Permainan menentukan menang atau kalah berdasarkan jumlah situs merah atau putih yang dihadapi dalam hasil.
+                        {gameName} adalah versi khusus dari game Se Die. Permainan ini terdiri dari 2 set tombol, satu untuk Banker dan satu
+                        lagi untuk Player. Setiap set termasuk 4 tombol berwarna, di mana setiap tombol memiliki dua sisi berwarna merah dan
+                        putih. Player memasang taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Permainan
+                        menentukan menang atau kalah berdasarkan jumlah situs merah atau putih yang dihadapi dalam hasil.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
@@ -305,7 +301,8 @@ const SeDieGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                             </div>
 
                             <p>
-                                <strong>Catatan</strong>: angka yang ditampilkan dalam putaran statistik adalah total tombol merah yang ada pada hasil Player dan Banker.
+                                <strong>Catatan</strong>: angka yang ditampilkan dalam putaran statistik adalah total tombol merah yang ada
+                                pada hasil Player dan Banker.
                             </p>
                         </li>
                     </ul>

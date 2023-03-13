@@ -5,13 +5,13 @@ import WinThreeCardsGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../index.helper";
 import WinThreeCardsGuideID from "./id";
 import WinThreeCardsGuideTH from "./th";
 import WinThreeCardsGuideZH_CN from "./zh_cn";
 import WinThreeCardsGuideZH_TW from "./zh_tw";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
+import { getGameConfigProject } from "../../index.helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -73,61 +73,27 @@ const WinThreeCardsGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
+        fractionalOddsFormat,
+        locale,
+    };
+
     switch (locale) {
         case locales.vi:
-            return (
-                <WinThreeCardsGuideVI
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideVI {...resource} />;
         case locales.id:
-            return (
-                <WinThreeCardsGuideID
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideID {...resource} />;
         case locales.th:
-            return (
-                <WinThreeCardsGuideTH
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideTH {...resource} />;
         case locales.zh_cn:
-            return (
-                <WinThreeCardsGuideZH_CN
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideZH_CN {...resource} />;
         case locales.zh_tw:
-            return (
-                <WinThreeCardsGuideZH_TW
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideZH_TW {...resource} />;
         default:
-            return (
-                <WinThreeCardsGuideEN
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
+            return <WinThreeCardsGuideEN {...resource} />;
     }
 };
 export default WinThreeCardsGuide;

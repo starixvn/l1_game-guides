@@ -15,7 +15,7 @@ const renderGameRule = (maxBet: string | undefined) => {
             <h2>游戏规则</h2>
             <ul className="desc">
                 <li>选择您想玩的筹码值。 所有投注必须在投注时间结束前完成。</li>
-                <li>请注意，投注无法取消。</li>
+                <li>注意，投注无法取消。</li>
                 <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                 <li>每轮最大总赌注为 {maxBet}</li>
             </ul>
@@ -23,7 +23,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = () => {
     return (
         <li className="guide-item">
             <h2>投注选项</h2>
@@ -115,8 +115,8 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) 4套</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>          
+                <li>对两个数字下注：07、77</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -137,7 +137,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>七等奖的结果中，07号出现了两次。 玩家以双倍赔率赢得 07 号。</p>
         </>
     );
 };
@@ -146,8 +146,8 @@ const BettingOptionsSpecial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) 特别 </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>对三个数字下注：00、62、79 </li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -168,7 +168,7 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>数字 62 与特别奖的最后两位数字相同。 玩家在数字 62 上获胜</p>
         </>
     );
 };
@@ -177,8 +177,8 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) 头</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>投注三个数字：0、6、9</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -200,7 +200,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>数字6与特别奖的十位数相同。 玩家在数字 6 上获胜</p>
         </>
     );
 };
@@ -209,8 +209,8 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) 尾</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>对两个数字下注：0、5</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -231,7 +231,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>所有中选号码都与特奖的个位不同。 玩家输掉赌注。</p>
         </>
     );
 };
@@ -240,8 +240,8 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27套</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>下注四个数字：05、12、77、85</li>
+                <li>最终结果：</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
@@ -363,22 +363,21 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>数字 05 在 27 个结果中出现了两次。 玩家以双倍赔率赢得 05 号。</p>
+            <p>12 号在 27 个结果中出现过一次。 玩家在数字 12 上获胜</p>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>支付</h2>
             <ul className="desc">
-                <li>中奖金额根据派彩率计算。 请注意，支付包括初始投注。</li>
+                <li>中奖金额根据投注赔率计算。</li>
+                <li>
+                    <strong>注意</strong>，支付包括初始投注。
+                </li>
                 <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
             </ul>
             <table className={`table text-center table-medium`}>
@@ -387,7 +386,7 @@ const renderPayouts = (
                         <th colSpan={2}>选项</th>
                         <th>赔率</th>
                         <th>
-                            投注限额 <br></br>（最小最大
+                            投注限额 <br></br>（最小最大)
                         </th>
                         <th className={Styles["payout-max-total-width"]}>每轮最大总赌注</th>
                     </tr>
@@ -470,13 +469,13 @@ const renderViewStatistic = () => {
                     最近 100 轮每种投注类型的数据统计
                     <ul className={Styles[statsList]}>
                         <li>
-                            <strong>4 套</strong>: 以七等奖成绩统计。
+                            <strong>4套</strong>: 以七等奖成绩统计。
                         </li>
                         <li>
                             <strong>特别</strong>: 根据特别奖最后2位数字统计。
                         </li>
                         <li>
-                            <strong>27 套</strong>: 以8个奖项27个结果的后2位统计。
+                            <strong>27套</strong>: 以8个奖项27个结果的后2位统计。
                         </li>
                         <li>
                             <strong>头</strong>: 按特等奖的十位数统计。
@@ -490,7 +489,7 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles[exampleTitle]}>a) 4 套，特殊，27 套</div>
+                            <div className={Styles[exampleTitle]}>a) 4套，特殊，27套</div>
                             <ul className={Styles[statsList]}>
                                 <li>
                                     出现次数最多的 10 个数字 (<span className={Styles["text-red"]}>以红色显示</span>)
@@ -500,7 +499,7 @@ const renderViewStatistic = () => {
                                 </li>
                             </ul>
                             <p className="bold">例子:</p>
-                            <p>投注{`"4 套"`}类型的数据统计</p>
+                            <p>投注{`"4套"`}类型的数据统计</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>44</span>
@@ -508,7 +507,7 @@ const renderViewStatistic = () => {
                                 </div>
                                 <p>在过去的 100 轮比赛中，44 号共有 24 次获得第 7 名</p>
                             </div>
-                            <p>投注{`"27 套"`}类型的数据统计</p>
+                            <p>投注{`"27套"`}类型的数据统计</p>
                             <div className={Styles[resultRow]}>
                                 <div className={Styles[statsResult]}>
                                     <span className={Styles["number"]}>00</span>
@@ -720,7 +719,7 @@ const LotteryGuideZHCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     </ul>
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
-                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderBettingOptions()}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsCN()}

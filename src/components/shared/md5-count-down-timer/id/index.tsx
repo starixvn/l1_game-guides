@@ -34,7 +34,7 @@ export const renderMD5ID = () => {
                         </li>
                         <li>
                             <strong>Langkah 4</strong>: Tekan tombol <strong>“hash darling, hash!”</strong> dan bandingkan rangkaian daftar
-                            periksa MD5 yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.
+                            <b>MD5 checksum</b> yang baru dibuat dengan Kunci MD5 di <strong>Langkah 1</strong>.
                         </li>
                     </ul>
                 </li>

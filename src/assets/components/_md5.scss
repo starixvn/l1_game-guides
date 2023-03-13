@@ -31,14 +31,14 @@
     .copy-box {
         position: relative;
         cursor: pointer;
-        width: 4.3rem;
+        width: 5rem;
         height: 2.4rem;
         .copy-text {
             font-size: 1.4rem;
             position: relative;
             z-index: 2;
             left: 0.5rem;
-            top: 0;
+            top: 0.1rem;
             color: #fff;
             @media (max-width: 576px) {
                 font-size: 1.3rem;

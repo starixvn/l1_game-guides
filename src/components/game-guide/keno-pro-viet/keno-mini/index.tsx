@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
 import { GameGuideBase } from "../../type";
-import { locales } from "../../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoiceKenoPro } from "../../index.helper";
+import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-
-const KenoMiniGuideEN = dynamic(() => import("./en"));
-const KenoMiniGuideVI = dynamic(() => import("./vi"));
-const KenoMiniGuideID = dynamic(() => import("./id"));
-const KenoMiniGuideTH = dynamic(() => import("./th"));
-const KenoMiniGuideZHCN = dynamic(() => import("./zh_cn"));
-const KenoMiniGuideZHTW = dynamic(() => import("./zh_tw"));
+import KenoMiniGuideTemplate from "./templates/default";
+import { getGameConfigProject } from "../../../index.helper";
 
 const gameMini2Id = [15];
 const KenoMiniGuide = (props: GameGuideBase) => {
@@ -71,22 +63,8 @@ const KenoMiniGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         fractionalOddsFormat,
         environment,
+        locale,
     };
-
-    switch (locale) {
-        case locales.vi:
-            return <KenoMiniGuideVI {...resource} />;
-        case locales.id:
-            return <KenoMiniGuideID {...resource} />;
-        case locales.th:
-            return <KenoMiniGuideTH {...resource} />;
-        case locales.zh_cn:
-            return <KenoMiniGuideZHCN {...resource} />;
-        case locales.zh_tw:
-            return <KenoMiniGuideZHTW {...resource} />;
-
-        default:
-            return <KenoMiniGuideEN {...resource} />;
-    }
+    return <KenoMiniGuideTemplate {...resource} />;
 };
 export default KenoMiniGuide;

@@ -20,7 +20,7 @@ export const renderMD5EN = () => {
                     <span className="title-text">MD5 Validation</span>
                     <ul className="desc">
                         <li>
-                            <strong>Step 1</strong>: Copy the <strong>MD5</strong> key before the result is announced.
+                            <strong>Step 1</strong>: Copy the <strong>MD5</strong> Key before the result is announced.
                         </li>
                         <li>
                             <strong>Step 2</strong>: Copy the <strong>Result</strong> after it is published.
@@ -34,7 +34,7 @@ export const renderMD5EN = () => {
                         </li>
                         <li>
                             <strong>Step 4</strong>: Press the <strong>“hash darling, hash!”</strong> button and compare the newly generated
-                            <strong> checksum MD5</strong> string with the MD5 Key in <strong>Step 1</strong>.
+                            <strong> checksum MD5</strong> with the MD5 Key in <strong>Step 1</strong>.
                         </li>
                     </ul>
                 </li>

@@ -8,8 +8,9 @@ import BigSmallGuideZH_CN from "./zh_cn";
 import BigSmallGuideZH_TW from "./zh_tw";
 import { GameGuideBase } from "../type";
 import { locales, IObjectKeys } from "../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import { getGameConfigProject } from "../../index.helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
@@ -68,28 +69,29 @@ const BigSmallGuide = (props: GameGuideBase) => {
     }
     const resource = {
         gameConfigs: configs,
-        gameName: gameNameTranslate,  
+        gameName: gameNameTranslate,
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
+        locale,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <BigSmallGuideVI {...resource} />
+            return <BigSmallGuideVI {...resource} />;
         case locales.id:
-            return <BigSmallGuideID {...resource} />
+            return <BigSmallGuideID {...resource} />;
         case locales.th:
-            return <BigSmallGuideTH {...resource} />
+            return <BigSmallGuideTH {...resource} />;
         case locales.zh_cn:
             return <BigSmallGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <BigSmallGuideZH_TW {...resource} />;
 
         default:
-            return <BigSmallGuideEN {...resource} />
-    }    
+            return <BigSmallGuideEN {...resource} />;
+    }
 };
 export default BigSmallGuide;

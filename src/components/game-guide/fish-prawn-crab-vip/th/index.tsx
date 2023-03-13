@@ -4,30 +4,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
 import Styles from "../fish-prawn-crab-vip.module.scss";
-import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderListIcon } from "../en";
 
-export const renderListIcon = (theme: string | undefined) => {
-    const widthIcon1 = theme === Themes.blue ? 100 : 75;
-    const widthIcon2 = theme === Themes.blue ? 95 : 70;
-    return (
-        <>
-            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
-
-            <img
-                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                alt="crooster"
-                width={widthIcon2}
-                height={widthIcon2}
-                loading="lazy"
-            />
-            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
-        </>
-    );
-};
 const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
@@ -38,7 +17,8 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName} เป็นเวอร์ชั่นปรับปรุงของเกมดั้งเดิม ปลา กุ้ง ปู พร้อมอินเทอร์เฟซกราฟิกใหม่และตัวเลือกการเดิมพันที่มากขึ้น เกมนี้เล่นโดยใช้ลูกเต๋ามาตรฐานสามลูก และลูกเต๋าแต่ละลูกมีสัญลักษณ์เฉพาะหกตัว (ปลา กุ้ง ปู ไก่ น้ำเต้า และกวาง) 
+                        {gameName} เป็นเวอร์ชั่นปรับปรุงของเกมดั้งเดิม ปลา กุ้ง ปู พร้อมอินเทอร์เฟซกราฟิกใหม่และตัวเลือกการเดิมพันที่มากขึ้น
+                        เกมนี้เล่นโดยใช้ลูกเต๋ามาตรฐานสามลูก และลูกเต๋าแต่ละลูกมีสัญลักษณ์เฉพาะหกตัว (ปลา กุ้ง ปู ไก่ น้ำเต้า และกวาง)
                         วัตถุประสงค์ของเกมคือการทำนายผลของการทอยลูกเต๋า ผู้เล่นวางเดิมพันว่าสัญลักษณ์ใดจะปรากฏขึ้น
                     </p>
                     <div className="icon-wrapper">
@@ -54,20 +34,16 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>กฎของเกม</h2>
                     <ul className="desc">
-                        <li>
-                            เลือกมูลค่าชิปที่คุณต้องการเล่น ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม
-                        </li>
+                        <li>เลือกมูลค่าชิปที่คุณต้องการเล่น ผู้เล่นสามารถเดิมพันได้ตั้งแต่หนึ่งตัวเลือกขึ้นไปที่แสดงอยู่บนโต๊ะเกม</li>
                         <li>ต้องวางเดิมพันทั้งหมดก่อนเวลาเดิมพันจะสิ้นสุดลง หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้</li>
-                        <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
+                        <li>เมื่อหมดเวลาการเดิมพัน ถ้วยลูกเต๋าจะถูกลบออกและแสดงผล</li>
                         <li>เงินเดิมพันรวมสูงสุดต่อรอบคือ {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">
                     <h2>การจ่ายเงิน</h2>
                     <ul className="desc">
-                        <li>
-                            จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย โปรดทราบว่าการจ่ายเงินจะรวมเงินเดิมพันเริ่มต้น 
-                        </li>
+                        <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน โปรดทราบว่าการจ่ายเงินจะรวมเงินเดิมพันเริ่มต้น</li>
                         <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
                         <li className="contentBeforeEmpty">
                             <div className="table-container">
@@ -76,9 +52,9 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>ตัวเลือก</th>
                                             <th>เงื่อนไขการชนะ</th>
-                                            <th>อัตราต่อรอง</th>
+                                            <th style={{ width: 200 }}>อัตราต่อรอง</th>
                                             <th className={Styles["min-max-width"]}>
-                                                วงเงินเดิมพัน  <br></br>(ต่ำสุด - สูงสุด)
+                                                วงเงินเดิมพัน <br></br>(ต่ำสุด - สูงสุด)
                                             </th>
                                         </tr>
                                     </thead>
@@ -102,14 +78,16 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td>ภูเขา (ไก่, น้ำเต้า, กวาง)</td>
                                             <td className="text-start">
-                                            วางเดิมพันบนกลุ่มภูเขา 3 สัญลักษณ์ ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่ม Mountain ปรากฏในผลลัพธ์
+                                                วางเดิมพันบนกลุ่มภูเขา 3 สัญลักษณ์ ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่ม
+                                                Mountain ปรากฏในผลลัพธ์
                                             </td>
                                             <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>มหาสมุทร (ปลา กุ้ง ปู)</td>
                                             <td className="text-start">
-                                            วางเดิมพันในกลุ่มมหาสมุทร 3 สัญลักษณ์ ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่มมหาสมุทรปรากฏในผลลัพธ์
+                                                วางเดิมพันในกลุ่มมหาสมุทร 3 สัญลักษณ์
+                                                ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่มมหาสมุทรปรากฏในผลลัพธ์
                                             </td>
                                             <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
                                         </tr>

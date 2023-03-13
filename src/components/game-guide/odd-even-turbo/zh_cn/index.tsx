@@ -20,27 +20,22 @@ const OddEvenTurboGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>游戏规则</h2>
                     <ul className="desc">
-                        <li>The dice cup is shaken at the beginning of the game round.</li>
-                        <li>玩家可以下注大或小，但不能同时下注。</li>
+                        <li>骰杯在游戏开始时摇动。</li>
+                        <li>在下注时间内，玩家可以下注大或小，但不能同时下注。</li>
                         <ul className="detail">
                             <li>单数：如果三个骰子的总点数为奇数，则玩家获胜。 </li>
                             <li>双数：如果三个骰子的总点数为偶数，则玩家获胜。 </li>
                         </ul>
+                        <li>确保你下注一个你觉得合适的金额。 点击确认完成或如果您想重置所有投注，请取消按钮</li>
+                        <li>玩家可以在下注时间到期之前通过使用相同选项再次下注来增加赌注金额。</li>
                         <li>
-                            确保你下注一个你觉得合适的金额。 点击确认完成或如果您想重置所有投注，请取消按钮
+                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}{" "}
+                            之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
                         </li>
-                        <li>
-                            玩家可以在下注时间到期之前通过使用相同选项再次下注来增加赌注金额。
-                        </li>
-                        <li>
-                            最小赌注和最大赌注必须在 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain} 之间，每轮最大总赌注为 {maxBetFollowChoice?.maxBetMain}
-                        </li>
-                        <li>
-                            Once the betting time has expired, the result will be shown. 如果三个骰子的结果与您的赌注相符，则您获胜。
-                        </li>
+                        <li>下注时间结束后，将显示结果。如果三个骰子的结果与您的赌注相符，则您获胜。</li>
                         <li>
                             平衡投注池：如果单和双投注的总金额不同，那么差距金额将退还给拥有最新投注单的玩家。<br></br>
-                            <strong>例子：</strong> 玩家 A 在 单上下注 60，玩家 B 在 双上下注 70， C 在 双上下注 20。 
+                            <strong>例子：</strong> 玩家 A 在 单上下注 60，玩家 B 在 双上下注 70， C 在 双上下注 20。
                             为平衡单数和双数的投注总额，系统将向玩家 C 返还 20 元，向玩家 B 返还 10 元。
                         </li>
                     </ul>
@@ -50,7 +45,7 @@ const OddEvenTurboGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                     <ul className="desc">
                         <li>单, 双的赔率为 {formatOdds(odds?.even, fractionalOddsFormat)}</li>
                         <li>
-                            中奖金额根据派彩率计算。 <strong>請注意,</strong> 支付包括初始投注。
+                            中奖金额根据投注赔率计算。 <strong>注意,</strong> 支付包括初始投注。
                         </li>
                         <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
                     </ul>

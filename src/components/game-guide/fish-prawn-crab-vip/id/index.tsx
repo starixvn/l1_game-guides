@@ -4,30 +4,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
 import Styles from "../fish-prawn-crab-vip.module.scss";
-import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderListIcon } from "../en";
 
-export const renderListIcon = (theme: string | undefined) => {
-    const widthIcon1 = theme === Themes.blue ? 100 : 75;
-    const widthIcon2 = theme === Themes.blue ? 95 : 70;
-    return (
-        <>
-            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
-
-            <img
-                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                alt="crooster"
-                width={widthIcon2}
-                height={widthIcon2}
-                loading="lazy"
-            />
-            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
-        </>
-    );
-};
 const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
@@ -38,9 +17,10 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} adalah versi yang disempurnakan dari permainan tradisional Kepiting Udang Ikan dengan antarmuka grafis baru dan lebih banyak opsi taruhan. 
-                        Permainan ini dimainkan dengan tiga dadu standar, dan setiap dadu berisi enam simbol unik (ikan, udang, kepiting, ayam jago, labu, dan rusa jantan). 
-                        Tujuan permainan ini adalah untuk memprediksi hasil lemparan dadu, pemain memasang taruhan pada simbol mana yang akan muncul.
+                        {gameName} adalah versi yang disempurnakan dari permainan tradisional Kepiting Udang Ikan dengan antarmuka grafis
+                        baru dan lebih banyak opsi taruhan. Permainan ini dimainkan dengan tiga dadu standar, dan setiap dadu berisi enam
+                        simbol unik (ikan, udang, kepiting, ayam jago, labu, dan rusa jantan). Tujuan permainan ini adalah untuk memprediksi
+                        hasil lemparan dadu, pemain memasang taruhan pada simbol mana yang akan muncul.
                     </p>
                     <div className="icon-wrapper">
                         {renderListIcon(theme)}
@@ -56,10 +36,14 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>Aturan Permainan</h2>
                     <ul className="desc">
                         <li>
-                            Pilih nilai chip yang ingin Anda mainkan. Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.
+                            Pilih nilai chip yang ingin Anda mainkan. Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang
+                            ditampilkan di meja permainan.
                         </li>
-                        <li> Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir. Perhatikan, taruhan yang dipasang tidak dapat dibatalkan.</li>
-                        <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
+                        <li>
+                            Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir. Perhatikan, taruhan yang dipasang tidak dapat
+                            dibatalkan.
+                        </li>
+                        <li>Setelah waktu taruhan berakhir, cangkir dadu akan dihapus dan hasilnya ditampilkan.</li>
                         <li>Total taruhan maksimum per putaran adalah {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
@@ -67,8 +51,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     <h2>Pembayaran</h2>
                     <ul className="desc">
                         <li>
-                            Jumlah yang menang dihitung sesuai dengan rasio pembayaran. 
-                            <strong>Catatan,</strong> pembayaran termasuk taruhan awal
+                            Jumlah kemenangan dihitung berdasarkan odds taruhan. <b>Catatan,</b> pembayaran termasuk taruhan awal
                         </li>
                         <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
                         <li className="contentBeforeEmpty">
@@ -78,9 +61,9 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Pilihan</th>
                                             <th>Kondisi Kemenangan</th>
-                                            <th>Odds</th>
+                                            <th style={{ width: 150 }}>Odds</th>
                                             <th className={Styles["min-max-width"]}>
-                                                Batas Taruhan  <br></br>(Min - Maks)
+                                                Batas Taruhan <br></br>(Min - Maks)
                                             </th>
                                         </tr>
                                     </thead>
@@ -104,20 +87,24 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <td>Gunung (Ayam, Labu, Rusa)</td>
                                             <td className="text-start">
-                                                Pasang taruhan pada grup 3 simbol Gunung. Pemain akan menang jika memiliki setidaknya dua simbol dari grup Gunung muncul di hasil.
+                                                Pasang taruhan pada grup 3 simbol Gunung. Pemain akan menang jika memiliki setidaknya dua
+                                                simbol dari grup Gunung muncul di hasil.
                                             </td>
                                             <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Laut (Ikan, Udang, Kepiting)</td>
                                             <td className="text-start">
-                                                Pasang taruhan pada kelompok Ocean dari 3 simbol. Pemain akan menang jika memiliki setidaknya dua simbol dari grup Samudra muncul di hasil.
+                                                Pasang taruhan pada kelompok Ocean dari 3 simbol. Pemain akan menang jika memiliki
+                                                setidaknya dua simbol dari grup Samudra muncul di hasil.
                                             </td>
                                             <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
                                         </tr>
                                         <tr>
                                             <td>Triple Apa Saja</td>
-                                            <td className="text-start">Untuk memenangkan taruhan ini, ketiga dadu harus menunjukkan simbol yang sama.</td>
+                                            <td className="text-start">
+                                                Untuk memenangkan taruhan ini, ketiga dadu harus menunjukkan simbol yang sama.
+                                            </td>
                                             <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
                                             <td>
                                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
@@ -136,7 +123,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             <strong>Simbol Tertentu</strong>
                             <ul className="detail">
                                 <li>Pasang taruhan pada “Ikan” dan hasilnya Ikan, Labu, Kepiting maka pemain menang.</li>
-                                <li>Pasang taruhan pada “Ikan” dan hasilnya Labu, Kepiting, Kepiting maka pemain kalah</li>
+                                <li>Pasang taruhan pada “Ikan” dan hasilnya Labu, Kepiting, Kepiting maka pemain kalah.</li>
                             </ul>
                         </li>
 
@@ -150,7 +137,9 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>
                             <strong>Triple Apa Saja</strong>
                             <ul className="detail">
-                                <li>Pasang taruhan pada pilihan Any Triple dan hasilnya Kepiting, Kepiting, Kepiting maka pemain menang.</li>
+                                <li>
+                                    Pasang taruhan pada pilihan Any Triple dan hasilnya Kepiting, Kepiting, Kepiting maka pemain menang.
+                                </li>
                             </ul>
                         </li>
                     </ul>

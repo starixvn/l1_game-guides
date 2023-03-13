@@ -9,8 +9,8 @@ import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedO
 import { formatOdds } from "../../../../helpers/number-helper";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderMD5EN } from "../../../shared/md5-count-down-timer/en";
-import { renderPromotionNoteEN } from "../../../shared/promotion-note/en";
+import MD5 from "../../base/md5";
+import { renderPromotionNoteID } from "../../../shared/promotion-note/id";
 
 const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
     return (
@@ -18,13 +18,15 @@ const renderGameRule = (maxBetMain: number | string, gameId = 0) => {
             <h2>Aturan Permainan</h2>
             <ul className="desc">
                 <li>
-                    Kancing diletakkan di atas piring dan ditutup dengan mangkuk. Dealer akan mengambil piring dan mengocoknya ketika piring masih tertutup mangkuk. Para pemain memasang taruhan mereka dan pilihan taruhannya adalah:
+                    Kancing diletakkan di atas piring dan ditutup dengan mangkuk. Dealer akan mengambil piring dan mengocoknya ketika piring
+                    masih tertutup mangkuk. Para pemain memasang taruhan mereka dan pilihan taruhannya adalah:
                 </li>
 
                 <li className="contentBeforeEmpty">{renderGameRuleTable(gameId)}</li>
                 <li>Setelah waktu taruhan berakhir, dealer mengeluarkan mangkuk dari piring dan hasilnya akan ditampilkan.</li>
                 <li>
-                Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Semua taruhan harus ditempatkan sebelum waktu taruhan berakhir.
+                    Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Semua taruhan harus
+                    ditempatkan sebelum waktu taruhan berakhir. Catatan, taruhan yang dipasang tidak dapat dibatalkan.
                 </li>
                 <li>Total taruhan maksimum per putaran adalah {maxBetMain}</li>
             </ul>
@@ -91,55 +93,18 @@ const renderStatistical = () => {
     );
 };
 
-const renderMD5Example = (gameName: string, gameId: any) => {
+const renderMd5 = (gameId: any, locale?: string) => {
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
 
     return (
-        <>
-            <div className="content">
-                <strong> Example:</strong> check the authenticity and transparency of {gameName} game results
-            </div>
-            <ul className="desc">
-                <li>
-                    <strong>Step 1:</strong> Copy the MD5 Key before the result is announced.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step1_id.png?v=5`}
-                        alt="md5-string"
-                    />
-                </li>
-                <li>
-                    <strong>Step 2:</strong> Copy the Result after the system publishes the buttons’ result.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step2_id.png?v=5`}
-                        alt="md5-result"
-                    />
-                    <div>Note: Red and white correspond to two sides of the button.</div>
-                </li>
-                <li>
-                    <strong>Step 3:</strong> Go to{" "}
-                    <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                        https://md5.services/
-                    </a>{" "}
-                    and paste the Result into the MD5 box.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step3_en.png?v=2`}
-                        alt="hash-darling"
-                    />
-                </li>
-                <li>
-                    <strong>Step 4:</strong> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with
-                    the MD5 string in Step 1.
-                    <img
-                        className="format-img auto-center"
-                        src={`/static/images/${currentGameType}/md5_step4_en.png?v=2`}
-                        alt="md5-checksum"
-                    />
-                </li>
-            </ul>
-        </>
+        <MD5
+            locale={locale}
+            step1ImageUrl={`/static/images/${currentGameType}/md5_step1_id.png?v=5`}
+            step2ImageUrl={`/static/images/${currentGameType}/md5_step2_id.png?v=5`}
+            step3ImageUrl={`/static/images/${currentGameType}/md5_step3.png?v=2`}
+            step4ImageUrl={`/static/images/${currentGameType}/md5_step4.png?v=2`}
+            note={<div>Catatan: Merah dan putih sesuai dengan dua sisi tombol.</div>}
+        />
     );
 };
 
@@ -149,20 +114,20 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
-    
+
     const gameDescription = (environment: string = ENVIRONMENT.sc) => {
         const miniSeDieDescription =
             environment === ENVIRONMENT.sm
                 ? "is a compact version of Se Die game with fewer betting options. "
-                : " -  a new version with “Multiplay” feature that allows you to play 4 tables (Mini Se Die, Mini Se Die 2, Mini Se Die 3, and Mini Se Die 4) at the same time with many exciting new experiences. ";
+                : " - versi baru dengan fitur “Multiplay” yang memungkinkan Anda memainkan 4 meja (Mini Se Die, Mini Se Die 2, Mini Se Die 3, dan Mini Se Die 4) sekaligus dengan banyak pengalaman baru yang menarik. ";
         switch (gameId) {
             case 9:
-                case 56:
-                case 57:
-                case 58:
-                    return miniSeDieDescription;
+            case 56:
+            case 57:
+            case 58:
+                return miniSeDieDescription;
             case 22:
-                return "is another version of the Se Die game with higher betting limits. ";
+                return "adalah versi lain dari game Se Die dengan batas taruhan yang lebih tinggi. ";
             default:
                 return "adalah permainan populer di negara-negara Asia. ";
         }
@@ -174,19 +139,19 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     <h2>Perkenalan</h2>
                     <p className="content">
                         {gameName} {gameDescription()}
-                        Permainan ini dimainkan dengan 4 tombol berwarna, masing-masing tombol memiliki dua sisi berwarna merah dan putih. Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain, pemain menang.
+                        Permainan ini dimainkan dengan 4 tombol berwarna, masing-masing tombol memiliki dua sisi berwarna merah dan putih.
+                        Tujuan dari permainan ini adalah untuk memprediksi hasil dari 4 tombol. Jika hasilnya cocok dengan taruhan pemain,
+                        pemain menang.
                     </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain ?? 0, props?.gameId ?? 0)}</li>
                 <li className="guide-item">
                     <h2>Pembayaran</h2>
                     <ul className="desc">
-                        <li>
-                            Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.
-                        </li>
+                        <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                         <li>Pembayaran termasuk taruhan awal.</li>
                         <li>
-                        Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
+                            Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
                             <div className="table-container">
                                 <table className="table text-center table-small">
                                     <thead>
@@ -194,7 +159,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                             <th>Pilihan</th>
                                             <th>Pembayaran</th>
                                             <th>
-                                                Batas Taruhan  <br /> (Min - Maks)
+                                                Batas Taruhan <br /> (Min - Maks)
                                             </th>
                                         </tr>
                                     </thead>
@@ -233,7 +198,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                         {!SeDieMini.includes(gameId ? gameId : SeDieMini[0]) && (
                                             <tr>
                                                 <td>2 merah, 2 putih</td>
-                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>                                                   
+                                                <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                                                 <td>
                                                     {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                                                 </td>
@@ -243,16 +208,11 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                                 </table>
                             </div>
                         </li>
-                        {renderPromotionNoteEN(isInPromotionTime)}
+                        {renderPromotionNoteID(isInPromotionTime)}
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && (
-                    <li id="md5" className="guide-item">
-                        {renderMD5EN()}
-                        {renderMD5Example(gameName, gameId)}
-                    </li>
-                )}
+                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsID()}
             </ul>
         </>

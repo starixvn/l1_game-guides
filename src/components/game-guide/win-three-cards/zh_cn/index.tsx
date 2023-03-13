@@ -4,7 +4,7 @@ import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import Styles from "../win-three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderMD5CN } from "../../../shared/md5-count-down-timer/zh_cn";
+import MD5 from "../../base/md5";
 
 const renderGameRule = (maxBet: string | undefined) => {
     return (
@@ -12,7 +12,7 @@ const renderGameRule = (maxBet: string | undefined) => {
             <h2>游戏规则</h2>
             <ul className="desc">
                 <li>开始时，三张面朝下的牌将发给龙和凤。</li>
-                <li>玩家选择筹码值并将其放在投注选项上。 所有投注必须在投注时间结束前完成。请注意，已下的赌注无法取消。</li>
+                <li>玩家选择筹码值并将其放在投注选项上。 所有投注必须在投注时间结束前完成。注意，已下的赌注无法取消。</li>
                 <li>玩家可以在除了龙和凤以外的任何可选项上下注，玩家只能在龙或凤上下注。</li>
                 <li>下注时间一到，系统将公布游戏结果。</li>
                 <li>游戏通过比较龙凤之间的手牌排名来决定输赢.</li>
@@ -64,18 +64,14 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>赔付</h2>
             <ul className="desc">
                 <li>
-                    贏奖金额根据投注赔率计算。 <br></br>
-                    <strong>注意：</strong>赔付包括初始本金。
+                    贏奖金额根据投注赔率计算。
+                    <strong> 注意：</strong>赔付包括初始本金。
                 </li>
                 <li>
                     投注结算后，所有获胜金额都会立即添加到您的账户余额中。
@@ -318,7 +314,7 @@ export const renderRankingLevel = () => {
 };
 
 const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     return (
         <>
@@ -335,52 +331,14 @@ const WinThreeCardsGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderCardType()}
                 {renderRankingLevel()}
-                <li className="guide-item">
-                    {renderMD5CN()}
-                    <div className="content">
-                        <strong> 示例:</strong> 检查比赛结果的真实性和透明度 {gameName}
-                    </div>
-                    <ul className="desc">
-                        <li>
-                            <strong>第一步:</strong> 在公布结果前复制MD5 Key。
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step1_cn.png?v=3"
-                                alt="md5-string"
-                            />
-                        </li>
-                        <li>
-                            <strong>第二步:</strong> 发布后复制结果。
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step2_cn.png?v=3"
-                                alt="md5-result"
-                            />
-                            <div>注: 从左到右， 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ 对应游戏回合开始时的发牌顺序.</div>
-                        </li>
-                        <li>
-                            <strong>第 3 步:</strong> 转到{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
-                            并将结果粘贴到 MD5 框中.
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step3_vi.png?v=1"
-                                alt="hash-darling"
-                            />
-                        </li>
-                        <li>
-                            <strong>第 4 步:</strong> 按 “hash darling, hash!” 按钮，将新生成的校验和 MD5 字符串与步骤 1 中的 MD5
-                            字符串进行比较
-                            <img
-                                className="format-img auto-center"
-                                src="/static/images/win-three-cards/md5_step4_vi.png?v=1"
-                                alt="md5-checksum"
-                            />
-                        </li>
-                    </ul>
-                </li>
+                <MD5
+                    locale={locale}
+                    step1ImageUrl={"/static/images/win-three-cards/md5_step1_cn.png?v=3"}
+                    step2ImageUrl={"/static/images/win-three-cards/md5_step2_cn.png?v=3"}
+                    step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
+                    step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
+                    note={<div>注: 从左到右， 8♠️ Q♥️ 5♥️ 9♠️ 9♣ 10♠️ 对应游戏回合开始时的发牌顺序.</div>}
+                />
                 {renderTermsAndConditionsCN()}
             </ul>
         </>

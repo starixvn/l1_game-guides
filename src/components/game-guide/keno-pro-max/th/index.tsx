@@ -6,16 +6,12 @@ import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { FiveElements } from "../../../shared/keno/th";
 
-const payouts = (
-    odds: OddsProMaxProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>การจ่ายเงิน</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน</li>
                 <li>การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                 <li>
                     จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น

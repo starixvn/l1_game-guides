@@ -6,7 +6,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
+import { getGameConfigProject } from "../../index.helper";
 
 const LotteryGuideEN = dynamic(() => import("./en"));
 const LotteryGuideVI = dynamic(() => import("./vi"));

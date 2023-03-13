@@ -10,9 +10,27 @@ export const Themes = {
     ahcl: "ahcl",
     fourGuardians: "four-guardians",
     classicslot: "classic-slot-template",
+    nightclub: "nightclub",
+    treasureIsland: "treasure-island",
+    wayToGoal: "way-to-goal",
+    fruitSlot: "fruit-slot",
+    fortuneCat: "fortune-cat",
 };
 
-export const ENVIRONMENT = { sm: "sm", sc: "sc" };
+export const BACKGROUND_THEMES: IObjectKeys = {
+    [Themes.light]: "#FFF",
+    [Themes.dark]: "transparent",
+    [Themes.blue]: "#000",
+    [Themes.ahcl]: "#e3d3b2",
+    [Themes.fourGuardians]: "#0e373e",
+    [Themes.nightclub]: "#000",
+    [Themes.treasureIsland]: "#2a212f",
+    [Themes.wayToGoal]: "#11305b",
+    [Themes.fruitSlot]: "#2d2c2e",
+    [Themes.fortuneCat]: "#060223",
+};
+
+export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si" };
 
 export const PROJECTS = { L1: "L1", L2: "L2" };
 
@@ -75,12 +93,11 @@ export const GAMES = {
     WIN_THREE_CARDS: 61,
 };
 
-export const GAMES_COMPLETE_TRANSLATE = [
-    GAMES.KENO_PRO_MAX,
-    GAMES.ROULETTE,
-    GAMES.BLACK_JACK,
-    GAMES.SPECIAL_SE_DIE,
-    GAMES.VIP_SE_DIE_WAR,
-    GAMES.THREE_CARDS,
-    GAMES.WIN_THREE_CARDS,
-];
+export const GAMES_MINI = {
+    BIG_SMALL: 1,
+    FISH_PRAWN_CRAB: 3,
+    DRAGON_TIGER: 7,
+    MINI_SE_DIE: 9,
+    BACCARAT: 10,
+    HILO: 45,
+};

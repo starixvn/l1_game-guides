@@ -296,7 +296,7 @@ const FortuneCatGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                 {renderFreeSpin(odds)}
                 {renderBonus(odds)}
                 {renderWild(odds)}
-                {renderTermsAndConditionsVI(Styles["guide-item"])}
+                {renderTermsAndConditionsVI()}
             </ul>
         </>
     );

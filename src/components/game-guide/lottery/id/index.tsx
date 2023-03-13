@@ -17,13 +17,13 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>Pilih nilai chip yang ingin Anda mainkan. Semua taruhan harus diselesaikan sebelum waktu taruhan berakhir.</li>
                 <li>Perhatikan, taruhan yang dipasang tidak dapat dibatalkan.</li>
                 <li>Pemain dapat bertaruh pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan.</li>
-                <li>Total taruhan maksimum per putaran adala {maxBet}</li>
+                <li>Total taruhan maksimum per putaran adalah {maxBet}</li>
             </ul>
         </li>
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = () => {
     return (
         <li className="guide-item">
             <h2>Opsi Taruhan</h2>
@@ -132,14 +132,14 @@ const BettingOptions4Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>a) 4 Set</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada dua nomor: 07, 77</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -154,7 +154,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>Nomor 07 telah muncul dua kali dalam hasil Hadiah Ketujuh. Pemain menang di nomor 07 dengan pembayaran ganda.</p>
         </>
     );
 };
@@ -163,14 +163,14 @@ const BettingOptionsSpesial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) Spesial </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada tiga angka: 00, 62, 79 </li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -185,7 +185,7 @@ const BettingOptionsSpesial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>Angka 62 sama dengan dua angka terakhir dari Hadiah Spesial. Pemain menang di nomor 62</p>
         </>
     );
 };
@@ -194,14 +194,14 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) Kepala</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada tiga angka: 0, 6, 9</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -217,7 +217,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>Angka 6 sama dengan angka puluhan Hadiah Spesial. Pemain menang di nomor 6</p>
         </>
     );
 };
@@ -226,14 +226,14 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) Ekor</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada dua angka: 0, 5</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Lotere RNG</th>
+                        <th>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -248,7 +248,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>Semua nomor yang dipilih tidak sama dengan digit satuan Hadiah Spesial. Pemain kalah taruhan.</p>
         </>
     );
 };
@@ -257,14 +257,14 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 set</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>Pasang taruhan pada empat angka: 05, 12, 77, 85</li>
+                <li>Hasil akhir:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th>Hadiah</th>
-                        <th colSpan={12}>Lotere RNG</th>
+                        <th colSpan={12}>RNG Lotere</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -380,29 +380,28 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>Nomor 05 muncul dua kali dalam 27 hasil. Pemain menang di nomor 05 dengan pembayaran ganda.</p>
+            <p>Nomor 12 muncul satu kali dalam 27 hasil. Pemain menang di nomor 12</p>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Pembayaran</h2>
             <ul className="desc">
-                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
-                <li>Catatan, Pembayaran termasuk taruhan awal.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
+                <li>
+                    <strong>Catatan</strong>, Pembayaran termasuk taruhan awal.
+                </li>
+                <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
             </ul>
             <table className={`table text-center table-medium`}>
                 <thead>
                     <tr>
                         <th colSpan={2}>Pilihan</th>
-                        <th>Pembayaran</th>
+                        <th>Odds</th>
                         <th>
                             Batas Taruhan <br></br>(Min Maks)
                         </th>
@@ -483,7 +482,7 @@ const renderViewStatistic = () => {
             <h2>Statistik</h2>
             <ul className="desc">
                 <li>
-                    Statistik data didasarkan pada dua digit terakhir dari 27 hasil Lotere RNG, untuk membantu pemain dalam memilih nomor
+                    Statistik data didasarkan pada dua digit terakhir dari 27 hasil RNG Lotere, untuk membantu pemain dalam memilih nomor
                     favorit mereka.
                 </li>
                 <li>
@@ -620,7 +619,7 @@ const LotteryGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                                 <thead>
                                     <tr>
                                         <th>Hadiah</th>
-                                        <th colSpan={12}>Lotere RNG</th>
+                                        <th colSpan={12}>RNG Lotere</th>
                                         <th>Jumlah Hasil</th>
                                     </tr>
                                 </thead>
@@ -752,7 +751,7 @@ const LotteryGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
-                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderBettingOptions()}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsID()}

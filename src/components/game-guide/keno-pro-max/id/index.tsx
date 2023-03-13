@@ -6,16 +6,12 @@ import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { FiveElements } from "../../../shared/keno/id";
 
-const payouts = (
-    odds: OddsProMaxProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>Pembayaran</h2>
             <ul className="desc">
-                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                 <li>Pembayaran termasuk taruhan awal.</li>
                 <li>
                     Semua jumlah pemenang langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
@@ -260,7 +256,7 @@ const KenoProMaxGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} Max adalah permainan angka yang sangat populer yang dimainkan di seluruh dunia. Permainan ini dimainkan
+                        {gameName} adalah permainan angka yang sangat populer yang dimainkan di seluruh dunia. Permainan ini dimainkan
                         dengan 20 bola bernomor yang diambil secara acak dari 80 bola bernomor mulai dari 1 hingga 80. Pemain memasang
                         taruhan pada satu atau lebih opsi taruhan yang ditampilkan di meja permainan. Jumlah total dari 20 bola bernomor
                         yang ditarik akan menentukan menang atau kalah pemain.

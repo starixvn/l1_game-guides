@@ -11,7 +11,7 @@ export const renderMD5CN = () => {
                         <li>MD5让玩家可以通过第三方验证游戏结果的真实性和透明度。</li>
                         <li>游戏结果将在玩家下注前由系统随机生成。</li>
                         <li>
-                            玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>Result</strong>）是否匹配。
+                            玩家可以手动检查下注前生成的结果（<strong>MD5</strong>密钥）与发布结果（<strong>结果</strong>）是否匹配。
                         </li>
                     </ul>
                 </li>
@@ -32,8 +32,8 @@ export const renderMD5CN = () => {
                             并将结果粘贴到 MD5 框中。
                         </li>
                         <li>
-                            <strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的<strong>校验和 MD5</strong>{" "}
-                            字符串与步骤 1 中的 MD5 密钥进行比较。
+                            <strong>第四步</strong>: 按 <strong>“hash darling, hash!”</strong> 按钮，并将新生成的
+                            <strong>MD5 checksum</strong> 字符串与步骤 1 中的 MD5 密钥进行比较。
                         </li>
                     </ul>
                 </li>

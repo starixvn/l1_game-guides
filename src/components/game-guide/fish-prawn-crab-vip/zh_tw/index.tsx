@@ -4,30 +4,9 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
 import Styles from "../fish-prawn-crab-vip.module.scss";
-import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { renderListIcon } from "../en";
 
-export const renderListIcon = (theme: string | undefined) => {
-    const widthIcon1 = theme === Themes.blue ? 100 : 75;
-    const widthIcon2 = theme === Themes.blue ? 95 : 70;
-    return (
-        <>
-            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
-
-            <img
-                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                alt="crooster"
-                width={widthIcon2}
-                height={widthIcon2}
-                loading="lazy"
-            />
-            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
-        </>
-    );
-};
 const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
@@ -38,7 +17,8 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                 <li className="guide-item">
                     <h2>簡介</h2>
                     <p className="content">
-                        {gameName} 是傳統遊戲魚蝦蟹的增強版，具有新的圖形界面和更多的投注選項。 遊戲使用三個標準骰子，每個骰子包含六個獨特的符號（魚、蝦、蟹、公雞、葫蘆和麈）。
+                        {gameName} 是傳統遊戲魚蝦蟹的增強版，具有新的圖形界面和更多的投注選項。
+                        遊戲使用三個標準骰子，每個骰子包含六個獨特的符號（魚、蝦、蟹、公雞、葫蘆和麈）。
                         遊戲的目的是預測擲骰子的結果，玩家下注將出現哪些符號
                     </p>
                     <div className="icon-wrapper">
@@ -47,26 +27,24 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <div className="text">葫蘆</div>
                         <div className="text">公雞</div>
                         <div className="text">魚</div>
-                        <div className="text">螃蟹</div>
+                        <div className="text">蟹</div>
                         <div className="text">蝦</div>
                     </div>
                 </li>
                 <li className="guide-item">
                     <h2>遊戲規則</h2>
                     <ul className="desc">
-                        <li>
-                            選擇您想玩的籌碼值。 玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。
-                        </li>
-                        <li>所有投注必須在投注時間到期之前進行。 請注意，投注無法取消。</li>
-                        <li>Once the betting time has expired, the dice cup will be removed and the result is shown.</li>
-                        <li>每輪最大總賭注為  {maxBetFollowChoice?.maxBetMain}</li>
+                        <li>選擇您想玩的籌碼值。 玩家可以對遊戲桌上顯示的一個或多個投注選項進行投注。</li>
+                        <li>所有投注必須在投注時間到期之前進行。 注意，投注無法取消。</li>
+                        <li>一旦下注時間結束，骰杯將被移除並顯示結果。</li>
+                        <li>每輪最大總賭注為 {maxBetFollowChoice?.maxBetMain}</li>
                     </ul>
                 </li>
                 <li className="guide-item">
                     <h2>支出</h2>
                     <ul className="desc">
                         <li>
-                            中獎金額根據派彩率計算 <strong>請注意，</strong> 支付包括初始投注。
+                            中獎金額根據投注賠率計算。 <strong>注意，</strong> 支付包括初始投注。
                         </li>
                         <li>投注結算後，所有中獎金額都會立即添加到您的賬戶餘額中。</li>
                         <li className="contentBeforeEmpty">
@@ -76,7 +54,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>選項</th>
                                             <th>獲勝條件</th>
-                                            <th>賠率</th>
+                                            <th style={{ width: 150 }}>賠率</th>
                                             <th className={Styles["min-max-width"]}>
                                                 投注限額 <br></br>（最低 - 最高）
                                             </th>

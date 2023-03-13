@@ -57,8 +57,10 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Lựa Chọn</th>
                                             <th>Điều Kiện Thắng</th>
-                                            <th>Tỷ Lệ Trả Thưởng</th>
-                                            <th className={Styles["min-max-width"]}>Giới Hạn Cược (Min - Max)</th>
+                                            <th style={{ width: 200 }}>Tỷ Lệ Trả Thưởng</th>
+                                            <th className={Styles["min-max-width"]}>
+                                                Giới Hạn Cược <br /> (Min - Max)
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>

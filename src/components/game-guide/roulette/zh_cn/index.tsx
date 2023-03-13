@@ -9,22 +9,18 @@ import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>游戏规则</h2>
             <ul className="desc">
                 <li>选择您想玩的筹码值。 所有投注必须在投注时间结束前完成。</li>
-                <li>点击“确认”按钮完成，或点击“X”重置您的投注。 请注意，已确认的投注不能取消。</li>
+                <li>点击“确认”按钮完成，或点击“X”重置您的投注。 注意，已确认的投注不能取消。</li>
                 <li>一旦下注时间结束，轮盘将随着滚珠以与轮盘旋转相反的方向旋转。</li>
                 <li>中奖号码由球落入的槽位决定。</li>
                 <li>玩家可以对游戏桌上显示的一个或多个投注选项进行投注。</li>
                 <li>
-                    中奖金额根据派彩率计算。 <strong>请注意，</strong> 支付包括初始投注。
+                    中奖金额根据投注赔率计算。 <strong>注意，</strong> 支付包括初始投注。
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
@@ -113,7 +109,7 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -246,7 +242,7 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat:
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tiers</span>
@@ -312,7 +308,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -385,7 +381,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisins</span>
@@ -468,7 +464,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Zero</span>
@@ -535,7 +531,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
@@ -606,7 +602,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>投注选项</h2>
@@ -620,12 +616,12 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
     );
 };
 
-const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>跟注</h2>
             <p>
-                跟注或法式投注是特殊的投注选项，它们是一组预定义的投注。 有 5 个选项：Tiers)、Voisins du Zero、Orphelins、Zero、Neighbors。
+                跟注或法式投注是特殊的投注选项，它们是一组预定义的投注。 有 5 个选项：Tiers、Voisins du Zero、Orphelins、Zero、Neighbors。
             </p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>

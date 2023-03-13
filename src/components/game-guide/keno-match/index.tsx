@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import KenoMatchGuideEN from "./en";
-import KenoMatchGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
-import { getGameConfigProject } from "../index.helper";
+import { getGameConfigProject } from "../../index.helper";
+import KenoMatchGuideTemplate from "./template";
 
 export const minPayoutBlue = 1.06;
 export const minPayoutRed = 1.06;
@@ -71,27 +70,15 @@ const KenoMatchGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-    if (locale === locales.en) {
-        return (
-            <KenoMatchGuideEN
-                gameConfigs={configs}
-                userStakeLevel={userStakeLevel}
-                gameName={gameNameTranslate}
-                gameId={id}
-                maxBetFollowChoice={maxBetFollowChoice}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
-        );
-    }
-    return (
-        <KenoMatchGuideVI
-            gameConfigs={configs}
-            userStakeLevel={userStakeLevel}
-            gameName={gameNameTranslate}
-            gameId={id}
-            maxBetFollowChoice={maxBetFollowChoice}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
-    );
-};
+
+    return <KenoMatchGuideTemplate {...{
+        gameConfigs: configs,
+        userStakeLevel,
+        gameName: gameNameTranslate,
+        gameId: id,
+        maxBetFollowChoice,
+        fractionalOddsFormat,
+        locale
+    }} />;
+}
 export default KenoMatchGuide;

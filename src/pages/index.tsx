@@ -5,7 +5,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
 import { buildVersion, ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
-import GameGuide from "../components/game-guide";
+import GameGuide from "../components/game-guide/game-guide";
+import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
+import { checkIsInteger } from "../helpers/number-helper";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewSlotGame } from "../helpers/game-helper";
 
@@ -15,21 +17,17 @@ export interface UserStakeLevelProps {
 }
 
 export type GameConfigs = {
-    maxBetPerChoices: any;
-    enableFreeBet: boolean;
-    maxBet: number;
-    minBet: number;
-    odds: any;
+    maxBetPerChoices?: any;
+    enableFreeBet?: boolean;
+    maxBet?: number;
+    minBet?: number;
+    odds?: any;
     originalOdds?: any;
-};
-
-const CheckIsInteger = (number: string | number | object) => {
-    return Number.isInteger(+number) ? +number : 0;
 };
 
 const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Function) => {
     if (queryParams?.minBet && queryParams?.maxBet) {
-        setUserStakeLevel({ minBet: CheckIsInteger(queryParams.minBet), maxBet: CheckIsInteger(queryParams.maxBet) });
+        setUserStakeLevel({ minBet: checkIsInteger(queryParams.minBet), maxBet: checkIsInteger(queryParams.maxBet) });
     }
 };
 
@@ -41,13 +39,9 @@ const FontLocaleMapper: { [key: string]: string } = {
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
     let fontFamily = "SanFranciscoDisplay";
-
-    if (env === ENVIRONMENT.sc) {
-        fontFamily = "Noto";
-
-        if (GAMES_COMPLETE_TRANSLATE.includes(gameId)) {
-            fontFamily = FontLocaleMapper[locale] ?? "Noto";
-        }
+    if (env !== ENVIRONMENT.sm) {
+        
+        fontFamily = FontLocaleMapper[locale] ?? "Noto";
 
         if (isNewSlotGame(gameType, gameId)) {
             fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
@@ -58,11 +52,18 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
     document.body.style.fontFamily = fontFamily;
 };
 
-const Home = (prop: any) => {
-    const { gameSetting } = prop;
+const handleEnv = (queryParams: object | any) => {
+    if (queryParams?.f) {
+        return queryParams.f;
+    }
+
+    return ENVIRONMENT.sm;
+};
+
+const Home = () => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
-    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>();
+    const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({});
     const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState<string>("");
     const router = useRouter();
@@ -76,8 +77,32 @@ const Home = (prop: any) => {
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
     const [displayName, setDisplayName] = useState<string>("");
 
+    const getTemplateFollowEnv = () => {
+        const props = {
+            gameId,
+            locale: router?.locale ?? "en",
+            userStakeLevel,
+            name,
+            gameConfigs,
+            dynamic,
+            isScrollMD5,
+            isGetGameConfigs,
+            environment,
+            isInPromotionTime,
+            fractionalOddsFormat,
+            gameSetting,
+            displayName,
+        };
+
+        if (environment === ENVIRONMENT.si) {
+            return <GameGuideMini {...props} />;
+        }
+
+        return <GameGuide {...props} />;
+    };
+
     useEffect(() => {
-        const CheckIsInteger = (number: string | number | object) => {
+        const checkIsInteger = (number: string | number | object) => {
             return Number.isInteger(+number) ? +number : 0;
         };
 
@@ -91,9 +116,9 @@ const Home = (prop: any) => {
 
         if (router.isReady) {
             const queryParams: object | any = router.query;
-            const env = queryParams?.f ? ENVIRONMENT.sc : ENVIRONMENT.sm;
+            const env = handleEnv(queryParams);
             setIsLoading(false);
-            setGameId(CheckIsInteger(queryParams?.gId));
+            setGameId(checkIsInteger(queryParams?.gId));
             const { gameSetting } = prop;
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env, queryParams?.gId, gameSetting.Type);
             setEnvironment(env);
@@ -119,34 +144,10 @@ const Home = (prop: any) => {
         return <></>;
     }
 
-    const getLocale = () => {
-        if (router?.locale === "vi" || router?.locale === "en") {
-            return router.locale;
-        }
-        return "en";
-    };
-
-    const props = {
-        gameId,
-        locale: GAMES_COMPLETE_TRANSLATE.includes(gameId) ? router?.locale ?? "en" : getLocale(),
-        userStakeLevel,
-        name,
-        gameConfigs,
-        dynamic,
-        isScrollMD5,
-        isGetGameConfigs,
-        environment,
-        isInPromotionTime,
-        fractionalOddsFormat,
-        gameSetting,
-        displayName,
-    };
-
-    const gameGuideComponent = <GameGuide {...props} />;
     return (
         <ImgVersionProvider value={{ imgVersion: buildVersion }}>
             <div ref={wrapperRef} id="container-guide" className="container-guide">
-                {!isGetGameConfigs ? gameGuideComponent : gameConfigs && gameGuideComponent}
+            {!isGetGameConfigs ? getTemplateFollowEnv() : gameConfigs && getTemplateFollowEnv()}
             </div>
         </ImgVersionProvider>
     );

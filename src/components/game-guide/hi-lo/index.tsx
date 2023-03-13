@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import HiLoGuideEN from "./en";
-import HiLoGuideVI from "./vi";
 import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
 import { GameConfigProps } from "../big-small/type";
-import { getGameConfigProject } from "../index.helper";
+import HiLoGuideTemplate from "./templates/default";
+import HiLoGuideVI from "./templates/vi";
+import { getGameConfigProject } from "../../index.helper";
 
 const HiLoGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
     const getLocalGameConfigs = () => {
@@ -39,10 +39,10 @@ const HiLoGuide = (props: GameGuideBase) => {
     if (!configs) {
         return <></>;
     }
-    
-    if (locale === locales.en) {
-        return <HiLoGuideEN gameConfigs={configs} userStakeLevel={userStakeLevel} gameName={gameNameTranslate} gameId={id} />;
+
+    if (locale === locales.vi) {
+        return <HiLoGuideVI gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
     }
-    return <HiLoGuideVI gameConfigs={configs} userStakeLevel={userStakeLevel} gameName={gameNameTranslate} gameId={id} />;
+    return <HiLoGuideTemplate gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
 };
 export default HiLoGuide;

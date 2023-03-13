@@ -31,6 +31,7 @@ export type GameGuideBase = {
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
     gameSetting?: any;
+    folderConfigName?: string;
     displayName: string;
 };
 

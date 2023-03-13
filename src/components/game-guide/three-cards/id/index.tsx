@@ -9,10 +9,7 @@ import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
-    const bet = 10;
-    const winRed = bet * (odds?.red ?? 0);
-    const winDiamonds = bet * (odds?.diamonds ?? 0);
+const renderGameRule = (maxBet: string | undefined) => {
     const imgRed = "img-red";
     return (
         <>
@@ -74,24 +71,20 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
-                    <span className={Styles[imgRed]}>♦</span>) in the results.
+                    Bertaruh pada opsi Berlian. Pembayaran akan sama jika hasilnya adalah 1, 2, atau 3 berlian (
+                    <span className={Styles[imgRed]}>♦</span>).
                 </li>
             </ul>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Pembayaran</h2>
             <ul className="desc">
-                <li>Jumlah kemenangan dihitung sesuai dengan rasio pembayaran.</li>
+                <li>Jumlah kemenangan dihitung berdasarkan odds taruhan.</li>
                 <li>Pembayaran termasuk taruhan awal.</li>
                 <li>
                     Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.
@@ -222,7 +215,7 @@ const ThreeCardsGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsID()}

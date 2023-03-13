@@ -23,7 +23,7 @@ const renderGameRule = (maxBet: string | undefined) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = () => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -386,11 +386,7 @@ const BettingOptions27Sets = () => {
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Payouts</h2>
@@ -604,7 +600,7 @@ const LotteryGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                 <li className="guide-item">
                     <h2>Introduction</h2>
                     <p className="content">
-                        {gameName}, also known as “Lô Đề”, is an online lottery game that is very popular in Vietnam. The player places bet
+                        {gameName} is an online lottery game that is very popular in Vietnam. The player places bet
                         on the numbers you like, the game determines the win or loss by matching the numbers based on 27 results of 8
                         prizes.
                     </p>
@@ -746,7 +742,7 @@ const LotteryGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
-                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderBettingOptions()}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsEN()}

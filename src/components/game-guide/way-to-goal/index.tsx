@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-
-import WayToGoalGuideEN from "./en";
-import WayToGoalGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
+import { WayToGoalTemplate } from "./templates/default";
+import WayToGoalGuideVI from "./templates/vi";
+import { getGameConfigProject } from "../../index.helper";
 
 const WayToGoalGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -37,9 +36,10 @@ const WayToGoalGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
-        return <WayToGoalGuideEN gameConfigs={configs} gameName={gameNameTranslate} />;
+    if (locale === locales.vi) {
+        return <WayToGoalGuideVI gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
     }
-    return <WayToGoalGuideVI gameConfigs={configs} gameName={gameNameTranslate} />;
+
+    return <WayToGoalTemplate gameConfigs={configs} gameName={gameNameTranslate} locale={locale} />;
 };
 export default WayToGoalGuide;

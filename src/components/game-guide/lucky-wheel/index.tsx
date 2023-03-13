@@ -1,14 +1,16 @@
 import React from "react";
-import LuckyWheelGuideEN from "./en";
-import LuckyWheelGuideVI from "./vi";
-import { locales } from "../../../common/constants";
 import { GameGuideBase } from "../type";
+import LuckyWheelGuideTemplate from "./template";
 
 const LuckyWheelGuide = (props: GameGuideBase) => {
-    const { locale } = props;
-    if (locale === locales.en) {
-        return <LuckyWheelGuideEN />;
-    }
-    return <LuckyWheelGuideVI />;
+    const { locale, gameNameTranslate } = props;
+
+    const resource = {
+        gameConfigs: {},
+        gameName: gameNameTranslate,
+        locale,
+    };
+
+    return <LuckyWheelGuideTemplate {...resource} />;
 };
 export default LuckyWheelGuide;

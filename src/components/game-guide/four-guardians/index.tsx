@@ -4,12 +4,12 @@ import FourGuardiansGuideEN from "./en";
 import FourGuardiansGuideVI from "./vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject } from "../index.helper";
 import { GameConfigProps } from "./type";
 import FourGuardiansGuideID from "./id";
 import FourGuardiansGuideTH from "./th";
 import FourGuardiansGuideCN from "./zh_cn";
 import FourGuardiansGuideTW from "./zh_tw";
+import { getGameConfigProject } from "../../index.helper";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -42,25 +42,25 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
     }
 
     const resource = {
-        gameConfigs: configs,       
-        gameName: gameNameTranslate,  
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
         project: project,
     };
 
-    switch(locale) {
+    switch (locale) {
         case locales.vi:
-            return <FourGuardiansGuideVI {...resource} />
+            return <FourGuardiansGuideVI {...resource} />;
         case locales.id:
-            return <FourGuardiansGuideID {...resource} />
+            return <FourGuardiansGuideID {...resource} />;
         case locales.th:
-            return <FourGuardiansGuideTH {...resource} />
+            return <FourGuardiansGuideTH {...resource} />;
         case locales.zh_cn:
             return <FourGuardiansGuideCN {...resource} />;
         case locales.zh_tw:
             return <FourGuardiansGuideTW {...resource} />;
 
         default:
-            return <FourGuardiansGuideEN {...resource} />
-    }      
+            return <FourGuardiansGuideEN {...resource} />;
+    }
 };
 export default FourGuardiansGuide;

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import FruitSlotGuideEN from "./en";
-import FruitSlotGuideVI from "./vi";
+import FruitSlotGuideVI from "./templates/vi";
 import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
-import { getGameConfigProject, handleMaxBetChoice } from "../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import FruitSlotGuideTemplate from "./templates/default";
+import { getGameConfigProject } from "../../index.helper";
 
 const FruitSlotGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment, project } = props;
@@ -13,7 +14,7 @@ const FruitSlotGuide = (props: GameGuideBase) => {
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
     const getLocalGameConfigs = () => {
-        getGameConfigProject("multiplay-big-small", project, setConfigs);
+        getGameConfigProject("fruit-slot", project, setConfigs);
     };
 
     const getDynamicGameConfig = () => {
@@ -42,9 +43,9 @@ const FruitSlotGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    if (locale === locales.en) {
+    if (locale === locales.vi) {
         return (
-            <FruitSlotGuideEN
+            <FruitSlotGuideVI
                 gameConfigs={configs}
                 gameName={gameNameTranslate}
                 maxBetFollowChoice={maxBetFollowChoice}
@@ -55,12 +56,13 @@ const FruitSlotGuide = (props: GameGuideBase) => {
     }
 
     return (
-        <FruitSlotGuideVI
+        <FruitSlotGuideTemplate
             gameConfigs={configs}
             gameName={gameNameTranslate}
             maxBetFollowChoice={maxBetFollowChoice}
             isScrollMD5={isScrollMD5}
             environment={environment}
+            locale={locale}
         />
     );
 };

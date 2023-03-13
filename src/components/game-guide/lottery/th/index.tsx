@@ -17,13 +17,13 @@ const renderGameRule = (maxBet: string | undefined) => {
                 <li>เลือกมูลค่าชิปที่คุณต้องการเล่น การเดิมพันทั้งหมดจะต้องเสร็จสิ้นก่อนที่จะหมดเวลาเดิมพัน</li>
                 <li>หมายเหตุ การวางเดิมพันไม่สามารถยกเลิกได้</li>
                 <li>ผู้เล่นสามารถเดิมพันได้มากกว่าหนึ่งตัวเลือกที่แสดงอยู่บนโต๊ะเกม</li>
-                <li>ยอดเดิมพันสูงสุดต่อรอบคือ {maxBet} บาท</li>
+                <li>ยอดเดิมพันสูงสุดต่อรอบคือ {maxBet}</li>
             </ul>
         </li>
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat: boolean | undefined) => {
+const renderBettingOptions = () => {
     return (
         <li className="guide-item">
             <h2>ตัวเลือกการเดิมพัน</h2>
@@ -37,7 +37,7 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
                 <tbody>
                     <tr>
                         <td colSpan={2} className="text-center">
-                            พิเศษ
+                            4 ชุด
                         </td>
                         <td>
                             <p>เลือกหมายเลขที่คุณต้องการเดิมพันตั้งแต่ 00 ถึง 99 หากหมายเลขที่เลือกตกเป็นของรางวัลที่เจ็ด ผู้เล่นจะชนะ</p>
@@ -127,16 +127,16 @@ const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat:
 const BettingOptions4Sets = () => {
     return (
         <>
-            <div className={Styles[exampleTitle]}>a) พิเศษ</div>
+            <div className={Styles[exampleTitle]}>a) 4 ชุด</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 07, 77</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสองหมายเลข: 07, 77</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -151,7 +151,7 @@ const BettingOptions4Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 07 has appeared two times in the result of the Seventh Prize. The player wins on number 07 with a double payout.</p>
+            <p>หมายเลข 07 ออกสองครั้งในผลการตัดสินรางวัลที่เจ็ด ผู้เล่นชนะในหมายเลข 07 ด้วยการจ่ายเงินสองเท่า</p>
         </>
     );
 };
@@ -160,14 +160,14 @@ const BettingOptionsSpecial = () => {
         <>
             <div className={Styles[exampleTitle]}>b) พิเศษ </div>
             <ul className="desc">
-                <li>Place bet on three numbers: 00, 62, 79 </li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสามหมายเลข: 00, 62, 79 </li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -182,7 +182,7 @@ const BettingOptionsSpecial = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 62 is the same as the last two digits of the Special Prize. The player wins on number 62</p>
+            <p>เลข 62 ตรงกับเลขท้ายสองตัวของรางวัลพิเศษ ผู้เล่นชนะในหมายเลข 62</p>
         </>
     );
 };
@@ -191,14 +191,14 @@ const BettingOptionsHead = () => {
         <>
             <div className={Styles[exampleTitle]}>c) หัว</div>
             <ul className="desc">
-                <li>Place bet on three numbers: 0, 6, 9</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสามหมายเลข: 0, 6, 9</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -214,7 +214,7 @@ const BettingOptionsHead = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>The number 6 is the same as the tens digit of the Special Prize. The player wins on number 6</p>
+            <p>หมายเลข 6 เหมือนกับหลักสิบของรางวัลพิเศษ ผู้เล่นชนะในหมายเลข 6</p>
         </>
     );
 };
@@ -223,14 +223,14 @@ const BettingOptionsTail = () => {
         <>
             <div className={Styles[exampleTitle]}>d) ท้าย</div>
             <ul className="desc">
-                <li>Place bet on two numbers: 0, 5</li>
-                <li>The final result:</li>
+                <li>เดิมพันสองหมายเลข: 0, 5</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>RNG ลอตเตอรี่</th>
+                        <th>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -245,7 +245,7 @@ const BettingOptionsTail = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>All selected numbers are not the same as the units digit of the Special Prize. The player loses the bet.</p>
+            <p>หมายเลขที่เลือกทั้งหมดไม่ตรงกับหลักหน่วยของรางวัลพิเศษ ผู้เล่นเสียเงินเดิมพัน</p>
         </>
     );
 };
@@ -254,14 +254,14 @@ const BettingOptions27Sets = () => {
         <>
             <div className={Styles[exampleTitle]}>e) 27 ชุด</div>
             <ul className="desc">
-                <li>Place bet on four numbers: 05, 12, 77, 85</li>
-                <li>The final result:</li>
+                <li>วางเดิมพันสี่หมายเลข: 05, 12, 77, 85</li>
+                <li>ผลลัพธ์สุดท้าย:</li>
             </ul>
             <table className={`table text-center ${Styles[tableSmall]}`}>
                 <thead>
                     <tr>
                         <th>รางวัล</th>
-                        <th colSpan={12}>RNG ลอตเตอรี่</th>
+                        <th colSpan={12}>RNG ล็อตเตอรี่</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -377,22 +377,19 @@ const BettingOptions27Sets = () => {
                     </tr>
                 </tbody>
             </table>
-            <p>Number 05 has appeared two times in 27 results. The player wins on number 05 with a double payout.</p>
-            <p>Number 12 has appeared one time in 27 results. The player wins on number 12</p>
+            <p>หมายเลข 05 ออกสองครั้งใน 27 ผลลัพธ์ ผู้เล่นชนะในหมายเลข 05 และได้รับเงินสองเท่า</p>
+            <p>หมายเลข 12 ออกครั้งเดียวใน 27 ผลลัพธ์ ผู้เล่นชนะในหมายเลข 12</p>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>การจ่ายเงิน</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน </li>
+                <li>หมายเหตุ การจ่ายเงินรวมถึงเงินเดิมพันเริ่มต้น</li>
                 <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
             </ul>
             <table className={`table text-center table-medium`}>
@@ -408,7 +405,7 @@ const renderPayouts = (
                 </thead>
                 <tbody>
                     <tr>
-                        <td colSpan={2}>พิเศษ</td>
+                        <td colSpan={2}>4 ชุด</td>
                         <td>{formatOdds(odds?.["4Sets"], fractionalOddsFormat)}</td>
                         <td>
                             {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSets4}
@@ -479,7 +476,7 @@ const renderViewStatistic = () => {
         <li className="guide-item">
             <h2>สถิติ</h2>
             <ul className="desc">
-                <li>สถิติข้อมูลอ้างอิงจาก 2 หลักสุดท้ายของ 27 ผล RNG ลอตเตอรี่ เพื่อช่วยผู้เล่นในการเลือกหมายเลขโปรด</li>
+                <li>สถิติข้อมูลอ้างอิงจาก 2 หลักสุดท้ายของ 27 ผล RNG ล็อตเตอรี่ พื่อช่วยผู้เล่นในการเลือกหมายเลขโปรด</li>
                 <li>
                     สถิติข้อมูลการเดิมพันล่าสุดแต่ละประเภทใน 100 รอบ
                     <ul className={Styles[statsList]}>
@@ -504,7 +501,7 @@ const renderViewStatistic = () => {
                     </ul>
                     <ul className={Styles["many-example"]}>
                         <li>
-                            <div className={Styles[exampleTitle]}>a) พิเศษ, พิเศษ, 27 ชุด </div>
+                            <div className={Styles[exampleTitle]}>a) 4 ชุด, พิเศษ, 27 ชุด </div>
                             <ul className={Styles[statsList]}>
                                 <li>
                                     10 ตัวเลขที่เกิดขึ้นมากที่สุด (แสดงเป็นสี<span className={Styles["text-red"]}>แดง</span>)
@@ -536,7 +533,7 @@ const renderViewStatistic = () => {
                             <p>นับการเกิดขึ้นของแต่ละตัวเลขตั้งแต่ 0-9</p>
                             <ul className={Styles[statsList]}>
                                 <li>
-                                    หากปรากฏรวม {`>`} 10 จะแสดงเป็นสี <span className={Styles["text-red"]}>แดง</span>.
+                                    หากปรากฏรวม {`>`} 10 จะแสดงเป็นสี<span className={Styles["text-red"]}>แดง</span>.
                                 </li>
                                 <li>
                                     หากปรากฏรวม {`<=`} 10 จะแสดงเป็นสี
@@ -603,7 +600,7 @@ const LotteryGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                                 <thead>
                                     <tr>
                                         <th>รางวัล</th>
-                                        <th colSpan={12}>RNG ลอตเตอรี่</th>
+                                        <th colSpan={12}>RNG ล็อตเตอรี่</th>
                                         <th>จำนวนผลลัพธ์</th>
                                     </tr>
                                 </thead>
@@ -735,7 +732,7 @@ const LotteryGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProp
                     </ul>
                 </li>
                 {renderGameRule(maxBetFollowChoice?.maxBetMain)}
-                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderBettingOptions()}
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderViewStatistic()}
                 {renderTermsAndConditionsTH()}

@@ -4,7 +4,9 @@
     "private": true,
     "scripts": {
         "dev": "next dev -p 3001",
+        "dev-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next dev -p 3001",
         "build": "next build",
+        "build-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
         "start": "PORT=5000 next start",
         "lint": "next lint",
         "test": "jest",
@@ -19,6 +21,7 @@
         "next-themes": "^0.0.15",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-i18next": "^12.1.4",
         "sass": "^1.43.4",
         "uuid": "^8.3.2"
     },
@@ -31,6 +34,7 @@
         "@types/enzyme-adapter-react-16": "^1.0.6",
         "@types/jest": "^26.0.23",
         "@types/react": "17.0.9",
+        "@types/react-dom": "^18.0.10",
         "@types/uuid": "^8.3.0",
         "babel-core": "^6.26.3",
         "babel-jest": "^27.0.2",

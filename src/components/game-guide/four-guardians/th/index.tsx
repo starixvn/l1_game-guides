@@ -12,12 +12,12 @@ const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
 const freeSpinContentEX = "free-spin-content-ex";
-const renderGameRule = () => {
+const renderGameRule = (project: string | undefined) => {
     return (
         <>
             <h2>กฎของเกม</h2>
             <ul className="desc">
-                {renderGameRuleContent()}
+                {renderGameRuleContent(project)}
                 <div className={Styles["wrapper-img-rectangle"]}>
                     <img
                         src={`/static/images/four-guardians/guide_payline.png`}
@@ -37,10 +37,11 @@ const renderPayouts = (odds: number[][], project: string | undefined) => {
         <li className="guide-item">
             <h2>ตารางการจ่าย</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน</li>
                 <li>
-                    <strong>หมายเหตุ </strong> การจ่ายเงินจะรวมเงินเดิมพันเริ่มต้นด้วย
+                    <strong>หมายเหตุ: </strong> การจ่ายเงินจะรวมเงินเดิมพันเริ่มต้นด้วย
                 </li>
+                <li>จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น</li>
             </ul>
             {renderPayoutsIconFirstLine(odds, project, "en")}
             {renderPayoutsIconSecondLine(odds, project)}
@@ -74,8 +75,9 @@ export const renderIconContent = (
 
             <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png`} alt={itemName}></img>
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
-                    }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
             >
                 {dataContent.map((data, index) => {
                     return (
@@ -101,16 +103,16 @@ export const renderPayoutsIconFirstLine = (odds: number[][], project: string | u
                     false,
                     project === PROJECTS.L1
                         ? [
-                            [5, odds[10][5]],
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ]
+                              [5, odds[10][5]],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ]
                         : [
-                            [4, odds[10][4]],
-                            [3, odds[10][3]],
-                            [2, odds[10][2]],
-                        ],
+                              [4, odds[10][4]],
+                              [3, odds[10][3]],
+                              [2, odds[10][2]],
+                          ],
                     project,
                     locale
                 )}
@@ -264,6 +266,7 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
 };
 
 const renderExamplePayout = (odds: number[][], project: string | undefined) => {
+    const iconItem1 = <img src={`./static/images/four-guardians/item1.png`} width={35} height={35} alt="item1"></img>;
     return (
         <>
             <p>
@@ -294,19 +297,19 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
                                 )}
                             </td>
                             <td>
-                                มีสัญลักษณ์อัญมณี 5 อันอยู่บนเพย์ไลน์เดียวกัน
-                                <br></br>การจ่ายเงิน = ระดับการเดิมพัน  * {odds[1][5]}
+                                มี 5 สัญลักษณ์ {iconItem1} อยู่ในเพย์ไลน์เดียวกัน
+                                <br></br>การจ่ายเงิน = ระดับการเดิมพัน * {odds[1][5]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                มีสัญลักษณ์อัญมณี 4 อันอยู่บนเพย์ไลน์เดียวกัน
+                                มี 4 สัญลักษณ์ {iconItem1} อยู่ในเพย์ไลน์เดียวกัน
                                 <br></br>การจ่ายเงิน = ระดับการเดิมพัน * {odds[1][4]}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                มีสัญลักษณ์อัญมณี 3 อันอยู่บนเพย์ไลน์เดียวกัน
+                                มี 3 สัญลักษณ์ {iconItem1} อยู่ในเพย์ไลน์เดียวกัน
                                 <br></br>การจ่ายเงิน = ระดับการเดิมพัน * {odds[1][3]}
                             </td>
                         </tr>
@@ -318,20 +321,17 @@ const renderExamplePayout = (odds: number[][], project: string | undefined) => {
 };
 
 const renderJackpot = () => {
+    const iconJackpot = (
+        <img className={`${Styles["item10"]} ${Styles["mini"]}`} src="./static/images/four-guardians/L2/en/item10.png" alt="item10"></img>
+    );
     return (
         <li className="guide-item">
-            <h2>Jackpot</h2>
+            <h2>รางวัลใหญ่</h2>
             <ul className="desc">
                 <li>
-                    Jackpot is a grand prize for Players having 5 symbols{" "}
-                    <img
-                        className={`${Styles["item10"]} ${Styles["mini"]}`}
-                        src="./static/images/four-guardians/L2/en/item10.png"
-                        alt="item10"
-                    ></img>{" "}
-                    located on the same payline. There are 3 Jackpot prizes corresponding with 3 bet levels and all Jackpots are
-                    progressive, where every time the game is played, a portion of the bet amount is contributed to the Jackpots until one
-                    lucky Player wins the Jackpot.
+                    แจ็คพอตเป็นรางวัลใหญ่สำหรับผู้เล่นที่มี 5 สัญลักษณ์ {iconJackpot} อยู่ในแถวเดียวกัน มีรางวัลแจ็คพอต 3
+                    รางวัลที่ตรงกับการเดิมพัน 3 ระดับ และแจ็คพอตทั้งหมดเป็นเพิ่มจำนวนเงิน ซึ่งทุกครั้งที่เล่นเกมส์
+                    ส่วนหนึ่งของจำนวนเงินเดิมพันจะเก็บไว้กับแจ็คพอตจนกว่าผู้เล่นที่โชคดีคนจะชนะแจ็คพอต
                 </li>
             </ul>
 
@@ -339,8 +339,8 @@ const renderJackpot = () => {
                 <table className="table text-center table-medium">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
-                            <th> Description</th>
+                            <th>สัญลักษณ์</th>
+                            <th>คำอธิบาย</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -353,10 +353,9 @@ const renderJackpot = () => {
                                 ></img>
                             </td>
                             <td>
-                                The Player will win the Jackpot prize if there are 5 symbols located on the same payline that you have
-                                chosen.<br></br>
-                                <strong>Note: </strong>
-                                Player will receive 98% of the Jackpot prize.
+                                ผู้เล่นจะได้รับรางวัลแจ็คพอตหากมีสัญลักษณ์ 5 ตัวอยู่ในแถวเดียวกันกับที่เลือก<br></br>
+                                <strong>หมายเหตุ: </strong>
+                                ผู้เล่นจะได้รับรางวัล 98% ของรางวัลแจ็คพอต
                             </td>
                         </tr>
                     </tbody>
@@ -369,58 +368,41 @@ const renderJackpot = () => {
 const renderFreeSpin = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>ฟรีสปิน</h2>
-            <ul className="desc">
-                <li>ผู้เล่นจะได้รับโบนัสฟรีสปินตามจำนวนสัญลักษณ์ฟรีสปินในผลลัพธ์</li>
-                <li>สัญลักษณ์ฟรีสปินไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>สัญลักษณ์</th>
-                            <th>คำอธิบาย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item7",
-                                    [
-                                        [5, odds[7][5]],
-                                        [4, odds[7][4]],
-                                        [3, odds[7][3]],
-                                    ],
-                                    " ฟรีสปิน"
-                                )}
-                            </td>
-                            <td>
-                                Having 5 Free Spin symbols in the result.<br></br>Get {odds[7][5]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 4 Free Spin symbols in the result.<br></br>Get {odds[7][4]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Having 3 Free Spin symbols in the result.<br></br>Get {odds[7][3]} Free Spins Bonus.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2>Free Spin</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item7",
+                                [
+                                    [5, odds[7][5]],
+                                    [4, odds[7][4]],
+                                    [3, odds[7][3]],
+                                ],
+                                " FREE SPINS"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>ผู้เล่นจะได้รับโบนัส “Free Spin” ตามจำนวนสัญลักษณ์ฟรีสปินที่มีในผลลัพธ์</li>
+                                <li>สัญลักษณ์ “Free Spin” ไม่จำเป็นต้องอยู่ในเพย์ไลน์เดียวกัน</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
-                    <strong>หมายเหตุ:</strong> สัญลักษณ์ &#34;ฟรีสปิน&#34; ต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากมีสัญลักษณ์ &#34;หมุนฟรี&#34; 3 อันบนรีลเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
+                    <strong>หมายเหตุ:</strong> สัญลักษณ์ “Free Spin” ต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากมีสัญลักษณ์ “Free Spin” 3
+                    อันบนรีลเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_free_spin.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_free_spin.png?v1`}
                                 alt="guide_item_symbol_bg"
                                 width={333}
                                 height={126}
@@ -429,14 +411,16 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            มี 4 สัญลักษณ์ &#34;หมุนฟรี&#34; ในผลลัพธ์ แต่มี 3 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นไม่มีสิทธิ์รับโบนัสหมุนฟรี
+                            มี 4 สัญลักษณ์ “Free Spin” ในผลลัพธ์ แต่มี 3 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นไม่มีสิทธิ์ได้รับโบนัส “Free
+                            Spin”
                         </span>
                     </div>
                 </li>
                 <li className="clear-both">
-                ฟรีสปิน ผู้เล่นที่ระดับการเดิมพันเดียวกันและจำนวนเพย์ไลน์เดียวกันกับการหมุนรอบสุดท้าย (เพียงยูสเซอร์ได้รับโบนัสสปินฟรี)
+                    “Free Spin” จะเล่นที่ระดับเดิมพันเดียวกันและจำนวนเพย์ไลน์เท่ากันกับการหมุนครั้งล่าสุด (การหมุนที่ผู้ใช้ได้รับโบนัส “Free
+                    Spin”)
                 </li>
-                <li>ผู้เล่นต้องเสร็จสิ้นในการโบนัสฟรีสปินให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังจากที่ออกให้ ฟรีสปินที่ไม่ได้ใช้จะเป็นโมฆะ</li>
+                <li>ผู้เล่นต้องทำโบนัส “Free Spin” ให้เสร็จสิ้นภายใน 24 ชั่วโมงหลังจากออก “Free Spin” ที่ไม่ได้ใช้จะหายไป</li>
             </ul>
         </li>
     );
@@ -445,59 +429,41 @@ const renderFreeSpin = (odds: number[][], project: string | undefined) => {
 const renderBonus = (odds: number[][], project: string | undefined) => {
     return (
         <li className="guide-item">
-            <h2>โบนัส</h2>
-            <ul className="desc">
-                <li>การมีสัญลักษณ์โบนัส 3, 4 หรือ 5 อันปรากฏขึ้นที่ใดในเกมซึ่งจะได้โบนัส – หีบสมบัติ</li>
-                <li>สัญลักษณ์โบนัสไม่จำเป็นต้องอยู่บนเพย์ไลน์เดียวกัน</li>
-            </ul>
-            <div className="table-container text-center">
-                <table className="table text-center table-medium">
-                    <thead>
-                        <tr>
-                            <th>สัญลักษณ์</th>
-                            <th>คำอธิบาย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentBlack(
-                                    "item8",
-                                    [
-                                        [5, odds[8][5]],
-                                        [4, odds[8][4]],
-                                        [3, odds[8][3]],
-                                    ],
-                                    " โบนัส"
-                                )}
-                            </td>
-                            <td>
-                                มี 5 สัญลักษณ์โบนัสในแสดงที่หน้าจอ<br></br>สามารถเปิด {odds[8][5]} โบนัสหีบสมบัติในเกม
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                มีสัญลักษณ์โบนัส 4 ตัวในผลลัพธ์
-                                <br></br> สามารถเปิด {odds[8][4]} โบนัสหีบสมบัติในเกม
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                มี 3 สัญลักษณ์โบนัสในแสดงที่หน้าจอ<br></br>สามารถเปิด {odds[8][3]} โบนัสหีบสมบัติในเกม
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2>Bonus</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            {renderIconContentBlack(
+                                "item8",
+                                [
+                                    [5, odds[8][5]],
+                                    [4, odds[8][4]],
+                                    [3, odds[8][3]],
+                                ],
+                                " BONUS"
+                            )}
+                        </td>
+                        <td>
+                            <ul className="desc">
+                                <li>การมีสัญลักษณ์ “Bonus” 3, 4 หรือ 5 ปรากฏขึ้นที่ใดก็ได้ในผลลัพธ์จะทำให้เกม “โบนัส” ปรากฏขึ้น</li>
+                                <li>สัญลักษณ์ “Bonus” ไม่จำเป็นต้องอยู่ในเพย์ไลน์เดียวกัน</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <ul className="desc">
                 <li>
-                    <strong>หมายเหตุ:</strong>  สัญลักษณ์โบนัสต้องปรากฏในวงล้อที่แตกต่างกัน ตัวอย่างเช่น หากสัญลักษณ์โบนัส 2 หรือ 3 ปรากฏบนวงล้อเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
+                    <strong>หมายเหตุ:</strong> สัญลักษณ์ “Bonus” จะต้องปรากฏในวงล้อต่างๆ ตัวอย่างเช่น หากสัญลักษณ์ “Bonus” 2 หรือ 3
+                    ตัวอยู่บนรีลเดียวกัน ระบบจะนับเป็นหนึ่งสัญลักษณ์
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src={`/static/images/four-guardians/${project === PROJECTS.L2 ? `${project}/en` : project
-                                    }/guide_example_bonus.png?v1`}
+                                src={`/static/images/four-guardians/${
+                                    project === PROJECTS.L2 ? `${project}/en` : project
+                                }/guide_example_bonus.png?v1`}
                                 alt="guide_example_bonus"
                                 width={333}
                                 height={126}
@@ -506,13 +472,13 @@ const renderBonus = (odds: number[][], project: string | undefined) => {
                         </div>
 
                         <span>
-                            มี 4 สัญลักษณ์ &#34;โบนัส&#34; ในเกม แต่มี 2 สัญลักษณ์อยู่ในวงล้อเดียวกัน ผู้เล่นมีสิทธิ์ได้รับ 3 หีบสมบัติ เท่านั้น
+                            ผลลัพธ์มีสัญลักษณ์ “Bonus” 4 สัญลักษณ์ แต่ 2 สัญลักษณ์อยู่บนรีลเดียวกัน ผู้เล่นจะได้รับสิทธิ์เพียง 3
+                            รายการเท่านั้น
                         </span>
                     </div>
                 </li>
                 <li>
-                    {" "}
-                    ผู้เล่นต้องทำโบนัสของเกมให้เสร็จสิ้นภายใน 120 วินาที นับจากนับถอยหลัง หลังจากช่วงเวลานี้ ระบบจะสุ่มเปิดหีบและตัดสินรอบเกม
+                    ผู้เล่นต้องทำเกม “Bonus” ให้เสร็จภายใน 120 วินาทีหลังจากนับถอยหลัง หลังจากช่วงเวลานี้ ระบบจะสุ่มเปิดหีบและตัดสินรอบเกม
                 </li>
             </ul>
         </li>
@@ -560,7 +526,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                 </ul>
             </div>
             <div>
-                <strong>Contoh</strong>
+                <strong>ตัวอย่าง</strong>
                 <div className={Styles["wrapper-ex-wild"]}>
                     <div className={Styles["wild-img"]}>
                         <div className={Styles[wrapperWildImg]}>
@@ -581,7 +547,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                     </div>
                     <ul className="desc">
                         <li>
-                            หากสัญลักษณ์ Wild คือ 
+                            หากสัญลักษณ์ Wild คือ
                             <img
                                 className={`${Styles["item2"]} ${Styles["mini"]}`}
                                 src="./static/images/four-guardians/item2.png"
@@ -600,7 +566,7 @@ const renderWild = (odds: number[][], project: string | undefined) => {
                         </li>
                     </ul>
                     <p>
-                        ผู้เล่นจะได้รับชัยชนะสูงสุดในเพย์ไลน์นี้  {`=>`} การจ่ายเงิน = ระดับการเดิมพัน * {Math.max(odds[2][3], odds[5][3])}
+                        ผู้เล่นจะได้รับชัยชนะสูงสุดในเพย์ไลน์นี้ {`=>`} การจ่ายเงิน = ระดับการเดิมพัน * {Math.max(odds[2][3], odds[5][3])}
                     </p>
                 </div>
             </div>
@@ -617,7 +583,8 @@ const FourGuardiansGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
                     <p className="content">
-                        {gameName} เป็นเกมสล็อตออนไลน์ที่สร้างขึ้นจากตำนานของ Four Holy Beasts เช่น Dragon, Qilin, Turtle และ Phoenix เกมดังกล่าวประกอบด้วย 5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ
+                        {gameName} เป็นเกมสล็อตออนไลน์ที่สร้างขึ้นจากตำนานของ Four Holy Beasts เช่น Dragon, Qilin, Turtle และ Phoenix
+                        เกมดังกล่าวประกอบด้วย 5 วงล้อและ 3 แถว พร้อมสัญลักษณ์ 11 แบบ
                         ผู้เล่นจะชนะหากมีสัญลักษณ์เดียวกันอยู่บนเพย์ไลน์เดียวกันกับที่คุณเลือก
                     </p>
                     <div className={Styles["wrapper-list-icon"]}>
@@ -627,7 +594,7 @@ const FourGuardiansGuideTH: React.FC<GameGuideProps<GameConfigProps, {}>> = (pro
                         />
                     </div>
                 </li>
-                <li className="guide-item">{renderGameRule()}</li>
+                <li className="guide-item">{renderGameRule(project)}</li>
 
                 {renderPayouts(odds, project)}
                 {project === PROJECTS.L2 && renderJackpot()}

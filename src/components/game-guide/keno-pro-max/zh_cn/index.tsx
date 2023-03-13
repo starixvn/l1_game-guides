@@ -6,16 +6,12 @@ import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { FiveElements } from "../../../shared/keno/zh_cn";
 
-const payouts = (
-    odds: OddsProMaxProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const payouts = (odds: OddsProMaxProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>支出</h2>
             <ul className="desc">
-                <li>中奖金额根据派彩率计算。</li>
+                <li>中奖金额根据投注赔率计算。</li>
                 <li>支付包括初始投注。</li>
                 <li>
                     投注结算后，所有中奖金额都会立即添加到您的账户余额中。
@@ -267,7 +263,7 @@ const KenoProMaxGuideZHCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
                 <li className="guide-item">
                     <h2>游戏规则</h2>
                     <ul className="desc">
-                        <li>所有投注必须在投注时间到期之前进行。 请注意，投注无法取消。</li>
+                        <li>所有投注必须在投注时间到期之前进行。 注意，投注无法取消。</li>
                         <li>投注时间一到，系统将随机抽取20个编号的球并显示结果。</li>
                         <li>每轮最大总赌注为 {maxBetRound}</li>
                     </ul>

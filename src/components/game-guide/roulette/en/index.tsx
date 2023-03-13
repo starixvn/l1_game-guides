@@ -9,11 +9,7 @@ import { renderGameRuleImage } from "../shared";
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
-const renderGameRule = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderGameRule = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <>
             <h2>Game Rules</h2>
@@ -118,10 +114,7 @@ const renderGameRule = (
     );
 };
 
-const renderBetChipsNotice = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <div className="table-container">
             <table className={`table text-center ${Styles["table-customize"]}`}>
@@ -259,7 +252,7 @@ const renderBetChipsNotice = (
     );
 };
 
-const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetTiers = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Tiers</span>
@@ -328,7 +321,7 @@ const renderCallBetTiers = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetOrphelins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Orphelins</span>
@@ -402,7 +395,7 @@ const renderCallBetOrphelins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetVoisins = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Voisins</span>
@@ -486,7 +479,7 @@ const renderCallBetVoisins = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetZero = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Zero</span>
@@ -499,7 +492,6 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
                         <li>Three chips for three Splits (0, 3), (12, 15), (32, 35)</li>
                     </ul>
                 </li>
-                <li>Người chơi chọn mệnh giá chip và nhấp vào Zero, một lần đặt cược sẽ tốn 4 chip cho 3 cược đôi và 1 cược đơn.</li>
             </ul>
             <p>
                 <strong>Example: </strong>Player select the chip value 10, and click on Zero option, it will cost 4 chips for this choice:
@@ -554,7 +546,7 @@ const renderCallBetZero = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">Neighbors</span>
@@ -628,10 +620,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat: boolean | undefined) => {
     );
 };
 
-const renderBettingOptions = (
-    odds: OddsProps | undefined,
-    fractionalOddsFormat: boolean | undefined, 
-) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Betting Options</h2>
@@ -640,13 +629,13 @@ const renderBettingOptions = (
                 numbers themselves are called inside bets (Straight, Split, Street...), whereas the bets that you place on the outside the
                 number field are called outside bets (Odd/Even, Red/Black, Big/Small, Column and Dozen).
             </p>
-            {renderGameRuleImage(fractionalOddsFormat, "en")}  
+            {renderGameRuleImage(fractionalOddsFormat, "en")}
             {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
 };
 
-const renderCallBet = (fractionalOddsFormat: boolean | undefined) => {
+const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>Call Bet</h2>

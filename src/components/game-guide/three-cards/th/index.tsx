@@ -9,10 +9,7 @@ import { locales, Themes } from "../../../../common/constants";
 import Styles from "../three.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined) => {
-    const bet = 10;
-    const winRed = bet * (odds?.red ?? 0);
-    const winDiamonds = bet * (odds?.diamonds ?? 0);
+const renderGameRule = (maxBet: string | undefined) => {
     const imgRed = "img-red";
     return (
         <>
@@ -72,24 +69,20 @@ const renderGameRule = (odds: OddsProps | undefined, maxBet: string | undefined)
             </p>
             <ul className="desc">
                 <li>
-                    Bet on Diamonds option. Payout will be the same if there are 1, 2, or 3 diamonds (
-                    <span className={Styles[imgRed]}>♦</span>) in the results.
+                    เดิมพันตัวเลือกเพชร การจ่ายเงินจะเท่ากันหากมีเพชร 1, 2 หรือ 3 เม็ด (<span className={Styles[imgRed]}>♦</span>)
+                    ในผลลัพธ์.
                 </li>
             </ul>
         </>
     );
 };
 
-const renderPayouts = (
-    odds: OddsProps | undefined,
-    maxBetFollowChoice: MaxBetChoicesProps | undefined,
-    fractionalOddsFormat: boolean | undefined
-) => {
+const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>การจ่ายเงิน</h2>
             <ul className="desc">
-                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราการจ่าย.</li>
+                <li>จำนวนเงินที่ชนะจะคำนวณตามอัตราเดิมพัน.</li>
                 <li>การจ่ายเงินจะรวมกับเงินเดิมพันเริ่มต้นด้วย.</li>
                 <li>
                     จำนวนเงินที่ชนะทั้งหมดจะถูกเพิ่มไปยังยอดเงินในบัญชีของคุณทันทีเมื่อเดิมพันเสร็จสิ้น.
@@ -211,13 +204,16 @@ const ThreeCardsGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesP
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
-                    <p className={`content ${Styles["content-customize"]}`}>                        
-                        เกมส์ไพ่สามใบนั้นเป็นเกมที่น่าตื่นเต้นอีกเกมหนึ่ง ที่เล่นใบไพ่ 52 ใบ มาตรฐานทั่วไป (ยกเว้น โจ๊กเกอร์ ) มีตัวเลือกการเดิมพัน 6 แบบ ได้แก่ แดง ดำ ข้าวหลามตัด (<span className={Styles["img-red"]}>♦</span>),หัวใจ (<span className={Styles["img-red"]}>♥</span>), โพดำ(<span className={Styles["img-black"]}>♠</span>), และ ดอกจิก (<span className={Styles["img-black"]}>♣</span>). 
-                        จุดประสงค์ของเกมนี้คือการทายชุดไพ่ที่จั่วได้ 3 ใบในแต่ละรอบ หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
+                    <p className={`content ${Styles["content-customize"]}`}>
+                        เกมส์ไพ่สามใบนั้นเป็นเกมที่น่าตื่นเต้นอีกเกมหนึ่ง ที่เล่นใบไพ่ 52 ใบ มาตรฐานทั่วไป (ยกเว้น โจ๊กเกอร์ )
+                        มีตัวเลือกการเดิมพัน 6 แบบ ได้แก่ แดง ดำ ข้าวหลามตัด (<span className={Styles["img-red"]}>♦</span>),หัวใจ (
+                        <span className={Styles["img-red"]}>♥</span>), โพดำ(<span className={Styles["img-black"]}>♠</span>), และ ดอกจิก (
+                        <span className={Styles["img-black"]}>♣</span>). จุดประสงค์ของเกมนี้คือการทายชุดไพ่ที่จั่วได้ 3 ใบในแต่ละรอบ
+                        หากผลลัพธ์ตรงกับเดิมพันของผู้เล่น ผู้เล่นจะชนะ
                     </p>
                     <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locales.en, isSM, t)}</div>
                 </li>
-                <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice?.maxBetMain)}</li>
+                <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
                 {renderTermsAndConditionsTH()}

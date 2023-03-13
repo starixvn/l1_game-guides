@@ -1,4 +1,4 @@
-const renderDot = (data: boolean[]) => {
+export const renderDot = (data: boolean[]) => {
     return data.map((isRed, index) => {
         if (isRed) {
             return <span key={index} className="dot-odd"></span>;
