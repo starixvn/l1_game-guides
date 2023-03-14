@@ -20,6 +20,7 @@ abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {
             environment,
             isInPromotionTime,
             fractionalOddsFormat,
+            gameSetting,
         } = this.props;
 
         const { gameSettings } = appSettings;
@@ -36,6 +37,7 @@ abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {
             project: appSettings.system,
             isInPromotionTime: isInPromotionTime,
             fractionalOddsFormat,
+            gameSetting,
         };
     }
 

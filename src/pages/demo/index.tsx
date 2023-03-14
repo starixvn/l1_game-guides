@@ -72,6 +72,7 @@ const Demo = () => {
     const [isShowConfig, setIsShowConfig] = useState<boolean>(true);
     const [heighIframeGuide, setHeighIframeGuide] = useState<number>(0);
     const [backgroundIframe, setBackgroundIframe] = useState<string>("");
+    const [isInputId, setIsInputId] = useState<boolean>(false);
 
     useEffect(() => {
         const configs: TLocalStorageData = getLocalStorageItem(localStorageKeys.configs);
@@ -125,7 +126,33 @@ const Demo = () => {
                     </button>
                     <div className="col-8">
                         <div className="row">
-                            <div className="col">{renderGameName(setGameId, t, gameId, environment)}</div>
+                            <div className="col">
+                                <div className="form-check">
+                                    <input
+                                        type="checkbox"
+                                        id="input-id"
+                                        className="form-check-input"
+                                        onClick={() => setIsInputId(!isInputId)}
+                                    />
+                                    <label className="form-check-label" htmlFor="input-id">
+                                        Input Id
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                {isInputId ? (
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        onChange={(e: any) => setGameId(e.target.value)}
+                                        value={gameId}
+                                    ></input>
+                                ) : (
+                                    renderGameName(setGameId, t, gameId, environment)
+                                )}
+                            </div>
                             <div className="col"> {SelectOptions(locales, setLocale, locale)}</div>
                         </div>
                     </div>

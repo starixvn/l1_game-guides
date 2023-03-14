@@ -388,7 +388,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
 
     return (
         <>
-            <ul className="game-guide">
+            <ul className={`game-guide ${Styles["slot-guide"]}`}>
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("Introduction-title")}</h2>
                     <p className="content">{t("Introduction-content", { gameName: displayName })}</p>

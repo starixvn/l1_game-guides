@@ -32,7 +32,7 @@ export type GameGuideBase = {
     fractionalOddsFormat?: boolean;
     gameSetting?: any;
     folderConfigName?: string;
-    displayName: string;
+    displayName?: string;
 };
 
 export interface GameConfigsBaseProps {

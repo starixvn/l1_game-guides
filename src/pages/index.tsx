@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
-import { buildVersion, ENVIRONMENT, GAMES_COMPLETE_TRANSLATE } from "../common/constants";
+import { buildVersion, ENVIRONMENT } from "../common/constants";
 import GameGuide from "../components/game-guide/game-guide";
 import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
 import { checkIsInteger } from "../helpers/number-helper";
@@ -40,7 +40,6 @@ const FontLocaleMapper: { [key: string]: string } = {
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
     let fontFamily = "SanFranciscoDisplay";
     if (env !== ENVIRONMENT.sm) {
-        
         fontFamily = FontLocaleMapper[locale] ?? "Noto";
 
         if (isNewSlotGame(gameType, gameId)) {
@@ -60,7 +59,7 @@ const handleEnv = (queryParams: object | any) => {
     return ENVIRONMENT.sm;
 };
 
-const Home = () => {
+const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({});
@@ -119,7 +118,6 @@ const Home = () => {
             const env = handleEnv(queryParams);
             setIsLoading(false);
             setGameId(checkIsInteger(queryParams?.gId));
-            const { gameSetting } = prop;
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env, queryParams?.gId, gameSetting.Type);
             setEnvironment(env);
             setName(queryParams?.name);
@@ -147,7 +145,7 @@ const Home = () => {
     return (
         <ImgVersionProvider value={{ imgVersion: buildVersion }}>
             <div ref={wrapperRef} id="container-guide" className="container-guide">
-            {!isGetGameConfigs ? getTemplateFollowEnv() : gameConfigs && getTemplateFollowEnv()}
+                {!isGetGameConfigs ? getTemplateFollowEnv() : gameConfigs && getTemplateFollowEnv()}
             </div>
         </ImgVersionProvider>
     );

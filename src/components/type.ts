@@ -14,5 +14,6 @@ export type BaseProps = {
     environment: string;
     isInPromotionTime: boolean;
     fractionalOddsFormat: boolean;
+    gameSetting: any;
 } & WithTranslation &
     WithRouterProps;

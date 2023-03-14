@@ -6,6 +6,8 @@ import { withRouter } from "next/router";
 import { GAMES } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import { isNewSlotGame } from "../../helpers/game-helper";
+import ClassicSlotGuide from "./classic-slot-template";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -50,9 +52,13 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
     otherGuides = (name: string, gameGuideProps: any) => {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
-        } else {
-            return <></>;
         }
+
+        if (isNewSlotGame(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
+            return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
+        }
+
+        return <></>;
     };
 
     renderGuide = () => {
