@@ -17,7 +17,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
             <ul className="desc">
                 <li>Người Chơi chọn mệnh giá chip và nhấp vào ô bạn muốn đặt cược.</li>
                 <li>
-                    Bấm “X“ để hủy cược, hoặc bấm “Chia Bài” để xác nhận cược. Bài sẽ được chia ngay sau khi Người Chơi bấm nút “Chia Bài”.
+                    Bấm “X” để hủy cược, hoặc bấm “Chia Bài” để xác nhận cược. Bài sẽ được chia ngay sau khi Người Chơi bấm nút “Chia Bài”.
                 </li>
                 <li>
                     <strong>Lưu ý,</strong> không thể hủy cược sau khi bấm “Chia Bài”.

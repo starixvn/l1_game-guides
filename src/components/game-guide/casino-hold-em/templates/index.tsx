@@ -891,7 +891,7 @@ class CasinoHoldGuideVI extends CasinoHoldGuideTemplate<GameGuideProps<GameConfi
         const steps = {
             one: "<strong>Bước 1</strong>: Copy chuỗi <strong>MD5</strong> trong game sau khi bấm nút &quot;Chia Bài&quot;.",
             two: "<strong>Bước 2</strong>: Copy chuỗi <strong>Kết Quả</strong> sau khi bấm nút &quot;Theo Bài&quot;.",
-            three: "<strong>Bước 3:</strong>: Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
+            three: "<strong>Bước 3</strong>: Truy cập {0} và dán chuỗi <strong>Kết Quả</strong> vừa copy vào ô MD5.",
             four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
         };
 

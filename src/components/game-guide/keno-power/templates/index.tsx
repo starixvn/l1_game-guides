@@ -3,7 +3,7 @@ import React from "react";
 import { renderTermsAndConditions } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import { GameGuideProps } from "../../type";
-import Styles from "../keno-match.module.scss";
+import Styles from "../../keno-match/keno-match.module.scss";
 import { formatOdds } from "../../../../helpers/number-helper";
 import KenoMatchMD5 from "../../keno-match/md5";
 import { IPowerKenoTranslationResource } from "../languages/types";
@@ -21,7 +21,9 @@ const renderGameRule = (resources: IPowerKenoTranslationResource, maxBetRound: n
             <h2>{gameRule.title}</h2>
             <ul className="desc">
                 {gameRule.details.map((detail, index) => (
-                    <li key={index}>{StringFormat(detail, maxBetRound.toString())}</li>
+                    <li key={index}>
+                        <Markup content={StringFormat(detail, maxBetRound.toString())} />
+                    </li>
                 ))}
                 <li className="contentBeforeEmpty">{renderBettingOptions(resources)}</li>
             </ul>

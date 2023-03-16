@@ -13,7 +13,7 @@ export const vi: IBitcoinMasterTranslationResource = {
             "Có 2 loại cược: Tăng/Giảm, Chẵn/Lẻ. Trong 1 phiên, với mỗi loại cược, bạn chỉ được đặt vào 1 lựa chọn.",
         ],
         winningConditions: {
-            up: "TMức giá cuối cùng sau 60 giây cao hơn mức giá khởi điểm (Giá đặt lệnh).",
+            up: "Mức giá cuối cùng sau 60 giây cao hơn mức giá khởi điểm (Giá đặt lệnh).",
             down: "Mức giá cuối cùng sau 60 giây thấp hơn mức giá khởi điểm (Giá đặt lệnh).",
             even: "Mức giá cuối cùng sau 60 giây là số Chẵn.<br />+ Lưu ý: Chỉ tính trên chữ số hàng đơn vị, không bao gồm phần thập phân.",
             odd: "Mức giá cuối cùng sau 60 giây là số Lẻ.<br />+ Lưu ý: Chỉ tính trên chữ số hàng đơn vị, không bao gồm phần thập phân.",

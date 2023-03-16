@@ -814,9 +814,9 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 
 export const renderMD5 = (locale?: string) => {
     const steps = {
-        one: "<strong>Bước 1:</strong>Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.",
+        one: "<strong>Bước 1:</strong> Copy Chuỗi MD5 sau khi bấm nút “Chia Bài”.",
         two: "<strong>Bước 2:</strong> Copy chuỗi <strong>Kết Quả</strong> sau khi lá bài chung thứ 5 (lá River) được chia",
-        three: "<strong>Bước 3:</strong>: Truy cập {0} và dán Kết Quả vừa copy vào ô MD5.",
+        three: "<strong>Bước 3:</strong> Truy cập {0} và dán Kết Quả vừa copy vào ô MD5.",
         four: "<strong>Bước 4</strong>: Bấm nút <strong>“hash darling, hash!”</strong>. So sánh chuỗi <strong>MD5 checksum</strong> vừa được tạo ra và chuỗi MD5 ở <strong>Bước 1.</strong>",
     };
 
