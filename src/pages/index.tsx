@@ -1,4 +1,3 @@
-import { NextPageContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
@@ -8,6 +7,7 @@ import { buildVersion, ENVIRONMENT } from "../common/constants";
 import GameGuide from "../components/game-guide/game-guide";
 import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
 import { checkIsInteger } from "../helpers/number-helper";
+import { NextPageContext } from "next";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewSlotGame } from "../helpers/game-helper";
 
@@ -38,13 +38,14 @@ const FontLocaleMapper: { [key: string]: string } = {
 };
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
-    let fontFamily = "SanFranciscoDisplay";
-    if (env !== ENVIRONMENT.sm) {
-        fontFamily = FontLocaleMapper[locale] ?? "Noto";
+    let fontFamily = FontLocaleMapper[locale] ?? "Noto";
 
-        if (isNewSlotGame(gameType, gameId)) {
-            fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
-        }
+    if (env === ENVIRONMENT.sm) {
+        fontFamily = "SanFranciscoDisplay";
+    }
+
+    if (isNewSlotGame(gameType, gameId)) {
+        fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
     }
 
     document.documentElement.style.fontFamily = fontFamily;
@@ -121,9 +122,9 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             changeFontFamilyFollowLanguage(router?.locale ?? "en", env, queryParams?.gId, gameSetting.Type);
             setEnvironment(env);
             setName(queryParams?.name);
-            setDisplayName(queryParams?.displayName);
             setIsInPromotionTime(queryParams?.p === "true");
             setFractionalOddsFormat(queryParams?.fof === "true");
+            setDisplayName(queryParams?.displayName);
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {
