@@ -130,7 +130,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/fortune-cat/guide_example_freespin.png#v4"
+                                src="/static/images/fortune-cat/guide_example_freespin.png#v5"
                                 alt="guide_item_symbol_bg"
                                 loading="eager"
                             />
@@ -213,7 +213,7 @@ const renderWild = (odds: number[][]) => {
                 <ul className="desc">
                     <li>
                         Biểu tượng Wild có thể thay thế cho tất cả các biểu tượng khác, ngoại trừ Free Spin
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>,
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v3" alt="item7"></img>,
                         Bonus
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png#v2" alt="item8"></img>
                         và
@@ -288,7 +288,7 @@ const FortuneCatGuideVI: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         tượng giống nhau nằm trên cùng một dòng cược mà người chơi đã chọn.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v7`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>

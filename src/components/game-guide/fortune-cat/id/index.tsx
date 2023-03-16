@@ -67,7 +67,7 @@ export const renderIconContent = (
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="d-center">
-                <img src={`${pathSrc}${itemName}.png?v3`} alt={itemName}></img>
+                <img src={`${pathSrc}${itemName}.png?v4`} alt={itemName}></img>
             </div>
 
             <div>
@@ -317,7 +317,7 @@ const renderFreeSpin = (odds: number[][]) => {
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-free-spin-ex"]}>
                             <img
-                                src="/static/images/fortune-cat/guide_example_freespin.png#v4"
+                                src="/static/images/fortune-cat/guide_example_freespin.png#v5"
                                 alt="guide_item_symbol_bg"
                                 width={265}
                                 height={125}
@@ -403,7 +403,7 @@ const renderWild = (odds: number[][]) => {
                     <li>
                         Simbol “Wild” dapat menggantikan semua simbol kecuali
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item8_small.png" alt="item8"></img>,
-                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v2" alt="item7"></img>
+                        <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item7_small.png#v3" alt="item7"></img>
                         dan
                         <img className={Styles["symbol-small"]} src="./static/images/fortune-cat/item10_small.png#v2" alt="item10"></img>
                     </li>
@@ -474,7 +474,7 @@ const FortuneCatGuideID: React.FC<GameGuideProps<GameConfigProps, {}>> = (props)
                         sama terletak pada payline yang sama yang telah dipilih.
                     </p>
                     <div className={Styles["list-symbol-wrapper"]}>
-                        <img src={`/static/images/fortune-cat/list_icon.png#v6`} alt="guide_item_symbol_bg" />
+                        <img src={`/static/images/fortune-cat/list_icon.png#v7`} alt="guide_item_symbol_bg" />
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule()}</li>
