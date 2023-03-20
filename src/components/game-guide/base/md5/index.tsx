@@ -56,8 +56,8 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
                             })}
                         </ul>
                     </li>
+                    <div className="content"> {content.noted}</div>
                 </ul>
-                <div className="content"> {content.noted} </div>
             </>
         );
     }
@@ -107,8 +107,8 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
         const { example } = this.state.translationResource;
         return (
             <>
-                <div className="content">{<Markup content={example.header} />}</div>
-                <ul className="desc">
+                <div className="md5-content">{<Markup content={example.header} />}</div>
+                <ul className="desc md5-content">
                     {this.renderStep1()}
                     {this.renderStep2()}
                     {this.renderStep3()}

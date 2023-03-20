@@ -288,4 +288,17 @@
             transform: translateX(-50%);
         }
     }
+
+    .wrapper-ex-wild .wild-img {
+        flex-wrap: nowrap;
+
+        .wrapper-wild-img {
+            margin-right: 0 !important;
+
+            img {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+    }
 }
