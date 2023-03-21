@@ -6,7 +6,7 @@ import { appWithTranslation } from "next-i18next";
 import { Themes } from "../common/constants";
 import { v4 as uuidv4 } from "uuid";
 
-const App = ({ Component, pageProps }: AppProps | any) => {
+const App = (appProps: AppProps) => {
     const { Component, pageProps } = appProps;
 
     return (

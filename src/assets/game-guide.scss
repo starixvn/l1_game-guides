@@ -135,6 +135,14 @@ ul {
         &.desc {
             padding-left: 2rem;
         }
+
+        @media (max-width: 576px) {
+            padding-left: 1rem;
+
+            &.desc {
+                padding-left: 1rem;
+            }
+        }
     }
 
     .desc {
