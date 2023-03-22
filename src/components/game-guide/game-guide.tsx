@@ -1,13 +1,12 @@
-import dynamic from "next/dynamic";
-import React from "react";
 import { withTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
+import React from "react";
 
 import { GAMES } from "../../common/constants";
+import { isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
-import { isNewSlotGame } from "../../helpers/game-helper";
-import ClassicSlotGuide from "./classic-slot-template";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -45,6 +44,7 @@ const FantanGuide = dynamic(() => import("./fantan/index"));
 const FortuneCatGuide = dynamic(() => import("./fortune-cat"));
 const WinThreeCardsGuide = dynamic(() => import("./win-three-cards"));
 const VipBaccaratGuide = dynamic(() => import("./baccarat-vip"));
+const ClassicSlotGuide = dynamic(() => import("./classic-slot-template"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
