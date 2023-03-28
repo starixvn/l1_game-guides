@@ -30,9 +30,7 @@ export const renderMD5VI = () => {
                         </li>
                         <li>
                             <strong>Bước 3</strong>: Truy cập{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
+                            <b>https://md5.services/</b>{" "}
                             và dán <strong>Kết Quả</strong> vừa copy vào ô MD5.
                         </li>
                         <li>

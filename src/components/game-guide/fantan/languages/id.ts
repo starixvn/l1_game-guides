@@ -68,7 +68,7 @@ export const id: IFanTanTranslationResource = {
         note: "<b>Catatan:</b> 40 sesuai dengan jumlah acak manik-manik yang diambil pada awal putaran permainan",
         step1: "<b>Langkah 1:</b> Salin kunci MD5 sebelum hasilnya diumumkan.",
         step2: "<b>Langkah 2:</b> Salin Hasil setelah dipublikasikan.",
-        step3: `<b>Langkah 3:</b> Buka <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> dan tempel Hasil ke kotak MD5.`,
+        step3: `<b>Langkah 3:</b> Buka <b>https://md5.services/</b> dan tempel Hasil ke kotak MD5.`,
         step4: "<b>Langkah 4:</b> Tekan tombol “hash darling, hash!”dan bandingkan rangkaian daftar periksa MD5 yang baru dibuat dengan Kunci MD5 di Langkah 1.",
     },
 };

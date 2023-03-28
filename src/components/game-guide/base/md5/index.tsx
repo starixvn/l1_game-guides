@@ -4,7 +4,7 @@ import { StringFormat } from "../../../../helpers/string-helper";
 import { IMd5Resources } from "./languages/types";
 import { getBaseMD5TranslationResource } from "./languages";
 
-const md5ServicesUrl = "<a href='https://md5.services/' target='_blank' rel='noopener noreferrer'>https://md5.services/</a>";
+const md5ServicesUrl = "<b>https://md5.services/</b>";
 
 type MD5Props = {
     locale: string | undefined;

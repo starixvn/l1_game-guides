@@ -27,9 +27,7 @@ export const renderMD5TH = () => {
                         </li>
                         <li>
                             <strong>ขั้นตอนที่ 3</strong>: ไปที่{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
+                            <b>https://md5.services/</b>{" "}
                             และวางผลลัพธ์ลงในกล่อง MD5
                         </li>
                         <li>

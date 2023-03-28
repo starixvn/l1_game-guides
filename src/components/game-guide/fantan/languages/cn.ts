@@ -68,7 +68,7 @@ export const cn: IFanTanTranslationResource = {
         note: "<b>注:</b> 40对应游戏回合开始时随机取的珠数",
         step1: "<b>第一步:</b> 在公布结果前复制MD5密钥。",
         step2: "<b>第二步:</b> 发布后复制结果。",
-        step3: `<b>第三步:</b> 转到 <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> 并将结果粘贴到 MD5 框中。`,
+        step3: `<b>第三步:</b> 转到 <b>https://md5.services/</b> 并将结果粘贴到 MD5 框中。`,
         step4: "<b>第四步:</b> 按“hash darling，hash！” 按钮，并将新生成的校验和 MD5 字符串与步骤 1 中的 MD5 密钥进行比较。",
     },
 };

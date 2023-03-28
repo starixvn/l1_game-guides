@@ -27,9 +27,7 @@ export const renderMD5ID = () => {
                         </li>
                         <li>
                             <strong>Langkah 3</strong>: Buka{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
+                            <b>https://md5.services/</b>{" "}
                             dan tempel Hasil ke kotak MD5.
                         </li>
                         <li>

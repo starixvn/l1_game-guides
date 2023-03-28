@@ -68,7 +68,7 @@ export const en: IFanTanTranslationResource = {
         note: "<b>Note:</b> 40 corresponds to the random number of beads taken at the beginning of the game round",
         step1: "<b>Step 1:</b> Copy the MD5 Key before the result is announced.",
         step2: "<b>Step 2:</b> Copy the Result after it is published.",
-        step3: `<b>Step 3:</b> Go to <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> and paste the Result into the MD5 box.`,
+        step3: `<b>Step 3:</b> Go to <b>https://md5.services/</b> and paste the Result into the MD5 box.`,
         step4: "<b>Step 4:</b> Press the “hash darling, hash!” button and compare the newly generated checksum MD5 string with the MD5 Key in Step 1.",
     },
 };

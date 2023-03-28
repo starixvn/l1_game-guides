@@ -26,9 +26,7 @@ export const renderMD5TW = () => {
                         </li>
                         <li>
                             <strong>第三步</strong>: 轉到{" "}
-                            <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">
-                                https://md5.services/
-                            </a>{" "}
+                            <b>https://md5.services/</b>{" "}
                             並將結果粘貼到 MD5 框中。
                         </li>
                         <li>

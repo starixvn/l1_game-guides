@@ -66,7 +66,7 @@ export const vi: IFanTanTranslationResource = {
         note: "Trong đó 40 tương ứng với số hạt được lấy ngẫu nhiên khi bắt đầu phiên.",
         step1: "<b>Bước 1:</b> Copy chuỗi MD5 trước khi kết quả  được công bố.",
         step2: "<b>Bước 2:</b> Copy chuỗi dữ liệu trong mục Kết Quả sau khi kết quả được công bố.",
-        step3: `<b>Step 3:</b> Truy cập <a href="https://md5.services/" target="_blank" rel="noopener noreferrer">https://md5.services/</a> và dán Kết Quả vừa copy vào ô MD5.`,
+        step3: `<b>Step 3:</b> Truy cập <b>https://md5.services/</b> và dán Kết Quả vừa copy vào ô MD5.`,
         step4: "<b>Bước 4:</b> Bấm nút “hash, darling hash!”.  So sánh chuỗi MD5 checksum vừa được tạo ra và chuỗi MD5 ở Bước 1.",
     },
 };
