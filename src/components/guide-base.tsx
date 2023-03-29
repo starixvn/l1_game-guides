@@ -30,7 +30,7 @@ abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {
             userStakeLevel: userStakeLevel,
             ...gameSettings[gameId],
             gameConfigs: gameConfigs,
-            gameNameTranslate: gameId ? this.getGameTranslate(gameSettings[gameId].gameName.toLocaleLowerCase()) : "",
+            gameNameTranslate: gameId ? this.getGameTranslate(gameSettings[gameId]?.gameName?.toLocaleLowerCase()) : "",
             dynamic,
             isGetGameConfigs,
             isScrollMD5,
