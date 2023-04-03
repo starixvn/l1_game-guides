@@ -50,7 +50,7 @@ export const vi: IPowerKenoTranslationResource = {
         description2: "",
         description3: "Tỷ lệ cược đã bao gồm tiền vốn.",
         odds: "Tỷ Lệ Trả Thưởng",
-        betLimit: "Hạn Mức Cược <br></br>(Min - Max)",
+        betLimit: "Hạn Mức Cược <br />(Min - Max)",
     },
     md5noted: "Trong đó  <span class={0}>899</span> là kết quả của Đội Xanh và <span class={1}>807</span> là kết quả Đội Đỏ",
 };

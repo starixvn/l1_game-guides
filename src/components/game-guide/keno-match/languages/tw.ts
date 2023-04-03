@@ -63,7 +63,7 @@ export const tw: IPowerSoccerTranslationResource = {
         description2: "支出包括初始股份。",
         description3: "投注結算後，所有獲勝金額都會立即添加到您的賬戶餘額中。",
         odds: "賠率",
-        betLimit: "支出<br></br>（最小-最大)",
+        betLimit: "支出<br />（最小-最大)",
         firstHalfPayout: "a) 在“上半場”結果開出任何數字之前下注",
         liveBettingPayout: {
             text: "b) 現場投注",

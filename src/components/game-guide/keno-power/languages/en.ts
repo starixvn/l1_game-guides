@@ -53,7 +53,7 @@ export const en: IPowerKenoTranslationResource = {
         description2: "The Payout includes the initial stake.",
         description3: "All winning amounts are instantly added to your account balance when bets are settled.",
         odds: "Odds",
-        betLimit: "Bet Limit <br></br>(Min - Max)",
+        betLimit: "Bet Limit <br />(Min - Max)",
     },
     md5noted: "Noted: <span class={0}>899</span> and <span class={1}>807</span> are results of Team Blue and Team Red respectively.",
 };

@@ -71,7 +71,7 @@ export const en: IPowerSoccerTranslationResource = {
         description2: "The Payout includes the initial stake.",
         description3: "All winning amounts are instantly added to your account balance when bets are settled.",
         odds: "Odds",
-        betLimit: "Payouts<br></br>(Min - Max)",
+        betLimit: "Payouts<br />(Min - Max)",
         firstHalfPayout: "a) Place bets before any numbers are drawn for the “First Half” result",
         liveBettingPayout: {
             text: "b) Live Betting",

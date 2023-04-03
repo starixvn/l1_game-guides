@@ -72,7 +72,7 @@ export const id: IPowerSoccerTranslationResource = {
         description2: "Pembayaran termasuk taruhan awal.",
         description3: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
         odds: "Peluang",
-        betLimit: "Pembayaran<br></br>(Min-Maks)",
+        betLimit: "Pembayaran<br />(Min-Maks)",
         firstHalfPayout: "a) Pasang taruhan sebelum nomor apa pun ditarik untuk hasil “Babak Pertama”.",
         liveBettingPayout: {
             text: "b) Taruhan Langsung",

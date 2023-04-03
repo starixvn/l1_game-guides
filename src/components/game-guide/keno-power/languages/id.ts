@@ -51,7 +51,7 @@ export const id: IPowerKenoTranslationResource = {
         description2: "Pembayaran termasuk taruhan awal.",
         description3: "Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.",
         odds: "Odds",
-        betLimit: "Batas Taruhan <br></br>(Min - Maks)",
+        betLimit: "Batas Taruhan <br />(Min - Maks)",
     },
     md5noted: "Tercatat: 899 dan 807 masing-masing adalah hasil dari Tim Biru dan Tim Merah.",
 };

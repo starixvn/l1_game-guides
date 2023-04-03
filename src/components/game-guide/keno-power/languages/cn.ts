@@ -49,7 +49,7 @@ export const cn: IPowerKenoTranslationResource = {
         description2: "支出包括初始股份。",
         description3: "投注结算后，所有获胜金额都会立即添加到您的账户余额中。",
         odds: "赔率",
-        betLimit: "投注限额 <br></br>（最小最大）",
+        betLimit: "投注限额 <br />（最小最大）",
     },
     md5noted: "注： <span class={0}>899</span> 和 <span class={1}>807</span>分别是蓝队和红队的成绩。",
 };

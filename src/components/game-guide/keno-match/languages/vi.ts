@@ -69,7 +69,7 @@ export const vi: IPowerSoccerTranslationResource = {
         description2: "",
         description3: "Tỷ lệ cược đã bao gồm tiền vốn.",
         odds: "Tỷ Lệ Trả Thưởng",
-        betLimit: "Hạn Mức Cược<br></br>(Min - Max)",
+        betLimit: "Hạn Mức Cược<br />(Min - Max)",
         firstHalfPayout: "a) Đặt cược trước khi công bố kết quả Hiệp 1",
         liveBettingPayout: {
             text: "b) Đặt cược Live",
