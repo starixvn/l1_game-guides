@@ -4,9 +4,10 @@ import { withRouter } from "next/router";
 import React from "react";
 
 import { GAMES } from "../../common/constants";
-import { isNewSlotGame } from "../../helpers/game-helper";
+import { isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import CascadingSlotGuide from "./cascading-slot-template";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -56,6 +57,10 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
 
         if (isNewSlotGame(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
+        }
+
+        if(isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
+            return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />
         }
 
         return <></>;
