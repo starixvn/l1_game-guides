@@ -103,3 +103,9 @@ export const GAMES_MINI = {
     BACCARAT: 10,
     HILO: 45,
 };
+
+export const TolgeeConfig = {
+    url: "http://10.70.70.39:8085/",
+    key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
+    projectId: "2",
+};

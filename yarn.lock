@@ -1529,6 +1529,30 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tolgee/core@5.7.0":
+  version "5.7.0"
+  resolved "https://npm.lumigame.com/@tolgee%2fcore/-/core-5.7.0.tgz#92cde16e21a31737a0c3993237da66b1ce69549c"
+  integrity sha512-teeWr4yz6JMtKCWkk+JFmIYlc/HHY7xGCyJsrhuHygpSsoICqSSy5V+7uCVbrO+W2UcPq6V+mUAWfHz1OMApMA==
+
+"@tolgee/format-icu@^5.7.0":
+  version "5.7.0"
+  resolved "https://npm.lumigame.com/@tolgee%2fformat-icu/-/format-icu-5.7.0.tgz#98c6a6931291f5451ef45d04d2032bed64215410"
+  integrity sha512-WcvkRd4iAG9Qx9TT5A2oBRm/UnK9Jqnknnlxxxqzyol0SKUSzhsqcVzsgR6crtzsgNRYjOqNSI/YrjR5fldZaA==
+
+"@tolgee/react@^5.7.2":
+  version "5.7.2"
+  resolved "https://npm.lumigame.com/@tolgee%2freact/-/react-5.7.2.tgz#2fc2b6a7b97d56dd423b6cc14f55b2a7e2d7bd8b"
+  integrity sha512-T0Akl9PvitUeDw8CJi+mwKtwXaO7QiMOU43Vhi99WSPI8saDifIdMfvcSQ3C1lDK2GuR/6C6kZXS/6nM1boYTg==
+  dependencies:
+    "@tolgee/web" "5.7.2"
+
+"@tolgee/web@5.7.2":
+  version "5.7.2"
+  resolved "https://npm.lumigame.com/@tolgee%2fweb/-/web-5.7.2.tgz#786d501ad00f699947fd4dec01a88e92409059e7"
+  integrity sha512-A5YdFFxdH0Qu7nhyCEhAeaySEHAGoRB9obdpY+S+Exw89iRVZZQpT/h/mCzd+zclxtYR79CMkKSwGG3m6PI1Tw==
+  dependencies:
+    "@tolgee/core" "5.7.0"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
@@ -5979,11 +6003,6 @@ randexp@0.4.6:
     discontinuous-range "1.0.0"
     ret "~0.1.10"
 
-react-dom@^18.2.0:
-  version "18.2.0"
-  resolved "http://npm.lumigame.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
-  dependencies:
 react-device-detect@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-2.2.3.tgz#97a7ae767cdd004e7c3578260f48cf70c036e7ca"
@@ -5991,6 +6010,11 @@ react-device-detect@^2.2.3:
   dependencies:
     ua-parser-js "^1.0.33"
 
+react-dom@^18.2.0:
+  version "18.2.0"
+  resolved "http://npm.lumigame.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
+  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
+  dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 

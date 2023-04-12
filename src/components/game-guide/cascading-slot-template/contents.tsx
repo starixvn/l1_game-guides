@@ -1,4 +1,5 @@
-import { Trans, useTranslation } from "next-i18next";
+import { Trans } from "next-i18next";
+import { useTranslate } from "@tolgee/react";
 import React from "react";
 import { getImageDirectoryName } from ".";
 
@@ -36,27 +37,20 @@ const renderGameRule = (t: Function) => {
     );
 };
 
-const renderPayouts = ( odds: any,
-    coin: number,
-    level: number,
-    maxWinPerRound: number,
-    imageDirectoryName: string, t: Function) => {
-        const currMaxBet = maxWinPerRound;
-        const oddDetail = convertOddDetail(odds, false);
+const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number, imageDirectoryName: string, t: Function) => {
+    const currMaxBet = maxWinPerRound;
+    const oddDetail = convertOddDetail(odds, false);
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("Payout-title")}</h2>
             <ul className="desc">
                 <li>{t("Payout-line-1")}</li>
-                <li>
-                    {t("Payout-line-2")}
-                </li>
-                <li>{t("Payout-line-3")}</li>
+                <li>{t("Payout-line-2")}</li>
+                <li>{t("Payout-line-3", { betLevel: level, coin: coin })}</li>
             </ul>
             {renderPayoutsIconFirstLine(oddDetail, coin, level)}
             {renderPayoutsIconSecondLine(oddDetail, coin, level)}
             {renderExamplePayout(oddDetail[8], coin, level, imageDirectoryName, t)}
-            
         </li>
     );
 };
@@ -75,42 +69,43 @@ const generateSymbol = (iconIndex: number, prefixName: string, isHighlight = fal
 // const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
 //     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
 
-const renderIconContent = ( itemName = "item10",
-isContentTop = false,
-isGem = false,
-dataContent: OddDetailList,
-coin: number,
-level: number,
-isReverse = true) => {
+const renderIconContent = (
+    itemName = "item10",
+    isContentTop = false,
+    isGem = false,
+    dataContent: OddDetailList,
+    coin: number,
+    level: number,
+    isReverse = true
+) => {
     const imageDirectoryName = getImageDirectoryName();
-        const pathSrc = `${imageDirectoryName}/`;
-        const oddItems = [...dataContent.oddItem].reverse();
-        const oddItemList = isReverse ? oddItems : dataContent.oddItem;
-        return (
-            <div className={Styles["symbol-wrapper"]}>
-                <div className="img-fluid">
-                    <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
-                </div>
-
-                
-                <div
-                    className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
-                        isGem && Styles["gem-position"]
-                    }`}
-                >
-                    {oddItemList.map((data, index) => {
-                        const value = +(+(data.count * coin * level)).toFixed(2);
-
-                        return (
-                            <div key={index} className={Styles["icon-content"]}>
-                                <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
-                                <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{value}</span>
-                            </div>
-                        );
-                    })}
-                </div>
+    const pathSrc = `${imageDirectoryName}/`;
+    const oddItems = [...dataContent.oddItem].reverse();
+    const oddItemList = isReverse ? oddItems : dataContent.oddItem;
+    return (
+        <div className={Styles["symbol-wrapper"]}>
+            <div className="img-fluid">
+                <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
             </div>
-        );
+
+            <div
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
+            >
+                {oddItemList.map((data, index) => {
+                    const value = +(+(data.count * coin * level)).toFixed(2);
+
+                    return (
+                        <div key={index} className={Styles["icon-content"]}>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{value}</span>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
 };
 
 const renderPayoutsIconFirstLine = (symbols: OddDetailList[], coin: number, level: number) => {
@@ -140,7 +135,7 @@ const renderPayoutsIconSecondLine = (symbols: OddDetailList[], coin: number, lev
     );
 };
 
-const renderIconContentLarge = (dataContent:OddDetailList, textAfterNumber: string) => {
+const renderIconContentLarge = (dataContent: OddDetailList, textAfterNumber: string) => {
     return (
         <span className={`${Styles["symbol-wrapper"]} ${Styles["large"]}`}>
             <div className="d-center">{generateSymbol(9, "symbol")}</div>
@@ -181,7 +176,6 @@ const renderExampleGameRules = (t: Function) => {
                             <td>100</td>
                             <td>100</td>
                         </tr>
-                      
                     </tbody>
                 </table>
             </div>
@@ -189,17 +183,14 @@ const renderExampleGameRules = (t: Function) => {
     );
 };
 
-const renderExamplePayout = (symbol: OddDetailList,
-    coin: number,
-    level: number,
-    imageDirectoryName: string, t: Function) => {
+const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number, imageDirectoryName: string, t: Function) => {
     const oddItems = [...symbol.oddItem].reverse();
     return (
         <>
             <p>
                 <strong>{t("Common-example")}</strong>
             </p>
-             <div className={`${Styles["example"]} table-medium`}>
+            <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
                         <th>{t("Common-description")}</th>
@@ -207,15 +198,13 @@ const renderExamplePayout = (symbol: OddDetailList,
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>
-                                {renderIconContent("symbol-8", false, false, symbol, coin, level)}
-                            </td>
-                            <td> 
+                            <td rowSpan={3}>{renderIconContent("symbol-8", false, false, symbol, coin, level)}</td>
+                            <td>
                                 {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[0].countString })}
                                 <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[0].count * coin * level)).toFixed(2)})}
+                                {t("Payout-example-description-3", { value: +(+(oddItems[0].count * coin * level)).toFixed(2) })}
                             </td>
                         </tr>
                         <tr>
@@ -224,7 +213,7 @@ const renderExamplePayout = (symbol: OddDetailList,
                                 <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[1].count * coin * level)).toFixed(2)})}
+                                {t("Payout-example-description-3", { value: +(+(oddItems[1].count * coin * level)).toFixed(2) })}
                             </td>
                         </tr>
                         <tr>
@@ -233,10 +222,9 @@ const renderExamplePayout = (symbol: OddDetailList,
                                 <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[2].count * coin * level)).toFixed(2)})}
+                                {t("Payout-example-description-3", { value: +(+(oddItems[2].count * coin * level)).toFixed(2) })}
                             </td>
                         </tr>
-                      
                     </tbody>
                 </table>
             </div>
@@ -244,15 +232,14 @@ const renderExamplePayout = (symbol: OddDetailList,
     );
 };
 
-const renderExampleFreespin = (oddDetail: OddDetailList[],
-    imageDirectoryName: string, t: Function) => {
+const renderExampleFreespin = (oddDetail: OddDetailList[], imageDirectoryName: string, t: Function) => {
     const oddItems = [...oddDetail[0].oddItem].reverse();
     return (
         <>
             <p>
                 <strong>{t("Common-example")}</strong>
             </p>
-             <div className={`${Styles["example"]} table-medium`}>
+            <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
                         <th>{t("Common-description")}</th>
@@ -260,30 +247,27 @@ const renderExampleFreespin = (oddDetail: OddDetailList[],
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>
-                                {renderIconContentLarge(oddDetail[0], t("FreeSpin-upper-plural"))}
-                            </td>
-                            <td> 
+                            <td rowSpan={3}>{renderIconContentLarge(oddDetail[0], t("FreeSpin-upper-plural"))}</td>
+                            <td>
                                 {t("FreeSpin-example-description-1", { numOfScater: oddItems[0].countString })}
                                 <br></br>
-                                {t("FreeSpin-example-description-2", { value: oddItems[0].count})}
+                                {t("FreeSpin-example-description-2", { value: oddItems[0].count })}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 {t("FreeSpin-example-description-1", { numOfScater: oddItems[1].countString })}
                                 <br></br>
-                                {t("FreeSpin-example-description-2", { value: oddItems[1].count})}
+                                {t("FreeSpin-example-description-2", { value: oddItems[1].count })}
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 {t("FreeSpin-example-description-1", { numOfScater: oddItems[2].countString })}
                                 <br></br>
-                                {t("FreeSpin-example-description-2", { value: oddItems[2].count})}
+                                {t("FreeSpin-example-description-2", { value: oddItems[2].count })}
                             </td>
                         </tr>
-                      
                     </tbody>
                 </table>
             </div>
@@ -336,52 +320,48 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>8</td>
                             <td>56</td>
                         </tr>
-                      
                     </tbody>
                 </table>
             </div>
         </>
     );
-}
-
-const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Function) => {
-   
-        const oddDetail = convertOddDetail(odds, true);
-        //const oddItems = [...oddDetail[0].oddItem].reverse();
-        //const { subDescriptions } = resources.freeSpin;
-        //const { table, tumbleDescriptions } = resources.exampleFreeSpin;
-        return (
-            <>
-                <li className="guide-item">
-                    <h2 className={Styles["heading1"]}>{t("FreeSpin-title")}</h2>
-                    <ul className="desc">
-                        <li>{t("FreeSpin-line-1")}
-                            {renderExampleFreespin(oddDetail, imageDirectoryName, t)}
-                        </li>
-                        <li>
-                            {t("FreeSpin-line-2")}
-                        </li>
-                        <li>{t("FreeSpin-line-3")}</li>
-                        <li>{t("FreeSpin-line-4")} 
-                            <div className="text-center">{t("FreeSpin-win-amount")}</div>
-                            {renderExampleWinFreespin(t)}
-                        </li>
-                        <li>{t("FreeSpin-line-5")} </li>
-                    </ul>
-                </li>
-            </>
-        );
 };
 
-const renderTumble = ( t: Function) => {
+const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Function) => {
+    const oddDetail = convertOddDetail(odds, true);
+    //const oddItems = [...oddDetail[0].oddItem].reverse();
+    //const { subDescriptions } = resources.freeSpin;
+    //const { table, tumbleDescriptions } = resources.exampleFreeSpin;
+    return (
+        <>
+            <li className="guide-item">
+                <h2 className={Styles["heading1"]}>{t("FreeSpin-title")}</h2>
+                <ul className="desc">
+                    <li>
+                        {t("FreeSpin-line-1")}
+                        {renderExampleFreespin(oddDetail, imageDirectoryName, t)}
+                    </li>
+                    <li>{t("FreeSpin-line-2")}</li>
+                    <li>{t("FreeSpin-line-3")}</li>
+                    <li>
+                        {t("FreeSpin-line-4")}
+                        <div className="text-center">{t("FreeSpin-win-amount")}</div>
+                        {renderExampleWinFreespin(t)}
+                    </li>
+                    <li>{t("FreeSpin-line-5")} </li>
+                </ul>
+            </li>
+        </>
+    );
+};
+
+const renderTumble = (t: Function) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("Tumble-title")}</h2>
             <ul className="desc">
                 <li>{t("Tumble-line-1")}</li>
-                <li>
-                    {t("Tumble-line-2")}
-                </li>
+                <li>{t("Tumble-line-2")}</li>
                 <li>{t("Tumble-line-3")}</li>
             </ul>
         </li>
@@ -392,21 +372,18 @@ const renderMultiplier = (t: Function) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("Multiplier-title")}</h2>
-            <div className="text-center">
-                {[0, 1, 2, 3].map((imgIndex) => generateSymbol(imgIndex, "multiplier"))}        
-            </div>
+            <div className="text-center">{[0, 1, 2, 3].map((imgIndex) => generateSymbol(imgIndex, "multiplier"))}</div>
             <ul className="desc">
                 <li>{t("Multiplier-line-1")}</li>
+                <li>{t("Multiplier-line-2")}</li>
                 <li>
-                    {t("Multiplier-line-2")}
-                </li>
-                <li>{t("Multiplier-line-3")}
-                {renderExampleMultiplier(t)}
+                    {t("Multiplier-line-3")}
+                    {renderExampleMultiplier(t)}
                 </li>
             </ul>
         </li>
     );
-}
+};
 
 const renderExampleMultiplier = (t: Function) => {
     return (
@@ -416,7 +393,7 @@ const renderExampleMultiplier = (t: Function) => {
             </p>
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
-                    <thead>                        
+                    <thead>
                         <th>{t("Win-symbols")}</th>
                         <th>{t("Tumble-win")}</th>
                         <th>{t("Multiplier")}</th>
@@ -429,7 +406,6 @@ const renderExampleMultiplier = (t: Function) => {
                             <td>100</td>
                             <td>100</td>
                         </tr>
-                      
                     </tbody>
                 </table>
             </div>
@@ -451,7 +427,7 @@ const renderTermsAndConditions = (t: Function) => {
     );
 };
 
-const convertOddDetail = (odd: any, isFreeSpin: boolean)  => {
+const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
     const oddList: OddDetailList[] = [];
     for (const item in odd) {
         const symbol = odd[item];
@@ -478,7 +454,7 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean)  => {
 };
 
 const Contents: React.FC<GameConfigProps> = (props) => {
-    const { t } = useTranslation("cascadingslot");
+    const { t } = useTranslate("cascadingslot");
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
     //imgSrc = appSettings.resourceUrl + name;
@@ -487,11 +463,11 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const odds = gameSettings.OddsByCounts;
     const betMultiplier = gameSettings.BetMultiplier;
     const betLevels = gameSettings.BetLevels;
-    const coinValues = gameConfigs.coinValues;    
+    const coinValues = gameConfigs.coinValues;
 
     const imageDirectoryName = getImageDirectoryName();
-    const sortedCoinValue = coinValues.sort((a, b) => a - b);
-    const sortedBetLevel = betLevels.sort((a, b) => a - b);
+    const sortedCoinValue = coinValues.sort((a: number, b: number) => a - b);
+    const sortedBetLevel = betLevels.sort((a: number, b: number) => a - b);
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
     const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
 

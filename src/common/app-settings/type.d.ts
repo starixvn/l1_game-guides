@@ -22,4 +22,6 @@ export default interface AppSettings {
     system: string;
     resourceUrl: string;
     gameSettingUrl: string;
+
+    useTolgeeStatic: boolean;
 }
