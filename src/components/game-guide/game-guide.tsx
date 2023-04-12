@@ -59,11 +59,13 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 
-        if(isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
-            return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />
-        }
+        // if(isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
+        //     
+        // }
 
-        return <></>;
+        return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />
+
+        //return <></>;
     };
 
     renderGuide = () => {
