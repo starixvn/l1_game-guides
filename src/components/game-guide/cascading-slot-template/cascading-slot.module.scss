@@ -53,6 +53,7 @@
     &.large {
         grid-template-columns: 10rem 1fr;
         width: 28rem;
+        margin: 0 auto;
 
         .number-second {
             display: block;
@@ -106,10 +107,7 @@
 
 .wrapper-symbol-ex {
     position: relative;
-    margin: 1rem 2rem 1rem 1rem;
-    background-color: var(--symbol-wrapper-bg);
-    border: 1px solid var(--symbol-wrapper-border);
-    border-radius: 0.8rem;
+    margin: 1rem 2rem 1rem 1rem;    
     display: flex;
     justify-content: center;
 
@@ -120,6 +118,9 @@
         grid-gap: 0.5rem;
         justify-content: center;
         padding: 1rem;
+        background-color: var(--symbol-wrapper-bg);
+        border: 1px solid var(--symbol-wrapper-border);
+        border-radius: 0.8rem;
     }
 
     img {
@@ -206,6 +207,9 @@
         &[rowspan]{
             border-bottom: none;
             width: 30%;
+            &.freespin {
+                width: 40%;
+            }
         }
     }
     th, td {

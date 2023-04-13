@@ -164,10 +164,10 @@ const renderExampleGameRules = (coin:number, level: number, betMultiplier: numbe
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
-                        <th>{t("Common-description")}</th>
-                        <th>{t("Common-description")}</th>
-                        <th>{t("Common-description")}</th>
-                        <th>{t("Common-description")}</th>
+                        <th>{t("Bet-value")}</th>
+                        <th>{t("Coin-value")}</th>
+                        <th>{t("Bet-multiplier")}</th>
+                        <th>{t("Total-bet")}</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -193,7 +193,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
-                        <th>{t("Common-description")}</th>
+                        <th>{t("Common-symbol")}</th>
                         <th>{t("Common-description")}</th>
                     </thead>
                     <tbody>
@@ -246,12 +246,12 @@ const renderExampleFreespin = (oddDetail: OddDetailList[], imageDirectoryName: s
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
-                        <th>{t("Common-description")}</th>
+                        <th>{t("Common-symbol")}</th>
                         <th>{t("Common-description")}</th>
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowSpan={3}>{renderIconContentLarge(oddDetail[0], t("FreeSpin-upper-plural"))}</td>
+                            <td rowSpan={3} className={`${Styles["freespin"]}`}>{renderIconContentLarge(oddDetail[0], t("FreeSpin-upper-plural"))}</td>
                             <td>
                                 {t("FreeSpin-example-description-1", { numOfScater: oddItems[0].countString })}
                                 <br></br>
@@ -334,9 +334,6 @@ const renderExampleWinFreespin = (t: Function) => {
 const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Function) => {
    
         const oddDetail = convertOddDetail(odds, true);
-        //const oddItems = [...oddDetail[0].oddItem].reverse();
-        //const { subDescriptions } = resources.freeSpin;
-        //const { table, tumbleDescriptions } = resources.exampleFreeSpin;
         return (
             <>
                 <li className="guide-item">
@@ -388,9 +385,6 @@ const renderMultiplier = (t: Function) => {
             <ul className="desc">
                 <li>{t("Multiplier-line-1")}</li>
                 <li>{t("Multiplier-line-2")}</li>
-                <li>
-                    {t("Multiplier-line-2")}
-                </li>
                 <li>{t("Multiplier-line-3")}
                     <div className={Styles["wrapper-symbol-ex"]}>
                         <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
@@ -514,8 +508,8 @@ const Contents: React.FC<GameConfigProps> = (props) => {
 
                 {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, gameSettings.MaxWinPerRound, imageDirectoryName, t)}
                 {renderTumble(t)}
-                {renderFreeSpins(gameSettings.FreeSpins, imageDirectoryName, t)}
                 {renderMultiplier(t)}
+                {renderFreeSpins(gameSettings.FreeSpins, imageDirectoryName, t)}                
                 {renderTermsAndConditions(t)}
             </ul>
         </>
