@@ -1,18 +1,18 @@
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
-    - .next/cache/
-
 include:
-    - project: "ci/repos-ci/pentagon_l1_game_guides"
-      ref: master
-      file: "gitlab-ci.yml"
+    - project: ci/core-cicd
+      ref: main
+      file: luminet.gitlab-ci.yml
 
-    - project: "ci/repos-ci/pentagon_l2_game_guides"
-      ref: master
-      file: "gitlab-ci-mixing.yml"
-
-
-unit-test-js:
-  image: hub.lumigame.com/base/node:16.15-slim
+.base_transform_config: &base_transform_config
+    script:
+        - echo "====== Build NextJS ======"
+        - echo $DEPLOY_ENV
+        - cp $CONFIG_FILE_PATH/$CONFIG_FILE_NAME.$DEPLOY_ENV.$CONFIG_FILE_EXTENSION ./$CONFIG_FILE_NAME.$CONFIG_FILE_EXTENSION
+        - curl --fail -o https://tolgee.lumigame.com/v2/projects/2/export?ak=$TOLGEE_KEY --output data.zip
+        - unzip -o data.zip -d ./public/i18n
+        - rm data.zip
+    artifacts:
+        paths:
+            - "././$CONFIG_FILE_NAME.$CONFIG_FILE_EXTENSION"
+            - "././public/i18n/"
+        expire_in: 1 day
