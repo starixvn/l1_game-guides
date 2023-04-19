@@ -9,7 +9,7 @@ import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
 import { checkIsInteger } from "../helpers/number-helper";
 import { NextPageContext } from "next";
 import { ImgVersionProvider } from "../contexts/img-version";
-import { isNewSlotGame } from "../helpers/game-helper";
+import { isNewCascadingSlot, isNewSlotGame } from "../helpers/game-helper";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -44,7 +44,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
         fontFamily = "SanFranciscoDisplay";
     }
 
-    if (isNewSlotGame(gameType, gameId)) {
+    if (isNewSlotGame(gameType, gameId) ||  isNewCascadingSlot(gameType, gameId)){
         fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
     }
 

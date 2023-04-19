@@ -5,8 +5,8 @@ const isNewSlotGame = (type: number, gameId: number) => {
 export { isNewSlotGame };
 
 const isNewCascadingSlot = (type: number, gameId: number) => {
-    //return type == 3 && gameId > 47;
-    return gameId > 65;
+    return type == 3 && gameId > 47;
+    //return gameId > 65;
 };
 
 export { isNewCascadingSlot };
