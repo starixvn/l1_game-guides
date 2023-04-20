@@ -28,14 +28,13 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-gap: 1rem;
     grid-template-columns: 9rem 1fr;
     padding: 1rem;
     background-color: var(--symbol-wrapper-bg);
     border: 1px solid var(--symbol-wrapper-border);
     box-shadow: var(--symbol-wrapper-shadow);
     border-radius: 0.8rem;
-    width: 19.2rem;
+    width: 20rem;
     height: 12.5rem;
 
     @media (max-width: 576px) {
@@ -46,6 +45,7 @@
         grid-template-columns: 10rem 1fr;
         width: 28rem;
         margin: 0 auto;
+        grid-gap: 1rem;
 
         .number-second {
             display: block;
@@ -217,6 +217,8 @@
 .symbol-wrapper {
     .customize {
         transform: scale(0.7);
+        position: relative;
+        left: -1rem;
         @media (max-width: 576px) {
             transform: scale(0.45);
         }
