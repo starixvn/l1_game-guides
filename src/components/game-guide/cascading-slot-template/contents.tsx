@@ -85,7 +85,7 @@ isReverse = true) => {
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="img-fluid">
-                <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${pathSrc}${itemName}.png?v1`} alt={itemName}></img>
+                <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${imgSrc}/${itemName}.png?v1`} alt={itemName}></img>
             </div>
 
             <div
@@ -472,8 +472,8 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate("cascadingslot");
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
-    //imgSrc = appSettings.resourceUrl + name;
-    imgSrc = getImageDirectoryName();
+    imgSrc = appSettings.resourceUrl + displayName;
+    //imgSrc = getImageDirectoryName();
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
     const betMultiplier = gameSettings.BetMultiplier;
