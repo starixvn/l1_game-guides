@@ -472,7 +472,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate("cascadingslot");
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
-    imgSrc = appSettings.resourceUrl + displayName;
+    imgSrc = appSettings.resourceUrl + name;
     //imgSrc = getImageDirectoryName();
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
