@@ -301,14 +301,14 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>10</td>
                             <td>5</td>
                             <td>5</td>
-                            <td>50</td>
+                            <td>50 <br></br>{t("Win-amount-expression")} </td>
                         </tr>
                         <tr>
                             <td>#2</td>
                             <td>5</td>
                             <td>0</td>
                             <td>5</td>
-                            <td>5</td>
+                            <td>5<br></br>{t("Tumble-win")}</td>
                         </tr>
                         <tr>
                             <td>#3</td>
@@ -322,7 +322,7 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>7</td>
                             <td>3</td>
                             <td>8</td>
-                            <td>56</td>
+                            <td>56<br></br>{t("Win-amount-expression")}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -346,6 +346,7 @@ const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Functi
                             {t("FreeSpin-line-2", {value: oddDetail[1].oddItem[0].count})}
                         </li>
                         <li>{t("FreeSpin-line-3")}</li>
+                        <li>{t("FreeSpin-line-6")}</li>
                         <li>{t("FreeSpin-line-4")} 
                             <div className="text-center">{t("FreeSpin-win-amount")}</div>
                             {renderExampleWinFreespin(t)}
