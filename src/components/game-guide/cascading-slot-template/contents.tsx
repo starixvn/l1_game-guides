@@ -240,9 +240,6 @@ const renderExampleFreespin = (oddDetail: OddDetailList[], imageDirectoryName: s
     const oddItems = [...oddDetail[0].oddItem].reverse();
     return (
         <>
-            <p>
-                <strong>{t("Common-example")}</strong>
-            </p>
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
@@ -289,11 +286,11 @@ const renderExampleWinFreespin = (t: Function) => {
             <div className={`${Styles["example"]} table-medium`}>
                 <table className={Styles["tbl-default"]}>
                     <thead>
-                        <th>{t("FreeSpin-roundid")}</th>
-                        <th>{t("FreeSpin-tumble-win")}</th>
-                        <th>{t("FreeSpin-multiplier")}</th>
-                        <th>{t("FreeSpin-total-multiplier")}</th>
-                        <th>{t("FreeSpin-win")}</th>
+                        <th>{t("Roundid")}</th>
+                        <th>{t("Tumble-win")}</th>
+                        <th>{t("Multiplier")}</th>
+                        <th>{t("Total-multiplier")}</th>
+                        <th>{t("Win")}</th>
                     </thead>
                     <tbody>
                         <tr>
@@ -348,7 +345,7 @@ const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Functi
                         <li>{t("FreeSpin-line-3")}</li>
                         <li>{t("FreeSpin-line-6")}</li>
                         <li>{t("FreeSpin-line-4")} 
-                            <div className="text-center">{t("FreeSpin-win-amount")}</div>
+                            <div className="text-center">{t("Win-amount")}</div>
                             {renderExampleWinFreespin(t)}
                         </li>
                         <li>{t("FreeSpin-line-5")} </li>
@@ -416,7 +413,7 @@ const renderExampleMultiplier = (t: Function) => {
                             <td>{generateSymbol(1)}</td>
                             <td>0.4</td>
                             <td>22<br></br>(20+2)</td>
-                            <td>8.8</td>
+                            <td>8.8 <br></br>(0.4 * 22)</td>
                         </tr>
                     </tbody>
                 </table>

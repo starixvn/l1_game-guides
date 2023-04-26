@@ -19,7 +19,7 @@
   "FreeSpin-line-5": "The Player must complete the Free Spins Bonus within 24hrs after being issued. Unused Free Spins will be lost.",
   "FreeSpin-title": "Free Spin",
   "FreeSpin-upper-plural": " FREE SPINS",
-  "FreeSpin-win-amount": "Win Amount = Total Multiplier * Tumble Win",
+  "Win-amount": "Win Amount = Total Multiplier * Tumble Win",
   "GameRule-line-1": "The Player selects or adjusts the bet amount that suits you the best before pressing the “Spin” button.",
   "GameRule-line-2": "Bet Level is the total number of coins per line.",
   "GameRule-line-3": "Coin Value is how much you want to spend per line in the game.",
