@@ -205,7 +205,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                             </td>
                             <td> 
                                 {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[0].countString })}
-                                <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
+                                <img src={`${imgSrc}/symbol-8.png?v=${imgVer}`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
                                 {t("Payout-example-description-3", { value: +(+(oddItems[0].count * coin * level)).toFixed(2) })}
@@ -214,7 +214,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                         <tr>
                             <td>
                                 {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[1].countString })}
-                                <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
+                                <img src={`${imgSrc}/symbol-8.png?v=${imgVer}`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
                                 {t("Payout-example-description-3", { value: +(+(oddItems[1].count * coin * level)).toFixed(2) })}
@@ -223,7 +223,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                         <tr>
                             <td>
                                 {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[2].countString })}
-                                <img src={`${imageDirectoryName}/symbol-8.png`} width={50} height={50} alt="item8" />{" "}
+                                <img src={`${imgSrc}/symbol-8.png?v=${imgVer}`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
                                 {t("Payout-example-description-3", { value: +(+(oddItems[2].count * coin * level)).toFixed(2) })}
