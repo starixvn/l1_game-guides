@@ -52,7 +52,7 @@ const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: n
                 <li>{t("Payout-line-3", {betLevel: level, coin: coin})}
                 {renderPayoutsIconFirstLine(oddDetail, coin, level)}
                 {renderPayoutsIconSecondLine(oddDetail, coin, level)}
-                {renderExamplePayout(oddDetail[8], coin, level, imageDirectoryName, t)}</li>
+                {renderExamplePayout(oddDetail[8], coin, level, t)}</li>
                 <li>{t("Payout-line-4")}</li>
                 <li>{t("Payout-line-5", {value: maxWinPerRound})}</li>
             </ul>
@@ -140,7 +140,7 @@ const renderIconContentLarge = (dataContent: OddDetailList, textAfterNumber: str
         <span className={`${Styles["symbol-wrapper"]} ${Styles["large"]}`}>
             <div className="d-center">{generateSymbol(9)}</div>
             <div>
-                {dataContent.oddItem.map((data, index) => {
+                {dataContent.oddItem.reverse().map((data, index) => {
                     return (
                         <div key={index} className={`${Styles["symbol-content"]} ${Styles["free-spin"]}`}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
@@ -183,7 +183,7 @@ const renderExampleGameRules = (coin:number, level: number, betMultiplier: numbe
     );
 };
 
-const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number, imageDirectoryName: string, t: Function) => {
+const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number, t: Function) => {
     const oddItems = [...symbol.oddItem].reverse();
     return (
         <>
@@ -204,7 +204,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                                 </div>
                             </td>
                             <td> 
-                                {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[0].countString })}
+                                {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[2].countString })}
                                 <img src={`${imgSrc}/symbol-8.png?v=${imgVer}`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
@@ -222,7 +222,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                         </tr>
                         <tr>
                             <td>
-                                {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[2].countString })}
+                                {t("Payout-example-description-1", { numOfSymbols: symbol.oddItem[0].countString })}
                                 <img src={`${imgSrc}/symbol-8.png?v=${imgVer}`} width={50} height={50} alt="item8" />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
