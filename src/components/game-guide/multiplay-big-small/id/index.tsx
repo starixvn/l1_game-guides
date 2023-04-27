@@ -33,11 +33,7 @@ const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
                     <p className="content">
-                        {gameName} - versi “kumpulan taruhan tidak seimbang” dari Big Small yang terdiri dari 4 tabel: Las Vegas, Marina
-                        Bay, Makau, dan Monte Carlo, di mana Marina Bay dan Monte Carlo adalah versi turbo dengan waktu taruhan yang
-                        dipersingkat. {gameName} mengizinkan anda memainkan 4 meja sekaligus dengan banyak pengalaman baru yang
-                        mengasyikkan. Permainan ini dimainkan dengan tiga dadu dan para pemain memasang taruhan apakah total poin dari
-                        ketiga dadu tersebut BESAR atau KECIL.
+                        "{gameName}" adalah permainan dadu sederhana yang terdiri dari 4 meja: Las Vegas, Marina Bay, Macau, dan Monte Carlo, di mana Marina Bay dan Monte Carlo adalah versi turbo dengan waktu taruhan yang dipersingkat.
                     </p>
                 </li>
                 <li className="guide-item">

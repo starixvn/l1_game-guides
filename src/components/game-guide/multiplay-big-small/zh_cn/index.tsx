@@ -33,9 +33,7 @@ const MultiplayBigSmallGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>介绍</h2>
                     <p className="content">
-                        {gameName} - 大小 的“不平衡投注池”版本，由拉斯维加斯、滨海湾、澳门和蒙特卡洛 4
-                        个赌台组成，其中滨海湾和蒙特卡罗是缩短投注时间的涡轮版本。 {gameName} 可让您同时玩 4
-                        桌游戏，体验许多激动人心的新体验。 游戏是用三个骰子进行的，玩家对三个骰子的总点数是大还是小下注。
+                        "{gameName}" 是一款简单的骰子游戏，由4个赌桌组成：拉斯维加斯、滨海湾、澳门和蒙特卡洛，其中滨海湾和蒙特卡罗是涡轮版，下注时间将缩短。
                     </p>
                 </li>
                 <li className="guide-item">

@@ -33,9 +33,7 @@ const MultiplayBigSmallGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>介紹</h2>
                     <p className="content">
-                        {gameName} - 大小 的“不平衡投注池”版本，由拉斯維加斯、濱海灣、澳門和蒙特卡洛 4
-                        個賭台組成，其中濱海灣和蒙特卡羅是縮短投注時間的渦輪版本。 {gameName} 可讓您同時玩 4
-                        桌遊戲，體驗許多激動人心的新體驗。 遊戲是用三個骰子進行的，玩家對三個骰子的總點數是大還是小下注。
+                        "{gameName}" 是一款簡單的骰子遊戲，由4個賭桌組成：拉斯維加斯、濱海灣、澳門和蒙特卡洛，其中濱海灣和蒙特卡羅是渦輪版，下注時間將縮短。
                     </p>
                 </li>
                 <li className="guide-item">

@@ -31,10 +31,8 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <li className="guide-item">
                     <h2>Giới thiệu</h2>
                     <p className="content">
-                        {gameName} - tựa game Tài Xỉu không cân cửa hoàn toàn mới. Trò chơi gồm 4 bàn game: Las Vegas, Marina Bay, Macau và
-                        Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. {gameName}{" "}
-                        cho phép chơi cùng lúc 4 bàn game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt
-                        và người chơi sẽ dự đoán xem kết quả là Tài hay Xỉu.
+                        "{gameName}" là trò chơi đổ xúc xắc đơn giản gồm 4 bàn game: Las Vegas, Marina Bay, Macau và Monte Carlo, trong đó Marina Bay và Monte Carlo là phiên bản siêu tốc với thời gian cược được rút ngắn. Tài Xỉu City cho phép chơi cùng lúc 4 bàn game với nhiều trải nghiệm mới hấp dẫn. Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt và người chơi sẽ dự đoán xem kết quả là Tài hay Xỉu.
+
                     </p>
                 </li>
                 <li className="guide-item">
