@@ -1,7 +1,7 @@
 .heading1 {
     font-weight: bold !important;
     color: var(--heading1) !important;
-    font-size: var(--font-size-section);
+    font-size: var(--font-size-section) !important;
 
     &:before {
         font-weight: bold !important;
