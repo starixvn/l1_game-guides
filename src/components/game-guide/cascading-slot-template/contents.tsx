@@ -9,6 +9,7 @@ import OddDetailList from "./OddDetail";
 
 import Styles from "./cascading-slot.module.scss";
 import { GameConfigProps } from "./type";
+import HiLoGuideTemplate from "../hi-lo/templates/default";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -66,8 +67,22 @@ const generateSymbol = (iconIndex: number,  isHighlight = false, isSmall = false
             key={`symbol-${iconIndex}`}
             className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
             src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
-            alt={`symbol_${iconIndex}.`}
+            alt={`symbol_${iconIndex}`}
         />
+    );
+};
+
+const generateSymbolMultiplier = (valueMultiplier: number, iconIndex: number,  isHighlight = false, isSmall = false ) => {
+    return (
+        <div className={Styles["symbol-multiplier"]}>
+            <img key={`symbol-${iconIndex}`}
+            className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
+            src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
+                alt={`symbol_${iconIndex}`}
+            />
+            <div className={Styles["value"]}>X{valueMultiplier}</div>
+        </div>
+        
     );
 };
 
@@ -423,7 +438,15 @@ const renderExampleMultiplier = (t: Function) => {
 };
 
 const generateBoard = (symbols: Array<number>, highlightSymbol: Array<number>) =>
-    symbols.map((symbol) => generateSymbol(symbol, highlightSymbol.includes(symbol)));
+    symbols.map((symbol) =>  {
+        if(symbol > 10) {
+            const value = symbol === 11 ? 20 : 2;
+            return generateSymbolMultiplier(value, symbol, highlightSymbol.includes(symbol));
+        }
+        else {
+            return generateSymbol(symbol, highlightSymbol.includes(symbol));
+        }
+        });
 
     
 const renderTermsAndConditions = (t: Function) => {
