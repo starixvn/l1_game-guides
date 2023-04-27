@@ -174,7 +174,7 @@ const renderExampleGameRules = (coin:number, level: number, betMultiplier: numbe
                             <td>{coin}</td>
                             <td>{level}</td>
                             <td>{betMultiplier}</td>
-                            <td>1</td>
+                            <td>{coin * level * betMultiplier}</td>
                         </tr>
                     </tbody>
                 </table>
