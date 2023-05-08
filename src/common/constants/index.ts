@@ -105,7 +105,7 @@ export const GAMES_MINI = {
 };
 
 export const TolgeeConfig = {
-    url: "https://tolgee.lumigame.com/",
+    url: "https://tolgee.sgamesuat.com/",
     key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
     projectId: "2",
 };
