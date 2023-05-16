@@ -284,7 +284,7 @@
 }
 
 [data-theme="info-site"] {
-    --page-background: transparent;
+    --page-background: #fff;
     --primary-color: #ff9a00;
     --text-color: #2c2f3e;
 
@@ -311,7 +311,7 @@
     --border-line: none;
 
     html {
-        font-family: "SanFranciscoDisplay", sans-serif !important;
+        font-family: "SFDisplay", sans-serif !important;
         font-size: 1.6rem;
     }
 }

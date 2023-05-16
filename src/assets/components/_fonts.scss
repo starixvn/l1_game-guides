@@ -81,6 +81,20 @@
 }
 
 @font-face {
+    font-family: "SFDisplay";
+    src: url("/static/fonts/SF-Pro-Display-Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SFDisplay";
+    src: url("/static/fonts/SF-Pro-Display-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Kodchasan";
     src: url("/static/fonts/kodchasan/Kodchasan-Regular.ttf") format("truetype");
     font-weight: 500;
