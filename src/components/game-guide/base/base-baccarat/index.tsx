@@ -17,7 +17,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
 
     constructor(props: P) {
         super(props);
-        const { userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, folderConfigName, project } = props;
+        const { userStakeLevel, gameConfigs, dynamic, isGetGameConfigs, folderConfigName, project, locale } = props;
 
         import(`/src/components/game-guide/${folderConfigName}/configs/${project}/game-configs.ts`).then((mod: any) => {
             this.configs = mod.default as GameConfigProps;
@@ -87,6 +87,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
                         odds: this.configs.odds,
                         maxBetFollowChoice: this.state.maxBetFollowChoice,
                         resources: this.state.resources,
+                        locale: this.props.locale,
                     }}
                 />
             </li>
