@@ -513,16 +513,8 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("Introduction-title")}</h2>
                     <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
-                    <div className={`${Styles["list-symbols-wrapper"]}`}>
-                        <div className={`${Styles["symbols-rowspan"]}`}>
-                            {generateSymbol(9)}
-                        </div>
-                        <div className={`${Styles["symbols-row-1"]}`}>
-                            {[8, 7, 6, 5].map((imgIndex) => generateSymbol(imgIndex))}
-                        </div>
-                        <div className={`${Styles["symbols-row-2"]}`}>
-                            {[4, 3, 2, 1, 0].map((imgIndex) => generateSymbol(imgIndex))}
-                        </div>
+                    <div className={`${Styles["list-symbols-wrapper"]}`}>    
+                        {[9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>                   
                 </li>
                 <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
