@@ -16,5 +16,6 @@ export type BaseProps = {
     fractionalOddsFormat: boolean;
     gameSetting: any;
     displayName: string;
+    jackpot: boolean;
 } & WithTranslation &
     WithRouterProps;

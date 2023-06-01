@@ -76,6 +76,8 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     const [isInPromotionTime, setIsInPromotionTime] = useState<boolean>(false);
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
     const [displayName, setDisplayName] = useState<string>("");
+    const [jackpot, setJackpot] = useState<boolean>(false);
+
 
     const getTemplateFollowEnv = () => {
         const props = {
@@ -92,6 +94,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             fractionalOddsFormat,
             gameSetting,
             displayName,
+            jackpot
         };
 
         if (environment === ENVIRONMENT.si) {
@@ -125,6 +128,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             setIsInPromotionTime(queryParams?.p === "true");
             setFractionalOddsFormat(queryParams?.fof === "true");
             setDisplayName(queryParams?.displayName);
+            setJackpot(queryParams?.jackpot)
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {
