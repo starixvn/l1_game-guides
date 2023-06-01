@@ -33,6 +33,7 @@ export type GameGuideBase = {
     gameSetting?: any;
     folderConfigName?: string;
     displayName?: string;
+    jackpot?: boolean;
 };
 
 export interface GameConfigsBaseProps {
