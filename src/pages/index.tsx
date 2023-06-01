@@ -128,12 +128,12 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             setIsInPromotionTime(queryParams?.p === "true");
             setFractionalOddsFormat(queryParams?.fof === "true");
             setDisplayName(queryParams?.displayName);
-            setJackpot(queryParams?.jackpot)
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {
                 +queryParams?.dy === 0 && setDynamic(false);
             }
+            queryParams?.jackpot && queryParams?.jackpot === "true" && setJackpot(true);
             queryParams?.c && +queryParams?.c === 0 && setIsGetGameConfigs(false);
             queryParams?.md5 && +queryParams?.md5 === 1 && setIsScrollMD5(true);
         }
