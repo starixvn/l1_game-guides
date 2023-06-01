@@ -53,7 +53,7 @@ const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
             </ul>
             {renderPayoutsIconFirstLine(odds, jackpot, t)}
             {renderPayoutsIconSecondLine(odds, jackpot, t)}
-            {renderExamplePayout(odds, t)}
+            {renderExamplePayout(odds, jackpot, t)}
         </li>
     );
 };
@@ -225,7 +225,7 @@ const renderIconContentLarge = (symbol: number, dataContent: number[][], textAft
     );
 };
 
-const renderExamplePayout = (odds: number[][], t: Function) => {
+const renderExamplePayout = (odds: number[][], jackpot:boolean, t: Function) => {
     return (
         <>
             <p>
@@ -245,7 +245,7 @@ const renderExamplePayout = (odds: number[][], t: Function) => {
                                 [5, odds[1][5]],
                                 [4, odds[1][4]],
                                 [3, odds[1][3]],
-                            ])}
+                            ],t, jackpot)}
                         </div>
                     </div>
                     <div className={Styles["line"]}></div>
