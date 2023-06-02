@@ -27,6 +27,7 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
 
                 <li>{t("GameRule-line-2")}</li>
                 <li>{t("GameRule-line-3")} {jackpot && t("GameRule-jackpot")}</li>
+                {jackpot && <li>{t("GameRule-line-jackpot")}</li>}
                 <li>{t("GameRule-line-4")}</li>
                 <div className={Styles["payline"]}>
                     <img
@@ -420,8 +421,9 @@ const renderJackpot = (t: Function) => {
                             {generateSymbolJackpot(10, false, true)}
                         </div>
                         <div className={Styles["line"]}></div>
-                        <div className={`${Styles["col"]} d-center-all`}>
-                        {t("Jackpot-example")}
+                        <div className={`${Styles["col"]} `}>
+                            <div>{t("Jackpot-example-1")}</div>
+                            <div><Trans>{t("Jackpot-example-2")}</Trans></div>
                         </div>
                     </div>     
                 </div>
