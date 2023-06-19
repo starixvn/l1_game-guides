@@ -2,3 +2,8 @@ include:
     - project: ci/core-cicd
       ref: tolgee
       file: luminet.gitlab-ci.yml
+
+sync_tolgee: &sync_tolgee
+  artifacts:
+    paths:
+      - "././public/i18n"
