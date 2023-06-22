@@ -17,7 +17,7 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["cascadingslot"],
+        ns: ["cascadingslot", "Common"],
         defaultNs: "cascadingslot",
     });
 

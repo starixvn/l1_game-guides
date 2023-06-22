@@ -35,8 +35,7 @@
     border: 1px solid var(--symbol-wrapper-border);
     box-shadow: var(--symbol-wrapper-shadow);
     border-radius: 0.8rem;
-    width: 20rem;
-    height: 12.5rem;
+    width: 24rem;
 
     @media (max-width: 576px) {
         transform: scale(0.9);
@@ -46,7 +45,6 @@
         grid-template-columns: 10rem 1fr;
         width: 28rem;
         margin: 0 auto;
-        grid-gap: 1rem;
 
         .number-second {
             display: block;
@@ -79,8 +77,8 @@
     justify-content: flex-start;
     grid-column-gap: 0.3rem;
 
-    &.free-spin{
-        grid-template-columns: 2rem 12rem;
+    &.free-spin {
+        grid-template-columns: 3rem 12rem;
         span {
             font-size: 1.6rem;
             font-weight: 700;
@@ -91,6 +89,9 @@
 
 .example-icon-payout .symbol-wrapper {
     margin: 0 auto;
+    width: 22rem;
+    grid-template-columns: 8rem 1fr;
+    grid-column-gap: 1rem;
 }
 
 .wrapper-symbols-content {
@@ -100,14 +101,13 @@
 
 .wrapper-symbol-ex {
     position: relative;
-    margin: 1rem 2rem 1rem 1rem;    
+    margin: 1rem 2rem 1rem 1rem;
     display: flex;
     justify-content: center;
 
-
     .symbols {
         display: grid;
-        grid-template-columns: repeat(6, 4.5rem);
+        grid-template-columns: repeat(6, 5.5rem);
         grid-gap: 0.5rem;
         justify-content: center;
         padding: 1rem;
@@ -169,13 +169,13 @@
 
 .slot-guide {
     li {
-        margin: 0 0 1rem!important;
+        margin: 0 0 1rem !important;
     }
 }
 
 .tbl-default {
     width: 100%;
-    border-collapse: separate ;
+    border-collapse: separate;
     border-spacing: 0;
     border-radius: 1rem;
     background-color: var(--table-background);
@@ -190,14 +190,14 @@
             border-right: none;
         }
     }
-    td{
+    td {
         &:first-child {
-            border-left: none;           
+            border-left: none;
         }
         &:last-child {
             border-right: none;
         }
-        &[rowspan]{
+        &[rowspan] {
             border-bottom: none;
             width: 30%;
             &.freespin {
@@ -205,7 +205,8 @@
             }
         }
     }
-    th, td {
+    th,
+    td {
         height: 4rem;
         border-right: 1px solid var(--table-border);
         border-bottom: 1px solid var(--table-border);
@@ -217,11 +218,13 @@
 
 .symbol-wrapper {
     .customize {
-        transform: scale(0.7);
         position: relative;
-        left: -1rem;
+        //left: -1rem;
+        width: 8rem;
+        height: 8rem;
         @media (max-width: 576px) {
-            transform: scale(0.45);
+            width: 6rem;
+            height: 6rem;
         }
     }
     &-dark .scatter {
@@ -229,7 +232,7 @@
         position: absolute;
     }
     .icon-content {
-        grid-template-columns: 5rem 2rem;
+        grid-template-columns: 6rem 1fr;
         display: grid;
     }
     .icon-content-wrapper {
@@ -246,8 +249,8 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
     width: 56rem;
-    height: 20rem;
     margin: 0 auto;
+    grid-row-gap: 1rem;
     .symbols-rowspan {
         grid-column: 1;
         grid-row: 1/3;
@@ -280,9 +283,35 @@
     .value {
         text-align: center;
         position: absolute;
-        font-size: 1.2rem;
-        //color: #EDBB02;
-        top: 1.4rem;
-        left: 1.5rem;
+        top: 0;
+        left: 0;
+
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+.symbol-scale img {
+    transform: scale(0.7);
+}
+
+.multiplier-symbol img {
+    width: 7rem;
+    height: 7rem;
+    margin: 0 0.5rem;
+}
+
+.symbol-example {
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
+.ex-wrapper {
+    position: relative;
+    &:before {
+        content: "\22DC";
+        display: inline-block;
+        transform: rotate(180deg);
     }
 }
