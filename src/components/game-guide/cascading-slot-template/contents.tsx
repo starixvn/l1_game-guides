@@ -66,20 +66,20 @@ const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: n
 
 const generateSymbol = (iconIndex: number, key: number, isHighlight = false, isSmall = false) => {
     return (
-        <img
-            key={generateKey(key)}
-            className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
-            src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
-            alt={`symbol_${iconIndex}`}
-        />
+        <div className={Styles["image-wrapper"]} key={key}>
+            <img
+                className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
+                src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
+                alt={`symbol_${iconIndex}`}
+            />
+        </div>
     );
 };
 
-const generateSymbolMultiplier = (valueMultiplier: number, iconIndex: number, isHighlight = false, isSmall = false) => {
+const generateSymbolMultiplier = (valueMultiplier: number, iconIndex: number, index: number, isHighlight = false, isSmall = false) => {
     return (
-        <div className={Styles["symbol-multiplier"]}>
+        <div className={Styles["symbol-multiplier"]} key={index}>
             <img
-                key={generateKey(iconIndex)}
                 className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
                 src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
                 alt={`symbol_${iconIndex}`}
@@ -180,21 +180,22 @@ const renderCountFreeSpin = (count: number) => {
 
 const renderIconContentLarge = (dataContent: OddDetailList, textAfterNumber: string) => {
     return (
-        <span className={`${Styles["symbol-wrapper"]} ${Styles["large"]}`}>
-            <div className={`${Styles["symbol-scale"]} d-center`}>{generateSymbol(9, 9)}</div>
+        <div className={`${Styles["symbol-wrapper"]} ${Styles["large"]}`}>
+            {generateSymbol(9, 9)}
             <div>
                 {dataContent.oddItem.reverse().map((data) => {
                     return (
                         <div key={generateKey(data.count)} className={`${Styles["symbol-content"]} ${Styles["free-spin"]}`}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{renderCountFreeSpin(+data.countString)}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
-                                {data.count} {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
+                                <span className={Styles["value-count"]}>{data.count}</span>
+                                {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
                             </span>
                         </div>
                     );
                 })}
             </div>
-        </span>
+        </div>
     );
 };
 
@@ -208,7 +209,7 @@ const renderExampleGameRules = (coin: number, level: number, betMultiplier: numb
                 <table className={Styles["tbl-default"]}>
                     <thead>
                         <tr>
-                            <th>{t("Bet-value")}</th>
+                            <th>{t("Bet-level")}</th>
                             <th>{t("Coin-value")}</th>
                             <th>{t("Bet-multiplier")}</th>
                             <th>{t("Total-bet")}</th>
@@ -319,7 +320,7 @@ const renderExampleFreespin = (oddDetail: OddDetailList[], imageDirectoryName: s
                                 {renderIconContentLarge(oddDetail[0], t("FreeSpin-upper-plural"))}
                             </td>
                             <td>
-                                {t("FreeSpin-example-description-1", { numOfScater: oddItems[0].countString })}
+                                {t("FreeSpin-example-description-or-more", { numOfScater: oddItems[0].countString })}
                                 <br></br>
                                 {t("FreeSpin-example-description-2", { value: oddItems[0].count })}
                             </td>
@@ -510,7 +511,7 @@ const generateBoard = (symbols: Array<number>, highlightSymbol: Array<number>) =
     symbols.map((symbol, index) => {
         if (symbol > 10) {
             const value = symbol === 11 ? 20 : 2;
-            return generateSymbolMultiplier(value, symbol, highlightSymbol.includes(symbol));
+            return generateSymbolMultiplier(value, symbol, index, highlightSymbol.includes(symbol));
         } else {
             return generateSymbol(symbol, index, highlightSymbol.includes(symbol));
         }
