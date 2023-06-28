@@ -6,7 +6,7 @@ import { getBaseMD5TranslationResource } from "./languages";
 
 const md5ServicesUrl = "<b>https://md5.services/</b>";
 
-type MD5Props = {
+export type MD5Props = {
     locale: string | undefined;
     resources?: IMd5Resources;
     step1ImageUrl?: string;
@@ -16,7 +16,7 @@ type MD5Props = {
     note?: JSX.Element | string;
 };
 
-type MD5MobiProps = {
+export type MD5MobiProps = {
     environment?: string;
     md5Key?: string;
     md5Result?: string;

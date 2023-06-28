@@ -44,7 +44,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
         fontFamily = "SanFranciscoDisplay";
     }
 
-    if (isNewSlotGame(gameType, gameId) ||  isNewCascadingSlot(gameType, gameId)){
+    if (isNewSlotGame(gameType, gameId) || isNewCascadingSlot(gameType, gameId)) {
         fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
     }
 
