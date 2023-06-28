@@ -8,6 +8,7 @@ import { isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import CascadingSlotGuide from "./cascading-slot-template";
+import DragontigerFightGuide from "./dragon-tiger-fight";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -59,11 +60,11 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 
-        if(isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
+        if (isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
             return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />
         }
 
-        
+
 
         return <></>;
     };
@@ -162,6 +163,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <FortuneCatGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.WIN_THREE_CARDS:
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.DRAGON_TIGER_FIGHT:
+                return <DragontigerFightGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
