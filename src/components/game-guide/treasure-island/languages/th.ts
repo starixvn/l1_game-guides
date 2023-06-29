@@ -11,7 +11,7 @@ export const th: TreasureIslandLanguage = {
     gameRules: {
         title: "กฎของเกมสื",
         rulePlayerSelect: "ผู้เล่นสามารถเลือกหรือปรับจำนวนเงินเดิมพันที่เหมาะสมที่สุดก่อนที่จะกดปุ่ม “หมุน”",
-        totalBet: "เดิมพันทั้งหมด",
+        totalBet: "เดิมพันรวม",
         paylinesFormular: "= ระดับเดิมพัน x มูลค่าเหรียญ x ตัวคูณเดิมพัน",
         subDescriptions: [
             "1. มูลค่าเหรียญคือจำนวนเงินที่คุณต้องการจ่ายต่อไลน์ในเกมส์",

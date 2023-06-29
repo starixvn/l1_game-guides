@@ -189,7 +189,7 @@ const renderIconContentLarge = (dataContent: OddDetailList, textAfterNumber: str
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{renderCountFreeSpin(+data.countString)}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
                                 <span className={Styles["value-count"]}>{data.count}</span>
-                                {textAfterNumber && <span className={Styles["text"]}>{textAfterNumber}</span>}
+                                {textAfterNumber && <span>{textAfterNumber}</span>}
                             </span>
                         </div>
                     );
@@ -200,6 +200,7 @@ const renderIconContentLarge = (dataContent: OddDetailList, textAfterNumber: str
 };
 
 const renderExampleGameRules = (coin: number, level: number, betMultiplier: number, t: Function) => {
+    const totalBet = +(coin * level * betMultiplier).toFixed(2);
     return (
         <>
             <p>
@@ -217,10 +218,10 @@ const renderExampleGameRules = (coin: number, level: number, betMultiplier: numb
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{coin}</td>
                             <td>{level}</td>
+                            <td>{coin}</td>
                             <td>{betMultiplier}</td>
-                            <td>{coin * level * betMultiplier}</td>
+                            <td>{totalBet}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -381,8 +382,7 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>0</td>
                             <td>5</td>
                             <td>
-                                5<br></br>
-                                {t("Tumble-win")}
+                                5<br></br>({t("Tumble-win")})
                             </td>
                         </tr>
                         <tr>
@@ -411,6 +411,7 @@ const renderExampleWinFreespin = (t: Function) => {
 
 const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Function) => {
     const oddDetail = convertOddDetail(odds, true);
+
     return (
         <>
             <li className="guide-item">
@@ -448,9 +449,10 @@ const renderTumble = (t: Function) => {
     );
 };
 
-const renderMultiplier = (t: Function) => {
-    const boardSymbols = [8, 1, 4, 5, 1, 4, 0, 0, 1, 2, 3, 2, 9, 1, 1, 1, 0, 11, 4, 1, 1, 1, 3, 13, 2, 7, 6, 2, 3, 8];
-    const highlightSymbol = [1, 11, 13];
+const renderMultiplier = (odd: any, coin: number, level: number, t: Function) => {
+    const boardSymbols = [8, 1, 4, 5, 1, 4, 0, 0, 1, 2, 3, 2, 9, 1, 1, 1, 0, 12, 4, 1, 1, 1, 3, 10, 2, 7, 6, 2, 3, 8];
+    const highlightSymbol = [1, 10, 12];
+    const oddDetail = convertOddDetail(odd, false);
 
     return (
         <li className="guide-item">
@@ -466,14 +468,19 @@ const renderMultiplier = (t: Function) => {
                     <div className={Styles["wrapper-symbol-ex"]}>
                         <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                     </div>
-                    {renderExampleMultiplier(t)}
+                    {renderExampleMultiplier(oddDetail[1], coin, level, t)}
                 </li>
             </ul>
         </li>
     );
 };
 
-const renderExampleMultiplier = (t: Function) => {
+const renderExampleMultiplier = (symbol: OddDetailList, coin: number, level: number, t: Function) => {
+    const oddItems = [...symbol.oddItem].reverse();
+    const tumbleWin = +(+(oddItems[2].count * coin * level)).toFixed(2);
+    const multiplier = 17;
+    const win = +(multiplier * tumbleWin).toFixed(2);
+
     return (
         <>
             <p>
@@ -492,12 +499,13 @@ const renderExampleMultiplier = (t: Function) => {
                     <tbody>
                         <tr>
                             <td className={Styles["symbol-scale"]}>{generateSymbol(1, 1)}</td>
-                            <td>0.4</td>
+                            <td>{tumbleWin}</td>
                             <td>
-                                22<br></br>(20+2)
+                                {multiplier}
+                                <br></br>(15+2)
                             </td>
                             <td>
-                                8.8 <br></br>(0.4 * 22)
+                                {win} <br></br>({tumbleWin} * 17)
                             </td>
                         </tr>
                     </tbody>
@@ -509,8 +517,8 @@ const renderExampleMultiplier = (t: Function) => {
 
 const generateBoard = (symbols: Array<number>, highlightSymbol: Array<number>) =>
     symbols.map((symbol, index) => {
-        if (symbol > 10) {
-            const value = symbol === 11 ? 20 : 2;
+        if (symbol >= 10) {
+            const value = symbol === 12 ? 15 : 2;
             return generateSymbolMultiplier(value, symbol, index, highlightSymbol.includes(symbol));
         } else {
             return generateSymbol(symbol, index, highlightSymbol.includes(symbol));
@@ -575,6 +583,8 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
     const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
 
+    const maxWinPerRound = gameConfigs.maxWinPerRound;
+
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]}`}>
@@ -587,9 +597,9 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
 
-                {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, gameSettings.MaxWinPerRound, imageDirectoryName, t)}
+                {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, maxWinPerRound, imageDirectoryName, t)}
                 {renderTumble(t)}
-                {renderMultiplier(t)}
+                {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
                 {renderFreeSpins(gameSettings.FreeSpins, imageDirectoryName, t)}
                 {renderTermsAndConditions(t)}
             </ul>
