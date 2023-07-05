@@ -66,7 +66,16 @@ const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: n
 
 const generateSymbol = (iconIndex: number, key: number, isHighlight = false, isSmall = false) => {
     return (
-        <div className={Styles["image-wrapper"]} key={key}>
+        <div className={`${Styles["image-wrapper"]} ${isHighlight ? Styles["highlight"] : ""}`} key={key}>
+            {isHighlight && (
+                <img
+                    className={Styles["symbol-highlight"]}
+                    width={60}
+                    height={60}
+                    src={`${imgSrc}/bg-reel-highlight.png?v=${imgVer}`}
+                    alt={`bg-reel-highlight`}
+                />
+            )}
             <img
                 className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
                 src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
@@ -79,6 +88,12 @@ const generateSymbol = (iconIndex: number, key: number, isHighlight = false, isS
 const generateSymbolMultiplier = (valueMultiplier: number, iconIndex: number, index: number, isHighlight = false, isSmall = false) => {
     return (
         <div className={Styles["symbol-multiplier"]} key={index}>
+            <img
+                className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
+                src={`${imgSrc}/bg-s${iconIndex}.png?v=${imgVer}`}
+                alt={`bg-s${iconIndex}`}
+                style={{ position: "absolute", zIndex: -1 }}
+            />
             <img
                 className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
                 src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
@@ -453,6 +468,8 @@ const renderMultiplier = (odd: any, coin: number, level: number, t: Function) =>
     const boardSymbols = [8, 1, 4, 5, 1, 4, 0, 0, 1, 2, 3, 2, 9, 1, 1, 1, 0, 12, 4, 1, 1, 1, 3, 10, 2, 7, 6, 2, 3, 8];
     const highlightSymbol = [1, 10, 12];
     const oddDetail = convertOddDetail(odd, false);
+    const bgWidth = 394;
+    const bgHeight = 337;
 
     return (
         <li className="guide-item">
@@ -466,6 +483,13 @@ const renderMultiplier = (odd: any, coin: number, level: number, t: Function) =>
                 <li>
                     {t("Multiplier-line-3")}
                     <div className={Styles["wrapper-symbol-ex"]}>
+                        <img
+                            className={Styles["slot-area-bg"]}
+                            width={bgWidth}
+                            height={bgHeight}
+                            src={`${imgSrc}/slot-area-bg.png?v=${imgVer}`}
+                            alt="item8"
+                        />
                         <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                     </div>
                     {renderExampleMultiplier(oddDetail[1], coin, level, t)}

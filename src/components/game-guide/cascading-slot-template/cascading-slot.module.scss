@@ -121,13 +121,28 @@
 
     .symbols {
         display: grid;
-        grid-template-columns: repeat(6, 5.5rem);
-        grid-gap: 0.5rem;
+        grid-template-columns: repeat(6, 6rem);
+        //grid-gap: 0.5rem;
         justify-content: center;
         padding: 1rem;
-        background-color: var(--symbol-wrapper-bg);
+        // background-color: var(--symbol-wrapper-bg);
         border: 1px solid var(--symbol-wrapper-border);
         border-radius: 0.8rem;
+
+        .image-wrapper {
+            background-color: rgba(255, 255, 255, 0.3);
+            position: relative;
+
+            &.highlight {
+                background-color: transparent;
+            }
+        }
+
+        .symbol-highlight {
+            position: absolute;
+            opacity: 1 !important;
+            z-index: -1;
+        }
     }
 
     img {
@@ -300,6 +315,8 @@
         position: absolute;
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
 
         img {
             opacity: 1;
@@ -316,7 +333,7 @@
     padding-bottom: 3rem;
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
 
     img {
         width: 10rem;
@@ -336,4 +353,11 @@
         display: inline-block;
         transform: rotate(180deg);
     }
+}
+
+.slot-area-bg {
+    position: absolute;
+    top: -0.9rem;
+    opacity: 1 !important;
+    z-index: -1;
 }
