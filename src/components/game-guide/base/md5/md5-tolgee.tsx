@@ -39,10 +39,10 @@ const MD5Tolgee: React.FunctionComponent<MD5TolgeeProps> = ({
                         t("md5valid_para_4"),
                     ]
                 },
-                noted: "",
+                noted: t("md5valid_para_5"),
             },
             example: {
-                header: "",
+                header: t("md5example"),
                 step1Text: t("md5example_para_1"),
                 step2Text: t("md5example_para_2"),
                 step3Text: t("md5example_para_4"),

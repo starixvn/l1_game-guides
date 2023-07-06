@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslate, T } from "@tolgee/react";
+import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import { Cards } from "../base/base-baccarat/card-model";
 import MD5Tolgee from "../base/md5/md5-tolgee";
@@ -7,7 +7,7 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameConfigs } from "../type";
 import { formatOdds } from "../../../helpers/number-helper";
 import { DragonTigerFightContentsProps } from "./type";
-
+import Styles from "./dragon-tiger-fight.module.scss";
 
 const renderGameRules = (t: Function, maxBet: number, odds: any) => {
     return (
@@ -42,11 +42,7 @@ const renderGameRules = (t: Function, maxBet: number, odds: any) => {
                     <div> <Markup content={t("gamerules_para_3", { ns: "DragonTigerFight" })} /></div>
                 </li>
                 <li>
-                    <T
-                        keyName="gamerules_para_4"
-                        params={{ maxbet: maxBet }}
-                    />
-                    <div> <Markup content={t("gamerules_para_5", { ns: "DragonTigerFight" })} /></div></li>
+                    <Markup content={t("gamerules_para_5", { ns: "DragonTigerFight" })} /></li>
                 <li >{t("gamerules_para_6", { ns: "DragonTigerFight" })}</li>
                 <li >
                     {t("gamerules_para_7", { ns: "DragonTigerFight" })}
@@ -54,7 +50,7 @@ const renderGameRules = (t: Function, maxBet: number, odds: any) => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th className="bold">
                                         <Markup content={t("header_card", { ns: "DragonTigerFight" })} />
                                     </th>
                                     {Cards.map((card, index) => (
@@ -73,9 +69,11 @@ const renderGameRules = (t: Function, maxBet: number, odds: any) => {
                                 </tr>
                             </tbody>
                         </table>
+                        <ul className="detail">
+                            <li>{t("gamerules_para_8", { ns: "DragonTigerFight" })}</li>
+                            <li>{t("gamerules_para_9", { ns: "DragonTigerFight" })}</li>
+                        </ul>
                     </div>
-                    <div>{t("gamerules_para_8", { ns: "DragonTigerFight" })}</div>
-                    <div>{t("gamerules_para_9", { ns: "DragonTigerFight" })}</div>
                 </li>
                 <li >{t("gamerules_para_10", { ns: "DragonTigerFight" })}</li>
                 <li >{t("gamerules_para_11", { ns: "DragonTigerFight" })}</li>
