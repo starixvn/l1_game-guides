@@ -1,0 +1,9 @@
+.asterik {
+    display: inline-block;
+    justify-content: left;
+    align-items: center;
+    padding-right: 5px;
+    &::before {
+        content: "\2733";
+      }
+  }
