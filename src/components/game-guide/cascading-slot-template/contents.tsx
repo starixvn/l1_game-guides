@@ -9,6 +9,7 @@ import OddDetailList from "./OddDetail";
 
 import Styles from "./cascading-slot.module.scss";
 import { GameConfigProps } from "./type";
+import { numberWithCommas } from "../../../helpers/number-helper";
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
@@ -136,7 +137,7 @@ const renderIconContent = (
                     return (
                         <div key={generateKey(data.count)} className={Styles["icon-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{value}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
                         </div>
                     );
                 })}

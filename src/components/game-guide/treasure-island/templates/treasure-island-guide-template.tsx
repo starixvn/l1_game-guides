@@ -8,6 +8,7 @@ import Styles from "../treasure-island.module.scss";
 import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
 import { renderTermsAndConditions } from "../../../shared";
 import { isMobileOnly } from "react-device-detect";
+import { numberWithCommas } from "../../../../helpers/number-helper";
 
 export default abstract class TreasureIslandGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
@@ -120,6 +121,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <div className={`${Styles["payout-example"]} sub-section`}>
                         {this.renderPayoutsIconFirstLine(oddDetail, coin, level)}
                         {this.renderPayoutsIconSecondLine(oddDetail, coin, level)}
+                        {this.renderPayoutsIconThirdLine(oddDetail, coin, level)}
                         {this.renderExamplePayouts(oddDetail[8], coin, level, resources, imageDirectoryName)}
                     </div>
 
@@ -386,7 +388,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
             <div className={Styles["wrapper-icon"]}>
                 <img
                     src={`${imageDirectoryName}/guide_item_symbol_bg.png?v1`}
-                    width={200}
+                    width={230}
                     height={132}
                     alt={"guide_item_symbol_bg"}
                     loading="eager"
@@ -404,7 +406,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                         return (
                             <div key={index} className={Styles["icon-content"]}>
                                 <span className={`${Styles[this.number]} ${Styles[this.numberFirst]}`}>{data.countString}</span>
-                                <span className={`${Styles[this.number]} ${Styles[this.numberSecond]}`}>{value}</span>
+                                <span className={`${Styles[this.number]} ${Styles[this.numberSecond]}`}>{numberWithCommas(value)}</span>
                             </div>
                         );
                     })}
@@ -420,8 +422,6 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     {this.renderIconContent("item8", false, false, symbols[8], coin, level)}
                     {this.renderIconContent("item7", true, false, symbols[7], coin, level)}
                     {this.renderIconContent("item6", true, false, symbols[6], coin, level)}
-                    {this.renderIconContent("item5", true, false, symbols[5], coin, level)}
-                    {this.renderIconContent("item4", true, false, symbols[4], coin, level)}
                 </div>
             </>
         );
@@ -431,7 +431,18 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         return (
             <>
                 <div className={Styles["icon-container"]}>
+                    {this.renderIconContent("item5", true, false, symbols[5], coin, level)}
+                    {this.renderIconContent("item4", true, false, symbols[4], coin, level)}
                     {this.renderIconContent("item3", true, true, symbols[3], coin, level)}
+                </div>
+            </>
+        );
+    };
+
+    renderPayoutsIconThirdLine = (symbols: OddDetailList[], coin: number, level: number) => {
+        return (
+            <>
+                <div className={Styles["icon-container"]}>
                     {this.renderIconContent("item2", true, true, symbols[2], coin, level)}
                     {this.renderIconContent("item1", true, true, symbols[1], coin, level)}
                     {this.renderIconContent("item0", false, false, symbols[0], coin, level)}

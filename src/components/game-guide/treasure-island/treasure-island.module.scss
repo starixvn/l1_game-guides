@@ -118,13 +118,13 @@
         position: absolute;
     }
     .icon-content {
-        grid-template-columns: 5rem 2rem;
+        grid-template-columns: 5rem 6rem;
     }
     .icon-content-wrapper {
-        right: 3.6rem;
+        right: 1.6rem;
 
         @media (max-width: 576px) {
-            right: 1.9rem;
+            right: -1.1rem;
         }
     }
 }
