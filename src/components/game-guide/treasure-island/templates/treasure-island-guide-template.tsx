@@ -36,7 +36,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                 </div>
                                 <img
                                     className="img-responsive"
-                                    src={`${imageDirectoryName}/betcontrol-${locale}.jpg?v2`}
+                                    src={`${imageDirectoryName}/betcontrol-${locale}.jpg?v3`}
                                     alt={"bet-control"}
                                 />
                             </div>
@@ -193,15 +193,21 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         );
     }
 
-    renderMultipliers(resources: TreasureIslandLanguage, imageDirectoryName: string) {
+    renderMultipliers(odd: any, coin: number, level: number, resources: TreasureIslandLanguage, imageDirectoryName: string) {
+        const oddDetail = this.convertOddDetail(odd.symbols, false);
+        const oddItems = [...oddDetail[1].oddItem].reverse();
+        const tumbleWin = +(+(oddItems[2].count * coin * level)).toFixed(2);
+        const multiplier = 22;
+        const win = +(multiplier * tumbleWin).toFixed(2);
+
         return (
             <>
                 <h2>{resources.multipliers.title}</h2>
                 <div className={Styles["center"]}>
-                    <img src={`${imageDirectoryName}/multiplier2.png?v=4`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier3.png?v=4`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier1.png?v=4`} alt="multiplier" width={140} height={112} />
-                    <img src={`${imageDirectoryName}/multiplier4.png?v=4`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier1.png?v=5`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier2.png?v=5`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier3.png?v=5`} alt="multiplier" width={140} height={112} />
+                    <img src={`${imageDirectoryName}/multiplier4.png?v=5`} alt="multiplier" width={140} height={112} />
                 </div>
                 <ul className="desc">
                     {resources.multipliers.descriptions.map((desc, index) => (
@@ -211,7 +217,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <div className="sub-section">
                         <div>{resources.exampleMultipliers.title}</div>
                         <div className="center">
-                            <img className="img-responsive" src={`${imageDirectoryName}/reel.jpg?v=4`} alt="tumble-multiplier" />
+                            <img className="img-responsive" src={`${imageDirectoryName}/reel.jpg?v=5`} alt="tumble-multiplier" />
                         </div>
                         <div className="table-container text-center">
                             <table className="table text-center table-medium">
@@ -227,15 +233,17 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                         <td>
                                             <img src={`${imageDirectoryName}/item1.png`} width={50} height={50} alt="item2" />
                                         </td>
-                                        <td>7</td>
+                                        <td>{tumbleWin}</td>
                                         <td>
-                                            22 <br />
-                                            (20+2)
+                                            {multiplier}
+                                            <br></br>(20+2)
                                         </td>
                                         <td>
-                                            <strong>154</strong>
+                                            <strong>{win}</strong>
                                             <br />
-                                            <strong>(7*22)</strong>
+                                            <strong>
+                                                ({tumbleWin} * {multiplier})
+                                            </strong>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -253,6 +261,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         const oddItems = [...oddDetail[0].oddItem].reverse();
         const { subDescriptions } = resources.freeSpin;
         const { table, tumbleDescriptions } = resources.exampleFreeSpin;
+
         return (
             <>
                 <h2>{resources.freeSpin.title}</h2>
@@ -297,6 +306,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                             </div>
                         </div>
                     </li>
+
                     <li>{resources.freeSpin.getMoreFreeSpin(oddDetail[1].oddItem[0].count)}</li>
                     <li>
                         {resources.freeSpin.totalMultiplier}
@@ -531,7 +541,9 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <li className="guide-item">{this.renderGameRule(minBet, maxBet, resources, imageDirectoryName, locale)}</li>
                     <li className="guide-item">{this.renderPayouts(odds, coin, level, maxWinPerRound, resources, imageDirectoryName)}</li>
                     <li className="guide-item">{this.renderTumbling(resources)}</li>
-                    <li className="guide-item">{this.renderMultipliers(resources, imageDirectoryName)}</li>
+                    <li className="guide-item">
+                        {this.renderMultipliers(odds, gameConfigs.coin, gameConfigs.level, resources, imageDirectoryName)}
+                    </li>
                     <li className="guide-item">{this.renderFreeSpins(odds, resources, imageDirectoryName, locale)}</li>
                     {renderTermsAndConditions(locale)}
                 </ul>
