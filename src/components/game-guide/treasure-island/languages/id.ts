@@ -66,13 +66,13 @@ export const id: TreasureIslandLanguage = {
         descriptions: [
             "Simbol Pengali hadir di semua gulungan dan dapat dipukul secara acak selama putaran, dan jatuh di permainan dasar dan putaran bebas.",
             "Setiap kali simbol Pengali mengenai, dibutuhkan nilai pengali acak dari 2x hingga 500x.",
-            "Di akhir Tumbles, nilai simbol Pengali ditambahkan dan dikalikan dengan nilai Jatuh Menang untuk menghitung jumlah Menang.",
+            "Di akhir Tumbles, nilai simbol Pengali ditambahkan dan dikalikan dengan nilai Kemenangan Tumble untuk menghitung jumlah Menang.",
         ],
     },
 
     exampleMultipliers: {
         title: "Contoh:",
-        tableHeader: ["Menangkan Simbol", "Jatuh Menang", "Pengali", "Menang"],
+        tableHeader: ["Menangkan Simbol", "Kemenangan Tumble", "Pengali", "Menang"],
     },
 
     freeSpin: {
@@ -104,11 +104,11 @@ export const id: TreasureIslandLanguage = {
     exampleFreeSpin: {
         title: "Contoh: Pemain memenangkan 4 Free Spins",
         table: {
-            headers: ["ID bulat", "Jatuh Menang", "Pengali", "Pengganda Total", "Menang"],
-            round1Win: "<strong>50</strong><br/><strong>(Jatuh Menang * Pengganda Total)</strong>",
-            round2Win: "<strong>5</strong><br/><strong>(Jatuh Menang)</strong>",
-            round4Win: "<strong>56</strong><br/><strong>(Jatuh Menang * Pengganda Totalr)</strong>",
+            headers: ["ID bulat", "Kemenangan Tumble", "Pengali", "Pengganda Total", "Menang"],
+            round1Win: "<strong>50</strong><br/><strong>(Kemenangan Tumble * Pengganda Total)</strong>",
+            round2Win: "<strong>5</strong><br/><strong>(Kemenangan Tumble)</strong>",
+            round4Win: "<strong>56</strong><br/><strong>(Kemenangan Tumble * Pengganda Total)</strong>",
         },
-        tumbleDescriptions: ["1. Jumlah Jatuh Menang", "2. Pengganda Total: 5+3 =8"],
+        tumbleDescriptions: ["1. Jumlah Kemenangan Tumble", "2. Pengganda Total: 5+3 =8"],
     },
 };
