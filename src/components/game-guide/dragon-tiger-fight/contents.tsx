@@ -64,7 +64,7 @@ const renderGameRules = (t: Function, maxBet: number, odds: any) => {
                                         <Markup content={t("header_point", { ns: "DragonTigerFight" })} />
                                     </td>
                                     {Cards.map((card, index) => (
-                                        <td key={index}>{card.value}</td>
+                                        <td key={card.name}>{index + 1}</td>
                                     ))}
                                 </tr>
                             </tbody>
