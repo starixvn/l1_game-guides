@@ -1,5 +1,6 @@
 import { Trans, useTranslation } from "next-i18next";
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
@@ -26,7 +27,9 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
                 </li>
 
                 <li>{t("GameRule-line-2")}</li>
-                <li>{t("GameRule-line-3")} {jackpot && t("GameRule-jackpot")}</li>
+                <li>
+                    {t("GameRule-line-3")} {jackpot && t("GameRule-jackpot")}
+                </li>
                 {jackpot && <li>{t("GameRule-line-jackpot")}</li>}
                 <li>{t("GameRule-line-4")}</li>
                 <div className={Styles["payline"]}>
@@ -62,7 +65,7 @@ const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
 const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false) => {
     return (
         <img
-            key={`symbol-${iconIndex}`}
+            key={`symbol-${iconIndex}-${uuidv4()}`}
             className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
             src={`${imgSrc}/symbol-${iconIndex}.png?v=${imgVer}`}
             alt={`symbol_${iconIndex}.`}
@@ -78,14 +81,13 @@ const generateSymbolJackpot = (iconIndex: number, isHighlight = false, isSmall =
             src={`${imgSrc}/symbol-${iconIndex}.jackpot.png?v=${imgVer}`}
             alt={`symbol_${iconIndex}.`}
         />
-       
     );
 };
 
 const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
 
-const renderIconContent = (symbol: number, dataContent: number[][],t: Function, jackpot:boolean) => {
+const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean) => {
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="d-center">{jackpot && symbol === 10 ? generateSymbolJackpot(symbol) : generateSymbol(symbol)}</div>
@@ -95,10 +97,14 @@ const renderIconContent = (symbol: number, dataContent: number[][],t: Function, 
                         return;
                     }
 
+                    const isShowJackpotText = jackpot && symbol === 10 && index === 0;
+
                     return (
                         <div key={index} className={Styles["symbol-content"]}>
                             <span className={Styles[number]}>{data[0]}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{data[1] === 0 ? t("Jackpot") : data[1]}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
+                                {isShowJackpotText ? t("Jackpot") : data[1]}
+                            </span>
                         </div>
                     );
                 })}
@@ -109,98 +115,152 @@ const renderIconContent = (symbol: number, dataContent: number[][],t: Function, 
 
 const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function) => {
     console.log("odds", odds);
-    if(jackpot) {
-        return(<>
-         {renderIconContent(10, [
-                    [5, odds[10][5]],
-                    [4, odds[10][4]],
-                    [3, odds[10][3]],
-                    [2, odds[10][2]],
-                ], t, jackpot)}
-        {renderIconContent(9, [
-                    [5, odds[9][5]],
-                    [4, odds[9][4]],
-                    [3, odds[9][3]],
-                    [2, odds[9][2]],
-                ], t, jackpot)}
-               
-        </>)
-    }
-    else {
-        return(<>
-            {renderIconContent(9, [
-                       [5, odds[9][5]],
-                       [4, odds[9][4]],
-                       [3, odds[9][3]],
-                       [2, odds[9][2]],
-                   ], t, jackpot)}
-            {renderIconContent(10, [
-                       [4, odds[10][4]],
-                       [3, odds[10][3]],
-                       [2, odds[10][2]],
-                   ], t, jackpot)}
-           
-                  
-           </>)
+    if (jackpot) {
+        return (
+            <>
+                {renderIconContent(
+                    10,
+                    [
+                        [5, odds[10][5]],
+                        [4, odds[10][4]],
+                        [3, odds[10][3]],
+                        [2, odds[10][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    9,
+                    [
+                        [5, odds[9][5]],
+                        [4, odds[9][4]],
+                        [3, odds[9][3]],
+                        [2, odds[9][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+            </>
+        );
+    } else {
+        return (
+            <>
+                {renderIconContent(
+                    9,
+                    [
+                        [5, odds[9][5]],
+                        [4, odds[9][4]],
+                        [3, odds[9][3]],
+                        [2, odds[9][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    10,
+                    [
+                        [4, odds[10][4]],
+                        [3, odds[10][3]],
+                        [2, odds[10][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+            </>
+        );
     }
 };
 const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Function) => {
     return (
         <>
             <div className={Styles["payout-row"]}>
-                
                 {renderPayoutTwoLastIcon(odds, jackpot, t)}
-                {renderIconContent(6, [
-                    [5, odds[6][5]],
-                    [4, odds[6][4]],
-                    [3, odds[6][3]],
-                    [2, odds[6][2]],
-                ], t, jackpot)}
-                {renderIconContent(5, [
-                    [5, odds[5][5]],
-                    [4, odds[5][4]],
-                    [3, odds[5][3]],
-                    [2, odds[5][2]],
-                ], t, jackpot)}
+                {renderIconContent(
+                    6,
+                    [
+                        [5, odds[6][5]],
+                        [4, odds[6][4]],
+                        [3, odds[6][3]],
+                        [2, odds[6][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    5,
+                    [
+                        [5, odds[5][5]],
+                        [4, odds[5][4]],
+                        [3, odds[5][3]],
+                        [2, odds[5][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
             </div>
         </>
     );
 };
 
-const renderPayoutsIconSecondLine = (odds: number[][],  jackpot: boolean, t: Function) => {
+const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Function) => {
     return (
         <>
             <div className={Styles["payout-row"]}>
-                {renderIconContent(4, [
-                    [5, odds[4][5]],
-                    [4, odds[4][4]],
-                    [3, odds[4][3]],
-                    [2, odds[4][2]],
-                ], t, jackpot )}
-                {renderIconContent(3, [
-                    [5, odds[3][5]],
-                    [4, odds[3][4]],
-                    [3, odds[3][3]],
-                    [2, odds[3][2]],
-                ], t, jackpot)}
-                {renderIconContent(2, [
-                    [5, odds[2][5]],
-                    [4, odds[2][4]],
-                    [3, odds[2][3]],
-                    [2, odds[2][2]],
-                ], t, jackpot)}
-                {renderIconContent(1, [
-                    [5, odds[1][5]],
-                    [4, odds[1][4]],
-                    [3, odds[1][3]],
-                    [2, odds[1][2]],
-                ], t, jackpot)}
-                {renderIconContent(0, [
-                    [5, odds[0][5]],
-                    [4, odds[0][4]],
-                    [3, odds[0][3]],
-                    [2, odds[0][2]],
-                ], t, jackpot)}
+                {renderIconContent(
+                    4,
+                    [
+                        [5, odds[4][5]],
+                        [4, odds[4][4]],
+                        [3, odds[4][3]],
+                        [2, odds[4][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    3,
+                    [
+                        [5, odds[3][5]],
+                        [4, odds[3][4]],
+                        [3, odds[3][3]],
+                        [2, odds[3][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    2,
+                    [
+                        [5, odds[2][5]],
+                        [4, odds[2][4]],
+                        [3, odds[2][3]],
+                        [2, odds[2][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    1,
+                    [
+                        [5, odds[1][5]],
+                        [4, odds[1][4]],
+                        [3, odds[1][3]],
+                        [2, odds[1][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
+                {renderIconContent(
+                    0,
+                    [
+                        [5, odds[0][5]],
+                        [4, odds[0][4]],
+                        [3, odds[0][3]],
+                        [2, odds[0][2]],
+                    ],
+                    t,
+                    jackpot
+                )}
             </div>
         </>
     );
@@ -226,7 +286,7 @@ const renderIconContentLarge = (symbol: number, dataContent: number[][], textAft
     );
 };
 
-const renderExamplePayout = (odds: number[][], jackpot:boolean, t: Function) => {
+const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function) => {
     return (
         <>
             <p>
@@ -242,11 +302,16 @@ const renderExamplePayout = (odds: number[][], jackpot:boolean, t: Function) => 
                 <div className={Styles["body"]}>
                     <div className={`${Styles["col"]} d-center-all`}>
                         <div className="d-center">
-                            {renderIconContent(1, [
-                                [5, odds[1][5]],
-                                [4, odds[1][4]],
-                                [3, odds[1][3]],
-                            ],t, jackpot)}
+                            {renderIconContent(
+                                1,
+                                [
+                                    [5, odds[1][5]],
+                                    [4, odds[1][4]],
+                                    [3, odds[1][3]],
+                                ],
+                                t,
+                                jackpot
+                            )}
                         </div>
                     </div>
                     <div className={Styles["line"]}></div>
@@ -409,25 +474,27 @@ const renderJackpot = (t: Function) => {
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("Jackpot-title")}</h2>
             <ul className="">
-                <li>{t("Jackpot-line-1")}{generateSymbolJackpot(10, false, true)}{t("Jackpot-line-2")}   
-                <div className={`${Styles["example"]} table-medium`}>
-                    <div className={Styles["header"]}>
-                        <div className={Styles["col"]}>{t("Common-symbol")}</div>
-                        <div className={Styles["line"]}></div>
-                        <div className={Styles["col"]}>{t("Common-description")}</div>
+                <li>
+                    {t("Jackpot-line-1")}
+                    {generateSymbolJackpot(10, false, true)}
+                    {t("Jackpot-line-2")}
+                    <div className={`${Styles["example"]} table-medium`}>
+                        <div className={Styles["header"]}>
+                            <div className={Styles["col"]}>{t("Common-symbol")}</div>
+                            <div className={Styles["line"]}></div>
+                            <div className={Styles["col"]}>{t("Common-description")}</div>
+                        </div>
+                        <div className={Styles["body"]}>
+                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, false, true)}</div>
+                            <div className={Styles["line"]}></div>
+                            <div className={`${Styles["col"]} `}>
+                                <div>{t("Jackpot-example-1")}</div>
+                                <div>
+                                    <Trans>{t("Jackpot-example-2")}</Trans>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={Styles["body"]}>
-                        <div className={`${Styles["col"]} d-center-all`}>
-                            {generateSymbolJackpot(10, false, true)}
-                        </div>
-                        <div className={Styles["line"]}></div>
-                        <div className={`${Styles["col"]} `}>
-                            <div>{t("Jackpot-example-1")}</div>
-                            <div><Trans>{t("Jackpot-example-2")}</Trans></div>
-                        </div>
-                    </div>     
-                </div>
-                            
                 </li>
             </ul>
         </li>
@@ -448,16 +515,17 @@ const renderTermsAndConditions = (t: Function) => {
     );
 };
 const renderFirstRowIntoListIcon = (jackpot: boolean) => {
-    if(jackpot) {
-        return (<>
-        {generateSymbolJackpot(10)}
-        {[6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
-        </>) 
+    if (jackpot) {
+        return (
+            <>
+                {generateSymbolJackpot(10)}
+                {[6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
+            </>
+        );
+    } else {
+        return [10, 6, 5, 4].map((imgIndex) => generateSymbol(imgIndex));
     }
-    else {
-        return ([10, 6, 5, 4].map((imgIndex) => generateSymbol(imgIndex)))
-    }
-}
+};
 
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslation("classicslot");
@@ -471,9 +539,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("Introduction-title")}</h2>
                     <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
-                    <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
-                       {renderFirstRowIntoListIcon(jackpot)} 
-                    </div>
+                    <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>{renderFirstRowIntoListIcon(jackpot)}</div>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[3, 2, 1, 0].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>
@@ -489,8 +555,6 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 {renderBonus(odds, t)}
                 {renderWild(odds, t, jackpot)}
                 {renderTermsAndConditions(t)}
-                
-
             </ul>
         </>
     );
