@@ -27,9 +27,7 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
                 </li>
 
                 <li>{t("GameRule-line-2")}</li>
-                <li>
-                    {t("GameRule-line-3")} {jackpot && t("GameRule-jackpot")}
-                </li>
+                <li>{t("GameRule-line-3")}</li>
                 {jackpot && <li>{t("GameRule-line-jackpot")}</li>}
                 <li>{t("GameRule-line-4")}</li>
                 <div className={Styles["payline"]}>
@@ -88,6 +86,7 @@ const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
 
 const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean) => {
+    console.log(`dataContent - symbol ${symbol}`, dataContent);
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="d-center">{jackpot && symbol === 10 ? generateSymbolJackpot(symbol) : generateSymbol(symbol)}</div>
@@ -114,7 +113,6 @@ const renderIconContent = (symbol: number, dataContent: number[][], t: Function,
 };
 
 const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function) => {
-    console.log("odds", odds);
     if (jackpot) {
         return (
             <>
@@ -159,6 +157,7 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                 {renderIconContent(
                     10,
                     [
+                        [5, odds[10][5]],
                         [4, odds[10][4]],
                         [3, odds[10][3]],
                         [2, odds[10][2]],
