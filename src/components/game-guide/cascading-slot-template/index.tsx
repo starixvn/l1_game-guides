@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getGameConfigProject } from "../../index.helper";
-import GameConfigs from "../baccarat/configs/L1/game-configs";
 import { GameGuideBase } from "../type";
 import Contents from "./contents";
 import { GameConfigProps } from "./type";
