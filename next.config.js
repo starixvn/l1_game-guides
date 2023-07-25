@@ -9,7 +9,10 @@ const appSettings = {
     gameSettings,
 };
 
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
     i18n,
     publicRuntimeConfig: appSettings,
     productionBrowserSourceMaps: configs.enableSourceMap,
@@ -20,8 +23,10 @@ module.exports = {
     experimental: {
         forceSwcTransforms: true,
         swcMinify: true,
-        optimizeCss: true,
+        optimizeCss: false,
         gzipSize: true,
+        optimisticClientCache: true,
+        cpus: 2,
     },
     eslint: {
         ignoreDuringBuilds: true,
@@ -60,4 +65,7 @@ module.exports = {
             },
         ];
     },
+    cleanDistDir: true,
 };
+
+module.exports = nextConfig;
