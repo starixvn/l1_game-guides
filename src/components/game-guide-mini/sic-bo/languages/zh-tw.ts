@@ -1,28 +1,19 @@
-import { ISeDieMiniTranslationResource } from "./types";
+import { ISicBoTranslationResource } from "./types";
 
-export const tw: ISeDieMiniTranslationResource = {
-    introduction: "迷你色碟有四顆雙色按鈕，一面紅色，一面白色。這個遊戲的目標是預測4個按鈕的結果。",
+export const tw: ISicBoTranslationResource = {
+    introduction:
+        "Sic bo is a dice game and is very popular in Asia. The game is played with three 6-sided dice. Each side of a die consists of from 1 to 6 dots corresponding from 1 to 6 points. ",
     winningCondition: {
-        title: "獲勝條件",
+        title: "Winning Conditions",
         description: {
-            odd: "單：白面朝上或紅面朝上的鈕扣總數為單數。 ",
-            even: "雙：白面朝上或紅面朝上的鈕扣總數為雙數。 ",
-            otherBet: "其它投注選項",
-            ifThe: "如果結果與玩家的賭注相符，則玩家獲勝。",
+            number: "Specific number: Win if the chosen number appears in the game result.",
+            big: "Big: Win if the total point of three dice is from 11 to 17",
+            small: "Small: Win if the  total point of three dice is from 4 to 10",
+            note: "<strong>Note:</strong> Big or Small will lose if there are any triples appearing in the game result",
         },
     },
     betLimit: {
-        title: "投注限額",
-        description: "每輪的最大總賭注為{0}",
-        table: {
-            header: {
-                options: "選項",
-                betLimit: "投注限額",
-            },
-            rows: {
-                oddEven: "單/雙",
-                or: "或",
-            },
-        },
+        title: "Bet Limit",
+        description: "Min bet and max bet must be between {0} - {1} and the maximum total stake per round is {1}.",
     },
 };
