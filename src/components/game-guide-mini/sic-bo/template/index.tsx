@@ -6,7 +6,6 @@ import { GameGuideProps } from "../../../game-guide/type";
 import { ISicBoTranslationResource } from "../languages/types";
 import { getSicBoTranslationResource } from "../languages";
 import { StringFormat } from "../../../../helpers/string-helper";
-import { renderDot } from "../../../shared/dot";
 import { BaseState } from "../../game-guide-mini";
 
 class SicBoGuideTemplate<
@@ -35,7 +34,7 @@ class SicBoGuideTemplate<
                     <li>{description.number}</li>
                     <li>{description.big}</li>
                     <li>{description.small}</li>
-                    <li>{description.note}</li>
+                    <li><Markup content={description.note} /></li>
                 </ul>
             </>
         );
