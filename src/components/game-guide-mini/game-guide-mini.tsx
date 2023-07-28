@@ -18,6 +18,7 @@ const HiLoMiniGuide = dynamic(() => import("./hi-lo"));
 const FishPrawnCrabMiniGuide = dynamic(() => import("./fish-prawn-crab"));
 
 const DragonTigerMiniGuide = dynamic(() => import("./dragon-tiger"));
+const SicboMiniGuide = dynamic(() => import("./sic-bo"));
 
 class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
@@ -36,6 +37,8 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
                 return <DragonTigerMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.HILO:
                 return <HiLoMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.SICBO:
+                return <SicboMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }

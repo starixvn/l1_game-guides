@@ -102,6 +102,7 @@ export const GAMES_MINI = {
     MINI_SE_DIE: 9,
     BACCARAT: 10,
     HILO: 45,
+    SICBO: 25,
 };
 
 export const TolgeeConfig = {
