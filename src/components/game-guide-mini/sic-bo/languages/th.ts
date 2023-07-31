@@ -2,18 +2,18 @@ import { ISicBoTranslationResource } from "./types";
 
 export const th: ISicBoTranslationResource = {
     introduction:
-        "Sic bo is a dice game and is very popular in Asia. The game is played with three 6-sided dice. Each side of a die consists of from 1 to 6 dots corresponding from 1 to 6 points. ",
+        "Sic Bo เป็นเกมลูกเต๋าคาสิโนและเป็นที่นิยมมากในเอเชีย ซึ่งมีอุปกรณ์การเล่นเป็นลูกเต๋า 3 ลูก 1 ลูกมี 6 ด้าน ซึ่งแต่ละด้านจะมีแต้ม จาก 1-6 ",
     winningCondition: {
-        title: "Winning Conditions",
+        title: "เงื่อนไขการชนะ",
         description: {
-            number: "Specific number: Win if the chosen number appears in the game result.",
-            big: "Big: Win if the total point of three dice is from 11 to 17",
-            small: "Small: Win if the  total point of three dice is from 4 to 10",
-            note: "<strong>Note:</strong> Big or Small will lose if there are any triples appearing in the game result",
+            number: "หมายเลขเฉพาะ: จะชนะหากหมายเลขที่เลือกปรากฏในผลลัพธ์ของเกม",
+            big: "สูง: ผลลัพธ์จะชนะหากแต้มรวมของลูกเต๋าสามลูกมีแต้มระหว่าง 11 ถึง 17",
+            small: "ต่ำ: ผลลัพธ์จะชนะหากแต้มรวมของลูกเต๋าสามลูกมีแต้มระหว่าง 4 ถึง 10",
+            note: "<strong>หมายเหตุ:</strong> แต้มสูงหรือต่ำจะแพ้หากมีเลขสามตัวปรากฏในผลการแข่งขัน",
         },
     },
     betLimit: {
-        title: "Bet Limit",
-        description: "Min bet and max bet must be between {0} - {1} and the maximum total stake per round is {1}.",
+        title: "จำนวนเงินเดิมพัน",
+        description: "การเดิมพันขั้นต่ำและการเดิมพันสูงสุดต้องอยู่ระหว่างค่าต่ำสุด - ค่าสูงสุด และเงินเดิมพันรวมสูงสุดต่อรอบคือค่าสูงสุด",
     },
 };

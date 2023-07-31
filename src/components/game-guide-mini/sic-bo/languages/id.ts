@@ -2,18 +2,19 @@ import { ISicBoTranslationResource } from "./types";
 
 export const id: ISicBoTranslationResource = {
     introduction:
-        "Sic bo is a dice game and is very popular in Asia. The game is played with three 6-sided dice. Each side of a die consists of from 1 to 6 dots corresponding from 1 to 6 points. ",
+        "Sic bo adalah permainan dadu yang sangat populer di Asia. Permainan ini dimainkan dengan tiga dadu berisi enam sisi. Setiap sisi dadu memiliki 1 hingga 6 titik yang sesuai dengan 1 hingga 6 poin. ",
     winningCondition: {
-        title: "Winning Conditions",
+        title: "Kondisi Menang",
         description: {
-            number: "Specific number: Win if the chosen number appears in the game result.",
-            big: "Big: Win if the total point of three dice is from 11 to 17",
-            small: "Small: Win if the  total point of three dice is from 4 to 10",
-            note: "<strong>Note:</strong> Big or Small will lose if there are any triples appearing in the game result",
+            number: "Angka spesifik: Menang jika angka yang dipilih muncul dalam hasil permainan. ",
+            big: "Besar: Menang jika total poin dari tiga dadu adalah antara 11 hingga 17.",
+            small: "Kecil: Menang jika total poin dari tiga dadu adalah antara 4 hingga 10.",
+            note: "<strong>Catatan:</strong> Besar atau Kecil akan kalah jika ada triple (tiga dadu dengan angka yang sama) muncul dalam hasil permainan.",
         },
     },
     betLimit: {
-        title: "Bet Limit",
-        description: "Min bet and max bet must be between {0} - {1} and the maximum total stake per round is {1}.",
+        title: "Batas taruhan",
+        description:
+            "Taruhan minimum dan maksimum harus berada di antara nilai minimum hingga maksimum, dan total taruhan maksimum per putaran adalah nilai maksimum.",
     },
 };

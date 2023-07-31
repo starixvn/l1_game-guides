@@ -1,19 +1,18 @@
 import { ISicBoTranslationResource } from "./types";
 
 export const cn: ISicBoTranslationResource = {
-    introduction:
-        "Sic bo is a dice game and is very popular in Asia. The game is played with three 6-sided dice. Each side of a die consists of from 1 to 6 dots corresponding from 1 to 6 points. ",
+    introduction: "骰寶在亞洲是一種非常流行的骰子遊戲。該遊戲使用三個 6 面骰子進行。骰子的每一面由 1 到 6 個點組成，對應 1 到 6 個點。 ",
     winningCondition: {
-        title: "Winning Conditions",
+        title: "获胜条件",
         description: {
-            number: "Specific number: Win if the chosen number appears in the game result.",
-            big: "Big: Win if the total point of three dice is from 11 to 17",
-            small: "Small: Win if the  total point of three dice is from 4 to 10",
-            note: "<strong>Note:</strong> Big or Small will lose if there are any triples appearing in the game result",
+            number: "特定號碼：如果所選的號碼出現在遊戲結果中，則獲勝。",
+            big: "大：如果三個骰子的總點數在 11 到 17 之間，則獲勝。",
+            small: "小：如果三個骰子的總點數在 4 到 10 之間，則獲勝。",
+            note: "<strong>注意：</strong>如果遊戲結果出現三元組，則大或小都將輸。",
         },
     },
     betLimit: {
-        title: "Bet Limit",
-        description: "Min bet and max bet must be between {0} - {1} and the maximum total stake per round is {1}.",
+        title: "投注限額",
+        description: "最小賭注和最大賭注必須介於最小值 - 最大值之間，並且每輪的最大總賭注為最大值。",
     },
 };
