@@ -7,8 +7,8 @@ export const en: ISicBoTranslationResource = {
         title: "Winning Conditions",
         description: {
             number: "Specific number: Win if the chosen number appears in the game result.",
-            big: "Big: Win if the total point of three dice is from 11 to 17",
-            small: "Small: Win if the  total point of three dice is from 4 to 10",
+            big: "Big: Win if the total point of three dice is from 11 to 17.",
+            small: "Small: Win if the  total point of three dice is from 4 to 10.",
             note: "<strong>Note:</strong> Big or Small will lose if there are any triples appearing in the game result.",
         },
     },

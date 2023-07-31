@@ -6,7 +6,7 @@ export const tw: ISicBoTranslationResource = {
         title: "獲勝條件",
         description: {
             number: "特定号码：如果所选的号码出现在游戏结果中，则获胜。",
-            big: "大：如果三个骰子的总点数在 11 到 17 之间",
+            big: "大：如果三个骰子的总点数在 11 到 17 之间，则获胜。",
             small: "小：如果三个骰子的总点数在 4 到 10 之间，则获胜。",
             note: "<strong>注意：</strong>如果游戏结果出现三元组，则大或小都将输。",
         },
