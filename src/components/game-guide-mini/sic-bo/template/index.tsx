@@ -7,6 +7,7 @@ import { ISicBoTranslationResource } from "../languages/types";
 import { getSicBoTranslationResource } from "../languages";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { BaseState } from "../../game-guide-mini";
+import Styles from "../sicbo.module.scss";
 
 class SicBoGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -30,12 +31,12 @@ class SicBoGuideTemplate<
         return (
             <>
                 <h2>{title}</h2>
-                <ul className="desc">
+                <ul className={`${Styles["desc-row"]} desc`}>
                     <li>{description.number}</li>
                     <li>{description.big}</li>
-                    <li>{description.small}</li>
-                    <li><Markup content={description.note} /></li>
+                    <li>{description.small}</li>                   
                 </ul>
+                <div className={Styles["note"]}><Markup content={description.note} /></div>
             </>
         );
     }
@@ -45,7 +46,6 @@ class SicBoGuideTemplate<
 
         const { maxBetFollowChoice } = this.props;
         const { title, description } = betLimit;
-        console.log("renderBetLimit", maxBetFollowChoice);
         return (
             <>
                 <h2> {title}</h2>
