@@ -13,6 +13,6 @@ export const tw: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "投注限额",
-        description: "最小赌注和最大赌注必须介于最小值 - 最大值之间，并且每轮的最大总赌注为最大值。",
+        description: "最小賭注和最大賭注必須介於 {0} – {1} 之間，並且每輪的最大總賭注為 {1}。",
     },
 };

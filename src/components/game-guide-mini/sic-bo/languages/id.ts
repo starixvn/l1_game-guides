@@ -15,6 +15,6 @@ export const id: ISicBoTranslationResource = {
     betLimit: {
         title: "Batas taruhan",
         description:
-            "Taruhan minimum dan maksimum harus berada di antara nilai minimum hingga maksimum, dan total taruhan maksimum per putaran adalah nilai maksimum.",
+            "Taruhan minimum dan maksimum harus berada di antara nilai {0} – {1}, dan total taruhan maksimum per putaran adalah nilai {1}.",
     },
 };
