@@ -1,19 +1,16 @@
 import { Trans } from "next-i18next";
 import { useTranslate } from "@tolgee/react";
 import React from "react";
-import { getImageDirectoryName } from ".";
-
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import OddDetailList from "./OddDetail";
-
 import Styles from "./cascading-slot.module.scss";
 import { GameConfigProps } from "./type";
 import { numberWithCommas } from "../../../helpers/number-helper";
+
 const number = "number";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
-const freeSpinContentEX = "wrapper-symbols-content";
 let imgSrc = "",
     imgVer = "";
 
@@ -42,8 +39,7 @@ const renderGameRule = (coin: number, level: number, betMultiplier: number, t: F
     );
 };
 
-const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number, imageDirectoryName: string, t: Function) => {
-    const currMaxBet = maxWinPerRound;
+const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number, t: Function) => {
     const oddDetail = convertOddDetail(odds, false);
     return (
         <li className="guide-item">
@@ -116,8 +112,6 @@ const renderIconContent = (
     level: number,
     isReverse = true
 ) => {
-    const imageDirectoryName = getImageDirectoryName();
-    const pathSrc = `${imageDirectoryName}/`;
     const oddItems = [...dataContent.oddItem].reverse();
     const oddItemList = isReverse ? oddItems : dataContent.oddItem;
 
@@ -319,7 +313,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
     );
 };
 
-const renderExampleFreespin = (oddDetail: OddDetailList[], imageDirectoryName: string, t: Function) => {
+const renderExampleFreespin = (oddDetail: OddDetailList[], t: Function) => {
     const oddItems = [...oddDetail[0].oddItem].reverse();
     return (
         <>
@@ -425,7 +419,7 @@ const renderExampleWinFreespin = (t: Function) => {
     );
 };
 
-const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Function) => {
+const renderFreeSpins = (odds: number[][], t: Function) => {
     const oddDetail = convertOddDetail(odds, true);
 
     return (
@@ -435,7 +429,7 @@ const renderFreeSpins = (odds: number[][], imageDirectoryName: string, t: Functi
                 <ul className="desc">
                     <li>
                         {t("FreeSpin-line-1")}
-                        {renderExampleFreespin(oddDetail, imageDirectoryName, t)}
+                        {renderExampleFreespin(oddDetail, t)}
                     </li>
                     <li>{t("FreeSpin-line-2", { value: oddDetail[1].oddItem[0].count })}</li>
                     <li>{t("FreeSpin-line-3")}</li>
@@ -555,10 +549,11 @@ const renderTermsAndConditions = (t: Function) => {
         <li className={`guide-item ${Styles["guide-item"]}`}>
             <h2 className={Styles["heading1"]}>{t("termsandconditions-title", { ns: "Common" })}</h2>
             <ul className="style-number-rule">
-                <li className="number-dot">{t("termsandconditions_para_1", { ns: "Common" })}</li>
-                <li className="number-dot">{t("termsandconditions_para_2", { ns: "Common" })}</li>
-                <li className="number-dot">{t("termsandconditions_para_3", { ns: "Common" })}</li>
-                <li className="number-dot">{t("termsandconditions_para_4", { ns: "Common" })}</li>
+                {[1, 2, 3, 4].map((paraIndex) => (
+                    <li key={`para-${paraIndex}`} className="number-dot">
+                        {t(`termsandconditions_para_${paraIndex}`, { ns: "Common" })}
+                    </li>
+                ))}
             </ul>
         </li>
     );
@@ -595,18 +590,9 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
-    //imgSrc = getImageDirectoryName();
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
     const betMultiplier = gameSettings.BetMultiplier;
-    const betLevels = gameSettings.BetLevels;
-    const coinValues = gameConfigs.coinValues;
-
-    const imageDirectoryName = getImageDirectoryName();
-    const sortedCoinValue = coinValues.sort((a: number, b: number) => a - b);
-    const sortedBetLevel = betLevels.sort((a: number, b: number) => a - b);
-    const minBet = betMultiplier * sortedCoinValue[0] * sortedBetLevel[0];
-    const maxBet = betMultiplier * sortedCoinValue[coinValues.length - 1] * sortedBetLevel[betLevels.length - 1];
 
     const maxWinPerRound = gameConfigs.maxWinPerRound;
 
@@ -622,10 +608,10 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
 
-                {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, maxWinPerRound, imageDirectoryName, t)}
+                {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, maxWinPerRound, t)}
                 {renderTumble(t)}
                 {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
-                {renderFreeSpins(gameSettings.FreeSpins, imageDirectoryName, t)}
+                {renderFreeSpins(gameSettings.FreeSpins, t)}
                 {renderTermsAndConditions(t)}
             </ul>
         </>

@@ -32,10 +32,6 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
-export const getImageDirectoryName = (): string => {
-    return "/static/images/cascading-slot-new";
-};
-
 const CascadingSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
