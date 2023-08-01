@@ -6,5 +6,6 @@
     "system": "L2",
     "enableSourceMap": false,
     "resourceUrl": "https://l1uatproxy.sgamesuat.com/sit/game/static/",
-    "gameSettingUrl": "http://l2_admin_api_sit:5000/api/public/game_configs/"
+    "gameSettingUrl": "http://l2_admin_api_sit:5000/api/public/game_configs/",
+    "useTolgeeStatic": true
 }
