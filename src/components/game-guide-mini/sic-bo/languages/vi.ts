@@ -2,7 +2,7 @@ import { ISicBoTranslationResource } from "./types";
 
 export const vi: ISicBoTranslationResource = {
     introduction:
-        "Sic Bo là trò chơi đổ xúc xắc. Trò chơi sử dụng ba viên xúc xắc(xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm. ",
+        "Sic Bo là trò chơi đổ xúc xắc. Trò chơi sử dụng ba viên xúc xắc (xí ngầu) 6 mặt, các mặt lần lượt từ 1 đến 6 chấm, tương ứng từ 1 đến 6 điểm. ",
     winningCondition: {
         title: "Điều kiện thắng",
         description: {
