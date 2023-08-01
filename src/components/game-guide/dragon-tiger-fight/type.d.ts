@@ -21,6 +21,7 @@ export interface ChoicesMaxBetProps {
 }
 
 export type DragonTigerFightContentsProps = {
+    locale: string | undefined;
     gameConfigs: GameConfigs;
     fractionalOddsFormat?: boolean;
 };

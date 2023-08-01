@@ -186,7 +186,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
     );
 };
 
-const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gameConfigs, fractionalOddsFormat }) => {
+const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale }) => {
     const { t } = useTranslate(["DragonTigerFight", "Common"]);
     const rootImgUrl = "/static/images/dragon-tiger-fight/";
 
@@ -199,10 +199,10 @@ const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gam
             {renderGameRules(t, gameConfigs.maxBet, gameConfigs.odds)}
             {renderPayout(t, gameConfigs, fractionalOddsFormat)}
             <MD5Tolgee {...{
-                step1ImageUrl: "/static/images/big-small/md5_step1_tw.png?v=3",
-                step2ImageUrl: "/static/images/big-small/md5_step2_tw.png?v=3",
-                step3ImageUrl: "/static/images/big-small/md5_step3.png?v=1",
-                step4ImageUrl: "/static/images/big-small/md5_step4.png?v=1",
+                step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=4`,
+                step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=5`,
+                step3ImageUrl: `${rootImgUrl}md5_step3.png?v=1`,
+                step4ImageUrl: `${rootImgUrl}md5_step4.png?v=1`,
                 note: <Markup content={t(`md5example_para_3`, {
                     "cardSample": `{7<img src="${rootImgUrl}white-heart.png"/>2<img src="${rootImgUrl}black-ace.png"/>}`
                 })} />

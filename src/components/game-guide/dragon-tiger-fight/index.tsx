@@ -75,7 +75,7 @@ const DragontigerFightGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <DragonTigerFightContents {...{ gameConfigs: configs, fractionalOddsFormat }} />
+            <DragonTigerFightContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage() }} />
         </TolgeeProvider>
     );
 };
