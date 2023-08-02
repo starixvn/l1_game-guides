@@ -231,7 +231,7 @@ const renderExampleGameRules = (coin: number, level: number, betMultiplier: numb
                             <td>{level}</td>
                             <td>{coin}</td>
                             <td>{betMultiplier}</td>
-                            <td>{totalBet}</td>
+                            <td>{numberWithCommas(totalBet)}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -273,7 +273,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                                 />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[0].count * coin * level)).toFixed(2) })}
+                                {t("Payout-example-description-3", { value: numberWithCommas(+(oddItems[0].count * coin * level)) })}
                             </td>
                         </tr>
                         <tr>
@@ -288,7 +288,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                                 />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[1].count * coin * level)).toFixed(2) })}
+                                {t("Payout-example-description-3", { value: numberWithCommas(+(oddItems[1].count * coin * level)) })}
                             </td>
                         </tr>
                         <tr>
@@ -303,7 +303,7 @@ const renderExamplePayout = (symbol: OddDetailList, coin: number, level: number,
                                 />{" "}
                                 {t("Payout-example-description-2")}
                                 <br></br>
-                                {t("Payout-example-description-3", { value: +(+(oddItems[2].count * coin * level)).toFixed(2) })}
+                                {t("Payout-example-description-3", { value: numberWithCommas(+(oddItems[2].count * coin * level)) })}
                             </td>
                         </tr>
                     </tbody>
@@ -518,13 +518,13 @@ const renderExampleMultiplier = (symbol: OddDetailList, coin: number, level: num
                     <tbody>
                         <tr>
                             <td className={Styles["symbol-scale"]}>{generateSymbol(1, 1)}</td>
-                            <td>{tumbleWin}</td>
+                            <td>{numberWithCommas(tumbleWin)}</td>
                             <td>
                                 {multiplier}
                                 <br></br>(15+2)
                             </td>
                             <td>
-                                {win} <br></br>({tumbleWin} * 17)
+                                {numberWithCommas(win)} <br></br>({numberWithCommas(tumbleWin)} * 17)
                             </td>
                         </tr>
                     </tbody>
