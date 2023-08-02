@@ -51,7 +51,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                     <li>{resources.gameRules.ruleStartSpin}</li>
                     <li>{resources.gameRules.ruleWin}</li>
                     <li>
-                        {resources.gameRules.betLimit} {minValue} - {maxValue}.
+                        {resources.gameRules.betLimit} {minValue} - {numberWithCommas(maxValue)}.
                     </li>
                 </ul>
             </>
@@ -165,7 +165,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                     {<Markup content={table.getHavingSymbol(oddItems[0].countString)} />}{" "}
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent} <br></br>
-                                    {table.payout} {+(+(oddItems[0].count * coin * level)).toFixed(2)}
+                                    {table.payout} {numberWithCommas(+(oddItems[0].count * coin * level))}
                                 </td>
                             </tr>
                             <tr>
@@ -174,7 +174,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent}
                                     <br></br>
-                                    {table.payout} {+(+(oddItems[1].count * coin * level)).toFixed(2)}
+                                    {table.payout} {numberWithCommas(+(oddItems[1].count * coin * level))}
                                 </td>
                             </tr>
                             <tr>
@@ -183,7 +183,7 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                     <img src={`${imageDirectoryName}/item8.png`} width={50} height={50} alt="item8" />{" "}
                                     {table.descriptionContent}
                                     <br></br>
-                                    {table.payout} {+(+(oddItems[2].count * coin * level)).toFixed(2)}
+                                    {table.payout} {numberWithCommas(+(oddItems[2].count * coin * level))}
                                 </td>
                             </tr>
                         </tbody>
@@ -233,16 +233,16 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
                                         <td>
                                             <img src={`${imageDirectoryName}/item1.png`} width={50} height={50} alt="item2" />
                                         </td>
-                                        <td>{tumbleWin}</td>
+                                        <td>{numberWithCommas(tumbleWin)}</td>
                                         <td>
                                             {multiplier}
                                             <br></br>(20+2)
                                         </td>
                                         <td>
-                                            <strong>{win}</strong>
+                                            <strong>{numberWithCommas(win)}</strong>
                                             <br />
                                             <strong>
-                                                ({tumbleWin} * {multiplier})
+                                                ({numberWithCommas(tumbleWin)} * {multiplier})
                                             </strong>
                                         </td>
                                     </tr>
