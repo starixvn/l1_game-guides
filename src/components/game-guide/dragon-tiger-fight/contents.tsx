@@ -8,6 +8,7 @@ import { GameConfigs } from "../type";
 import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { DragonTigerFightContentsProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
+import { buildVersion } from "../../../common/constants";
 
 const renderGameRules = (t: Function, odds: any) => {
     return (
@@ -210,10 +211,10 @@ const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gam
             {renderGameRules(t, gameConfigs.odds)}
             {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             <MD5Tolgee {...{
-                step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=4`,
-                step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=5`,
-                step3ImageUrl: `${rootImgUrl}md5_step3.png?v=1`,
-                step4ImageUrl: `${rootImgUrl}md5_step4.png?v=1`,
+                step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
+                step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
+                step3ImageUrl: `${rootImgUrl}md5_step3.png?v=${buildVersion}`,
+                step4ImageUrl: `${rootImgUrl}md5_step4.png?v=${buildVersion}`,
                 note: <Markup content={t(`md5example_para_3`, {
                     "cardSample": `{7<img src="${rootImgUrl}white-heart.png"/>2<img src="${rootImgUrl}black-ace.png"/>}`
                 })} />
