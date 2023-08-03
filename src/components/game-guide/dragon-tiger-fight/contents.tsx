@@ -5,10 +5,11 @@ import { Cards } from "../base/base-baccarat/card-model";
 import MD5Tolgee from "../base/md5/md5-tolgee";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
-import { formatOdds } from "../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { DragonTigerFightContentsProps } from "./type";
+import { UserStakeLevelProps } from "../../../pages";
 
-const renderGameRules = (t: Function, maxBet: number, odds: any) => {
+const renderGameRules = (t: Function, odds: any) => {
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -81,8 +82,18 @@ const renderGameRules = (t: Function, maxBet: number, odds: any) => {
     );
 };
 
-const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsFormat?: boolean) => {
+const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined, fractionalOddsFormat?: boolean) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
+
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxBetDragon = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.dragon));
+    const maxBetTie = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
+    const maxBetBlackDragon = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blackDragon));
+    const maxBetRedDragon = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.redDragon));
+    const maxBetRedTiger = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.redTiger));
+    const maxBetBlackTiger = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blackTiger));
+
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
@@ -110,10 +121,10 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.dragon, fractionalOddsFormat)}
                                     </td>
                                     <td rowSpan={2}>
-                                        {minBet} - {maxBetPerChoices.dragon}
+                                        {minBetMain} - {maxBetDragon}
                                     </td>
                                     <td rowSpan={7}>
-                                        {maxBet}
+                                        {maxBetMain}
                                     </td>
                                 </tr>
                                 <tr >
@@ -129,7 +140,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.tie, fractionalOddsFormat)}
                                     </td>
                                     <td >
-                                        {minBet} - {maxBetPerChoices.tie}
+                                        {minBetMain} - {maxBetTie}
                                     </td>
                                 </tr>
                                 <tr>
@@ -140,7 +151,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.redDragon, fractionalOddsFormat)}
                                     </td>
                                     <td >
-                                        {minBet} - {maxBetPerChoices.redDragon}
+                                        {minBetMain} - {maxBetRedDragon}
                                     </td>
                                 </tr>
                                 <tr>
@@ -151,7 +162,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.blackDragon, fractionalOddsFormat)}
                                     </td>
                                     <td >
-                                        {minBet} - {maxBetPerChoices.blackDragon}
+                                        {minBetMain} - {maxBetBlackDragon}
                                     </td>
                                 </tr>
                                 <tr>
@@ -162,7 +173,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.redTiger, fractionalOddsFormat)}
                                     </td>
                                     <td>
-                                        {minBet} - {maxBetPerChoices.redTiger}
+                                        {minBetMain} - {maxBetRedTiger}
                                     </td>
                                 </tr>
                                 <tr >
@@ -173,7 +184,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
                                         {formatOdds(odds?.blackTiger, fractionalOddsFormat)}
                                     </td>
                                     <td>
-                                        {minBet} - {maxBetPerChoices.blackTiger}
+                                        {minBetMain} - {maxBetBlackTiger}
                                     </td>
                                 </tr>
                             </tbody>
@@ -186,7 +197,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, fractionalOddsForma
     );
 };
 
-const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale }) => {
+const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
     const { t } = useTranslate(["DragonTigerFight", "Common"]);
     const rootImgUrl = "/static/images/dragon-tiger-fight/";
 
@@ -196,8 +207,8 @@ const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({ gam
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <div className="content">{t("intro_para_1", { ns: "DragonTigerFight" })}</div>
             </li>
-            {renderGameRules(t, gameConfigs.maxBet, gameConfigs.odds)}
-            {renderPayout(t, gameConfigs, fractionalOddsFormat)}
+            {renderGameRules(t, gameConfigs.odds)}
+            {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             <MD5Tolgee {...{
                 step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=4`,
                 step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=5`,
