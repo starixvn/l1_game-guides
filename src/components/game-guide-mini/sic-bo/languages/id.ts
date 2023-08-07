@@ -14,7 +14,16 @@ export const id: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "Batas taruhan",
-        description:
-            "Taruhan minimum dan maksimum harus berada di antara nilai {0} – {1}, dan total taruhan maksimum per putaran adalah nilai {1}.",
+        table: {
+            header: {
+                options: "Opsi Taruhan",
+                betLimit: "Batas Taruhan (Min-Max)",
+            },
+            rows: {
+                big: "Besar",
+                small: "Kecil",
+                specificNumber: "Angka spesifik",
+            },
+        },
     },
 };

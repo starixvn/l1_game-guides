@@ -14,6 +14,16 @@ export const en: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "Bet Limit",
-        description: "Min bet and max bet must be between {0} - {1} and the maximum total stake per round is {1}.",
+        table: {
+            header: {
+                options: "Bet Option",
+                betLimit: "Bet Limit (Min-Max)",
+            },
+            rows: {
+                big: "Big",
+                small: "Small",
+                specificNumber: "Specific number",
+            },
+        },
     },
 };

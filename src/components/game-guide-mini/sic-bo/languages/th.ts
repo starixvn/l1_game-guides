@@ -14,6 +14,16 @@ export const th: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "จำนวนเงินเดิมพัน",
-        description: "การเดิมพันขั้นต่ำและการเดิมพันสูงสุดต้องอยู่ระหว่าง {0} – {1} และเงินเดิมพันรวมสูงสุดต่อรอบคือ {1}",
+        table: {
+            header: {
+                options: "ตัวเลือกการเดิมพัน",
+                betLimit: "วงเงินเดิมพัน (ต่ำสุด-สูงสุด)",
+            },
+            rows: {
+                big: "สูง",
+                small: "ต่",
+                specificNumber: "หมายเลขเฉพาะ",
+            },
+        },
     },
 };

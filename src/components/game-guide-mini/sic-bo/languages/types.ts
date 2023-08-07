@@ -11,6 +11,16 @@ export interface ISicBoTranslationResource {
     };
     betLimit: {
         title: string;
-        description: string;
+        table: {
+            header: {
+                options: string;
+                betLimit: string;
+            };
+            rows: {
+                big: string;
+                small: string;
+                specificNumber: string;
+            };
+        };
     };
 }

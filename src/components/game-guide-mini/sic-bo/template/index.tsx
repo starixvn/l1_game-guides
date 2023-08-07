@@ -45,11 +45,44 @@ class SicBoGuideTemplate<
         const { betLimit } = this.state.translationResource;
 
         const { maxBetFollowChoice } = this.props;
-        const { title, description } = betLimit;
+        const { title, table } = betLimit;
         return (
             <>
-                <h2> {title}</h2>
-                <div><Markup content={StringFormat(description, (maxBetFollowChoice?.minBetMain ?? 0).toString(), (maxBetFollowChoice?.maxBetMain ?? 0).toString())} /></div>
+                <h2> {title}</h2>                
+                <ul >
+                    <li>                       
+                        <div className="table-container">
+                            <table className="table text-center table-small">
+                                <thead>
+                                    <tr>
+                                        <th>{table.header.options}</th>
+                                        <th>{table.header.betLimit}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{table.rows.big}</td>
+                                        <td rowSpan={2}>
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{table.rows.small}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        {table.rows.specificNumber}
+                                        </td>
+                                        <td>
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
             </>
         );
     }
