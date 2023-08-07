@@ -14,6 +14,7 @@ export const vi: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "Hạn mức cược",
+        description: "Tổng tiền cược tối đa cho một phiên là {0}",
         table: {
             header: {
                 options: "Lựa Chọn",

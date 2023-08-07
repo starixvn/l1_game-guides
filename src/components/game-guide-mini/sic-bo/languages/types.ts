@@ -11,6 +11,7 @@ export interface ISicBoTranslationResource {
     };
     betLimit: {
         title: string;
+        description: string;
         table: {
             header: {
                 options: string;

@@ -45,12 +45,13 @@ class SicBoGuideTemplate<
         const { betLimit } = this.state.translationResource;
 
         const { maxBetFollowChoice } = this.props;
-        const { title, table } = betLimit;
+        const { title, description, table } = betLimit;
         return (
             <>
                 <h2> {title}</h2>                
-                <ul >
-                    <li>                       
+                <ul className="desc">
+                    <li>      
+                    <Markup content={StringFormat(description, (maxBetFollowChoice?.maxBetMain ?? 0).toString())} />                 
                         <div className="table-container">
                             <table className="table text-center table-small">
                                 <thead>
@@ -75,7 +76,7 @@ class SicBoGuideTemplate<
                                         {table.rows.specificNumber}
                                         </td>
                                         <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                         </td>
                                     </tr>
                                 </tbody>

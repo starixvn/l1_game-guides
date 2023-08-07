@@ -14,6 +14,7 @@ export const en: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "Bet Limit",
+        description: "The maximum total stake per round is {0}",
         table: {
             header: {
                 options: "Bet Option",

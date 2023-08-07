@@ -13,6 +13,7 @@ export const cn: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "投注限額",
+        description: "每轮的最大总赌注为 {0}",
         table: {
             header: {
                 options: "投注选项",

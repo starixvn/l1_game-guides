@@ -14,6 +14,7 @@ export const id: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "Batas taruhan",
+        description: "Total taruhan maksimum per putaran adalah {0}",
         table: {
             header: {
                 options: "Opsi Taruhan",

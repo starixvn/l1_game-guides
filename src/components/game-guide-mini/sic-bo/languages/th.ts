@@ -14,6 +14,7 @@ export const th: ISicBoTranslationResource = {
     },
     betLimit: {
         title: "จำนวนเงินเดิมพัน",
+        description: "เงินเดิมพันรวมสูงสุดต่อรอบคือ {0}",
         table: {
             header: {
                 options: "ตัวเลือกการเดิมพัน",

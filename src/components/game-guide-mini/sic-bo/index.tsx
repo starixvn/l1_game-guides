@@ -10,10 +10,11 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
-    const { maxBet, minBet} = gameConfigs;
+    const { maxBet, minBet, maxBetPerChoices} = gameConfigs;
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    return { maxBetMain, minBetMain};
+    const maxBetSpecific1 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.specific1));
+    return { maxBetMain, minBetMain, maxBetSpecific1};
 };
 
 const SicBoMiniGuide = (props: GameGuideBase) => {
