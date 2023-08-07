@@ -56,8 +56,8 @@ class SicBoGuideTemplate<
                             <table className="table text-center table-small">
                                 <thead>
                                     <tr>
-                                        <th>{table.header.options}</th>
-                                        <th><Markup content={table.header.betLimit} /></th>
+                                        <th className={`${Styles["col-first"]}`}>{table.header.options}</th>
+                                        <th className={`${Styles["col-second"]}`}><Markup content={table.header.betLimit} /></th>
                                     </tr>
                                 </thead>
                                 <tbody>
