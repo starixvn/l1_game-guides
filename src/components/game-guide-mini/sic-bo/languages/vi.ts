@@ -18,7 +18,7 @@ export const vi: ISicBoTranslationResource = {
         table: {
             header: {
                 options: "Lựa Chọn",
-                betLimit: "Giới Hạn Cược (Min - Max)",
+                betLimit: "Giới Hạn Cược\n (Min - Max)",
             },
             rows: {
                 big: "Tài",

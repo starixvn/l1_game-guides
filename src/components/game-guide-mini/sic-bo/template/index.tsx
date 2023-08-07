@@ -57,7 +57,7 @@ class SicBoGuideTemplate<
                                 <thead>
                                     <tr>
                                         <th>{table.header.options}</th>
-                                        <th>{table.header.betLimit}</th>
+                                        <th><Markup content={table.header.betLimit} /></th>
                                     </tr>
                                 </thead>
                                 <tbody>

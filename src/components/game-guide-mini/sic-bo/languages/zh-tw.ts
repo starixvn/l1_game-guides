@@ -17,7 +17,7 @@ export const tw: ISicBoTranslationResource = {
         table: {
             header: {
                 options: "投注選項",
-                betLimit: "投注限額（最小-最大）",
+                betLimit: "投注限額\n（最小-最大）",
             },
             rows: {
                 big: "大",

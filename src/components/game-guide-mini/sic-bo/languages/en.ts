@@ -18,7 +18,7 @@ export const en: ISicBoTranslationResource = {
         table: {
             header: {
                 options: "Bet Option",
-                betLimit: "Bet Limit (Min-Max)",
+                betLimit: "Bet Limit\n (Min-Max)",
             },
             rows: {
                 big: "Big",

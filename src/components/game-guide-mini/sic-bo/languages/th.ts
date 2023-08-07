@@ -18,7 +18,7 @@ export const th: ISicBoTranslationResource = {
         table: {
             header: {
                 options: "ตัวเลือกการเดิมพัน",
-                betLimit: "วงเงินเดิมพัน (ต่ำสุด-สูงสุด)",
+                betLimit: "วงเงินเดิมพัน\n (ต่ำสุด-สูงสุด)",
             },
             rows: {
                 big: "สูง",
