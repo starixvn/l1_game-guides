@@ -14,7 +14,8 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetSpecific1 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.specific1));
-    return { maxBetMain, minBetMain, maxBetSpecific1};
+    const maxBetBig = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.big));
+    return { maxBetMain, minBetMain, maxBetSpecific1, maxBetBig};
 };
 
 const SicBoMiniGuide = (props: GameGuideBase) => {

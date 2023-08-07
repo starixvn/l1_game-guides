@@ -64,7 +64,7 @@ class SicBoGuideTemplate<
                                     <tr>
                                         <td>{table.rows.big}</td>
                                         <td rowSpan={2}>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetMain}
+                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                         </td>
                                     </tr>
                                     <tr>
