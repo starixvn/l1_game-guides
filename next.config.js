@@ -52,4 +52,12 @@ module.exports = {
     env: {
         buildVersion: uuidv4(),
     },
+    async rewrites() {
+        return [
+            {
+                source: "/health",
+                destination: "/api/health",
+            },
+        ];
+    },
 };
