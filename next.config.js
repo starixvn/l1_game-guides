@@ -17,12 +17,6 @@ module.exports = {
         return uuidv4();
     },
     excludeFile: (str) => /\*.{spec,test}.js/.test(str),
-    experimental: {
-        forceSwcTransforms: true,
-        swcMinify: true,
-        optimizeCss: true,
-        gzipSize: true,
-    },
     eslint: {
         ignoreDuringBuilds: true,
     },
