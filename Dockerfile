@@ -1,4 +1,4 @@
-FROM hub.lumigame.com/base/node:14.16-alpine AS builder
+FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
 
-FROM hub.lumigame.com/base/node:14.16-alpine AS runner
+FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS runner
 WORKDIR /app
 ENV NODE_ENV production
 
