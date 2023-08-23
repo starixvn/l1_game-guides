@@ -1,4 +1,5 @@
-import { Trans, useTranslation } from "next-i18next";
+import { useTranslate } from "@tolgee/react";
+import { Trans } from "next-i18next";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -527,7 +528,7 @@ const renderFirstRowIntoListIcon = (jackpot: boolean) => {
 };
 
 const Contents: React.FC<GameConfigProps> = (props) => {
-    const { t } = useTranslation("classicslot");
+    const { t } = useTranslate(["classicslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
     const { odds, name, displayName, jackpot } = props;
     imgSrc = appSettings.resourceUrl + name;
@@ -536,7 +537,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
         <>
             <ul className={`game-guide ${Styles["slot-guide"]}`}>
                 <li className="guide-item">
-                    <h2 className={Styles["heading1"]}>{t("Introduction-title")}</h2>
+                    <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
                     <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>{renderFirstRowIntoListIcon(jackpot)}</div>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
