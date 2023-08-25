@@ -18,19 +18,19 @@ let imgSrc = "",
 const renderGameRule = (t: Function, jackpot: boolean) => {
     return (
         <>
-            <h2 className={Styles["heading1"]}>{t("GameRule-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_gamerules", {ns:"Common"})}</h2>
             <ul className="desc">
                 <li>
-                    {t("GameRule-line-1")}
+                    {t("gamerules_para_1")}
                     <div className="text-center">
-                        <Trans>{t("GameRule-totalBet")}</Trans>
+                        <Trans>{t("gamerules_para_2")}</Trans>
                     </div>
                 </li>
 
-                <li>{t("GameRule-line-2")}</li>
-                <li>{t("GameRule-line-3")}</li>
-                {jackpot && <li>{t("GameRule-line-jackpot")}</li>}
-                <li>{t("GameRule-line-4")}</li>
+                <li>{t("gamerules_para_3")}</li>
+                <li>{t("gamerules_para_4")}</li>
+                {jackpot && <li>{t("gamerules_jackpot_para_5")}</li>}
+                <li>{t("gamerules_para_6")}</li>
                 <div className={Styles["payline"]}>
                     <img
                         src={`${appSettings.resourceUrl}_shared/classicslot/payline-guide.png?v=${imgVer}`}
@@ -46,13 +46,13 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
 const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("Paytable-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_paytable", {ns: "Common"})}</h2>
             <ul className="desc">
-                <li>{t("Paytable-line-1")}</li>
+                <li>{t("payouts_para_1")}</li>
                 <li>
-                    <Trans>{t("Paytable-line-2")}</Trans>
+                    <Trans>{t("paytable_para_2")}</Trans>
                 </li>
-                <li>{t("Paytable-line-3")}</li>
+                <li>{t("paytable_para_3")}</li>
             </ul>
             {renderPayoutsIconFirstLine(odds, jackpot, t)}
             {renderPayoutsIconSecondLine(odds, jackpot, t)}
@@ -290,14 +290,14 @@ const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function) =>
     return (
         <>
             <p>
-                <strong>{t("Common-example")}</strong>
+                <strong>{t("example", {ns: "Common"})}</strong>
             </p>
 
             <div className={`${Styles["example"]} table-medium`}>
                 <div className={Styles["header"]}>
-                    <div className={Styles["col"]}>{t("Common-symbol")}</div>
+                    <div className={Styles["col"]}>{t("header_symbol", {ns: "Common"})}</div>
                     <div className={Styles["line"]}></div>
-                    <div className={Styles["col"]}>{t("Common-description")}</div>
+                    <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
                 </div>
                 <div className={Styles["body"]}>
                     <div className={`${Styles["col"]} d-center-all`}>
@@ -317,28 +317,28 @@ const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function) =>
                     <div className={Styles["line"]}></div>
                     <div className={`${Styles["col"]} ${Styles["has-rows"]}`}>
                         <div className={Styles["row"]}>
-                            {t("Paytbale-example-description-1", { numOfSymbols: 5 })}
+                            {t("desc_symbol1_para_1a", { numOfSymbols: 5 })}
                             {generateSymbol(1, false, true)}
-                            {t("Paytbale-example-description-2")}
+                            {t("desc_symbol1_para_1b")}
                             <br></br>
-                            {t("Paytbale-example-description-3", { odd: odds[1][5] })}
+                            {t("desc_symbol1_para_2", { odd: odds[1][5] })}
                         </div>
                         <div className={Styles["line"]}></div>
                         <div className={Styles["row"]}>
                             {" "}
-                            {t("Paytbale-example-description-1", { numOfSymbols: 4 })}
+                            {t("desc_symbol1_para_1a", { numOfSymbols: 4 })}
                             {generateSymbol(1, false, true)}
-                            {t("Paytbale-example-description-2")}
+                            {t("desc_symbol1_para_1b")}
                             <br></br>
-                            {t("Paytbale-example-description-3", { odd: odds[1][4] })}
+                            {t("desc_symbol1_para_2", { odd: odds[1][4] })}
                         </div>
                         <div className={Styles["line"]}></div>
                         <div className={Styles["row"]}>
-                            {t("Paytbale-example-description-1", { numOfSymbols: 3 })}
+                            {t("desc_symbol1_para_1a", { numOfSymbols: 3 })}
                             {generateSymbol(1, false, true)}
-                            {t("Paytbale-example-description-2")}
+                            {t("desc_symbol1_para_1b")}
                             <br></br>
-                            {t("Paytbale-example-description-3", { odd: odds[1][3] })}
+                            {t("desc_symbol1_para_2", { odd: odds[1][3] })}
                         </div>
                     </div>
                 </div>
@@ -353,7 +353,7 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("FreeSpin-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_freespin", {ns: "Common"})}</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     7,
@@ -362,27 +362,27 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
                         [4, odds[7][4]],
                         [3, odds[7][3]],
                     ],
-                    t("FreeSpin-upper-plural")
+                    t("freespin_pic_7")
                 )}
                 <ul className="desc">
-                    <li>{t("FreeSpin-line-1")}</li>
-                    <li>{t("FreeSpin-line-2")}</li>
+                    <li>{t("freespin_para_1")}</li>
+                    <li>{t("freespin_para_2")}</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <Trans>{t("FreeSpin-line-3")}</Trans>
+                    <Trans>{t("freespin_para_3")}</Trans>
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                         </div>
 
-                        <span>{t("FreeSpin-line-4")}</span>
+                        <span>{t("freespin_para_4")}</span>
                     </div>
                 </li>
-                <li className="clear-both">{t("FreeSpin-line-5")}</li>
-                <li>{t("FreeSpin-line-6")}</li>
+                <li className="clear-both">{t("freespin_para_5")}</li>
+                <li>{t("freespin_para_6")}</li>
             </ul>
         </li>
     );
@@ -394,7 +394,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("Bonus-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_bonus", {ns: "Common"})}</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     8,
@@ -403,26 +403,26 @@ const renderBonus = (odds: number[][], t: Function) => {
                         [4, odds[8][4]],
                         [3, odds[8][3]],
                     ],
-                    t("Bonus-upper-plural")
+                    t("bonus_pic_5")
                 )}
                 <ul className="desc">
-                    <li>{t("Bonus-line-1")}</li>
-                    <li>{t("Bonus-line-2")}</li>
+                    <li>{t("bonus_para_1")}</li>
+                    <li>{t("bonus_para_2")}</li>
                 </ul>
             </div>
 
             <ul className="desc">
                 <li>
-                    <Trans>{t("Bonus-line-3")}</Trans>
+                    <Trans>{t("bonus_para_3")}</Trans>
                     <div className={Styles[freeSpinContentEX]}>
                         <div className={Styles["wrapper-symbol-ex"]}>
                             <div className={Styles["symbols"]}>{generateBoard(boardSymbols, highlightSymbol)}</div>
                         </div>
 
-                        <span>{t("Bonus-line-4")}</span>
+                        <span>{t("bonus_para_4")}</span>
                     </div>
                 </li>
-                <li>{t("Bonus-line-5")}</li>
+                <li>{t("bonus_para_5")}</li>
             </ul>
         </li>
     );
@@ -431,38 +431,38 @@ const renderBonus = (odds: number[][], t: Function) => {
 const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("Wild-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_wild", {ns: "Common"})}</h2>
             <div className={Styles["wild-content"]}>
                 <span className={Styles["wrapper-wild"]}>{generateSymbol(9)}</span>
 
                 <ul className="desc">
                     <li>
-                        {t("Wild-line-1")}
+                        {t("wild_para_1a")}
                         {generateSymbol(8, false, true)},{generateSymbol(7, false, true)}
-                        {t("Wild-word-and")}
+                        {t("wild_para_1b")}
                         {jackpot ? generateSymbolJackpot(10, false, true) : generateSymbol(10, false, true)}
                         {t("Wild-line-1-extend")}
                     </li>
-                    <li>{t("Wild-line-2")}</li>
+                    <li>{t("wild_para_2")}</li>
                 </ul>
             </div>
             <div>
-                <strong>{t("Common-example")}</strong>
+                <strong>{t("example", {ns: "Common"})}</strong>
                 <div className={Styles["wrapper-wild-ex"]}>
                     <div className={Styles["wild-img"]}>{[2, 2, 9, 5, 5].map((symbol) => generateSymbol(symbol))}</div>
                     <ul className="desc">
                         <li>
-                            {t("Wild-example-description-1")}
+                            {t("wild_para_3a")}
                             {generateSymbol(2, false, true)}
-                            {t("Wild-example-description-2", { odd: odds[2][3] })}
+                            {t("wild_para_3b", { odd: odds[2][3] })}
                         </li>
                         <li>
-                            {t("Wild-example-description-1")}
+                            {t("wild_para_3a")}
                             {generateSymbol(5, false, true)}
-                            {t("Wild-example-description-2", { odd: odds[5][3] })}
+                            {t("wild_para_3b", { odd: odds[5][3] })}
                         </li>
                     </ul>
-                    <p>{t("Wild-example-description-3", { odd: Math.max(odds[2][3], odds[5][3]) })}</p>
+                    <p>{t("wild_para_5", { odd: Math.max(odds[2][3], odds[5][3]) })}</p>
                 </div>
             </div>
         </li>
@@ -472,25 +472,25 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
 const renderJackpot = (t: Function) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("Jackpot-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_jackpot", {ns: "Common"})}</h2>
             <ul className="">
                 <li>
-                    {t("Jackpot-line-1")}
+                    {t("jackpot_para_1a")}
                     {generateSymbolJackpot(10, false, true)}
-                    {t("Jackpot-line-2")}
+                    {t("jackpot_para_1b")}
                     <div className={`${Styles["example"]} table-medium`}>
                         <div className={Styles["header"]}>
-                            <div className={Styles["col"]}>{t("Common-symbol")}</div>
+                            <div className={Styles["col"]}>{t("header_symbol", {ns: "Common"})}</div>
                             <div className={Styles["line"]}></div>
-                            <div className={Styles["col"]}>{t("Common-description")}</div>
+                            <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
                         </div>
                         <div className={Styles["body"]}>
                             <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, false, true)}</div>
                             <div className={Styles["line"]}></div>
                             <div className={`${Styles["col"]} `}>
-                                <div>{t("Jackpot-example-1")}</div>
+                                <div>{t("desc_s10_jackpot_para_1")}</div>
                                 <div>
-                                    <Trans>{t("Jackpot-example-2")}</Trans>
+                                    <Trans>{t("desc_s10_jackpot_para_2")}</Trans>
                                 </div>
                             </div>
                         </div>
@@ -504,12 +504,13 @@ const renderJackpot = (t: Function) => {
 const renderTermsAndConditions = (t: Function) => {
     return (
         <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading1"]}>{t("TermsAndConditions-title")}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_terms_conditions", { ns: "Common" })}</h2>
             <ul className="style-number-rule">
-                <li className="number-dot">{t("TermsAndConditions-line-1")}</li>
-                <li className="number-dot">{t("TermsAndConditions-line-2")}</li>
-                <li className="number-dot">{t("TermsAndConditions-line-3")}</li>
-                <li className="number-dot">{t("TermsAndConditions-line-4")}</li>
+                {[1, 2, 3, 4].map((paraIndex) => (
+                    <li key={`para-${paraIndex}`} className="number-dot">
+                        {t(`terms_conditions_para_${paraIndex}`, { ns: "Common" })}
+                    </li>
+                ))}
             </ul>
         </li>
     );
@@ -538,7 +539,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
             <ul className={`game-guide ${Styles["slot-guide"]}`}>
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
-                    <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
+                    <p className="content">{t("intro_para_1", { gameName: displayName })}</p>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>{renderFirstRowIntoListIcon(jackpot)}</div>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[3, 2, 1, 0].map((imgIndex) => generateSymbol(imgIndex))}
