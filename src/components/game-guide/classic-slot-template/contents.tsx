@@ -48,7 +48,7 @@ const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("title_paytable", {ns: "Common"})}</h2>
             <ul className="desc">
-                <li>{t("payouts_para_1")}</li>
+                <li>{t("paytable_para_1")}</li>
                 <li>
                     <Trans>{t("paytable_para_2")}</Trans>
                 </li>
@@ -441,7 +441,7 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
                         {generateSymbol(8, false, true)},{generateSymbol(7, false, true)}
                         {t("wild_para_1b")}
                         {jackpot ? generateSymbolJackpot(10, false, true) : generateSymbol(10, false, true)}
-                        {t("Wild-line-1-extend")}
+                        {t("wild_para_1c_chinese")}
                     </li>
                     <li>{t("wild_para_2")}</li>
                 </ul>
