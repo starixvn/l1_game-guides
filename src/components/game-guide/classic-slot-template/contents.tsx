@@ -529,7 +529,7 @@ const renderFirstRowIntoListIcon = (jackpot: boolean) => {
 };
 
 const Contents: React.FC<GameConfigProps> = (props) => {
-    const { t } = useTranslate(["classicslot", "Common"]);
+    const { t } = useTranslate(["Classicslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
     const { odds, name, displayName, jackpot } = props;
     imgSrc = appSettings.resourceUrl + name;

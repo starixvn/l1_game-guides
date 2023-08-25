@@ -1,7 +1,7 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import appSettings from "../../../common/app-settings";
 import { TolgeeConfig } from "../../../common/constants";
@@ -15,8 +15,8 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["classicslot", "Common"],
-        defaultNs: "classicslot",
+        ns: ["Classicslot", "Common"],
+        defaultNs: "Classicslot",
     });
 
 if (!appSettings.useTolgeeStatic) {
