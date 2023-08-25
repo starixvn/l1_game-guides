@@ -485,7 +485,7 @@ const renderJackpot = (t: Function) => {
                             <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
                         </div>
                         <div className={Styles["body"]}>
-                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, false, true)}</div>
+                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, false)}</div>
                             <div className={Styles["line"]}></div>
                             <div className={`${Styles["col"]} `}>
                                 <div>{t("desc_s10_jackpot_para_1")}</div>
