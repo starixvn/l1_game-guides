@@ -4,6 +4,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import appSettings from "../../../common/app-settings";
+import { locales } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
@@ -43,7 +44,7 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
     );
 };
 
-const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
+const renderPayouts = (odds: number[][], t: Function, jackpot: boolean, locale: any) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("title_paytable", {ns: "Common"})}</h2>
@@ -54,9 +55,9 @@ const renderPayouts = (odds: number[][], t: Function, jackpot: boolean) => {
                 </li>
                 <li>{t("paytable_para_3")}</li>
             </ul>
-            {renderPayoutsIconFirstLine(odds, jackpot, t)}
-            {renderPayoutsIconSecondLine(odds, jackpot, t)}
-            {renderExamplePayout(odds, jackpot, t)}
+            {renderPayoutsIconFirstLine(odds, jackpot, t, locale)}
+            {renderPayoutsIconSecondLine(odds, jackpot, t, locale)}
+            {renderExamplePayout(odds, jackpot, t, locale)}
         </li>
     );
 };
@@ -72,12 +73,13 @@ const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false)
     );
 };
 
-const generateSymbolJackpot = (iconIndex: number, isHighlight = false, isSmall = false) => {
+const generateSymbolJackpot = (iconIndex: number, locale: any, isHighlight = false, isSmall = false) => {
+   
     return (
         <img
             key={`symbol-${iconIndex}.jackpot`}
             className={`${isSmall ? Styles["symbol-small"] : "img-fluid"} ${isHighlight ? Styles["highlight"] : ""}`}
-            src={`${imgSrc}/symbol-${iconIndex}.jackpot.png?v=${imgVer}`}
+            src={`${imgSrc}/symbol-${iconIndex}.jackpot${locale === locales.vi ? ".vi-VN" : ""}.png?v=${imgVer}`}
             alt={`symbol_${iconIndex}.`}
         />
     );
@@ -86,11 +88,10 @@ const generateSymbolJackpot = (iconIndex: number, isHighlight = false, isSmall =
 const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
 
-const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean) => {
-    console.log(`dataContent - symbol ${symbol}`, dataContent);
+const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean, locale: any) => {   
     return (
         <div className={Styles["symbol-wrapper"]}>
-            <div className="d-center">{jackpot && symbol === 10 ? generateSymbolJackpot(symbol) : generateSymbol(symbol)}</div>
+            <div className="d-center">{jackpot && symbol === 10 ? generateSymbolJackpot(symbol, locale) : generateSymbol(symbol)}</div>
             <div>
                 {dataContent.map((data, index) => {
                     if (!data[1] && symbol !== 10) {
@@ -103,7 +104,7 @@ const renderIconContent = (symbol: number, dataContent: number[][], t: Function,
                         <div key={index} className={Styles["symbol-content"]}>
                             <span className={Styles[number]}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
-                                {isShowJackpotText ? t("Jackpot") : data[1]}
+                                {isShowJackpotText ? t("title_jackpot", {ns: "Common"}) : data[1]}
                             </span>
                         </div>
                     );
@@ -113,7 +114,7 @@ const renderIconContent = (symbol: number, dataContent: number[][], t: Function,
     );
 };
 
-const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function) => {
+const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
     if (jackpot) {
         return (
             <>
@@ -126,7 +127,7 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[10][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     9,
@@ -137,7 +138,7 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[9][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
             </>
         );
@@ -153,7 +154,7 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[9][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     10,
@@ -164,17 +165,17 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[10][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
             </>
         );
     }
 };
-const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Function) => {
+const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
     return (
         <>
             <div className={Styles["payout-row"]}>
-                {renderPayoutTwoLastIcon(odds, jackpot, t)}
+                {renderPayoutTwoLastIcon(odds, jackpot, t, locale)}
                 {renderIconContent(
                     6,
                     [
@@ -184,7 +185,7 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                         [2, odds[6][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     5,
@@ -195,14 +196,14 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                         [2, odds[5][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
             </div>
         </>
     );
 };
 
-const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Function) => {
+const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
     return (
         <>
             <div className={Styles["payout-row"]}>
@@ -215,7 +216,7 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[4][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     3,
@@ -226,7 +227,7 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[3][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     2,
@@ -237,7 +238,7 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[2][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     1,
@@ -248,7 +249,7 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[1][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
                 {renderIconContent(
                     0,
@@ -259,7 +260,7 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[0][2]],
                     ],
                     t,
-                    jackpot
+                    jackpot, locale
                 )}
             </div>
         </>
@@ -286,7 +287,7 @@ const renderIconContentLarge = (symbol: number, dataContent: number[][], textAft
     );
 };
 
-const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function) => {
+const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
     return (
         <>
             <p>
@@ -310,7 +311,7 @@ const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function) =>
                                     [3, odds[1][3]],
                                 ],
                                 t,
-                                jackpot
+                                jackpot, locale
                             )}
                         </div>
                     </div>
@@ -428,7 +429,7 @@ const renderBonus = (odds: number[][], t: Function) => {
     );
 };
 
-const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
+const renderWild = (odds: number[][], t: Function, jackpot: boolean, locale: any) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("title_wild", {ns: "Common"})}</h2>
@@ -440,7 +441,7 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
                         {t("wild_para_1a")}
                         {generateSymbol(8, false, true)},{generateSymbol(7, false, true)}
                         {t("wild_para_1b")}
-                        {jackpot ? generateSymbolJackpot(10, false, true) : generateSymbol(10, false, true)}
+                        {jackpot ? generateSymbolJackpot(10, locale, false, true) : generateSymbol(10, false, true)}
                         {t("wild_para_1c_chinese")}
                     </li>
                     <li>{t("wild_para_2")}</li>
@@ -469,14 +470,14 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean) => {
     );
 };
 
-const renderJackpot = (t: Function) => {
+const renderJackpot = (t: Function, locale: any) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("title_jackpot", {ns: "Common"})}</h2>
             <ul className="">
                 <li>
                     {t("jackpot_para_1a")}
-                    {generateSymbolJackpot(10, false, true)}
+                    {generateSymbolJackpot(10, locale, false, true, )}
                     {t("jackpot_para_1b")}
                     <div className={`${Styles["example"]} table-medium`}>
                         <div className={Styles["header"]}>
@@ -485,7 +486,7 @@ const renderJackpot = (t: Function) => {
                             <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
                         </div>
                         <div className={Styles["body"]}>
-                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, false)}</div>
+                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, locale, false )}</div>
                             <div className={Styles["line"]}></div>
                             <div className={`${Styles["col"]} `}>
                                 <div>{t("desc_s10_jackpot_para_1")}</div>
@@ -515,11 +516,11 @@ const renderTermsAndConditions = (t: Function) => {
         </li>
     );
 };
-const renderFirstRowIntoListIcon = (jackpot: boolean) => {
+const renderFirstRowIntoListIcon = (jackpot: boolean, locale: any) => {
     if (jackpot) {
         return (
             <>
-                {generateSymbolJackpot(10)}
+                {generateSymbolJackpot(10, locale)}
                 {[6, 5, 4].map((imgIndex) => generateSymbol(imgIndex))}
             </>
         );
@@ -531,16 +532,17 @@ const renderFirstRowIntoListIcon = (jackpot: boolean) => {
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["Classicslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
-    const { odds, name, displayName, jackpot } = props;
+    const { odds, name, displayName, jackpot, locale } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
+    console.log("locale", locale);
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]}`}>
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
                     <p className="content">{t("intro_para_1", { gameName: displayName })}</p>
-                    <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>{renderFirstRowIntoListIcon(jackpot)}</div>
+                    <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>{renderFirstRowIntoListIcon(jackpot, locale)}</div>
                     <div className={`${Styles["list-symbols"]} ${Styles["four-cols"]}`}>
                         {[3, 2, 1, 0].map((imgIndex) => generateSymbol(imgIndex))}
                     </div>
@@ -550,11 +552,11 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 </li>
                 <li className="guide-item">{renderGameRule(t, jackpot)}</li>
 
-                {renderPayouts(odds, t, jackpot)}
-                {jackpot && renderJackpot(t)}
+                {renderPayouts(odds, t, jackpot, locale)}
+                {jackpot && renderJackpot(t, locale)}
                 {renderFreeSpin(odds, t)}
                 {renderBonus(odds, t)}
-                {renderWild(odds, t, jackpot)}
+                {renderWild(odds, t, jackpot, locale)}
                 {renderTermsAndConditions(t)}
             </ul>
         </>

@@ -3,4 +3,5 @@ export interface GameConfigProps {
     name: string;
     displayName: string;
     jackpot: boolean;
+    locale: string;
 }
