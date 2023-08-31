@@ -95,6 +95,7 @@ export const GAMES = {
     WIN_THREE_CARDS: 61,
     DRAGON_TIGER_FIGHT: 67,
     PONTOON: 72,
+    COLOR_GAME: 71,
 };
 
 export const GAMES_MINI = {

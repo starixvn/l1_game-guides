@@ -9,6 +9,7 @@ import { BaseProps } from "../type";
 import CascadingSlotGuide from "./cascading-slot-template";
 import DragontigerFightGuide from "./dragon-tiger-fight";
 import PontoonGuide from "./pontoon";
+import ColorGameGuide from "./color-game";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -167,6 +168,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <DragontigerFightGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.PONTOON:
                 return <PontoonGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.COLOR_GAME:
+                return <ColorGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
