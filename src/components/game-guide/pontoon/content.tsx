@@ -18,7 +18,7 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
                 <li>{t("gamerules_para_1")}</li>
                 <li>{t("gamerules_para_2")}</li>
                 <li>{t("gamerules_para_3")}</li>
-                <li>{t("gamerules_para_4")}</li>
+                <li>{t("gamerules_para_4", {minbet: minBet, maxbet: maxBet })}</li>
                 <li>{t("gamerules_para_5")}</li>
                 <li>{t("gamerules_para_6")}</li>
             </ul>
@@ -117,7 +117,7 @@ const PointCaculationRules = (t: Function) => {
                     <div>{CardPointValuesTable(t)}</div>
                 </li>
                 <li>{t("point_calculation_para_2")}
-                    <strong>Example: </strong>
+                    <Trans>{t("point_calculation_para_3")}</Trans>
                     <ul className="detail">
                         <li>A hand containing a Nine (9), Eight (8), and Ace (A) {`=>`} the hand’s value is 18.</li>
                         <li>A hand containing a Seven (7) and Ace (A) {`=>`} the hand’s value is 18</li>
@@ -155,7 +155,8 @@ const PlayerHandRules = (t: Function) => {
                     <tbody>
                         <tr>
                             <td>{t("hit")}</td>
-                            <td className="text-start">{t("desc_hit_para_1")}<br/>
+                            <td className="text-start">
+                                <div>{t("desc_hit_para_1")}</div>
                                 <ul className="desc">
                                     <li><Trans>{t("desc_hit_para_2")}</Trans></li>
                                 </ul>
