@@ -1,12 +1,12 @@
-import { Trans } from "next-i18next";
 import { useTranslate } from "@tolgee/react";
+import { Trans } from "next-i18next";
 import React from "react";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
+import { numberWithCommas } from "../../../helpers/number-helper";
 import OddDetailList from "./OddDetail";
 import Styles from "./cascading-slot.module.scss";
 import { GameConfigProps } from "./type";
-import { numberWithCommas } from "../../../helpers/number-helper";
 
 const number = "number";
 const numberFirst = "number-first";

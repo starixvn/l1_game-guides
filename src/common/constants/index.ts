@@ -94,6 +94,7 @@ export const GAMES = {
     FORTUNE_CAT: 62,
     WIN_THREE_CARDS: 61,
     DRAGON_TIGER_FIGHT: 67,
+    PONTOON: 72,
 };
 
 export const GAMES_MINI = {

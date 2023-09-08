@@ -1,7 +1,6 @@
 import { withTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
-import React from "react";
 
 import { GAMES } from "../../common/constants";
 import { isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
@@ -9,6 +8,7 @@ import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import CascadingSlotGuide from "./cascading-slot-template";
 import DragontigerFightGuide from "./dragon-tiger-fight";
+import PontoonGuide from "./pontoon";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -165,6 +165,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.DRAGON_TIGER_FIGHT:
                 return <DragontigerFightGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.PONTOON:
+                return <PontoonGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
