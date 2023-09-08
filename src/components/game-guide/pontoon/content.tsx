@@ -117,7 +117,7 @@ const PointCaculationRules = (t: Function) => {
                     <div>{CardPointValuesTable(t)}</div>
                 </li>
                 <li>{t("point_calculation_para_2")}
-                    <Trans>{t("point_calculation_para_3")}</Trans>
+                    <div>{t("point_calculation_para_3")}</div>
                     <ul className="detail">
                         <li>A hand containing a Nine (9), Eight (8), and Ace (A) {`=>`} the hand’s value is 18.</li>
                         <li>A hand containing a Seven (7) and Ace (A) {`=>`} the hand’s value is 18</li>
@@ -156,8 +156,9 @@ const PlayerHandRules = (t: Function) => {
                         <tr>
                             <td>{t("hit")}</td>
                             <td className="text-start">
-                                <div>{t("desc_hit_para_1")}</div>
+                                
                                 <ul className="desc">
+                                    <div>{t("desc_hit_para_1")}</div>
                                     <li><Trans>{t("desc_hit_para_2")}</Trans></li>
                                 </ul>
                             </td>
