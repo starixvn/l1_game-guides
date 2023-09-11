@@ -109,7 +109,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
                                 <tr>
                                     <th className="bold">{t("header_betoption", { ns: "Common" })}</th>
                                     <th className="bold"><Markup content={t("header_odds", { ns: "Common" })} /></th>
-                                    <th className="bold">{t("header_betlimit", { ns: "Common" })}</th>
+                                    <th className="bold"><Markup content={t("header_betlimit", { ns: "Common" })} /></th>
                                     <th className="bold"><Markup content={t("header_maxround", { ns: "Common" })} /></th>
                                 </tr>
                             </thead>
