@@ -3,6 +3,7 @@ import { GameConfigsBaseProps } from "../type";
 export interface OddsProps {
     pontoon: number;
     regular: number;
+    fiveCardTrick: number;
 }
 
 export interface GameConfigProps extends GameConfigsBaseProps {

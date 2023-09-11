@@ -49,7 +49,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
                                 </tr>
                                 <tr>
                                     <td>{t("five-card_win")}</td>
-                                    <td>{formatOdds(odds?.regular, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.fiveCardTrick, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>{t("normal_win")}</td>
