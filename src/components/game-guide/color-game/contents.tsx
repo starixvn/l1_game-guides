@@ -4,10 +4,11 @@ import { Markup } from "interweave";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
-import { ColorGameContentsProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
+import { ColorGameContentsProps } from "./type";
+import Styles from "./color-game.module.scss";
 
-const renderGameRules = (t: Function, maxBet: number) => {
+const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -17,7 +18,7 @@ const renderGameRules = (t: Function, maxBet: number) => {
                 <li >{t("gamerules_para_3", { ns: "ColorGame" })}</li>
                 <li > <T
                     keyName="gamerules_para_4"
-                    params={{ minmaxvalue: numberWithCommas(maxBet) }}
+                    params={{ minmaxvalue: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
                 /></li>
 
             </ul>
@@ -35,18 +36,17 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li >{t("payouts_para_1", { ns: "Common" })}</li>
-                <li >{t("payouts_para_2", { ns: "Common" })}</li>
-                <li >{t("payouts_para_3", { ns: "Common" })}</li>
+                <li >{<Markup content={t("payouts_para_1", { ns: "ColorGame" })} />}</li>
+                <li >{t("payouts_para_2", { ns: "ColorGame" })}</li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
-                                <tr>
-                                    <th className="bold">{t("header_betoption", { ns: "Common" })}</th>
-                                    <th className="bold">{t("header_description", { ns: "Common" })}</th>
-                                    <th className="bold"><Markup content={t("header_odds", { ns: "Common" })} /></th>
-                                    <th className="bold">{t("header_betlimit", { ns: "Common" })}</th>
+                                <tr className={Styles["payout-header"]}>
+                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: "Common" })}</th>
+                                    <th className={`bold ${Styles["description"]}`}>{t("header_description", { ns: "Common" })}</th>
+                                    <th className={`bold ${Styles["odds"]}`}>{t("header_odds", { ns: "Common" })}</th>
+                                    <th className={`bold ${Styles["odds"]}`}><Markup content={t("header_betlimit", { ns: "Common" })} /> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,7 +123,7 @@ const ColorGameContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, frac
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <div className="content">{t("intro_para_1", { ns: "ColorGame" })}</div>
             </li>
-            {renderGameRules(t, gameConfigs.maxBet)}
+            {renderGameRules(t, gameConfigs.maxBet, userStakeLevel)}
             {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             < TermsAndConditionsTolgee />
         </ul >
