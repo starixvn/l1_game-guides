@@ -1,7 +1,7 @@
 import { GameConfigsBaseProps } from "../type";
 
 export interface OddsProps {
-    blackjack: number;
+    pontoon: number;
     regular: number;
 }
 

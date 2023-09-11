@@ -27,11 +27,12 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
 };
 
 const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false, t: Function) => {
+    console.log("renderPayouts",odds);
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", {ns: "Common"})}</h2>
             <ul className="desc">
-                <li>{t("payouts_para_1")}</li>
+                <li><Trans>{t("payouts_para_1")}</Trans></li>
                 <li>{t("payouts_para_2")}
                     <div className="table-container">
                         <table className="table text-center table-small left">
@@ -44,7 +45,7 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
                             <tbody>
                                 <tr>
                                     <td>{t("pontoon_win")}</td>
-                                    <td>{formatOdds(odds?.blackjack, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.pontoon, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>{t("five-card_win")}</td>
@@ -155,8 +156,7 @@ const PlayerHandRules = (t: Function) => {
                     <tbody>
                         <tr>
                             <td>{t("hit")}</td>
-                            <td className="text-start">
-                                
+                            <td className="text-start">                                
                                 <ul className="desc">
                                     <div>{t("desc_hit_para_1")}</div>
                                     <li><Trans>{t("desc_hit_para_2")}</Trans></li>
