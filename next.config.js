@@ -20,14 +20,6 @@ const nextConfig = {
         return uuidv4();
     },
     excludeFile: (str) => /\*.{spec,test}.js/.test(str),
-    experimental: {
-        forceSwcTransforms: true,
-        swcMinify: true,
-        optimizeCss: false,
-        gzipSize: true,
-        optimisticClientCache: true,
-        cpus: 2,
-    },
     eslint: {
         ignoreDuringBuilds: true,
     },
