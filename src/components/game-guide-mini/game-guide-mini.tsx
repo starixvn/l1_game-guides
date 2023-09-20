@@ -6,6 +6,7 @@ import { withRouter } from "next/router";
 import { GAMES_MINI } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import ColorGameMiniGuide from "./color-game";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -39,6 +40,8 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
                 return <HiLoMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.SICBO:
                 return <SicboMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.COLOR_GAME:
+                return <ColorGameMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
