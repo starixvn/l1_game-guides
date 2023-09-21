@@ -1,24 +1,25 @@
-import React from "react";
-
 import { useTranslate } from "@tolgee/react";
 import { Trans } from "next-i18next";
+import React from "react";
+
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { formatOdds } from "../../../helpers/number-helper";
 import { GameGuideProps } from "../type";
 import Styles from "./pontoon.module.scss";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "./type";
+
 let imgSrc = "",
     imgVer = "";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, t: Function) => {
     return (
         <>
-            <h2>Game Rules</h2>
+            <h2>{t("title_gamerules", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>{t("gamerules_para_1")}</li>
                 <li>{t("gamerules_para_2")}</li>
                 <li>{t("gamerules_para_3")}</li>
-                <li>{t("gamerules_para_4", {minbet: minBet, maxbet: maxBet })}</li>
+                <li>{t("gamerules_para_4", { minbet: minBet, maxbet: maxBet })}</li>
                 <li>{t("gamerules_para_5")}</li>
                 <li>{t("gamerules_para_6")}</li>
             </ul>
@@ -27,19 +28,22 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
 };
 
 const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false, t: Function) => {
-    console.log("renderPayouts",odds);
+    console.log("renderPayouts", odds);
     return (
         <li className="guide-item">
-            <h2>{t("title_payouts", {ns: "Common"})}</h2>
+            <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li><Trans>{t("payouts_para_1")}</Trans></li>
-                <li>{t("payouts_para_2")}
+                <li>
+                    <Trans>{t("payouts_para_1")}</Trans>
+                </li>
+                <li>
+                    {t("payouts_para_2")}
                     <div className="table-container">
                         <table className="table text-center table-small left">
                             <thead>
                                 <tr>
                                     <th className={Styles["col-ex"]}></th>
-                                    <th>{t("header_odds", {ns: "Common"})}</th>
+                                    <th>{t("header_odds", { ns: "Common" })}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,7 +74,9 @@ const CardPointValuesTable = (t: Function) => {
             <table className="table text-center">
                 <thead>
                     <tr className={Styles["row-card"]}>
-                        <th className={Styles["col-card"]}><Trans>{t("card")}</Trans></th>
+                        <th className={Styles["col-card"]}>
+                            <Trans>{t("card")}</Trans>
+                        </th>
                         <th className={Styles["col-card-first"]}> A</th>
                         <th> 2</th>
                         <th> 3</th>
@@ -88,7 +94,9 @@ const CardPointValuesTable = (t: Function) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><Trans>{t("point")}</Trans></td>
+                        <td>
+                            <Trans>{t("point")}</Trans>
+                        </td>
                         <td>1 {t("or")} 11</td>
                         <td>2</td>
                         <td>3</td>
@@ -114,17 +122,20 @@ const PointCaculationRules = (t: Function) => {
         <div>
             <h2>{t("title_point_calculation")}</h2>
             <ul className="desc">
-                <li>{t("point_calculation_para_1")}
+                <li>
+                    {t("point_calculation_para_1")}
                     <div>{CardPointValuesTable(t)}</div>
                 </li>
-                <li>{t("point_calculation_para_2")}
+                <li>
+                    {t("point_calculation_para_2")}
                     <div>{t("point_calculation_para_3")}</div>
                     <ul className="detail">
                         <li>A hand containing a Nine (9), Eight (8), and Ace (A) {`=>`} the hand’s value is 18.</li>
                         <li>A hand containing a Seven (7) and Ace (A) {`=>`} the hand’s value is 18</li>
                     </ul>
                 </li>
-                <li>{t("point_calculation_para_6")}
+                <li>
+                    {t("point_calculation_para_6")}
                     <ul className="detail">
                         <li>{t("point_calculation_para_7")}</li>
                         <li>{t("point_calculation_para_8")}</li>
@@ -144,75 +155,70 @@ const PlayerHandRules = (t: Function) => {
             <ul className="desc">
                 <li>{t("rule_for_player_para_1")}</li>
                 <li>{t("rule_for_player_para_2")}</li>
-                <li>{t("rule_for_player_para_3")}
-                <div className="table-container">
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th className={Styles["col-option"]}>{t("header_option")}</th>
-                            <th>{t("header_description", {ns: "Common"})}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{t("hit")}</td>
-                            <td className="text-start">                                
-                                <ul className="desc">
-                                    <div>{t("desc_hit_para_1")}</div>
-                                    <li><Trans>{t("desc_hit_para_2")}</Trans></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Stand                                
-                            </td>
-                            <td className="text-start">
-                                <ul className="desc">
-                                    <li>{t("desc_stand_para_1")}</li>
-                                    <li>{t("desc_stand_para_2")}</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Split                               
-                            </td>
-                            <td className="text-start">
-                                <ul className="desc">
-                                    <li>{t("desc_split_para_1")}</li>
-                                    <li>{t("desc_split_para_2")}</li>
-                                    <li>T{t("desc_split_para_3")}</li>
-                                </ul>
-                                <Trans>{t("desc_split_para_4")}</Trans>
-                                <ul className="desc">
-                                    <li>{t("desc_split_para_5")}</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Double                               
-                            </td>
-                            <td className="text-start">
-                                <ul className="desc">
-                                    <li>{t("desc_double_para_1")}</li>
-                                    <li>{t("desc_double_para_2")}</li>
-                                    <li>{t("desc_double_para_3")}</li>
-                                    <li>{t("desc_double_para_4")}</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            </li>
-            </ul>           
+                <li>
+                    {t("rule_for_player_para_3")}
+                    <div className="table-container">
+                        <table className="table text-center">
+                            <thead>
+                                <tr>
+                                    <th className={Styles["col-option"]}>{t("header_option")}</th>
+                                    <th>{t("header_description", { ns: "Common" })}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{t("hit")}</td>
+                                    <td className="text-start">
+                                        <ul className="desc">
+                                            <div>{t("desc_hit_para_1")}</div>
+                                            <li>
+                                                <Trans>{t("desc_hit_para_2")}</Trans>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{t("stand")}</td>
+                                    <td className="text-start">
+                                        <ul className="desc">
+                                            <li>{t("desc_stand_para_1")}</li>
+                                            <li>{t("desc_stand_para_2")}</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{t("split")}</td>
+                                    <td className="text-start">
+                                        <ul className="desc">
+                                            <li>{t("desc_split_para_1")}</li>
+                                            <li>{t("desc_split_para_2")}</li>
+                                            <li>{t("desc_split_para_3")}</li>
+                                        </ul>
+                                        <Trans>{t("desc_split_para_4")}</Trans>
+                                        <ul className="desc">
+                                            <li>{t("desc_split_para_5")}</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{t("double")}</td>
+                                    <td className="text-start">
+                                        <ul className="desc">
+                                            <li>{t("desc_double_para_1")}</li>
+                                            <li>{t("desc_double_para_2")}</li>
+                                            <li>{t("desc_double_para_3")}</li>
+                                            <li>{t("desc_double_para_4")}</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
         </div>
-        
     );
 };
-
 
 const DealerHandRules = (t: Function) => {
     return (
