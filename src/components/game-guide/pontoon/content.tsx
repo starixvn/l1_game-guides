@@ -1,4 +1,5 @@
 import { useTranslate } from "@tolgee/react";
+import { Markup } from "interweave";
 import { Trans } from "next-i18next";
 import React from "react";
 
@@ -18,7 +19,9 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
             <ul className="desc">
                 <li>{t("gamerules_para_1")}</li>
                 <li>{t("gamerules_para_2")}</li>
-                <li>{t("gamerules_para_3")}</li>
+                <li>
+                    <Markup content={t("gamerules_para_3")} />
+                </li>
                 <li>{t("gamerules_para_4", { minbet: minBet, maxbet: maxBet })}</li>
                 <li>{t("gamerules_para_5")}</li>
                 <li>{t("gamerules_para_6")}</li>
