@@ -171,7 +171,14 @@ const PlayerHandRules = (t: Function) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{t("hit")}</td>
+                                    <td>
+                                        {t("hit")}
+                                        <img
+                                            className={Styles["wrapper-img"]}
+                                            src="./static/images/blackjack/guide_hit.png"
+                                            alt="guide_hit"
+                                        ></img>
+                                    </td>
                                     <td className="text-start">
                                         <ul className="desc">
                                             <div>{t("desc_hit_para_1")}</div>
@@ -182,7 +189,14 @@ const PlayerHandRules = (t: Function) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("stand")}</td>
+                                    <td>
+                                        {t("stand")}
+                                        <img
+                                            className={Styles["wrapper-img"]}
+                                            src="./static/images/blackjack/guide_stop.png"
+                                            alt="guide_hit"
+                                        ></img>
+                                    </td>
                                     <td className="text-start">
                                         <ul className="desc">
                                             <li>{t("desc_stand_para_1")}</li>
@@ -191,7 +205,14 @@ const PlayerHandRules = (t: Function) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("split")}</td>
+                                    <td>
+                                        {t("split")}
+                                        <img
+                                            className={Styles["wrapper-img"]}
+                                            src="./static/images/blackjack/guide_split.png"
+                                            alt="guide_hit"
+                                        ></img>
+                                    </td>
                                     <td className="text-start">
                                         <ul className="desc">
                                             <li>{t("desc_split_para_1")}</li>
@@ -205,7 +226,14 @@ const PlayerHandRules = (t: Function) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("double")}</td>
+                                    <td>
+                                        {t("double")}
+                                        <img
+                                            className={Styles["wrapper-img"]}
+                                            src="./static/images/blackjack/guide_double.png"
+                                            alt="guide_hit"
+                                        ></img>
+                                    </td>
                                     <td className="text-start">
                                         <ul className="desc">
                                             <li>{t("desc_double_para_1")}</li>
