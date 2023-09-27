@@ -5,6 +5,7 @@ import React from "react";
 
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { formatOdds } from "../../../helpers/number-helper";
+import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../type";
 import Styles from "./pontoon.module.scss";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "./type";
@@ -268,7 +269,7 @@ const Contents: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = 
                 <li className="guide-item">{PlayerHandRules(t)}</li>
                 <li className="guide-item">{DealerHandRules(t)}</li>
                 {renderPayouts(odds, fractionalOddsFormat, t)}
-                {renderTermsAndConditions(t)}
+                <TermsAndConditionsTolgee extendDetails={[t("terms_and_conditions_para_1")]} />
             </ul>
         </>
     );

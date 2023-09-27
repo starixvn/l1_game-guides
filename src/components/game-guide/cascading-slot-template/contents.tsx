@@ -1,11 +1,13 @@
 import { useTranslate } from "@tolgee/react";
 import { Trans } from "next-i18next";
 import React from "react";
+
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import OddDetailList from "./OddDetail";
+import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import Styles from "./cascading-slot.module.scss";
+import OddDetailList from "./OddDetail";
 import { GameConfigProps } from "./type";
 
 const number = "number";
@@ -544,21 +546,6 @@ const generateBoard = (symbols: Array<number>, highlightSymbol: Array<number>) =
         }
     });
 
-const renderTermsAndConditions = (t: Function) => {
-    return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading1"]}>{t("termsandconditions-title", { ns: "Common" })}</h2>
-            <ul className="style-number-rule">
-                {[1, 2, 3, 4].map((paraIndex) => (
-                    <li key={`para-${paraIndex}`} className="number-dot">
-                        {t(`termsandconditions_para_${paraIndex}`, { ns: "Common" })}
-                    </li>
-                ))}
-            </ul>
-        </li>
-    );
-};
-
 const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
     const oddList: OddDetailList[] = [];
     for (const item in odd) {
@@ -612,7 +599,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 {renderTumble(t)}
                 {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
                 {renderFreeSpins(gameSettings.FreeSpins, t)}
-                {renderTermsAndConditions(t)}
+                <TermsAndConditionsTolgee />
             </ul>
         </>
     );
