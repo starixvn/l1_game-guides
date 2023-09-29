@@ -11,7 +11,7 @@ export type ColorGameContentsProps = {
 
 const renderWinningCondition = (t: Function) => {
     return (
-        <li className="guide-item-instant">
+        <li className="guide-item-instant game-microsite">
             <h2>{t("para_2")}</h2>
             <ul className="desc">
                 <li >{t("para_3")}</li>
@@ -23,7 +23,7 @@ const renderWinningCondition = (t: Function) => {
 
 const renderBetLimit = (t: Function, minBet: number, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
     return (
-        <li className="guide-item-instant">
+        <li className="guide-item-instant game-microsite">
             <h2>{t("para_5")}</h2>
             <ul className="desc">
                 <li > <T
@@ -39,8 +39,8 @@ const ColorGameMiniContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, 
     const { t } = useTranslate(["ColorGameInstant"]);
 
     return (
-        <ul className={`game-guide`}>
-            <li>    <p className="content">{t("para_1")}</p></li>
+        <ul className={`game-guide `}>
+            <li className="guide-item-instant game-microsite"> <p className="content">{t("para_1")}</p></li>
             {renderWinningCondition(t)}
             {renderBetLimit(t, gameConfigs.minBet, gameConfigs.maxBet, userStakeLevel)}
         </ul >

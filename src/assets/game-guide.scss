@@ -356,6 +356,26 @@ ul {
         font-weight: 500;
         color: var(--primary-color);
     }
+
+    &.game-microsite{
+        --addition-font-size: 0.2rem;
+        --microsite-font-size:calc(var(--font-size) + var(--addition-font-size));
+        --microsite-title-font-size:calc(var(--title-font-size) + var(--addition-font-size));
+
+        font-size: var(--microsite-font-size);
+
+        &:before {
+            font-size: var(--microsite-title-font-size);
+        }
+    
+        h2 {
+            font-size:  var(--microsite-title-font-size);
+        }
+
+        li{
+            font-size: var(--microsite-font-size);
+        }
+    }
 }
 
 .img {
