@@ -16,7 +16,7 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["ColorGameInstant", "Common"],
+        ns: ["ColorGameInstant"],
         defaultNs: "ColorGameInstant",
     });
 
