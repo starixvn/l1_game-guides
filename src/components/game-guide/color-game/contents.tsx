@@ -45,8 +45,8 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
                                 <tr className={Styles["payout-header"]}>
                                     <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: "Common" })}</th>
                                     <th className={`bold ${Styles["description"]}`}>{t("header_description", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["odds"]}`}>{t("header_odds", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["odds"]}`}><Markup content={t("header_betlimit", { ns: "Common" })} /> </th>
+                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: "Common" })}</th>
+                                    <th className={`bold ${Styles["nowrap"]}`}><Markup content={t("header_betlimit", { ns: "Common" })} /> </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,7 +60,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
                                     <td >
                                         {formatOdds(odds?.single, fractionalOddsFormat)}
                                     </td>
-                                    <td rowSpan={3}>
+                                    <td rowSpan={3} className={Styles["nowrap"]}>
                                         {minBetMain} - {maxBetYellow}
                                     </td>
                                 </tr>
