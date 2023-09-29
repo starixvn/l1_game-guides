@@ -1,22 +1,6 @@
-const choicesMaxBet = {
-    dragon: 3000,
-    tiger: 3000,
-    tie: 2000,
-    redDragon: 2000,
-    blackDragon: 2000,
-    redTiger: 2000,
-    blackTiger: 2000,
-};
+const choicesMaxBet = { yellow: 3000, red: 3000, pink: 3000, white: 3000, blue: 3000, green: 3000, hot: 3000, cold: 3000 };
 
-const odds = {
-    dragon: 1.97,
-    tiger: 1.97,
-    tie: 3.76,
-    redDragon: 14.5,
-    blackDragon: 3.76,
-    redTiger: 2.5,
-    blackTiger: 14.5,
-};
+const odds = { single: 1.97, double: 2.97, triple: 3.76, hot: 3.76, cold: 2.5 };
 
 const GameConfigs = {
     maxBetPerChoices: choicesMaxBet,

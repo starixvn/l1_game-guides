@@ -6,7 +6,7 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { TolgeeConfig } from "../../../common/constants";
 import appSettings from "../../../common/app-settings";
 import { InContextTools } from "@tolgee/web/tools";
-import ColorGameContents from "./contents";
+import ColorGameMiniContents from "./contents";
 import { GameConfigs, GameGuideBase } from "../../game-guide/type";
 
 const tolgee = Tolgee()
@@ -33,7 +33,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const ColorGameMiniGuide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
     const getLocalGameConfigs = () => {
@@ -72,7 +72,7 @@ const ColorGameMiniGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <ColorGameContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
+            <ColorGameMiniContents {...{ gameConfigs: configs, userStakeLevel }} />
         </TolgeeProvider>
     );
 };
