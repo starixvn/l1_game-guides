@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
@@ -10,8 +9,6 @@ import { handleMaxBetChoice } from "../index.helper";
 import { GameGuideBase } from "../type";
 import Contents from "./content";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-
-
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -83,15 +80,13 @@ const PontoonGuide = (props: GameGuideBase) => {
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
             <Contents
-                gameConfigs = {configs}
+                gameConfigs={configs}
                 gameName={gameNameTranslate}
-                maxBetFollowChoice = {maxBetFollowChoice}
-                fractionalOddsFormat = {fractionalOddsFormat}
+                maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
             />
         </TolgeeProvider>
     );
-
 };
-
 
 export default PontoonGuide;

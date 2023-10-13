@@ -1,5 +1,6 @@
 const odds = {
-    blackjack: 2.5,
+    fiveCardTrick: 3,
+    pontoon: 3,
     regular: 2,
 };
 

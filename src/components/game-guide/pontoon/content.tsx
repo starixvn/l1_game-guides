@@ -2,16 +2,11 @@ import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import { Trans } from "next-i18next";
 import React from "react";
-
-import { useImgVersionContext } from "../../../contexts/img-version";
 import { formatOdds } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../type";
 import Styles from "./pontoon.module.scss";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "./type";
-
-let imgSrc = "",
-    imgVer = "";
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, t: Function) => {
     return (
@@ -121,7 +116,7 @@ const CardPointValuesTable = (t: Function) => {
     );
 };
 
-const PointCaculationRules = (t: Function) => {
+const PointCalculationRules = (t: Function) => {
     return (
         <div>
             <h2>{t("title_point_calculation")}</h2>
@@ -264,27 +259,12 @@ const DealerHandRules = (t: Function) => {
         </div>
     );
 };
-const renderTermsAndConditions = (t: Function) => {
-    return (
-        <li className={`guide-item ${Styles["guide-item"]}`}>
-            <h2 className={Styles["heading1"]}>{t("termsandconditions-title", { ns: "Common" })}</h2>
-            <ul className="style-number-rule">
-                {[1, 2, 3, 4].map((paraIndex) => (
-                    <li key={`para-${paraIndex}`} className="number-dot">
-                        {t(`termsandconditions_para_${paraIndex}`, { ns: "Common" })}
-                    </li>
-                ))}
-            </ul>
-        </li>
-    );
-};
 
 const Contents: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
-    const { imgVersion } = useImgVersionContext();
     const { t } = useTranslate(["Pontoon", "Common"]);
-    imgVer = imgVersion ?? "";
+
     return (
         <>
             <ul className="game-guide">
@@ -293,7 +273,7 @@ const Contents: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = 
                     <p className="content">{t("intro_para_1")}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain, t)}</li>
-                <li className="guide-item">{PointCaculationRules(t)}</li>
+                <li className="guide-item">{PointCalculationRules(t)}</li>
                 <li className="guide-item">{PlayerHandRules(t)}</li>
                 <li className="guide-item">{DealerHandRules(t)}</li>
                 {renderPayouts(odds, fractionalOddsFormat, t)}
