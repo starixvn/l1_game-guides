@@ -9,18 +9,6 @@ export type ColorGameContentsProps = {
     userStakeLevel: UserStakeLevelProps | undefined;
 };
 
-const renderWinningCondition = (t: Function) => {
-    return (
-        <li className="guide-item-instant game-microsite">
-            <h2>{t("para_2")}</h2>
-            <ul className="desc">
-                <li >{t("para_3")}</li>
-                <li >{t("para_4")}</li>
-            </ul>
-        </li>
-    );
-};
-
 const renderBetLimit = (t: Function, minBet: number, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
     return (
         <li className="guide-item-instant game-microsite">
@@ -30,6 +18,18 @@ const renderBetLimit = (t: Function, minBet: number, maxBet: number, userStakeLe
                     keyName="para_6"
                     params={{ minvalue: numberWithCommas(Math.max(userStakeLevel?.minBet ?? minBet, minBet)), maxvalue: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
                 /></li>
+            </ul>
+        </li>
+    );
+};
+
+const renderWinningCondition = (t: Function) => {
+    return (
+        <li className="guide-item-instant game-microsite">
+            <h2>{t("para_2")}</h2>
+            <ul className="desc">
+                <li >{t("para_3")}</li>
+                <li >{t("para_4")}</li>
             </ul>
         </li>
     );
