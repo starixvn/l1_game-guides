@@ -96,6 +96,7 @@ export const GAMES = {
     DRAGON_TIGER_FIGHT: 67,
     PONTOON: 72,
     COLOR_GAME: 71,
+    BANDAR_QIU_QIU: 75,
 };
 
 export const GAMES_MINI = {
