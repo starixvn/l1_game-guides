@@ -1,4 +1,36 @@
-.nowrap{
-    white-space: nowrap;
-}
+.bandar-qiuqiu {
+    .nowrap {
+        white-space: nowrap;
+    }
 
+    ul {
+        list-style-type: none;
+        margin-left: 20px;
+
+        li.custom-list {
+            li:before {
+                content: "" !important;
+            }
+
+            li.contentBeforeEmpty:before {
+                content: "" !important;
+            }
+
+            ul {
+                list-style-type: "- ";
+
+                .contentBeforeEmpty {
+                    list-style-type: none !important;
+                }
+
+                ul {
+                    list-style-type: circle;
+
+                    ul {
+                        list-style-type: square;
+                    }
+                }
+            }
+        }
+    }
+}
