@@ -1,6 +1,6 @@
-import React from "react";
-import { IBaseTermAndConditionResources } from "./languages/types";
 import { Markup } from "interweave";
+import React from "react";
+import { ContentList, IBaseTermAndConditionResources } from "./languages/types";
 
 const BaseTermsAndConditions: React.FunctionComponent<{ resources: IBaseTermAndConditionResources }> = ({ resources }) => {
     return (
@@ -14,5 +14,18 @@ const BaseTermsAndConditions: React.FunctionComponent<{ resources: IBaseTermAndC
         </li>
     );
 };
+
+
+export const RenderContentByList: React.FunctionComponent<{ resources: ContentList }> = ({ resources }) => {
+    return (           
+        <ul className="desc">
+            {
+                resources.details.map((detail, index) => <li key={index}><Markup content={detail} /></li>)
+            }
+        </ul>
+    );
+};
+
+
 
 export default BaseTermsAndConditions;

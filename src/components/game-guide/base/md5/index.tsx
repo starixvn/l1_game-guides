@@ -1,8 +1,8 @@
-import React from "react";
 import { Markup } from "interweave";
+import React from "react";
 import { StringFormat } from "../../../../helpers/string-helper";
-import { IMd5Resources } from "./languages/types";
 import { getBaseMD5TranslationResource } from "./languages";
+import { IMd5Resources } from "./languages/types";
 
 const md5ServicesUrl = "<b>https://md5.services/</b>";
 
@@ -14,7 +14,9 @@ export type MD5Props = {
     step3ImageUrl?: string;
     step4ImageUrl?: string;
     note?: JSX.Element | string;
+    validationDescription?: JSX.Element | string;
 };
+
 
 export type MD5MobiProps = {
     environment?: string;
@@ -32,6 +34,9 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
 
     renderMD5Content() {
         const { content } = this.state.translationResource;
+        const{validationDescription} = this.props;
+    
+
         return (
             <>
                 <h2> {content.header}</h2>
@@ -46,6 +51,7 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
                     </li>
                     <li className="number-dot">
                         <span className="title-text"> {content.validation.header}</span>
+                         {validationDescription && <div className="content"> {this.props.validationDescription}</div>}   
                         <ul className="desc">
                             {content.validation.details.map((detail, index) => {
                                 return (

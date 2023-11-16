@@ -97,6 +97,7 @@ export const GAMES = {
     PONTOON: 72,
     COLOR_GAME: 71,
     BANDAR_QIU_QIU: 75,
+    SPACE_FLIGHT: 73,
 };
 
 export const GAMES_MINI = {

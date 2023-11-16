@@ -6,11 +6,12 @@ import { GAMES } from "../../common/constants";
 import { isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
 import CascadingSlotGuide from "./cascading-slot-template";
+import ColorGameGuide from "./color-game";
 import DragontigerFightGuide from "./dragon-tiger-fight";
 import PontoonGuide from "./pontoon";
-import ColorGameGuide from "./color-game";
-import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
+import SpaceFlightGuide from "./space-flight";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -63,10 +64,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
         }
 
         if (isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
-            return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />
+            return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />;
         }
-
-
 
         return <></>;
     };
@@ -173,6 +172,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <ColorGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BANDAR_QIU_QIU:
                 return <BandarQiuQiuGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPACE_FLIGHT:
+                return <SpaceFlightGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }

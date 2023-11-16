@@ -7,6 +7,7 @@ export type MD5TolgeeProps = {
     step3ImageUrl?: string;
     step4ImageUrl?: string;
     note?: JSX.Element | string;
+    validationDescription?: JSX.Element | string;
 };
 
 const MD5Tolgee: React.FunctionComponent<MD5TolgeeProps> = ({
@@ -14,7 +15,8 @@ const MD5Tolgee: React.FunctionComponent<MD5TolgeeProps> = ({
     step2ImageUrl,
     step3ImageUrl,
     step4ImageUrl,
-    note
+    note,
+    validationDescription
 }) => {
     const { t } = useTranslate(["Common"]);
     return <MD5 {... {
@@ -33,13 +35,13 @@ const MD5Tolgee: React.FunctionComponent<MD5TolgeeProps> = ({
                 validation: {
                     header: t("subtitle_md5valid"),
                     details: [
-                        t("md5valid_para_1"),
+                         t("md5valid_para_1"),
                         t("md5valid_para_2"),
                         t("md5valid_para_3"),
                         t("md5valid_para_4"),
                     ]
                 },
-                noted: t("md5valid_para_5"),
+                noted: t("md5valid_para_5")
             },
             example: {
                 header: t("md5example"),
@@ -56,7 +58,8 @@ const MD5Tolgee: React.FunctionComponent<MD5TolgeeProps> = ({
         step2ImageUrl,
         step3ImageUrl,
         step4ImageUrl,
-        note
+        note,
+        validationDescription
     }} />;
 };
 
