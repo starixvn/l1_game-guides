@@ -47,4 +47,5 @@ export type GameConfigs = {
     minBet: number;
     odds?: any;
     originalOdds?: any;
+    maxWinPerRound?: number;
 };

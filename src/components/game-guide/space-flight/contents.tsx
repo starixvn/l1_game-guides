@@ -32,7 +32,7 @@ const renderGameRules = (t: Function) => {
 
 const renderCashingOut = (t: Function) => {
     let commonResources: ContentList = {
-        header: t("subtitle_cashing_out", { ns: "Common" }),
+        header: t("subtitle_cash_out", { ns: "Common" }),
         details: [
             t(`cashing_out_para_1`),
             t(`cashing_out_para_2`),
@@ -71,7 +71,7 @@ const renderAutoCashout = (t: Function) => {
 
 
 const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
-    const { minBet, maxBet } = gameConfigs;
+    const { minBet, maxBet, maxWinPerRound } = gameConfigs;
 
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
@@ -85,7 +85,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
                 <li >{t("payout_para_2")}</li>
                 <li >{t("payouts_para_2", { ns: "Common" })}</li>
                 <li >{t("payout_para_3", { min: minBetMain, max: maxBetMain })}</li>
-                <li >{t("payout_para_4", { maxWin: minBet })}</li>
+                <li >{t("payout_para_4", { maxWin: maxWinPerRound })}</li>
             </ul>
         </li>
     );
@@ -120,21 +120,21 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, 
             {renderGameRules(t)}
             <li className="guide-item">
                 <h2>{t("title_features", { ns: "Common" })}</h2>
-                <ul className="style-number-rule">
-                    <li className="number-dot">{t("subtitle_cashing_out", { ns: "Common" })}
+                <ul className="style-number-dot">
+                    <li className="number-dot"><span className="title-text">{t("subtitle_cash_out", { ns: "Common" })}</span>
                         {renderCashingOut(t)}
                     </li>
-                    <li className="number-dot">{t("subtitle_auto_cashout", { ns: "Common" })}{renderAutoCashout(t)}</li>
-                    <li className="number-dot">{t("subtitle_auto_play", { ns: "Common" })}{renderAutoPlay(t)}</li>
+                    <li className="number-dot"><span className="title-text">{t("subtitle_auto_cashout", { ns: "Common" })}</span>{renderAutoCashout(t)}</li>
+                    <li className="number-dot"><span className="title-text">{t("subtitle_auto_play", { ns: "Common" })}</span>{renderAutoPlay(t)}</li>
                 </ul>
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
             <MDCrashTolgee {...{
-                step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
-                step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
-                step3ImageUrl: `${rootImgUrl}md5_step3.png?v=${buildVersion}`,
-                step4ImageUrl: `${rootImgUrl}md5_step4.png?v=${buildVersion}`,
+                step1ImageUrl: `${rootImgUrl}step_1.png?v=${buildVersion}`,
+                step2ImageUrl: `${rootImgUrl}step_2.png?v=${buildVersion}`,
+                step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,
+                step4ImageUrl: `${rootImgUrl}step_4.png?v=${buildVersion}`,
                 note: "",
                 validationDescription: <div><div>{t(`md5valid_para_1`)}</div><img src={`${rootImgUrl}statistics-bar.png?v=${buildVersion}`} alt="statistics-bar"/></div>,
 

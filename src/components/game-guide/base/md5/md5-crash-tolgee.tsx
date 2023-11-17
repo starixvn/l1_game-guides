@@ -36,7 +36,7 @@ const MDCrashTolgee: React.FunctionComponent<MD5TolgeeProps> = ({
                 noted: t("md5valid_para_5", { ns: "Common" })
             },
             example: {
-                header: t("md5valid_para_6", { ns: "Spaceflight" }),
+                header: t("md5example", { ns: "Common" }),
                 step1Text: t("md5valid_para_2", { ns: "Spaceflight" }),
                 step2Text: t("md5valid_para_3", { ns: "Spaceflight" }),
                 step3Text: t("md5valid_para_3", { ns: "Common" }),
