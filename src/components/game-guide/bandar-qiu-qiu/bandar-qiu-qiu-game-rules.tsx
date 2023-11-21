@@ -95,7 +95,7 @@ const HandRankingContent: React.FC<{ t: Function }> = ({ t }) => {
                                     {t(row.description)}
                                 </td>
                                 <td>
-                                    <img className="format-img auto-center " src={`${bandarQiuQiuRootImgUrl}${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
+                                    <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
                                 </td>
                             </tr>
                             )
@@ -114,7 +114,7 @@ const CompareOrdinaryCardContent: React.FC<{ t: Function }> = ({ t }) => {
             {t("game_rules_para_5")}
             <ul className="desc">
                 <li className={Styles["level-2"]}>{t("game_rules_para_6")}
-                    <img className="format-img auto-center" src={`${bandarQiuQiuRootImgUrl}rule-set1set2.png?v=${buildVersion}`} alt="" />
+                    <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-set1set2.png?v=${buildVersion}`} alt="" />
                 </li>
                 <li className={Styles["level-2"]}>{t("game_rules_para_7")}</li>
                 <CardValuesContent t={t} />
@@ -134,7 +134,7 @@ const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
                         bigcards: 10,
                         doublecards: 11
                     }).map(([key, value], index) => <li className={Styles["level-3"]} key={index}>{t(`game_rules_para_${value}`)}
-                        <img className="format-img auto-center" src={`${bandarQiuQiuRootImgUrl}rule-${key}.png?v=${buildVersion}}`} alt="" /></li>)
+                        <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-${key}.png?v=${buildVersion}}`} alt="" /></li>)
                 }
             </ul>
         </li>
@@ -236,8 +236,13 @@ const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
                                     {t(row.rule)}
                                 </td>
                                 <td>
-                                    <div>{t("player")}: <img className="format-img auto-center" src={`${bandarQiuQiuRootImgUrl}example-${index + 1}1.png?v=${buildVersion}}`} alt="" /></div>
-                                    <div>{t("banker")}: <img className="format-img auto-center" src={`${bandarQiuQiuRootImgUrl}example-${index + 1}2.png?v=${buildVersion}}`} alt="" /></div>
+                                    <div>{t("player")}: <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-${index + 1}1.png?v=${buildVersion}}`} alt="" /></div>
+                                    <div>
+                                        <div >{t("banker")}:</div>
+                                        <div >
+                                            <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-${index + 1}2.png?v=${buildVersion}}`} alt="" />
+                                        </div>
+                                    </div>
                                     <div>
                                         {`${t("example_compare")}: `}
                                         {row.result}

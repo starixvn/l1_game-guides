@@ -22,7 +22,7 @@ const BandarQiuQiuPayout: React.FC<{
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 {
-                    [1, 2, 3].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "Common" })}</li>)
+                    [3, 2, 1].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "Common" })}</li>)
                 }
                 <li className={Styles["contentBeforeEmpty"]}>
                     <div className="table-container">
@@ -67,7 +67,7 @@ const BandarQiuQiuMd5: React.FC<{ t: Function, locale: string | undefined }> = (
         <div class="bold">${t("Example_md5_note")}</div>
         <ul class="desc"> 
             <li>${t(`example_md5_note_1`, {
-        "md5Result": `{<img src="${bandarQiuQiuRootImgUrl}md5result.png"/>}`
+        "md5Result": `<img src="${bandarQiuQiuRootImgUrl}md5result.png"/>`
     })}</li>
             <li>${t("example_md5_note_2")}</li>
         </ul>
@@ -75,10 +75,10 @@ const BandarQiuQiuMd5: React.FC<{ t: Function, locale: string | undefined }> = (
 
     return (
         <MD5Tolgee {...{
-            step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
-            step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
-            step3ImageUrl: `${rootImgUrl}md5_step3.png?v=${buildVersion}`,
-            step4ImageUrl: `${rootImgUrl}md5_step4.png?v=${buildVersion}`,
+            step1ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
+            step2ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
+            step3ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step3.png?v=${buildVersion}`,
+            step4ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step4.png?v=${buildVersion}`,
             note: <Markup content={notedElement} />
 
         }} />
