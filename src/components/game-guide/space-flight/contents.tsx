@@ -18,6 +18,7 @@ const renderGameRules = (t: Function) => {
             t(`gamerules_para_2`),
             t(`gamerules_para_3`),
             t(`gamerules_para_4`),
+            t(`gamerules_para_4a`),
             t(`gamerules_para_5`),
             t(`gamerules_para_6`),
             t(`gamerules_para_7`)
@@ -72,11 +73,13 @@ const renderAutoCashout = (t: Function) => {
 
 const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
     const { minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
 
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const maxBetMain = numberWithCommas(maxBetTmp);
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxWin  = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
    
-
+    console.log(maxWin);
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
@@ -85,7 +88,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
                 <li >{t("payout_para_2")}</li>
                 <li >{t("payouts_para_2", { ns: "Common" })}</li>
                 <li >{t("payout_para_3", { min: minBetMain, max: maxBetMain })}</li>
-                <li >{t("payout_para_4", { maxWin: maxWinPerRound })}</li>
+                <li >{t("payout_para_4", { maxWin: maxWin })}</li>
             </ul>
         </li>
     );
