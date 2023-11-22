@@ -66,7 +66,7 @@ const BandarQiuQiuMd5: React.FC<{ t: Function, locale: string | undefined }> = (
         <div class="bold">${t("Example_md5_note")}</div>
         <ul class="desc"> 
             <li>${t(`example_md5_note_1`, {
-        "md5Result": `<img src="${bandarQiuQiuRootImgUrl}md5result.png"/>`
+        "md5Result": `<img src="${bandarQiuQiuRootImgUrl}md5/md5result.png"/>`
     })}</li>
             <li>${t("example_md5_note_2")}</li>
         </ul>
@@ -74,10 +74,10 @@ const BandarQiuQiuMd5: React.FC<{ t: Function, locale: string | undefined }> = (
 
     return (
         <MD5Tolgee {...{
-            step1ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
-            step2ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
-            step3ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step3.png?v=${buildVersion}`,
-            step4ImageUrl: `${bandarQiuQiuRootImgUrl}md5_step4.png?v=${buildVersion}`,
+            step1ImageUrl: `${bandarQiuQiuRootImgUrl}md5/md5_step1_${locale}.png?v=${buildVersion}`,
+            step2ImageUrl: `${bandarQiuQiuRootImgUrl}md5/md5_step2_${locale}.png?v=${buildVersion}`,
+            step3ImageUrl: `${bandarQiuQiuRootImgUrl}md5/md5_step3.png?v=${buildVersion}`,
+            step4ImageUrl: `${bandarQiuQiuRootImgUrl}md5/md5_step4.png?v=${buildVersion}`,
             note: <Markup content={notedElement} />
 
         }} />
@@ -100,7 +100,7 @@ const BandarQiuQiuGameContents: React.FC<BandarQiuQiuGameContentsProps> = ({ gam
         <div className={`${Styles["bandar-qiuqiu"]}`}>
             <ul className={`game-guide`} >
                 <BandarQiuQiuIntroduction t={t} />
-                <BandarQiuQiuGameRules t={t} maxBet={gameConfigs.maxBet} userStakeLevel={userStakeLevel} />
+                <BandarQiuQiuGameRules t={t} maxBet={gameConfigs.maxBet} userStakeLevel={userStakeLevel} locale={locale} />
                 <BandarQiuQiuPayout t={t} gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} />
                 <BandarQiuQiuMd5 t={t} locale={locale} />
                 <TermsAndConditionsTolgee />

@@ -13,8 +13,10 @@ enum ComparisonOperators {
 }
 
 const BandarQiuQiuGameRules: React.FC<{
-    t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined
-}> = ({ t, maxBet, userStakeLevel }) => {
+    t: Function, maxBet: number,
+    userStakeLevel: UserStakeLevelProps | undefined,
+    locale: string | undefined
+}> = ({ t, maxBet, userStakeLevel, locale }) => {
     return (
         <li className={`guide-item ${Styles["custom-list"]}`} >
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -23,7 +25,7 @@ const BandarQiuQiuGameRules: React.FC<{
                     [3, 2, 1].map((index) => <li key={index}>{t(`gamerules_para_${index}`)}</li>)
                 }
                 <HandRankingContent t={t} />
-                <CompareOrdinaryCardContent t={t} />
+                <CompareOrdinaryCardContent t={t} locale={locale} />
                 <li > <T
                     keyName="game_rule_para_13"
                     params={{ maxbet: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
@@ -44,32 +46,32 @@ const HandRankingContent: React.FC<{ t: Function }> = ({ t }) => {
             {
                 handRanking: "glossary_hand_ranking_six_devil",
                 description: "desc_six_devil",
-                exampleImageName: "rule-sixdevil"
+                exampleImageName: "hank-ranking-sixdevil"
             },
             {
                 handRanking: "glossary_hand_ranking_twin",
                 description: "desc_twin",
-                exampleImageName: "rule-twin"
+                exampleImageName: "hank-ranking-twin"
             },
             {
                 handRanking: "glossary_hand_ranking_small",
                 description: "desc_small",
-                exampleImageName: "rule-small"
+                exampleImageName: "hank-ranking-small"
             },
             {
                 handRanking: "glossary_hand_ranking_big",
                 description: "desc_big",
-                exampleImageName: "rule-big"
+                exampleImageName: "hank-ranking-big"
             },
             {
                 handRanking: "glossary_hand_ranking_qiuqiu",
                 description: "desc_qiuqiu",
-                exampleImageName: "rule-qiuqiu"
+                exampleImageName: "hank-ranking-qiuqiu"
             },
             {
                 handRanking: "glossary_hand_ranking_ordinary",
                 description: "desc_ordinary_card",
-                exampleImageName: "rule-ordinarycard"
+                exampleImageName: "hank-ranking-ordinarycard"
             }
         ]
     };
@@ -96,7 +98,7 @@ const HandRankingContent: React.FC<{ t: Function }> = ({ t }) => {
                                 </td>
                                 <td>
                                     <div className={`${Styles["dice"]}`}>
-                                        <img className={` format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
+                                        <img className={` format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/hank-ranking-rules/${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
                                     </div>
                                 </td>
                             </tr>
@@ -110,7 +112,7 @@ const HandRankingContent: React.FC<{ t: Function }> = ({ t }) => {
     );
 };
 
-const CompareOrdinaryCardContent: React.FC<{ t: Function }> = ({ t }) => {
+const CompareOrdinaryCardContent: React.FC<{ t: Function, locale: string | undefined }> = ({ t, locale }) => {
     return (
         <li >
             {t("game_rules_para_5")}
@@ -121,7 +123,7 @@ const CompareOrdinaryCardContent: React.FC<{ t: Function }> = ({ t }) => {
                 <li className={Styles["level-2"]}>
                     {t("game_rules_para_6.1")}
                     <div>
-                        <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-set1set2.png?v=${buildVersion}`} alt="" />
+                        <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/set1-set2/set1_set2_${locale}.png?v=${buildVersion}`} alt="" />
                     </div>
                 </li>
                 <li className={Styles["level-2"]}>{t("game_rules_para_7")}</li>
@@ -143,7 +145,7 @@ const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
                         doublecards: 11
                     }).map(([key, value], index) => <li className={Styles["level-3"]} key={index}>{t(`game_rules_para_${value}`)}
                         <div className={`${Styles["dice"]}`}>
-                            <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-${key}.png?v=${buildVersion}}`} alt="" />
+                            <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/card-value/rule-${key}.png?v=${buildVersion}}`} alt="" />
                         </div>
 
                     </li>)
@@ -248,11 +250,11 @@ const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
                                     {t(row.rule)}
                                 </td>
                                 <td>
-                                    <div>{t("player")}: <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-player-${index + 1}.png?v=${buildVersion}}`} alt="" /></div>
+                                    <div>{t("player")}: <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-player-${index + 1}.png?v=${buildVersion}}`} alt="" /></div>
                                     <div>
                                         <div >{t("banker")}:</div>
                                         <div >
-                                            <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-banker-${index + 1}.png?v=${buildVersion}}`} alt="" />
+                                            <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-banker-${index + 1}.png?v=${buildVersion}}`} alt="" />
                                         </div>
                                     </div>
                                     <div>
