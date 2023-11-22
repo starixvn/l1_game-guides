@@ -22,7 +22,7 @@ const BandarQiuQiuPayout: React.FC<{
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 {
-                    [3, 2, 1].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "Common" })}</li>)
+                    [1, 2, 3].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "Common" })}</li>)
                 }
                 <li className={Styles["contentBeforeEmpty"]}>
                     <div className="table-container">
@@ -38,8 +38,8 @@ const BandarQiuQiuPayout: React.FC<{
                                     Object.entries({
                                         "six_devil": odds?.sixDevil,
                                         "twin": odds?.twin,
-                                        "big": odds?.big,
                                         "small": odds?.small,
+                                        "big": odds?.big,
                                         "qiuqiu": odds?.qiuQiu,
                                         "ordinary": odds?.ordinaryCard
                                     }).map(([key, value], index) => <tr key={index}>

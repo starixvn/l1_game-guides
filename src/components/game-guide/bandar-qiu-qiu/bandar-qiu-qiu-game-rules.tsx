@@ -22,7 +22,7 @@ const BandarQiuQiuGameRules: React.FC<{
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
             <ul className="desc">
                 {
-                    [3, 2, 1].map((index) => <li key={index}>{t(`gamerules_para_${index}`)}</li>)
+                    [1, 2, 3].map((index) => <li key={index}>{t(`gamerules_para_${index}`)}</li>)
                 }
                 <HandRankingContent t={t} />
                 <CompareOrdinaryCardContent t={t} locale={locale} />
@@ -140,9 +140,10 @@ const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
             <ul className="desc">
                 {
                     Object.entries({
-                        smallcards: 9,
+                        doublecards: 11,
                         bigcards: 10,
-                        doublecards: 11
+                        smallcards: 9,
+
                     }).map(([key, value], index) => <li className={Styles["level-3"]} key={index}>{t(`game_rules_para_${value}`)}
                         <div className={`${Styles["dice"]}`}>
                             <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}game-rules/card-value/rule-${key}.png?v=${buildVersion}}`} alt="" />
