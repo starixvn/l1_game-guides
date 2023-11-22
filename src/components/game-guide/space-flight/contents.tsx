@@ -84,11 +84,11 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li >{t("payout_para_1")}</li>
-                <li >{t("payout_para_2")}</li>
+                <li >{t("payouts_para_3", { ns: "Common" })}</li>
+                <li >{t("payouts_para_2")}</li>
                 <li >{t("payouts_para_2", { ns: "Common" })}</li>
-                <li >{t("payout_para_3", { min: minBetMain, max: maxBetMain })}</li>
-                <li >{t("payout_para_4", { maxWin: maxWin })}</li>
+                <li >{t("payouts_para_3", { min: minBetMain, max: maxBetMain })}</li>
+                <li >{t("payouts_para_4", { maxWin: maxWin })}</li>
             </ul>
         </li>
     );
