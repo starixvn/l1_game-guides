@@ -248,11 +248,11 @@ const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
                                     {t(row.rule)}
                                 </td>
                                 <td>
-                                    <div>{t("player")}: <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-${index + 1}1.png?v=${buildVersion}}`} alt="" /></div>
+                                    <div>{t("player")}: <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-player-${index + 1}.png?v=${buildVersion}}`} alt="" /></div>
                                     <div>
                                         <div >{t("banker")}:</div>
                                         <div >
-                                            <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-${index + 1}2.png?v=${buildVersion}}`} alt="" />
+                                            <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}example-banker-${index + 1}.png?v=${buildVersion}}`} alt="" />
                                         </div>
                                     </div>
                                     <div>
