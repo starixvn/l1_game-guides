@@ -20,7 +20,7 @@ const BandarQiuQiuGameRules: React.FC<{
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
             <ul className="desc">
                 {
-                    [1, 2, 3].map((index) => <li key={index}>{t(`gamerules_para_${index}`)}</li>)
+                    [3, 2, 1].map((index) => <li key={index}>{t(`gamerules_para_${index}`)}</li>)
                 }
                 <HandRankingContent t={t} />
                 <CompareOrdinaryCardContent t={t} />
@@ -95,7 +95,9 @@ const HandRankingContent: React.FC<{ t: Function }> = ({ t }) => {
                                     {t(row.description)}
                                 </td>
                                 <td>
-                                    <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
+                                    <div className={`${Styles["dice"]}`}>
+                                        <img className={` format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}${row.exampleImageName}.png?v=${buildVersion}}`} alt="" />
+                                    </div>
                                 </td>
                             </tr>
                             )
@@ -113,8 +115,14 @@ const CompareOrdinaryCardContent: React.FC<{ t: Function }> = ({ t }) => {
         <li >
             {t("game_rules_para_5")}
             <ul className="desc">
-                <li className={Styles["level-2"]}>{t("game_rules_para_6")}
-                    <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-set1set2.png?v=${buildVersion}`} alt="" />
+                <li className={Styles["level-2"]}>
+                    {t("game_rules_para_6")}
+                </li>
+                <li className={Styles["level-2"]}>
+                    {t("game_rules_para_6.1")}
+                    <div>
+                        <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-set1set2.png?v=${buildVersion}`} alt="" />
+                    </div>
                 </li>
                 <li className={Styles["level-2"]}>{t("game_rules_para_7")}</li>
                 <CardValuesContent t={t} />
@@ -134,7 +142,11 @@ const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
                         bigcards: 10,
                         doublecards: 11
                     }).map(([key, value], index) => <li className={Styles["level-3"]} key={index}>{t(`game_rules_para_${value}`)}
-                        <img className={`${Styles["dice"]} format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-${key}.png?v=${buildVersion}}`} alt="" /></li>)
+                        <div className={`${Styles["dice"]}`}>
+                            <img className={`format-img auto-center`} src={`${bandarQiuQiuRootImgUrl}rule-${key}.png?v=${buildVersion}}`} alt="" />
+                        </div>
+
+                    </li>)
                 }
             </ul>
         </li>

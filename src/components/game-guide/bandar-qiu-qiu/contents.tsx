@@ -62,7 +62,6 @@ const BandarQiuQiuPayout: React.FC<{
 };
 
 const BandarQiuQiuMd5: React.FC<{ t: Function, locale: string | undefined }> = ({ t, locale }) => {
-    const rootImgUrl = "/static/images/dragon-tiger-fight/";
     const notedElement = `<div>
         <div class="bold">${t("Example_md5_note")}</div>
         <ul class="desc"> 

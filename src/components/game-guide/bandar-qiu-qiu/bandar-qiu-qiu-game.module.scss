@@ -3,13 +3,16 @@
         white-space: nowrap;
     }
 
-    .inline-block{
-        display: inline-block;
-    }
+    .dice {
+        align-items: center !important;
+        height: 100px;
+        display: flex;
 
-    .dice{
-        // scale:  0.7;
-    }
+        img {
+            max-width: 75%;
+            max-height: 75%; 
+          }
+      }
 
     ul {
         list-style-type: none;
