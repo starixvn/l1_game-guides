@@ -99,9 +99,9 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li >{t("payouts_para_1", { ns: "Common" })}</li>
-                <li >{t("payouts_para_2", { ns: "Common" })}</li>
-                <li >{t("payouts_para_3", { ns: "Common" })}</li>
+                <li>{t("payouts_para_1", { ns: "Common" })}</li>
+                <li>{t("payouts_para_2", { ns: "Common" })}</li>
+                <li>{t("payouts_para_3", { ns: "Common" })}</li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
