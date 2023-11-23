@@ -22,7 +22,7 @@ const BandarQiuQiuPayout: React.FC<{
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 {
-                    [1, 2, 3].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "Common" })}</li>)
+                    [1, 2, 3].map((index) => <li key={index}>{t(`payouts_para_${index}`, { ns: "BandarQiuQiu" })}</li>)
                 }
                 <li className={Styles["contentBeforeEmpty"]}>
                     <div className="table-container">
