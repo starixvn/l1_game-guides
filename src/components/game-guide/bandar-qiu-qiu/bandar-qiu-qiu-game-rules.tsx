@@ -127,11 +127,15 @@ const CompareOrdinaryCardContent: React.FC<{ t: Function; locale: string | undef
                 <li className={Styles["level-2"]}>{t("game_rules_para_6")}</li>
                 <li className={Styles["level-2"]}>
                     {t("game_rules_para_6.1")}
-                    <div>
+                    <div className="auto-center">
+                        <div className={Styles["set-container"]}>
+                            <p style={{ padding: "0 4rem" }}>{t("set_1", { ns: "BandarQiuQiu" })}</p>
+                            <p style={{ padding: "0 4rem" }}>{t("set_2", { ns: "BandarQiuQiu" })}</p>
+                        </div>
+
                         <img
-                            className={`format-img auto-center`}
-                            style={{ width: "22%" }}
-                            src={`${bandarQiuQiuRootImgUrl}game-rules/set1-set2/set1_set2_${locale}.png?v=${buildVersion}`}
+                            className={`format-img auto-center ${Styles["set1_set2"]}`}
+                            src={`${bandarQiuQiuRootImgUrl}game-rules/set1-set2/set1_set2.png?v=${buildVersion}`}
                             alt=""
                         />
                     </div>
