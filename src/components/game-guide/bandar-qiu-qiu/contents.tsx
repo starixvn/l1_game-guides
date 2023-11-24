@@ -63,7 +63,7 @@ const BandarQiuQiuMd5: React.FC<{ t: Function; locale: string | undefined }> = (
         <div class="bold">${t("Example_md5_note")}</div>
         <ul class="desc"> 
             <li>${t(`example_md5_note_1`, {
-                md5Result: `<img src="${bandarQiuQiuRootImgUrl}md5/md5result.png"/>`,
+                md5Result: `<img src="${bandarQiuQiuRootImgUrl}md5/md5result.png?v=${buildVersion}"/>`,
             })}</li>
             <li>${t("example_md5_note_2")}</li>
         </ul>
