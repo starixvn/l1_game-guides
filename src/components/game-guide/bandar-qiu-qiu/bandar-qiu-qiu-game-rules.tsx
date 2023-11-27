@@ -27,8 +27,8 @@ const BandarQiuQiuGameRules: React.FC<{
                 ))}
                 <HandRankingContent t={t} />
                 <CompareOrdinaryCardContent t={t} locale={locale} />
+                <ComparingRulesTable t={t} />
                 <li>
-                    {" "}
                     <T
                         keyName="game_rule_para_13"
                         params={{ maxbet: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
@@ -148,33 +148,7 @@ const CompareOrdinaryCardContent: React.FC<{ t: Function; locale: string | undef
     );
 };
 
-const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
-    return (
-        <li className={Styles["level-2"]}>
-            {t("game_rules_para_8")}
-            <ul className="desc">
-                {Object.entries({
-                    doublecards: 11,
-                    bigcards: 10,
-                    smallcards: 9,
-                }).map(([key, value], index) => (
-                    <li className={Styles["level-3"]} key={index}>
-                        {t(`game_rules_para_${value}`)}
-                        <div className={`${Styles["dice"]}`}>
-                            <img
-                                className={`format-img auto-center`}
-                                src={`${bandarQiuQiuRootImgUrl}game-rules/card-value/rule-${key}.png?v=${buildVersion}}`}
-                                alt=""
-                            />
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </li>
-    );
-};
-
-const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
+const ComparingRulesTable: React.FC<{ t: Function }> = ({ t }) => {
     const exampleDescriptionIndexes = [1, 2, 3];
     const data = {
         headers: ["header_compare_set1", "header_compare_set2", "header_comparing_rule", "header_example"],
@@ -249,60 +223,87 @@ const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
     };
 
     return (
-        <li className={Styles["level-2"]}>
-            {t("game_rules_para_12")}
-            <div className="table-container">
-                <table className="table">
-                    <thead className="text-center">
-                        <tr>
-                            {data.headers.map((header, index) => (
-                                <th key={index} className={`bold ${Styles["nowrap"]}`}>
-                                    {t(header)}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody className="text-left">
-                        {data.body.map((row, index) => (
-                            <tr key={index}>
-                                <td className={Styles["nowrap"]}>{`${t("player")} ${row.set1Operator} ${t("banker")}`}</td>
-                                <td className={Styles["nowrap"]}>{`${t("player")} ${row.set2Operator} ${t("banker")}`}</td>
-                                <td>{t(row.rule)}</td>
-                                <td>
+        <div className="table-container">
+            <table className="table">
+                <thead className="text-center">
+                    <tr>
+                        {data.headers.map((header, index) => (
+                            <th key={index} className={`bold ${Styles["nowrap"]}`}>
+                                {t(header)}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody className="text-left">
+                    {data.body.map((row, index) => (
+                        <tr key={index}>
+                            <td className={Styles["nowrap"]}>{`${t("player")} ${row.set1Operator} ${t("banker")}`}</td>
+                            <td className={Styles["nowrap"]}>{`${t("player")} ${row.set2Operator} ${t("banker")}`}</td>
+                            <td>{t(row.rule)}</td>
+                            <td>
+                                <div>
+                                    {t("player")}:{" "}
+                                    <img
+                                        className={`${Styles["dice"]} format-img auto-center`}
+                                        src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-player-${
+                                            index + 1
+                                        }.png?v=${buildVersion}}`}
+                                        alt=""
+                                    />
+                                </div>
+                                <div>
+                                    <div>{t("banker")}:</div>
                                     <div>
-                                        {t("player")}:{" "}
                                         <img
                                             className={`${Styles["dice"]} format-img auto-center`}
-                                            src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-player-${
+                                            src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-banker-${
                                                 index + 1
                                             }.png?v=${buildVersion}}`}
                                             alt=""
                                         />
                                     </div>
-                                    <div>
-                                        <div>{t("banker")}:</div>
-                                        <div>
-                                            <img
-                                                className={`${Styles["dice"]} format-img auto-center`}
-                                                src={`${bandarQiuQiuRootImgUrl}game-rules/comparing-rules/example-banker-${
-                                                    index + 1
-                                                }.png?v=${buildVersion}}`}
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        {`${t("example_compare")}: `}
-                                        {row.result}
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                                </div>
+                                <div>
+                                    {`${t("example_compare")}: `}
+                                    {row.result}
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const CardValuesContent: React.FC<{ t: Function }> = ({ t }) => {
+    return (
+        <li className={Styles["level-2"]}>
+            {t("game_rules_para_8")}
+            <ul className="desc">
+                {Object.entries({
+                    doublecards: 11,
+                    bigcards: 10,
+                    smallcards: 9,
+                }).map(([key, value], index) => (
+                    <li className={Styles["level-3"]} key={index}>
+                        {t(`game_rules_para_${value}`)}
+                        <div className={`${Styles["dice"]}`}>
+                            <img
+                                className={`format-img auto-center`}
+                                src={`${bandarQiuQiuRootImgUrl}game-rules/card-value/rule-${key}.png?v=${buildVersion}}`}
+                                alt=""
+                            />
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </li>
     );
+};
+
+const ComparingRulesContent: React.FC<{ t: Function }> = ({ t }) => {
+    return <li className={Styles["level-2"]}>{t("game_rules_para_12")}</li>;
 };
 
 export default BandarQiuQiuGameRules;
