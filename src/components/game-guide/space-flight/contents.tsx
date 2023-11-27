@@ -1,9 +1,10 @@
 import { useTranslate } from "@tolgee/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { buildVersion } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
-import MDCrashTolgee from "../base/md5/md5-crash-tolgee";
+import ScrollToMD5 from "../../shared/md5-number";
+import MD5CrashTolgee from "../base/md5/md5-crash-tolgee";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
@@ -110,9 +111,12 @@ const renderListItem = (t: Function, listItem: Array<string>) => {
     listItem.map((item, index) => <li className="number-dot" key={index}>{t(`${item}`, { ns: "Spaceflight" })}</li>)
 }
 
-const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, locale, userStakeLevel }) => {
+const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, locale, userStakeLevel, isScrollMD5 }) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
     const rootImgUrl = "/static/images/space-flight/";
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
 
     return (
         <ul className={`game-guide`}>
@@ -133,7 +137,7 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, 
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            <MDCrashTolgee {...{
+            <MD5CrashTolgee {...{
                 step1ImageUrl: `${rootImgUrl}step_1.png?v=${buildVersion}`,
                 step2ImageUrl: `${rootImgUrl}step_2.png?v=${buildVersion}`,
                 step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,

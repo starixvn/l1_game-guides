@@ -2,7 +2,7 @@ import { useTranslate } from "@tolgee/react";
 import MD5 from ".";
 import { MD5TolgeeProps } from "./md5-tolgee";
 
-const MDCrashTolgee: React.FunctionComponent<MD5TolgeeProps> = ({
+const MD5CrashTolgee: React.FunctionComponent<MD5TolgeeProps> = ({
     step1ImageUrl,
     step2ImageUrl,
     step3ImageUrl,
@@ -55,4 +55,4 @@ const MDCrashTolgee: React.FunctionComponent<MD5TolgeeProps> = ({
     }} />;
 };
 
-export default MDCrashTolgee;
+export default MD5CrashTolgee;

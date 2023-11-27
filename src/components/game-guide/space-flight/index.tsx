@@ -36,7 +36,7 @@ export const getImageDirectoryName = (): string => {
 };
 
 const SpaceFlightGuide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel, isScrollMD5 } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
     const getLocalGameConfigs = () => {
@@ -75,7 +75,7 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <SpaceFlightContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
+            <SpaceFlightContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel, isScrollMD5 }} />
         </TolgeeProvider>
     );
 };
