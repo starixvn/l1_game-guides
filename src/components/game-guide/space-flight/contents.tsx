@@ -138,7 +138,7 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, 
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
             <MD5CrashTolgee {...{
-                step1ImageUrl: `${rootImgUrl}step_1.png?v=${buildVersion}`,
+                step1ImageUrl: `${rootImgUrl}step_1_${locale}.png?v=${buildVersion}`,
                 step2ImageUrl: `${rootImgUrl}step_2_${locale}.png?v=${buildVersion}`,
                 step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,
                 step4ImageUrl: `${rootImgUrl}step_4.png?v=${buildVersion}`,
