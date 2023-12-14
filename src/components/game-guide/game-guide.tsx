@@ -58,7 +58,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         }
-        debugger;
 
         if (isNewSlotGame(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
