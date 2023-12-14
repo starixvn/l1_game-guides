@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
 
 import { GAMES } from "../../common/constants";
-import { isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
+import { isCrashGame, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
@@ -58,6 +58,7 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         }
+        debugger;
 
         if (isNewSlotGame(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
             return <ClassicSlotGuide key={`game-${name}`} {...gameGuideProps} />;
@@ -65,6 +66,10 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
 
         if (isNewCascadingSlot(gameGuideProps.gameSetting.Type, gameGuideProps.gameSetting.GameId)) {
             return <CascadingSlotGuide key={`game-${name}`} {...gameGuideProps} />;
+        }
+
+        if (isCrashGame(gameGuideProps.gameSetting.Type)) {
+            return <SpaceFlightGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 
         return <></>;
@@ -172,8 +177,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <ColorGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BANDAR_QIU_QIU:
                 return <BandarQiuQiuGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.SPACE_FLIGHT:
-                return <SpaceFlightGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }

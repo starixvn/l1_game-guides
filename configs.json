@@ -5,5 +5,5 @@
     },
     "system": "L2",
     "resourceUrl": "https://l2-proxy.lumigame.com/game/static/",
-    "gameSettingUrl": "https://l2-admin-api.lumigame.com/api/public/game_configs/"
+    "gameSettingUrl": "https://l1-admin-api3.lumigame.com/api/public/game_configs/"
 }

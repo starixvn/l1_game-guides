@@ -22,25 +22,21 @@ const renderGameRules = (t: Function) => {
             t(`gamerules_para_4a`),
             t(`gamerules_para_5`),
             t(`gamerules_para_6`),
-            t(`gamerules_para_7`)
+            t(`gamerules_para_7`),
         ],
     };
     return (
-    <li className="guide-item">
-        <h2>{commonResources.header}</h2>
-        <RenderContentByList resources={commonResources} />
-    </li>);
+        <li className="guide-item">
+            <h2>{commonResources.header}</h2>
+            <RenderContentByList resources={commonResources} />
+        </li>
+    );
 };
 
 const renderCashingOut = (t: Function) => {
     let commonResources: ContentList = {
         header: t("subtitle_cash_out", { ns: "Common" }),
-        details: [
-            t(`cashing_out_para_1`),
-            t(`cashing_out_para_2`),
-            t(`cashing_out_para_3`),
-            t(`cashing_out_para_4`),
-        ],
+        details: [t(`cashing_out_para_1`), t(`cashing_out_para_2`), t(`cashing_out_para_3`), t(`cashing_out_para_4`)],
     };
     return <RenderContentByList resources={commonResources} />;
 };
@@ -48,11 +44,7 @@ const renderCashingOut = (t: Function) => {
 const renderAutoPlay = (t: Function) => {
     let commonResources: ContentList = {
         header: t("subtitle_auto_play", { ns: "Common" }),
-        details: [
-            t(`auto_play_para_1`),
-            t(`auto_play_para_2`),
-            t(`auto_play_para_4`)
-        ],
+        details: [t(`auto_play_para_1`), t(`auto_play_para_2`), t(`auto_play_para_4`)],
     };
     return <RenderContentByList resources={commonResources} />;
 };
@@ -60,17 +52,10 @@ const renderAutoPlay = (t: Function) => {
 const renderAutoCashout = (t: Function) => {
     let commonResources: ContentList = {
         header: t("subtitle_auto_cashout", { ns: "Common" }),
-        details: [
-            t(`auto_cashout_para_1`),
-            t(`auto_cashout_para_2`),
-        ],
+        details: [t(`auto_cashout_para_1`), t(`auto_cashout_para_2`)],
     };
-    return <RenderContentByList resources={commonResources} />
-    
+    return <RenderContentByList resources={commonResources} />;
 };
-
-
-
 
 const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
     const { minBet, maxBet, maxWinPerRound } = gameConfigs;
@@ -78,18 +63,17 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
 
     const maxBetMain = numberWithCommas(maxBetTmp);
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxWin  = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
-   
-    console.log(maxWin);
+    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
+
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li >{t("payouts_para_3", { ns: "Common" })}</li>
-                <li >{t("payouts_para_2")}</li>
-                <li >{t("payouts_para_2", { ns: "Common" })}</li>
-                <li >{t("payouts_para_3", { min: minBetMain, max: maxBetMain })}</li>
-                <li >{t("payouts_para_4", { maxWin: maxWin })}</li>
+                <li>{t("payouts_para_3", { ns: "Common" })}</li>
+                <li>{t("payouts_para_2")}</li>
+                <li>{t("payouts_para_2", { ns: "Common" })}</li>
+                <li>{t("payouts_para_3", { min: minBetMain, max: maxBetMain })}</li>
+                <li>{t("payouts_para_4", { maxWin: maxWin })}</li>
             </ul>
         </li>
     );
@@ -100,20 +84,23 @@ const renderMultiplier = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("title_multiplier", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_para_1", {maxMultiplier: gameConfigs.maxBet})}</li>
+                <li>{t("multiplier_para_1", { maxMultiplier: gameConfigs.maxBet })}</li>
                 <li>{t("multiplier_para_2")}</li>
             </ul>
         </li>
     );
-}
+};
 
-const renderListItem = (t: Function, listItem: Array<string>) => {
-    listItem.map((item, index) => <li className="number-dot" key={index}>{t(`${item}`, { ns: "Spaceflight" })}</li>)
-}
-
-const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, locale, userStakeLevel, isScrollMD5 }) => {
+const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({
+    gameConfigs,
+    locale,
+    userStakeLevel,
+    isScrollMD5,
+    displayName,
+    name,
+}) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
-    const rootImgUrl = "/static/images/space-flight/";
+    const rootImgUrl = `/static/images/${name}/`;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
@@ -122,32 +109,45 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({ gameConfigs, 
         <ul className={`game-guide`}>
             <li className="guide-item">
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
-                <div className="content">{t("intro_para_1", { ns: "Spaceflight" })}</div>
+                <div className="content">{t("intro_para_1", { ns: "Spaceflight", gameName: displayName })}</div>
             </li>
             {renderGameRules(t)}
             <li className="guide-item">
                 <h2>{t("title_features", { ns: "Common" })}</h2>
                 <ul className="style-number-dot">
-                    <li className="number-dot"><span className="title-text">{t("subtitle_cash_out", { ns: "Common" })}</span>
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_cash_out", { ns: "Common" })}</span>
                         {renderCashingOut(t)}
                     </li>
-                    <li className="number-dot"><span className="title-text">{t("subtitle_auto_cashout", { ns: "Common" })}</span>{renderAutoCashout(t)}</li>
-                    <li className="number-dot"><span className="title-text">{t("subtitle_auto_play", { ns: "Common" })}</span>{renderAutoPlay(t)}</li>
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_auto_cashout", { ns: "Common" })}</span>
+                        {renderAutoCashout(t)}
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_auto_play", { ns: "Common" })}</span>
+                        {renderAutoPlay(t)}
+                    </li>
                 </ul>
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            <MD5CrashTolgee {...{
-                step1ImageUrl: `${rootImgUrl}step_1_${locale}.png?v=${buildVersion}`,
-                step2ImageUrl: `${rootImgUrl}step_2_${locale}.png?v=${buildVersion}`,
-                step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,
-                step4ImageUrl: `${rootImgUrl}step_4.png?v=${buildVersion}`,
-                note: "",
-                validationDescription: <div><div>{t(`md5valid_para_1`)}</div><img src={`${rootImgUrl}statistics-bar.png?v=${buildVersion}`} alt="statistics-bar"/></div>,
-
-            }} />
-            < TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
-        </ul >
+            <MD5CrashTolgee
+                {...{
+                    step1ImageUrl: `${rootImgUrl}step_1_${locale}.png?v=${buildVersion}`,
+                    step2ImageUrl: `${rootImgUrl}step_2_${locale}.png?v=${buildVersion}`,
+                    step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,
+                    step4ImageUrl: `${rootImgUrl}step_4.png?v=${buildVersion}`,
+                    note: "",
+                    validationDescription: (
+                        <div>
+                            <div>{t(`md5valid_para_1`)}</div>
+                            <img src={`${rootImgUrl}statistics-bar.png?v=${buildVersion}`} alt="statistics-bar" />
+                        </div>
+                    ),
+                }}
+            />
+            <TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
+        </ul>
     );
 };
 
