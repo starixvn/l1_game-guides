@@ -10,6 +10,7 @@ import { RenderContentByList } from "../base/terms-and-conditions/terms-and-cond
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { SpaceFlightContentsProps } from "./type";
+import appSettings from "../../../common/app-settings";
 
 const renderGameRules = (t: Function) => {
     let commonResources: ContentList = {
@@ -100,7 +101,7 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({
     name,
 }) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
-    const rootImgUrl = `/static/images/${name}/`;
+    const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
