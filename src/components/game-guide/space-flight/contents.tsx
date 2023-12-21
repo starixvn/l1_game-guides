@@ -1,7 +1,8 @@
 import { useTranslate } from "@tolgee/react";
 import React, { useEffect } from "react";
+import appSettings from "../../../common/app-settings";
 import { buildVersion } from "../../../common/constants";
-import { numberWithCommas } from "../../../helpers/number-helper";
+import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import ScrollToMD5 from "../../shared/md5-number";
 import MD5CrashTolgee from "../base/md5/md5-crash-tolgee";
@@ -10,7 +11,6 @@ import { RenderContentByList } from "../base/terms-and-conditions/terms-and-cond
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { SpaceFlightContentsProps } from "./type";
-import appSettings from "../../../common/app-settings";
 
 const renderGameRules = (t: Function) => {
     let commonResources: ContentList = {
@@ -85,7 +85,7 @@ const renderMultiplier = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("title_multiplier", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_para_1", { maxMultiplier: gameConfigs.maxBet })}</li>
+                <li>{t("multiplier_para_1", { maxMultiplier: `${numberWithCommasAndSuffix(gameConfigs.maxBet, 2, false)}` })}</li>
                 <li>{t("multiplier_para_2")}</li>
             </ul>
         </li>

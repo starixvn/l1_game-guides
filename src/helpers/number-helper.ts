@@ -14,4 +14,18 @@ const checkIsInteger = (number: string | number | object) => {
     return Number.isInteger(+number) ? +number : 0;
 };
 
-export { numberWithCommas, randomInteger, formatOdds, checkIsInteger };
+const formatCommasReg = /\B(?=(\d{3})+(?!\d))/g;
+const numberWithCommasAndSuffix = (number: number, toFixed = 1, noZeroSuffix = true) => {
+    if (number) {
+        let trimZeroNumber: string;
+        if (noZeroSuffix) {
+            trimZeroNumber = `${+(+number).toFixed(toFixed)}`;
+        } else {
+            trimZeroNumber = (+number).toFixed(toFixed);
+        }
+        return trimZeroNumber.replace(formatCommasReg, ",");
+    }
+
+    return "0";
+};
+export { checkIsInteger, formatOdds, numberWithCommas, numberWithCommasAndSuffix, randomInteger };
