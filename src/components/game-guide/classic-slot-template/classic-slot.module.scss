@@ -163,6 +163,7 @@
         align-items: center;
         grid-gap: 1rem;
         grid-template-columns: repeat(5, 7rem);
+        margin-bottom: .8rem;
     }
 
     @media (min-width: 768px) {
