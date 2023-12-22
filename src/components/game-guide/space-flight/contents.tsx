@@ -85,7 +85,9 @@ const renderMultiplier = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("title_multiplier", { ns: "Common" })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_para_1", { maxMultiplier: `${numberWithCommasAndSuffix(gameConfigs.maxBet, 2, false)}` })}</li>
+                <li>
+                    {t("multiplier_para_1", { maxMultiplier: `${numberWithCommasAndSuffix(gameConfigs?.maxMultiplier || 0, 2, false)}` })}
+                </li>
                 <li>{t("multiplier_para_2")}</li>
             </ul>
         </li>

@@ -48,4 +48,8 @@ export type GameConfigs = {
     odds?: any;
     originalOdds?: any;
     maxWinPerRound?: number;
+    maxMultiplier?: number;
+    enableFreeBet?: boolean;
+    chips?: number[];
+    stakeLevels?: number[];
 };
