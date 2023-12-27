@@ -31,10 +31,6 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
-export const getImageDirectoryName = (): string => {
-    return "/static/images/space-flight";
-};
-
 const SpaceFlightGuide = (props: GameGuideBase) => {
     const {
         gameConfigs,
@@ -73,32 +69,31 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
-        if (configs) {
-            if (isGetGameConfigs) {
-                getDynamicGameConfig();
-            }
-        }
-    }, [configs]);
+        configs && isGetGameConfigs && getDynamicGameConfig();
+    }, []);
 
     if (!configs) {
         return <></>;
     }
+    else {
+        return (
+            <TolgeeProvider tolgee={tolgee} fallback="">
+                <SpaceFlightContents
+                    {...{
+                        gameConfigs: configs,
+                        fractionalOddsFormat,
+                        locale: tolgee.getLanguage(),
+                        userStakeLevel,
+                        isScrollMD5,
+                        displayName,
+                        name: name ?? gameSetting?.Name,
+                    }}
+                />
+            </TolgeeProvider>
+        );
+    }
 
-    return (
-        <TolgeeProvider tolgee={tolgee} fallback="">
-            <SpaceFlightContents
-                {...{
-                    gameConfigs: configs,
-                    fractionalOddsFormat,
-                    locale: tolgee.getLanguage(),
-                    userStakeLevel,
-                    isScrollMD5,
-                    displayName,
-                    name: name ?? gameSetting?.Name,
-                }}
-            />
-        </TolgeeProvider>
-    );
+   
 };
 
 export default SpaceFlightGuide;
