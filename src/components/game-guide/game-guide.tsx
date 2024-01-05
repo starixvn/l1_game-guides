@@ -8,6 +8,7 @@ import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
 import CascadingSlotGuide from "./cascading-slot-template";
+import ChineseBlackjackGameGuide from "./chinese-blackjack";
 import ColorGameGuide from "./color-game";
 import DragontigerFightGuide from "./dragon-tiger-fight";
 import PontoonGuide from "./pontoon";
@@ -176,6 +177,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <ColorGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BANDAR_QIU_QIU:
                 return <BandarQiuQiuGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.CHINESE_BLACKJACK:
+                return <ChineseBlackjackGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
