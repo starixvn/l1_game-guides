@@ -23,6 +23,7 @@ abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {
             gameSetting,
             displayName,
             jackpot,
+            scrollToId
         } = this.props;
 
         const { gameSettings } = appSettings;
@@ -42,6 +43,8 @@ abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {
             gameSetting,
             displayName,
             jackpot: jackpot,
+            scrollToId
+
         };
     }
 

@@ -43,6 +43,7 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
         isScrollMD5,
         displayName,
         name,
+        scrollToId
     } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
@@ -87,6 +88,7 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
                         isScrollMD5,
                         displayName,
                         name: name ?? gameSetting?.Name,
+                        scrollToId
                     }}
                 />
             </TolgeeProvider>

@@ -1,15 +1,15 @@
+import { NextPageContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
-import { buildVersion, ENVIRONMENT } from "../common/constants";
-import GameGuide from "../components/game-guide/game-guide";
+import { ENVIRONMENT, buildVersion } from "../common/constants";
 import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
-import { checkIsInteger } from "../helpers/number-helper";
-import { NextPageContext } from "next";
+import GameGuide from "../components/game-guide/game-guide";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewCascadingSlot, isNewSlotGame } from "../helpers/game-helper";
+import { checkIsInteger } from "../helpers/number-helper";
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -77,6 +77,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     const [fractionalOddsFormat, setFractionalOddsFormat] = useState<boolean>(false);
     const [displayName, setDisplayName] = useState<string>("");
     const [jackpot, setJackpot] = useState<boolean>(false);
+    const [scrollToId, setScrollToId] = useState<string>("");
 
 
     const getTemplateFollowEnv = () => {
@@ -94,7 +95,8 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             fractionalOddsFormat,
             gameSetting,
             displayName,
-            jackpot
+            jackpot, 
+            scrollToId
         };
 
         if (environment === ENVIRONMENT.si) {
@@ -136,6 +138,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             queryParams?.jackpot && queryParams?.jackpot === "true" && setJackpot(true);
             queryParams?.c && +queryParams?.c === 0 && setIsGetGameConfigs(false);
             queryParams?.md5 && +queryParams?.md5 === 1 && setIsScrollMD5(true);
+            queryParams?.scrollToId && setScrollToId(queryParams.scrollToId);
         }
 
         bindEvent(window, "message", function (event: any) {

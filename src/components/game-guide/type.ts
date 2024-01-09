@@ -13,6 +13,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     project?: string;
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
+    scrollToId?: string;
 };
 
 export type GameGuideBase = {
@@ -34,6 +35,7 @@ export type GameGuideBase = {
     folderConfigName?: string;
     displayName?: string;
     jackpot?: boolean;
+    scrollToId?: string;
 };
 
 export interface GameConfigsBaseProps {

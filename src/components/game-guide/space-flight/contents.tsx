@@ -4,7 +4,7 @@ import appSettings from "../../../common/app-settings";
 import { buildVersion } from "../../../common/constants";
 import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
-import ScrollToMD5 from "../../shared/md5-number";
+import { scrollToIDContent } from "../../shared/md5-number";
 import MD5CrashTolgee from "../base/md5/md5-crash-tolgee";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
@@ -98,14 +98,14 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({
     gameConfigs,
     locale,
     userStakeLevel,
-    isScrollMD5,
     displayName,
     name,
+    scrollToId,
 }) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     useEffect(() => {
-        isScrollMD5 && ScrollToMD5();
+        scrollToId !== "" && scrollToIDContent(scrollToId);
     });
 
     return (

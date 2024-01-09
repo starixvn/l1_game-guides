@@ -7,4 +7,5 @@ export type SpaceFlightContentsProps = {
     isScrollMD5: boolean | undefined;
     displayName: string | undefined;
     name: string | undefined;
+    scrollToId: string | undefined;
 };

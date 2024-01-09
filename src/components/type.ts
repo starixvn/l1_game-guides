@@ -1,6 +1,6 @@
-import { GameConfigs, UserStakeLevelProps } from "../pages";
 import { WithTranslation } from "next-i18next";
 import { WithRouterProps } from "next/dist/client/with-router";
+import { GameConfigs, UserStakeLevelProps } from "../pages";
 
 export type BaseProps = {
     name: string;
@@ -17,5 +17,6 @@ export type BaseProps = {
     gameSetting: any;
     displayName: string;
     jackpot: boolean;
+    scrollToId: string;
 } & WithTranslation &
     WithRouterProps;
