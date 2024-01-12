@@ -48,15 +48,15 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
                             <tbody>
                                 <tr>
                                     <td>{t("glossary_hand_ranking_ban-ban")}</td>
-                                    <td>{formatOdds(odds?.banban, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.banBan, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_hand_ranking_ban-luck")}</td>
-                                    <td>{formatOdds(odds?.banluck, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.banLuck, fractionalOddsFormat)}</td>
                                 </tr>
 
                                 <tr>
-                                    <td>{t("hand_ranking_five-card_trick")}</td>
+                                    <td>{t("glossary_hand_ranking_five-card_trick")}</td>
                                     <td>{formatOdds(odds?.fiveCardTrick, fractionalOddsFormat)}</td>
                                 </tr>
                                 <tr>
@@ -147,8 +147,8 @@ const PointCalculationRules = (t: Function) => {
                         <table className="table text-center">
                             <thead>
                                 <tr>
-                                    <th className={Styles["col-option"]}>{t("header_options")}</th>
-                                    <th>{t("header_hand_ranking")}</th>
+                                    <th className={Styles["col-option"]}>{t("header_hand_ranking")}</th>
+                                    <th>{t("header_description")}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,7 +169,7 @@ const PointCalculationRules = (t: Function) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("hand_ranking_five-card_trick")}</td>
+                                    <td>{t("glossary_hand_ranking_five-card_trick")}</td>
                                     <td className="text-start">
                                         <ul className="desc">
                                             <li>

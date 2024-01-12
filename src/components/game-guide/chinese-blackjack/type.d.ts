@@ -1,8 +1,8 @@
 import { GameConfigsBaseProps } from "../type";
 
 export interface OddsProps {
-    banban: number;
-    banluck: number;
+    banBan: number;
+    banLuck: number;
     regular: number;
     fiveCardTrick: number;
 }

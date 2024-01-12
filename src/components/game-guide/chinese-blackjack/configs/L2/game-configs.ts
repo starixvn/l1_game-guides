@@ -1,7 +1,7 @@
 const odds = {
     fiveCardTrick: 3,
-    banban: 3,
-    banluck: 3,
+    banBan: 3,
+    banLuck: 3,
     regular: 2,
 };
 
