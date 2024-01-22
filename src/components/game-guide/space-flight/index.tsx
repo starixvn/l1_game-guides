@@ -70,8 +70,8 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
-        configs && isGetGameConfigs && getDynamicGameConfig();
-    }, []);
+         isGetGameConfigs && getDynamicGameConfig();
+    }, [configs]);
 
     if (!configs) {
         return <></>;
