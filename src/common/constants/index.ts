@@ -32,7 +32,7 @@ export const BACKGROUND_THEMES: IObjectKeys = {
     [Themes.infoSite]: "#FFF",
 };
 
-export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si" };
+export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si", pf: "pf" };
 
 export const PROJECTS = { L1: "L1", L2: "L2" };
 
@@ -98,6 +98,7 @@ export const GAMES = {
     COLOR_GAME: 71,
     BANDAR_QIU_QIU: 75,
     SPACE_FLIGHT: 73,
+    CHINESE_BLACKJACK: 77,
 };
 
 export const GAMES_MINI = {

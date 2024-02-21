@@ -1,15 +1,18 @@
 import { NextPageContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTheme } from "next-themes";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
 import { ENVIRONMENT, buildVersion } from "../common/constants";
-import GameGuideMini from "../components/game-guide-mini/game-guide-mini";
-import GameGuide from "../components/game-guide/game-guide";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewCascadingSlot, isNewSlotGame } from "../helpers/game-helper";
 import { checkIsInteger } from "../helpers/number-helper";
+
+const GameGuideMini = dynamic(() => import("../components/game-guide-mini/game-guide-mini"));
+const GameGuide = dynamic(() => import("../components/game-guide/game-guide"));
+const GameGuidePF = dynamic(() => import("../components/game-guide-pf/game-guide-pf"));
 
 export interface UserStakeLevelProps {
     minBet?: number;
@@ -79,7 +82,6 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     const [jackpot, setJackpot] = useState<boolean>(false);
     const [scrollToId, setScrollToId] = useState<string>("");
 
-
     const getTemplateFollowEnv = () => {
         const props = {
             gameId,
@@ -95,12 +97,16 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             fractionalOddsFormat,
             gameSetting,
             displayName,
-            jackpot, 
-            scrollToId
+            jackpot,
+            scrollToId,
         };
 
         if (environment === ENVIRONMENT.si) {
             return <GameGuideMini {...props} />;
+        }
+
+        if (environment === ENVIRONMENT.pf) {
+            return <GameGuidePF {...props} />;
         }
 
         return <GameGuide {...props} />;
@@ -183,7 +189,14 @@ export const getServerSideProps = async (context: NextPageContext) => {
     return {
         props: {
             gameSetting: await getGameSetting(+gameId),
-            ...(await serverSideTranslations(context.locale ?? "en", ["common", "blackjack", "sicbo", "threecards", "classicslot", "cascadingslot"])),
+            ...(await serverSideTranslations(context.locale ?? "en", [
+                "common",
+                "blackjack",
+                "sicbo",
+                "threecards",
+                "classicslot",
+                "cascadingslot",
+            ])),
         },
     };
 };

@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { v4 as uuidv4 } from "uuid";
 import { TFunction, useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
 import appSettings from "../../common/app-settings";
+import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
 
 type TLocalStorageData = {
