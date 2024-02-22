@@ -1,208 +1,123 @@
-import { T, useTranslate } from "@tolgee/react";
-import { Markup } from "interweave";
+import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
 import React from "react";
-import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
-import { UserStakeLevelProps } from "../../../pages";
 
-import { GameConfigs } from "../../game-guide/type";
+import { Markup } from "interweave";
+import { renderContentPFBase } from "../base";
 import Styles from "./chinese-blackjack-pf-game.module.scss";
 import { ChineseBlackjackPFContentsProps } from "./type";
 
-const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
         <li className="guide-item">
-            <h2>{t("gamerules_title", { ns: "Common" })}</h2>
+            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
+            <div className={Styles["center-img"]}>
+                <img src="./static/images/pf/final-result.png" alt="pf"></img>
+            </div>
+            <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
             <ul className="desc">
-                <li>{t("gamerules_para_1", { ns: "ColorGame" })}</li>
-                <li>{t("gamerules_para_2", { ns: "ColorGame" })}</li>
-                <li>{t("gamerules_para_3", { ns: "ColorGame" })}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "ChineseBlackjack" })} />}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "ChineseBlackjack" })} />}</li>
+            </ul>
+        </li>
+    );
+};
+
+const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    return (
+        <li className="guide-item">
+            <h2>{t("pf_title_Verify_the_Provably_Fair", { ns: "ChineseBlackjack" })}</h2>
+            <ul className="style-number-dot">
+                {renderBeforeConfirmingBet(t)}
+
+                {renderAfterSettling(t)}
+            </ul>
+        </li>
+    );
+};
+
+const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    return (
+        <li className="number-dot">
+            <span className="title-text">{t("pf_subtitle_start_the_game_round", { ns: "ChineseBlackjack" })}</span>
+            <ul className="desc">
                 <li>
-                    {" "}
-                    <T
-                        keyName="gamerules_para_4"
-                        params={{ minmaxvalue: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
-                    />
+                    {<Markup content={t("pf_start_game_round_para_1.1", { ns: "ChineseBlackjack" })} />}{" "}
+                    <img style={{ backgroundColor: "white" }} src="./static/images/chinese-blackjack/pf/btn-pf.png" alt="pf"></img>{" "}
+                    {<Markup content={t("pf_start_game_round_para_1.2.1", { ns: "ChineseBlackjack" })} />}{" "}
                 </li>
+
+                <div className={Styles["center-img"]}>
+                    <img src="./static/images/chinese-blackjack/pf/popup-client-seed.png" alt="pf"></img>
+                </div>
+
+                <li>{<Markup content={t("pf_start_game_round_para_2", { ns: "ChineseBlackjack" })} />}</li>
+                <li>{<Markup content={t("pf_start_game_round_para_3", { ns: "ChineseBlackjack" })} />}</li>
             </ul>
         </li>
     );
 };
 
-const renderPayout = (
-    t: Function,
-    gameConfigs: GameConfigs,
-    userStakeLevel: UserStakeLevelProps | undefined,
-    fractionalOddsFormat?: boolean
-) => {
-    const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
-    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetYellow = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.yellow));
-    const maxBetHot = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.hot));
-
+const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
-        <li className="guide-item">
-            <h2>{t("title_payouts", { ns: "Common" })}</h2>
-            <ul className="desc">
-                <li>{<Markup content={t("payouts_para_1", { ns: "ColorGame" })} />}</li>
-                <li>{t("payouts_para_2", { ns: "ColorGame" })}</li>
-                <li className="contentBeforeEmpty">
-                    <div className="table-container">
-                        <table className="table text-center">
-                            <thead>
-                                <tr className={Styles["payout-header"]}>
-                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["description"]}`}>{t("header_description", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["nowrap"]}`}>
-                                        <Markup content={t("header_betlimit", { ns: "Common" })} />{" "}
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowSpan={3}>{t(`option_specific_color`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_specific_color_1`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.single, fractionalOddsFormat)}</td>
-                                    <td rowSpan={3} className={Styles["nowrap"]}>
-                                        {minBetMain} - {maxBetYellow}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`desc_specific_color_2`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.double, fractionalOddsFormat)}</td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`desc_specifci_color_3`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`option_hot`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_hot`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.hot, fractionalOddsFormat)}</td>
-                                    <td rowSpan={2}>
-                                        {minBetMain} - {maxBetHot}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`option_cold`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_cold`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.cold, fractionalOddsFormat)}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <li className="number-dot">
+            <span className="title-text">{t("pf_subtitle_after_settling", { ns: "ChineseBlackjack" })}</span>
+            <ul className="style-number-dot-number">
+                <li className="number-dot-number">
+                    <span className="title-text">{t("pf_subtitle_verify_fairness_of_server_seed_SHA256", { ns: "ChineseBlackjack" })}</span>
+                    <ul className="desc">
+                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_1", { ns: "ChineseBlackjack" })} />}</li>
+                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_2", { ns: "ChineseBlackjack" })} />}</li>
+
+                        <div className={Styles["center-img"]}>
+                            <img src="./static/images/chinese-blackjack/pf/popup-verify.png" alt="pf"></img>
+                        </div>
+
+                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_3", { ns: "ChineseBlackjack" })} />}</li>
+
+                        <div className={Styles["center-img"]}>
+                            <img src="./static/images/chinese-blackjack/pf/check-sha256.png" alt="pf"></img>
+                        </div>
+
+                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_4", { ns: "ChineseBlackjack" })} />}</li>
+
+                        <p>{t("pf_verify_server_seed_SHA256_para_5", { ns: "ChineseBlackjack" })}</p>
+                    </ul>
+                </li>
+
+                <li className="number-dot-number">
+                    <span className="title-text">{t("pf_subtitle_verify_impact_of_cliend_seed", { ns: "ChineseBlackjack" })}</span>
+                    <ul className="desc">
+                        <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_1", { ns: "ChineseBlackjack" })} />}</li>
+
+                        <div className={Styles["center-img"]}>
+                            <img src="./static/images/chinese-blackjack/pf/pf_verify_success.png" alt="pf"></img>
+                        </div>
+
+                        <li>
+                            {<Markup content={t("pf_verify_impact_of_client_seed_para_2", { ns: "ChineseBlackjack" })} />}{" "}
+                            <ul className="plus">
+                                <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_3", { ns: "ChineseBlackjack" })} />} </li>
+                            </ul>
+                        </li>
+
+                        <div className={Styles["center-img"]}>
+                            <img src="./static/images/chinese-blackjack/pf/compare-server-client-seed.png" alt="pf"></img>
+                        </div>
+                    </ul>
                 </li>
             </ul>
         </li>
     );
 };
-
-const renderIntro = () => {
-    return (
-        <>
-            <div style={{ textAlign: "center" }}>
-                <h1>Where Transparency Meets Trust!</h1>
-                <p>
-                    Provably Fair ensures trust in {`{gamename}`}, making it 100% guaranteed fair and ensuring the transparency of every
-                    round result.
-                </p>
-
-                <img className={Styles["wrapper-img"]} src="./static/images/pf/pf.png" alt="pf"></img>
-            </div>
-        </>
-    );
-};
-
-const renderPFInfo = () => {
-    return (
-        <li className="guide-item">
-            <h2>What is Provably Fair?</h2>
-            <div className="content">
-                <strong>Provably fairness</strong> is a technology-based algorithm that can be analyzed and tested for fairness. It allows
-                players to manually and personally verify the fairness of the games they play online.
-            </div>
-        </li>
-    );
-};
-
-const renderPFWork = () => {
-    return (
-        <>
-            <li className="guide-item">
-                <h2>How does Provably Fair work?</h2>
-                <div className="content">
-                    The “Provably Fair” system allows both the <strong>Casino Operator</strong> and <strong>Players</strong> to contribute
-                    to the results generated.
-                </div>
-
-                <img className={Styles["wrapper-img"]} src="./static/images/pf/fair-result.png" alt="pf"></img>
-                <p>There are 3 main parameters in Provably Fair</p>
-                <ul className="desc">
-                    <li>
-                        <strong>Server Seed</strong> is provided by the Game Server. It is not revealed to the Player until the result is
-                        published.
-                    </li>
-                    <li>
-                        <strong>Client Seed</strong> is a set of characters provided by the Player’s browser and can be adjusted. The Casino
-                        Operator {`doesn't`}
-                        know about this seed until the Player places the bet. This is a key factor in knowing the Player played a part in
-                        the game’s result randomness.
-                    </li>
-                    <li>
-                        <strong>Nonce</strong> is simply a number that increments as every new bet is made. Not every Casino provider uses
-                        this variable, though. {`It's`} optional.
-                    </li>
-                </ul>
-                <p>
-                    The chart below outlines how the Server Seed, Client Seed, and Nonce are merged and transformed into the final result.{" "}
-                </p>
-                <div className={Styles["center-img"]}>
-                    <img src="./static/images/pf/flow-final-result.png" alt="pf"></img>
-                </div>
-            </li>
-        </>
-    );
-};
-
-const renderApplyPF = () => {
-    return (
-        <>
-            <li className="guide-item">
-                <h2>Apply Provably Fair into Chinese Blackjack</h2>
-                <div className={Styles["center-img"]}>
-                    <img src="./static/images/pf/final-result.png" alt="pf"></img>
-                </div>
-                <p>In Chinese Blackjack, Server Seed and Client Seed are two fundamental parts of the provably fair algorithms</p>
-                <ul className="desc">
-                    <li>
-                        <strong>Server Seed:</strong> is the order of card deck that is randomly generated at the beginning of the game
-                        round
-                    </li>
-
-                    <li>
-                        <strong>Client Seed:</strong> is the position where the Player wants to cut the card deck
-                    </li>
-                </ul>
-            </li>
-        </>
-    );
-};
-
-const ChineseBlackjackPFContents: React.FC<ChineseBlackjackPFContentsProps> = ({
-    gameConfigs,
-    fractionalOddsFormat,
-    locale,
-    userStakeLevel,
-}) => {
-    const { t } = useTranslate(["ColorGame", "Common"]);
+const ChineseBlackjackPFContents: React.FC<ChineseBlackjackPFContentsProps> = ({ locale, displayName }) => {
+    const { t } = useTranslate(["ChineseBlackjack", "Common"]);
 
     return (
         <div>
-            {renderIntro()}
             <ul className={`game-guide`}>
-                {renderPFInfo()}
-                {renderPFWork()}
-                {renderApplyPF()}
+                {renderContentPFBase(t, displayName || "")}
+                {renderHowPFInGame(t)}
+                {renderVerifyPF(t)}
             </ul>
         </div>
     );
