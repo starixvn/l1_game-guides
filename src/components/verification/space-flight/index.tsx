@@ -35,30 +35,29 @@ const renderFinalResult = (hex: string = "4f1f06cd") => {
 };
 
 const SpaceFlightVerification = (props: VerificationBase) => {
-    const { dynamic, provablyFair, displayName, name } = props;
+    const { dynamic, provablyFair } = props;
     const digits = takeFirstValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
     return (
-        <ul className={`${Styles["container-guide"]}`}>
-            <div className={`${Styles["form-title"]}`}>Verification</div>
+        <ul className="game-guide">
             <div>
-                <li className={`${Styles["verify-item"]}`}>
+                <li className="verify-item">
                     <h2 className="bold">Server Seed</h2>
-                    <div className={`${Styles["info-seed"]}`}>{provablyFair?.serverSeed ?? "10227f5722eb364df623đa69ca610a74"}</div>
+                    <div className="info-seed">{provablyFair?.serverSeed ?? "10227f5722eb364df623đa69ca610a74"}</div>
                 </li>
 
-                <li className={`${Styles["verify-item"]}`}>
+                <li className="verify-item">
                     <h2 className="bold">Merge Client Seed</h2>
-                    <div className={`${Styles["info-seed"]}`}>{provablyFair?.mergeClientSeed ?? "109310131004599"}</div>
+                    <div className="info-seed">{provablyFair?.mergeClientSeed ?? "109310131004599"}</div>
                 </li>
-                <li className={`${Styles["verify-item"]}`}>
+                <li className="verify-item">
                     <h2 className="bold">Combined SHA512 hash</h2>
-                    <div className={`${Styles["info-seed"]}`}>
+                    <div className="info-seed">
                         {provablyFair?.finalHash ??
-                            "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70..."}
+                            "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}
                     </div>
                 </li>
                 <li>
-                    <div className={`${Styles["convert-info"]}`}>
+                    <div className="convert-info">
                         <div>
                             <strong>Final Result: </strong>
                             {renderFinalResult(digits)}
@@ -77,7 +76,8 @@ const SpaceFlightVerification = (props: VerificationBase) => {
                             <pre>{convertHexToDecimalSteps(digits)}</pre>
                         </div>
                         <div>
-                            <strong>Calculate Final Result </strong><br></br>
+                            <strong>Calculate Final Result </strong>
+                            <br></br>
                             {MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) = {renderFinalResult(digits)}
                         </div>
                     </div>
