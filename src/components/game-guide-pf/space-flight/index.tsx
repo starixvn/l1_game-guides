@@ -13,7 +13,7 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["SpaceFlight", "Common"],
+        ns: ["Spaceflight", "Common"],
         defaultNs: "ColorGame",
     });
 
@@ -29,7 +29,7 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
-const ChineseBlackjackPFGuide = (props: GameGuideBase) => {
+const SpaceFlightPFGuide = (props: GameGuideBase) => {
     const { displayName } = props;
 
     return (
@@ -39,4 +39,4 @@ const ChineseBlackjackPFGuide = (props: GameGuideBase) => {
     );
 };
 
-export default ChineseBlackjackPFGuide;
+export default SpaceFlightPFGuide;

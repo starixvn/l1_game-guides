@@ -5,6 +5,7 @@ import { withRouter } from "next/router";
 import { GAMES_PF } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import SpaceFlightPFGuide from "./space-flight";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -18,8 +19,9 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
         const gameGuideProps = this.getGameGuideProps();
         switch (gameId) {
             case GAMES_PF.CHINESE_BLACKJACK:
-                return <ChineseBlackjackPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
-
+                return <ChineseBlackjackPFGuide key={`game-${gameId}`} {...gameGuideProps} />;  
+            case GAMES_PF.SPACE_FLIGHT:
+                return <SpaceFlightPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
