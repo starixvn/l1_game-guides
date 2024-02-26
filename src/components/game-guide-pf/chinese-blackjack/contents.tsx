@@ -2,16 +2,17 @@ import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee
 import React from "react";
 
 import { Markup } from "interweave";
+import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderContentPFBase } from "../base";
 import Styles from "./chinese-blackjack-pf-game.module.scss";
 import { ChineseBlackjackPFContentsProps } from "./type";
 
-const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
             <div className={Styles["center-img"]}>
-                <img src="./static/images/pf/final-result.png" alt="pf"></img>
+                <img src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
             </div>
             <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
             <ul className="desc">
@@ -22,32 +23,36 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>)
     );
 };
 
-const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_Verify_the_Provably_Fair", { ns: "ChineseBlackjack" })}</h2>
             <ul className="style-number-dot">
-                {renderBeforeConfirmingBet(t)}
+                {renderBeforeConfirmingBet(t, verImg)}
 
-                {renderAfterSettling(t)}
+                {renderAfterSettling(t, verImg)}
             </ul>
         </li>
     );
 };
 
-const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_start_the_game_round", { ns: "ChineseBlackjack" })}</span>
             <ul className="desc">
                 <li>
                     {<Markup content={t("pf_start_game_round_para_1.1", { ns: "ChineseBlackjack" })} />}{" "}
-                    <img style={{ backgroundColor: "white" }} src="./static/images/chinese-blackjack/pf/btn-pf.png" alt="pf"></img>{" "}
-                    {<Markup content={t("pf_start_game_round_para_1.2.1", { ns: "ChineseBlackjack" })} />}{" "}
+                    <img
+                        style={{ backgroundColor: "white" }}
+                        src={`./static/images/chinese-blackjack/pf/btn-pf.png?v=${verImg}`}
+                        alt="pf"
+                    ></img>{" "}
+                    {<Markup content={t("pf_start_game_round_para_1.2", { ns: "ChineseBlackjack" })} />}{" "}
                 </li>
 
                 <div className={Styles["center-img"]}>
-                    <img src="./static/images/chinese-blackjack/pf/popup-client-seed.png" alt="pf"></img>
+                    <img src={`./static/images/chinese-blackjack/pf/popup-client-seed.png?v=${verImg}`} alt="pf"></img>
                 </div>
 
                 <li>{<Markup content={t("pf_start_game_round_para_2", { ns: "ChineseBlackjack" })} />}</li>
@@ -57,7 +62,7 @@ const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, Translat
     );
 };
 
-const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_after_settling", { ns: "ChineseBlackjack" })}</span>
@@ -69,13 +74,13 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_2", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className={Styles["center-img"]}>
-                            <img src="./static/images/chinese-blackjack/pf/popup-verify.png" alt="pf"></img>
+                            <img src={`./static/images/chinese-blackjack/pf/popup-verify.png?v=${verImg}`} alt="pf"></img>
                         </div>
 
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_3", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className={Styles["center-img"]}>
-                            <img src="./static/images/chinese-blackjack/pf/check-sha256.png" alt="pf"></img>
+                            <img src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`} alt="pf"></img>
                         </div>
 
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_4", { ns: "ChineseBlackjack" })} />}</li>
@@ -90,19 +95,32 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                         <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_1", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className={Styles["center-img"]}>
-                            <img src="./static/images/chinese-blackjack/pf/pf_verify_success.png" alt="pf"></img>
+                            <img src={`./static/images/chinese-blackjack/pf/pf_verify_success.png?v=${verImg}`} alt="pf"></img>
                         </div>
 
                         <li>
                             {<Markup content={t("pf_verify_impact_of_client_seed_para_2", { ns: "ChineseBlackjack" })} />}{" "}
                             <ul className="plus">
-                                <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_3", { ns: "ChineseBlackjack" })} />} </li>
+                                <li>
+                                    {<Markup content={t("pf_verify_impact_of_client_seed_para_3", { ns: "ChineseBlackjack" })} />}
+                                    <p className={Styles["center-text"]}>
+                                        <strong>{t("pf_server_Seed", { ns: "Common" })}</strong>
+                                    </p>
+                                    <div className={Styles["center-img"]}>
+                                        <img src={`./static/images/chinese-blackjack/pf/server-seed.png?v=${verImg}`} alt="pf"></img>
+                                    </div>
+                                </li>
+                                <li>
+                                    {<Markup content={t("pf_verify_impact_of_client_seed_para_4", { ns: "ChineseBlackjack" })} />}
+                                    <p className={Styles["center-text"]}>
+                                        <strong>{t("pf_final_result", { ns: "Common" })}</strong>
+                                    </p>
+                                    <div className={Styles["center-img"]}>
+                                        <img src={`./static/images/chinese-blackjack/pf/final-result.png?v=${verImg}`} alt="pf"></img>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
-
-                        <div className={Styles["center-img"]}>
-                            <img src="./static/images/chinese-blackjack/pf/compare-server-client-seed.png" alt="pf"></img>
-                        </div>
                     </ul>
                 </li>
             </ul>
@@ -111,13 +129,14 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
 };
 const ChineseBlackjackPFContents: React.FC<ChineseBlackjackPFContentsProps> = ({ locale, displayName }) => {
     const { t } = useTranslate(["ChineseBlackjack", "Common"]);
-
+    const { imgVersion } = useImgVersionContext();
+    const verImg = imgVersion || "";
     return (
         <div>
             <ul className={`game-guide`}>
-                {renderContentPFBase(t, displayName || "")}
-                {renderHowPFInGame(t)}
-                {renderVerifyPF(t)}
+                {renderContentPFBase(t, displayName || "", verImg)}
+                {renderHowPFInGame(t, verImg)}
+                {renderVerifyPF(t, verImg)}
             </ul>
         </div>
     );
