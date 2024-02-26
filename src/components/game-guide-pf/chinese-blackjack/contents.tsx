@@ -53,6 +53,7 @@ const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, Translat
 
                 <li>{<Markup content={t("pf_start_game_round_para_2", { ns: "ChineseBlackjack" })} />}</li>
                 <li>{<Markup content={t("pf_start_game_round_para_3", { ns: "ChineseBlackjack" })} />}</li>
+                <li>{<Markup content={t("pf_start_game_round_para_4", { ns: "ChineseBlackjack" })} />}</li>
             </ul>
         </li>
     );
