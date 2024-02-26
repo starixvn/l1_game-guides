@@ -32,7 +32,7 @@ abstract class VerifyBase<P extends PFProps> extends React.PureComponent<P> {
     abstract renderVerification(): React.ReactElement;
 
     render() {
-        return <div className="verification-container">{this.renderVerification()}</div>;
+        return <div className="game-container">{this.renderVerification()}</div>;
     }
 }
 
