@@ -115,6 +115,43 @@ ul {
         color: var(--primary-color);
     }
 
+    span{
+        margin:  0.5rem 0;
+    }
+    .convert-info{
+        border: 1px solid #333;
+        border-radius: 3px;
+        padding: 4px 10px;
+        word-wrap: break-word;
+    }
+    
+    .form-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        border: 1px solid #333;
+        padding: 6px 16px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .verify-item{
+        margin-top: 8px;
+        h2{
+            margin-bottom: 4px;
+        }
+        .info-seed {
+            border-radius: 3px;
+            border: 1px solid #333;
+            outline: none;
+            background-color: transparent;
+            margin: 0 0 15px 0;
+            line-height: normal;
+            height: 30px;
+            padding: 6px 6px;
+        }
+    }
  
     .guide-item {
         counter-increment: guide-list;
