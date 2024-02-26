@@ -18,7 +18,7 @@ const convertToHexString = (hex: string) => {
 
 const convertHexToDecimalSteps = (hex: string = "4f1f06cd") => {
     const decimal = convertToDecimal(hex);
-    const prefix = `(${convertToHexString(hex)})=${decimal})`;
+    const prefix = `(${convertToHexString(hex)})=${decimal}`;
     const suffix = `=${decimal}`;
     const steps = hex.split("").map((digit, index) => {
         const power = hex.length - 1 - index;
@@ -38,42 +38,51 @@ const SpaceFlightVerification = (props: VerificationBase) => {
     const { dynamic, provablyFair, displayName, name } = props;
     const digits = takeFirstValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
     return (
-        <ul className={`verify-guide`}>
-            <li className="verify-item">
-                <h2 className="bold">Server Seed</h2>
-                <div className={`${Styles["info-column"]}`}>{provablyFair?.serverSeed ?? "10227f5722eb364df623đa69ca610a74"}</div>
-            </li>
+        <ul className={`${Styles["container-guide"]}`}>
+            <div className={`${Styles["form-title"]}`}>Verification</div>
+            <div>
+                <li className={`${Styles["verify-item"]}`}>
+                    <h2 className="bold">Server Seed</h2>
+                    <div className={`${Styles["info-seed"]}`}>{provablyFair?.serverSeed ?? "10227f5722eb364df623đa69ca610a74"}</div>
+                </li>
 
-            <li className="verify-item">
-                <h2 className="bold">Merge Client Seed</h2>
-                <div className={`${Styles["info-column"]}`}>{provablyFair?.mergeClientSeed ?? "109310131004599"}</div>
-            </li>
-            <li className="verify-item">
-                <h2 className="bold">Combined SHA512 hash</h2>
-                <div className={`${Styles["info-column"]}`}>
-                    {provablyFair?.finalHash ??
-                        "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}
-                </div>
-            </li>
-            <li>
-                <div>
-                    <strong>Final Result: </strong>
-                    {renderFinalResult(digits)}
-                </div>
-                <div>
-                    <strong>Combined SHA512 hash</strong> <br></br>
-                    {provablyFair?.finalHash ??
-                        "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}
-                </div>
-                <div>
-                    <strong>Convert to Decimal </strong>
-                    <pre>{convertHexToDecimalSteps(digits)}</pre>
-                </div>
-                <div>
-                    <strong>Calculate Final Result </strong>
-                    {MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) = {renderFinalResult(digits)}
-                </div>
-            </li>
+                <li className={`${Styles["verify-item"]}`}>
+                    <h2 className="bold">Merge Client Seed</h2>
+                    <div className={`${Styles["info-seed"]}`}>{provablyFair?.mergeClientSeed ?? "109310131004599"}</div>
+                </li>
+                <li className={`${Styles["verify-item"]}`}>
+                    <h2 className="bold">Combined SHA512 hash</h2>
+                    <div className={`${Styles["info-seed"]}`}>
+                        {provablyFair?.finalHash ??
+                            "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70..."}
+                    </div>
+                </li>
+                <li>
+                    <div className={`${Styles["convert-info"]}`}>
+                        <div>
+                            <strong>Final Result: </strong>
+                            {renderFinalResult(digits)}
+                        </div>
+                        <div>
+                            <strong>Combined SHA512 hash</strong> <br></br>
+                            {provablyFair?.finalHash ??
+                                "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}
+                        </div>
+                        <div>
+                            <strong>Take first 8 digits from SHA512: </strong>{" "}
+                            {takeFirstValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd")}
+                        </div>
+                        <div>
+                            <strong>Convert to Decimal </strong>
+                            <pre>{convertHexToDecimalSteps(digits)}</pre>
+                        </div>
+                        <div>
+                            <strong>Calculate Final Result </strong><br></br>
+                            {MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) = {renderFinalResult(digits)}
+                        </div>
+                    </div>
+                </li>
+            </div>
         </ul>
     );
 };
