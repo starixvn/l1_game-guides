@@ -4,7 +4,7 @@ import React from "react";
 import { Markup } from "interweave";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderContentPFBase } from "../base";
-import Styles from "./chinese-blackjack-pf-game.module.scss";
+import Styles from "./../chinese-blackjack/chinese-blackjack-pf-game.module.scss";
 import { SpaceFlightPFContentsProps } from "./type";
 
 const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
@@ -128,7 +128,7 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, displayName }) => {
-    const { t } = useTranslate(["SpaceFlight", "Common"]);
+    const { t } = useTranslate(["Spaceflight", "Common"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     return (

@@ -116,6 +116,7 @@ export const GAMES_MINI = {
 
 export const GAMES_PF = {
     CHINESE_BLACKJACK: 77,
+    SPACE_FLIGHT: 73,
 };
 
 export const TolgeeConfig = {
