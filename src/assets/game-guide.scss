@@ -66,6 +66,15 @@
     }
 }
 
+[data-theme="pf"] .game-guide {
+    // text-size
+    --big-title-font-size: 2.6rem;
+    --title-font-size: 2.4rem;
+    --sub-title-font-size: 2rem;
+    --font-weight: 700;
+}
+
+
 ul {
     list-style: none;
     padding-left: 0;
@@ -101,7 +110,7 @@ ul {
     h1 {
         display: inline-block;
         font-size: var(--big-title-font-size);
-        font-weight: 500;
+        font-weight: var(--font-weight, 500);
         color: var(--primary-color);
     }
     .guide-item {
@@ -110,13 +119,13 @@ ul {
         h2 {
             display: inline-block;
             font-size: var(--title-font-size);
-            font-weight: 500;
+            font-weight: var(--font-weight, 500);
             color: var(--primary-color);
 
             &:before {
                 content: counter(guide-list) ". ";
                 color: var(--primary-color);
-                font-weight: 500;
+                font-weight: var(--font-weight, 500);
                 font-size: var(--title-font-size);
             }
         }
@@ -209,7 +218,7 @@ ul {
 
         th {
             border: var(--border-line) !important;
-            font-weight: 500;
+            font-weight: var(--font-weight, 500);
             color: var(--table-header-color);
         }
         thead {
@@ -258,12 +267,13 @@ ul {
 
             .title-text {
                 color: var(--primary-color);
+                font-size: var(--sub-title-font-size,var(--font-size));
             }
 
             &:before {
                 content: counter(guide-list) "." counter(number-dot-list) " ";
                 font-size: var(--sub-title-font-size);
-                font-weight: 500;
+                font-weight: var(--font-weight, 500);
                 color: var(--primary-color);
             }
             .style-number-dot-number {
@@ -279,7 +289,7 @@ ul {
                     &:before {
                         content: counter(guide-list) "." counter(number-dot-list) "." counter(number-dot-list-child) " ";
                         font-size: var(--sub-title-font-size);
-                        font-weight: 500;
+                        font-weight: var(--font-weight, 500);
                         color: var(--primary-color);
                     }
                 }
@@ -298,7 +308,7 @@ ul {
             &:before {
                 content: counter(guide-list) "." counter(number-dot-list) " ";
                 font-size: var(--sub-title-font-size);
-                font-weight: 500;
+                font-weight: var(--font-weight, 500);
             }
         }
     }
@@ -335,7 +345,7 @@ ul {
             margin: 0.5rem 0;
             margin-left: 1rem;
             list-style-type: lower-alpha;
-            font-weight: 700;
+            font-weight: var(--font-weight, 700);
             &:before {
                 content: "";
             }
@@ -346,14 +356,14 @@ ul {
 .guide-item-instant {
     &:before {
         color: var(--primary-color);
-        font-weight: 500;
+        font-weight: var(--font-weight, 500);
         font-size: var(--title-font-size);
     }
 
     h2 {
         display: inline-block;
         font-size: var(--title-font-size);
-        font-weight: 500;
+        font-weight: var(--font-weight, 500);
         color: var(--primary-color);
     }
 

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import appSettings from "../../common/app-settings";
-import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, locales, Themes } from "../../common/constants";
+import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, GAMES_PF, locales, Themes } from "../../common/constants";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
 
 type TLocalStorageData = {
@@ -38,6 +38,10 @@ const renderGameName = (setGameId: Function, t: TFunction, gameId: number, envir
     const getGameFollowEnv = () => {
         if (environment === ENVIRONMENT.si) {
             return Object.values(GAMES_MINI);
+        }
+        
+        if (environment === ENVIRONMENT.pf) {
+            return Object.values(GAMES_PF);
         }
 
         return Object.values(GAMES);

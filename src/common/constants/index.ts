@@ -16,6 +16,7 @@ export const Themes = {
     fruitSlot: "fruit-slot",
     fortuneCat: "fortune-cat",
     infoSite: "info-site",
+    pf: "pf",
 };
 
 export const BACKGROUND_THEMES: IObjectKeys = {
@@ -30,6 +31,7 @@ export const BACKGROUND_THEMES: IObjectKeys = {
     [Themes.fruitSlot]: "#2d2c2e",
     [Themes.fortuneCat]: "#060223",
     [Themes.infoSite]: "#FFF",
+    [Themes.pf]: "#5d5e70",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si", pf: "pf" };
@@ -110,6 +112,10 @@ export const GAMES_MINI = {
     HILO: 45,
     SICBO: 25,
     COLOR_GAME: 71,
+};
+
+export const GAMES_PF = {
+    CHINESE_BLACKJACK: 77,
 };
 
 export const TolgeeConfig = {

@@ -317,6 +317,34 @@
     }
 }
 
+
+[data-theme="pf"] {
+    --primary-color: #75d6ff;
+    --text-color: #fff;
+    --page-background: transparent;
+
+    // heading
+    --heading1: #fff;
+
+    // scrollbar
+    --scrollbar-background: linear-gradient(#8677be ,#aca6d5);
+    --scrollbar-thumb-background: #1b1f46;
+    --scrollbar-thumb-opacity: 0.6;
+
+    // font-size
+    --font-size: 1.8rem;
+    --font-size-table: 1.8rem;
+    --font-size-section: 2rem;
+
+    // table
+    --table-background: #292929;
+    --table-border: #323232;
+    --table-color: #fff;
+    --table-header-background: #141414;
+    --table-header-color: #fff;
+    --border-line: #323232 1px solid;
+}
+
 html {
     font-size: 10px !important;
     background-color: transparent;
@@ -372,7 +400,7 @@ label {
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-    background-color: var(--scrollbar-background);
+    background-color: var(--scrollbar-background, 1);
 }
 
 ::-webkit-scrollbar {
@@ -383,6 +411,7 @@ label {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb-background);
+    opacity: var(--scrollbar-thumb-opacity, 1);
 }
 
 .font-weight-medium {

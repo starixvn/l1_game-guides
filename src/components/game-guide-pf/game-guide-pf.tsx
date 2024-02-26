@@ -2,7 +2,7 @@ import { withTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
 
-import { GAMES } from "../../common/constants";
+import { GAMES_PF } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 
@@ -17,7 +17,7 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
         const { gameId } = this.props;
         const gameGuideProps = this.getGameGuideProps();
         switch (gameId) {
-            case GAMES.CHINESE_BLACKJACK:
+            case GAMES_PF.CHINESE_BLACKJACK:
                 return <ChineseBlackjackPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
 
             default:
