@@ -135,6 +135,9 @@ const PointCalculationRules = (t: Function) => {
                 </li>
                 <li>
                     {t("point_calculation_rules_para_2")}
+                    <ul className="detail">
+                        <li>{t("point_calculation_rules_para_2.1")}</li>
+                    </ul>
                     <div>{t("point_calculation_rules_para_3")}</div>
                     <ul className="detail">
                         <li>{t("point_calculation_rules_para_4")}</li>
