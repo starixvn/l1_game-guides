@@ -327,8 +327,8 @@
     --heading1: #fff;
 
     // scrollbar
-    --scrollbar-background: linear-gradient(#8677be ,#aca6d5);
-    --scrollbar-thumb-background: #1b1f46;
+    --scrollbar-background: #1b1f46;
+    --scrollbar-thumb-background: linear-gradient(to bottom, rgba(134, 119, 190, 0.6), rgba(172, 166, 213, 0.6)); ;
     --scrollbar-thumb-opacity: 0.6;
 
     // font-size
@@ -411,6 +411,7 @@ label {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb-background);
+    background-image: var(--scrollbar-thumb-background);
     opacity: var(--scrollbar-thumb-opacity, 1);
 }
 

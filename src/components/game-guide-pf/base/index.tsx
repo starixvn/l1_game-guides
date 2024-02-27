@@ -5,10 +5,10 @@ import Styles from "./pf-base.module.scss";
 const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
         <div style={{ textAlign: "center" }}>
-            <p>{<Markup content={t("pf_advertise_para_1", { ns: "Common" })} />}</p>
+            <span className={Styles["title-pf"]}>{<Markup content={t("pf_advertise_para_1", { ns: "Common" })} />}</span>
             <p>{<Markup content={t("pf_advertise_para_2", { ns: "Common", gamename: displayName })} />}</p>
 
-            <img className={Styles["wrapper-img"]} src={`./static/images/pf/pf.png?v=${imgVersion}`} alt="pf"></img>
+            <img className={Styles["wrapper-img"]} src={`./static/images/pf/pf-intro.png?v=${imgVersion}`} alt="pf"></img>
         </div>
     );
 };
@@ -37,8 +37,13 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
         <li className="guide-item">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
             <div className="content">{<Markup content={t("pf_how_pf_work_para_1", { ns: "Common" })} />}</div>
-            <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/fair-result.png?v=${imgVersion}`} alt="pf"></img>
+
+            <div className={Styles["intro-border"]}>
+                <span style={{ textAlign: "center" }}>
+                    <strong className="pf-text-yellow">{t("pf_fair_result", { ns: "Common" })}</strong> ={" "}
+                    <strong>{t("pf_casino_contribution", { ns: "Common" })}</strong> +{" "}
+                    <strong>{t("pf_player_contribution", { ns: "Common" })}</strong>
+                </span>
             </div>
 
             <p>{t("pf_how_pf_work_para_2", { ns: "Common" })}</p>
@@ -48,7 +53,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            <div className={Styles["center-img"]}>
+            <div className="center-img">
                 <img src={`./static/images/pf/flow-final-result.png?v=${imgVersion}`} alt="pf"></img>
             </div>
         </li>

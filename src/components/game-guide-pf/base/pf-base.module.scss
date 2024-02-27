@@ -6,8 +6,25 @@
     color: #26ff26;
 }
 
-.center-img{
+.title-pf{
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.intro-border{
+    background-image: url('/static/images/pf/bg-how-pf.png');
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 100%;
+    background-position: center;
     display: flex;
-    align-items: center;
+    text-align: center;
     justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.text-color-yellow{
+    color: #fbc35f;
 }
