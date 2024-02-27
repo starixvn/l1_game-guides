@@ -54,7 +54,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
             <div className="center-img">
-                <img src={`./static/images/pf/flow-final-result.png?v=${imgVersion}`} alt="pf"></img>
+                <img className="img-border" src={`./static/images/pf/flow-final-result.png?v=${imgVersion}`} alt="pf"></img>
             </div>
         </li>
     );

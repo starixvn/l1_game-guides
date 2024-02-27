@@ -12,7 +12,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
             <div className="center-img">
-                <img src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
+                <img className="img-border" src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
             </div>
             <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
             <ul className="desc">
@@ -76,7 +76,7 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_3", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className="center-img">
-                            <img src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`} alt="pf"></img>
+                            <img className="img-border" src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`} alt="pf"></img>
                         </div>
 
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_4", { ns: "ChineseBlackjack" })} />}</li>
