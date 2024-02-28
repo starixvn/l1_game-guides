@@ -9,13 +9,13 @@ import { ChineseBlackjackPFContentsProps } from "./type";
 
 const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, locale: string) => {
     return (
-        <li className="guide-item">
+        <li className="guide-item section">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
             <div className="center-img">
                 <img className="img-border" src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
             </div>
             <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
-            <ul className="desc">
+            <ul className="circle">
                 <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "ChineseBlackjack" })} />}</li>
                 <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "ChineseBlackjack" })} />}</li>
             </ul>
@@ -25,7 +25,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
 
 const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, locale: string) => {
     return (
-        <li className="guide-item">
+        <li className="guide-item section">
             <h2>{t("pf_title_Verify_the_Provably_Fair", { ns: "ChineseBlackjack" })}</h2>
             <ul className="style-number-dot">
                 {renderBeforeConfirmingBet(t, verImg, locale)}
@@ -40,7 +40,7 @@ const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, Translat
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_start_the_game_round", { ns: "ChineseBlackjack" })}</span>
-            <ul className="desc">
+            <ul className="circle">
                 <li>
                     {<Markup content={t("pf_start_game_round_para_1.1", { ns: "ChineseBlackjack" })} />}{" "}
                     <img src={`./static/images/chinese-blackjack/pf/btn-pf.png?v=${verImg}`} alt="pf"></img>{" "}
@@ -65,7 +65,7 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
             <ul className="style-number-dot-number">
                 <li className="number-dot-number">
                     <span className="title-text">{t("pf_subtitle_verify_fairness_of_server_seed_SHA256", { ns: "ChineseBlackjack" })}</span>
-                    <ul className="desc">
+                    <ul className="circle">
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_1", { ns: "ChineseBlackjack" })} />}</li>
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_2", { ns: "ChineseBlackjack" })} />}</li>
 
@@ -87,7 +87,7 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
 
                 <li className="number-dot-number">
                     <span className="title-text">{t("pf_subtitle_verify_impact_of_cliend_seed", { ns: "ChineseBlackjack" })}</span>
-                    <ul className="desc">
+                    <ul className="circle">
                         <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_1", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className="center-img">
@@ -129,7 +129,7 @@ const ChineseBlackjackPFContents: React.FC<ChineseBlackjackPFContentsProps> = ({
     const verImg = imgVersion ?? "1";
     return (
         <div>
-            <ul className={`game-guide`}>
+            <ul className={`game-guide game-guide-pf`}>
                 {renderContentPFBase(t, displayName ?? "", verImg)}
                 {renderHowPFInGame(t, verImg, locale ?? "e")}
                 {renderVerifyPF(t, verImg, locale ?? "en")}

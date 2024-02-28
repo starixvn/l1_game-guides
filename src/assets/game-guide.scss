@@ -72,7 +72,7 @@
     --title-font-size: 2.4rem;
     --sub-title-font-size: 2rem;
     --font-weight: 700;
-    --line-height: 2.4rem;
+    --line-height: 3rem;
 }
 
 
@@ -115,9 +115,7 @@ ul {
         color: var(--primary-color);
     }
 
-    span{
-        margin:  0.5rem 0;
-    }
+ 
     .guide-item {
         counter-increment: guide-list;
 
@@ -356,6 +354,18 @@ ul {
             }
         }
     }
+
+    .circle{
+        padding-left: 5rem;
+        margin-bottom: 1rem;
+
+        > li {
+            margin: 0.5rem 0;
+            font-weight: normal;
+
+            list-style-type: circle;
+        }
+    }
 }
 
 .guide-item-instant {
@@ -390,6 +400,43 @@ ul {
         li{
             font-size: var(--microsite-font-size);
         }
+    }
+}
+
+.game-guide-pf{
+    padding: 2.5rem 7rem 7rem 7rem;
+   
+    .guide-item {
+        counter-increment: guide-list;
+        h2 {
+            text-transform: uppercase;
+        }
+    }
+
+    .style-number-dot {
+        .number-dot {
+            .title-text {
+                color: #fff;
+            }
+
+            &:before {
+                color: #fff;
+            }
+
+            .style-number-dot-number {
+                .number-dot-number {
+                    .title-text {
+                        color: #fff;
+                    }
+                    &:before {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .section{
+        margin-bottom: .7rem;
     }
 }
 

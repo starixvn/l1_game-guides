@@ -4,11 +4,12 @@ import Styles from "./pf-base.module.scss";
 
 const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
-        <div style={{ textAlign: "center" }}>
+        <div>
             <span className={Styles["title-pf"]}>{<Markup content={t("pf_advertise_para_1", { ns: "Common" })} />}</span>
             <p>{<Markup content={t("pf_advertise_para_2", { ns: "Common", gamename: displayName })} />}</p>
-
-            <img className={Styles["wrapper-img"]} src={`./static/images/pf/pf-intro.png?v=${imgVersion}`} alt="pf"></img>
+            <div className="center-img">
+                <img className={Styles["img-intro"]} src={`./static/images/pf/pf-intro.png?v=${imgVersion}`} alt="pf"></img>
+            </div>
         </div>
     );
 };
@@ -25,7 +26,7 @@ const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey
 
 const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
-        <li className="guide-item">
+        <li className="guide-item section">
             <h2>{t("pf_title_what_is_provably_fair", { ns: "Common" })} </h2>
             <div className="content">{<Markup content={t("pf_what_provably_fair_para_1", { ns: "Common" })} />}</div>
         </li>
@@ -34,7 +35,7 @@ const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
 
 const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
     return (
-        <li className="guide-item">
+        <li className="guide-item section">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
             <div className="content">{<Markup content={t("pf_how_pf_work_para_1", { ns: "Common" })} />}</div>
 
@@ -47,7 +48,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
             </div>
 
             <p>{t("pf_how_pf_work_para_2", { ns: "Common" })}</p>
-            <ul className="desc">
+            <ul className="circle">
                 <li>{<Markup content={t("pf_how_pf_work_para_3", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_how_pf_work_para_4", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
