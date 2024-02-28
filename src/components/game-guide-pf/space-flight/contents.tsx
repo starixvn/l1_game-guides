@@ -2,23 +2,25 @@ import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee
 import React from "react";
 
 import { Markup } from "interweave";
+import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderContentPFBase } from "../base";
 import Styles from "./../chinese-blackjack/chinese-blackjack-pf-game.module.scss";
 import { SpaceFlightPFContentsProps } from "./type";
 
-const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string) => {
     return (
         <li className="guide-item">
-            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
-            <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
-            </div>
-            <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
+            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>       
             <ul className="desc">
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "ChineseBlackjack" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "ChineseBlackjack" })} />}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_1", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
             </ul>
+            <div className={Styles["center-img"]}>
+                <img src={`${rootImgUrl}pf-flow-overall.png?v=${verImg}`} alt="pf"></img>
+            </div>
         </li>
     );
 };
@@ -28,15 +30,15 @@ const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, ve
         <li className="guide-item">
             <h2>{t("pf_title_Verify_the_Provably_Fair", { ns: "ChineseBlackjack" })}</h2>
             <ul className="style-number-dot">
-                {renderBeforeConfirmingBet(t, verImg)}
+                {renderGameVerifierTool(t, verImg)}
 
-                {renderAfterSettling(t, verImg)}
+                {render3rdVerifierTool(t, verImg)}
             </ul>
         </li>
     );
 };
 
-const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_start_the_game_round", { ns: "ChineseBlackjack" })}</span>
@@ -62,7 +64,7 @@ const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, Translat
     );
 };
 
-const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_after_settling", { ns: "ChineseBlackjack" })}</span>
@@ -127,15 +129,16 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
         </li>
     );
 };
-const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, displayName }) => {
+const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, displayName, name }) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
+    const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     return (
         <div>
             <ul className={`game-guide`}>
                 {renderContentPFBase(t, displayName || "", verImg)}
-                {renderHowPFInGame(t, verImg)}
+                {renderHowPFInGame(t, verImg, rootImgUrl)}
                 {renderVerifyPF(t, verImg)}
             </ul>
         </div>

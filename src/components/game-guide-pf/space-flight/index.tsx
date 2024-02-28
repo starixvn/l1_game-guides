@@ -30,11 +30,11 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const SpaceFlightPFGuide = (props: GameGuideBase) => {
-    const { displayName } = props;
+    const { displayName, name, gameSetting } = props;
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <SpaceFlightPFContents {...{ locale: tolgee.getLanguage(), displayName }} />
+            <SpaceFlightPFContents {...{ locale: tolgee.getLanguage(), displayName, name: name ?? gameSetting?.Name }} />
         </TolgeeProvider>
     );
 };
