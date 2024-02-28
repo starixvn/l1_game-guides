@@ -12,7 +12,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
         <li className="guide-item section">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
             <div className="center-img">
-                <img className="img-border" src={`./static/images/pf/final-result.png?v=${verImg}`} alt="pf"></img>
+                <img className="img-border" src={`./static/images/chinese-blackjack/pf/chart_${locale}.png?v=${verImg}`} alt="chart"></img>
             </div>
             <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
             <ul className="circle">
