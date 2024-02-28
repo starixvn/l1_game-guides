@@ -14,12 +14,17 @@ const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
+const renderContentPFBase = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    displayName: string,
+    imgVersion: string,
+    locale: string
+) => {
     return (
         <>
             {renderAdvertisePF(t, displayName || "", imgVersion)}
             {renderPFInfo(t)}
-            {renderHowPFWork(t, imgVersion)}
+            {renderHowPFWork(t, imgVersion, locale)}
         </>
     );
 };
@@ -33,7 +38,7 @@ const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     );
 };
 
-const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <li className="guide-item section">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
@@ -55,7 +60,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
             <div className="center-img">
-                <img className="img-border" src={`./static/images/pf/flow-final-result.png?v=${imgVersion}`} alt="pf"></img>
+                <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
             </div>
         </li>
     );

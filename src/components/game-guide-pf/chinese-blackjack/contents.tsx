@@ -127,12 +127,14 @@ const ChineseBlackjackPFContents: React.FC<ChineseBlackjackPFContentsProps> = ({
     const { t } = useTranslate(["ChineseBlackjack", "Common"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion ?? "1";
+    const arrangeLocale = locale ?? "en";
+
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>
-                {renderContentPFBase(t, displayName ?? "", verImg)}
-                {renderHowPFInGame(t, verImg, locale ?? "e")}
-                {renderVerifyPF(t, verImg, locale ?? "en")}
+                {renderContentPFBase(t, displayName ?? "", verImg, arrangeLocale)}
+                {renderHowPFInGame(t, verImg, arrangeLocale)}
+                {renderVerifyPF(t, verImg, arrangeLocale)}
             </ul>
         </div>
     );

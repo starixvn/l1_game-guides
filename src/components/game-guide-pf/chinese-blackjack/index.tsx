@@ -15,7 +15,7 @@ const tolgee = Tolgee()
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["ChineseBlackjack", "Common"],
-        defaultNs: "ColorGame",
+        defaultNs: "ChineseBlackjack",
     });
 
 if (!appSettings.useTolgeeStatic) {
@@ -31,7 +31,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const ChineseBlackjackPFGuide = (props: GameGuideBase) => {
-    const { displayName } = props;
+    const { displayName, locale } = props;
 
     useEffect(() => {
         if (window?.location?.pathname) {
@@ -41,7 +41,7 @@ const ChineseBlackjackPFGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <ChineseBlackjackPFContents {...{ locale: tolgee.getLanguage(), displayName }} />
+            <ChineseBlackjackPFContents {...{ locale, displayName }} />
         </TolgeeProvider>
     );
 };
