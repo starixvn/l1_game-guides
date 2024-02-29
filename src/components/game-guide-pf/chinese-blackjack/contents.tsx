@@ -11,14 +11,18 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
     return (
         <li className="guide-item section">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
-            <div className="center-img">
-                <img className="img-border" src={`./static/images/chinese-blackjack/pf/chart_${locale}.png?v=${verImg}`} alt="chart"></img>
-            </div>
             <p>{t("pf_how_pf_applied_in_game_para_1", { ns: "ChineseBlackjack" })} </p>
             <ul className="circle">
                 <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "ChineseBlackjack" })} />}</li>
                 <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "ChineseBlackjack" })} />}</li>
             </ul>
+            <div className="center-img">
+                <img
+                    className="img img-border"
+                    src={`./static/images/chinese-blackjack/pf/chart_${locale}.png?v=${verImg}`}
+                    alt="chart"
+                ></img>
+            </div>
         </li>
     );
 };
@@ -48,7 +52,7 @@ const renderBeforeConfirmingBet = (t: TFnType<DefaultParamType, string, Translat
                 </li>
 
                 <div className="center-img">
-                    <img src={`./static/images/chinese-blackjack/pf/pf_setting_${locale}.png?v=${verImg}`} alt="pf"></img>
+                    <img className="img" src={`./static/images/chinese-blackjack/pf/pf_setting_${locale}.png?v=${verImg}`} alt="pf"></img>
                 </div>
 
                 <li>{<Markup content={t("pf_start_game_round_para_2", { ns: "ChineseBlackjack" })} />}</li>
@@ -71,13 +75,21 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_2", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className="center-img">
-                            <img src={`./static/images/chinese-blackjack/pf/pf_history_${locale}.png?v=${verImg}`} alt="pf"></img>
+                            <img
+                                className="img"
+                                src={`./static/images/chinese-blackjack/pf/pf_history_${locale}.png?v=${verImg}`}
+                                alt="pf"
+                            ></img>
                         </div>
 
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_3", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className="center-img">
-                            <img className="img-border" src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`} alt="pf"></img>
+                            <img
+                                className="img img-border"
+                                src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`}
+                                alt="pf"
+                            ></img>
                         </div>
 
                         <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_4", { ns: "ChineseBlackjack" })} />}</li>
@@ -92,7 +104,11 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                         <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_1", { ns: "ChineseBlackjack" })} />}</li>
 
                         <div className="center-img">
-                            <img src={`./static/images/chinese-blackjack/pf/pf_history_verify_${locale}.png?v=${verImg}`} alt="pf"></img>
+                            <img
+                                className="img"
+                                src={`./static/images/chinese-blackjack/pf/pf_history_verify_${locale}.png?v=${verImg}`}
+                                alt="pf"
+                            ></img>
                         </div>
 
                         <li>
@@ -100,20 +116,28 @@ const renderAfterSettling = (t: TFnType<DefaultParamType, string, TranslationKey
                             <ul className="plus">
                                 <li>
                                     {<Markup content={t("pf_verify_impact_of_client_seed_para_3", { ns: "ChineseBlackjack" })} />}
-                                    <p className={Styles["center-text"]}>
+                                    <p className={Styles["left-text"]}>
                                         <strong>{t("pf_server_Seed", { ns: "Common" })}</strong>
                                     </p>
                                     <div className="center-img">
-                                        <img src={`./static/images/chinese-blackjack/pf/server-seed.png?v=${verImg}`} alt="pf"></img>
+                                        <img
+                                            className="img"
+                                            src={`./static/images/chinese-blackjack/pf/server-seed.png?v=${verImg}`}
+                                            alt="pf"
+                                        ></img>
                                     </div>
                                 </li>
                                 <li>
                                     {<Markup content={t("pf_verify_impact_of_client_seed_para_4", { ns: "ChineseBlackjack" })} />}
-                                    <p className={Styles["center-text"]}>
+                                    <p className={Styles["left-text"]}>
                                         <strong>{t("pf_final_result", { ns: "Common" })}</strong>
                                     </p>
                                     <div className="center-img">
-                                        <img src={`./static/images/chinese-blackjack/pf/final-result.png?v=${verImg}`} alt="pf"></img>
+                                        <img
+                                            className="img"
+                                            src={`./static/images/chinese-blackjack/pf/final-result.png?v=${verImg}`}
+                                            alt="pf"
+                                        ></img>
                                     </div>
                                 </li>
                             </ul>
