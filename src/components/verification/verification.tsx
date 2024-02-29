@@ -41,7 +41,7 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
             default:
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
-                        <SpaceFlightVerification key={`game-${name}`} {...pfProps} />;
+                        <SpaceFlightVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
                 );
         }
