@@ -12,7 +12,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>       
-            <ul className="desc">
+            <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_1", { ns: "Spaceflight", gamename: gameName})} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_2", { ns: "Spaceflight" })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
