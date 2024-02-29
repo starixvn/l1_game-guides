@@ -5,18 +5,18 @@ import { Markup } from "interweave";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderContentPFBase } from "../base";
-import Styles from "./../chinese-blackjack/chinese-blackjack-pf-game.module.scss";
+import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
 import { SpaceFlightPFContentsProps } from "./type";
 
-const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, gameName: string) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>       
             <ul className="desc">
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_1", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_2", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_1", { ns: "Spaceflight", gamename: gameName})} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_2", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
                 <img src={`${rootImgUrl}pf-flow-overall.png?v=${verImg}`} alt="pf"></img>
@@ -25,12 +25,12 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string) => {
     return (
         <li className="guide-item">
-            <h2>{t("pf_title_Verify_the_Provably_Fair", { ns: "ChineseBlackjack" })}</h2>
+            <h2>{t("pf_title_verify_the_provably_fair", { ns: "Common" })}</h2>
             <ul className="style-number-dot">
-                {renderGameVerifierTool(t, verImg)}
+                {renderGameVerifierTool(t, verImg, rootImgUrl, locale)}
 
                 {render3rdVerifierTool(t, verImg)}
             </ul>
@@ -38,27 +38,81 @@ const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, ve
     );
 };
 
-const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_start_the_game_round", { ns: "ChineseBlackjack" })}</span>
+            <span className="title-text">{t("pf_subtitle_spaceflight_verifier_tool", { ns: "Spaceflight" })}</span>
             <ul className="desc">
                 <li>
-                    {<Markup content={t("pf_start_game_round_para_1.1", { ns: "ChineseBlackjack" })} />}{" "}
-                    <img
-                        style={{ backgroundColor: "white" }}
-                        src={`./static/images/chinese-blackjack/pf/btn-pf.png?v=${verImg}`}
-                        alt="pf"
-                    ></img>{" "}
-                    {<Markup content={t("pf_start_game_round_para_1.2", { ns: "ChineseBlackjack" })} />}{" "}
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_1", { ns: "Spaceflight" })} />}{" "}   
                 </li>
-
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_2", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_3", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                 <div className={Styles["intro-border"]}>
+                    <span style={{ textAlign: "center" }}>
+                        <strong className="pf-text-yellow">{t("pf_final_result", { ns: "Common" })}</strong> ={" "}
+                        <span>2 ^ 32 / (<span className={Styles["text-color-red"]}>X</span> + 1) * (1 - 0.03)</span>
+                    </span>
+                </div> 
+                <ul>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_5", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_6", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_7", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_13", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                <li>
+                    {<Markup content={t("pf_spaceflight_verifier_tool_para_8", { ns: "Spaceflight" })} />}{" "}   
+                </li>
+                </ul>    
                 <div className={Styles["center-img"]}>
-                    <img src={`./static/images/chinese-blackjack/pf/popup-client-seed.png?v=${verImg}`} alt="pf"></img>
-                </div>
-
-                <li>{<Markup content={t("pf_start_game_round_para_2", { ns: "ChineseBlackjack" })} />}</li>
-                <li>{<Markup content={t("pf_start_game_round_para_3", { ns: "ChineseBlackjack" })} />}</li>
+                    <table className={Styles["tbl-example"]}>
+                        <thead>
+                            <tr>
+                                <td>{<Markup content={t("pf_header_the_result_after_calculating", { ns: "Spaceflight" })} />}</td>
+                                <td>{<Markup content={t("pf_final_result", { ns: "Common" })} />}</td>
+                            </tr>                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2.225</td>
+                                <td>2.23</td>
+                            </tr>
+                            <tr>
+                                <td>2.224</td>
+                                <td>2.22</td>
+                            </tr>
+                            <tr>
+                                <td>2.224999</td>
+                                <td>2.22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                <div>{<Markup content={t("pf_spaceflight_verifier_tool_para_9", { ns: "Spaceflight" })} />}{" "}  </div>  
+                <ul className="desc">
+                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_10", { ns: "Spaceflight" })} />}</li>
+                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_11", { ns: "Spaceflight" })} />}
+                    <div className={`${Styles["center-img"]} ${Styles["bg-image-popup"]}`}>
+                        <img src={`${rootImgUrl}intro-pf-step2-en.png?v=${verImg}`} alt="pf"></img>
+                    </div>
+                    </li>
+                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_12", { ns: "Spaceflight" })} />}
+                    <div className={`${Styles["center-img"]} ${Styles["bg-image-popup"]}`}>
+                        <img src={`${rootImgUrl}intro-pf-step3-en.png?v=${verImg}`} alt="pf"></img>
+                    </div>
+                    </li>
+                </ul>    
             </ul>
         </li>
     );
@@ -67,64 +121,10 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
 const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_after_settling", { ns: "ChineseBlackjack" })}</span>
-            <ul className="style-number-dot-number">
-                <li className="number-dot-number">
-                    <span className="title-text">{t("pf_subtitle_verify_fairness_of_server_seed_SHA256", { ns: "ChineseBlackjack" })}</span>
-                    <ul className="desc">
-                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_1", { ns: "ChineseBlackjack" })} />}</li>
-                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_2", { ns: "ChineseBlackjack" })} />}</li>
-
-                        <div className={Styles["center-img"]}>
-                            <img src={`./static/images/chinese-blackjack/pf/popup-verify.png?v=${verImg}`} alt="pf"></img>
-                        </div>
-
-                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_3", { ns: "ChineseBlackjack" })} />}</li>
-
-                        <div className={Styles["center-img"]}>
-                            <img src={`./static/images/chinese-blackjack/pf/sha256.png?v=${verImg}`} alt="pf"></img>
-                        </div>
-
-                        <li>{<Markup content={t("pf_verify_server_seed_SHA256_para_4", { ns: "ChineseBlackjack" })} />}</li>
-
-                        <p>{t("pf_verify_server_seed_SHA256_para_5", { ns: "ChineseBlackjack" })}</p>
-                    </ul>
-                </li>
-
-                <li className="number-dot-number">
-                    <span className="title-text">{t("pf_subtitle_verify_impact_of_cliend_seed", { ns: "ChineseBlackjack" })}</span>
-                    <ul className="desc">
-                        <li>{<Markup content={t("pf_verify_impact_of_client_seed_para_1", { ns: "ChineseBlackjack" })} />}</li>
-
-                        <div className={Styles["center-img"]}>
-                            <img src={`./static/images/chinese-blackjack/pf/pf_verify_success.png?v=${verImg}`} alt="pf"></img>
-                        </div>
-
-                        <li>
-                            {<Markup content={t("pf_verify_impact_of_client_seed_para_2", { ns: "ChineseBlackjack" })} />}{" "}
-                            <ul className="plus">
-                                <li>
-                                    {<Markup content={t("pf_verify_impact_of_client_seed_para_3", { ns: "ChineseBlackjack" })} />}
-                                    <p className={Styles["center-text"]}>
-                                        <strong>{t("pf_server_Seed", { ns: "Common" })}</strong>
-                                    </p>
-                                    <div className={Styles["center-img"]}>
-                                        <img src={`./static/images/chinese-blackjack/pf/server-seed.png?v=${verImg}`} alt="pf"></img>
-                                    </div>
-                                </li>
-                                <li>
-                                    {<Markup content={t("pf_verify_impact_of_client_seed_para_4", { ns: "ChineseBlackjack" })} />}
-                                    <p className={Styles["center-text"]}>
-                                        <strong>{t("pf_final_result", { ns: "Common" })}</strong>
-                                    </p>
-                                    <div className={Styles["center-img"]}>
-                                        <img src={`./static/images/chinese-blackjack/pf/final-result.png?v=${verImg}`} alt="pf"></img>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}</span>
+            <ul className="desc">
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Spaceflight" })} />}</li>
             </ul>
         </li>
     );
@@ -134,12 +134,13 @@ const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, d
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
+    console.log("displayName", displayName);
     return (
         <div>
-            <ul className={`game-guide`}>
+            <ul className={`game-guide game-guide-pf`}>
                 {renderContentPFBase(t, displayName || "", verImg)}
-                {renderHowPFInGame(t, verImg, rootImgUrl)}
-                {renderVerifyPF(t, verImg)}
+                {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "")}
+                {renderVerifyPF(t, verImg, rootImgUrl, locale || "")}
             </ul>
         </div>
     );
