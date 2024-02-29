@@ -1,0 +1,37 @@
+@import "./../base/pf-base.module.scss";
+
+.wrapperImg{
+    text-align: center;
+}
+
+.center-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.tbl-example {
+    width: 600px;
+    border: 1px solid #27244e ;
+    thead td {
+        background-color: #323661;
+        height: 51px;
+        text-align: center;
+        color: #fff;
+        border: 1px solid #27244e;
+        text-align: center;
+    }
+    tbody td{
+        background-color: #3e4174;
+        height: 42px;
+        border: 1px solid #27244e;
+        text-align: center;
+    }
+}
+.bg-image-popup {
+    background: url('/static/images/pf/pf-bg-popup.png') no-repeat center;
+    width: 1199px;
+    height: 744px;
+}
+
