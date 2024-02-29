@@ -41,7 +41,7 @@ const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, ve
 const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_spaceflight_verifier_tool", { ns: "Spaceflight" })}</span>
+            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "Spaceflight" })}</span>
             <ul className={Styles["circle-style"]}>
                 <li>
                     {<Markup content={t("pf_spaceflight_verifier_tool_para_1", { ns: "Spaceflight" })} />}{" "}   
