@@ -28,7 +28,7 @@ const ProvablyFair = (props: any) => {
 
     const getTemplateFollowEnv = () => {
         const props = {
-            gameId: 21,
+            gameId,
             locale: router?.locale ?? "en",
             provablyFair,
             name,
@@ -59,7 +59,7 @@ const ProvablyFair = (props: any) => {
             setEnvironment("si");
             setGameId(checkIsInteger(queryParams?.gId));
             setName(queryParams?.name);
-            setDisplayName(queryParams?.displayName);        
+            setDisplayName(queryParams?.displayName);
             queryParams?.t && setTheme(queryParams.t.toString());
             queryParams?.scrollToId && setScrollToId(queryParams.scrollToId);
         }

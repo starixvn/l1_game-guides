@@ -30,7 +30,5 @@ export type PFProps = {
     dynamic: boolean;
     environment: string;
     displayName: string;
-    convertHexToDecimal: string;
-    firstEightDigits: string;
 } & WithTranslation &
     WithRouterProps;
