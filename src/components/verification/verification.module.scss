@@ -1,44 +1,47 @@
+@import "../../assets/components/fonts";
 
-.container-guide{
-    border: 1px solid #333;
-    padding: 12px 20px;
-    background-color: #d0d0d0;
-    width: 500px;
-    margin-bottom: 400px;
-
-    .form-title {
+$color-second: #C4BCE0;
+.wrapper {
+    font-family: "Noto";
+    width: 100%;    
+    font-size: 16px;
+}
+.info-seed {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-row-gap: 18px;    
+    align-items: center;
+    .seed-key {
         text-transform: uppercase;
-        font-weight: 700;
-        border: 1px solid #333;
-        padding: 6px 16px;
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+        font-weight: bold;
     }
-
-    .info-seed{
-        border-radius: 3px;
-        border: 1px solid #333;
-        outline: none;
-        background-color: transparent;
-        margin: 0 0 15px 0;
-        line-height: normal;
-        height: 30px;
-        padding: 6px 6px;
+    .seed-value {
+        height: 36px;
+        width: 720px;
+        border-radius: 20px;
+        border: 1px solid #fff;
+        line-height: 36px;
+        padding-left: 8px;
+        background-color: #323661;
+        color: #fff;
+       box-shadow: 0 0 3px #27294e;
     }
-
-    .verify-item{
-        margin-top: 8px;
-        h2{
-            margin-bottom: 4px;
-        }
+    .combined-hash {
+        display: block;
+        overflow: hidden;
+        text-overflow: clip;    
     }
+}
+.convert-info {
+    margin-top: 20px;
+}
 
-    .convert-info{
-        border: 1px solid #333;
-        border-radius: 3px;
-        padding: 4px 10px;
-        word-wrap: break-word;
+.color-result {
+    color: #06C5DC;
+}
+.color-second {
+    color: $color-second;
+    pre {
+        font-size: 16px;
     }
 }
