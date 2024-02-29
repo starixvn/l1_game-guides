@@ -5,6 +5,7 @@ $color-second: #C4BCE0;
     font-family: "Noto";
     width: 1070px;    
     font-size: 16px;
+    margin: 0 auto;
 }
 .info-seed {
     display: grid;
@@ -21,7 +22,7 @@ $color-second: #C4BCE0;
         width: 720px;
         border-radius: 20px;
         border: 1px solid #fff;
-        line-height: 32px;
+        line-height: 36px;
         padding-left: 8px;
         background-color: #323661;
         color: #fff;
@@ -34,7 +35,7 @@ $color-second: #C4BCE0;
         right: -1px;
         width: 90px;
         display: block;
-        height: 33px;
+        height: 32px;
         top: -1px;
        }
     }
@@ -55,6 +56,8 @@ $color-second: #C4BCE0;
     color: $color-second;
     pre {
         font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 0;
     }
 }
 .break-word {
