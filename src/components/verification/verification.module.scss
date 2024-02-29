@@ -3,14 +3,15 @@
 $color-second: #C4BCE0;
 .wrapper {
     font-family: "Noto";
-    width: 100%;    
+    width: 1070px;    
     font-size: 16px;
 }
 .info-seed {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-row-gap: 18px;    
+    grid-template-columns: 250px 1fr;
+    grid-row-gap: 12px;    
     align-items: center;
+    margin: 0 36px;
     .seed-key {
         text-transform: uppercase;
         font-weight: bold;
@@ -20,11 +21,22 @@ $color-second: #C4BCE0;
         width: 720px;
         border-radius: 20px;
         border: 1px solid #fff;
-        line-height: 36px;
+        line-height: 32px;
         padding-left: 8px;
         background-color: #323661;
         color: #fff;
        box-shadow: 0 0 3px #27294e;
+       position: relative;
+       &:before{
+        background: url('/static/images/pf/bg-overlay-textbox.png');
+        content:"";        
+        position: absolute;
+        right: -1px;
+        width: 90px;
+        display: block;
+        height: 33px;
+        top: -1px;
+       }
     }
     .combined-hash {
         display: block;
@@ -33,7 +45,7 @@ $color-second: #C4BCE0;
     }
 }
 .convert-info {
-    margin-top: 20px;
+    margin: 20px 36px 0;
 }
 
 .color-result {
@@ -44,4 +56,7 @@ $color-second: #C4BCE0;
     pre {
         font-size: 16px;
     }
+}
+.break-word {
+    word-break: break-word;
 }

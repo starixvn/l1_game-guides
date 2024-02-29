@@ -58,7 +58,7 @@ const SpaceFlightVerification = (props: VerificationBase) => {
                 </div>
                 <div>
                     <strong>Combined SHA512 hash</strong>
-                    <div className={Styles["color-second"]}>{provablyFair?.finalHash ??
+                    <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{provablyFair?.finalHash ??
                         "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}</div>
                 </div>
                 <div>
