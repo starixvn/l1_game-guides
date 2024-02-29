@@ -138,7 +138,7 @@ const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, d
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>
-                {renderContentPFBase(t, displayName || "", verImg)}
+                {renderContentPFBase(t, displayName || "", verImg, locale || "")}
                 {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "")}
                 {renderVerifyPF(t, verImg, rootImgUrl, locale || "")}
             </ul>
