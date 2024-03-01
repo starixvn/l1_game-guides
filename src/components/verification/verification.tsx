@@ -13,7 +13,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: ["en", "vi", "th", "id", "zh_cn", "zh_tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["Spaceflight", "Common"],
