@@ -34,10 +34,10 @@ const ChineseBlackjackPFGuide = (props: GameGuideBase) => {
     const { displayName, locale } = props;
 
     useEffect(() => {
-        if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+        if (locale) {
+            tolgee.changeLanguage(locale);
         }
-    }, []);
+    }, [locale]);
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
