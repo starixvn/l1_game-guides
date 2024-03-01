@@ -32,11 +32,14 @@
 
 .wrapper-img {
     position: relative;
-    .bg-image-popup {
+    &:before{
         background: url('/static/images/pf/pf-bg-popup.png') no-repeat center;
         width: 1199px;
         height: 744px;
         position: absolute;
+        content: "";
+        z-index: -1;
+        left: -13rem;
     }
 }
 
