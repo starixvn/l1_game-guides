@@ -18,25 +18,22 @@ $color-second: #C4BCE0;
         font-weight: bold;
     }
     .seed-value {
-        height: 36px;
-        width: 720px;
-        border-radius: 20px;
-        border: 1px solid #fff;
-        line-height: 36px;
-        padding-left: 8px;
-        background-color: #323661;
+        background: url('/static/images/pf/pf-veryfication-bg-text.png') no-repeat;
+        height: 40px;
+        width: 748px;
+        line-height: 40px;
+        padding: 0 8px;
         color: #fff;
-       box-shadow: 0 0 3px #27294e;
        position: relative;
        &:before{
-        background: url('/static/images/pf/bg-overlay-textbox.png');
+        background: url('/static/images/pf/pf-veryfication-blur.png');
         content:"";        
         position: absolute;
-        right: -1px;
-        width: 90px;
+        right: 1px;
+        width: 92px;
         display: block;
-        height: 32px;
-        top: -1px;
+        height: 37px;
+        top: 0;
        }
     }
     .combined-hash {
@@ -47,6 +44,16 @@ $color-second: #C4BCE0;
 }
 .convert-info {
     margin: 20px 36px 0;
+    position: relative;
+    &:before {
+        background: url('/static/images/pf/pf-veryfication-convert-bg.png');
+        content:"";   
+        width: 1092px;
+        height: 421px;
+        position: absolute;
+        z-index: -1;
+        left: -30px;
+    } 
 }
 
 .color-result {
