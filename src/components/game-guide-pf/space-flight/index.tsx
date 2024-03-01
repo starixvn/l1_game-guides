@@ -1,6 +1,7 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
+import { useEffect } from "react";
 import appSettings from "../../../common/app-settings";
 import { TolgeeConfig } from "../../../common/constants";
 import { GameGuideBase } from "../../game-guide/type";
@@ -31,6 +32,11 @@ if (!appSettings.useTolgeeStatic) {
 
 const SpaceFlightPFGuide = (props: GameGuideBase) => {
     const { displayName, name, gameSetting, locale } = props;
+    useEffect(() => {
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+        }
+    }, []);
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
