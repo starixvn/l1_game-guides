@@ -17,7 +17,7 @@ const tolgee = Tolgee()
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["Spaceflight", "Common"],
-        defaultNs: "ColorGame",
+        defaultNs: "Spaceflight",
     });
 
 if (!appSettings.useTolgeeStatic) {
@@ -33,6 +33,9 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 class Verification<P extends PFProps> extends VerifyBase<P> {
+    componentDidMount(): void {
+        tolgee.changeLanguage(this.props.locale);
+    }
 
     renderVerification = () => {
         const { gameId, name } = this.props;
