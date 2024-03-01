@@ -53,24 +53,24 @@ const SpaceFlightVerification = (props: VerificationBase) => {
             </div>
             <div className={Styles["convert-info"]}>
                 <div>
-                    <strong>Final Result: </strong>
+                    <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
                     <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
                 </div>
                 <div>
-                    <strong>Combined SHA512 hash</strong>
+                    <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
                     <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{provablyFair?.finalHash ??
                         "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}</div>
                 </div>
                 <div>
-                    <strong>Take first 8 digits from SHA512: </strong>{" "}
+                    <strong>{t("pf_verification_para_2", { ns: "Spaceflight", value: "8" })} </strong>{" "}
                     <span className={Styles["color-second"]}>{takeFirstValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd")}</span>
                 </div>
                 <div>
-                    <strong>Convert to Decimal </strong>
+                    <strong>{t("pf_verification_para_3", { ns: "Spaceflight" })} </strong>
                     <span className={Styles["color-second"]}><pre>{convertHexToDecimalSteps(digits)}</pre></span>
                 </div>
                 <div>
-                    <strong>Calculate Final Result </strong>
+                    <strong>{t("pf_verification_para_4", { ns: "Spaceflight" })} </strong>
                     
                     <div className={Styles["color-second"]}>{MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span></div>
                 </div>

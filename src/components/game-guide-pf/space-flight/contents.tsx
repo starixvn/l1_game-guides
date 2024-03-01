@@ -104,12 +104,12 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                     <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_10", { ns: "Spaceflight" })} />}</li>
                     <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_11", { ns: "Spaceflight" })} />}
                     <div className={Styles["center-img"]}>                       
-                        <img src={`${rootImgUrl}intro-pf-step2-en.png?v=${verImg}`} alt="pf"></img>
+                        <img src={`${rootImgUrl}intro-pf-step2-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                     </li>
                     <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_12", { ns: "Spaceflight" })} />}
                     <div className={Styles["center-img"]}>
-                        <img src={`${rootImgUrl}intro-pf-step3-en.png?v=${verImg}`} alt="pf"></img>
+                        <img src={`${rootImgUrl}intro-pf-step3-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                     </li>
                 </ul>    
