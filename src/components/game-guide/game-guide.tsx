@@ -15,6 +15,7 @@ import FootballDiceGameGuide from "./football-dice";
 import PontoonGuide from "./pontoon";
 import SpaceFlightGuide from "./space-flight";
 import FootballSlotGuide from "./football-slot";
+import BacBallGameGuide from "./bac-ball";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -185,6 +186,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <FootballDiceGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FOOTBALL_SLOT:
                 return <FootballSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.BAC_BALL:
+                return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
