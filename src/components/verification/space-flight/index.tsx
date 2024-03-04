@@ -62,7 +62,7 @@ const SpaceFlightVerification = (props: VerificationBase) => {
                         "4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0vc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4"}</div>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_2", { ns: "Spaceflight", value: "8" })} </strong>{" "}
+                    <strong>{t("pf_verification_para_2", { ns: "Spaceflight", value: "8" })}: </strong>{" "}
                     <span className={Styles["color-second"]}>{takeFirstValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd")}</span>
                 </div>
                 <div>

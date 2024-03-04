@@ -1,11 +1,9 @@
 import { useTranslate } from "@tolgee/react";
 import React, { useEffect } from "react";
 import appSettings from "../../../common/app-settings";
-import { buildVersion } from "../../../common/constants";
 import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { scrollToIDContent } from "../../shared/md5-number";
-import MD5CrashTolgee from "../base/md5/md5-crash-tolgee";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
@@ -134,21 +132,7 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            <MD5CrashTolgee
-                {...{
-                    step1ImageUrl: `${rootImgUrl}step_1_${locale}.png?v=${buildVersion}`,
-                    step2ImageUrl: `${rootImgUrl}step_2_${locale}.png?v=${buildVersion}`,
-                    step3ImageUrl: `${rootImgUrl}step_3.png?v=${buildVersion}`,
-                    step4ImageUrl: `${rootImgUrl}step_4.png?v=${buildVersion}`,
-                    note: "",
-                    validationDescription: (
-                        <div>
-                            <div>{t(`md5valid_para_1`)}</div>
-                            <img src={`${rootImgUrl}statistics-bar.png?v=${buildVersion}`} alt="statistics-bar" />
-                        </div>
-                    ),
-                }}
-            />
+            
             <TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
         </ul>
     );
