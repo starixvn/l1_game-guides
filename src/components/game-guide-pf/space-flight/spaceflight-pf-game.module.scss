@@ -30,19 +30,6 @@
     }
 }
 
-.wrapper-img {
-    position: relative;
-    &:before{
-        background: url('/static/images/pf/pf-bg-popup.png') no-repeat center;
-        width: 1179px;
-        height: 744px;
-        position: absolute;
-        content: "";
-        z-index: -1;
-        left: -13rem;
-    }
-}
-
 .circle-style{
     margin-bottom: 1rem;
     padding-left: 2rem;
