@@ -15,7 +15,6 @@ import FootballDiceGameGuide from "./football-dice";
 import PontoonGuide from "./pontoon";
 import SpaceFlightGuide from "./space-flight";
 import FootballSlotGuide from "./football-slot";
-import BacBallGameGuide from "./bac-ball";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -54,6 +53,7 @@ const FortuneCatGuide = dynamic(() => import("./fortune-cat"));
 const WinThreeCardsGuide = dynamic(() => import("./win-three-cards"));
 const VipBaccaratGuide = dynamic(() => import("./baccarat-vip"));
 const ClassicSlotGuide = dynamic(() => import("./classic-slot-template"));
+const BacBallGameGuide = dynamic(() => import("./bac-ball"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 

@@ -103,6 +103,7 @@ export const GAMES = {
     CHINESE_BLACKJACK: 77,
     FOOTBALL_DICE: 78,
     FOOTBALL_SLOT: 79,
+    BAC_BALL: 1001,
 };
 
 export const GAMES_MINI = {
