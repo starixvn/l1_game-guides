@@ -4,6 +4,7 @@ import { T, useTranslate } from "@tolgee/react";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { BacBallGameConfigs } from "./type";
+import { Markup } from "interweave";
 
 const BacBallIntroduction: FC<{ t: Function }> = ({ t }) => {
     return (
@@ -52,7 +53,21 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
 };
 
 const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t, gameConfigs }) => {
-    const { maxWinPerSubround, odds, betLimit } = gameConfigs;
+    const { maxWinPerSubround, odds, maxBetPerChoices, minBet } = gameConfigs;
+    const data = {
+        player: {
+            odds: odds?.player,
+            maxBet: maxBetPerChoices.player,
+        },
+        banker: {
+            odds: odds?.banker,
+            maxBet: maxBetPerChoices.banker,
+        },
+        tie: {
+            odds: odds?.tie,
+            maxBet: maxBetPerChoices.tie,
+        },
+    };
     return (
         <li className={`guide-item`}>
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
@@ -67,16 +82,20 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
                         <thead>
                             <tr>
                                 <th>{t("header_betoption", { ns: "Common" })}</th>
-                                <th>{t("header_odds_range", { ns: "SabaNumber" })}</th>
-                                <th>{t("header_betlimit", { ns: "Common" })}</th>
+                                <th>
+                                    <Markup content={t("header_odds_range", { ns: "SabaNumber" })} />
+                                </th>
+                                <th>
+                                    <Markup content={t("header_betlimit", { ns: "Common" })} />
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {["player", "banker", "tie"].map((item) => (
+                            {Object.entries(data).map(({ 0: item, 1: { odds, maxBet } }) => (
                                 <tr key={item}>
                                     <td>{t(`glossary_${item}`)}</td>
                                     <td>{`${numberWithCommas(odds?.min ?? 0)}-${numberWithCommas(odds?.max ?? 0)}`}</td>
-                                    <td>{`${numberWithCommas(betLimit?.min ?? 0)}-${numberWithCommas(betLimit?.max ?? 0)}`}</td>
+                                    <td>{`${numberWithCommas(minBet ?? 0)}-${numberWithCommas(maxBet ?? 0)}`}</td>
                                 </tr>
                             ))}
                         </tbody>

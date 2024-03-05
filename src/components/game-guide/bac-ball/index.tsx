@@ -48,7 +48,6 @@ const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, is
     };
 
     useEffect(() => {
-        console.log("Config in BacBall ", configs);
         if (configs) {
             if (isGetGameConfigs) {
                 getDynamicGameConfig();
