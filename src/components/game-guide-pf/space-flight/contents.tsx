@@ -28,7 +28,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
 const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string) => {
     return (
         <li className="guide-item">
-            <h2>{t("pf_title_verify_the_provably_fair", { ns: "Common" })}</h2>
+            <h2>{<Markup content={t("pf_title_verify_the_provably_fair", { ns: "Common" })} />}</h2>
             <ul className="style-number-dot">
                 {renderGameVerifierTool(t, verImg, rootImgUrl, locale)}
 
