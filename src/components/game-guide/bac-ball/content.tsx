@@ -5,6 +5,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { BacBallGameConfigs } from "./type";
 import { Markup } from "interweave";
+import Styles from "./bac-ball.module.scss";
 
 const BacBallIntroduction: FC<{ t: Function }> = ({ t }) => {
     return (
@@ -30,14 +31,14 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
                 </li>
                 <li>{t("gamerules_para_3", { ns: "SabaNumber" })}</li>
                 <div className="table-container">
-                    <table className="table">
-                        <thead className="text-center">
+                    <table className={`table text-center ${Styles["table"]}`}>
+                        <thead>
                             <tr>
                                 <th>{t("header_betoption", { ns: "Common" })}</th>
                                 <th>{t("header_description", { ns: "Common" })}</th>
                             </tr>
                         </thead>
-                        <tbody className="text-center">
+                        <tbody>
                             {["player", "banker", "tie"].map((item) => (
                                 <tr key={item}>
                                     <td>{t(`glossary_${item}`)}</td>
@@ -78,7 +79,7 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
                 </li>
                 <li>{t("payouts_para_3", { ns: "SabaNumber" })}</li>
                 <div className="table-container">
-                    <table className="table text-center">
+                    <table className={`table text-center ${Styles["table"]}`}>
                         <thead>
                             <tr>
                                 <th>{t("header_betoption", { ns: "Common" })}</th>
