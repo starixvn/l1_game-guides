@@ -8,7 +8,7 @@ import { renderContentPFBase } from "../base";
 import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
 import { SpaceFlightPFContentsProps } from "./type";
 
-const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, gameName: string) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, gameName: string, locale: string) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>       
@@ -19,7 +19,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`${rootImgUrl}pf-flow-overall.png?v=${verImg}`} alt="pf"></img>
+                <img src={`${rootImgUrl}PF-flow-overall-${locale}.png?v=${verImg}`} alt="pf"></img>
             </div>
         </li>
     );
@@ -139,7 +139,7 @@ const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, d
         <div>
             <ul className={`game-guide game-guide-pf`}>
                 {renderContentPFBase(t, displayName || "", verImg, locale || "")}
-                {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "")}
+                {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "", locale || "")}
                 {renderVerifyPF(t, verImg, rootImgUrl, locale || "")}
             </ul>
         </div>
