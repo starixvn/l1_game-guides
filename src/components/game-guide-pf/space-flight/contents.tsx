@@ -19,7 +19,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`${rootImgUrl}PF-flow-overall-${locale}.png?v=${verImg}`} alt="pf"></img>
+                <img src={`${rootImgUrl}flow-overall-pf-${locale}.png?v=${verImg}`} alt="pf"></img>
             </div>
         </li>
     );
