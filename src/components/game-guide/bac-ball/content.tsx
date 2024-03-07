@@ -31,8 +31,8 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
                 </li>
                 <li>{t("gamerules_para_3", { ns: "SabaNumber" })}</li>
                 <div className="table-container">
-                    <table className={`table text-center ${Styles["table"]}`}>
-                        <thead>
+                    <table className={`table ${Styles["table"]}`}>
+                        <thead className="text-center">
                             <tr>
                                 <th>{t("header_betoption", { ns: "Common" })}</th>
                                 <th>{t("header_description", { ns: "Common" })}</th>
@@ -41,7 +41,7 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
                         <tbody>
                             {["player", "banker", "tie"].map((item) => (
                                 <tr key={item}>
-                                    <td>{t(`glossary_${item}`)}</td>
+                                    <td className="text-center">{t(`glossary_${item}`)}</td>
                                     <td>{t(`descrip_${item}`)}</td>
                                 </tr>
                             ))}

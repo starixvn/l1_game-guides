@@ -3,9 +3,9 @@
 [data-theme="dark"] .game-guide {
     // text-size
     --big-title-font-size: 1.8rem;
-    --title-font-size: 1.6rem;
+    --title-font-size: 1.3rem;
     --sub-title-font-size: 1.4rem;
-    --line-height: 2rem;
+    --line-height: 2.2rem;
     --select-text: auto;
 
     //icon fish prawn crab
@@ -75,7 +75,6 @@
     --line-height: 3rem;
 }
 
-
 ul {
     list-style: none;
     padding-left: 0;
@@ -99,6 +98,7 @@ ul {
 
 .game-guide {
     padding: 0 1.6rem;
+    font-family: "Montserrat";
     counter-reset: guide-list;
     font-size: var(--font-size);
     user-select: var(--select-text);
@@ -115,16 +115,16 @@ ul {
         color: var(--primary-color);
     }
 
-    span{
-        margin:  0.5rem 0;
+    span {
+        margin: 0.5rem 0;
     }
-    .convert-info{
+    .convert-info {
         border: 1px solid #333;
         border-radius: 3px;
         padding: 4px 10px;
         word-wrap: break-word;
     }
-    
+
     .form-title {
         text-transform: uppercase;
         font-weight: 700;
@@ -136,9 +136,9 @@ ul {
         margin-bottom: 20px;
     }
 
-    .verify-item{
+    .verify-item {
         margin-top: 8px;
-        h2{
+        h2 {
             margin-bottom: 4px;
         }
         .info-seed {
@@ -152,9 +152,13 @@ ul {
             padding: 6px 6px;
         }
     }
- 
+
     .guide-item {
         counter-increment: guide-list;
+
+        &:not(:first-child) {
+            margin-top: 1.8rem;
+        }
 
         h2 {
             display: inline-block;
@@ -172,7 +176,10 @@ ul {
     }
 
     .content {
+        margin-top: 0.8rem;
         padding-left: 1rem;
+        font-weight: 400;
+        font-size: 1.3rem;
         @media (max-width: 576px) {
             padding-left: 0;
         }
@@ -195,16 +202,16 @@ ul {
     }
 
     .desc {
-        padding-left: 1rem;
+        margin-left: 2rem;
         margin-bottom: 1rem;
+        font-size: 1.3rem;
 
         > li {
-            margin: 0.5rem 0;
-            font-weight: normal;
+            margin: 0.8rem 0;
+            font-weight: 400;
+            text-indent: 0.5rem;
+            list-style-type: disc;
 
-            &:before {
-                content: "- ";
-            }
             &.contentBeforeEmpty:before {
                 content: "" !important;
             }
@@ -254,6 +261,7 @@ ul {
         td {
             min-height: 3.6rem;
             vertical-align: middle;
+            font-weight: 600;
         }
 
         th {
@@ -307,7 +315,7 @@ ul {
 
             .title-text {
                 color: var(--primary-color);
-                font-size: var(--sub-title-font-size,var(--font-size));
+                font-size: var(--sub-title-font-size, var(--font-size));
             }
 
             &:before {
@@ -392,7 +400,7 @@ ul {
         }
     }
 
-    .circle{
+    .circle {
         padding-left: 5rem;
         margin-bottom: 1rem;
 
@@ -419,30 +427,30 @@ ul {
         color: var(--primary-color);
     }
 
-    &.game-microsite{
+    &.game-microsite {
         --addition-font-size: 0.2rem;
-        --microsite-font-size:calc(var(--font-size) + var(--addition-font-size));
-        --microsite-title-font-size:calc(var(--title-font-size) + var(--addition-font-size));
+        --microsite-font-size: calc(var(--font-size) + var(--addition-font-size));
+        --microsite-title-font-size: calc(var(--title-font-size) + var(--addition-font-size));
 
         font-size: var(--microsite-font-size);
 
         &:before {
             font-size: var(--microsite-title-font-size);
         }
-    
+
         h2 {
-            font-size:  var(--microsite-title-font-size);
+            font-size: var(--microsite-title-font-size);
         }
 
-        li{
+        li {
             font-size: var(--microsite-font-size);
         }
     }
 }
 
-.game-guide-pf{
+.game-guide-pf {
     padding: 2.5rem 7rem 7rem 7rem;
-   
+
     .guide-item {
         counter-increment: guide-list;
         h2 {
@@ -472,8 +480,8 @@ ul {
             }
         }
     }
-    .section{
-        margin-bottom: .7rem;
+    .section {
+        margin-bottom: 0.7rem;
     }
 }
 
@@ -594,14 +602,14 @@ ul {
     max-height: 18.2rem;
 }
 
-.center-img{
+.center-img {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
 }
 
-.img-border{
+.img-border {
     border-radius: 1rem;
 }
 
@@ -611,9 +619,8 @@ ul {
     }
 }
 
-
 // ----------------PF---------------
-.pf-text-yellow{
+.pf-text-yellow {
     color: #fbc35f;
 }
 
