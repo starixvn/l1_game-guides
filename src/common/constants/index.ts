@@ -17,6 +17,7 @@ export const Themes = {
     fortuneCat: "fortune-cat",
     infoSite: "info-site",
     pf: "pf",
+    numberGame: "number-game",
 };
 
 export const BACKGROUND_THEMES: IObjectKeys = {
@@ -32,6 +33,7 @@ export const BACKGROUND_THEMES: IObjectKeys = {
     [Themes.fortuneCat]: "#060223",
     [Themes.infoSite]: "#FFF",
     [Themes.pf]: "#5d5e70",
+    [Themes.numberGame]: "#191A1E",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si", pf: "pf" };
