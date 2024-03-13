@@ -9,18 +9,16 @@ export interface BacBallGameConfigs extends GameConfigs {
         banker: number;
         tie: number;
     };
-    odds?: {
-        player: {
-            min: number;
-            max: number;
+    oddsRange?: {
+        min: {
+            player: number;
+            banker: number;
+            tie: number;
         };
-        banker: {
-            min: number;
-            max: number;
-        };
-        tie: {
-            min: number;
-            max: number;
+        max: {
+            player: number;
+            banker: number;
+            tie: number;
         };
     };
 }

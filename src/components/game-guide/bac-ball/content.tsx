@@ -54,18 +54,27 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
 };
 
 const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t, gameConfigs }) => {
-    const { maxWinPerSubround, odds, maxBetPerChoices, minBet } = gameConfigs;
+    const { maxWinPerSubround, oddsRange, maxBetPerChoices, minBet } = gameConfigs;
     const data = {
         player: {
-            odds: odds?.player,
+            odds: {
+                min: oddsRange?.min?.player,
+                max: oddsRange?.max?.player,
+            },
             maxBet: maxBetPerChoices.player,
         },
         banker: {
-            odds: odds?.banker,
+            odds: {
+                min: oddsRange?.min?.banker,
+                max: oddsRange?.max?.banker,
+            },
             maxBet: maxBetPerChoices.banker,
         },
         tie: {
-            odds: odds?.tie,
+            odds: {
+                min: oddsRange?.min?.tie,
+                max: oddsRange?.max?.tie,
+            },
             maxBet: maxBetPerChoices.tie,
         },
     };
