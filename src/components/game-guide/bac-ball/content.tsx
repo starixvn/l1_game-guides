@@ -83,10 +83,11 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>{t("payouts_para_1", { ns: "SabaNumber" })}</li>
+                <li>{t("payouts_para_2", { ns: "SabaNumber" })}</li>
                 <li>
-                    <T keyName={"payouts_para_2"} params={{ maxpayout: numberWithCommas(maxWinPerSubround ?? 0) }} ns="SabaNumber" />
+                    <T keyName={"payouts_para_3"} params={{ maxpayout: numberWithCommas(maxWinPerSubround ?? 0) }} ns="SabaNumber" />
                 </li>
-                <li>{t("payouts_para_3", { ns: "SabaNumber" })}</li>
+                <li>{t("payouts_para_4", { ns: "SabaNumber" })}</li>
                 <div className="table-container">
                     <table className={`table text-center ${Styles["table"]}`}>
                         <thead>
@@ -111,7 +112,7 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
                         </tbody>
                     </table>
                 </div>
-                <li>{t("payouts_para_4")}</li>
+                <li>{t("payouts_para_5")}</li>
             </ul>
         </li>
     );
