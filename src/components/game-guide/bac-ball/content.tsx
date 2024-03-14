@@ -35,7 +35,7 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
                         <thead className="text-center">
                             <tr>
                                 <th style={{ width: "10rem" }}>{t("header_betoption", { ns: "Common" })}</th>
-                                <th>{t("header_description", { ns: "Common" })}</th>
+                                <th>{t("header_winning_condition", { ns: "SabaNumber" })}</th>
                             </tr>
                         </thead>
                         <tbody>
