@@ -5,7 +5,7 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
 import { InContextTools } from "@tolgee/web/tools";
 import { TolgeeConfig } from "../../../common/constants";
-import BacBallGameGuideContents from "./content";
+import BacBallGameGuideContent from "./content";
 import { getGameConfigProject } from "../../index.helper";
 
 const tolgee = Tolgee()
@@ -69,7 +69,7 @@ const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, is
 
     return (
         <TolgeeProvider tolgee={tolgee}>
-            <BacBallGameGuideContents userStakeLevel={userStakeLevel} gameConfigs={configs} />
+            <BacBallGameGuideContent userStakeLevel={userStakeLevel} gameConfigs={configs} />
         </TolgeeProvider>
     );
 };

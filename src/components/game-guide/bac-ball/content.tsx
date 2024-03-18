@@ -123,7 +123,7 @@ export interface BacBallGameGuideContentsProps {
     userStakeLevel: UserStakeLevelProps | undefined;
 }
 
-const BacBallGameGuideContents: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs }) => {
+const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs }) => {
     const { t } = useTranslate(["BacBall", "Common", "SabaNumber"]);
 
     return (
@@ -138,4 +138,4 @@ const BacBallGameGuideContents: FC<BacBallGameGuideContentsProps> = ({ userStake
     );
 };
 
-export default BacBallGameGuideContents;
+export default BacBallGameGuideContent;
