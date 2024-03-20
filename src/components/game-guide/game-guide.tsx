@@ -186,7 +186,9 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <FootballDiceGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FOOTBALL_SLOT:
                 return <FootballSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.BAC_BALL:
+            case GAMES.BAC_BALL_1:
+                return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.BAC_BALL_2:
                 return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);

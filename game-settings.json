@@ -222,5 +222,13 @@
     "77": {
         "id": 77,
         "gameName": "chineseblackjack"
+    },
+    "1001": {
+        "id": 1001,
+        "gameName": "Bac Ball 1"
+    },
+    "1002": {
+        "id": 1002,
+        "gameName": "Bac Ball 2"
     }
 }
