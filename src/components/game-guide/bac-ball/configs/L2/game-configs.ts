@@ -2,18 +2,16 @@ const GameConfigs = {
     maxWinPerSubround: 1000000,
     maxBet: 20000,
     minBet: 1,
-    odds: {
-        player: {
-            min: 1,
-            max: 2,
+    oddsRange: {
+        min: {
+            player: 1.51,
+            banker: 1.51,
+            tie: 21,
         },
-        banker: {
-            min: 1,
-            max: 2,
-        },
-        tie: {
-            min: 1,
-            max: 2,
+        max: {
+            player: 2.09,
+            banker: 2.09,
+            tie: 22,
         },
     },
     maxBetPerChoices: {

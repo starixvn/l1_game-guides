@@ -4,14 +4,14 @@ const GameConfigs = {
     minBet: 1,
     oddsRange: {
         min: {
-            player: 1,
-            banker: 1,
-            tie: 1,
+            player: 1.51,
+            banker: 1.51,
+            tie: 21,
         },
         max: {
-            player: 2,
-            banker: 2,
-            tie: 2,
+            player: 2.09,
+            banker: 2.09,
+            tie: 22,
         },
     },
     maxBetPerChoices: {

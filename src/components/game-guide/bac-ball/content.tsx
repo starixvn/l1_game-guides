@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { UserStakeLevelProps } from "../../../pages";
 import { T, useTranslate } from "@tolgee/react";
-import { numberWithCommas } from "../../../helpers/number-helper";
+import { formatOddsNotTwoDot, numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { BacBallGameConfigs } from "./type";
 import { Markup } from "interweave";
@@ -16,8 +16,11 @@ const BacBallIntroduction: FC<{ t: Function }> = ({ t }) => {
     );
 };
 
-const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | undefined }> = ({ t, userStakeLevel }) => {
-    const maxBet = 20000;
+const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | undefined; maxBet: number }> = ({
+    t,
+    userStakeLevel,
+    maxBet,
+}) => {
     return (
         <li className={`guide-item`}>
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -53,7 +56,11 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
     );
 };
 
-const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t, gameConfigs }) => {
+const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fractionalOddsFormat?: boolean }> = ({
+    t,
+    gameConfigs,
+    fractionalOddsFormat,
+}) => {
     const { maxWinPerSubround, oddsRange, maxBetPerChoices, minBet } = gameConfigs;
     const data = {
         player: {
@@ -105,7 +112,10 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
                             {Object.entries(data).map(({ 0: item, 1: { odds, maxBet } }) => (
                                 <tr key={item}>
                                     <td>{t(`glossary_${item}`)}</td>
-                                    <td>{`${numberWithCommas(odds?.min ?? 0)}-${numberWithCommas(odds?.max ?? 0)}`}</td>
+                                    <td>{`${formatOddsNotTwoDot(odds?.min ?? 0, fractionalOddsFormat)}-${formatOddsNotTwoDot(
+                                        odds?.max ?? 0,
+                                        fractionalOddsFormat
+                                    )}`}</td>
                                     <td>{`${numberWithCommas(minBet ?? 0)}-${numberWithCommas(maxBet ?? 0)}`}</td>
                                 </tr>
                             ))}
@@ -121,17 +131,18 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs }> = ({ t
 export interface BacBallGameGuideContentsProps {
     gameConfigs: BacBallGameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
+    fractionalOddsFormat?: boolean;
 }
 
-const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs }) => {
+const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs, fractionalOddsFormat }) => {
     const { t } = useTranslate(["BacBall", "Common", "SabaNumber"]);
 
     return (
         <div className={`bacball`}>
             <ul className={`game-guide`}>
                 <BacBallIntroduction t={t} />
-                <BacBallGameRules t={t} userStakeLevel={userStakeLevel} />
-                <BacBallPayout gameConfigs={gameConfigs} t={t} />
+                <BacBallGameRules t={t} userStakeLevel={userStakeLevel} maxBet={gameConfigs.maxBet} />
+                <BacBallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} t={t} />
                 <TermsAndConditionsTolgee />
             </ul>
         </div>
