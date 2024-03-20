@@ -61,7 +61,7 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fraction
     gameConfigs,
     fractionalOddsFormat,
 }) => {
-    const { maxWinPerSubround, oddsRange, maxBetPerChoices, minBet } = gameConfigs;
+    const { maxWinPerRound, oddsRange, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const data = {
         player: {
             odds: {
@@ -92,7 +92,11 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fraction
                 <li>{t("payouts_para_1", { ns: "SabaNumber" })}</li>
                 <li>{t("payouts_para_2", { ns: "SabaNumber" })}</li>
                 <li>
-                    <T keyName={"payouts_para_3"} params={{ maxpayout: numberWithCommas(maxWinPerSubround ?? 0) }} ns="SabaNumber" />
+                    <T
+                        keyName={"payouts_para_3"}
+                        params={{ maxpayout: numberWithCommas((maxWinPerRound ?? 0) * maxBet) }}
+                        ns="SabaNumber"
+                    />
                 </li>
                 <li>{t("payouts_para_4", { ns: "SabaNumber" })}</li>
                 <div className="table-container">

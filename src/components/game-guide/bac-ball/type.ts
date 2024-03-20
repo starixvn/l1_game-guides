@@ -1,7 +1,7 @@
 import { GameConfigs } from "../type";
 
 export interface BacBallGameConfigs extends GameConfigs {
-    maxWinPerSubround?: number;
+    maxWinPerRound?: number;
     maxBet: number;
     minBet: number;
     maxBetPerChoices: {

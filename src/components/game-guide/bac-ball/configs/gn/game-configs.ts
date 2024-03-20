@@ -1,5 +1,5 @@
 const GameConfigs = {
-    maxWinPerSubround: 1000000,
+    maxWinPerRound: 3,
     maxBet: 20000,
     minBet: 1,
     oddsRange: {
