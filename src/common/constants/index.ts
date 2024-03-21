@@ -101,6 +101,7 @@ export const GAMES = {
     BANDAR_QIU_QIU: 75,
     SPACE_FLIGHT: 73,
     CHINESE_BLACKJACK: 77,
+    FOOTBALL_DICE: 78,
 };
 
 export const GAMES_MINI = {

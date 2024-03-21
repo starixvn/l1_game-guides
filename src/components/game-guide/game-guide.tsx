@@ -11,6 +11,7 @@ import CascadingSlotGuide from "./cascading-slot-template";
 import ChineseBlackjackGameGuide from "./chinese-blackjack";
 import ColorGameGuide from "./color-game";
 import DragontigerFightGuide from "./dragon-tiger-fight";
+import FootballDiceGameGuide from "./football-dice";
 import PontoonGuide from "./pontoon";
 import SpaceFlightGuide from "./space-flight";
 
@@ -179,6 +180,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <BandarQiuQiuGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.CHINESE_BLACKJACK:
                 return <ChineseBlackjackGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.FOOTBALL_DICE:
+                return <FootballDiceGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
