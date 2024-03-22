@@ -116,6 +116,7 @@ const renderPayout = (
 
 const FootballDiceContents: React.FC<FootballDiceContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
     const { t } = useTranslate(["FootballDice", "Common"]);
+    console.log("FootballDiceContents", gameConfigs);
 
     return (
         <ul className={`game-guide`}>
