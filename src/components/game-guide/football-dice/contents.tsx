@@ -5,7 +5,7 @@ import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
-import Styles from "./color-game.module.scss";
+import Styles from "./football-dice.module.scss";
 import { TogleeNamespace } from "./namespace-tolgee";
 import { FootballDiceContentsProps } from "./type";
 
@@ -23,8 +23,8 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <td>{t("header_betoption", {ns: TogleeNamespace.Common})}</td>
-                        <td>{t("header_betoption", {ns: TogleeNamespace.Common})}</td>
+                        <td className={Styles["bet-option"]}>{t("header_betoption", {ns: TogleeNamespace.Common})}</td>
+                        <td>{t("guide_header_winning_condition", {ns: TogleeNamespace.Common})}</td>
                     </tr>
                 </thead>
                 <tbody>
