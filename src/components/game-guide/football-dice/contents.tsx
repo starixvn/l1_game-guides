@@ -7,7 +7,7 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameConfigs } from "../type";
 import Styles from "./color-game.module.scss";
 import { TogleeNamespace } from "./namespace-tolgee";
-import { ColorGameContentsProps } from "./type";
+import { FootballDiceContentsProps } from "./type";
 
 const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
 
@@ -56,59 +56,54 @@ const renderPayout = (
 ) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetYellow = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.yellow));
-    const maxBetHot = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.hot));
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.home));
+    const maxBetAway = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.away));
+    const maxBetDraw = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.draw));
 
     return (
         <li className="guide-item">
-            <h2>{t("title_payouts", { ns: "Common" })}</h2>
+            <h2>{t("title_payouts", { ns: TogleeNamespace.Common })}</h2>
             <ul className="desc">
-                <li>{<Markup content={t("payouts_para_1", { ns: "Common" })} />}</li>
-                <li>{t("payouts_para_2", { ns: "Common" })}</li>
-                <li>{t("payouts_para_3", { ns: "Common" })}</li>
+                <li>{<Markup content={t("payouts_para_1", { ns: TogleeNamespace.Common })} />}</li>
+                <li>{t("payouts_para_2", { ns: TogleeNamespace.Common })}</li>
+                <li>{t("payouts_para_3", { ns: TogleeNamespace.Common })}</li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
                             <thead>
                                 <tr className={Styles["payout-header"]}>
-                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["description"]}`}>{t("header_description", { ns: "Common" })}</th>
-                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: "Common" })}</th>
+                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: TogleeNamespace.Common })}</th>
+                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: TogleeNamespace.Common })}</th>
                                     <th className={`bold ${Styles["nowrap"]}`}>
-                                        <Markup content={t("header_betlimit", { ns: "Common" })} />{" "}
+                                        <Markup content={t("header_betlimit", { ns: TogleeNamespace.Common })} />{" "}
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowSpan={3}>{t(`option_specific_color`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_specific_color_1`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.single, fractionalOddsFormat)}</td>
-                                    <td rowSpan={3} className={Styles["nowrap"]}>
-                                        {minBetMain} - {maxBetYellow}
+                                    <td>{t("glossary_home", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{formatOdds(odds?.home, fractionalOddsFormat)}</td>
+                                    <td className={Styles["nowrap"]}>
+                                        {minBetMain} - {maxBetHome}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t(`desc_specific_color_2`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.double, fractionalOddsFormat)}</td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`desc_specifci_color_3`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`option_hot`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_hot`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.hot, fractionalOddsFormat)}</td>
-                                    <td rowSpan={2}>
-                                        {minBetMain} - {maxBetHot}
+                                    <td>{t("glossary_away", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{formatOdds(odds?.away, fractionalOddsFormat)}</td>
+                                    <td className={Styles["nowrap"]}>
+                                        {minBetMain} - {maxBetAway}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t(`option_cold`, { ns: "ColorGame" })}</td>
-                                    <td>{t(`desc_cold`, { ns: "ColorGame" })}</td>
-                                    <td>{formatOdds(odds?.cold, fractionalOddsFormat)}</td>
+                                    <td>{t("glossary_draw", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                    <td className={Styles["nowrap"]}>
+                                        {minBetMain} - {maxBetDraw}
+                                    </td>
                                 </tr>
+                               
+                                
                             </tbody>
                         </table>
                     </div>
@@ -119,7 +114,7 @@ const renderPayout = (
     );
 };
 
-const FootballDiceContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
+const FootballDiceContents: React.FC<FootballDiceContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
     const { t } = useTranslate(["FootballDice", "Common"]);
 
     return (

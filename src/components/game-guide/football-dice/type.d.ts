@@ -2,28 +2,18 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigs } from "../type";
 
 export interface OddsProps {
-    yellow: number;
-    red: number;
-    pink: number;
-    white: number;
-    blue: number;
-    green: number;
-    hot: number;
-    cold: number;
+    home: number;
+    draw: number;
+    away: number;
 }
 
 export interface ChoicesMaxBetProps {
-    yellow: number;
-    red: number;
-    pink: number;
-    white: number;
-    blue: number;
-    green: number;
-    hot: number;
-    cold: number;
+    home: number;
+    draw: number;
+    away: number;
 }
 
-export type ColorGameContentsProps = {
+export type FootballDiceContentsProps = {
     locale: string | undefined;
     gameConfigs: GameConfigs;
     fractionalOddsFormat?: boolean;
