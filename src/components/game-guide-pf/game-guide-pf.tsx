@@ -7,6 +7,7 @@ import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import FootballDicePFGuide from "./football-dice";
 import SpaceFlightPFGuide from "./space-flight";
+import BacBallPFGuide from "./bac-ball";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -20,11 +21,15 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
         const gameGuideProps = this.getGameGuideProps();
         switch (gameId) {
             case GAMES_PF.CHINESE_BLACKJACK:
-                return <ChineseBlackjackPFGuide key={`game-${gameId}`} {...gameGuideProps} />;  
+                return <ChineseBlackjackPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SPACE_FLIGHT:
                 return <SpaceFlightPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.FOOTBALL_DICE:
                 return <FootballDicePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.BAC_BALL_1:
+                return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.BAC_BALL_2:
+                return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }

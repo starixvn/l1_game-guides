@@ -1,0 +1,107 @@
+.pf-icon {
+    width: 3rem;
+}
+
+.pf-text-highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.pf-text-content {
+    color: #a6c0fc;
+}
+
+.pf-text-highlight-red {
+    color: #ff2727;
+}
+
+.pf-has-highlight-red strong {
+    color: #ff2727;
+    font-weight: 600;
+}
+
+.pf-guide-content {
+    padding-bottom: 3rem;
+
+    .pf-style-number-dot {
+        padding-left: 0;
+
+        .pf-number-dot::before,
+        .pf-number-dot .pf-sub-title {
+            color: #a6c0fc;
+            font-weight: 700;
+        }
+    }
+}
+
+.pf-main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding: 0 1.6rem;
+    line-height: 2.1rem;
+    margin-bottom: 1rem;
+}
+
+.pf-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.pf-desc {
+    margin-bottom: 1rem;
+}
+
+.pf-sub-desc {
+    padding-left: 2.5rem;
+
+    > li {
+        margin-bottom: 0.8rem;
+        margin-left: 2rem;
+        position: relative;
+        list-style: disc;
+
+        &::marker {
+            color: #fff;
+        }
+
+        strong {
+            color: #fff;
+        }
+    }
+}
+
+.pf-block-highlight-text {
+    background: #243678;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+
+    p {
+        text-wrap: wrap;
+    }
+}
+
+.pf-block-highlight-number {
+    background: #14204a;
+    border: 1px solid #2a327c;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.8rem;
+
+    .pf-text-highlight {
+        font-weight: 600;
+    }
+}
+
+.pf-img-example {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 1) 0px 0px 4px 0px, rgba(0, 0, 0, 1) 0px 0px 20px 0px;
+    border-radius: 1.7rem;
+}

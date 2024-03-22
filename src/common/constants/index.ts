@@ -124,6 +124,8 @@ export const GAMES_PF = {
     CHINESE_BLACKJACK: 77,
     SPACE_FLIGHT: 73,
     FOOTBALL_DICE: 78,
+    BAC_BALL_1: 1001,
+    BAC_BALL_2: 1002,
 };
 
 export const TolgeeConfig = {
