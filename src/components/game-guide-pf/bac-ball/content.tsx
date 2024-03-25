@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Markup } from "interweave";
 import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
-import Styles from "./bac-ball-pf.module.scss";
+import Styles from "../snng-base/pf.module.scss";
 import { BacBallPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderContentPFBase } from "../snng-base";
@@ -53,8 +53,11 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
                             <div>
-                                &#123;“random”:“Player value;Banker value”,“remain”:“Player remaining balls;Banker remaining
-                                balls”,“secret”:“random string”&#125;
+                                &#123;“random”:“{t("pf_server_seed_format_random_player", { ns: "BacBall" })};
+                                {t("pf_server_seed_format_random_banker", { ns: "BacBall" })}”,“remain”:“
+                                {t("pf_server_seed_format_remain_player", { ns: "BacBall" })};
+                                {t("pf_server_seed_format_remain_banker", { ns: "BacBall" })}”,“secret”:“
+                                {t("pf_server_seed_format_secret", { ns: "BacBall" })}”&#125;
                             </div>
                         </div>
 
@@ -64,10 +67,7 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
                             <div className={Styles["pf-text-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
-                            <div>
-                                <strong>Index Value</strong> = ((Random number + <span className={Styles["pf-text-highlight-red"]}>X</span>)
-                                mod Number of balls left) + 1
-                            </div>
+                            <div>{<Markup content={t("pf_algorithm", { ns: "BacBall" })} />}</div>
                         </div>
 
                         <li className={Styles["pf-has-highlight-red"]}>

@@ -1,6 +1,6 @@
 import { DefaultParamType, TFnType, TranslationKey } from "@tolgee/react";
 import { Markup } from "interweave";
-import Styles from "../bac-ball/bac-ball-pf.module.scss";
+import Styles from "./pf.module.scss";
 
 const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
@@ -44,9 +44,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            <div className="center-img">
-                <img className="img-border" src={`./static/images/pf-snng/flow-final-result_${locale}.svg?v=${imgVersion}`} alt="pf"></img>
-            </div>
+            <div className="center-img"></div>
         </div>
     );
 };
