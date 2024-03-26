@@ -15,7 +15,7 @@ const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>,
     return (
         <div>
             <div className={Styles["pf-main-title"]}>{t("pf_advertise_para_1", { ns: "Common" })}</div>
-            <p>{<Markup content={t("pf_advertise_bac_ball", { ns: "Common", gamename: "Bac Ball" })} />}</p>
+            <p>{<Markup content={t("pf_advertise_bac_ball", { ns: "Common", gamename: displayName })} />}</p>
             <div className="center-img">
                 <img src={`./static/images/pf-snng/pf-intro.svg?v=${imgVersion}`} alt="pf"></img>
             </div>
@@ -23,7 +23,7 @@ const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
+const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
     return (
         <div className="guide-item">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
@@ -33,7 +33,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <span style={{ textAlign: "center" }}>
                     <strong className={Styles["pf-text-highlight"]}>{t("pf_fair_result", { ns: "Common" })}</strong>
                     <strong className={Styles["pf-text-content"]}> = {t("pf_casino_contribution", { ns: "Common" })}</strong>
-                    <strong className={Styles["pf-text-content"]}>{t("pf_player_contribution", { ns: "Common" })}</strong>
+                    <strong className={Styles["pf-text-content"]}> + {t("pf_player_contribution", { ns: "Common" })}</strong>
                 </span>
             </div>
 
@@ -44,7 +44,45 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            <div className="center-img"></div>
+            {renderPFWorkExample(t, imgVersion)}
+        </div>
+    );
+};
+
+const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+    return (
+        <div className={Styles["pf-work-example"]}>
+            <div className={Styles["pf-work-example-block-1"]}>
+                <div className={`${Styles["pf-work-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-work-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]}`}>
+                    {<Markup content={t("pf_bacball_nonce", { ns: "SabaNumber" })} />}
+                </div>
+                <img
+                    className={Styles["pf-work-example-img-background-1"]}
+                    src={`./static/images/pf-snng/pf-work-example-1.png?v=${imgVersion}`}
+                    alt="pf"
+                ></img>
+                <div className={Styles["pf-work-example-img-text"]}>
+                    <span>{t("glossary_player", { ns: "BacBall" })} 1</span>
+                    <span>{t("glossary_player", { ns: "BacBall" })} 2</span>
+                    <span>{t("glossary_player", { ns: "BacBall" })}...</span>
+                </div>
+            </div>
+            <div className={Styles["pf-word-example-block-2"]}>
+                <div className={Styles["pf-text-highlight"]}>{t("pf_merge_seed", { ns: "Common" })}</div>
+                <div className={Styles["pf-text-highlight"]}>{t("pf_server_client_nonce", { ns: "Common" })}</div>
+                <img
+                    className={Styles["pf-work-example-img-2"]}
+                    src={`./static/images/pf-snng/pf-work-example-2.png?v=${imgVersion}`}
+                    alt="pf"
+                ></img>
+            </div>
+            <div className={`${Styles["pf-word-example-block-3"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
         </div>
     );
 };
@@ -59,7 +97,7 @@ const renderContentPFBase = (
         <>
             {renderAdvertisePF(t, displayName || "", imgVersion)}
             {renderPFInfo(t)}
-            {renderHowPFWork(t, imgVersion, locale)}
+            {renderHowPFWork(t, imgVersion)}
         </>
     );
 };

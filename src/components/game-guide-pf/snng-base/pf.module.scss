@@ -99,8 +99,89 @@
     }
 }
 
-.pf-img-example {
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 1) 0px 0px 4px 0px, rgba(0, 0, 0, 1) 0px 0px 20px 0px;
-    border-radius: 1.7rem;
+// How Does Provably Fair Work? images example
+
+.pf-work-example {
+    margin-top: 4rem;
+}
+
+.pf-work-example-block-1 {
+    position: relative;
+    margin: 0 auto;
+
+    .pf-work-example-img-background-1 {
+        width: 100%;
+    }
+
+    .pf-work-example-text-1 {
+        position: absolute;
+        top: -2.3rem;
+        width: 6.5rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .pf-work-example-text-2 {
+        position: absolute;
+        top: -2.5rem;
+        right: 50%;
+        transform: translate(50%, 0);
+    }
+
+    .pf-work-example-text-3 {
+        position: absolute;
+        top: -2.3rem;
+        width: 7rem;
+        right: -0.2rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .pf-work-example-img-text {
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, 0);
+        top: 5.5rem;
+        display: flex;
+        gap: 1.4rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+
+        > span {
+            width: 5rem;
+            text-align: center;
+        }
+    }
+}
+
+.pf-word-example-block-2 {
+    text-align: center;
+    padding-top: 1rem;
+
+    .pf-work-example-img-2 {
+        width: 19.7rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+}
+
+.pf-word-example-block-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 1rem;
+    background: #14204a;
+    border: 1px solid #2a327c;
+    padding: 1rem;
+    width: 19.7rem;
+    margin: 1rem auto;
+}
+
+// How is Provably Fair Applied In-game? images example
+.pf-applied-example {
 }
