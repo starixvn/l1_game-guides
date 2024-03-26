@@ -1,6 +1,6 @@
 {
     "sentry": {
-        "dsn": "https://0edcd8ffd0e24383a121e732570deb2c@10.2.190.51:9009/290",
+        "dsn": "https://0edcd8ffd0e24383a121e732570deb2c@scsentry.sgamesuat.com/290",
         "environment": "UAT"
     },
     "system": "gn",
