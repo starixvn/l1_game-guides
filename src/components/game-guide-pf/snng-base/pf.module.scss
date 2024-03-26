@@ -102,20 +102,29 @@
 // How Does Provably Fair Work? images example
 
 .pf-work-example {
+    width: 34rem;
+    margin: 0 auto;
     margin-top: 4rem;
+}
+
+.pf-work-example-img-background-full {
+    width: 34rem;
+    margin: 0 auto;
+}
+
+.pf-merge-seed-img {
+    width: 19.7rem;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .pf-work-example-block-1 {
     position: relative;
     margin: 0 auto;
 
-    .pf-work-example-img-background-1 {
-        width: 100%;
-    }
-
     .pf-work-example-text-1 {
         position: absolute;
-        top: -2.3rem;
+        top: -1.3rem;
         width: 6.5rem;
         text-align: center;
         line-height: 1.2;
@@ -123,14 +132,14 @@
 
     .pf-work-example-text-2 {
         position: absolute;
-        top: -2.5rem;
+        top: -1.5rem;
         right: 50%;
         transform: translate(50%, 0);
     }
 
     .pf-work-example-text-3 {
         position: absolute;
-        top: -2.3rem;
+        top: -1.3rem;
         width: 7rem;
         right: -0.2rem;
         text-align: center;
@@ -141,8 +150,10 @@
         position: absolute;
         right: 50%;
         transform: translate(50%, 0);
-        top: 5.5rem;
+        top: 6.2rem;
+        height: 3.5rem;
         display: flex;
+        align-items: center;
         gap: 1.4rem;
         font-size: 1rem;
         font-weight: 700;
@@ -158,15 +169,9 @@
 .pf-word-example-block-2 {
     text-align: center;
     padding-top: 1rem;
-
-    .pf-work-example-img-2 {
-        width: 19.7rem;
-        margin: 0 auto;
-        margin-top: 1rem;
-    }
 }
 
-.pf-word-example-block-3 {
+.pf-example-block-final {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,4 +189,61 @@
 
 // How is Provably Fair Applied In-game? images example
 .pf-applied-example {
+    position: relative;
+    width: 34rem;
+    margin: 0 auto;
+
+    .pf-applied-example-block-1 {
+        position: relative;
+    }
+
+    .pf-applied-example-text-1 {
+        position: absolute;
+        top: 0.5rem;
+    }
+
+    .pf-applied-example-text-2 {
+        position: absolute;
+        top: 0.5rem;
+        right: 6rem;
+    }
+
+    .pf-applied-example-text-3 {
+        position: absolute;
+        top: 17.5rem;
+        right: 0.9rem;
+    }
+
+    .pf-applied-example-img-text {
+        position: absolute;
+        right: 0.7rem;
+        top: 8.5rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+
+        > span {
+            width: 5rem;
+            text-align: center;
+        }
+    }
+}
+
+.pf-combined-hash {
+    position: relative;
+
+    .pf-combined-hash-img {
+        width: 28.3rem;
+    }
+
+    .pf-combined-hash-text {
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, 0);
+        top: 1rem;
+    }
 }

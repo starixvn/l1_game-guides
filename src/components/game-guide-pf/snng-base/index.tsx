@@ -62,11 +62,14 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                 <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]}`}>
                     {<Markup content={t("pf_bacball_nonce", { ns: "SabaNumber" })} />}
                 </div>
-                <img
-                    className={Styles["pf-work-example-img-background-1"]}
-                    src={`./static/images/pf-snng/pf-work-example-1.png?v=${imgVersion}`}
-                    alt="pf"
-                ></img>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf-snng/pf-work-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+
                 <div className={Styles["pf-work-example-img-text"]}>
                     <span>{t("glossary_player", { ns: "BacBall" })} 1</span>
                     <span>{t("glossary_player", { ns: "BacBall" })} 2</span>
@@ -77,12 +80,12 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                 <div className={Styles["pf-text-highlight"]}>{t("pf_merge_seed", { ns: "Common" })}</div>
                 <div className={Styles["pf-text-highlight"]}>{t("pf_server_client_nonce", { ns: "Common" })}</div>
                 <img
-                    className={Styles["pf-work-example-img-2"]}
-                    src={`./static/images/pf-snng/pf-work-example-2.png?v=${imgVersion}`}
+                    className={Styles["pf-merge-seed-img"]}
+                    src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
                     alt="pf"
                 ></img>
             </div>
-            <div className={`${Styles["pf-word-example-block-3"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
         </div>
     );
 };

@@ -23,7 +23,59 @@ const renderBacBallAppliedInGame = (t: TFnType<DefaultParamType, string, Transla
 };
 
 const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
-    return <div className={Styles["pf-applied-example"]}></div>;
+    return (
+        <div className={Styles["pf-applied-example"]}>
+            <div className={Styles["pf-applied-example-block-1"]}>
+                <div className={`${Styles["pf-applied-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-applied-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf-snng/pf-applied-ingame-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+                <div className={`${Styles["pf-applied-example-text-3"]} ${Styles["pf-text-highlight"]} text-center`}>
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })} <br />({t("pf_provably_guide_flow", { ns: "SabaNumber" })})
+                </div>
+                <div className={Styles["pf-applied-example-img-text"]}>
+                    <span>{t("glossary_player", { ns: "BacBall" })} 1</span>
+                    <span>{t("glossary_player", { ns: "BacBall" })} 2</span>
+                    <span>{t("glossary_player", { ns: "BacBall" })}...</span>
+                </div>
+            </div>
+            <div className={Styles["pf-applied-example-block-2"]}>
+                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_combined Seed", { ns: "Spaceflight" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-merge-seed-img"]}
+                        src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={Styles["pf-combined-hash"]}>
+                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-combined-hash-img"]}
+                        src={`./static/images/pf-snng/pf-combined-hash.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+        </div>
+    );
 };
 
 const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
