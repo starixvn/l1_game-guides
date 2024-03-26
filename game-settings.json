@@ -230,5 +230,13 @@
     "1002": {
         "id": 1002,
         "gameName": "Bac Ball 2"
+    },
+    "1003": {
+        "id": 1003,
+        "gameName": "Next Ball 1"
+    },
+    "1004": {
+        "id": 1004,
+        "gameName": "Next Ball 2"
     }
 }
