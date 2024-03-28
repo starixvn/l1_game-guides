@@ -2,6 +2,13 @@ import { DefaultParamType, TFnType, TranslationKey } from "@tolgee/react";
 import { Markup } from "interweave";
 import Styles from "./pf.module.scss";
 
+const iconGuide = <img src="./static/images/pf-snng/pf-verify-icon-guides.svg" alt="pf-icon" />;
+const iconClose = <img src="./static/images/pf-snng/pf-verify-icon-close.svg" alt="pf-icon" />;
+const iconChecked = <img src="./static/images/pf-snng/pf-verify-icon-checked.svg" alt="pf-icon" />;
+const iconUnCheck = <img src="./static/images/pf-snng/pf-verify-icon-uncheck.svg" alt="pf-icon" />;
+const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
+const iconInfo = <img src="./static/images/pf-snng/pf-verify-icon-info.svg" alt="pf-icon" />;
+
 const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
         <div className="guide-item">
@@ -71,9 +78,9 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                 </div>
 
                 <div className={Styles["pf-work-example-img-text"]}>
-                    <span>{t("glossary_player", { ns: "BacBall" })} 1</span>
-                    <span>{t("glossary_player", { ns: "BacBall" })} 2</span>
-                    <span>{t("glossary_player", { ns: "BacBall" })}...</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
                 </div>
             </div>
             <div className={Styles["pf-word-example-block-2"]}>
@@ -90,12 +97,107 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 
-const renderContentPFBase = (
+const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, randomNumber: string, serverSeedSHA256: string) => {
+    return (
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
+            <div className={Styles["pf-verify-header"]}>
+                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
+                <span className={Styles["pf-verify-header-title"]}>{t("pf_title_provably_fair_settings", { ns: "Common" })}</span>
+                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
+            </div>
+            <p>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</p>
+            <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
+            <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={Styles["pf-verify-option"]}>
+                    <div className={Styles["pf-verify-option-radio"]} style={{ color: "#fff" }}>
+                        <span className={Styles["pf-verify-icon"]}>{iconChecked}</span>
+                        <span className={Styles["pf-verify-check-label"]}>{t("pf_random", { ns: "Common" })}</span>
+                    </div>
+
+                    <div className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`} style={{ color: "#fff" }}>
+                        {randomNumber}
+                    </div>
+                </div>
+                <div className={Styles["pf-verify-option"]}>
+                    <div className={Styles["pf-verify-option-radio"]}>
+                        <span className={Styles["pf-verify-icon"]}>{iconUnCheck}</span>
+                        <span className={`${Styles["pf-verify-check-label"]} text-center`}>
+                            {t("pf_manual_input", { ns: "Common" })} <br /> (0 - 9999)
+                        </span>
+                    </div>
+
+                    <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-fix-width"]}`}></div>
+                </div>
+            </div>
+            <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const renderVerifyExample = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
-    displayName: string,
-    imgVersion: string,
-    locale: string
+    serverSeedSHA256: string,
+    serverSeed: string,
+    mergeServerSeed: string,
+    combinedSHA512Hash: string,
+    resultBlock: any
 ) => {
+    return (
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
+            <div className={Styles["pf-verify-header"]}>
+                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
+                <span className={Styles["pf-verify-header-title"]}>{t("pf_provably_fair", { ns: "Common" })}</span>
+                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
+            </div>
+            {resultBlock}
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={Styles["pf-verify-input-text"]}>{<Markup content={serverSeed} />}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+            </div>
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+                <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <span className={Styles["pf-verify-link"]}>{t("pf_provably_fair_details", { ns: "SabaNumber" })}</span>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={`${Styles["pf-verify-input-text"]} text-center`}>{mergeServerSeed}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+            </div>
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1.2rem" }}>
+                    <span className={`${Styles["pf-verify-input-text"]} text-center`}>{combinedSHA512Hash}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+            </div>
+            <div className={Styles["pf-verify-button-green"]}>{t("pf_verify", { ns: "Spaceflight" })}</div>
+            <div className="text-center" style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
+                {t("pf_provably_fair_para_2", { ns: "Spaceflight" })}
+            </div>
+        </div>
+    );
+};
+
+const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
         <>
             {renderAdvertisePF(t, displayName || "", imgVersion)}
@@ -105,4 +207,4 @@ const renderContentPFBase = (
     );
 };
 
-export { renderContentPFBase };
+export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample };

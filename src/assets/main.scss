@@ -499,3 +499,19 @@ html[data-theme="way-to-goal"] {
     max-width: 100%;
     height: auto;
 }
+
+.flex {
+    display: flex;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
