@@ -46,7 +46,7 @@ const NextBallGameRules: FC<{ userStakeLevel: UserStakeLevelProps | undefined; m
                         <tbody>
                             {["over", "under", "odd", "even"].map((item) => (
                                 <tr key={item}>
-                                    <td className="text-center">{t(`glossary_betchoice_${item}`)}</td>
+                                    <td className="text-center">{t(`glossary_${item}`)}</td>
                                     <td>{t(`descrip_${item}_win`)}</td>
                                 </tr>
                             ))}
@@ -124,7 +124,7 @@ const NextBallPayout: FC<{ gameConfigs: NextBallGameConfigs; fractionalOddsForma
                         <tbody>
                             {Object.entries(data).map(({ 0: item, 1: { odds, maxBet } }) => (
                                 <tr key={item}>
-                                    <td>{t(`glossary_betchoice_${item}`)}</td>
+                                    <td>{t(`glossary_${item}`)}</td>
                                     <td>{`${formatOddsNotTwoDot(odds?.min ?? 0, fractionalOddsFormat)}-${formatOddsNotTwoDot(
                                         odds?.max ?? 0,
                                         fractionalOddsFormat
