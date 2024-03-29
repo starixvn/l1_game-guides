@@ -373,7 +373,7 @@ const renderVerifyDetailExample = (
     );
 };
 
-const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, locale: string | undefined) => {
     const iconPF = `<img src="/static/images/pf-snng/icon-pf.svg" alt="pf-verify" />`;
     const serverSeedSHA256 = "06b2debe526f6544f55ed206d23f825a3a0b76dba0094bdd31ea285fe5166d5f";
     const randomNumber = "1991";
@@ -403,7 +403,11 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
                             <li>{<Markup content={t("pf_bacball_verifier_tool_para_6", { ns: "BacBall" })} />}</li>
                         </ul>
 
-                        <div className={Styles["pf-block-highlight-text"]}>
+                        <div
+                            className={`${Styles["pf-block-highlight-text"]} ${
+                                locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
+                            }`}
+                        >
                             <div className={Styles["pf-text-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
@@ -431,7 +435,11 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
 
                         <li>{t("pf_bacball_verifier_tool_para_8", { ns: "BacBall" })}</li>
 
-                        <div className={Styles["pf-block-highlight-text"]}>
+                        <div
+                            className={`${Styles["pf-block-highlight-text"]} ${
+                                locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
+                            }`}
+                        >
                             <div className={Styles["pf-text-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
@@ -543,7 +551,7 @@ const BacBallPFGuideContent: FC<BacBallPFContentsProps> = ({ locale }) => {
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
             {renderBacBallAppliedInGame(t, displayName ?? "", verImg)}
-            {renderBacBallVerifyPF(t)}
+            {renderBacBallVerifyPF(t, locale)}
         </div>
     );
 };

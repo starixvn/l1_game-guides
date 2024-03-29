@@ -93,12 +93,16 @@
     color: #fff;
     border-radius: 1rem;
     padding: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 0.8rem;
 
     p {
         text-wrap: wrap;
+    }
+
+    &.pf-block-highlight-text-en {
+        font-size: 1.2rem;
     }
 }
 

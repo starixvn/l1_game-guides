@@ -105,7 +105,7 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <span className={Styles["pf-verify-header-title"]}>{t("pf_title_provably_fair_settings", { ns: "Common" })}</span>
                 <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
             </div>
-            <p>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</p>
+            <p>{t("pf_setting_para_1", { ns: "SabaNumber" })}</p>
             <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
             <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
             <div className={Styles["pf-verify-block-form"]}>
