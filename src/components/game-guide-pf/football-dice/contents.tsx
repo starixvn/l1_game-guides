@@ -26,7 +26,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
@@ -42,7 +42,13 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>) 
                     </div>
                     <div className={Styles["info"]}>
                     <div className={Styles["key"]}><Markup content={t("pf_result", { ns: TogleeNamespace.Common })}/>:</div>
-                        <div className={Styles["value"]}>94.81X</div>
+                        <div className={Styles["value"]}>
+                            <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                            <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                            <span>4 | 6</span>{"   "}
+                            <img src={`./static/images/pf/football-dice/dice-away-4.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                            <img src={`./static/images/pf/football-dice/dice-away-2.png?v=${verImg}`} alt="dice-home-2" />
+                        </div>
                     </div>
                 </div>
                 <div className={`${Styles["server-section"]} ${Styles["bg-section"]}`}>
@@ -226,7 +232,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                 <ul className={Styles["circle-style"]}>
                     <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: TogleeNamespace.Common })} />}</li>
                     <li>{<Markup content={t("pf_verifier_tool_step_2", { ns: TogleeNamespace.Common })} />}
-                        {renderImageStep2(t)}
+                        {renderImageStep2(t, verImg)}
                     </li>
                     <li>{<Markup content={t("pf_verifier_tool_step_3", { ns: TogleeNamespace.Common })} />}
                     <div className={Styles["center-img"]}>
