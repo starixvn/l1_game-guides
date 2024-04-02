@@ -26,12 +26,12 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string) => {
+const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string, gameName: string) => {
     return (
         <li className="guide-item">
             <h2>{<Markup content={t("pf_title_verify_the_provably_fair", { ns: "Common" })} />}</h2>
             <ul className="style-number-dot">
-                {renderGameVerifierTool(t, verImg, rootImgUrl, locale)}
+                {renderGameVerifierTool(t, verImg, rootImgUrl, locale, gameName)}
 
                 {render3rdVerifierTool(t, verImg)}
             </ul>
@@ -39,7 +39,7 @@ const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, ve
     );
 };
 
-const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string ) => {
+const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string, gameName: string ) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: TogleeNamespace.Common })}</span>
@@ -48,7 +48,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                     {<Markup content={t("pf_verifier_tool_para_1", { ns: TogleeNamespace.Common })} />}{" "}   
                 </li>
                 <li>
-                    {<Markup content={t("pf_spaceflight_verifier_tool_para_2", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
+                    {<Markup content={t("pf_verifier_tool_para_2", { ns: TogleeNamespace.Common, gamename: gameName })} />}{" "}   
                 </li>
                 <li>
                     {<Markup content={t("pf_verifier_tool_para_3", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
@@ -73,17 +73,21 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                     <li>{<Markup content={t("pf_header_combined_sha512_hash", { ns: TogleeNamespace.Common })} />}
                         <div>4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0bc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4</div>
                     </li>
-                    <li>{<Markup content={t("pf_verifier_tool_para_11", { ns: TogleeNamespace.SpecificGame })} />}</li>
+                    <li>{<Markup content={t("pf_verifier_tool_para_11", { ns: TogleeNamespace.SpecificGame })} />}
+                        <div>4f1f06cd {`=>`} X = 1327433421</div>
+                    </li>
+                    <li>{<Markup content={t("pf_verifier_tool_para_12", { ns: TogleeNamespace.SpecificGame })}/>}</li>
+                    <li>{<Markup content={t("pf_verifier_tool_para_13", { ns: TogleeNamespace.SpecificGame })}/>}</li>
                 </ul>
-                <div>{<Markup content={t("pf_spaceflight_verifier_tool_para_9", { ns: "Spaceflight" })} />}{" "}  </div>  
+                <div>{<Markup content={t("pf_verifier_tool_step_by_step", {  ns: TogleeNamespace.Common })} />}{" "}  </div>  
                 <ul className={Styles["circle-style"]}>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_10", { ns: "Spaceflight" })} />}</li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_11", { ns: "Spaceflight" })} />}
+                    <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: TogleeNamespace.Common })} />}</li>
+                    <li>{<Markup content={t("pf_verifier_tool_step_2", { ns: TogleeNamespace.Common })} />}
                     <div className={Styles["center-img"]}>                       
                         <img src={`${rootImgUrl}intro-pf-step2-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                     </li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_12", { ns: "Spaceflight" })} />}
+                    <li>{<Markup content={t("pf_verifier_tool_step_3", { ns: TogleeNamespace.Common })} />}
                     <div className={Styles["center-img"]}>
                         <img src={`${rootImgUrl}intro-pf-step3-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
@@ -100,8 +104,8 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}</span>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: TogleeNamespace.Common })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: TogleeNamespace.Common })} />}</li>
             </ul>
         </li>
     );
@@ -117,7 +121,7 @@ const FootballDicePFContents: React.FC<FootballDicePFContentsProps> = ({ locale,
             <ul className={`game-guide game-guide-pf`}>
                 {renderContentPFBase(t, displayName || "", verImg, locale || "")}
                 {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "", locale || "")}
-                {renderVerifyPF(t, verImg, rootImgUrl, locale || "")}
+                {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "")}
             </ul>
         </div>
     );
