@@ -115,6 +115,15 @@ $color-second: #C4BCE0;
                 top: -3px;
                }
         }
+        .icon-copy {
+            background: url('/static/images/pf/popup/pf-icon-copy.png');
+            width: 34px;
+            height: 34px;
+            display: inline-block;
+            position: absolute;
+            right: -1px;
+            top: -6px;
+        }
         
     }
     .title-style {
@@ -142,9 +151,11 @@ $color-second: #C4BCE0;
             margin-bottom: 0;
         }
     }
-    .break-word {
-        word-break: break-word;
-    }
+    
+}
+
+.break-word {
+    word-break: break-word;
 }
 
 .popup-content {
