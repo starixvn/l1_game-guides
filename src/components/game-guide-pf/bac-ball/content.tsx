@@ -529,11 +529,10 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
     );
 };
 
-const BacBallPFGuideContent: FC<BacBallPFContentsProps> = ({ locale }) => {
+const BacBallPFGuideContent: FC<BacBallPFContentsProps> = ({ locale, displayName }) => {
     const { t } = useTranslate(["BacBall", "Common", "SabaNumber", "Spaceflight", "BandarQiuQiu"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion ?? "1";
-    const displayName = "Bac Ball";
 
     return (
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>

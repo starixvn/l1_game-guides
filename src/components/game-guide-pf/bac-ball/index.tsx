@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
 import { InContextTools } from "@tolgee/web/tools";
@@ -30,7 +30,8 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const BacBallPFGuide = (props: GameGuideBase) => {
-    const { displayName, locale } = props;
+    const { locale, id } = props;
+    const displayName = appSettings.gameSettings[`${id}`].gameName;
 
     useEffect(() => {
         if (window?.location?.pathname) {
