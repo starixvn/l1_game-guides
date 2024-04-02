@@ -7,13 +7,15 @@ import { Markup } from "interweave";
 import { Common, NextBall, SabaNumber } from "./constants";
 import { NextBallGameConfigs, NextBallGameGuideContentsProps } from "./type";
 
-const NextBallIntroduction: FC = () => {
+const NextBallIntroduction: FC<{ displayName?: string }> = ({ displayName }) => {
     const { t } = useTranslate([NextBall, Common]);
 
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: Common })}</h2>
-            <div className="content">{t("intro_para_1")}</div>
+            <div className="content">
+                <T keyName={"intro_para_1"} params={{ gamename: displayName }} ns={NextBall}></T>
+            </div>
         </li>
     );
 };
@@ -140,11 +142,16 @@ const NextBallPayout: FC<{ gameConfigs: NextBallGameConfigs; fractionalOddsForma
     );
 };
 
-const NextBallGameGuideContent: FC<NextBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs, fractionalOddsFormat }) => {
+const NextBallGameGuideContent: FC<NextBallGameGuideContentsProps> = ({
+    userStakeLevel,
+    gameConfigs,
+    fractionalOddsFormat,
+    displayName,
+}) => {
     return (
         <div className={`bacball`}>
             <ul className={`game-guide`}>
-                <NextBallIntroduction />
+                <NextBallIntroduction displayName={displayName || ""} />
                 <NextBallGameRules userStakeLevel={userStakeLevel} maxBet={gameConfigs.maxBet} />
                 <NextBallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} />
                 <TermsAndConditionsTolgee />

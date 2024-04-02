@@ -361,7 +361,7 @@ const renderVerifyDetailExample = (
     );
 };
 
-const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, locale: string | undefined) => {
+const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, locale: string | undefined, displayName: string) => {
     const iconPF = `<img src="/static/images/pf-snng/icon-pf.svg" alt="pf-verify" />`;
     const serverSeedSHA256 = "06b2debe526f6544f55ed206d23f825a3a0b76dba0094bdd31ea285fe5166d5f";
     const randomNumber = "1991";
@@ -382,7 +382,9 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
                     </span>
                     <ul className="desc">
                         <li>{t("pf_bacball_verifier_tool_para_1", { ns: "BacBall" })}</li>
-                        <li>{t("pf_bacball_verifier_tool_para_2", { ns: "BacBall" })}</li>
+                        <li>
+                            <T keyName={"pf_bacball_verifier_tool_para_2"} params={{ gamename: displayName }} ns="BacBall"></T>
+                        </li>
                         <li>{t("pf_bacball_verifier_tool_para_3", { ns: "BacBall" })}</li>
 
                         <ul className={Styles["pf-sub-desc"]}>
@@ -538,7 +540,7 @@ const BacBallPFGuideContent: FC<BacBallPFContentsProps> = ({ locale, displayName
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
             {renderBacBallAppliedInGame(t, displayName ?? "", verImg)}
-            {renderBacBallVerifyPF(t, locale)}
+            {renderBacBallVerifyPF(t, locale, displayName ?? "")}
         </div>
     );
 };

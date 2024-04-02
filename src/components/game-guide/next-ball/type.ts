@@ -31,4 +31,5 @@ export interface NextBallGameGuideContentsProps {
     gameConfigs: NextBallGameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
+    displayName?: string;
 }

@@ -31,8 +31,17 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
-const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, fractionalOddsFormat }) => {
+const BacBallGameGuide: FC<GameGuideBase> = ({
+    gameConfigs,
+    project,
+    dynamic,
+    isGetGameConfigs,
+    userStakeLevel,
+    fractionalOddsFormat,
+    id,
+}) => {
     const [configs, setConfigs] = useState<GameConfigs>();
+    const displayName = appSettings.gameSettings[`${id}`].gameName;
 
     const getLocalGameConfigs = () => {
         console.log("getLocalGameConfigs", project);
@@ -70,7 +79,12 @@ const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, is
 
     return (
         <TolgeeProvider tolgee={tolgee}>
-            <BacBallGameGuideContent userStakeLevel={userStakeLevel} gameConfigs={configs} fractionalOddsFormat={fractionalOddsFormat} />
+            <BacBallGameGuideContent
+                displayName={displayName}
+                userStakeLevel={userStakeLevel}
+                gameConfigs={configs}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
         </TolgeeProvider>
     );
 };

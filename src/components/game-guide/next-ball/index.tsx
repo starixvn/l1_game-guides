@@ -5,11 +5,21 @@ import initTolgee from "../../../helpers/tolgee-helper";
 import NextBallGameGuideContent from "./content";
 import { TolgeeProvider } from "@tolgee/react";
 import { NextBall } from "./constants";
+import appSettings from "../../../common/app-settings";
 
 const tolgee = initTolgee([NextBall]);
 
-const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, fractionalOddsFormat }) => {
+const BacBallGameGuide: FC<GameGuideBase> = ({
+    gameConfigs,
+    project,
+    dynamic,
+    isGetGameConfigs,
+    userStakeLevel,
+    fractionalOddsFormat,
+    id,
+}) => {
     const [configs, setConfigs] = useState<GameConfigs>();
+    const displayName = appSettings.gameSettings[`${id}`].gameName;
 
     const getLocalGameConfigs = () => {
         console.log("getLocalGameConfigs", project);
@@ -47,7 +57,12 @@ const BacBallGameGuide: FC<GameGuideBase> = ({ gameConfigs, project, dynamic, is
 
     return (
         <TolgeeProvider tolgee={tolgee}>
-            <NextBallGameGuideContent userStakeLevel={userStakeLevel} gameConfigs={configs} fractionalOddsFormat={fractionalOddsFormat} />
+            <NextBallGameGuideContent
+                displayName={displayName}
+                userStakeLevel={userStakeLevel}
+                gameConfigs={configs}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
         </TolgeeProvider>
     );
 };

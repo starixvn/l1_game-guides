@@ -7,11 +7,13 @@ import { BacBallGameConfigs } from "./type";
 import { Markup } from "interweave";
 import Styles from "./bac-ball.module.scss";
 
-const BacBallIntroduction: FC<{ t: Function }> = ({ t }) => {
+const BacBallIntroduction: FC<{ t: Function; displayName?: string }> = ({ t, displayName }) => {
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
-            <div className="content">{t("intro_para_1")}</div>
+            <div className="content">
+                <T keyName={"intro_para_1"} params={{ gamename: displayName }} ns="BacBall"></T>
+            </div>
         </li>
     );
 };
@@ -136,15 +138,16 @@ export interface BacBallGameGuideContentsProps {
     gameConfigs: BacBallGameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
+    displayName?: string;
 }
 
-const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs, fractionalOddsFormat }) => {
+const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeLevel, gameConfigs, fractionalOddsFormat, displayName }) => {
     const { t } = useTranslate(["BacBall", "Common", "SabaNumber"]);
 
     return (
         <div className={`bacball`}>
             <ul className={`game-guide`}>
-                <BacBallIntroduction t={t} />
+                <BacBallIntroduction t={t} displayName={displayName || ""} />
                 <BacBallGameRules t={t} userStakeLevel={userStakeLevel} maxBet={gameConfigs.maxBet} />
                 <BacBallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} t={t} />
                 <TermsAndConditionsTolgee />
