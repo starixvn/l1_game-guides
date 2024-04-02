@@ -28,6 +28,11 @@
     font-weight: 600;
 }
 
+.break-word {
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
 .pf-guide-content {
     padding-bottom: 3rem;
 

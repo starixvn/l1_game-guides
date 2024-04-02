@@ -9,6 +9,16 @@ const iconUnCheck = <img src="./static/images/pf-snng/pf-verify-icon-uncheck.svg
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
 const iconInfo = <img src="./static/images/pf-snng/pf-verify-icon-info.svg" alt="pf-icon" />;
 
+const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    return (
+        <div className={Styles["pf-verify-header"]}>
+            <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
+            <span className={Styles["pf-verify-header-title"]}>{t(headerTitleKey, { ns: nameSpace })}</span>
+            <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
+        </div>
+    );
+};
+
 const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
         <div className="guide-item">
@@ -100,11 +110,7 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
 const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, randomNumber: string, serverSeedSHA256: string) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
-            <div className={Styles["pf-verify-header"]}>
-                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
-                <span className={Styles["pf-verify-header-title"]}>{t("pf_title_provably_fair_settings", { ns: "Common" })}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
-            </div>
+            {renderPopupHeader("pf_title_provably_fair_settings", "Common", t)}
             <p>{t("pf_setting_para_1", { ns: "SabaNumber" })}</p>
             <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
             <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
@@ -151,11 +157,7 @@ const renderVerifyExample = (
 ) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
-            <div className={Styles["pf-verify-header"]}>
-                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
-                <span className={Styles["pf-verify-header-title"]}>{t("pf_provably_fair", { ns: "Common" })}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
-            </div>
+            {renderPopupHeader("pf_provably_fair", "Common", t)}
             {resultBlock}
             <div className={Styles["pf-verify-block-form"]}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
@@ -207,4 +209,4 @@ const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 
-export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample };
+export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample, renderPopupHeader };

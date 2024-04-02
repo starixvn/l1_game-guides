@@ -4,13 +4,12 @@ import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tol
 import Styles from "../snng-base/pf.module.scss";
 import { BacBallPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderContentPFBase, renderPFSettingsExample, renderVerifyExample } from "../snng-base";
+import { renderContentPFBase, renderPFSettingsExample, renderPopupHeader, renderVerifyExample } from "../snng-base";
 
-const iconGuide = <img src="./static/images/pf-snng/pf-verify-icon-guides.svg" alt="pf-icon" />;
-const iconClose = <img src="./static/images/pf-snng/pf-verify-icon-close.svg" alt="pf-icon" />;
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
 const iconPF = <img src="./static/images/pf-snng/pf-verify-icon-pf.svg" alt="pf-icon" />;
 const iconCSV = <img src="./static/images/pf-snng/pf-verify-icon-csv.svg" alt="pf-icon" />;
+const iconEdit = <img src="./static/images/pf-snng/pf-verify-icon-edit.svg" alt="pf-icon" />;
 
 const renderBacBallAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
@@ -115,11 +114,8 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
 const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-3"]}`}>
-            <div className={Styles["pf-verify-header"]}>
-                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
-                <span className={Styles["pf-verify-header-title"]}>{t("pf_bet_details", { ns: "Common" })}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
-            </div>
+            {renderPopupHeader("pf_bet_details", "Common", t)}
+
             <div className={Styles["pf-verify-draw-info"]}>
                 <div className={Styles["pf-verify-info-item"]}>
                     <strong>
@@ -188,11 +184,7 @@ const renderClientSeedInfoExample = (
 ) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
-            <div className={Styles["pf-verify-header"]}>
-                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
-                <span className={Styles["pf-verify-header-title"]}>{t("pf_client_seed_info", { ns: "SabaNumber" })}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
-            </div>
+            {renderPopupHeader("pf_client_seed_info", "SabaNumber", t)}
 
             <div className={Styles["pf-verify-block-form"]}>
                 <div className="flex justify-between items-center" style={{ marginBottom: "0.5rem" }}>
@@ -299,16 +291,12 @@ const renderVerifyDetailExample = (
 ) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]}`}>
-            <div className={Styles["pf-verify-header"]}>
-                <span className={Styles["pf-verify-icon"]}>{iconGuide}</span>
-                <span className={Styles["pf-verify-header-title"]}>{t("pf_title_verification", { ns: "Common" })}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconClose}</span>
-            </div>
+            {renderPopupHeader("pf_title_verification", "Common", t)}
 
             <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
             <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                 <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                <span className={Styles["pf-verify-icon"]}>{iconEdit}</span>
             </div>
 
             <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
@@ -322,7 +310,7 @@ const renderVerifyDetailExample = (
             <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
                 {t("pf_header_combined_sha512_hash", { ns: "Common" })}
             </div>
-            <p style={{ overflowWrap: "anywhere" }}>{combinedSHA512Hash}</p>
+            <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
             <p className={Styles["pf-text-highlight-green"]}>{t("pf_verification_msg_verify_successful", { ns: "SabaNumber" })}</p>
 
             <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "1.1rem" }}>
@@ -342,7 +330,7 @@ const renderVerifyDetailExample = (
                     </div>
                 </div>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
-                <p style={{ overflowWrap: "anywhere" }}>{combinedSHA512Hash}</p>
+                <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
                 <p className="bold">a2 ={">"} 162</p>
                 <p>
