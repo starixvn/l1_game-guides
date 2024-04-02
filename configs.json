@@ -4,6 +4,6 @@
         "environment": "LOCAL"
     },
     "system": "L1",
-    "resourceUrl": "https://l1-proxy3.lumigame.com/game/static/",
+    "resourceUrl": "https://l1-proxy1.lumigame.com/game/static/",
     "gameSettingUrl": "https://l1-admin-api3.lumigame.com/api/public/game_configs/"
 }

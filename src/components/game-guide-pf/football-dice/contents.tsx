@@ -20,7 +20,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: TogleeNamespace.SpecificGame })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`${rootImgUrl}flow-overall-pf-${locale}.png?v=${verImg}`} alt="pf"></img>
+                <img src={`./static/images/pf/football-dice/PF-flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
             </div>
         </li>
     );
@@ -45,59 +45,36 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
             <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: TogleeNamespace.Common })}</span>
             <ul className={Styles["circle-style"]}>
                 <li>
-                    {<Markup content={t("pf_spaceflight_verifier_tool_para_1", { ns: TogleeNamespace.Common })} />}{" "}   
+                    {<Markup content={t("pf_verifier_tool_para_1", { ns: TogleeNamespace.Common })} />}{" "}   
                 </li>
                 <li>
                     {<Markup content={t("pf_spaceflight_verifier_tool_para_2", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
                 </li>
-                
+                <li>
+                    {<Markup content={t("pf_verifier_tool_para_3", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
+                </li>
                  <div className={Styles["intro-border"]}>
                     <span style={{ textAlign: "center" }}>
                         <strong className="pf-text-yellow">{t("pf_final_result", { ns: "Common" })}</strong> ={" "}
-                        <span>2 ^ 32 / (<span className={Styles["text-color-red"]}>X</span> + 1) * (1 - 0.03)</span>
+                        <span>(<span className={Styles["text-color-red"]}>X</span><span> / 2 ^ 32) * 6 + 1</span></span>
                     </span>
                 </div> 
                 <ul className={Styles["plus-style"]}>
                     <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_5", { ns: "Spaceflight" })} />}{" "}   
+                        {<Markup content={t("pf_verifier_tool_para_5", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
                     </li>
                     <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_6", { ns: "Spaceflight" })} />}{" "}   
+                        {<Markup content={t("pf_verifier_tool_para_6", { ns: TogleeNamespace.SpecificGame })} />}{" "}   
                     </li>
-                    <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_7", { ns: "Spaceflight" })} />}{" "}   
-                    </li>
-                    <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_13", { ns: "Spaceflight" })} />}{" "}   
-                    </li>
-                    <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_8", { ns: "Spaceflight" })} />}{" "}   
-                    </li>
+                   
                 </ul>    
-                <div className={Styles["center-img"]}>
-                    <table className={Styles["tbl-example"]}>
-                        <thead>
-                            <tr>
-                                <td>{<Markup content={t("pf_header_the_result_after_calculating", { ns: "Spaceflight" })} />}</td>
-                                <td>{<Markup content={t("pf_final_result", { ns: "Common" })} />}</td>
-                            </tr>                            
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2.225</td>
-                                <td>2.23</td>
-                            </tr>
-                            <tr>
-                                <td>2.224</td>
-                                <td>2.22</td>
-                            </tr>
-                            <tr>
-                                <td>2.224999</td>
-                                <td>2.22</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
+                <div><strong>{t("example", { ns: TogleeNamespace.Common })}</strong></div>
+                <ul className={Styles["circle-style"]}>
+                    <li>{<Markup content={t("pf_header_combined_sha512_hash", { ns: TogleeNamespace.Common })} />}
+                        <div>4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d43d0bc70b10169124c474ef4f1f06cd13b89fd8c1057eab55d24c48baa184ef167a5bd42c0d4</div>
+                    </li>
+                    <li>{<Markup content={t("pf_verifier_tool_para_11", { ns: TogleeNamespace.SpecificGame })} />}</li>
+                </ul>
                 <div>{<Markup content={t("pf_spaceflight_verifier_tool_para_9", { ns: "Spaceflight" })} />}{" "}  </div>  
                 <ul className={Styles["circle-style"]}>
                     <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_10", { ns: "Spaceflight" })} />}</li>
@@ -113,6 +90,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                     </li>
                 </ul>    
             </ul>
+           
         </li>
     );
 };
