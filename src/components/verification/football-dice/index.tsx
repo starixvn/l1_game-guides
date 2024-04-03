@@ -15,7 +15,7 @@ export const sliceValueFromSHA512 = (hash: string) => {
    
 };
 
-const convertToDecimal = (hex: string) => {
+export const convertToDecimal = (hex: string) => {
     return parseInt(hex, 16);
 };
 
@@ -28,7 +28,7 @@ const calculateFinalResult = (hex: string = "4f1f06cd") => {
     return (decimal / (Math.pow(2, 32) - 1)) * 6 + 1 ;
 };
 
-const renderFinalResult = (hex: string) => {
+export const renderFinalResult = (hex: string) => {
     const dec = convertToDecimal(hex);
     return (
         <span>({dec} / (2^32 - 1)) * 6 + 1 = {calculateFinalResult(hex)}</span>

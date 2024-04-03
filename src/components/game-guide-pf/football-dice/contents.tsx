@@ -5,6 +5,7 @@ import { Markup } from "interweave";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { TogleeNamespace } from "../../game-guide/football-dice/namespace-tolgee";
+import { calculateDice, convertToDecimal, renderFinalResult, sliceValueFromSHA512 } from "../../verification/football-dice";
 import { renderContentPFBase } from "../base";
 import Styles from "./footballdice-pf-game.module.scss";
 import { FootballDicePFContentsProps } from "./type";
@@ -27,6 +28,8 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
 };
 
 const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+    const finalHash = "029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e";
+    const digits = sliceValueFromSHA512(finalHash);
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
@@ -43,11 +46,11 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     <div className={Styles["info"]}>
                     <div className={Styles["key"]}><Markup content={t("pf_result", { ns: TogleeNamespace.Common })}/>:</div>
                         <div className={Styles["value"]}>
-                            <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                            <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{"   "}
-                            <span>4 | 6</span>{"   "}
-                            <img src={`./static/images/pf/football-dice/dice-away-4.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                            <img src={`./static/images/pf/football-dice/dice-away-2.png?v=${verImg}`} alt="dice-home-2" />
+                        <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                        <span>3 | 9</span>{"   "}
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
                         </div>
                     </div>
                 </div>
@@ -122,7 +125,9 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
     )
 }
 
-const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+    const finalHash = "029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e";
+    const digits = sliceValueFromSHA512(finalHash);
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
@@ -142,24 +147,37 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) 
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    {/* <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span> */}
+                    <span>
+                    <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                        <span>3 | 9</span>{"   "}
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
+                    </span>
                 </div>
                 <div>
                     <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
                     <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e </div>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_2", { ns: "Spaceflight", value: "8" })}: </strong>{" "}
-                    <span className={Styles["color-second"]}>029e726f</span>
+                <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
+                    <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{finalHash}</div>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_3", { ns: "Spaceflight" })} </strong>
-                    {/* <span className={Styles["color-second"]}><pre>{convertHexToDecimalSteps("029e726f")}</pre></span> */}
+                <strong>{t("pf_verification_para_3", { ns: "FootballDice" })}</strong>{" "}
+                    <div className={Styles["color-second"]}>
+                        <div>{digits[0]} {`=>`} {convertToDecimal(digits[0])}</div>
+                        <div>{digits[1]} {`=>`} {convertToDecimal(digits[1])}</div>
+                        <div>{digits[2]} {`=>`} {convertToDecimal(digits[2])}</div>
+                        <div>{digits[3]} {`=>`} {convertToDecimal(digits[3])}</div>
+                    </div>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_4", { ns: "Spaceflight" })} </strong>
-                    
-                    {/* <div className={Styles["color-second"]}>{MAX_VALUE} / ({convertToDecimal("029e726f")} + 1) * (1- {RTP}) = <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span></div> */}
+                <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
+                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[0])}</div>
+                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[1])}</div>
+                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[2])}</div>
+                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[3])}</div>
                 </div>
             </div>
         </div>
@@ -217,7 +235,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                             <div className={Styles["red-content-1"]}><Markup content={t("pf_verifier_tool_para_8", { ns: TogleeNamespace.SpecificGame })}/><img  className={Styles["red-arrow-1"]} src={`./static/images/pf/football-dice/red-arrow-1.png?v=${verImg}`} alt="arrow"/></div>
                             <div><span className={Styles["color1"]}>4f1f06cd</span><span className={Styles["color2"]}>13b89fd8</span><span className={Styles["color3"]}>c1057eab</span><span className={Styles["color4"]}>55d24c48</span><span>baa184ef167a5bd42c0d4...</span></div>
                             <div className={Styles["blue-content-2"]}><img className={Styles["blue-arrow-2"]} src={`./static/images/pf/football-dice/blue-arrow-2.png?v=${verImg}`} alt="arrow"/><Markup content={t("pf_verifier_tool_para_9", { ns: TogleeNamespace.SpecificGame })}/></div>
-                            <div className={Styles["blue-content-1"]}><img className={Styles["blue-arrow-1"]} src={`./static/images/pf/football-dice/blue-arrow-1.png?v=${verImg}`} alt="arrow"/><Markup content={t("pf_verifier_tool_para_8", { ns: TogleeNamespace.SpecificGame })}/></div>
+                            <div className={Styles["blue-content-1"]}><img className={Styles["blue-arrow-1"]} src={`./static/images/pf/football-dice/blue-arrow-1.png?v=${verImg}`} alt="arrow"/><Markup content={t("pf_verifier_tool_para_10", { ns: TogleeNamespace.SpecificGame })}/></div>
                         </div>
                     </li>
                     <li>{<Markup content={t("pf_verifier_tool_para_11", { ns: TogleeNamespace.SpecificGame })} />}
@@ -235,9 +253,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                         {renderImageStep2(t, verImg)}
                     </li>
                     <li>{<Markup content={t("pf_verifier_tool_step_3", { ns: TogleeNamespace.Common })} />}
-                    <div className={Styles["center-img"]}>
-                        <img src={`${rootImgUrl}intro-pf-step3-${locale}.png?v=${verImg}`} alt="pf"></img>
-                    </div>
+                        {renderImageStep3(t, verImg)}
                     </li>
                 </ul>    
             </ul>
