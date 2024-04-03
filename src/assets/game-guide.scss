@@ -616,3 +616,11 @@ ul {
 .pf-text-yellow{
     color: #fbc35f;
 }
+
+.final-result-dice {
+    display: inline-block;
+    margin: 0 !important;
+    &::first-letter {
+        font-weight: bold;
+    }
+}

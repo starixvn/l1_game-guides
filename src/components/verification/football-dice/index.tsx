@@ -31,7 +31,7 @@ const calculateFinalResult = (hex: string = "4f1f06cd") => {
 export const renderFinalResult = (hex: string) => {
     const dec = convertToDecimal(hex);
     return (
-        <span>({dec} / (2^32 - 1)) * 6 + 1 = {calculateFinalResult(hex)}</span>
+        <span>({dec} / (2^32 - 1)) * 6 + 1 = <span className="final-result-dice">{calculateFinalResult(hex)}</span></span>
     );
 }
 
