@@ -129,6 +129,9 @@ $color-second: #C4BCE0;
     .title-style {
         text-transform: uppercase;
         font-weight: bold;
+        &.title-merge-cs {
+            width: 26rem;
+        }
     }
     .bold {
         font-weight: bold;
@@ -191,6 +194,9 @@ $color-second: #C4BCE0;
     .title-section {
         display: flex;
         gap: 8px;
+        &.title-hash-string {
+            width: 26rem;
+        }
     }
     .client-section {
         padding: 10px 40px 20px;
