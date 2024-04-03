@@ -6,7 +6,7 @@ import Styles from "../verification.module.scss";
 const MAX_VALUE = 2 ** 32;
 const RTP = 0.03;
 
-const sliceValueFromSHA512 = (hash: string) => {
+export const sliceValueFromSHA512 = (hash: string) => {
     let arrHash = [];
     for(let i= 0; i < hash.length; i += 8 ) {
         arrHash.push(hash.slice(i, i+8));
@@ -62,11 +62,11 @@ const FootballDiceVerification = (props: VerificationBase) => {
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
                     <span className={Styles["color-result"]}>
-                        <img src={`./static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <img src={`./static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                        <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
                         <span>4 | 6</span>{"   "}
-                        <img src={`./static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <img src={`./static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
                     </span>
                 </div>
                 <div>
