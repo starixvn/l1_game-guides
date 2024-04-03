@@ -142,7 +142,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) 
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span>
+                    {/* <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span> */}
                 </div>
                 <div>
                     <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
@@ -154,12 +154,12 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) 
                 </div>
                 <div>
                     <strong>{t("pf_verification_para_3", { ns: "Spaceflight" })} </strong>
-                    <span className={Styles["color-second"]}><pre>{convertHexToDecimalSteps("029e726f")}</pre></span>
+                    {/* <span className={Styles["color-second"]}><pre>{convertHexToDecimalSteps("029e726f")}</pre></span> */}
                 </div>
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Spaceflight" })} </strong>
                     
-                    <div className={Styles["color-second"]}>{MAX_VALUE} / ({convertToDecimal("029e726f")} + 1) * (1- {RTP}) = <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span></div>
+                    {/* <div className={Styles["color-second"]}>{MAX_VALUE} / ({convertToDecimal("029e726f")} + 1) * (1- {RTP}) = <span className={Styles["color-result"]}>{renderFinalResult("029e726f")}</span></div> */}
                 </div>
             </div>
         </div>

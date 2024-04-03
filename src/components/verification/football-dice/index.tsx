@@ -1,5 +1,6 @@
 import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
+import { useImgVersionContext } from "../../../contexts/img-version";
 import { VerificationBase } from "../type";
 import Styles from "../verification.module.scss";
 const MAX_VALUE = 2 ** 32;
@@ -37,6 +38,8 @@ const renderFinalResult = (hex: string) => {
 const FootballDiceVerification = (props: VerificationBase) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
     const { dynamic, provablyFair } = props;
+    const { imgVersion } = useImgVersionContext();
+    const verImg = imgVersion || "";
     const digits = sliceValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
     return (
         <div className={Styles["wrapper"]}>
@@ -54,7 +57,13 @@ const FootballDiceVerification = (props: VerificationBase) => {
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    {/* <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span> */}
+                    <span className={Styles["color-result"]}>
+                        <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                        <span>4 | 6</span>{"   "}
+                        <img src={`./static/images/pf/football-dice/dice-away-4.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`./static/images/pf/football-dice/dice-away-2.png?v=${verImg}`} alt="dice-home-2" />
+                    </span>
                 </div>
                 <div>
                     <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
