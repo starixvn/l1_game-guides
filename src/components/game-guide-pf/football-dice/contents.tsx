@@ -108,7 +108,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         
                     </div>
                     <div className={Styles["merge-cs-section"]}>
-                        <div className={`${Styles["title-style"]} ${Styles["title-merge-cs"]}`}>{<Markup content={t("pf_ header_merge_client_seed", { ns: "Common" })}/>}</div><div className={Styles["title-style"]}>{<Markup content={t("pf_ header_merge_client_seed", { ns: "Common" })}/>}</div>
+                        <div className={`${Styles["title-style"]} ${Styles["title-merge-cs"]}`}>{<Markup content={t("pf_ header_merge_client_seed", { ns: "Common" })}/>}</div>
                         <div className={Styles["text-section"]}>02991749242404262816 <span className={Styles["icon-copy"]}></span></div>
                     </div>
                 </div>
@@ -154,10 +154,6 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
                     </span>
-                </div>
-                <div>
-                    <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
-                    <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e </div>
                 </div>
                 <div>
                 <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>

@@ -25,13 +25,13 @@ const convertToHexString = (hex: string) => {
 
 const calculateFinalResult = (hex: string = "4f1f06cd") => {
     const decimal = convertToDecimal(hex);
-    return (decimal / (Math.pow(2, 32) - 1)) * 6 + 1 ;
+    return (decimal / Math.pow(2, 32)) * 6 + 1 ;
 };
 
 export const renderFinalResult = (hex: string) => {
     const dec = convertToDecimal(hex);
     return (
-        <span>({dec} / (2^32 - 1)) * 6 + 1 = <span className="final-result-dice">{calculateFinalResult(hex)}</span></span>
+        <span>({dec} / 2^32) * 6 + 1 = <span className="final-result-dice">{calculateFinalResult(hex)}</span></span>
     );
 }
 
