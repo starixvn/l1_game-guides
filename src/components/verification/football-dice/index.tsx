@@ -35,6 +35,10 @@ const renderFinalResult = (hex: string) => {
     );
 }
 
+export const calculateDice =  (hex: string = "4f1f06cd") => {
+    return Math.floor(calculateFinalResult(hex));
+}
+
 const FootballDiceVerification = (props: VerificationBase) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
     const { dynamic, provablyFair } = props;
@@ -58,11 +62,11 @@ const FootballDiceVerification = (props: VerificationBase) => {
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
                     <span className={Styles["color-result"]}>
-                        <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <img src={`./static/images/pf/football-dice/dice-home-2.png?v=${verImg}`} alt="dice-home-2" />{"   "}
+                        <img src={`./static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`./static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
                         <span>4 | 6</span>{"   "}
-                        <img src={`./static/images/pf/football-dice/dice-away-4.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <img src={`./static/images/pf/football-dice/dice-away-2.png?v=${verImg}`} alt="dice-home-2" />
+                        <img src={`./static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <img src={`./static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
                     </span>
                 </div>
                 <div>
