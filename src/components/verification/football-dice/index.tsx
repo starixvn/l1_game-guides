@@ -45,6 +45,8 @@ const FootballDiceVerification = (props: VerificationBase) => {
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     const digits = sliceValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
+    const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
+    const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
     return (
         <div className={Styles["wrapper"]}>
             <div className={Styles["info-seed"]}>
@@ -61,12 +63,13 @@ const FootballDiceVerification = (props: VerificationBase) => {
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    <span className={Styles["color-result"]}>
+                    <span>
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
-                        <span>4 | 6</span>{"   "}
+                        <span className={Styles[`${homeScore > awayScore ? "text-yellow" : ""}`]}>{homeScore} |</span>{"   "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />
+                        <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
+                        <span className={Styles[`${homeScore < awayScore ? "text-yellow" : ""}`]}>{awayScore}</span>
                     </span>
                 </div>
                 <div>
