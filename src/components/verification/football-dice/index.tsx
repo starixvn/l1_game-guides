@@ -45,10 +45,8 @@ const FootballDiceVerification = (props: VerificationBase) => {
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     const digits = sliceValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
-    // const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
-    // const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
-    const homeScore = 6;
-    const awayScore = 4;
+    const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
+    const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
     const classScore = homeScore > awayScore ? "text-yellow" : "";
     console.log("classScore",homeScore > awayScore);
     return (
