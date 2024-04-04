@@ -68,10 +68,10 @@ const FootballDiceVerification = (props: VerificationBase) => {
                     <span>
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
-                        <span className={Styles[`${homeScore > awayScore ? "text-yellow" : ""}`]}>{homeScore} |</span>{"   "}
+                        <span className={Styles[`${homeScore > awayScore ? "text-yellow" : ""} ${Styles["score-text"]}`]}>{homeScore} |</span>{"   "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <span className={Styles[`${homeScore < awayScore ? "text-yellow" : ""}`]}>{awayScore}</span>
+                        <span className={Styles[`${homeScore < awayScore ? "text-yellow" : ""} ${Styles["score-text"]}`]}>{awayScore}</span>
                     </span>
                 </div>
                 <div>

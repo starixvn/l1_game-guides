@@ -40,7 +40,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             <div className={Styles["popup-content"]}>
                 <div className={Styles["section-info"]}>
                     <div className={Styles["info"]}>
-                        <div className={Styles["key"]}>{t("pf_round", { ns: "Spaceflight" })}:</div>
+                        <div className={Styles["key"]}>{t("pf_round", { ns: TogleeNamespace.Common })}:</div>
                         <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>296748</div>
                     </div>
                     <div className={Styles["info"]}>
@@ -56,14 +56,14 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     </div>
                 </div>
                 <div className={`${Styles["server-section"]} ${Styles["bg-section"]}`}>
-                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_seed_sha256", { ns: "Spaceflight" })}/>}</div>
+                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_seed_sha256", { ns: TogleeNamespace.Common })}/>}</div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>5f22768e5b1411a09d5d3fc8ec549dd62d59969d3738f3504a084a79f22a6b9c<span className={Styles["icon-copy"]}></span> </div>
-                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_Seed", { ns: "Common" })}/>}</div>
+                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_Seed", { ns: TogleeNamespace.Common })}/>}</div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>p2TRNPWLIn8y9X0AzvgKOqCYHfZEcJtM5BxVbGih <span className={Styles["icon-copy"]}></span></div>
                 </div>
                 <div className={`${Styles["client-section"]} ${Styles["bg-section"]}`}>
                     <div className={Styles["title-section"]}>
-                        <span className={Styles["title-style"]}>{<Markup content={t("pf_client_seed", { ns: "Common" })}/>}</span>
+                        <span className={Styles["title-style"]}>{<Markup content={t("pf_client_seed", { ns: TogleeNamespace.Common })}/>}</span>
                         <span className={Styles["icon-info"]}></span>
                     </div>
                     <div className={Styles["client-seed-section"]}>
@@ -118,8 +118,8 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         <div className={`${Styles["title-section"]} ${Styles["title-hash-string"]}`}>{<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })}/>}<span className={Styles["icon-info"]}></span></div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e<span className={Styles["icon-copy"]}></span></div>
                     </div>
-                    <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: "Spaceflight" })}</div>
-                    <div className={Styles["btn-verify"]}>{t("pf_verify", { ns: "Spaceflight" })}</div>
+                    <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: TogleeNamespace.Common })}</div>
+                    <div className={Styles["btn-verify"]}>{t("pf_verify", { ns: TogleeNamespace.Common })}</div>
                 </div>
             </div>
         </div>
@@ -263,7 +263,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
 const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}</span>
+            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: TogleeNamespace.Common })}</span>
             <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: TogleeNamespace.Common })} />}</li>
                 <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: TogleeNamespace.Common })} />}</li>
@@ -272,7 +272,7 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
     );
 };
 const FootballDicePFContents: React.FC<FootballDicePFContentsProps> = ({ locale, displayName, name }) => {
-    const { t } = useTranslate(["Spaceflight", "Common"]);
+    const { t } = useTranslate(["FootballDice", "Common"]);
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
