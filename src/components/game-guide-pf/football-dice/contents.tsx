@@ -33,7 +33,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
-                <div className={Styles["popup-title-text"]}>{t("pf_provably_fair", {ns: "Common"})} <span className={Styles["icon-guide"]}></span></div>
+                <div className={Styles["popup-title-text"]}><span className={Styles["title-provably-fair"]}>{t("pf_provably_fair", {ns: "Common"})} </span><span className={Styles["icon-guide"]}></span></div>
                 <div className={Styles["icon-close"]}></div>
             </div>
             <div className={Styles["close-button"]}></div>
@@ -63,7 +63,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={`${Styles["client-section"]} ${Styles["bg-section"]}`}>
                     <div className={Styles["title-section"]}>
                         <span className={Styles["title-style"]}>{<Markup content={t("pf_client_seed", { ns: "Common" })}/>}</span>
-                        <span className={Styles["icon-guide"]}></span>
+                        <span className={Styles["icon-info"]}></span>
                     </div>
                     <div className={Styles["client-seed-section"]}>
                         <div>
@@ -114,7 +114,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div className={`${Styles["section"]} ${Styles["bg-section"]}`}>
                     <div className={Styles["combined-hash-section"]}>
-                        <div className={`${Styles["title-section"]} ${Styles["title-hash-string"]}`}>{<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })}/>}<span className={Styles["icon-guide"]}></span></div>
+                        <div className={`${Styles["title-section"]} ${Styles["title-hash-string"]}`}>{<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })}/>}<span className={Styles["icon-info"]}></span></div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e<span className={Styles["icon-copy"]}></span></div>
                     </div>
                     <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: "Spaceflight" })}</div>
@@ -131,7 +131,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
-                <div className={Styles["popup-title-text"]}>{t("pf_provably_fair", {ns: "Common"})} <span className={Styles["icon-guide"]}></span></div>
+                <div className={Styles["popup-title-text"]}>{t("pf_title_verification", {ns: TogleeNamespace.Common})} <span className={Styles["text-round"]}>({t("pf_round", {ns: TogleeNamespace.Common})}: <span className={Styles["round-id"]}>49252</span>)</span></div>
                 <div className={Styles["icon-close"]}></div>
             </div>
             <div className={Styles["info-seed"]}>
@@ -170,10 +170,10 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div>
                 <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[0])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[1])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[2])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[3])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_home_dice_1", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[0])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_home_dice_2", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[1])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_away_dice_1", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[2])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_away_dice_2", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[3])}</div>
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@ const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, Translation
                 </li>
                  <div className={Styles["intro-border"]}>
                     <span style={{ textAlign: "center" }}>
-                        <strong className="pf-text-yellow">{t("pf_final_result", { ns: "Common" })}</strong> ={" "}
+                        <strong className="pf-text-yellow">{t("pf_dice_result", {ns: TogleeNamespace.SpecificGame })}</strong> ={" "}
                         <span>(<span className={Styles["text-color-red"]}><strong>X</strong></span><span> / 2 ^ 32) * 6 + 1</span></span>
                     </span>
                 </div> 
