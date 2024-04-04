@@ -189,6 +189,9 @@ $color-second: #C4BCE0;
             .value {
                 color: #06C5DC;
                 margin-left: 4px;
+                &.result{
+                    color: #fff;
+                }
             }
         }
     }
@@ -269,4 +272,8 @@ $color-second: #C4BCE0;
 }
 .highlight-text {
     font-weight: bold;
+}
+
+.text-yellow {
+    color: #ffff00;
 }
