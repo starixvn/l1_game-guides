@@ -48,10 +48,10 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         <div className={`${Styles["value"]} ${Styles["result"]}`}>
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
-                        <span>3 | </span>{"   "}
+                        <span className={Styles["score-text"]}>3 | </span>{"   "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <span className={Styles["text-yellow"]}>9</span>
+                        <span className={`${Styles["text-yellow"]} ${Styles["score-text"]}`}>9</span>
                         </div>
                     </div>
                 </div>
@@ -151,10 +151,10 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     <span>
                     <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[0])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-home-${calculateDice(digits[1])}.png?v=${verImg}`} alt="dice-home-2" />{"   "}
-                        <span>3 |</span>{"   "}
+                        <span className={Styles["score-text"]}>3 |</span>{"   "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[2])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
                         <img src={`/static/images/pf/football-dice/dice-away-${calculateDice(digits[3])}.png?v=${verImg}`} alt="dice-home-2" />{" "}
-                        <span className={Styles["text-yellow"]}>9</span>
+                        <span className={`${Styles["text-yellow"]} ${Styles["score-text"]}`}>9</span>
                     </span>
                 </div>
                 <div>
