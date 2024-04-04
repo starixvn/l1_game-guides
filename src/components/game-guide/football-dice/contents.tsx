@@ -10,21 +10,22 @@ import { TogleeNamespace } from "./namespace-tolgee";
 import { FootballDiceContentsProps } from "./type";
 
 const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
-
+    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: TogleeNamespace.Common })}</h2>
             <ul className="desc">
                 <li>{t("gamerules_para_1", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("gamerules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
-                <li>{t("gamerules_para_3", { ns: TogleeNamespace.SpecificGame,  maxbet: maxBet })}</li>                
+                <li>{t("gamerules_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("gamerules_para_4", { ns: TogleeNamespace.SpecificGame,  maxbet: maxBetMain })}</li>                
             </ul>
             <div className="table-container">
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <td className={Styles["bet-option"]}>{t("header_betoption", {ns: TogleeNamespace.Common})}</td>
-                        <td>{t("guide_header_winning_condition", {ns: TogleeNamespace.Common})}</td>
+                        <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", {ns: TogleeNamespace.Common})}</th>
+                        <th className="bold">{t("guide_header_winning_condition", {ns: TogleeNamespace.Common})}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,9 +66,10 @@ const renderPayout = (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: TogleeNamespace.Common })}</h2>
             <ul className="desc">
+                <li>{t("payouts_para_3", { ns: TogleeNamespace.Common })}</li>
                 <li>{<Markup content={t("payouts_para_1", { ns: TogleeNamespace.Common })} />}</li>
                 <li>{t("payouts_para_2", { ns: TogleeNamespace.Common })}</li>
-                <li>{t("payouts_para_3", { ns: TogleeNamespace.Common })}</li>
+                
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
