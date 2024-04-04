@@ -45,8 +45,12 @@ const FootballDiceVerification = (props: VerificationBase) => {
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     const digits = sliceValueFromSHA512(provablyFair?.finalHash ?? "4f1f06cd");
-    const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
-    const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
+    // const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
+    // const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
+    const homeScore = 6;
+    const awayScore = 4;
+    const classScore = homeScore > awayScore ? "text-yellow" : "";
+    console.log("classScore",homeScore > awayScore);
     return (
         <div className={Styles["wrapper"]}>
             <div className={Styles["info-seed"]}>
@@ -88,10 +92,10 @@ const FootballDiceVerification = (props: VerificationBase) => {
                 </div>
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[0])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_home_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[1])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_1", {ns: "FootballDice"})} />: {renderFinalResult(digits[2])}</div>
-                    <div className={Styles["color-second"]}><Markup content={t("pf_away_dice_2", {ns: "FootballDice"})} />: {renderFinalResult(digits[3])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_home_dice_1", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[0])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_home_dice_2", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[1])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_away_dice_1", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[2])}</div>
+                    <div className={Styles["color-second"]}><span className={Styles["highlight-text"]}><Markup content={t("pf_away_dice_2", {ns: "FootballDice"})} /></span>: {renderFinalResult(digits[3])}</div>
                 </div>
                
             </div>
