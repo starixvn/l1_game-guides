@@ -68,7 +68,7 @@
     text-align: center;
     margin: 80px 0 110px;
     position: relative;
-    left: 8rem;
+    left: 7.3rem;
     [class*="-content"] {
         position: absolute;
         width: 50rem;
@@ -132,6 +132,9 @@
 }
 .away-color strong{
     color: #448ff2;
+}
+.final-hash-text {
+    font-family: "Noto" !important;
 }
 
 
