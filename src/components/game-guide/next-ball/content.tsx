@@ -60,10 +60,11 @@ const NextBallGameRules: FC<{ userStakeLevel: UserStakeLevelProps | undefined; m
     );
 };
 
-const NextBallPayout: FC<{ gameConfigs: NextBallGameConfigs; fractionalOddsFormat?: boolean }> = ({
-    gameConfigs,
-    fractionalOddsFormat,
-}) => {
+const NextBallPayout: FC<{
+    userStakeLevel: UserStakeLevelProps | undefined;
+    gameConfigs: NextBallGameConfigs;
+    fractionalOddsFormat?: boolean;
+}> = ({ gameConfigs, fractionalOddsFormat, userStakeLevel }) => {
     const { t } = useTranslate([NextBall, Common, SabaNumber]);
     const { maxWinPerRound, oddsRange, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const data = {
@@ -72,28 +73,28 @@ const NextBallPayout: FC<{ gameConfigs: NextBallGameConfigs; fractionalOddsForma
                 min: oddsRange?.min?.over,
                 max: oddsRange?.max?.over,
             },
-            maxBet: maxBetPerChoices.over,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.over),
         },
         under: {
             odds: {
                 min: oddsRange?.min?.under,
                 max: oddsRange?.max?.under,
             },
-            maxBet: maxBetPerChoices.under,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.under),
         },
         odd: {
             odds: {
                 min: oddsRange?.min?.odd,
                 max: oddsRange?.max?.odd,
             },
-            maxBet: maxBetPerChoices.odd,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.odd),
         },
         even: {
             odds: {
                 min: oddsRange?.min?.even,
                 max: oddsRange?.max?.even,
             },
-            maxBet: maxBetPerChoices.even,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.even),
         },
     };
     return (
@@ -131,7 +132,9 @@ const NextBallPayout: FC<{ gameConfigs: NextBallGameConfigs; fractionalOddsForma
                                         odds?.max ?? 0,
                                         fractionalOddsFormat
                                     )}`}</td>
-                                    <td>{`${numberWithCommas(minBet ?? 0)}-${numberWithCommas(maxBet ?? 0)}`}</td>
+                                    <td>{`${numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0) ?? 0)}-${numberWithCommas(
+                                        maxBet ?? 0
+                                    )}`}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -153,7 +156,7 @@ const NextBallGameGuideContent: FC<NextBallGameGuideContentsProps> = ({
             <ul className={`game-guide`}>
                 <NextBallIntroduction displayName={displayName || ""} />
                 <NextBallGameRules userStakeLevel={userStakeLevel} maxBet={gameConfigs.maxBet} />
-                <NextBallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} />
+                <NextBallPayout userStakeLevel={userStakeLevel} gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} />
                 <TermsAndConditionsTolgee />
             </ul>
         </div>

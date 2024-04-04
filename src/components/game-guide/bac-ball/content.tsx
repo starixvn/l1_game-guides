@@ -58,11 +58,12 @@ const BacBallGameRules: FC<{ t: Function; userStakeLevel: UserStakeLevelProps | 
     );
 };
 
-const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fractionalOddsFormat?: boolean }> = ({
-    t,
-    gameConfigs,
-    fractionalOddsFormat,
-}) => {
+const BacBallPayout: FC<{
+    t: Function;
+    gameConfigs: BacBallGameConfigs;
+    userStakeLevel: UserStakeLevelProps | undefined;
+    fractionalOddsFormat?: boolean;
+}> = ({ t, gameConfigs, fractionalOddsFormat, userStakeLevel }) => {
     const { maxWinPerRound, oddsRange, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const data = {
         player: {
@@ -70,21 +71,21 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fraction
                 min: oddsRange?.min?.player,
                 max: oddsRange?.max?.player,
             },
-            maxBet: maxBetPerChoices.player,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.player),
         },
         banker: {
             odds: {
                 min: oddsRange?.min?.banker,
                 max: oddsRange?.max?.banker,
             },
-            maxBet: maxBetPerChoices.banker,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.banker),
         },
         tie: {
             odds: {
                 min: oddsRange?.min?.tie,
                 max: oddsRange?.max?.tie,
             },
-            maxBet: maxBetPerChoices.tie,
+            maxBet: Math.min(userStakeLevel?.maxBet ?? maxBet, maxBetPerChoices.tie),
         },
     };
     return (
@@ -122,7 +123,9 @@ const BacBallPayout: FC<{ t: Function; gameConfigs: BacBallGameConfigs; fraction
                                         odds?.max ?? 0,
                                         fractionalOddsFormat
                                     )}`}</td>
-                                    <td>{`${numberWithCommas(minBet ?? 0)}-${numberWithCommas(maxBet ?? 0)}`}</td>
+                                    <td>{`${numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0) ?? 0)}-${numberWithCommas(
+                                        maxBet ?? 0
+                                    )}`}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -149,7 +152,12 @@ const BacBallGameGuideContent: FC<BacBallGameGuideContentsProps> = ({ userStakeL
             <ul className={`game-guide`}>
                 <BacBallIntroduction t={t} displayName={displayName || ""} />
                 <BacBallGameRules t={t} userStakeLevel={userStakeLevel} maxBet={gameConfigs.maxBet} />
-                <BacBallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} t={t} />
+                <BacBallPayout
+                    userStakeLevel={userStakeLevel}
+                    gameConfigs={gameConfigs}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    t={t}
+                />
                 <TermsAndConditionsTolgee />
             </ul>
         </div>

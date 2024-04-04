@@ -44,7 +44,6 @@ const BacBallGameGuide: FC<GameGuideBase> = ({
     const displayName = appSettings.gameSettings[`${id}`].gameName;
 
     const getLocalGameConfigs = () => {
-        console.log("getLocalGameConfigs", project);
         getGameConfigProject("bac-ball", project, setConfigs);
     };
 
