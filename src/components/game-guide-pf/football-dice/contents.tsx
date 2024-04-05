@@ -115,7 +115,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div className={`${Styles["section"]} ${Styles["bg-section"]}`}>
                     <div className={Styles["combined-hash-section"]}>
-                        <div className={`${Styles["title-section"]} ${Styles["title-hash-string"]}`}>{<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })}/>}<span className={Styles["icon-info"]}></span></div>
+                        <div className={`${Styles["title-style"]} ${Styles["title-hash-string"]}`}>{<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })}/>}<span className={Styles["icon-info"]}></span></div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>029e726f35e7a403d7dd335166d9bc0ae8234faa1a551359812d5ca3cfd4fc1b39066e43f5488c48cde95fa98bd14ddbebf0b7e1ca8dfa17c2191f24467e687e<span className={Styles["icon-copy"]}></span></div>
                     </div>
                     <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: TogleeNamespace.Common })}</div>

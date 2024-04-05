@@ -49,6 +49,7 @@ $color-second: #C4BCE0;
         text-align: center;
         font-size: 24px;
         position: relative;
+        text-transform: uppercase;
         .round-id {
             color: #06C5DC;
         }
@@ -144,6 +145,7 @@ $color-second: #C4BCE0;
     .title-style {
         text-transform: uppercase;
         font-weight: bold;
+        display: flex;
         &.title-merge-cs {
             width: 26rem;
         }
@@ -183,6 +185,10 @@ $color-second: #C4BCE0;
         display: flex;
         justify-content: space-between;
         padding: 5px 40px 10px;
+        .key {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
         .info {
             display: flex;
             align-items: center;
@@ -249,6 +255,12 @@ $color-second: #C4BCE0;
         display: flex;
         justify-content: space-between;
         margin-top: 16px;
+        .title-style {
+            display: flex;
+            .icon-info {
+                margin-left: 4px;
+            }
+        }
         .text-section {
             width: 600px;
         }
