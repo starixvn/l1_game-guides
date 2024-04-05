@@ -147,7 +147,7 @@ $color-second: #C4BCE0;
         font-weight: bold;
         display: flex;
         &.title-merge-cs {
-            width: 26rem;
+            width: 30rem;
         }
     }
     .bold {
@@ -257,6 +257,7 @@ $color-second: #C4BCE0;
         margin-top: 16px;
         .title-style {
             display: flex;
+            width: 32rem;
             .icon-info {
                 margin-left: 4px;
             }
