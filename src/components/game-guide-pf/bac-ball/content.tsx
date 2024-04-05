@@ -4,84 +4,12 @@ import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tol
 import Styles from "../snng-base/pf.module.scss";
 import { BacBallPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderContentPFBase, renderPFSettingsExample, renderPopupHeader, renderVerifyExample } from "../snng-base";
+import { renderContentPFBase, renderPFAppliedInGame, renderPFSettingsExample, renderPopupHeader, renderVerifyExample } from "../snng-base";
 
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
 const iconPF = <img src="./static/images/pf-snng/pf-verify-icon-pf.svg" alt="pf-icon" />;
 const iconCSV = <img src="./static/images/pf-snng/pf-verify-icon-csv.svg" alt="pf-icon" />;
 const iconEdit = <img src="./static/images/pf-snng/pf-verify-icon-edit.svg" alt="pf-icon" />;
-
-const renderBacBallAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
-    return (
-        <div className="guide-item">
-            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })}</h2>
-            <ul className="desc">
-                <li>
-                    <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Spaceflight" />
-                </li>
-                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "BacBall" })}</li>
-                <li>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</li>
-            </ul>
-            {renderPFAppliedExample(t, imgVersion)}
-        </div>
-    );
-};
-
-const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
-    return (
-        <div className={Styles["pf-applied-example"]}>
-            <div className={Styles["pf-applied-example-block-1"]}>
-                <div className={`${Styles["pf-applied-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_server_Seed", { ns: "Common" })}
-                </div>
-                <div className={`${Styles["pf-applied-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_client_seed", { ns: "Common" })}
-                </div>
-                <div className="center-img">
-                    <img
-                        className={Styles["pf-work-example-img-background-full"]}
-                        src={`./static/images/pf-snng/pf-applied-ingame-example-1.png?v=${imgVersion}`}
-                        alt="pf"
-                    ></img>
-                </div>
-                <div className={`${Styles["pf-applied-example-text-3"]} ${Styles["pf-text-highlight"]} text-center`}>
-                    {t("pf_ header_merge_client_seed", { ns: "Common" })} <br />({t("pf_provably_guide_flow", { ns: "SabaNumber" })})
-                </div>
-                <div className={Styles["pf-applied-example-img-text"]}>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
-                </div>
-            </div>
-            <div className={Styles["pf-applied-example-block-2"]}>
-                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_combined Seed", { ns: "Spaceflight" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
-                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
-                </div>
-                <div className="center-img" style={{ paddingTop: "0" }}>
-                    <img
-                        className={Styles["pf-merge-seed-img"]}
-                        src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
-                        alt="pf"
-                    ></img>
-                </div>
-            </div>
-            <div className={Styles["pf-combined-hash"]}>
-                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
-                </div>
-                <div className="center-img" style={{ paddingTop: "0" }}>
-                    <img
-                        className={Styles["pf-combined-hash-img"]}
-                        src={`./static/images/pf-snng/pf-combined-hash.png?v=${imgVersion}`}
-                        alt="pf"
-                    ></img>
-                </div>
-            </div>
-            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
-        </div>
-    );
-};
 
 const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string) => {
     return (
@@ -146,7 +74,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <thead>
                     <tr>
                         <th>{t("pf_time", { ns: "SabaNumber" })}</th>
-                        <th>{t("header_betoption", { ns: "Common" })}</th>
+                        <th>{t("pf_bet_choice", { ns: "SabaNumber" })}</th>
                         <th>{t("pf_bacball_odds", { ns: "SabaNumber" })}</th>
                         <th>{t("pf_stake", { ns: "SabaNumber" })}</th>
                         <th>{t("pf_win", { ns: "SabaNumber" })}</th>
@@ -539,7 +467,7 @@ const BacBallPFGuideContent: FC<BacBallPFContentsProps> = ({ locale, displayName
     return (
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
-            {renderBacBallAppliedInGame(t, displayName ?? "", verImg)}
+            {renderPFAppliedInGame(t, displayName ?? "", verImg)}
             {renderBacBallVerifyPF(t, locale, displayName ?? "")}
         </div>
     );

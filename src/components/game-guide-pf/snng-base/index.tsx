@@ -1,4 +1,4 @@
-import { DefaultParamType, TFnType, TranslationKey } from "@tolgee/react";
+import { DefaultParamType, T, TFnType, TranslationKey } from "@tolgee/react";
 import { Markup } from "interweave";
 import Styles from "./pf.module.scss";
 
@@ -101,6 +101,77 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                     src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
                     alt="pf"
                 ></img>
+            </div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+        </div>
+    );
+};
+const renderPFAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
+    return (
+        <div className="guide-item">
+            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })}</h2>
+            <ul className="desc">
+                <li>
+                    <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Spaceflight" />
+                </li>
+                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "BacBall" })}</li>
+                <li>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</li>
+            </ul>
+            {renderPFAppliedExample(t, imgVersion)}
+        </div>
+    );
+};
+
+const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+    return (
+        <div className={Styles["pf-applied-example"]}>
+            <div className={Styles["pf-applied-example-block-1"]}>
+                <div className={`${Styles["pf-applied-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-applied-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf-snng/pf-applied-ingame-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+                <div className={`${Styles["pf-applied-example-text-3"]} ${Styles["pf-text-highlight"]} text-center`}>
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })} <br />({t("pf_provably_guide_flow", { ns: "SabaNumber" })})
+                </div>
+                <div className={Styles["pf-applied-example-img-text"]}>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                </div>
+            </div>
+            <div className={Styles["pf-applied-example-block-2"]}>
+                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_combined Seed", { ns: "Spaceflight" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-merge-seed-img"]}
+                        src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={Styles["pf-combined-hash"]}>
+                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-combined-hash-img"]}
+                        src={`./static/images/pf-snng/pf-combined-hash.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
             </div>
             <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
         </div>
@@ -209,4 +280,4 @@ const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 
-export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample, renderPopupHeader };
+export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample, renderPopupHeader, renderPFAppliedInGame };
