@@ -112,6 +112,7 @@ $color-second: #C4BCE0;
     .text-section {
         background-color: #3e4174;
         height: 34px;
+        line-height: 34px;
         border: 1px solid #1e235d;
         width: 100%;
         border-radius: 20px;
@@ -236,6 +237,7 @@ $color-second: #C4BCE0;
                 margin-bottom: 8px;
                 .name {
                     width: 220px;
+                    color: $color-second;
                 }
                 .text-section {
                     width: 120px;
@@ -280,6 +282,7 @@ $color-second: #C4BCE0;
 
     .para-desc {
         padding: 0 40px;
+        color: $color-second;
     }
    
 }

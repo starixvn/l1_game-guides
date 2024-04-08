@@ -132,7 +132,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
-                <div className={Styles["popup-title-text"]}>{t("pf_title_verification", {ns: TogleeNamespace.Common})} <span className={Styles["text-round"]}>({t("pf_round", {ns: TogleeNamespace.Common})}: <span className={Styles["round-id"]}>49252</span>)</span></div>
+                <div className={Styles["popup-title-text"]}>{t("pf_title_verification", {ns: TogleeNamespace.Common})} <span className={Styles["text-round"]}>({t("pf_round", {ns: TogleeNamespace.Common})}: <span className={Styles["round-id"]}>296748</span>)</span></div>
                 <div className={Styles["icon-close"]}></div>
             </div>
             <div className={Styles["info-seed"]}>
