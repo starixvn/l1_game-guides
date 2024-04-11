@@ -97,7 +97,7 @@ const BacBallPayout: FC<{
                 <li>
                     <T
                         keyName={"payouts_para_3"}
-                        params={{ maxpayout: numberWithCommas((maxWinPerRound ?? 0) * maxBet) }}
+                        params={{ maxpayout: numberWithCommas((maxWinPerRound ?? 0) * Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
                         ns="SabaNumber"
                     />
                 </li>
