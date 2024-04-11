@@ -358,9 +358,6 @@ const renderBacBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div className={Styles["pf-text-highlight"]}>
-                                {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
-                            </div>
                             <div>
                                 <strong>{t("pf_index_value", { ns: "SabaNumber" })}</strong> = ((
                                 {t("pf_algorithm_random_number", { ns: "BacBall" })} +{" "}

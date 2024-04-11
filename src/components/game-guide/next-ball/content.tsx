@@ -35,8 +35,9 @@ const NextBallGameRules: FC<{ userStakeLevel: UserStakeLevelProps | undefined; m
                         params={{ maxbet: numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
                     />
                 </li>
-                <li>{t("gamerules_para_3", { ns: SabaNumber })}</li>
                 <li>{t("gamerules_para_4")}</li>
+                <li>{t("gamerules_para_3", { ns: SabaNumber })}</li>
+
                 <div className="table-container">
                     <table className={`table`}>
                         <thead className="text-center">
