@@ -79,14 +79,14 @@ const renderPayout = (
                                 <tr>
                                     <td rowSpan={2}>{t("glossary_draw", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("descrip_draw", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.draw12, fractionalOddsFormat)}</td>
                                     <td rowSpan={2} className={Styles["nowrap"]}>
                                         {minBetMain} - {maxBetDraw}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("descrip_draw_2", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(odds?.draw12, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
                                 </tr>
                                
                                 
