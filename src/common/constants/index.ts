@@ -102,6 +102,7 @@ export const GAMES = {
     SPACE_FLIGHT: 73,
     CHINESE_BLACKJACK: 77,
     FOOTBALL_DICE: 78,
+    FOOTBALL_SLOT: 79,
 };
 
 export const GAMES_MINI = {
