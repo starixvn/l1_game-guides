@@ -240,7 +240,26 @@ const renderLuckySymbol = (t: Function) => {
                             </Trans>
                         </p>
                     </div>
-                    <p>{t("luckysymbols_para_7")}</p>
+                    <p>
+                        <Trans>
+                            {t("luckysymbols_para_7", {
+                                symbol1: (
+                                    <img
+                                        className={Styles["symbol-mini"]}
+                                        src="./static/images/football-slot/item_ball.png"
+                                        alt="item_ball"
+                                    ></img>
+                                ),
+                                symbol2: (
+                                    <img
+                                        className={Styles["symbol-mini"]}
+                                        src="./static/images/football-slot/item_hostCountry.png"
+                                        alt="item_hostCountry"
+                                    ></img>
+                                ),
+                            })}
+                        </Trans>
+                    </p>
                 </div>
             </ul>
         </li>

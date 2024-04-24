@@ -18,7 +18,7 @@
     align-items: center;
     grid-gap: 1rem;
     grid-template-columns: 9rem 1fr;
-    padding: 1rem;
+    padding: 0.5rem;
 
     @media (max-width: 576px) {
         transform: scale(0.9);
@@ -58,7 +58,7 @@
         span {
             font-size: 1.6rem;
             font-weight: 700;
-            display: inline-block;
+            //display: inline-block;
         }
     }
 

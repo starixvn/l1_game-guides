@@ -8,17 +8,6 @@
     }
 }
 
-.wrapper-icon {
-    margin: 0;
-
-    .icon-content-wrapper {
-        top: 2.4rem;
-    }
-    .icon-content-top {
-        top: 3.4rem;
-    }
-}
-
 .item0 {
     @extend %item;
     &.customize {
@@ -190,11 +179,9 @@
     }
     .spin-position {
         right: 3.1rem;
-        top: 3.1rem;
     }
 
     .bonus-position {
         right: 3.1rem;
-        top: 3.4rem;
     }
 }
