@@ -62,10 +62,6 @@
         }
     }
 
-    .icon-content-top {
-        top: 3.7rem;
-    }
-
     .gem-position {
         right: 4.5rem;
         grid-column-gap: 1rem;
@@ -100,6 +96,8 @@
     grid-template-columns: 1.5rem 2rem;
     justify-content: flex-start;
     grid-column-gap: 0.3rem;
+    line-height: 16px;
+    align-items: center;
 }
 
 .icon-content-customize {
@@ -110,19 +108,18 @@
 
 .icon-content-wrapper {
     position: absolute;
-    top: 3rem;
-    right: 4rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: flex-start;
-    grid-column-gap: 0.3rem;
+    top: 0;
+    right: 4rem;    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     &.spin-position {
         right: 1.1rem;
-        top: 3.7rem;
+        
     }
     &.bonus-position {
         right: 1.7rem;
-        top: 3.7rem;
     }
 
     @media (max-width: 576px) {
