@@ -13,11 +13,11 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
             <h2>{t("title_gamerules", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>
-                    <Markup content={t("gamerules_para_1")} />
+                    <Trans>{t("gamerules_para_1")}</Trans>
                 </li>
                 <li>{t("gamerules_para_2")}</li>
                 <li>
-                    <Markup content={t("gamerules_para_3", { maxbet: maxBet })} />
+                    <Trans>{t("gamerules_para_3", { maxbet: maxBet })}</Trans>
                 </li>
                 <li>{t("gamerules_para_4")}</li>
                 <div>
