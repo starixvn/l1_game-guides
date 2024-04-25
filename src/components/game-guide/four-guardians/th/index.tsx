@@ -8,6 +8,7 @@ import { PROJECTS } from "../../../../common/constants";
 import { renderGameRuleContent } from "../../../shared/slot-games/th";
 
 const number = "number";
+const numberExtra = "numberExtra";
 const numberFirst = "number-first";
 const numberSecond = "number-second";
 const iconBox = "icon-box";
@@ -253,8 +254,8 @@ export const renderIconContentBlack = (itemName: string, dataContent: number[][]
                             key={index}
                             className={`${Styles["icon-content"]} ${itemName === "item8" ? Styles["bonus"] : Styles["free-spin"]}`}
                         >
-                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data[0]}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
+                            <span className={`${Styles[numberExtra]} ${Styles[numberFirst]}`}>{data[0]}</span>
+                            <span className={`${Styles[numberExtra]} ${Styles[numberSecond]}`}>
                                 {data[1]} {textAfterNumber && <span className="text-white">{textAfterNumber}</span>}
                             </span>
                         </div>

@@ -129,3 +129,29 @@
 .wild-content-ex {
     grid-template-columns: 27.6rem 1fr;
 }
+
+.number,
+.numberExtra {
+    font-size: 1.7rem;
+    font-weight: 700;
+    display: inline-flex;
+    &.number-first {
+        color: #fff;
+    }
+    &.number-second {
+        color: #f3d603;
+        text-align: right;
+    }
+
+    @media (max-width: 576px) {
+        font-size: 1.4rem;
+    }
+}
+
+.number {
+    line-height: 0.6rem;
+}
+
+.numberExtra {
+    line-height: 0rem;
+}
