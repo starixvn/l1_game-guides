@@ -109,6 +109,7 @@ export const GAMES = {
     BAC_BALL_2: 1002,
     NEXT_BALL_1: 1003,
     NEXT_BALL_2: 1004,
+    SE_BALL: 1005,
 };
 
 export const GAMES_MINI = {
@@ -131,6 +132,7 @@ export const GAMES_PF = {
     BAC_BALL_2: 1002,
     NEXT_BALL_1: 1003,
     NEXT_BALL_2: 1004,
+    SE_BALL: 1005,
 };
 
 export const TolgeeConfig = {

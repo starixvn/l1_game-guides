@@ -246,5 +246,9 @@
     "80": {
         "id": 80,
         "gameName": "Coin Toss"
+    },
+    "1005": {
+        "id": 1005,
+        "gameName": "Se Ball"
     }
 }
