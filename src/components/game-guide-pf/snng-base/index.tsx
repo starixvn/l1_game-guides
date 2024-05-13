@@ -114,7 +114,7 @@ const renderPFAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationK
                 <li>
                     <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Spaceflight" />
                 </li>
-                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "BacBall" })}</li>
+                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
                 <li>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}
