@@ -39,6 +39,6 @@ export const en: IFruitSlotTranslationResource = {
     main: {
         introduction: "Introduction",
         description:
-            "Fruit Slot is the traditional fruit slot machine innovated to provide players with an attractive and thrilling gameplay experience.",
+            "Fruit 77 is the traditional fruit slot machine innovated to provide players with an attractive and thrilling gameplay experience.",
     },
 };

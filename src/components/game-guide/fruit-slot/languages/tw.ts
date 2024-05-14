@@ -37,6 +37,6 @@ export const tw: IFruitSlotTranslationResource = {
     },
     main: {
         introduction: "介紹",
-        description: "水果機是對傳統的水果老虎機進行創新，旨在為玩家提供引人入勝且驚險刺激的遊戲體驗。",
+        description: "水果機77是對傳統的水果老虎機進行創新，旨在為玩家提供引人入勝且驚險刺激的遊戲體驗。",
     },
 };
