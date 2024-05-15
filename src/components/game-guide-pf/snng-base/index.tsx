@@ -250,7 +250,7 @@ const renderVerifyExample = (
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-link"]}>{t("pf_provably_fair_details", { ns: "SabaNumber" })}</span>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
-                    <span className={`${Styles["pf-verify-input-text"]} text-center`}>{mergeServerSeed}</span>
+                    <span className={`${Styles["pf-verify-input-text"]}`}>{mergeServerSeed}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>

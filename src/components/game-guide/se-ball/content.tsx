@@ -145,7 +145,7 @@ const SeBallPayout: FC<{
 
                                     <td>{formatOdds(odds, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBet} - {maxBet}
+                                        {numberWithCommas(minBet)} - {numberWithCommas(maxBet)}
                                     </td>
                                 </tr>
                             ))}

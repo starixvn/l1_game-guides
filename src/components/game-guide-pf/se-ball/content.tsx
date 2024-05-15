@@ -15,11 +15,13 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
     return (
         <div className={Styles["pf-result-block"]}>
             <div className="bold text-white" style={{ marginBottom: "0.5rem" }}>
-                {t("glossary_draw_id", { ns: "SabaNumber" })}: {drawId} ({t("pf_draw_2", { ns: "SabaNumber" })})
+                {t("pf_round", { ns: "Common" })}: {drawId}
             </div>
             <div className="flex justify-center" style={{ gap: "0.8rem" }}>
-                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>49</span>
-                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>66</span>
+                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>41</span>
+                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>5</span>
+                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>58</span>
+                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>48</span>
             </div>
         </div>
     );
@@ -52,7 +54,7 @@ const renderClientSeedInfoExample = (
                 </div>
             </div>
             <div className={Styles["pf-verify-section-title"]}>
-                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>12</span>
+                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>7</span>
                 <span className={`${Styles["pf-verify-icon"]} ${Styles["icon-export"]}`}>{iconCSV}</span>
             </div>
             <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-client-seed-info-table"]}`}>
@@ -67,63 +69,37 @@ const renderClientSeedInfoExample = (
                     <tr>
                         <td>1</td>
                         <td>A***255</td>
-                        <td>7495</td>
+                        <td>4862</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>B***857</td>
-                        <td>2568</td>
+                        <td>0026</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>I***080</td>
-                        <td>2208</td>
+                        <td className={Styles["pf-text-highlight-green"]}>Dragon72864</td>
+                        <td className={Styles["pf-text-highlight-green"]}>6980</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>R***247</td>
-                        <td>3434</td>
+                        <td>4995</td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>T***322</td>
-                        <td>5644</td>
+                        <td>7860</td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>B***736</td>
-                        <td>7499</td>
+                        <td>3736</td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>C***263</td>
-                        <td>2296</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>C***679</td>
-                        <td>5493</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td className={Styles["pf-text-highlight-green"]}>Dragon72864</td>
-                        <td className={Styles["pf-text-highlight-green"]}>9515</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>G***855</td>
-                        <td>3076</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>M***307</td>
-                        <td>5451</td>
-                    </tr>
-
-                    <tr>
-                        <td>12</td>
-                        <td>S***958</td>
-                        <td>2833</td>
+                        <td>8265</td>
                     </tr>
                 </tbody>
             </table>
@@ -139,12 +115,16 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
             <div className={Styles["pf-verify-draw-info"]}>
                 <div className={Styles["pf-verify-info-item"]}>
                     <strong>
-                        {t("glossary_draw_id", { ns: "SabaNumber" })}: {drawId}
+                        {t("pf_round", { ns: "Common" })}: {drawId}
                     </strong>
                 </div>
-                <div className={Styles["pf-verify-ball"]}>
-                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>66</span>
+                <div className={Styles["pf-verify-ball"]} style={{ gap: "0.8rem" }}>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>41</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>5</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>58</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>48</span>
                 </div>
+                -<div style={{ fontSize: "2.5rem" }}>152</div>
             </div>
             <div className={Styles["pf-verify-PF"]}>
                 <span className={Styles["pf-verify-icon"]} style={{ paddingRight: "0.5rem" }}>
@@ -165,30 +145,61 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <tbody>
                     <tr>
                         <td>
-                            14:06:37 <br /> 05/04/2024
+                            09:15:21 <br /> 15/05/2024
                         </td>
-                        <td className={Styles["pf-text-highlight"]}>{t("glossary_even", { ns: "NextBall" })}</td>
-                        <td className={Styles["pf-text-highlight"]}>1.9</td>
+                        <td className={Styles["pf-text-highlight"]}>
+                            <img src={`./static/images/se-ball/red3.svg`} alt="guide-item" />
+                        </td>
+                        <td className={Styles["pf-text-highlight"]}>4</td>
                         <td className={Styles["pf-text-highlight"]}>10</td>
-                        <td className={Styles["pf-text-highlight"]}>19</td>
+                        <td className={Styles["pf-text-highlight"]}>40</td>
                     </tr>
                     <tr>
                         <td>
-                            14:06:34 <br /> 05/04/2024
+                            09:15:21 <br /> 15/05/2024
                         </td>
-                        <td className={Styles["pf-text-highlight"]}>{t("glossary_over", { ns: "NextBall" })}</td>
-                        <td className={Styles["pf-text-highlight"]}>1.9</td>
-                        <td className={Styles["pf-text-highlight"]}>10</td>
-                        <td className={Styles["pf-text-highlight"]}>19</td>
+                        <td>
+                            <img src={`./static/images/se-ball/blue3.svg`} alt="guide-item" />
+                        </td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>
-                            14:06:33 <br /> 05/04/2024
+                            09:15:20 <br /> 15/05/2024
                         </td>
-                        <td className={Styles["pf-text-highlight"]}>{t("glossary_over", { ns: "NextBall" })}</td>
-                        <td className={Styles["pf-text-highlight"]}>1.9</td>
-                        <td className={Styles["pf-text-highlight"]}>10</td>
-                        <td className={Styles["pf-text-highlight"]}>19</td>
+                        <td>{t("glossary_odd", { ns: "SeBall" })}</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            09:15:20 <br /> 15/05/2024
+                        </td>
+                        <td>{t("glossary_odd", { ns: "SeBall" })}</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            09:15:20 <br /> 15/05/2024
+                        </td>
+                        <td>{t("glossary_odd", { ns: "SeBall" })}</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            09:15:20 <br /> 15/05/2024
+                        </td>
+                        <td>{t("glossary_odd", { ns: "SeBall" })}</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>0</td>
                     </tr>
                 </tbody>
             </table>
@@ -229,30 +240,70 @@ const renderVerifyDetailExample = (
             <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "1.1rem" }}>
                 <div className="flex items-center" style={{ gap: "1.2rem", marginBottom: "0.4rem" }}>
                     <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
-                        {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
+                        {<Markup content={t("pf_final_result", { ns: "Common" })} />}
                     </h3>
-                    <div className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>66</div>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>41</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>5</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>58</span>
+                    <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>48</span>
                 </div>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
-                <p className="bold">0a ={">"} 10</p>
+                <p className="bold mb-0">55 ={">"} 85</p>
+                <p className="bold mb-0">14 ={">"} 20</p>
+                <p className="bold mb-0">71 ={">"} 113</p>
+                <p className="bold">c8 ={">"} 200</p>
                 <p>
                     <span className={Styles["pf-text-highlight"]}>{t("pf_index_value", { ns: "SabaNumber" })}</span> = ((
                     {t("pf_algorithm_random_number", { ns: "BacBall" })} + X) mod {t("pf_number_of_balls_left", { ns: "SabaNumber" })} ) + 1
                 </p>
 
                 <p>
-                    <span className={Styles["pf-text-highlight"]}>{t("pf_index", { ns: "SabaNumber" })} (1,..., 74)</span> = ((54 + 10) mod
-                    74) + 1 = <span className={Styles["pf-text-highlight"]}>65</span>
+                    <span className={Styles["pf-text-highlight"]}>{t("pf_verifier_tool_para_25", { ns: "SeBall" })}</span> = ((15 + 85) mod
+                    60) + 1 = <span className={Styles["pf-text-highlight"]}>41</span>
+                </p>
+                <p>
+                    <span className={Styles["pf-text-highlight"]}>{t("pf_verifier_tool_para_26", { ns: "SeBall" })}</span> = ((43 + 20) mod
+                    59) + 1 = <span className={Styles["pf-text-highlight"]}>5</span>
+                </p>
+                <p>
+                    <span className={Styles["pf-text-highlight"]}>{t("pf_verifier_tool_para_27", { ns: "SeBall" })}</span> = ((58 + 113) mod
+                    58) + 1 = <span className={Styles["pf-text-highlight"]}>56</span>
+                </p>
+                <p>
+                    <span className={Styles["pf-text-highlight"]}>{t("pf_verifier_tool_para_28", { ns: "SeBall" })}</span> = ((16 + 200) mod
+                    57) + 1 = <span className={Styles["pf-text-highlight"]}>46</span>
                 </p>
 
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_index_value_to_final_result", { ns: "SabaNumber" })}</div>
 
+                <div className="bold text-white">{t("pf_verifier_tool_para_29", { ns: "SeBall" })}</div>
+
                 <p className={Styles["pf-verify-result-numbers"]}>
-                    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43
-                    44 45 46 47 48 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 <span style={{ color: "#ffbc11" }}>66 </span> 67 68 69 70
-                    71 72 73 74 75
+                    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40{" "}
+                    <span style={{ color: "#ffbc11" }}>41 </span> 42 43 44 45 46 47 48 50 51 52 53 54 55 56 57 58 59 60
+                </p>
+
+                <div className="bold text-white">{t("pf_verifier_tool_para_30", { ns: "SeBall" })}</div>
+
+                <p className={Styles["pf-verify-result-numbers"]}>
+                    1 2 3 4 <span style={{ color: "#ffbc11" }}>5 </span> 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+                    30 31 32 33 34 35 36 37 38 39 40 42 43 44 45 46 47 48 50 51 52 53 54 55 56 57 58 59 60
+                </p>
+
+                <div className="bold text-white">{t("pf_verifier_tool_para_31", { ns: "SeBall" })}</div>
+
+                <p className={Styles["pf-verify-result-numbers"]}>
+                    1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 42 43 44 45
+                    46 47 48 50 51 52 53 54 55 56 57 <span style={{ color: "#ffbc11" }}>58 </span> 59 60
+                </p>
+
+                <div className="bold text-white">{t("pf_verifier_tool_para_32", { ns: "SeBall" })}</div>
+
+                <p className={Styles["pf-verify-result-numbers"]}>
+                    1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 42 43 44 45
+                    46 47 <span style={{ color: "#ffbc11" }}>48 </span> 50 51 52 53 54 55 56 57 59 60
                 </p>
             </div>
         </div>
@@ -261,14 +312,13 @@ const renderVerifyDetailExample = (
 
 const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, locale: string | undefined, displayName: string) => {
     const iconPF = `<img src="/static/images/pf-snng/icon-pf.svg" alt="pf-verify" />`;
-    const serverSeedSHA256 = "8ac3d57770190614e9ce281051c3b14f44249f404b220226a123356f27d0a076";
-    const randomNumber = "9515";
-    const serverSeed =
-        "{&quot;random&quot;:&quot;54&quot;,&quot;remain&quot;:&quot;1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:18:19:20:21:22:23:24:25:26:27:28:29:30:31:32:33:34:35:36:37:38:39:40:41:42:43:44:45:46:47:48:50:51:52:53:54:55:56:57:58:59:60:61:62:63:64:65:66:67:68:69:70:71:72:73:74:75&quot;,&quot;secret&quot;:&quot;HZceK~x1a.Oc7q2RxySpR_K1xfWzYKSk&quot;}";
-    const mergeServerSeed = "749525682208343456447499229654939515307654512833";
+    const serverSeedSHA256 = "92bf266c74fb974e37332a4d676c42c8452ae843299d9afe726f7f78a9308028";
+    const randomNumber = "6980";
+    const serverSeed = "{&quot;random&quot;:&quot;15;43;58;16&quot;,&quot;secret&quot;:&quot;p7zgVz_YIK1cbr09F5pcbgtKqY1m._v5&quot;}";
+    const mergeServerSeed = "4862002669804995786037368265";
     const combinedSHA512Hash =
-        "0aca85359067a3ada609453a2e9abdf4cc9c1ac82350f93ce309d3940a234ec70891bad078747cb717bee8e92975ec1eab8ff07084accaf945e4f53f1381c163";
-    const drawId = "9842";
+        "551471c831934318abfa0893a45378cc11af25a3846bcd20de6352fb36af655b7438f9c36d96b3e99605970d2a2dc276f702346d2457f06d5e6bd45c94439cd6";
+    const drawId = "87389";
 
     return (
         <div className="guide-item">
@@ -283,7 +333,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                         <li>
                             <T keyName={"pf_verifier_tool_para_2"} params={{ gamename: displayName }} ns="SabaNumber"></T>
                         </li>
-                        <li>The Server Seed generated at the beginning of the round will have two components:</li>
+                        <li>{t("pf_verifier_tool_para_3a", { ns: "SabaNumber" })}</li>
 
                         <ul className={Styles["pf-sub-desc"]}>
                             <li>{<Markup content={t("pf_verifier_tool_para_4", { ns: "SeBall" })} />}</li>
@@ -343,7 +393,41 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                             </div>
                         </li>
 
-                        <div>// for Combined SHA512 hash example</div>
+                        <div className={Styles["seball-convert-hash"]}>
+                            <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
+                                <span style={{ color: "#ED7D31" }}>26</span>
+                                <span style={{ color: "#FFC000" }}>24</span>
+                                <span style={{ color: "#70AD47" }}>df</span>
+                                <span style={{ color: "#5B9BD5" }}>77</span>dcd...
+                            </div>
+                            <div className={Styles["convert-hash-1"]}>
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeBall", value: "1" })} />}
+                                </div>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                            </div>
+
+                            <div className={Styles["convert-hash-2"]}>
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeBall", value: "2" })} />}
+                                </div>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                            </div>
+
+                            <div className={Styles["convert-hash-3"]}>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeBall", value: "3" })} />}
+                                </div>
+                            </div>
+
+                            <div className={Styles["convert-hash-4"]}>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeBall", value: "4" })} />}
+                                </div>
+                            </div>
+                        </div>
 
                         <li>
                             {t("pf_verifier_tool_para_11", { ns: "SeBall" })}

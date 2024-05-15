@@ -460,6 +460,7 @@
     .pf-verify-draw-info {
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         gap: 2rem;
         font-size: 1.1rem;
         color: #fff;
@@ -598,4 +599,81 @@
 
 .pf-ball-red {
     --bg: url("/static/images/pf-snng/pf-verify-red-ball.png");
+}
+
+//seball-convert-hash example
+%text {
+    position: absolute;
+    font-size: 1.1rem;
+
+    strong {
+        display: block;
+    }
+}
+
+%arrow {
+    position: absolute;
+}
+
+.seball-convert-hash {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    width: 20rem;
+    left: 2rem;
+
+    .text {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .convert-hash-1 {
+        position: absolute;
+        top: 2.7rem;
+        left: -9.2rem;
+        display: flex;
+        width: 13rem;
+        justify-content: flex-end;
+
+        .arrow {
+            transform: scale(-1);
+        }
+    }
+
+    .convert-hash-2 {
+        position: absolute;
+        bottom: 2.5rem;
+        left: -6.8rem;
+        display: flex;
+        width: 13rem;
+        justify-content: flex-end;
+
+        .arrow {
+            transform: scaleX(-1);
+        }
+    }
+
+    .convert-hash-3 {
+        position: absolute;
+        top: 2.7rem;
+        left: 7.8rem;
+        display: flex;
+        width: 13rem;
+        justify-content: flex-start;
+
+        .arrow {
+            transform: scaleY(-1);
+        }
+    }
+
+    .convert-hash-4 {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 10.8rem;
+        display: flex;
+        width: 13rem;
+        justify-content: flex-start;
+    }
 }
