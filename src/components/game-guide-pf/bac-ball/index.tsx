@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import BacBallPFGuideContent from "./content";
-import { GameGuideBase } from "../../game-guide/type";
+import { useEffect } from "react";
 import appSettings from "../../../common/app-settings";
 import { TolgeeConfig } from "../../../common/constants";
+import { GameGuideBase } from "../../game-guide/type";
+import BacBallPFGuideContent from "./content";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -35,7 +35,7 @@ const BacBallPFGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
         }
     }, []);
 

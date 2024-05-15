@@ -1,9 +1,9 @@
+import { TolgeeProvider } from "@tolgee/react";
 import { useEffect } from "react";
+import appSettings from "../../../common/app-settings";
 import initTolgee from "../../../helpers/tolgee-helper";
 import { GameGuideBase } from "../../game-guide/type";
-import { TolgeeProvider } from "@tolgee/react";
 import NextBallPFGuideContent from "./content";
-import appSettings from "../../../common/app-settings";
 
 const tolgee = initTolgee(["NextBall"]);
 
@@ -13,7 +13,7 @@ const NextBallPFGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
         }
     }, []);
 
