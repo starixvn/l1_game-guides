@@ -21,17 +21,17 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                 <div className="text-center">
                     <div className="text-white bold text-uppercase">{t("glossary_player", { ns: "BacBall" })}</div>
                     <div className={Styles["pf-balls-container"]}>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>25</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>25</span>
                         <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>18</span>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>28</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>28</span>
                     </div>
                 </div>
                 <div className="text-center">
                     <div className="text-white bold text-uppercase">{t("glossary_banker", { ns: "BacBall" })}</div>
                     <div className={Styles["pf-balls-container"]}>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>17</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>17</span>
                         <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>27</span>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>9</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>9</span>
                     </div>
                 </div>
             </div>
@@ -53,14 +53,14 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <div className={Styles["pf-verify-info-item"]}>
                     <strong className="text-uppercase">{t("glossary_player", { ns: "BacBall" })}</strong>
                     <div className={Styles["pf-verify-ball"]}>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>28</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>28</span>
                     </div>
                 </div>
 
                 <div className={Styles["pf-verify-info-item"]}>
                     <strong className="text-uppercase">{t("glossary_banker", { ns: "BacBall" })}</strong>
                     <div className={Styles["pf-verify-ball"]}>
-                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>9</span>
+                        <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>9</span>
                     </div>
                 </div>
             </div>
@@ -249,11 +249,11 @@ const renderVerifyDetailExample = (
                     <div className="flex gap-4 items-center">
                         <div className="flex items-center gap-1">
                             <span className="text-uppercase bold text-white">{t("glossary_player", { ns: "BacBall" })}</span>
-                            <div className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>28</div>
+                            <div className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>28</div>
                         </div>
                         <div className="flex items-center gap-1">
                             <span className="text-uppercase bold text-white">{t("glossary_banker", { ns: "BacBall" })}</span>
-                            <div className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>9</div>
+                            <div className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>9</div>
                         </div>
                     </div>
                 </div>

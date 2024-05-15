@@ -18,7 +18,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                 {t("glossary_draw_id", { ns: "SabaNumber" })}: {drawId} ({t("pf_draw_2", { ns: "SabaNumber" })})
             </div>
             <div className="flex justify-center" style={{ gap: "0.8rem" }}>
-                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>49</span>
+                <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-blue"]}`}>49</span>
                 <span className={`${Styles["pf-ball"]} ${Styles["pf-ball-red"]}`}>66</span>
             </div>
         </div>
