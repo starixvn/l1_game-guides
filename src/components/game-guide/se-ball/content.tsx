@@ -36,7 +36,7 @@ const SeBallGameRules: FC<{ userStakeLevel: UserStakeLevelProps | undefined; max
                     />
                 </li>
                 <li>{t("gamerules_para_3")}</li>
-                <li>{t("gamerules_para_3", { ns: SabaNumber })}</li>
+                <li>{t("gamerules_para_4", { ns: SeBall })}</li>
 
                 <div className="table-container">
                     <table className={`table`}>
@@ -111,12 +111,12 @@ const SeBallPayout: FC<{
             <h2>{t("title_payouts", { ns: Common })}</h2>
             <ul className="desc">
                 <li>{t("payouts_para_1", { ns: SabaNumber })}</li>
-                <li>{t("payouts_para_1", { ns: Common })}</li>
+                <li>{t("payouts_para_2_round", { ns: SabaNumber })}</li>
                 <li>
                     <T
                         keyName={"payouts_para_3"}
                         params={{ maxpayout: numberWithCommas((maxWinPerRound ?? 0) * Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet)) }}
-                        ns={SabaNumber}
+                        ns={SeBall}
                     />
                 </li>
                 <div className="table-container">
@@ -125,7 +125,7 @@ const SeBallPayout: FC<{
                             <tr>
                                 <th>{t("header_betoption", { ns: Common })}</th>
                                 <th>
-                                    <Markup content={t("header_odds", { ns: Common })} />
+                                    <Markup content={t("header_odds", { ns: SabaNumber })} />
                                 </th>
                                 <th>
                                     <Markup content={t("header_betlimit", { ns: Common })} />
