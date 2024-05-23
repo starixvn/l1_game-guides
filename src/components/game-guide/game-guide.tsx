@@ -6,15 +6,16 @@ import { GAMES } from "../../common/constants";
 import { isCrashGame, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import BaccaratXGameGuide from "./baccarat-x";
 import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
 import CascadingSlotGuide from "./cascading-slot-template";
 import ChineseBlackjackGameGuide from "./chinese-blackjack";
 import ColorGameGuide from "./color-game";
 import DragontigerFightGuide from "./dragon-tiger-fight";
 import FootballDiceGameGuide from "./football-dice";
+import FootballSlotGuide from "./football-slot";
 import PontoonGuide from "./pontoon";
 import SpaceFlightGuide from "./space-flight";
-import FootballSlotGuide from "./football-slot";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -204,6 +205,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <CoinTossGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.LUCKY_THREE:
                 return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.BAC81:
+                return <BaccaratXGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
         }
