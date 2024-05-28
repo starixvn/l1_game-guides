@@ -250,5 +250,9 @@
     "1005": {
         "id": 1005,
         "gameName": "Se Ball"
+    },
+    "1006": {
+        "id": 1006,
+        "gameName": "Lucky Three"
     }
 }

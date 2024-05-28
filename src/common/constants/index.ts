@@ -110,6 +110,7 @@ export const GAMES = {
     NEXT_BALL_1: 1003,
     NEXT_BALL_2: 1004,
     SE_BALL: 1005,
+    LUCKY_THREE: 1006,
 };
 
 export const GAMES_MINI = {
@@ -133,6 +134,7 @@ export const GAMES_PF = {
     NEXT_BALL_1: 1003,
     NEXT_BALL_2: 1004,
     SE_BALL: 1005,
+    LUCKY_THREE: 1006,
 };
 
 export const TolgeeConfig = {
