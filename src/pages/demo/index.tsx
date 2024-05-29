@@ -39,7 +39,7 @@ const renderGameName = (setGameId: Function, t: TFunction, gameId: number, envir
         if (environment === ENVIRONMENT.si) {
             return Object.values(GAMES_MINI);
         }
-        
+
         if (environment === ENVIRONMENT.pf) {
             return Object.values(GAMES_PF);
         }
@@ -48,7 +48,12 @@ const renderGameName = (setGameId: Function, t: TFunction, gameId: number, envir
     };
     return (
         <div>
-            <select className="form-select form-select-lg mb-3" value={gameId} onChange={(event) => setGameId(+event.target.value)}>
+            <select
+                className="form-select form-select-lg mb-3"
+                value={gameId}
+                onChange={(event) => setGameId(+event.target.value)}
+                style={{ textTransform: "capitalize" }}
+            >
                 {Object.values(appSettings.gameSettings)
                     .filter((item) => getGameFollowEnv().includes(+item.id))
                     .map((guide, index) => {

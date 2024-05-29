@@ -238,5 +238,13 @@
     "1004": {
         "id": 1004,
         "gameName": "Lucky Next 2"
+    },
+    "71": {
+        "id": 71,
+        "gameName": "Color Game"
+    },
+    "80": {
+        "id": 80,
+        "gameName": "Coin Toss"
     }
 }

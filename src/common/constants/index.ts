@@ -120,6 +120,7 @@ export const GAMES_MINI = {
     HILO: 45,
     SICBO: 25,
     COLOR_GAME: 71,
+    COIN_TOSS: 80,
 };
 
 export const GAMES_PF = {

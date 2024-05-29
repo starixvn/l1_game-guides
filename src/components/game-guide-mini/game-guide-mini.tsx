@@ -1,12 +1,10 @@
-import dynamic from "next/dynamic";
-import React from "react";
 import { withTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
 
 import { GAMES_MINI } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
-import ColorGameMiniGuide from "./color-game";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -20,6 +18,8 @@ const FishPrawnCrabMiniGuide = dynamic(() => import("./fish-prawn-crab"));
 
 const DragonTigerMiniGuide = dynamic(() => import("./dragon-tiger"));
 const SicboMiniGuide = dynamic(() => import("./sic-bo"));
+const ColorGameMiniGuide = dynamic(() => import("./color-game"));
+const CoinTossMiniGuide = dynamic(() => import("./coin-toss"));
 
 class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
@@ -42,6 +42,8 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
                 return <SicboMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.COLOR_GAME:
                 return <ColorGameMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.COIN_TOSS:
+                return <CoinTossMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
