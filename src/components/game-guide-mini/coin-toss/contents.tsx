@@ -52,7 +52,7 @@ const CoinTossMiniContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, u
     const { t } = useTranslate(["CoinTossInstant", "Common", "ColorGameInstant"]);
 
     return (
-        <ul className={`game-guide `}>
+        <ul className={`game-guide pt-3`}>
             <li className="guide-item-instant game-microsite">
                 <p className="content">{t("intro_para_1")}</p>
             </li>
