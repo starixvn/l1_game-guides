@@ -16,7 +16,7 @@ const renderBallResult = () => {
     const result = [13, 1, 26];
 
     return (
-        <div className="flex justify-center" style={{ gap: "0.8rem" }}>
+        <div className={Styles["pf-ball-result"]}>
             {result.map((number, index) => {
                 return (
                     <span key={index} className={`${Styles["pf-ball"]} ${number % 2 ? Styles["pf-ball-blue"] : Styles["pf-ball-red"]}`}>
@@ -62,12 +62,9 @@ const renderClientSeedInfoExample = (
             {renderPopupHeader("pf_client_seed_info", "SabaNumber", t)}
 
             <div className={Styles["pf-verify-block-form"]}>
-                <div className="flex justify-between items-center" style={{ marginBottom: "0.5rem" }}>
+                <div className={Styles["pf-verify-group-input-small"]}>
                     <div className={Styles["pf-verify-section-title"]}>{t("pf_your_seed", { ns: "Common" })}</div>
-                    <div
-                        className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-fix-width"]}`}
-                        style={{ textAlign: "center", lineHeight: "3.4rem" }}
-                    >
+                    <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-fix-width"]} center`}>
                         <span>{randomNumber}</span>
                         <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                     </div>
@@ -133,13 +130,11 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </strong>
                 </div>
                 {renderBallResult()}
-                <div style={{ fontSize: "2.2rem", fontWeight: 700 }}>-</div>
-                <div style={{ fontSize: "2.2rem", fontWeight: 700 }}>40</div>
+                <div className={Styles["pf-ball-result-bold"]}>-</div>
+                <div className={Styles["pf-ball-result-bold"]}>40</div>
             </div>
             <div className={Styles["pf-verify-PF"]}>
-                <span className={Styles["pf-verify-icon"]} style={{ paddingRight: "0.5rem" }}>
-                    {iconPF}
-                </span>
+                <span className={Styles["verify-icon-pf"]}>{iconPF}</span>
                 {t("pf_provably_fair", { ns: "Common" })}
             </div>
             <table className={Styles["pf-bet-details-table"]}>
@@ -205,8 +200,8 @@ const renderVerifyDetailExample = (
             <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
             <p className={Styles["pf-text-highlight-green"]}>{t("pf_verification_msg_verify_successful", { ns: "SabaNumber" })}</p>
 
-            <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "1.1rem" }}>
-                <div className="flex items-center" style={{ gap: "1.2rem", marginBottom: "0.4rem" }}>
+            <div className={Styles["pf-verify-block-form"]}>
+                <div className={Styles["pf-verify-final-result"]}>
                     <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
                         {<Markup content={t("pf_final_result", { ns: "Common" })} />}
                     </h3>
@@ -243,8 +238,8 @@ const renderVerifyDetailExample = (
                 </div>
 
                 <p className={Styles["pf-verify-result-numbers"]}>
-                    1 2 3 4 5 6 7 8 9 10 11 12 <span style={{ color: "#ffbc11" }}>13 </span> 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
-                    30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+                    1 2 3 4 5 6 7 8 9 10 11 12 <span className={Styles["result-numbers-highlight"]}>13 </span> 14 15 16 17 18 19 20 21 22 23
+                    24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
                 </p>
 
                 <div className={Styles["pf-verify-section-title"]}>
@@ -252,8 +247,8 @@ const renderVerifyDetailExample = (
                 </div>
 
                 <p className={Styles["pf-verify-result-numbers"]}>
-                    <span style={{ color: "#ffbc11" }}>1 </span> 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
-                    31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+                    <span className={Styles["result-numbers-highlight"]}>1 </span> 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24
+                    25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
                 </p>
 
                 <div className={Styles["pf-verify-section-title"]}>
@@ -261,8 +256,9 @@ const renderVerifyDetailExample = (
                 </div>
 
                 <p className={Styles["pf-verify-result-numbers"]}>
-                    2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 <span style={{ color: "#ffbc11" }}>26 </span> 27 28 29 30
-                    31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+                    2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24 25{" "}
+                    <span className={Styles["result-numbers-highlight"]}>26 </span> 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45
+                    46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
                 </p>
             </div>
         </div>
@@ -360,11 +356,11 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                             <div className={Styles["break-word"]}>{combinedSHA512Hash}</div>
                         </li>
 
-                        <div className={Styles["seball-convert-hash"]}>
-                            <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
-                                <span style={{ color: "#ED7D31" }}>65</span>
-                                <span style={{ color: "#FFC000" }}>66</span>
-                                <span style={{ color: "#70AD47" }}>69</span>7d400...
+                        <div className={Styles["pf-convert-hash"]}>
+                            <div className={Styles["convert-hash-text"]}>
+                                <span className={Styles["color-ball-1"]}>65</span>
+                                <span className={Styles["color-ball-2"]}>66</span>
+                                <span className={Styles["color-ball-3"]}>69</span>7d400...
                             </div>
                             <div className={Styles["convert-hash-1"]}>
                                 <div className={Styles["text"]}>
@@ -411,7 +407,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                         <p className={`title-text ${Styles["pf-sub-title"]}`}>
                             {<Markup content={t("pf_verifier_tool_para_20", { ns: "SabaNumber" })} />}
                         </p>
-                        <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
+                        <ul className={`${Styles["pf-sub-desc"]} ${Styles["pf-sub-desc-no-padding"]}`}>
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_verifier_tool_para_21", { ns: "SabaNumber", icon: iconPF })} />}
                             </li>
@@ -426,7 +422,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_24", { ns: "BacBall" })} />}
 
-                                <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
+                                <ul className={`${Styles["pf-sub-desc"]} ${Styles["pf-sub-desc-no-padding"]}`}>
                                     <li>{<Markup content={t("pf_verifier_tool_para_25", { ns: "SabaNumber" })} />}</li>
                                 </ul>
                             </li>
@@ -450,7 +446,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                     <span className={`title-text ${Styles["pf-sub-title"]}`}>
                         {t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}
                     </span>
-                    <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
+                    <ul className={`${Styles["pf-sub-desc"]} ${Styles["pf-sub-desc-no-padding"]}`}>
                         <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Spaceflight" })} />}</li>
                         <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Spaceflight" })} />}</li>
                     </ul>

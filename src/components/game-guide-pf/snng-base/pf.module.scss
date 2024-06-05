@@ -92,6 +92,10 @@
     }
 }
 
+.pf-sub-desc-no-padding {
+    padding-left: 0;
+}
+
 .pf-block-highlight-text {
     background: #14204a;
     border: 1px solid #2a327c;
@@ -128,6 +132,10 @@
     border: 1px solid #3c3e43;
     border-radius: 0.5rem;
     padding: 0.8rem;
+
+    .result-numbers-highlight {
+        color: #ffbc11;
+    }
 }
 
 // How Does Provably Fair Work? images example
@@ -288,6 +296,17 @@
 }
 
 // Verify Step By Step
+.pf-ball-result {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.pf-ball-result-bold {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
 .pf-verify-example {
     --text-header-color: #a6c0fc;
 
@@ -352,7 +371,6 @@
         padding: 0 2rem;
         border: none;
         box-shadow: 0 10px 10px rgba(95, 90, 247, 0.03);
-        background-position: 50%;
         background: #159639;
         text-align: center;
         border-radius: 4rem;
@@ -374,6 +392,13 @@
         border: 1px solid #3c3e43;
         border-radius: 1rem;
         margin-bottom: 1.2rem;
+    }
+
+    .pf-verify-final-result {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 0.4rem;
     }
 
     .pf-verify-option {
@@ -441,6 +466,7 @@
 
     .pf-verify-input-fix-width {
         width: 14rem;
+        line-height: 3.4rem;
 
         .pf-verify-icon {
             &::before {
@@ -455,6 +481,13 @@
         display: flex;
         align-items: center;
         padding-left: 0.8rem;
+    }
+
+    .pf-verify-group-input-small {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
     }
 
     .pf-verify-draw-info {
@@ -506,6 +539,10 @@
         margin-bottom: 1rem;
         padding-left: 0.8rem;
         padding-right: 0.8rem;
+
+        .verify-icon-pf {
+            padding-right: 0.5rem;
+        }
     }
 }
 
@@ -615,7 +652,7 @@
     position: absolute;
 }
 
-.seball-convert-hash {
+.pf-convert-hash {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -627,6 +664,13 @@
     .text {
         text-align: center;
         font-size: 1.1rem;
+    }
+
+    .convert-hash-text {
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 2rem;
     }
 
     .convert-hash-1 {
@@ -675,6 +719,22 @@
         display: flex;
         width: 13rem;
         justify-content: flex-start;
+    }
+
+    .color-ball-1 {
+        color: #ed7d31;
+    }
+
+    .color-ball-2 {
+        color: #ffc000;
+    }
+
+    .color-ball-3 {
+        color: #70ad47;
+    }
+
+    .color-ball-4 {
+        color: #5b9bd5;
     }
 }
 

@@ -402,12 +402,12 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                             </div>
                         </li>
 
-                        <div className={Styles["seball-convert-hash"]}>
+                        <div className={Styles["pf-convert-hash"]}>
                             <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
-                                <span style={{ color: "#ED7D31" }}>26</span>
-                                <span style={{ color: "#FFC000" }}>24</span>
-                                <span style={{ color: "#70AD47" }}>df</span>
-                                <span style={{ color: "#5B9BD5" }}>77</span>dcd...
+                                <span className={Styles["color-ball-1"]}>26</span>
+                                <span className={Styles["color-ball-2"]}>24</span>
+                                <span className={Styles["color-ball-3"]}>df</span>
+                                <span className={Styles["color-ball-4"]}>77</span>dcd...
                             </div>
                             <div className={Styles["convert-hash-1"]}>
                                 <div className={Styles["text"]}>
