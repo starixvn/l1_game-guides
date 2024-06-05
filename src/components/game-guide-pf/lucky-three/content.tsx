@@ -31,9 +31,11 @@ const renderBallResult = () => {
 const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string) => {
     return (
         <div className={Styles["pf-result-block"]}>
-            <div className="bold text-white" style={{ marginBottom: "0.5rem" }}>
-                {t("pf_round", { ns: "Common" })}: {drawId}
+            <div className={`bold text-white ${Styles["draw-info"]}`}>
+                {t("glossary_draw_id", { ns: "SabaNumber" })}: {drawId}
+                <span>({t("pf_1st_draw", { ns: "LuckyThree" })})</span>
             </div>
+
             {renderBallResult()}
         </div>
     );
