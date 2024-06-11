@@ -209,7 +209,7 @@ const renderVerifyDetailExample = (
                 </div>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_verifier_tool_para_18", { ns: "LuckyThree" })}</div>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_verifier_tool_para_27", { ns: "SabaNumber" })}</div>
                 <p className="bold mb-0">65 ={">"} 101</p>
                 <p className="bold mb-0">66 ={">"} 102</p>
                 <p className="bold mb-0">69 ={">"} 105</p>
@@ -287,7 +287,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                         {t("pf_subtitle_in_game_verifier_tool", { ns: "Spaceflight" })}
                     </span>
                     <ul className="desc">
-                        <li>{t("pf_verifier_tool_para_1", { ns: "Common" })}</li>
+                        <li>{t("pf_bacball_verifier_tool_para_1", { ns: "SabaNumber" })}</li>
                         <li>
                             <T keyName={"pf_verifier_tool_para_2"} params={{ gamename: displayName }} ns="SabaNumber"></T>
                         </li>
@@ -464,7 +464,7 @@ const LuckyThreePFGuideContent: FC<SeBallPFContentsProps> = ({ locale, displayNa
     return (
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
-            {renderPFAppliedInGame(t, displayName ?? "", verImg)}
+            {renderPFAppliedInGame(t, displayName ?? "", verImg, true)}
             {renderSeBallVerifyPF(t, locale, displayName ?? "")}
         </div>
     );

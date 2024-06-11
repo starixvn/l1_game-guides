@@ -106,7 +106,12 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
         </div>
     );
 };
-const renderPFAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
+const renderPFAppliedInGame = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    displayName: string,
+    imgVersion: string,
+    isGameDRAW: boolean
+) => {
     return (
         <div className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })}</h2>
@@ -114,7 +119,12 @@ const renderPFAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationK
                 <li>
                     <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Spaceflight" />
                 </li>
-                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
+
+                {isGameDRAW ? (
+                    <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "SabaNumber" })}</li>
+                ) : (
+                    <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
+                )}
                 <li>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}

@@ -410,7 +410,7 @@ const NextBallPFGuideContent: FC<NextBallPFContentsProps> = ({ locale, displayNa
     return (
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
-            {renderPFAppliedInGame(t, displayName ?? "", verImg)}
+            {renderPFAppliedInGame(t, displayName ?? "", verImg, true)}
             {renderLuckyNextVerifyPF(t, locale, displayName ?? "")}
         </div>
     );
