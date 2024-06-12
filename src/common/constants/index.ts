@@ -110,6 +110,7 @@ export const GAMES = {
     NEXT_BALL_1: 1003,
     NEXT_BALL_2: 1004,
     SE_BALL: 1005,
+    COIN_TOSS: 80,
     LUCKY_THREE: 1006,
 };
 
