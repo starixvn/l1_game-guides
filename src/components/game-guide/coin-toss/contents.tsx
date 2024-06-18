@@ -37,8 +37,6 @@ const renderPayout = (
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
-    const maxBetHead = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.head));
-    const maxBetTail = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tail));
 
     return (
         <li className="guide-item">
@@ -67,7 +65,7 @@ const renderPayout = (
                                     <td>{t(`glossary_head`, { ns })}</td>
                                     <td>{formatOdds(odds?.head, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetHead}
+                                        {minBetMain} - {maxBetMain}
                                     </td>
                                     <td rowSpan={2}>{maxBetMain}</td>
                                 </tr>
@@ -75,7 +73,7 @@ const renderPayout = (
                                     <td>{t(`glossary_tail`, { ns })}</td>
                                     <td>{formatOdds(odds?.tail, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetTail}
+                                        {minBetMain} - {maxBetMain}
                                     </td>
                                 </tr>
                             </tbody>
