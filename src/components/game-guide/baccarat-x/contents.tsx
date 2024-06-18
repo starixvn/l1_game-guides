@@ -19,12 +19,8 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                 <li>{t("gamerules_para_2", { ns: TogleeNamespace.SpecificGame, extrafee: maxBetMain })}</li>
                 <li>{t("gamerules_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("gamerules_para_4", { ns: TogleeNamespace.SpecificGame})}</li> 
-                <li>{t("gamerules_para_5", { ns: TogleeNamespace.SpecificGame})}</li>  
-                <li>{t("gamerules_para_6", { ns: TogleeNamespace.SpecificGame})}</li>  
-                <li>{t("gamerules_para_7", { ns: TogleeNamespace.SpecificGame})}</li> 
-                <li>{t("gamerules_para_8", { ns: TogleeNamespace.SpecificGame})}</li> 
-                <li>{t("gamerules_para_9", { ns: TogleeNamespace.SpecificGame})}</li> 
-                <li>{t("gamerules_para_10", { ns: TogleeNamespace.SpecificGame, maxBet: maxBetMain})}</li>      
+                <li>{t("gamerules_para_5", { ns: TogleeNamespace.SpecificGame})}</li>                 
+                <li>{t("gamerules_para_6", { ns: TogleeNamespace.SpecificGame, maxbet: maxBetMain})}</li>      
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
                         <table className="table text-center">
@@ -85,7 +81,7 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                         <table className="table text-center">
                             <thead>
                                 <tr className={Styles["payout-header"]}>
-                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_first_card", { ns: TogleeNamespace.Common })}</th>
+                                    <th className={`bold ${Styles["bet-option"]}`}>{t("header_first_card", { ns: TogleeNamespace.SpecificGame })}</th>
                                     <th className="bold">A</th>
                                     <th className="bold">2</th>
                                     <th className="bold">3</th>
@@ -379,7 +375,7 @@ const BaccaratXContents: React.FC<BaccaratXContentsProps> = ({ gameConfigs, frac
         <ul className={`game-guide`}>
             <li className="guide-item">
                 <h2>{t("title_introduction", { ns: TogleeNamespace.Common })}</h2>
-                <div className="content">{t("intro_para_1", { ns: TogleeNamespace.SpecificGame })}</div>
+                <div className="content">{t("multiplier_intro_para_1", { ns: TogleeNamespace.SpecificGame, Bac81: "Bac81" })}</div>
             </li>
             {renderGameRules(t, gameConfigs.maxBet, userStakeLevel)}
             {renderCalculationRules(t)}
