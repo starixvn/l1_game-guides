@@ -9,6 +9,7 @@ import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
 import FootballDiceVerification from "./football-dice";
 import SpaceFlightVerification from "./space-flight";
+import CoinTossVerification from "./coin-toss";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -42,18 +43,24 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
         const { gameId, name } = this.props;
         const pfProps = this.getPFProps();
         switch (gameId) {
-            case GAMES_PF.SPACE_FLIGHT: 
-                return(
+            case GAMES_PF.SPACE_FLIGHT:
+                return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <SpaceFlightVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
-                )
+                );
             case GAMES_PF.FOOTBALL_DICE:
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
-                    <FootballDiceVerification key={`game-${name}`} {...pfProps} />
-                </TolgeeProvider>
-                )
+                        <FootballDiceVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
+            case GAMES_PF.COIN_TOSS:
+                return (
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <CoinTossVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
             default:
                 return <></>;
         }
