@@ -13,6 +13,7 @@ import FootballDicePFGuide from "./football-dice";
 import LuckyThreePFGuide from "./lucky-three";
 import NextBallPFGuide from "./next-ball";
 import SeBallPFGuide from "./se-ball";
+import SicBallPFGuide from "./sic-ball";
 import SpaceFlightPFGuide from "./space-flight";
 import FootballCoinTossPFGuide from "./football-coin-toss";
 
@@ -45,6 +46,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SE_BALL:
                 return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SIC_BALL:
+                return <SicBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.COIN_TOSS:
                 return <CoinTossPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.LUCKY_THREE:
