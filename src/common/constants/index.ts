@@ -113,6 +113,7 @@ export const GAMES = {
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
     BAC81: 81,
+    SIC_BALL: 1007,
 };
 
 export const GAMES_MINI = {
@@ -140,6 +141,7 @@ export const GAMES_PF = {
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
     BAC81: 81,
+    SIC_BALL: 1007,
 };
 
 export const TolgeeConfig = {
