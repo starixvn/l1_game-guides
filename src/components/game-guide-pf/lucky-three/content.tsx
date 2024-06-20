@@ -294,7 +294,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                         <li>{t("pf_verifier_tool_para_3", { ns: "SabaNumber" })}</li>
 
                         <ul className={Styles["pf-sub-desc"]}>
-                            <li>{<Markup content={t("pf_verifier_tool_para_4", { ns: "LuckyThree" })} />}</li>
+                            <li>{<Markup content={t("pf_verifier_tool_para_4", { ns: "SabaNumber" })} />}</li>
                             <li>{<Markup content={t("pf_verifier_tool_para_5", { ns: "SabaNumber" })} />}</li>
                             <li>{<Markup content={t("pf_verifier_tool_para_6", { ns: "SabaNumber" })} />}</li>
                         </ul>
@@ -335,7 +335,7 @@ const renderSeBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKe
                         </div>
 
                         <li className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_verifier_tool_para_9", { ns: "LuckyThree" })} />}
+                            {<Markup content={t("pf_verifier_tool_para_9", { ns: "SabaNumber" })} />}
                         </li>
 
                         <li className={Styles["pf-has-highlight-red"]}>
