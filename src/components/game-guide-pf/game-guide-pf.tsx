@@ -10,6 +10,7 @@ import FootballDicePFGuide from "./football-dice";
 import LuckyThreePFGuide from "./lucky-three";
 import NextBallPFGuide from "./next-ball";
 import SeBallPFGuide from "./se-ball";
+import CoinTossPFGuide from "./coin-toss";
 import SpaceFlightPFGuide from "./space-flight";
 
 export interface BaseState<TranslationResource> {
@@ -39,6 +40,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SE_BALL:
                 return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.COIN_TOSS:
+                return <CoinTossPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.LUCKY_THREE:
                 return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:

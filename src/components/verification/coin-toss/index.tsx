@@ -2,25 +2,25 @@ import { useTranslate } from "@tolgee/react";
 import { VerificationBase } from "../type";
 import Styles from "../verification.module.scss";
 
-const takeFirstValueFromSHA512 = (charNum: number, hash?: string) => {
+export const takeFirstValueFromSHA512 = (charNum: number, hash?: string) => {
     return hash?.slice(0, charNum);
 };
 
-const convertToDecimal = (hex?: string) => {
+export const convertToDecimal = (hex?: string) => {
     return parseInt(hex ?? "0", 16);
 };
 
-const convertHexToDecimalSteps = (hex?: string) => {
+export const convertHexToDecimalSteps = (hex?: string) => {
     const decimal = convertToDecimal(hex);
     return `${hex} = ${decimal}`;
 };
 
-const renderFinalResult = (hex?: string) => {
+export const renderFinalResult = (hex?: string) => {
     const decimal = convertToDecimal(hex);
     return decimal % 2;
 };
 
-const renderFinalResultWithText = (t: any, hex?: string) => {
+export const renderFinalResultWithText = (t: any, hex?: string) => {
     const result = renderFinalResult(hex);
     const text = result === 0 ? t("glossary_head", { ns: "CoinToss" }) : t("glossary_tail", { ns: "CoinToss" });
     return `${result} - ${text}`;
