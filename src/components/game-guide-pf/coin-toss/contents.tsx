@@ -14,7 +14,7 @@ import {
     renderFinalResultWithText,
     takeFirstValueFromSHA512,
 } from "../../verification/coin-toss";
-import { calculateDice, sliceValueFromSHA512 } from "../../verification/football-dice";
+import { sliceValueFromSHA512 } from "../../verification/football-dice";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
@@ -33,7 +33,7 @@ const renderHowPFInGame = (
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "CoinToss" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/coin-toss/PF-flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
+                <img src={`./static/images/pf/coin-toss/PF-flow-overall_${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
             </div>
         </li>
     );
@@ -194,8 +194,6 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             </div>
             <div className={Styles["convert-info"]}>
                 <div>
-                    <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
                     <span className={Styles["color-result"]}>{renderFinalResultWithText(t, digits)}</span>
                 </div>
