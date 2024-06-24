@@ -6,7 +6,7 @@ import initTolgee from "../../../helpers/tolgee-helper";
 import { GameGuideBase } from "../../game-guide/type";
 import SicBallPFGuideContent from "./content";
 
-const tolgee = initTolgee(["SeBall"]);
+const tolgee = initTolgee(["SicBall"]);
 
 const SicBallPFGuide = (props: GameGuideBase) => {
     const { id, locale } = props;
