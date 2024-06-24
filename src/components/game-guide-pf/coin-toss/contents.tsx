@@ -215,7 +215,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
 
                     <div className={Styles["color-second"]}>
-                        {convertToDecimal(digits)} % 2 = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
+                        {convertToDecimal(digits)} mod 2 = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
                     </div>
                 </div>
             </div>
@@ -263,7 +263,7 @@ const renderGameVerifierTool = (
                             <span className={Styles["text-color-red"]}>
                                 <strong>X</strong>
                             </span>
-                            <span> % 2</span>
+                            <span> mod 2</span>
                         </span>
                     </span>
                 </div>

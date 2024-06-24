@@ -77,7 +77,7 @@ const CoinTossVerification = (props: VerificationBase) => {
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
 
                     <div className={Styles["color-second"]}>
-                        {convertToDecimal(digits)} % 2 = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
+                        {convertToDecimal(digits)} mod 2 = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
                     </div>
                 </div>
             </div>
