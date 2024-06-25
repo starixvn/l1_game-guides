@@ -269,6 +269,7 @@ const renderGameVerifierTool = (
                 </div>
                 <ul className={Styles["plus-style"]}>
                     <li className={Styles["color-red"]}>{<Markup content={t("pf_verifier_tool_para_4", { ns: "CoinToss" })} />} </li>
+                    <li>{<Markup content={t("pf_verifier_tool_para_4.1", { ns: "CoinToss" })} />} </li>
                 </ul>
                 <div>{<Markup content={t("pf_verifier_tool_step_by_step", { ns: TogleeNamespace.Common })} />} </div>
                 <ul className={Styles["circle-style"]}>
