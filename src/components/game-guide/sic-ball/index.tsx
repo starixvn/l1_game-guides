@@ -24,7 +24,6 @@ const LuckyThreeGameGuide: FC<GameGuideBase> = ({
     const getLocalGameConfigs = () => {
         const localGameConfigs = "sic-ball";
         getGameConfigProject(localGameConfigs, project, setConfigs);
-        console.log("getLocalGameConfigs", project, localGameConfigs);
     };
 
     const getDynamicGameConfig = () => {
@@ -55,8 +54,6 @@ const LuckyThreeGameGuide: FC<GameGuideBase> = ({
     if (!configs) {
         return <></>;
     }
-
-    console.log("configs", configs);
 
     return (
         <TolgeeProvider tolgee={tolgee}>

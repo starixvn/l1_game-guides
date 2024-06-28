@@ -56,7 +56,6 @@ const SicBallPayout: FC<{
 }> = ({ gameConfigs, fractionalOddsFormat, userStakeLevel }) => {
     const { t } = useTranslate([SicBall, Common, SabaNumber]);
     const { maxWinPerRound, maxBet, odds } = gameConfigs;
-    console.log("gameConfigs", gameConfigs);
 
     return (
         <li className={`guide-item`}>
