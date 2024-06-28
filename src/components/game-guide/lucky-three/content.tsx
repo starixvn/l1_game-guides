@@ -72,7 +72,7 @@ const LuckyThreePayout: FC<{
 }> = ({ gameConfigs, fractionalOddsFormat, userStakeLevel }) => {
     const { t } = useTranslate([LuckyThree, Common, SabaNumber]);
     const { maxWinPerRound, oddsRange, maxBetPerChoices, minBet, maxBet } = gameConfigs;
-    console.log("gameConfigs", gameConfigs);
+    
     const data = {
         over: {
             odds: {

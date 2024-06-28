@@ -22,7 +22,6 @@ const SeBallGameGuide: FC<GameGuideBase> = ({
     const displayName = appSettings.gameSettings[`${id}`].gameName;
 
     const getLocalGameConfigs = () => {
-        console.log("getLocalGameConfigs", project);
         getGameConfigProject("se-ball", project, setConfigs);
     };
 
@@ -55,7 +54,7 @@ const SeBallGameGuide: FC<GameGuideBase> = ({
         return <></>;
     }
 
-    console.log("configs", configs);
+    
 
     return (
         <TolgeeProvider tolgee={tolgee}>

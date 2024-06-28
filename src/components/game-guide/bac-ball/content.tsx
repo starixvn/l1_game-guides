@@ -65,7 +65,7 @@ const BacBallPayout: FC<{
     fractionalOddsFormat?: boolean;
 }> = ({ t, gameConfigs, fractionalOddsFormat, userStakeLevel }) => {
     const { maxWinPerRound, oddsRange, maxBetPerChoices, minBet, maxBet } = gameConfigs;
-    console.log("gameConfigs", gameConfigs);
+
     const data = {
         player: {
             odds: {
