@@ -219,6 +219,10 @@
         "id": 63,
         "gameName": "ClassicSlotTemplate"
     },
+    "71": {
+        "id": 71,
+        "gameName": "Color Game"
+    },
     "77": {
         "id": 77,
         "gameName": "chineseblackjack"
@@ -239,14 +243,6 @@
         "id": 1004,
         "gameName": "Lucky Next 2"
     },
-    "71": {
-        "id": 71,
-        "gameName": "Color Game"
-    },
-    "80": {
-        "id": 80,
-        "gameName": "Coin Toss"
-    },
     "1005": {
         "id": 1005,
         "gameName": "Se Ball"
@@ -254,5 +250,13 @@
     "1006": {
         "id": 1006,
         "gameName": "Lucky Three"
+    },
+    "80": {
+        "id": 80,
+        "gameName": "Coin Toss"
+    },
+    "93": {
+        "id": 93,
+        "gameName": "Football Coin Toss"
     }
 }

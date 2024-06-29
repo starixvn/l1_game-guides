@@ -20,6 +20,7 @@ const DragonTigerMiniGuide = dynamic(() => import("./dragon-tiger"));
 const SicboMiniGuide = dynamic(() => import("./sic-bo"));
 const ColorGameMiniGuide = dynamic(() => import("./color-game"));
 const CoinTossMiniGuide = dynamic(() => import("./coin-toss"));
+const FootBallCoinTossMiniGuide = dynamic(() => import("./football-coin-toss"));
 
 class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
@@ -44,6 +45,8 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
                 return <ColorGameMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.COIN_TOSS:
                 return <CoinTossMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.FOOTBALL_COIN_TOSS:
+                return <FootBallCoinTossMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }

@@ -124,6 +124,7 @@ export const GAMES_MINI = {
     SICBO: 25,
     COLOR_GAME: 71,
     COIN_TOSS: 80,
+    FOOTBALL_COIN_TOSS: 93,
 };
 
 export const GAMES_PF = {
