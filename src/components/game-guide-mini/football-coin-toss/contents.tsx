@@ -43,6 +43,7 @@ const renderWinningCondition = (t: Function) => {
                 </ul>
                 <li>{t("gamerules_para_4")}</li>
                 <li>{t("gamerules_para_5")}</li>
+                <li>{t("gamerules_para_6")}</li>
             </ul>
         </li>
     );
