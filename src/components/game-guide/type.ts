@@ -54,4 +54,5 @@ export type GameConfigs = {
     enableFreeBet?: boolean;
     chips?: number[];
     stakeLevels?: number[];
+    extraFeeRatio?: number;
 };

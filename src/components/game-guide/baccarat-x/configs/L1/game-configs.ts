@@ -1,6 +1,6 @@
-const choicesMaxBet = { home: 3000, away: 3000, draw: 3000 };
+const choicesMaxBet = { player: 3000, tie: 3000, playerPair: 3000 };
 
-const odds = { home: 1.97, away: 2.97, draw: 8, draw12: 50 };
+const odds = { player: 1.96, banker: 1.95, tie: 5, playerPair: 8, bankerPair: 8 };
 
 const GameConfigs = {
     maxBetPerChoices: choicesMaxBet,
