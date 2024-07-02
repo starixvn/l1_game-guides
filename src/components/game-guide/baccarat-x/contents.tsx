@@ -193,7 +193,7 @@ const renderPayout = (
                         </table>
                     </div>
                 </li>
-                <li>{t("payouts_para_5", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("multiplier_payouts_para_5", { ns: TogleeNamespace.SpecificGame })}</li>
             </ul>
         </li>
     );
@@ -271,11 +271,6 @@ const renderThirdCardRules = (t: Function) => {
             <h2>{t("title_third_card_rules", { ns: TogleeNamespace.SpecificGame })}</h2>
             <ul className="desc">
                 <li>{t("thirdcardrules_para_1", { ns: TogleeNamespace.SpecificGame })}
-                    <ul className="detail">
-                        <li>{t("calculationrules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
-                        <li>{t("calculationrules_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
-                        <li>{t("calculationrules_para_4", { ns: TogleeNamespace.SpecificGame })}</li>
-                    </ul>
                 </li>
                 <li>{t("thirdcardrules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 
