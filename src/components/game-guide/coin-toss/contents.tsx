@@ -17,8 +17,8 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
             <ul className="desc">
                 <li>{t("gamerules_para_1", { ns })}</li>
                 <ul className="detail">
-                    <li>{t("gamerules_para_3", { ns })}</li>
                     <li>{t("gamerules_para_2", { ns })}</li>
+                    <li>{t("gamerules_para_3", { ns })}</li>
                 </ul>
                 <li>{t("gamerules_para_4", { ns })}</li>
                 <li>{t("gamerules_para_5", { ns })}</li>
