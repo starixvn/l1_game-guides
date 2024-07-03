@@ -33,25 +33,25 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{t("glossary_option_player", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_player", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("desc_player", {ns: TogleeNamespace.SpecificGame})}</td>
                                    
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_banker", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("desc_banker", {ns: TogleeNamespace.SpecificGame})}</td>
                                  
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_tie", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_tie", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("desc_tie", {ns: TogleeNamespace.SpecificGame})}</td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("desc_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_banker_pair", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_banker_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{t("desc_banker_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                 </tr>
                                 
@@ -164,30 +164,30 @@ const renderPayout = (
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{t("glossary_option_player", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_player", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>{minBetMain} - {maxBetPlayer}</td>
                                     
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_banker", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{formatOdds(odds?.banker, fractionalOddsFormat)}</td>
                                     
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_tie", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_tie", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>                                    
                                     <td>
                                         {minBetMain} - {maxBetPlayerPair}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td rowSpan={2}>{formatOdds(odds?.playerPair, fractionalOddsFormat)}</td>  
                                     <td rowSpan={2} className={Styles["nowrap"]}>{minBetMain} - {maxBetPlayerPair}</td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_option_banker_pair", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_banker_pair", {ns: TogleeNamespace.SpecificGame})}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -380,8 +380,8 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                                 <table className="table text-center">
                                     <thead>
                                         <tr className={Styles["payout-header"]}>
-                                            <th className={`bold ${Styles["bet-option"]}`}>{t("glossary_option_player", { ns: TogleeNamespace.SpecificGame })}</th>
-                                            <th className="bold">{t("glossary_option_banker", { ns: TogleeNamespace.SpecificGame })}</th>
+                                            <th className={`bold ${Styles["bet-option"]}`}>{t("glossary_player", { ns: TogleeNamespace.SpecificGame })}</th>
+                                            <th className="bold">{t("glossary_banker", { ns: TogleeNamespace.SpecificGame })}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -412,7 +412,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{t("glossary_option_banker", {ns: TogleeNamespace.SpecificGame})}</td>
+                                    <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>0.95</td>
                                     <td>2x2</td>
                                     <td>5</td>
