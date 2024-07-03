@@ -237,8 +237,7 @@ const renderVerifyDetailExample = (
                 <p className="bold mb-0">6e ={">"} 110</p>
                 <p>
                     <span className={Styles["pf-text-highlight"]}>{t("pf_ball_value", { ns: "SabaNumber" })}</span> = ((
-                    {t("pf_algorithm_random_number", { ns: "SabaNumber" })} + X) mod {t("pf_number_of_balls_left", { ns: "SabaNumber" })} )
-                    + 1
+                    {t("pf_algorithm_random_number", { ns: "SabaNumber" })} + X) mod 6) + 1
                 </p>
 
                 <p>
@@ -380,7 +379,7 @@ const renderSicBallVerifyPF = (t: TFnType<DefaultParamType, string, TranslationK
 
                         <li>
                             {t("pf_verifier_tool_para_11", { ns: "SicBall" })}
-                            <div className={Styles["pf-has-highlight-red"]}>{<Markup content={"b1 => <strong>X</strong> = 12"} />}</div>
+                            <div className={Styles["pf-has-highlight-red"]}>{<Markup content={"0c => <strong>X</strong> = 12"} />}</div>
                         </li>
 
                         <li>{t("pf_verifier_tool_para_13", { ns: "SicBall" })} </li>
