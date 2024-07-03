@@ -60,15 +60,15 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                     </div>
                 </li>  
                     
-                <ul className="style-number-rule">
-                    <li  className="number-dot">{t("sub_title_cut_card", { ns: TogleeNamespace.SpecificGame })}
+                <ul className="style-number-dot">
+                    <li  className="number-dot"><span className="title-text">{t("sub_title_cut_card", { ns: TogleeNamespace.SpecificGame })}</span>
                         <ul className="desc">
                             <li>{t("cutcard_para_1", {ns: TogleeNamespace.SpecificGame})}</li>
                             <li>{t("cutcard_para_2", {ns: TogleeNamespace.SpecificGame})}</li>
                         </ul>
                         
                     </li>
-                    <li  className="number-dot">{t("sub_title_burn_card", { ns: TogleeNamespace.SpecificGame })}
+                    <li  className="number-dot"><span className="title-text">{t("sub_title_burn_card", { ns: TogleeNamespace.SpecificGame })}</span>
                         <ul className="desc">
                             <li>{t("burncard_para_1", {ns: TogleeNamespace.SpecificGame})}</li>
                             <li><Markup content={t("burncard_para_2", {ns: TogleeNamespace.SpecificGame})} /></li>
@@ -275,8 +275,8 @@ const renderThirdCardRules = (t: Function) => {
                 <li>{t("thirdcardrules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 
             </ul>
-            <ul className="style-number-rule">
-                    <li  className="number-dot">{t("subtitle_rules_player's_hand", { ns: TogleeNamespace.SpecificGame })}
+            <ul className="style-number-dot">
+                    <li  className="number-dot"><span className="title-text">{t("subtitle_rules_player's_hand", { ns: TogleeNamespace.SpecificGame })}</span>
                         <div className="table-container">
                             <table className="table text-center">
                                 <thead>
@@ -306,7 +306,7 @@ const renderThirdCardRules = (t: Function) => {
                         </div>
                         
                     </li>
-                    <li  className="number-dot">{t("title_rules_for_banker's_hand", { ns: TogleeNamespace.SpecificGame })}
+                    <li  className="number-dot"><span className="title-text">{t("title_rules_for_banker's_hand", { ns: TogleeNamespace.SpecificGame })}</span>
                         <ul className="desc">
                             <li>{t("rulesbankerhand_para_1", {ns: TogleeNamespace.SpecificGame})}
                                 <table className="table text-center">
