@@ -139,6 +139,7 @@ export const GAMES_PF = {
     SE_BALL: 1005,
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
+    BAC81: 81,
 };
 
 export const TolgeeConfig = {

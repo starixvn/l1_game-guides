@@ -6,12 +6,13 @@ import { GAMES_PF } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BacBallPFGuide from "./bac-ball";
+import CoinTossPFGuide from "./coin-toss";
 import FootballDicePFGuide from "./football-dice";
 import LuckyThreePFGuide from "./lucky-three";
 import NextBallPFGuide from "./next-ball";
 import SeBallPFGuide from "./se-ball";
-import CoinTossPFGuide from "./coin-toss";
 import SpaceFlightPFGuide from "./space-flight";
+const BaccaratXPFGuide = dynamic(() => import("./baccarat-x"));
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -44,6 +45,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <CoinTossPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.LUCKY_THREE:
                 return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.BAC81:
+                return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
