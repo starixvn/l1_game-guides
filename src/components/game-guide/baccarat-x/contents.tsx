@@ -135,9 +135,10 @@ const renderPayout = (
     userStakeLevel: UserStakeLevelProps | undefined,
     fractionalOddsFormat?: boolean
 ) => {
-    const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
+    const { odds, maxBetPerChoices, minBet, maxBet, maxWinPerRound } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
+    const maxBetMain = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
+    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetMain);
     const maxBetPlayer = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.player));
     const maxBetTie = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tie));
     const maxBetPlayerPair = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.playerPair));
@@ -149,7 +150,7 @@ const renderPayout = (
                 <li>{t("payouts_para_1", { ns: TogleeNamespace.SpecificGame })}</li>
                 
                 <li>{t("payouts_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
-                <li>{<Markup content={t("payouts_para_3", { ns: TogleeNamespace.SpecificGame, maxwin: maxBet })} />}</li>
+                <li>{<Markup content={t("payouts_para_3", { ns: TogleeNamespace.SpecificGame, maxwin: maxWin })} />}</li>
                 <li>{t("payouts_para_4", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
