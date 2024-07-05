@@ -139,6 +139,65 @@
     left: 23rem;
 }
 
+.server-section{
+    display: block!important;
+}
+
+.sub-title-style {
+    text-transform:none!important;
+}
+
+.client-seed-section {
+    display: block!important;
+    justify-content: space-between;
+    .player-seed {
+        display: flex;
+       justify-content: space-between;
+        margin-bottom: 8px;
+        .name {
+            width: 110px!important;
+            color: $color-second;
+        }
+        .text-section {
+            width:40px;
+        }
+    }
+}
+.cut-card{
+    color: $color-second;
+    padding: 0;
+}
+
+.server-seed-section{
+    padding: 20px 40px;
+    display: flex;
+    .text-section {
+        width: 100%;
+    }
+}
+
+.btn-submit {
+    text-align: center;
+    width: 168px;
+    height: 51px;
+    line-height: 51px;
+    background: url('/static/images/pf/baccarat-x/bg-submit.png');
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 2.5rem;
+}
+
+.para-desc{
+    padding: 0 40px;
+    margin-top: 20px;
+    color: $color-second;
+    span{
+       margin-left: 5px;
+    }
+}
+
+
 
 
 
