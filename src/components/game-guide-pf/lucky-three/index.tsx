@@ -14,7 +14,7 @@ const LuckyThreePFGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
         }
     }, []);
 
