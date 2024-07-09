@@ -62,6 +62,7 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                     
                 <ul className="style-number-dot">
                     <li  className="number-dot"><span className="title-text">{t("sub_title_cut_card", { ns: TogleeNamespace.SpecificGame })}</span>
+                        <div className={Styles["img-center"]}><img src="./static/images/baccarat-x/cutcard.png?v=1" alt="cut card"/></div>
                         <ul className="desc">
                             <li>{t("cutcard_para_1", {ns: TogleeNamespace.SpecificGame})}</li>
                             <li>{t("cutcard_para_2", {ns: TogleeNamespace.SpecificGame})}</li>
@@ -179,7 +180,7 @@ const renderPayout = (
                                     <td>{t("glossary_tie", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>                                    
                                     <td>
-                                        {minBetMain} - {maxBetPlayerPair}
+                                        {minBetMain} - {maxBetTie}
                                     </td>
                                 </tr>
                                 <tr>
@@ -363,11 +364,12 @@ const renderThirdCardRules = (t: Function) => {
 };
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
+    const extraFee = gameConfigs.extraFeeRatio * 100;
     return (
         <li className="guide-item">
             <h2>{t("multiplier_title_multiplier_feature", { ns: TogleeNamespace.SpecificGame })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: gameConfigs.extraFeeRatio })}</li>
+                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFee })}</li>
                 <li>{t("multiplier_multiplierfeature_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("multiplier_multiplierfeature_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li><Markup content={t("multiplier_multiplierfeature_para_4", { ns: TogleeNamespace.SpecificGame })} />
@@ -418,7 +420,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                                     <td>2x2</td>
                                     <td>5</td>
                                     <td>1</td>
-                                    <td>19</td>
+                                    <td className={Styles["highlight-text"]}>19</td>
                                 </tr>
                             </tbody>
                         </table>
