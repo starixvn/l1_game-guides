@@ -364,19 +364,19 @@ const renderThirdCardRules = (t: Function) => {
 };
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
-    const extraFee = gameConfigs.extraFeeRatio * 100;
+    const extraFeeRatio = parseFloat(gameConfigs.extraFeeRatio);
     return (
         <li className="guide-item">
             <h2>{t("multiplier_title_multiplier_feature", { ns: TogleeNamespace.SpecificGame })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFee })}</li>
+                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100 })}<span>{t("multiplier_multiplierfeature_para_1.1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100, feeamount: extraFeeRatio * 5, totalstake: (extraFeeRatio * 5 + 5) })}</span></li>
                 <li>{t("multiplier_multiplierfeature_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("multiplier_multiplierfeature_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li><Markup content={t("multiplier_multiplierfeature_para_4", { ns: TogleeNamespace.SpecificGame })} />
                     <div><strong>{t("example", { ns: TogleeNamespace.Common})}</strong>
                         <ul className="desc">
                             <li>{t("multiplier_multiplierfeature_para_6", { ns: TogleeNamespace.SpecificGame})}
-                                <div><img src="" alt="lucky cards"/></div>
+                                <div className={Styles["img-center"]}><img src="./static/images/baccarat-x/lucky-cards.png" alt="lucky cards"/></div>
                             </li>
                             <li>{t("multiplier_multiplierfeature_para_7", { ns: TogleeNamespace.SpecificGame})}
                             <div className="table-container">

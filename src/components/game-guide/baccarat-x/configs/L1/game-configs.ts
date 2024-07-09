@@ -7,6 +7,7 @@ const GameConfigs = {
     maxBet: 3000,
     minBet: 1,
     odds: odds,
+    extraFeeRatio: 0.25,
 };
 
 export default GameConfigs;
