@@ -62,11 +62,12 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                     
                 <ul className="style-number-dot">
                     <li  className="number-dot"><span className="title-text">{t("sub_title_cut_card", { ns: TogleeNamespace.SpecificGame })}</span>
-                        <div className={Styles["img-center"]}><img src="./static/images/baccarat-x/cutcard.png?v=1" alt="cut card"/></div>
+                       
                         <ul className="desc">
                             <li>{t("cutcard_para_1", {ns: TogleeNamespace.SpecificGame})}</li>
                             <li>{t("cutcard_para_2", {ns: TogleeNamespace.SpecificGame})}</li>
                         </ul>
+                        <div className={Styles["img-center"]}><img src="./static/images/baccarat-x/cutcard.png?v=1" alt="cut card"/></div>
                         
                     </li>
                     <li  className="number-dot"><span className="title-text">{t("sub_title_burn_card", { ns: TogleeNamespace.SpecificGame })}</span>
