@@ -182,7 +182,7 @@ const renderImage = (t: TFnType<DefaultParamType, string, TranslationKey>, isVer
 
                     <div className={Styles["combined-hash-section"]}>
                         <div className={`${Styles["title-style"]} ${Styles["title-hash-string"]}`}>
-                            {<Markup content={t("pf_verification_final_result", { ns: "ChineseBlackjack" })} />}
+                            {<Markup content={t("pf_final_result", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                             4{suitCards.hearts} 9{suitCards.hearts} K{suitCards.spades} 7{suitCards.spades} 4{suitCards.diamonds} Q
