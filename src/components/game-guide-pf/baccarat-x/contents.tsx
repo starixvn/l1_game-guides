@@ -244,12 +244,9 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 </li>
                 <li className="number-dot">
                     <span className="title-text">{t("pf_provably_fair", { ns: "Common" })}</span>
-                    <ul className={Styles["circle-style"]}>
-                        <li>{<Markup content={t("fairness_SHA256_algorithm_para_1", { ns: "BaccaratX" })} />} </li>
-                    </ul>
                 </li>
             </ul>
-
+            <p>{<Markup content={t("pf_how_pf_work_para_1", { ns: "Common" })} />}</p>
             <div className={Styles["intro-border"]}>
                 <span style={{ textAlign: "center" }}>
                     <strong className="pf-text-yellow">{t("pf_fair_result", { ns: "Common" })}</strong> ={" "}
