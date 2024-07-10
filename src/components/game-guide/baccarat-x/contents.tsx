@@ -398,7 +398,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                             </div>  
                             </li>
                             <li>{t("multiplier_multiplierfeature_para_8", { ns: TogleeNamespace.SpecificGame})}
-                                <div>{t("multiplier_multiplierfeature_para_9", { ns: TogleeNamespace.SpecificGame})}</div>
+                                <div>{t("multiplier_multiplierfeature_para_9", { ns: TogleeNamespace.SpecificGame, totalstake: (extraFeeRatio * 5 + 5) })}</div>
                             </li>
                         </ul>
                     </div>   
@@ -420,7 +420,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                                     <td>0.95</td>
                                     <td>2x2</td>
                                     <td>5</td>
-                                    <td>1</td>
+                                    <td>{extraFeeRatio * 5}</td>
                                     <td className={Styles["highlight-text"]}>19</td>
                                 </tr>
                             </tbody>
