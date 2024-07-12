@@ -8,3 +8,33 @@
 .img-center {
     text-align: center;
 }
+.hand-cards{
+    display: grid;
+    grid-template-columns: 50px 50px 12px;
+    grid-template-rows: 100px;
+    justify-content: center;
+    align-items: center;
+    
+    .score {
+        font-size: 1.8rem;
+        margin-left: 12px;
+    }
+    .lucky-card {
+        position: relative;
+
+    }
+    .multiplier {
+        position: absolute;
+        top: -25px;
+        left: 15px;
+        font-size: 1.8rem;
+        color: #f1e344;
+    }
+}
+.tbl-cards-result {
+    width: 60rem;
+    table-layout: fixed;
+    th {
+        width: 50%;
+    }
+}

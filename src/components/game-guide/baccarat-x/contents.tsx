@@ -366,6 +366,7 @@ const renderThirdCardRules = (t: Function) => {
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
     const extraFeeRatio = parseFloat(gameConfigs.extraFeeRatio);
+    const oddsBanker = gameConfigs.odds.banker;
     return (
         <li className="guide-item">
             <h2>{t("multiplier_title_multiplier_feature", { ns: TogleeNamespace.SpecificGame })}</h2>
@@ -381,7 +382,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                             </li>
                             <li>{t("multiplier_multiplierfeature_para_7", { ns: TogleeNamespace.SpecificGame})}
                             <div className="table-container">
-                                <table className="table text-center">
+                                <table className={`table text-center ${Styles["tbl-cards-result"]}`}>
                                     <thead>
                                         <tr className={Styles["payout-header"]}>
                                             <th className={`bold ${Styles["bet-option"]}`}>{t("glossary_player", { ns: TogleeNamespace.SpecificGame })}</th>
@@ -390,8 +391,8 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td><div className={Styles["hand-cards"]}><img src="./static/images/baccarat-x/2.png" alt="2" /><img src="./static/images/baccarat-x/k.png" alt="k" /><span className={Styles["score"]}>2</span></div></td>
+                                            <td><div className={Styles["hand-cards"]}><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/a.png" alt="a" /><span className={Styles["multiplier"]}>2x</span></div><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/8.png" alt="8" /><span className={Styles["multiplier"]}>2x</span></div><span className={Styles["score"]}>9</span></div></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -417,11 +418,11 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any) => {
                             <tbody>
                                 <tr>
                                     <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>0.95</td>
+                                    <td>{oddsBanker}</td>
                                     <td>2x2</td>
                                     <td>5</td>
                                     <td>{extraFeeRatio * 5}</td>
-                                    <td className={Styles["highlight-text"]}>19</td>
+                                    <td className={Styles["highlight-text"]}>{((oddsBanker - 1)*4 + 1) * 5}</td>
                                 </tr>
                             </tbody>
                         </table>
