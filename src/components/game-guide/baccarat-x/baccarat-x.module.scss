@@ -18,6 +18,9 @@
     .score {
         font-size: 1.8rem;
         margin-left: 12px;
+        &.win {
+            color: #d3cb0a;
+        }
     }
     .lucky-card {
         position: relative;

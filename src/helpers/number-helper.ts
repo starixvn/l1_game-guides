@@ -10,6 +10,10 @@ const formatOdds = (value: number | undefined, fractionFormat = false) => {
     return fractionFormat && value ? `${numberWithCommas(value - 1)}:1` : `1:${value}`;
 };
 
+const formatOddsWithoutOne = (value: number | undefined, fractionFormat = false) => {
+    return fractionFormat && value ? `${numberWithCommas(value - 1)}` : `${value}`;
+};
+
 const formatOddsNotTwoDot = (value: number | undefined, fractionFormat = false) => {
     return fractionFormat && value ? `${numberWithCommas(value - 1)}` : `${value}`;
 };
@@ -32,4 +36,12 @@ const numberWithCommasAndSuffix = (number: number, toFixed = 1, noZeroSuffix = t
 
     return "0";
 };
-export { checkIsInteger, formatOdds, numberWithCommas, numberWithCommasAndSuffix, randomInteger, formatOddsNotTwoDot };
+export {
+    checkIsInteger,
+    formatOdds,
+    formatOddsNotTwoDot,
+    formatOddsWithoutOne,
+    numberWithCommas,
+    numberWithCommasAndSuffix,
+    randomInteger,
+};

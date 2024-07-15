@@ -1,7 +1,7 @@
 import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import React from "react";
-import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
+import { formatOddsWithoutOne, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
@@ -168,25 +168,25 @@ const renderPayout = (
                             <tbody>
                                 <tr>
                                     <td>{t("glossary_player", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
+                                    <td>{formatOddsWithoutOne(odds?.player, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>{minBetMain} - {maxBetPlayer}</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(odds?.banker, fractionalOddsFormat)}</td>
+                                    <td>{formatOddsWithoutOne(odds?.banker, fractionalOddsFormat)}</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_tie", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>                                    
+                                    <td>{formatOddsWithoutOne(odds?.tie, fractionalOddsFormat)}</td>                                    
                                     <td>
                                         {minBetMain} - {maxBetTie}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td rowSpan={2}>{formatOdds(odds?.playerPair, fractionalOddsFormat)}</td>  
+                                    <td rowSpan={2}>{formatOddsWithoutOne(odds?.playerPair, fractionalOddsFormat)}</td>  
                                     <td rowSpan={2} className={Styles["nowrap"]}>{minBetMain} - {maxBetPlayerPair}</td>
                                 </tr>
                                 <tr>
@@ -392,7 +392,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
                                     <tbody>
                                         <tr>
                                             <td><div className={Styles["hand-cards"]}><img src="./static/images/baccarat-x/2.png" alt="2" /><img src="./static/images/baccarat-x/13.png" alt="k" /><span className={Styles["score"]}>2</span></div></td>
-                                            <td><div className={Styles["hand-cards"]}><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/1.png" alt="a" /><span className={Styles["multiplier"]}>2x</span></div><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/8.png" alt="8" /><span className={Styles["multiplier"]}>2x</span></div><span className={Styles["score"]}>9</span></div></td>
+                                            <td><div className={Styles["hand-cards"]}><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/1.png" alt="a" /><span className={Styles["multiplier"]}>2x</span></div><div className={Styles["lucky-card"]}><img src="./static/images/baccarat-x/8.png" alt="8" /><span className={Styles["multiplier"]}>2x</span></div><span className={`${Styles["score"]} ${Styles["win"]}`}>9</span></div></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -418,7 +418,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
                             <tbody>
                                 <tr>
                                     <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOdds(oddsBanker, fractionalOddsFormat)}</td>
+                                    <td>{formatOddsWithoutOne(oddsBanker, fractionalOddsFormat)}</td>
                                     <td>2x2</td>
                                     <td>5</td>
                                     <td>{extraFeeRatio * 5}</td>
