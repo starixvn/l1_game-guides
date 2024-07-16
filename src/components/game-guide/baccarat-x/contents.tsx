@@ -1,7 +1,7 @@
 import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import React from "react";
-import { formatOddsWithoutOne, numberWithCommas } from "../../../helpers/number-helper";
+import { formatOdds, formatOddsWithoutOne, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
@@ -168,25 +168,25 @@ const renderPayout = (
                             <tbody>
                                 <tr>
                                     <td>{t("glossary_player", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOddsWithoutOne(odds?.player, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.player, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>{minBetMain} - {maxBetPlayer}</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOddsWithoutOne(odds?.banker, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.banker, fractionalOddsFormat)}</td>
                                     
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_tie", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td>{formatOddsWithoutOne(odds?.tie, fractionalOddsFormat)}</td>                                    
+                                    <td>{formatOdds(odds?.tie, fractionalOddsFormat)}</td>                                    
                                     <td>
                                         {minBetMain} - {maxBetTie}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("glossary_player_pair", {ns: TogleeNamespace.SpecificGame})}</td>
-                                    <td rowSpan={2}>{formatOddsWithoutOne(odds?.playerPair, fractionalOddsFormat)}</td>  
+                                    <td rowSpan={2}>{formatOdds(odds?.playerPair, fractionalOddsFormat)}</td>  
                                     <td rowSpan={2} className={Styles["nowrap"]}>{minBetMain} - {maxBetPlayerPair}</td>
                                 </tr>
                                 <tr>
