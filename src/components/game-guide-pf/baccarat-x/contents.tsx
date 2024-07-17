@@ -119,15 +119,15 @@ const renderVerifyPF = (
         <li className="guide-item">
             <h2>{<Markup content={t("fairness_title_verify_the_fairness", { ns: "BaccaratX" })} />}</h2>
             <ul className="style-number-dot">
-                {renderGameVerifierTool(t, verImg, rootImgUrl, locale, gameName)}
+                {renderNewShoe(t, verImg, rootImgUrl, locale, gameName)}
 
-                {render3rdVerifierTool(t, verImg)}
+                {renderCardShoeEnd(t, verImg, locale)}
             </ul>
         </li>
     );
 };
 
-const renderGameVerifierTool = (
+const renderNewShoe = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     verImg: string,
     rootImgUrl: string,
@@ -139,7 +139,15 @@ const renderGameVerifierTool = (
             <span className="title-text">{t("fairness_subtitle_start_a_new_shoe", { ns: "BaccaratX" })}</span>
             <ul className={Styles["circle-style"]}>
                 <li>
-                    {<Markup content={t("fairness_start_a_new_shoe_para_1", { ns: "BaccaratX" })} />} {renderImageStartNewShoe(t, verImg)}
+                    {<Markup content={t("fairness_start_a_new_shoe_para_1", { ns: "BaccaratX" })} />}
+                    <div className="center-img">
+                        <img
+                            width={"90%"}
+                            className="img-border"
+                            src={`./static/images/pf/baccarat-x/fs-${locale}.png?v=${verImg}`}
+                            alt="pf"
+                        ></img>
+                    </div>
                 </li>
                 <li>{<Markup content={t("fairness_start_a_new_shoe_para_2", { ns: "BaccaratX" })} />} </li>
                 <li>{<Markup content={t("fairness_start_a_new_shoe_para_3", { ns: "BaccaratX" })} />} </li>
@@ -149,13 +157,23 @@ const renderGameVerifierTool = (
     );
 };
 
-const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, locale: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("fairness_subtitle_when_the_cardshoe_end", { ns: "BaccaratX" })}</span>
             <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("fairness_when_the_cardshoe_end_para_1", { ns: "BaccaratX" })} />} </li>
-                <li>{<Markup content={t("fairness_when_the_cardshoe_end_para_2", { ns: "BaccaratX" })} />} </li>
+                <li>
+                    {<Markup content={t("fairness_when_the_cardshoe_end_para_2", { ns: "BaccaratX" })} />}{" "}
+                    <div className="center-img">
+                        <img
+                            width={"90%"}
+                            className="img-border"
+                            src={`./static/images/pf/baccarat-x/step2-${locale}.png?v=${verImg}`}
+                            alt="pf"
+                        ></img>
+                    </div>
+                </li>
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_3", { ns: "BaccaratX" })} />}
                     <div className="center-img">
@@ -168,48 +186,30 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_5", { ns: "BaccaratX" })} />}
                 </li>
 
-                <li>{<Markup content={t("fairness_when_the_cardshoe_end_para_6", { ns: "BaccaratX" })} />} </li>
                 <li>
-                    {<Markup content={t("fairness_when_the_cardshoe_end_para_7", { ns: "BaccaratX" })} />} {renderImageStep6(t, verImg)}{" "}
+                    {<Markup content={t("fairness_when_the_cardshoe_end_para_6", { ns: "BaccaratX" })} />}
+                    <div className="center-img">
+                        <img
+                            width={"90%"}
+                            className="img-border"
+                            src={`./static/images/pf/baccarat-x/step5-${locale}.png?v=${verImg}`}
+                            alt="pf"
+                        ></img>
+                    </div>
+                </li>
+                <li>
+                    {<Markup content={t("fairness_when_the_cardshoe_end_para_7", { ns: "BaccaratX" })} />}
+                    <div className="center-img">
+                        <img
+                            width={"90%"}
+                            className="img-border"
+                            src={`./static/images/pf/baccarat-x/step6-${locale}.png?v=${verImg}`}
+                            alt="pf"
+                        ></img>
+                    </div>
                 </li>
             </ul>
         </li>
-    );
-};
-
-const renderImageStep6 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
-    return (
-        <div className={Styles["popup-wrapper"]}>
-            <div className={Styles["popup-title"]}>
-                <div className={Styles["popup-title-text"]}>
-                    <span className={Styles["title-provably-fair"]}>{t("title_cut-card_index_settings", { ns: "BaccaratX" })} </span>
-                    <span className={Styles["icon-guide"]}></span>
-                </div>
-                <div className={Styles["icon-close"]}></div>
-            </div>
-            <div className={Styles["close-button"]}></div>
-            <div className={Styles["popup-content"]}>
-                <div className={Styles["combined-hash-section"]}>
-                    <div className={`${Styles["title-style"]} ${Styles["title-hash-string"]}`}>
-                        {<Markup content={t("pf_server_Seed", { ns: "Common" })} />}
-                    </div>
-                    <div className={`${Styles["text-section"]}`}>
-                        346
-                        <span className={Styles["icon-copy"]}></span>
-                    </div>
-                </div>
-
-                <div className={`${Styles["client-section"]} ${Styles["bg-section"]}`}>
-                    <div className={Styles["title-section"]}>
-                        <span className={Styles["title-style"]}>
-                            {<Markup content={t("pf_client_seed", { ns: TogleeNamespace.Common })} />}
-                        </span>
-                        <span className={Styles["icon-info"]}></span>
-                    </div>
-                </div>
-                <div className={`${Styles["section"]} ${Styles["bg-section"]}`}></div>
-            </div>
-        </div>
     );
 };
 
