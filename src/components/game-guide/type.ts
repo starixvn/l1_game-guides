@@ -35,8 +35,19 @@ export type GameGuideBase = {
     folderConfigName?: string;
     displayName?: string;
     jackpot?: boolean;
+    jackpotConfigs?: JackpotConfigs;
     scrollToId?: string;
 };
+
+export interface JackpotConfigs {
+    winningRatio: number;
+    pools: JackpotPool[];
+}
+
+interface JackpotPool {
+    pool: string;
+    contribute: number;
+}
 
 export interface GameConfigsBaseProps {
     minBet: number;
