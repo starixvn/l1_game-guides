@@ -39,7 +39,12 @@ const renderHowPFInGame = (
             </ul>
 
             <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
+                <img
+                    className={`${Styles["img-border"]} img-border`}
+                    src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`}
+                    width={"1100px"}
+                    alt="pf"
+                ></img>
             </div>
         </li>
     );
@@ -143,7 +148,7 @@ const renderNewShoe = (
                     <div className="center-img">
                         <img
                             width={"90%"}
-                            className="img-border"
+                            className={`${Styles["img-border"]} img-border`}
                             src={`./static/images/pf/baccarat-x/fs-${locale}.png?v=${verImg}`}
                             alt="pf"
                         ></img>
@@ -168,7 +173,7 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                     <div className="center-img">
                         <img
                             width={"90%"}
-                            className="img-border"
+                            className={`${Styles["img-border"]} img-border`}
                             src={`./static/images/pf/baccarat-x/step2-${locale}.png?v=${verImg}`}
                             alt="pf"
                         ></img>
@@ -191,7 +196,7 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                     <div className="center-img">
                         <img
                             width={"90%"}
-                            className="img-border"
+                            className={`${Styles["img-border"]} img-border`}
                             src={`./static/images/pf/baccarat-x/step5-${locale}.png?v=${verImg}`}
                             alt="pf"
                         ></img>
@@ -202,7 +207,7 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                     <div className="center-img">
                         <img
                             width={"90%"}
-                            className="img-border"
+                            className={`${Styles["img-border"]} img-border`}
                             src={`./static/images/pf/baccarat-x/step6-${locale}.png?v=${verImg}`}
                             alt="pf"
                         ></img>
