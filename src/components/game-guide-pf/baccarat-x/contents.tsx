@@ -39,12 +39,7 @@ const renderHowPFInGame = (
             </ul>
 
             <div className={Styles["center-img"]}>
-                <img
-                    className={`${Styles["img-border"]} img-border`}
-                    src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`}
-                    width={"1100px"}
-                    alt="pf"
-                ></img>
+                <img src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
             </div>
         </li>
     );
