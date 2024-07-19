@@ -160,7 +160,7 @@ const renderPayout = (
                             <thead>
                                 <tr className={Styles["payout-header"]}>
                                     <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: TogleeNamespace.Common })}</th>
-                                    <th className="bold">{t("title_payouts", {ns: TogleeNamespace.Common})}</th>
+                                    <th className="bold">{t("header_odds", {ns: TogleeNamespace.SpecificGame})}</th>
                                     <th className={`bold ${Styles["nowrap"]}`}>{t("header_bet_limit", { ns: TogleeNamespace.Common })}</th>
 
                                 </tr>
