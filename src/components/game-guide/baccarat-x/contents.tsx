@@ -439,14 +439,14 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
     );
 }
 
-const BaccaratXContents: React.FC<BaccaratXContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
+const BaccaratXContents: React.FC<BaccaratXContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel, displayName }) => {
     const { t } = useTranslate(["BaccaratX", "Common"]);
 
     return (
         <ul className={`game-guide`}>
             <li className="guide-item">
                 <h2>{t("title_introduction", { ns: TogleeNamespace.Common })}</h2>
-                <div className="content">{t("multiplier_intro_para_1", { ns: TogleeNamespace.SpecificGame, Bac81: "Bac81" })}</div>
+                <div className="content">{t("multiplier_intro_para_1", { ns: TogleeNamespace.SpecificGame, Bac81: displayName || "" })}</div>
             </li>
             {renderGameRules(t, gameConfigs.maxBet, userStakeLevel)}
             {renderCalculationRules(t)}

@@ -18,4 +18,5 @@ export type BaccaratXContentsProps = {
     gameConfigs: GameConfigs;
     fractionalOddsFormat?: boolean;
     userStakeLevel: UserStakeLevelProps | undefined;
+    displayName?: string;
 };
