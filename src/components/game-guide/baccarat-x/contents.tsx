@@ -371,7 +371,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
         <li className="guide-item">
             <h2>{t("multiplier_title_multiplier_feature", { ns: TogleeNamespace.SpecificGame })}</h2>
             <ul className="desc">
-                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100 })}{" "}<span>{t("multiplier_multiplierfeature_para_1.1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100, feeamount: extraFeeRatio * 5, totalstake: (extraFeeRatio * 5 + 5) })}</span></li>
+                <li>{t("multiplier_multiplierfeature_para_1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100 })}{" "}<span>{t("multiplier_multiplierfeature_para_1.1", { ns: TogleeNamespace.SpecificGame,  extrafee: extraFeeRatio * 100, feeamount: extraFeeRatio * 10, totalstake: (extraFeeRatio * 10 + 10) })}</span></li>
                 <li>{t("multiplier_multiplierfeature_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("multiplier_multiplierfeature_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li><Markup content={t("multiplier_multiplierfeature_para_4", { ns: TogleeNamespace.SpecificGame })} />
@@ -420,9 +420,9 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
                                     <td>{t("glossary_banker", {ns: TogleeNamespace.SpecificGame})}</td>
                                     <td>{formatOddsWithoutOne(oddsBanker, fractionalOddsFormat)}</td>
                                     <td>2x2</td>
-                                    <td>5</td>
-                                    <td>{extraFeeRatio * 5}</td>
-                                    <td className={Styles["highlight-text"]}>{((oddsBanker - 1)*4 + 1) * 5}</td>
+                                    <td>10</td>
+                                    <td>{extraFeeRatio * 10}</td>
+                                    <td><span className={Styles["highlight-text"]}>{(oddsBanker - 1)*4 * 10 + 10} </span><br/> <span>({oddsBanker - 1} * 4 * 10 + 10)</span></td>
                                 </tr>
                             </tbody>
                         </table>
