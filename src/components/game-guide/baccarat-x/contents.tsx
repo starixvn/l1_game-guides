@@ -399,7 +399,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: any, fractionalOddsF
                             </div>  
                             </li>
                             <li>{t("multiplier_multiplierfeature_para_8", { ns: TogleeNamespace.SpecificGame})}
-                                <div>{t("multiplier_multiplierfeature_para_9", { ns: TogleeNamespace.SpecificGame, totalstake: (extraFeeRatio * 5 + 5) })}</div>
+                                <div>{t("multiplier_multiplierfeature_para_9", { ns: TogleeNamespace.SpecificGame, totalstake: (extraFeeRatio * 10 + 10) })}</div>
                             </li>
                         </ul>
                     </div>   
