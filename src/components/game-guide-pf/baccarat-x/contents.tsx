@@ -141,12 +141,7 @@ const renderNewShoe = (
                 <li>
                     {<Markup content={t("fairness_start_a_new_shoe_para_1", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img
-                            width={"90%"}
-                            className={`${Styles["img-border"]} img-border`}
-                            src={`./static/images/pf/baccarat-x/fs-${locale}.png?v=${verImg}`}
-                            alt="pf"
-                        ></img>
+                        <img width={"90%"} src={`./static/images/pf/baccarat-x/fs-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>{<Markup content={t("fairness_start_a_new_shoe_para_2", { ns: "BaccaratX" })} />} </li>
@@ -166,12 +161,7 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_2", { ns: "BaccaratX" })} />}{" "}
                     <div className="center-img">
-                        <img
-                            width={"90%"}
-                            className={`${Styles["img-border"]} img-border`}
-                            src={`./static/images/pf/baccarat-x/step2-${locale}.png?v=${verImg}`}
-                            alt="pf"
-                        ></img>
+                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step2-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>
@@ -189,23 +179,13 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_6", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img
-                            width={"90%"}
-                            className={`${Styles["img-border"]} img-border`}
-                            src={`./static/images/pf/baccarat-x/step5-${locale}.png?v=${verImg}`}
-                            alt="pf"
-                        ></img>
+                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step5-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_7", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img
-                            width={"90%"}
-                            className={`${Styles["img-border"]} img-border`}
-                            src={`./static/images/pf/baccarat-x/step6-${locale}.png?v=${verImg}`}
-                            alt="pf"
-                        ></img>
+                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step6-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
             </ul>
@@ -278,9 +258,9 @@ const BaccaratXPFContents: React.FC<CoinTossPFContentsProps> = ({ locale, displa
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>
-                {renderContentPF(t, displayName || "", verImg, locale || "")}
-                {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "", locale || "")}
-                {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "")}
+                {renderContentPF(t, displayName ?? "", verImg, locale ?? "en")}
+                {renderHowPFInGame(t, verImg, rootImgUrl, displayName ?? "", locale ?? "en")}
+                {renderVerifyPF(t, verImg, rootImgUrl, locale ?? "en", displayName ?? "")}
             </ul>
         </div>
     );
