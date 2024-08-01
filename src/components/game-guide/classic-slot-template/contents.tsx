@@ -535,7 +535,6 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { odds, name, displayName, jackpot, locale } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
-    console.log("locale", locale);
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]}`}>

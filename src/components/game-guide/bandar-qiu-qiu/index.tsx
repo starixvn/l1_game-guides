@@ -53,7 +53,6 @@ const BandarQiuQiuGameGuide = (props: GameGuideBase) => {
 
         if (window?.location?.pathname) {
             tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
-            console.log(window.location.pathname);
         }
     }, []);
 

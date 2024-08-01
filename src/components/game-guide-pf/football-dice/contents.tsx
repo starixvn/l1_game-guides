@@ -276,7 +276,6 @@ const FootballDicePFContents: React.FC<FootballDicePFContentsProps> = ({ locale,
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
-    console.log("displayName", displayName);
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>

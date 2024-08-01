@@ -48,7 +48,6 @@ const FootballDiceVerification = (props: VerificationBase) => {
     const homeScore = calculateDice(digits[0]) + calculateDice(digits[1]);
     const awayScore = calculateDice(digits[2]) + calculateDice(digits[3]);
     const classScore = homeScore > awayScore ? "text-yellow" : "";
-    console.log("classScore",homeScore > awayScore);
     return (
         <div className={Styles["wrapper"]}>
             <div className={Styles["info-seed"]}>

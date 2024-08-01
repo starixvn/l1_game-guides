@@ -309,7 +309,6 @@ const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, d
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
-    console.log("displayName", displayName);
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>

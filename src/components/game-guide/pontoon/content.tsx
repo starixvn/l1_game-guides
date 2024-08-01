@@ -27,7 +27,6 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined, 
 };
 
 const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false, t: Function) => {
-    console.log("renderPayouts", odds);
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>

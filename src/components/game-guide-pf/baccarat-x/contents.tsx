@@ -250,11 +250,10 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
 };
 
 const BaccaratXPFContents: React.FC<CoinTossPFContentsProps> = ({ locale, displayName, name }) => {
-    const { t } = useTranslate(["CoinToss", "Common"]);
+    const { t } = useTranslate(["BaccaratX", "Common"]);
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
-    console.log("displayName", displayName);
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>

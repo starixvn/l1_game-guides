@@ -10,7 +10,6 @@ export type ColorGameContentsProps = {
 };
 
 const renderBetLimit = (t: Function, minBet: number, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
-    console.log("userStakeLevel", userStakeLevel);
     return (
         <li className="guide-item-instant game-microsite">
             <h2>{t("title_bet_limit", { ns: "Common" })}</h2>
