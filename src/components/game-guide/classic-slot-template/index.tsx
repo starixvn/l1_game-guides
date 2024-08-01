@@ -47,6 +47,7 @@ const ClassicSlotGuide = (props: GameGuideBase) => {
                 odds={gameSetting?.SlotsConfig?.Icons}
                 name={name ?? gameSetting?.Name}
                 jackpot={jackpot || false}
+                jackpotConfigs={jackpotConfigs || { winningRatio: 0, pools: [] }}
                 locale={locale || ""}
                 gameConfigs={gameConfigs}
             />
