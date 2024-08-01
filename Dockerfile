@@ -1,30 +1,45 @@
-FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS builder
-RUN apk add --no-cache libc6-compat
+FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS base
+FROM base AS deps
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN apk add --no-cache libc6-compat
+ENV YARN_CACHE_FOLDER=/root/.yarn
 
-COPY . .
+RUN --mount=type=cache,target=$YARN_CACHE_FOLDER \
+     yarn cache dir && yarn cache list
+
+COPY package.json yarn.lock ./
+RUN --mount=type=cache,target=$YARN_CACHE_FOLDER \
+     yarn install --frozen-lockfile --verbose
+
+FROM base AS builder
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY package.json yarn.lock tsconfig.json configs.json game-settings.json next.config.js next-i18next.config.js ./
+COPY configs ./configs
+COPY public ./public
+COPY src ./src
+
 RUN yarn build
 
 FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS runner
 WORKDIR /app
 ENV NODE_ENV production
 
-COPY --from=builder /app/configs.json ./configs.json
-COPY --from=builder /app/game-settings.json ./game-settings.json
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/next-i18next.config.js ./next-i18next.config.js
-COPY --from=builder /app/next.config.js ./next.config.js
+RUN addgroup --system --gid 1001 nodejs  \
+     && adduser --system --uid 1001 nextjs
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
-RUN chown -R nextjs:nodejs /app/.next
+COPY --from=builder /app/public ./public
+
+RUN mkdir .next  \
+     && chown nextjs:nodejs .next
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
 USER nextjs
 
 EXPOSE 5000
-CMD ["yarn", "start"]
+ENV PORT 5000
+CMD HOSTNAME="0.0.0.0" node server.js
