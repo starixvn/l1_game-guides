@@ -559,7 +559,7 @@ const renderFirstRowIntoListIcon = (jackpot: boolean, locale: any) => {
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["Classicslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
-    const { odds, name, displayName, jackpot, jackpotConfigs, locale } = props;
+    const { odds, name, displayName, jackpot, locale, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
     console.log("locale", locale);
@@ -580,7 +580,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 <li className="guide-item">{renderGameRule(t, jackpot)}</li>
 
                 {renderPayouts(odds, t, jackpot, locale)}
-                {jackpot && renderJackpot(t, locale, jackpotConfigs)}
+                {jackpot && renderJackpot(t, locale, gameConfigs.jackpot)}
                 {renderFreeSpin(odds, t)}
                 {renderBonus(odds, t)}
                 {renderWild(odds, t, jackpot, locale)}

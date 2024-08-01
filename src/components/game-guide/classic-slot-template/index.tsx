@@ -32,7 +32,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const ClassicSlotGuide = (props: GameGuideBase) => {
-    const { name, gameSetting, displayName, jackpot, jackpotConfigs, locale } = props;
+    const { name, gameSetting, displayName, jackpot, jackpotConfigs, locale, gameConfigs } = props;
 
     useEffect(() => {
         if (window?.location?.pathname) {
@@ -47,8 +47,8 @@ const ClassicSlotGuide = (props: GameGuideBase) => {
                 odds={gameSetting?.SlotsConfig?.Icons}
                 name={name ?? gameSetting?.Name}
                 jackpot={jackpot || false}
-                jackpotConfigs={jackpotConfigs || { winningRatio: 0, pools: [] }}
                 locale={locale || ""}
+                gameConfigs={gameConfigs}
             />
         </TolgeeProvider>
     );

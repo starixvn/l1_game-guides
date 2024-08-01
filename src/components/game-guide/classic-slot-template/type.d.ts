@@ -7,4 +7,5 @@ export interface GameConfigProps {
     jackpot: boolean;
     jackpotConfigs: JackpotConfigs;
     locale: string;
+    gameConfigs: any;
 }
