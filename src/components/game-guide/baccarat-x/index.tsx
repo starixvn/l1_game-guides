@@ -2,13 +2,11 @@ import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import BaccaratXContents from "./contents";
 import { TogleeNamespace } from "./namespace-tolgee";
-
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -21,7 +19,7 @@ const tolgee = Tolgee()
         defaultNs: TogleeNamespace.SpecificGame,
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {
@@ -72,7 +70,9 @@ const BaccaratXGameGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <BaccaratXContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel, displayName }} />
+            <BaccaratXContents
+                {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel, displayName }}
+            />
         </TolgeeProvider>
     );
 };

@@ -1,8 +1,7 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee } from "@tolgee/react";
-import appSettings from "../common/app-settings";
-import { TolgeeConfig } from "../common/constants";
 import { InContextTools } from "@tolgee/web/tools";
+import { isUseTolgeeStatic, TolgeeConfig } from "../common/constants";
 
 const initTolgee = (ns: string[]) => {
     const tolgee = Tolgee()
@@ -16,7 +15,7 @@ const initTolgee = (ns: string[]) => {
             defaultNs: "Common",
         });
 
-    if (!appSettings.useTolgeeStatic) {
+    if (!isUseTolgeeStatic) {
         tolgee.addPlugin(
             InContextTools({
                 credentials: {

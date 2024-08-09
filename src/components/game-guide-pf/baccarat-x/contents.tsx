@@ -1,7 +1,7 @@
 import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import React from "react";
-import appSettings from "../../../common/app-settings";
+import { appSettings } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { TogleeNamespace } from "../../game-guide/football-dice/namespace-tolgee";
 import Styles from "./baccarat-x-pf-game.module.scss";

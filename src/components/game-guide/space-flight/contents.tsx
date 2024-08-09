@@ -1,6 +1,6 @@
 import { useTranslate } from "@tolgee/react";
 import React, { useEffect } from "react";
-import appSettings from "../../../common/app-settings";
+import { appSettings } from "../../../common/constants";
 import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { scrollToIDContent } from "../../shared/md5-number";
@@ -132,7 +132,7 @@ const SpaceFlightContents: React.FC<SpaceFlightContentsProps> = ({
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            
+
             <TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
         </ul>
     );

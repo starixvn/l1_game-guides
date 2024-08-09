@@ -3,8 +3,7 @@ import { Trans } from "next-i18next";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import appSettings from "../../../common/app-settings";
-import { locales } from "../../../common/constants";
+import { appSettings, locales } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
@@ -19,7 +18,7 @@ let imgSrc = "",
 const renderGameRule = (t: Function, jackpot: boolean) => {
     return (
         <>
-            <h2 className={Styles["heading1"]}>{t("title_gamerules", {ns:"Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_gamerules", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>
                     {t("gamerules_para_1")}
@@ -47,7 +46,7 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
 const renderPayouts = (odds: number[][], t: Function, jackpot: boolean, locale: any) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("title_paytable", {ns: "Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_paytable", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>{t("paytable_para_1")}</li>
                 <li>
@@ -74,7 +73,6 @@ const generateSymbol = (iconIndex: number, isHighlight = false, isSmall = false)
 };
 
 const generateSymbolJackpot = (iconIndex: number, locale: any, isHighlight = false, isSmall = false) => {
-   
     return (
         <img
             key={`symbol-${iconIndex}.jackpot`}
@@ -88,7 +86,7 @@ const generateSymbolJackpot = (iconIndex: number, locale: any, isHighlight = fal
 const generateBoard = (symbols: Array<number>, highlightSymbol: number) =>
     symbols.map((symbol) => generateSymbol(symbol, symbol === highlightSymbol));
 
-const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean, locale: any) => {   
+const renderIconContent = (symbol: number, dataContent: number[][], t: Function, jackpot: boolean, locale: any) => {
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="d-center">{jackpot && symbol === 10 ? generateSymbolJackpot(symbol, locale) : generateSymbol(symbol)}</div>
@@ -104,7 +102,7 @@ const renderIconContent = (symbol: number, dataContent: number[][], t: Function,
                         <div key={index} className={Styles["symbol-content"]}>
                             <span className={Styles[number]}>{data[0]}</span>
                             <span className={`${Styles[number]} ${Styles[numberSecond]}`}>
-                                {isShowJackpotText ? t("title_jackpot", {ns: "Common"}) : data[1]}
+                                {isShowJackpotText ? t("title_jackpot", { ns: "Common" }) : data[1]}
                             </span>
                         </div>
                     );
@@ -127,7 +125,8 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[10][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     9,
@@ -138,7 +137,8 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[9][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
             </>
         );
@@ -154,7 +154,8 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[9][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     10,
@@ -165,7 +166,8 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
                         [2, odds[10][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
             </>
         );
@@ -185,7 +187,8 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                         [2, odds[6][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     5,
@@ -196,7 +199,8 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                         [2, odds[5][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
             </div>
         </>
@@ -216,7 +220,8 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[4][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     3,
@@ -227,7 +232,8 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[3][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     2,
@@ -238,7 +244,8 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[2][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     1,
@@ -249,7 +256,8 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[1][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
                 {renderIconContent(
                     0,
@@ -260,7 +268,8 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                         [2, odds[0][2]],
                     ],
                     t,
-                    jackpot, locale
+                    jackpot,
+                    locale
                 )}
             </div>
         </>
@@ -291,14 +300,14 @@ const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function, lo
     return (
         <>
             <p>
-                <strong>{t("example", {ns: "Common"})}</strong>
+                <strong>{t("example", { ns: "Common" })}</strong>
             </p>
 
             <div className={`${Styles["example"]} table-medium`}>
                 <div className={Styles["header"]}>
-                    <div className={Styles["col"]}>{t("header_symbol", {ns: "Common"})}</div>
+                    <div className={Styles["col"]}>{t("header_symbol", { ns: "Common" })}</div>
                     <div className={Styles["line"]}></div>
-                    <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
+                    <div className={Styles["col"]}>{t("header_description", { ns: "Common" })}</div>
                 </div>
                 <div className={Styles["body"]}>
                     <div className={`${Styles["col"]} d-center-all`}>
@@ -311,7 +320,8 @@ const renderExamplePayout = (odds: number[][], jackpot: boolean, t: Function, lo
                                     [3, odds[1][3]],
                                 ],
                                 t,
-                                jackpot, locale
+                                jackpot,
+                                locale
                             )}
                         </div>
                     </div>
@@ -354,7 +364,7 @@ const renderFreeSpin = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("title_freespin", {ns: "Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_freespin", { ns: "Common" })}</h2>
             <div className={Styles["free-spin-container"]}>
                 {renderIconContentLarge(
                     7,
@@ -395,7 +405,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("title_bonus", {ns: "Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_bonus", { ns: "Common" })}</h2>
             <div className={Styles["bonus-container"]}>
                 {renderIconContentLarge(
                     8,
@@ -432,7 +442,7 @@ const renderBonus = (odds: number[][], t: Function) => {
 const renderWild = (odds: number[][], t: Function, jackpot: boolean, locale: any) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("title_wild", {ns: "Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_wild", { ns: "Common" })}</h2>
             <div className={Styles["wild-content"]}>
                 <span className={Styles["wrapper-wild"]}>{generateSymbol(9)}</span>
 
@@ -448,7 +458,7 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean, locale: any
                 </ul>
             </div>
             <div>
-                <strong>{t("example", {ns: "Common"})}</strong>
+                <strong>{t("example", { ns: "Common" })}</strong>
                 <div className={Styles["wrapper-wild-ex"]}>
                     <div className={Styles["wild-img"]}>{[2, 2, 9, 5, 5].map((symbol) => generateSymbol(symbol))}</div>
                     <ul className="desc">
@@ -473,20 +483,20 @@ const renderWild = (odds: number[][], t: Function, jackpot: boolean, locale: any
 const renderJackpot = (t: Function, locale: any) => {
     return (
         <li className="guide-item">
-            <h2 className={Styles["heading1"]}>{t("title_jackpot", {ns: "Common"})}</h2>
+            <h2 className={Styles["heading1"]}>{t("title_jackpot", { ns: "Common" })}</h2>
             <ul className="">
                 <li>
                     {t("jackpot_para_1a")}
-                    {generateSymbolJackpot(10, locale, false, true, )}
+                    {generateSymbolJackpot(10, locale, false, true)}
                     {t("jackpot_para_1b")}
                     <div className={`${Styles["example"]} table-medium`}>
                         <div className={Styles["header"]}>
-                            <div className={Styles["col"]}>{t("header_symbol", {ns: "Common"})}</div>
+                            <div className={Styles["col"]}>{t("header_symbol", { ns: "Common" })}</div>
                             <div className={Styles["line"]}></div>
-                            <div className={Styles["col"]}>{t("header_description", {ns: "Common"})}</div>
+                            <div className={Styles["col"]}>{t("header_description", { ns: "Common" })}</div>
                         </div>
                         <div className={Styles["body"]}>
-                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, locale, false )}</div>
+                            <div className={`${Styles["col"]} d-center-all`}>{generateSymbolJackpot(10, locale, false)}</div>
                             <div className={Styles["line"]}></div>
                             <div className={`${Styles["col"]} `}>
                                 <div>{t("desc_s10_jackpot_para_1")}</div>

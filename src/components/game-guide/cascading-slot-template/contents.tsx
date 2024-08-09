@@ -2,7 +2,7 @@ import { useTranslate } from "@tolgee/react";
 import { Trans } from "next-i18next";
 import React from "react";
 
-import appSettings from "../../../common/app-settings";
+import { appSettings } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";

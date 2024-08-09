@@ -1,6 +1,6 @@
 import React from "react";
 
-import appSettings from "../common/app-settings";
+import { appSettings } from "../common/constants";
 import { PFProps } from "./type";
 
 abstract class VerifyBase<P extends PFProps> extends React.PureComponent<P> {

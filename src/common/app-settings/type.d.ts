@@ -25,3 +25,10 @@ export default interface AppSettings {
 
     useTolgeeStatic: boolean;
 }
+
+declare global {
+    interface Window {
+        envConfig?: Partial<AppSettings>;
+        mergedAppSettings?: AppSettings;
+    }
+}

@@ -19,11 +19,12 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package.json yarn.lock tsconfig.json configs.json game-settings.json next.config.js next-i18next.config.js ./
 COPY configs ./configs
 COPY public ./public
+COPY configs/missing-configuration.js ./public/c.js
 COPY src ./src
 
 RUN yarn build
 
-FROM hub.lumigame.com/base/node:17.9-alpine3.14 AS runner
+FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV production
 

@@ -3,13 +3,12 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
-import appSettings from "../../common/app-settings";
-import { GAMES_PF, TolgeeConfig } from "../../common/constants";
+import { GAMES_PF, isUseTolgeeStatic, TolgeeConfig } from "../../common/constants";
 import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
+import CoinTossVerification from "./coin-toss";
 import FootballDiceVerification from "./football-dice";
 import SpaceFlightVerification from "./space-flight";
-import CoinTossVerification from "./coin-toss";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -22,7 +21,7 @@ const tolgee = Tolgee()
         defaultNs: "Spaceflight",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {

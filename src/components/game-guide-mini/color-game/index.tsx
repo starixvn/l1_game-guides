@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getGameConfigProject } from "../../index.helper";
 
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
 import { InContextTools } from "@tolgee/web/tools";
-import ColorGameMiniContents from "./contents";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { GameConfigs, GameGuideBase } from "../../game-guide/type";
+import ColorGameMiniContents from "./contents";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -20,7 +19,7 @@ const tolgee = Tolgee()
         defaultNs: "ColorGameInstant",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {

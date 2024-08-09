@@ -2,8 +2,7 @@ import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import SpaceFlightContents from "./contents";
@@ -19,7 +18,7 @@ const tolgee = Tolgee()
         defaultNs: "Spaceflight",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {
@@ -43,7 +42,7 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
         isScrollMD5,
         displayName,
         name,
-        scrollToId
+        scrollToId,
     } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
@@ -69,13 +68,12 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
-         isGetGameConfigs && getDynamicGameConfig();
+        isGetGameConfigs && getDynamicGameConfig();
     }, [configs]);
 
     if (!configs) {
         return <></>;
-    }
-    else {
+    } else {
         return (
             <TolgeeProvider tolgee={tolgee} fallback="">
                 <SpaceFlightContents
@@ -87,14 +85,12 @@ const SpaceFlightGuide = (props: GameGuideBase) => {
                         isScrollMD5,
                         displayName,
                         name: name ?? gameSetting?.Name,
-                        scrollToId
+                        scrollToId,
                     }}
                 />
             </TolgeeProvider>
         );
     }
-
-   
 };
 
 export default SpaceFlightGuide;

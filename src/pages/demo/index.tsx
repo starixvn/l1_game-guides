@@ -3,8 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import appSettings from "../../common/app-settings";
-import { BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, GAMES_PF, locales, Themes } from "../../common/constants";
+import { appSettings, BACKGROUND_THEMES, ENVIRONMENT, GAMES, GAMES_MINI, GAMES_PF, locales, Themes } from "../../common/constants";
 import { getLocalStorageItem, localStorageKeys, storeLocalStorageItem } from "../../common/local-storage";
 
 type TLocalStorageData = {

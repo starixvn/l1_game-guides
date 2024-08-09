@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
-import { GameConfigs, GameGuideBase } from "../type";
-import { getGameConfigProject } from "../../index.helper";
-import initTolgee from "../../../helpers/tolgee-helper";
-import NextBallGameGuideContent from "./content";
 import { TolgeeProvider } from "@tolgee/react";
+import { FC, useEffect, useState } from "react";
+import { appSettings } from "../../../common/constants";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { getGameConfigProject } from "../../index.helper";
+import { GameConfigs, GameGuideBase } from "../type";
 import { NextBall } from "./constants";
-import appSettings from "../../../common/app-settings";
+import NextBallGameGuideContent from "./content";
 
 const tolgee = initTolgee([NextBall]);
 

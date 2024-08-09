@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getGameConfigProject } from "../../index.helper";
-import { GameConfigs, GameGuideBase } from "../type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
 import { InContextTools } from "@tolgee/web/tools";
+import { useEffect, useState } from "react";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
+import { getGameConfigProject } from "../../index.helper";
+import { GameConfigs, GameGuideBase } from "../type";
 import BandarQiuQiuGameContents from "./contents";
 
 const tolgee = Tolgee()
@@ -19,7 +18,7 @@ const tolgee = Tolgee()
         defaultNs: "BandarQiuQiu",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {

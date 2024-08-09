@@ -2,11 +2,8 @@ import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee
 import React from "react";
 
 import { Markup } from "interweave";
-import appSettings from "../../../common/app-settings";
+import { appSettings } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderContentPFBase } from "../base";
-import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
-import { SpaceFlightPFContentsProps } from "./type";
 import {
     MAX_VALUE,
     RTP,
@@ -15,6 +12,9 @@ import {
     renderFinalResult,
     takeFirstValueFromSHA512,
 } from "../../verification/space-flight";
+import { renderContentPFBase } from "../base";
+import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
+import { SpaceFlightPFContentsProps } from "./type";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,

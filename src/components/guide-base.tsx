@@ -1,6 +1,6 @@
 import React from "react";
 
-import appSettings from "../common/app-settings";
+import { appSettings } from "../common/constants";
 import { BaseProps } from "./type";
 
 abstract class GuideBase<P extends BaseProps> extends React.PureComponent<P> {

@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
-import { GameConfigs, GameGuideBase } from "../type";
-import { getGameConfigProject } from "../../index.helper";
-import initTolgee from "../../../helpers/tolgee-helper";
-import LuckyThreeGameGuideContent from "./content";
 import { TolgeeProvider } from "@tolgee/react";
+import { FC, useEffect, useState } from "react";
+import { appSettings } from "../../../common/constants";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { getGameConfigProject } from "../../index.helper";
+import { GameConfigs, GameGuideBase } from "../type";
 import { SeBall } from "./constants";
-import appSettings from "../../../common/app-settings";
+import LuckyThreeGameGuideContent from "./content";
 
 const tolgee = initTolgee([SeBall]);
 
@@ -53,7 +53,7 @@ const LuckyThreeGameGuide: FC<GameGuideBase> = ({
 
     if (!configs) {
         return <></>;
-    }   
+    }
 
     return (
         <TolgeeProvider tolgee={tolgee}>

@@ -1,12 +1,11 @@
-import { FC, useEffect, useState } from "react";
-import { GameConfigs, GameGuideBase } from "../type";
-import appSettings from "../../../common/app-settings";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import { TolgeeConfig } from "../../../common/constants";
-import BacBallGameGuideContent from "./content";
+import { FC, useEffect, useState } from "react";
+import { appSettings, isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
+import { GameConfigs, GameGuideBase } from "../type";
+import BacBallGameGuideContent from "./content";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -19,7 +18,7 @@ const tolgee = Tolgee()
         defaultNs: "BacBall",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {

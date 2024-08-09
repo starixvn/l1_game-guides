@@ -1,3 +1,5 @@
+import { getAppSettings } from "../app-settings";
+
 export interface IObjectKeys {
     [key: string]: string;
 }
@@ -147,3 +149,6 @@ export const TolgeeConfig = {
     key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
     projectId: "2",
 };
+
+export const appSettings = getAppSettings();
+export const isUseTolgeeStatic = getAppSettings()?.useTolgeeStatic;

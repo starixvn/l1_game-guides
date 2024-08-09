@@ -1,12 +1,9 @@
 import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
-import React from "react";
 import { Markup } from "interweave";
-import appSettings from "../../../common/app-settings";
+import React from "react";
+import { appSettings } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { TogleeNamespace } from "../../game-guide/football-dice/namespace-tolgee";
-import { renderContentPFBase } from "../base";
-import Styles from "./cointoss-pf-game.module.scss";
-import { CoinTossPFContentsProps } from "./type";
 import {
     convertHexToDecimalSteps,
     convertToDecimal,
@@ -15,6 +12,9 @@ import {
     takeFirstValueFromSHA512,
 } from "../../verification/coin-toss";
 import { sliceValueFromSHA512 } from "../../verification/football-dice";
+import { renderContentPFBase } from "../base";
+import Styles from "./cointoss-pf-game.module.scss";
+import { CoinTossPFContentsProps } from "./type";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,

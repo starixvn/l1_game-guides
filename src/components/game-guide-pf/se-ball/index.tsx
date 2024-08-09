@@ -1,9 +1,9 @@
+import { TolgeeProvider } from "@tolgee/react";
 import { useEffect } from "react";
+import { appSettings } from "../../../common/constants";
 import initTolgee from "../../../helpers/tolgee-helper";
 import { GameGuideBase } from "../../game-guide/type";
-import { TolgeeProvider } from "@tolgee/react";
 import SeBallPFGuideContent from "./content";
-import appSettings from "../../../common/app-settings";
 
 const tolgee = initTolgee(["SeBall"]);
 

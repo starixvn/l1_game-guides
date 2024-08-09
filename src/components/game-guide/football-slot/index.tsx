@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { useEffect, useState } from "react";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameGuideBase } from "../type";
@@ -21,7 +20,7 @@ const tolgee = Tolgee()
         defaultNs: "FootballSlot",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {
@@ -78,12 +77,7 @@ const FootballSlotGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <Contents
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                locale={locale}
-            />
+            <Contents gameConfigs={configs} gameName={gameNameTranslate} maxBetFollowChoice={maxBetFollowChoice} locale={locale} />
         </TolgeeProvider>
     );
 };

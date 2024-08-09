@@ -1,6 +1,6 @@
 import { TolgeeProvider } from "@tolgee/react";
 import { useEffect } from "react";
-import appSettings from "../../../common/app-settings";
+import { appSettings } from "../../../common/constants";
 import initTolgee from "../../../helpers/tolgee-helper";
 import { GameGuideBase } from "../../game-guide/type";
 import NextBallPFGuideContent from "./content";

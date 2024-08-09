@@ -4,8 +4,7 @@ import { getGameConfigProject } from "../../index.helper";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { isUseTolgeeStatic, TolgeeConfig } from "../../../common/constants";
 import { handleLanguage } from "../../../helpers/game-helper";
 import { GameConfigs, GameGuideBase } from "../../game-guide/type";
 import FootballCoinTossMiniContents from "./contents";
@@ -21,7 +20,7 @@ const tolgee = Tolgee()
         defaultNs: "FootballCoinTossInstant",
     });
 
-if (!appSettings.useTolgeeStatic) {
+if (!isUseTolgeeStatic) {
     tolgee.addPlugin(
         InContextTools({
             credentials: {
