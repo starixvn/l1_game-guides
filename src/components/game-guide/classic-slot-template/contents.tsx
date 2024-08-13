@@ -3,7 +3,8 @@ import { Trans } from "next-i18next";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { appSettings, locales } from "../../../common/constants";
+import appSettings from "../../../common/app-settings";
+import { locales } from "../../../common/constants";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { JackpotConfigs } from "../type";
 import Styles from "./classic-slot.module.scss";
