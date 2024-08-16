@@ -36,10 +36,43 @@ export const renderTwoRedTwoWhite = () => {
         </td>
     );
 };
+
 export const renderThreeRedOneWhite = () => {
     return (
         <td>
             <div className="d-flex justify-content-center">{renderDot([true, true, true, false])}</div>
+        </td>
+    );
+};
+
+export const renderThreeRed = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, true, true])}</div>
+        </td>
+    );
+};
+
+export const renderTwoRedOneWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, true, false])}</div>
+        </td>
+    );
+};
+
+export const renderOneRedTwoWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([true, false, false])}</div>
+        </td>
+    );
+};
+
+export const renderThreeWhite = () => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">{renderDot([false, false, false])}</div>
         </td>
     );
 };
