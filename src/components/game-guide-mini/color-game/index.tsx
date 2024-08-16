@@ -3,9 +3,6 @@ import { getGameConfigProject } from "../../index.helper";
 
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
-import { InContextTools } from "@tolgee/web/tools";
 import ColorGameMiniContents from "./contents";
 import { GameConfigs, GameGuideBase } from "../../game-guide/type";
 
@@ -19,19 +16,6 @@ const tolgee = Tolgee()
         ns: ["ColorGameInstant"],
         defaultNs: "ColorGameInstant",
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
-
 const ColorGameMiniGuide = (props: GameGuideBase) => {
     const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel } = props;
     const [configs, setConfigs] = useState<GameConfigs>();

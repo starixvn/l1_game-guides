@@ -143,9 +143,3 @@ export const GAMES_PF = {
     BAC81: 81,
     SIC_BALL: 1007,
 };
-
-export const TolgeeConfig = {
-    url: "https://tolgee.sabagame.com/",
-    key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
-    projectId: "2",
-};

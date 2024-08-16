@@ -1502,29 +1502,29 @@
   dependencies:
     tslib "^2.4.0"
 
-"@tolgee/core@5.7.0":
-  version "5.7.0"
-  resolved "https://npm.lumigame.com/@tolgee%2fcore/-/core-5.7.0.tgz#92cde16e21a31737a0c3993237da66b1ce69549c"
-  integrity sha512-teeWr4yz6JMtKCWkk+JFmIYlc/HHY7xGCyJsrhuHygpSsoICqSSy5V+7uCVbrO+W2UcPq6V+mUAWfHz1OMApMA==
+"@tolgee/core@5.28.6":
+  version "5.28.6"
+  resolved "http://npm.lumigame.com/@tolgee/core/-/core-5.28.6.tgz#1dbbf9eed58c20a50f45688aeb4d5e2b8562e4b4"
+  integrity sha512-L74YuSmd3dogKj13ks/j/qRORrdK/tx8eCmLlQPnvS512rRLxaBmu5k91ZxgUFy+ZnwWGDkOqezgqWkFXrcuRQ==
 
 "@tolgee/format-icu@^5.7.0":
   version "5.7.0"
   resolved "https://npm.lumigame.com/@tolgee%2fformat-icu/-/format-icu-5.7.0.tgz#98c6a6931291f5451ef45d04d2032bed64215410"
   integrity sha512-WcvkRd4iAG9Qx9TT5A2oBRm/UnK9Jqnknnlxxxqzyol0SKUSzhsqcVzsgR6crtzsgNRYjOqNSI/YrjR5fldZaA==
 
-"@tolgee/react@^5.7.2":
-  version "5.7.2"
-  resolved "https://npm.lumigame.com/@tolgee%2freact/-/react-5.7.2.tgz#2fc2b6a7b97d56dd423b6cc14f55b2a7e2d7bd8b"
-  integrity sha512-T0Akl9PvitUeDw8CJi+mwKtwXaO7QiMOU43Vhi99WSPI8saDifIdMfvcSQ3C1lDK2GuR/6C6kZXS/6nM1boYTg==
+"@tolgee/react@^5.28.6":
+  version "5.28.6"
+  resolved "http://npm.lumigame.com/@tolgee/react/-/react-5.28.6.tgz#0108396d4581f4df2b679d0ab8747f4d19f5a99d"
+  integrity sha512-UorHj4eCWO2Nl5VR8+H+pMxLEHNsElUNP3hmCY1oJAgCm6IFjg+xT25WIvM3wJyRl/JvgvioA52moAA6uBa/cw==
   dependencies:
-    "@tolgee/web" "5.7.2"
+    "@tolgee/web" "5.28.6"
 
-"@tolgee/web@5.7.2":
-  version "5.7.2"
-  resolved "https://npm.lumigame.com/@tolgee%2fweb/-/web-5.7.2.tgz#786d501ad00f699947fd4dec01a88e92409059e7"
-  integrity sha512-A5YdFFxdH0Qu7nhyCEhAeaySEHAGoRB9obdpY+S+Exw89iRVZZQpT/h/mCzd+zclxtYR79CMkKSwGG3m6PI1Tw==
+"@tolgee/web@5.28.6":
+  version "5.28.6"
+  resolved "http://npm.lumigame.com/@tolgee/web/-/web-5.28.6.tgz#b7cb60bdc3277fcddfafadb9db85b79a0deb6dcb"
+  integrity sha512-9+FrXhYHryp2/WXSOiY9n9XAjeZxIixx9FBjx8z2GBsUhIM9VFDAA4/9bb884Gk5fmk3shQ+tehSSAvLLnihgQ==
   dependencies:
-    "@tolgee/core" "5.7.0"
+    "@tolgee/core" "5.28.6"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -1665,6 +1665,13 @@
   version "15.12.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
   integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
+
+"@types/node@^22.3.0":
+  version "22.3.0"
+  resolved "http://npm.lumigame.com/@types/node/-/node-22.3.0.tgz#7f8da0e2b72c27c4f9bd3cb5ef805209d04d4f9e"
+  integrity sha512-nrWpWVaDZuaVc5X84xJ0vNrLvomM205oQyLsRt7OHNZbSHslcWsvgFR7O7hire2ZonjLrWBbedmotmIlJDVd6g==
+  dependencies:
+    undici-types "~6.18.2"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -6985,10 +6992,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@4.5.2:
-  version "4.5.2"
-  resolved "http://npm.lumigame.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
-  integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
+typescript@^5.5.4:
+  version "5.5.4"
+  resolved "http://npm.lumigame.com/typescript/-/typescript-5.5.4.tgz#d9852d6c82bad2d2eda4fd74a5762a8f5909e9ba"
+  integrity sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==
 
 ua-parser-js@^1.0.33:
   version "1.0.34"
@@ -7004,6 +7011,11 @@ unbox-primitive@^1.0.1:
     has-bigints "^1.0.1"
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
+
+undici-types@~6.18.2:
+  version "6.18.2"
+  resolved "http://npm.lumigame.com/undici-types/-/undici-types-6.18.2.tgz#8b678cf939d4fc9ec56be3c68ed69c619dee28b0"
+  integrity sha512-5ruQbENj95yDYJNS3TvcaxPMshV7aizdv/hWYjGIKoANWKjhWNBsr2YEuYZKodQulB1b8l7ILOuDQep3afowQQ==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

@@ -1,9 +1,6 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameGuideBase } from "../type";
@@ -20,18 +17,6 @@ const tolgee = Tolgee()
         ns: ["ChineseBlackjack", "Common"],
         defaultNs: "ChineseBlackjack",
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const ChineseBlackjackGameGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;

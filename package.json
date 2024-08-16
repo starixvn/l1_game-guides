@@ -3,8 +3,10 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev -p 3001",
-        "dev-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next dev -p 3001",
+        "generate-tolgee-data": "ts-node ./src/helpers/tolgee-generator.ts",
+        "analyze": "cross-env ANALYZE=true next build",
+        "dev": "npm run generate-tolgee-data &&  next dev -p 3001",
+        "dev-node18": "npm run generate-tolgee-data &&  set NODE_OPTIONS=--openssl-legacy-provider && next dev -p 3001",
         "build": "next build",
         "build-node18": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
         "start": "PORT=5000 next start",
@@ -17,7 +19,7 @@
     },
     "dependencies": {
         "@tolgee/format-icu": "^5.7.0",
-        "@tolgee/react": "^5.7.2",
+        "@tolgee/react": "^5.28.6",
         "bootstrap": "^5.0.1",
         "i18next": "^23.4.4",
         "interweave": "^13.0.0",
@@ -39,6 +41,7 @@
         "@types/enzyme": "^3.10.8",
         "@types/enzyme-adapter-react-16": "^1.0.6",
         "@types/jest": "^26.0.23",
+        "@types/node": "^22.3.0",
         "@types/react": "17.0.9",
         "@types/react-dom": "^18.0.10",
         "@types/uuid": "^8.3.0",
@@ -58,7 +61,7 @@
         "react-test-renderer": "^17.0.2",
         "ts-jest": "^27.0.3",
         "ts-node": "^10.4.0",
-        "typescript": "4.5.2"
+        "typescript": "^5.5.4"
     },
     "jestSonar": {
         "reportPath": "reports",

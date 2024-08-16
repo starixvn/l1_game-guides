@@ -3,9 +3,6 @@ import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
-import { InContextTools } from "@tolgee/web/tools";
 import DragonTigerFightContents from "./contents";
 
 const tolgee = Tolgee()
@@ -19,17 +16,6 @@ const tolgee = Tolgee()
         defaultNs: "DragonTigerFight",
     });
 
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 export const getImageDirectoryName = (): string => {
     return "/static/images/dragon-tiger-fight-new";

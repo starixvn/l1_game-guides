@@ -3,9 +3,6 @@ import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
-import { InContextTools } from "@tolgee/web/tools";
 import Contents from "./contents";
 
 const ns = "CoinToss";
@@ -21,18 +18,6 @@ const tolgee = Tolgee()
         ns: [ns, "Common"],
         defaultNs: ns,
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const Guide = (props: GameGuideBase) => {
     const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;
