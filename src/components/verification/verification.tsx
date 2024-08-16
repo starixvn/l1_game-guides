@@ -1,10 +1,8 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { InContextTools } from "@tolgee/web/tools";
 import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
-import appSettings from "../../common/app-settings";
-import { GAMES_PF, TolgeeConfig } from "../../common/constants";
+import { GAMES_PF } from "../../common/constants";
 import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
 import FootballDiceVerification from "./football-dice";
@@ -23,17 +21,6 @@ const tolgee = Tolgee()
         defaultNs: "Spaceflight",
     });
 
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 class Verification<P extends PFProps> extends VerifyBase<P> {
     componentDidMount(): void {

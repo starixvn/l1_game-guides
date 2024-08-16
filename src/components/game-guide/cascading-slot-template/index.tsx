@@ -5,9 +5,6 @@ import Contents from "./contents";
 import { GameConfigProps } from "./type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
-import { InContextTools } from "@tolgee/web/tools";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -19,18 +16,6 @@ const tolgee = Tolgee()
         ns: ["cascadingslot", "Common"],
         defaultNs: "cascadingslot",
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const CascadingSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;

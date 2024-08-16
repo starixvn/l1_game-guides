@@ -3,8 +3,6 @@ import { GameConfigs, GameGuideBase } from "../type";
 import appSettings from "../../../common/app-settings";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
-import { InContextTools } from "@tolgee/web/tools";
-import { TolgeeConfig } from "../../../common/constants";
 import BacBallGameGuideContent from "./content";
 import { getGameConfigProject } from "../../index.helper";
 
@@ -19,17 +17,6 @@ const tolgee = Tolgee()
         defaultNs: "BacBall",
     });
 
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const BacBallGameGuide: FC<GameGuideBase> = ({
     gameConfigs,

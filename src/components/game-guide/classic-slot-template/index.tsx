@@ -1,10 +1,6 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { InContextTools } from "@tolgee/web/tools";
 import { useEffect } from "react";
-
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
 import { GameGuideBase } from "../type";
 import Contents from "./contents";
 
@@ -18,18 +14,6 @@ const tolgee = Tolgee()
         ns: ["Classicslot", "Common"],
         defaultNs: "Classicslot",
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const ClassicSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, jackpot, jackpotConfigs, locale, gameConfigs } = props;

@@ -30,3 +30,4 @@ yarn-error.log*
 
 /.clinic
 node_trace.*.log
+/public/i18n
