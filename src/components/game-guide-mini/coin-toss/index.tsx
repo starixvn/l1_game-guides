@@ -3,9 +3,6 @@ import { getGameConfigProject } from "../../index.helper";
 
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { InContextTools } from "@tolgee/web/tools";
-import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
 import { handleLanguage } from "../../../helpers/game-helper";
 import { GameConfigs, GameGuideBase } from "../../game-guide/type";
 import CoinTossMiniContents from "./contents";
@@ -21,17 +18,6 @@ const tolgee = Tolgee()
         defaultNs: "CoinTossInstant",
     });
 
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const CoinTossMiniGuide = (props: GameGuideBase) => {
     const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, locale } = props;

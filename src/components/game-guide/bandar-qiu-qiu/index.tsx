@@ -3,9 +3,6 @@ import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
-import { InContextTools } from "@tolgee/web/tools";
 import BandarQiuQiuGameContents from "./contents";
 
 const tolgee = Tolgee()
@@ -18,18 +15,6 @@ const tolgee = Tolgee()
         ns: ["BandarQiuQiu", "Common"],
         defaultNs: "BandarQiuQiu",
     });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
 
 const BandarQiuQiuGameGuide = (props: GameGuideBase) => {
     const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;

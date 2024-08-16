@@ -141,10 +141,5 @@ export const GAMES_PF = {
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
     BAC81: 81,
-};
-
-export const TolgeeConfig = {
-    url: "https://tolgee.sabagame.com/",
-    key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
-    projectId: "2",
+    SIC_BALL: 1007,
 };
