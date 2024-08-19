@@ -1,10 +1,10 @@
 import { useTranslate } from "@tolgee/react";
 import React from "react";
-import { ENVIRONMENT } from "../../../common/constants";
+import { buildVersion, ENVIRONMENT } from "../../../common/constants";
 import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { renderOneRedTwoWhite, renderThreeRed, renderThreeWhite, renderTwoRedOneWhite } from "../../shared/dot";
-import MD5 from "../base/md5";
+import MD5Tolgee from "../base/md5/md5-tolgee";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { TogleeNamespace } from "./namespace-tolgee";
@@ -43,40 +43,40 @@ const renderGameRuleTable = (t: Function) => {
                     <tr>
                         <td rowSpan={2}>{t("glossary_red", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_3red", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderThreeRed()}</td>
+                        {renderThreeRed()}
                     </tr>
                     <tr>
                         <td>{t("betoption_2red1white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderTwoRedOneWhite()}</td>
+                        {renderTwoRedOneWhite()}
                     </tr>
                     <tr>
                         <td rowSpan={2}>{t("glossary_white", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_1red2white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderOneRedTwoWhite()}</td>
+                        {renderOneRedTwoWhite()}
                     </tr>
                     <tr>
                         <td>{t("betoption_3white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderThreeWhite()}</td>
+                        {renderThreeWhite()}
                     </tr>
                     <tr>
                         <td>{t("betoption_3red", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_3red", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderThreeRed()}</td>
+                        {renderThreeRed()}
                     </tr>
                     <tr>
                         <td>{t("betoption_2red1white", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_2red1white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderTwoRedOneWhite()}</td>
+                        {renderTwoRedOneWhite()}
                     </tr>
                     <tr>
                         <td>{t("betoption_1red2white", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_1red2white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderOneRedTwoWhite()}</td>
+                        {renderOneRedTwoWhite()}
                     </tr>
                     <tr>
                         <td>{t("betoption_3white", { ns: TogleeNamespace.SpecificGame })}</td>
                         <td>{t("betoption_3white", { ns: TogleeNamespace.SpecificGame })}</td>
-                        <td> {renderThreeWhite()}</td>
+                        {renderThreeWhite()}
                     </tr>
                 </tbody>
             </table>
@@ -166,7 +166,7 @@ const renderPayout = (
 const renderStatistical = (t: Function) => {
     return (
         <li className="guide-item">
-            <h2>Statistical Table</h2>
+            <h2>{t("title_StatisticalTable", { ns: TogleeNamespace.SpecificGame })}</h2>
             <ul className="desc">
                 <li className="contentBeforeEmpty">
                     <div className="table-container">
@@ -224,15 +224,17 @@ const renderStatistical = (t: Function) => {
     );
 };
 
-const renderMd5 = (locale?: string) => {
+const renderMd5 = (t: Function, locale?: string) => {
+    const rootImgUrl = "/static/images/sedie3/";
     return (
-        <MD5
-            locale={locale}
-            step1ImageUrl={`/static/images/sedie3/md5_step1_en.png?v=5`}
-            step2ImageUrl={`/static/images/sedie3/md5_step2_en.png?v=5`}
-            step3ImageUrl={`/static/images/sedie3/md5_step3.png?v=2`}
-            step4ImageUrl={`/static/images/sedie3/md5_step4.png?v=2`}
-            note={<div>Note: Red and white correspond to two sides of the button.</div>}
+        <MD5Tolgee
+            {...{
+                step1ImageUrl: `${rootImgUrl}md5_step1_${locale}.png?v=${buildVersion}`,
+                step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
+                step3ImageUrl: `${rootImgUrl}md5_step3.png?v=${buildVersion}`,
+                step4ImageUrl: `${rootImgUrl}md5_step4.png?v=${buildVersion}`,
+                note: t("md5example_para_3", { ns: TogleeNamespace.SpecificGame }),
+            }}
         />
     );
 };
@@ -249,7 +251,7 @@ const SeDie3Contents: React.FC<SeDie3ContentsProps> = ({ gameConfigs, fractional
             {renderGameRules(t, gameConfigs.maxBet, userStakeLevel)}
             {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             {renderStatistical(t)}
-            {environment === ENVIRONMENT.sc && renderMd5(locale)}
+            {environment === ENVIRONMENT.sc && renderMd5(t, locale)}
             <TermsAndConditionsTolgee />
         </ul>
     );
