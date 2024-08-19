@@ -113,6 +113,7 @@ export const GAMES = {
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
     BAC81: 81,
+    PUSOY: 94,
     SE_DIE3: 95,
     KARAKRUS: 96,
 };
