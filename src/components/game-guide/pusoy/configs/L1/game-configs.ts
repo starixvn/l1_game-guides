@@ -1,11 +1,35 @@
-const GameConfigs = {
-    naturalUnits: {
-        threeStraights: 3,
-        threeFlushes: 3,
-        sixPairs: 3,
-        dragon: 13,
+import { Natural } from "../../type";
+
+const scoreConfig = {
+    id: 4,
+    normal: 1,
+    natural: [
+        {
+            name: Natural.Dragon,
+            units: 12,
+        },
+        {
+            name: Natural.SixPairs,
+            units: 6,
+        },
+        {
+            name: Natural.ThreeFlushes,
+            units: 3,
+        },
+        {
+            name: Natural.ThreeStraights,
+            units: 3,
+        },
+    ],
+    crack: 6,
+    pusoy: {
+        full: {
+            isWinnerTakeAll: true,
+            units: 6,
+        },
+        mini: 3,
     },
-    royalties: {
+    royalty: {
         front: {
             threeOfAKind: 3,
         },
@@ -16,12 +40,15 @@ const GameConfigs = {
             royalFlush: 20,
         },
         back: {
-            fullHouse: 0,
             fourOfAKind: 4,
             straightFlush: 5,
             royalFlush: 10,
         },
     },
+};
+
+const GameConfigs = {
+    scoreConfig,
 };
 
 export default GameConfigs;

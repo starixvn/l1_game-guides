@@ -2,7 +2,7 @@ import { FC } from "react";
 import { UserStakeLevelProps } from "../../../pages";
 import { T, useTranslate } from "@tolgee/react";
 import { Common, CommonPoker, Pusoy } from "./constants";
-import { PusoyGameConfigs } from "./type";
+import { Natural, PusoyGameConfigs } from "./type";
 import Styles from "./pusoy.module.scss";
 
 const PusoyIntroduction: FC<{ displayName?: string }> = () => {
@@ -20,6 +20,10 @@ const PusoyIntroduction: FC<{ displayName?: string }> = () => {
 
 const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) => {
     const { t } = useTranslate([Pusoy, CommonPoker, Common]);
+    const getNaturalUnits = (name: string) => {
+        const natural = gameConfigs.scoreConfig.natural.find((n) => n.name === name);
+        return natural ? natural.units : 0;
+    };
 
     return (
         <li className={`guide-item`}>
@@ -264,7 +268,7 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                 <span className="title-text">{t("title_crack", { ns: Pusoy })}</span>
 
                                 <ul className="desc">
-                                    <li>{t(`crack_para`, { ns: Pusoy })}</li>
+                                    <li>{t(`crack_para`, { ns: Pusoy, crack_unit: gameConfigs.scoreConfig.crack })}</li>
                                 </ul>
                             </li>
 
@@ -286,19 +290,19 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                             <tbody>
                                                 <tr>
                                                     <td>{t("three_straights")}</td>
-                                                    <td>{gameConfigs.naturalUnits.threeStraights}</td>
+                                                    <td>{getNaturalUnits(Natural.ThreeStraights)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("three_flushes")}</td>
-                                                    <td>{gameConfigs.naturalUnits.threeFlushes}</td>
+                                                    <td>{getNaturalUnits(Natural.ThreeFlushes)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("six_pairs")}</td>
-                                                    <td>{gameConfigs.naturalUnits.sixPairs}</td>
+                                                    <td>{getNaturalUnits(Natural.SixPairs)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("dragon")}</td>
-                                                    <td>{gameConfigs.naturalUnits.dragon}</td>
+                                                    <td>{getNaturalUnits(Natural.Dragon)}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -338,35 +342,35 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                             <tbody>
                                                 <tr>
                                                     <td>{t("three_of_a_kind", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.front.threeOfAKind}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.front?.threeOfAKind ?? "-"}</td>
                                                     <td>{t("full_house", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.middle.fullHouse}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.middle?.fullHouse ?? "-"}</td>
                                                     <td>{t("full_house", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.back.fullHouse}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.back?.fullHouse ?? "-"}</td>
                                                 </tr>
                                                 <tr>
                                                     <td> - </td>
                                                     <td> - </td>
                                                     <td>{t("four_of_a_kind", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.middle.fourOfAKind}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.middle?.fourOfAKind ?? "-"}</td>
                                                     <td>{t("four_of_a_kind", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.back.fourOfAKind}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.back?.fourOfAKind ?? "-"}</td>
                                                 </tr>
                                                 <tr>
                                                     <td> - </td>
                                                     <td> - </td>
                                                     <td>{t("straight_flush", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.middle.straightFlush}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.middle?.straightFlush ?? "-"}</td>
                                                     <td>{t("straight_flush", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.back.straightFlush}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.back?.straightFlush ?? "-"}</td>
                                                 </tr>
                                                 <tr>
                                                     <td> - </td>
                                                     <td> - </td>
                                                     <td>{t("royal_flush", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.middle.royalFlush}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.middle?.royalFlush ?? "-"}</td>
                                                     <td>{t("royal_flush", { ns: CommonPoker })}</td>
-                                                    <td>{gameConfigs.royalties.back.royalFlush}</td>
+                                                    <td>{gameConfigs?.scoreConfig?.royalty?.back?.royalFlush ?? "-"}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
