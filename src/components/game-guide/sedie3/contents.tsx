@@ -41,7 +41,9 @@ const renderGameRuleTable = (t: Function) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowSpan={2}>{t("glossary_red", { ns: TogleeNamespace.SpecificGame })}</td>
+                        <td rowSpan={2} style={{ textTransform: "uppercase" }}>
+                            {t("glossary_red", { ns: TogleeNamespace.SpecificGame })}
+                        </td>
                         <td>{t("betoption_3red", { ns: TogleeNamespace.SpecificGame })}</td>
                         {renderThreeRed()}
                     </tr>
@@ -50,7 +52,9 @@ const renderGameRuleTable = (t: Function) => {
                         {renderTwoRedOneWhite()}
                     </tr>
                     <tr>
-                        <td rowSpan={2}>{t("glossary_white", { ns: TogleeNamespace.SpecificGame })}</td>
+                        <td rowSpan={2} style={{ textTransform: "uppercase" }}>
+                            {t("glossary_white", { ns: TogleeNamespace.SpecificGame })}
+                        </td>
                         <td>{t("betoption_1red2white", { ns: TogleeNamespace.SpecificGame })}</td>
                         {renderOneRedTwoWhite()}
                     </tr>
@@ -117,14 +121,18 @@ const renderPayout = (
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{t("glossary_red", { ns: TogleeNamespace.SpecificGame })}</td>
+                                    <td style={{ textTransform: "uppercase" }}>
+                                        {t("glossary_red", { ns: TogleeNamespace.SpecificGame })}
+                                    </td>
                                     <td rowSpan={2}>{formatOdds(odds?.red, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {minBetMain} - {maxBetRed}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_white", { ns: TogleeNamespace.SpecificGame })}</td>
+                                    <td style={{ textTransform: "uppercase" }}>
+                                        {t("glossary_white", { ns: TogleeNamespace.SpecificGame })}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>{t("betoption_3red", { ns: TogleeNamespace.SpecificGame })}</td>
