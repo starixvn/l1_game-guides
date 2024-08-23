@@ -31,7 +31,7 @@ const renderGameRule = (t: Function, jackpot: boolean) => {
                 </li>
 
                 <li>{t("gamerules_para_4")}</li>
-                {jackpot && <li>{t("gamerules_para_5")}</li>}
+                <li>{t("gamerules_para_5")}</li>
                 <li>{t("gamerules_para_6")}</li>
                 <div className={Styles["payline"]}>
                     <img
