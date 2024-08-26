@@ -48,7 +48,7 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                             <li className="number-dot-number">
                                 <span className="title-text">{t("title_hand_ranking", { ns: CommonPoker })}</span>
                                 <ul className="desc">
-                                    <li>{t(`hand_ranking_para`)}</li>
+                                    <li>{t(`hand_ranking_para`, { ns: CommonPoker })}</li>
                                     <div className="table-container text-center">
                                         <table className="table text-center">
                                             <thead>
