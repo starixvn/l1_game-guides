@@ -22,6 +22,7 @@ const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeL
                 </li>
                 <li>{t("gamerules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("gamerules_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("gamerules_para_5", { ns: TogleeNamespace.SpecificGame })}</li>
                 <li>{t("gamerules_para_4", { ns: TogleeNamespace.SpecificGame, maxbet: maxBetMain })}</li>
             </ul>
         </div>
