@@ -1,0 +1,24 @@
+.bet-option {
+    width: 20%;
+}
+
+.highlight-text {
+    color: #0055FF;
+}
+.img-center {
+    text-align: center;
+}
+%dot {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+}
+.dot-head {
+    @extend %dot;
+    background-image: url("/static/images/karakrus/dice-kara.png");
+}
+
+.dot-tail {
+    @extend %dot;
+    background-image: url("/static/images/karakrus/dice-krus.png");
+}
