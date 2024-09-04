@@ -97,11 +97,11 @@ const renderPayout = (
 ) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetRed = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red));
-    const maxBetRed3 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red3));
-    const maxBetRed2 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red2));
-    const maxBetRed1 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red1));
-    const maxBetWhite3 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.white3));
+    const maxBetKara = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.kara));
+    const maxBetHead3 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.head3));
+    const maxBetHead2 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.head2));
+    const maxBetHead1 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.head1));
+    const maxBetTail3 = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.tail3));
 
     return (
         <li className="guide-item">
@@ -127,7 +127,7 @@ const renderPayout = (
                                     </td>
                                     <td rowSpan={2}>{formatOdds(odds?.red, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
-                                        {minBetMain} - {maxBetRed}
+                                        {minBetMain} - {maxBetKara}
                                     </td>
                                 </tr>
                                 <tr>
@@ -137,30 +137,30 @@ const renderPayout = (
                                 </tr>
                                 <tr>
                                     <td>{t("betoption_3head", { ns: TogleeNamespace.SpecificGame })}</td>
-                                    <td>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.head3, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetRed3}
+                                        {minBetMain} - {maxBetHead3}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("betoption_2head", { ns: TogleeNamespace.SpecificGame })}</td>
-                                    <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.head2, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetRed2}
+                                        {minBetMain} - {maxBetHead2}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("betoption_1head", { ns: TogleeNamespace.SpecificGame })}</td>
-                                    <td>{formatOdds(odds?.red1, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.head1, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetRed1}
+                                        {minBetMain} - {maxBetHead1}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{t("betoption_3tail", { ns: TogleeNamespace.SpecificGame })}</td>
-                                    <td>{formatOdds(odds?.white3, fractionalOddsFormat)}</td>
+                                    <td>{formatOdds(odds?.tail3, fractionalOddsFormat)}</td>
                                     <td>
-                                        {minBetMain} - {maxBetWhite3}
+                                        {minBetMain} - {maxBetTail3}
                                     </td>
                                 </tr>
                             </tbody>
