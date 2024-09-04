@@ -234,7 +234,7 @@ const renderStatistical = (t: Function) => {
 };
 
 const renderMd5 = (t: Function, locale?: string) => {
-    const rootImgUrl = "/static/images/sedie3/";
+    const rootImgUrl = "/static/images/karakrus/";
     return (
         <MD5Tolgee
             {...{
