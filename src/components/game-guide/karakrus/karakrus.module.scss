@@ -15,10 +15,10 @@
 }
 .dot-head {
     @extend %dot;
-    background-image: url("/static/images/karakrus/dice-kara.png");
+    background-image: url("/static/images/karakrus/dice-kara.png?v=1");
 }
 
 .dot-tail {
     @extend %dot;
-    background-image: url("/static/images/karakrus/dice-krus.png");
+    background-image: url("/static/images/karakrus/dice-krus.png?v=1");
 }

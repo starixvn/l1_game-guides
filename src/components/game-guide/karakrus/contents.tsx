@@ -9,6 +9,7 @@ import { GameConfigs } from "../type";
 import Styles from "./karakrus.module.scss";
 import { TogleeNamespace } from "./namespace-tolgee";
 import { KaraKrusContentsProps } from "./type";
+import { Markup } from "interweave";
 
 const renderGameRules = (t: Function, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
@@ -125,7 +126,7 @@ const renderPayout = (
                                     <td style={{ textTransform: "uppercase" }}>
                                         {t("glossary_kara", { ns: TogleeNamespace.SpecificGame })}
                                     </td>
-                                    <td rowSpan={2}>{formatOdds(odds?.red, fractionalOddsFormat)}</td>
+                                    <td rowSpan={2}>{formatOdds(odds?.kara, fractionalOddsFormat)}</td>
                                     <td rowSpan={2}>
                                         {minBetMain} - {maxBetKara}
                                     </td>
@@ -235,6 +236,17 @@ const renderStatistical = (t: Function) => {
 
 const renderMd5 = (t: Function, locale?: string) => {
     const rootImgUrl = "/static/images/karakrus/";
+    const notedElement = `<div>
+    ${t("md5example_para_3", {
+        ns: TogleeNamespace.SpecificGame,
+        coinSymbols: "{◯, ◯, Ⓧ}",
+        Symbol1: "◯",
+        coinhead: `<img className="format-img auto-center md5-sample" src=${rootImgUrl}dice-kara.png?v=${buildVersion} alt="dice_kara_sample" />`,
+        Symbol2: "Ⓧ",
+        cointail: `<img className="format-img auto-center md5-sample" src=${rootImgUrl}dice-krus.png?v=${buildVersion} alt="dice_krus_sample" />`,
+    })}
+   
+</div>`;
     return (
         <MD5Tolgee
             {...{
@@ -242,7 +254,7 @@ const renderMd5 = (t: Function, locale?: string) => {
                 step2ImageUrl: `${rootImgUrl}md5_step2_${locale}.png?v=${buildVersion}`,
                 step3ImageUrl: `${rootImgUrl}md5_step3.png?v=${buildVersion}`,
                 step4ImageUrl: `${rootImgUrl}md5_step4.png?v=${buildVersion}`,
-                note: t("md5example_para_3", { ns: TogleeNamespace.SpecificGame }),
+                note: <Markup content={notedElement} />,
             }}
         />
     );
@@ -257,7 +269,6 @@ export const renderDot = (data: boolean[]) => {
         }
     });
 };
-
 
 const renderThreeHead = () => {
     return (
