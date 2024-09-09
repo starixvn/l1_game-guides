@@ -330,12 +330,12 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                         <table className="table text-center">
                                             <thead>
                                                 <tr>
-                                                    <td>{t("header_front", { ns: CommonPoker })}</td>
-                                                    <td>{t("header_units", { ns: Common })}</td>
-                                                    <td>{t("header_middle", { ns: CommonPoker })}</td>
-                                                    <td>{t("header_units", { ns: Common })}</td>
-                                                    <td>{t("header_back", { ns: CommonPoker })}</td>
-                                                    <td>{t("header_units", { ns: Common })}</td>
+                                                    <td>{t("header_front", { ns: Pusoy })}</td>
+                                                    <td>{t("header_units", { ns: Pusoy })}</td>
+                                                    <td>{t("header_middle", { ns: Pusoy })}</td>
+                                                    <td>{t("header_units", { ns: Pusoy })}</td>
+                                                    <td>{t("header_back", { ns: Pusoy })}</td>
+                                                    <td>{t("header_units", { ns: Pusoy })}</td>
                                                 </tr>
                                             </thead>
 
