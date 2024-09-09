@@ -282,8 +282,8 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                         <table className="table text-center">
                                             <thead>
                                                 <tr>
-                                                    <td>{t("title_natural", { ns: CommonPoker })}</td>
-                                                    <td>{t("header_units", { ns: Common })}</td>
+                                                    <td>{t("title_natural", { ns: Pusoy })}</td>
+                                                    <td>{t("header_units", { ns: Pusoy })}</td>
                                                 </tr>
                                             </thead>
 
