@@ -379,52 +379,52 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                             </li>
 
                             <li className="number-dot-number">
-                                <span className="title-text">{t("title_mini_pusoy", { ns: Pusoy })}</span>
-
-                                <ul className="desc">
-                                    <li>{t(`mini_pusoy_para_1`, { ns: Pusoy })}</li>
-                                    <li>
-                                        {t("mini_pusoy_para_2", { ns: Pusoy })}
-                                        <ul className="desc">
-                                            <li>{t(`mini_pusoy_para_3`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_pusoy_para_4`, { ns: Pusoy })}</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li className="number-dot-number">
                                 <span className="title-text">{t("title_pusoy", { ns: Pusoy })}</span>
 
                                 <ul className="desc">
-                                    <li>{t(`pusoy_para`, { ns: Pusoy })}</li>
+                                    <li>{t(`pusoy_para_1`, { ns: Pusoy })}</li>
+                                    <li>
+                                        {t("pusoy_para_2", { ns: Pusoy })}
+                                        <ul className="desc">
+                                            <li>{t(`pusoy_para_3`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_para_4`, { ns: Pusoy })}</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
 
                             <li className="number-dot-number">
-                                <span className="title-text">{t("title_mini_full_pusoy", { ns: Pusoy })}</span>
+                                <span className="title-text">{t("title_super_pusoy", { ns: Pusoy })}</span>
 
                                 <ul className="desc">
-                                    <li>{t(`mini_full_pusoy_para_1`, { ns: Pusoy })}</li>
+                                    <li>{t(`super_pusoy_para`, { ns: Pusoy })}</li>
+                                </ul>
+                            </li>
+
+                            <li className="number-dot-number">
+                                <span className="title-text">{t("title_pusoy_super_pusoy", { ns: Pusoy })}</span>
+
+                                <ul className="desc">
+                                    <li>{t(`pusoy_super_pusoy_para_1`, { ns: Pusoy })}</li>
 
                                     <li>
-                                        {t("mini_full_pusoy_para_2", { ns: Pusoy })}
+                                        {t("pusoy_super_pusoy_para_2", { ns: Pusoy })}
                                         <ul className="desc">
-                                            <li>{t(`mini_full_pusoy_para_3`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_4`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_3`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_4`, { ns: Pusoy })}</li>
                                         </ul>
                                     </li>
 
                                     <li>
-                                        {t("mini_full_pusoy_para_5", { ns: Pusoy })}
+                                        {t("pusoy_super_pusoy_para_5", { ns: Pusoy })}
                                         <ul className="desc">
-                                            <li>{t(`mini_full_pusoy_para_6`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_7`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_8`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_9`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_10`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_11`, { ns: Pusoy })}</li>
-                                            <li>{t(`mini_full_pusoy_para_12`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_6`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_6`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_8`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_9`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_10`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_11`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_12`, { ns: Pusoy })}</li>
                                         </ul>
                                     </li>
                                 </ul>
