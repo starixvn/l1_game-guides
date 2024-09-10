@@ -62,7 +62,7 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <strong>{t("royal_flush", { ns: CommonPoker })}</strong>
+                                                        <strong>{t("royal_flush_pusoy", { ns: Pusoy })}</strong>
                                                     </td>
                                                     <td>{t("desc_royal_flush", { ns: CommonPoker })}</td>
                                                     <td>
@@ -367,9 +367,9 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                                 <tr>
                                                     <td> - </td>
                                                     <td> - </td>
-                                                    <td>{t("royal_flush", { ns: CommonPoker })}</td>
+                                                    <td>{t("royal_flush_pusoy", { ns: Pusoy })}</td>
                                                     <td>{gameConfigs?.scoreConfig?.royalty?.middle?.royalFlush ?? "-"}</td>
-                                                    <td>{t("royal_flush", { ns: CommonPoker })}</td>
+                                                    <td>{t("royal_flush_pusoy", { ns: Pusoy })}</td>
                                                     <td>{gameConfigs?.scoreConfig?.royalty?.back?.royalFlush ?? "-"}</td>
                                                 </tr>
                                             </tbody>
