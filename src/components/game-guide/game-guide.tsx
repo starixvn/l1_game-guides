@@ -50,7 +50,6 @@ const MultiplayBigSmallGuide = dynamic(() => import("./multiplay-big-small"));
 const WayToGoalGuide = dynamic(() => import("./way-to-goal"));
 const FruitSlotGuide = dynamic(() => import("./fruit-slot"));
 const FantanGuide = dynamic(() => import("./fantan/index"));
-const FortuneCatGuide = dynamic(() => import("./fortune-cat"));
 const WinThreeCardsGuide = dynamic(() => import("./win-three-cards"));
 const VipBaccaratGuide = dynamic(() => import("./baccarat-vip"));
 const ClassicSlotGuide = dynamic(() => import("./classic-slot-template"));
@@ -175,8 +174,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <FruitSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FANTAN:
                 return <FantanGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.FORTUNE_CAT:
-                return <FortuneCatGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.WIN_THREE_CARDS:
                 return <WinThreeCardsGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.DRAGON_TIGER_FIGHT:

@@ -149,3 +149,6 @@ export const TolgeeConfig = {
     key: "tgpak_gjpxe3jsoe2xgy3lgezgiolwoy4gy5twgrtwqz3pgrtwq",
     projectId: "2",
 };
+
+// type = 2
+export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT];

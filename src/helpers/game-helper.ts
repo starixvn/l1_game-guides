@@ -1,7 +1,8 @@
 import { TolgeeInstance } from "@tolgee/react";
+import { GAMES_NEW_SLOT } from "../common/constants";
 
 const isNewSlotGame = (type: number, gameId: number) => {
-    return type == 2 && gameId > 62;
+    return type == 2 && (gameId > 62 || GAMES_NEW_SLOT.includes(gameId));
 };
 
 const isNewCascadingSlot = (type: number, gameId: number) => {
