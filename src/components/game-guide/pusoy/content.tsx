@@ -419,7 +419,7 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                         {t("pusoy_super_pusoy_para_5", { ns: Pusoy })}
                                         <ul className="desc">
                                             <li>{t(`pusoy_super_pusoy_para_6`, { ns: Pusoy })}</li>
-                                            <li>{t(`pusoy_super_pusoy_para_6`, { ns: Pusoy })}</li>
+                                            <li>{t(`pusoy_super_pusoy_para_7`, { ns: Pusoy })}</li>
                                             <li>{t(`pusoy_super_pusoy_para_8`, { ns: Pusoy })}</li>
                                             <li>{t(`pusoy_super_pusoy_para_9`, { ns: Pusoy })}</li>
                                             <li>{t(`pusoy_super_pusoy_para_10`, { ns: Pusoy })}</li>
