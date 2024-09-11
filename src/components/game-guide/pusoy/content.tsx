@@ -80,7 +80,7 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>{t("straight_flush", { ns: CommonPoker })}</strong>
+                                                        <strong>{t("straight_flush_pusoy", { ns: Pusoy })}</strong>
                                                     </td>
                                                     <td>{t("desc_straight_flush", { ns: CommonPoker })}</td>
                                                     <td>
@@ -367,9 +367,9 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                                 <tr>
                                                     <td> - </td>
                                                     <td> - </td>
-                                                    <td>{t("straight_flush", { ns: CommonPoker })}</td>
+                                                    <td>{t("straight_flush_pusoy", { ns: Pusoy })}</td>
                                                     <td>{gameConfigs?.scoreConfig?.royalty?.middle?.straightFlush ?? "-"}</td>
-                                                    <td>{t("straight_flush", { ns: CommonPoker })}</td>
+                                                    <td>{t("straight_flush_pusoy", { ns: Pusoy })}</td>
                                                     <td>{gameConfigs?.scoreConfig?.royalty?.back?.straightFlush ?? "-"}</td>
                                                 </tr>
                                                 <tr>
