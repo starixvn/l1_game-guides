@@ -324,6 +324,14 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
 
                                 <ul className="desc">
                                     <li>{t(`hand_by_hand_comparison_para_1`, { ns: Pusoy })}</li>
+                                    <li>
+                                        {t("header_example", { ns: CommonPoker }) + ":"}
+                                        <ul className="desc">
+                                            <li>{t(`hand_by_hand_comparison_para_1_ex_1`, { ns: Pusoy })}</li>
+                                            <li>{t(`hand_by_hand_comparison_para_1_ex_2`, { ns: Pusoy })}</li>
+                                            <li>{t(`hand_by_hand_comparison_para_1_ex_3`, { ns: Pusoy })}</li>
+                                        </ul>
+                                    </li>
                                     <li>{t(`hand_by_hand_comparison_para_2`, { ns: Pusoy })}</li>
                                     <li>{t(`hand_by_hand_comparison_para_3`, { ns: Pusoy })}</li>
                                     <div className="table-container text-center">
