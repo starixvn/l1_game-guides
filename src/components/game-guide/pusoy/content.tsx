@@ -25,6 +25,13 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
         return natural ? natural.units : 0;
     };
 
+    const NaturalExamples = {
+        ThreeStraights: `Q♥, K♣, A♦ <br /> 2♠, 3♣, 4♦, 5♣, 6♥ <br /> 10♥, J♠, Q♣, K♦, A♠`,
+        ThreeFlushes: `4♥, K♥, 7♥ <br /> 2♣, 5♣, 8♣, 9♣, J♣ <br /> 10♦, J♦, Q♦, K♦, A♦`,
+        SixPairs: `	3♥, 3♣, 7♥ <br /> 2♣, 2♠, 10♦, 10♣, J♣ <br /> Q♦, Q♠, K♠, K♦, J♦`,
+        Dragon: `2♥, 3♣, 4♥ <br /> 5♣, 6♠, 7♦, 8♣, 9♣ <br /> 10♦, J♠, Q♠, K♦, A♦`,
+    };
+
     return (
         <li className={`guide-item`}>
             <h2>{t("gamerules_title", { ns: Common })}</h2>
@@ -283,6 +290,8 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                             <thead>
                                                 <tr>
                                                     <td>{t("title_natural", { ns: Pusoy })}</td>
+                                                    <td>{t("header_description", { ns: Common })}</td>
+                                                    <td>{t("header_example", { ns: CommonPoker })}</td>
                                                     <td>{t("header_units", { ns: Pusoy })}</td>
                                                 </tr>
                                             </thead>
@@ -290,18 +299,26 @@ const PusoyGameRules: FC<{ gameConfigs: PusoyGameConfigs }> = ({ gameConfigs }) 
                                             <tbody>
                                                 <tr>
                                                     <td>{t("three_straights")}</td>
+                                                    <td>{t("three_straights_desc")}</td>
+                                                    <td dangerouslySetInnerHTML={{ __html: NaturalExamples.ThreeStraights }}></td>
                                                     <td>{getNaturalUnits(Natural.ThreeStraights)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("three_flushes")}</td>
+                                                    <td>{t("three_flushes_desc")}</td>
+                                                    <td dangerouslySetInnerHTML={{ __html: NaturalExamples.ThreeFlushes }}></td>
                                                     <td>{getNaturalUnits(Natural.ThreeFlushes)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("six_pairs")}</td>
+                                                    <td>{t("six_pairs_desc")}</td>
+                                                    <td dangerouslySetInnerHTML={{ __html: NaturalExamples.SixPairs }}></td>
                                                     <td>{getNaturalUnits(Natural.SixPairs)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("dragon")}</td>
+                                                    <td>{t("dragon_desc")}</td>
+                                                    <td dangerouslySetInnerHTML={{ __html: NaturalExamples.Dragon }}></td>
                                                     <td>{getNaturalUnits(Natural.Dragon)}</td>
                                                 </tr>
                                             </tbody>
