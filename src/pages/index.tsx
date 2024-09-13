@@ -128,9 +128,10 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
         if (router.isReady) {
             const queryParams: object | any = router.query;
             const env = handleEnv(queryParams);
+            const gameId = checkIsInteger(queryParams?.gId);
             setIsLoading(false);
-            setGameId(checkIsInteger(queryParams?.gId));
-            changeFontFamilyFollowLanguage(router?.locale ?? "en", env, queryParams?.gId, gameSetting.Type);
+            setGameId(gameId);
+            changeFontFamilyFollowLanguage(router?.locale ?? "en", env, gameId, gameSetting.Type);
             setEnvironment(env);
             setName(queryParams?.name);
             setIsInPromotionTime(queryParams?.p === "true");
