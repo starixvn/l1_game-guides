@@ -7,6 +7,7 @@ import { GameConfigs } from "../../game-guide/type";
 export type ColorGameContentsProps = {
     gameConfigs: GameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
+    displayName: string | undefined;
 };
 
 const renderBetLimit = (t: Function, minBet: number, maxBet: number, userStakeLevel: UserStakeLevelProps | undefined) => {
@@ -48,13 +49,13 @@ const renderWinningCondition = (t: Function) => {
     );
 };
 
-const FootballCoinTossMiniContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, userStakeLevel }) => {
+const FootballCoinTossMiniContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, userStakeLevel, displayName }) => {
     const { t } = useTranslate(["FootballCoinTossInstant", "Common"]);
-
+    console.log("FootballCoinTossMiniContents", displayName);
     return (
         <ul className={`game-guide pt-3`}>
             <li className="guide-item-instant game-microsite">
-                <p className="content">{t("intro_para_1")}</p>
+                <p className="content">{t("intro_para_1", { ns: "FootballCoinTossInstant", gamename: displayName })}</p>
             </li>
             {renderWinningCondition(t)}
             {renderBetLimit(t, gameConfigs.minBet, gameConfigs.maxBet, userStakeLevel)}

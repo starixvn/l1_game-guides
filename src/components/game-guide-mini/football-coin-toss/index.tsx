@@ -34,10 +34,9 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const FootBallCoinTossMiniGuide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, locale } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, locale, displayName } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
     const [isLoading, setIsLoading] = useState(true);
-
     const getLocalGameConfigs = () => {
         getGameConfigProject("football-coin-toss", project, setConfigs, "game-guide-mini");
     };
@@ -73,7 +72,7 @@ const FootBallCoinTossMiniGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <FootballCoinTossMiniContents {...{ gameConfigs: configs, userStakeLevel }} />
+            <FootballCoinTossMiniContents {...{ gameConfigs: configs, userStakeLevel, displayName }} />
         </TolgeeProvider>
     );
 };
