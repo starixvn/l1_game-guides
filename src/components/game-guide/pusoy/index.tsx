@@ -8,6 +8,8 @@ import appSettings from "../../../common/app-settings";
 import { Pusoy } from "./constants";
 import { PusoyGameConfigs } from "./type";
 
+const availableLanguages = ["en", "vi"];
+
 const tolgee = initTolgee([Pusoy]);
 
 const PusoyGameGuide: FC<GameGuideBase> = ({
@@ -48,7 +50,13 @@ const PusoyGameGuide: FC<GameGuideBase> = ({
         getLocalGameConfigs();
 
         if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+            let language = window.location.pathname.replaceAll("/", "");
+
+            if (availableLanguages.indexOf(language) === -1) {
+                language = "en";
+            }
+
+            tolgee.changeLanguage(language);
         }
     }, []);
 
