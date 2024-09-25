@@ -261,7 +261,7 @@
     },
     "81": {
         "id": 81,
-        "gameName": "Bac 81"
+        "gameName": "Lucky Baccarat"
     },
     "94": {
         "id": 94,
@@ -270,5 +270,69 @@
     "95": {
         "id": 95,
         "gameName": "Sedie3"
+    },
+    "96": {
+        "id": 96,
+        "gameName": "Karakrus"
+    },
+    "82": {
+        "id": 82,
+        "gameName": "Lucky Baccarat 2"
+    },
+    "83": {
+        "id": 83,
+        "gameName": "Lucky Baccarat 3"
+    },
+    "88": {
+        "id": 88,
+        "gameName": "Lucky Baccarat 4"
+    },
+    "89": {
+        "id": 89,
+        "gameName": "Lucky Baccarat 5"
+    },
+    "84": {
+        "id": 84,
+        "gameName": "Baccarat 2"
+    },
+    "85": {
+        "id": 85,
+        "gameName": "Baccarat 3"
+    },
+    "90": {
+        "id": 90,
+        "gameName": "Baccarat 4"
+    },
+    "91": {
+        "id": 91,
+        "gameName": "Baccarat 5"
+    },
+    "86": {
+        "id": 86,
+        "gameName": "VIP Baccarat 2"
+    },
+    "87": {
+        "id": 87,
+        "gameName": "VIP Baccarat 3"
+    },
+    "92": {
+        "id": 92,
+        "gameName": "VIP Baccarat 4"
+    },
+    "97": {
+        "id": 97,
+        "gameName": "VIP Baccarat 5"
+    },
+    "98": {
+        "id": 98,
+        "gameName": "Speed Baccarat"
+    },
+    "100": {
+        "id": 100,
+        "gameName": "Speed Baccarat 2"
+    },
+    "101": {
+        "id": 101,
+        "gameName": "Speed Baccarat 3"
     }
 }

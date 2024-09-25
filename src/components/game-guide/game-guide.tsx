@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
 
 import { GAMES } from "../../common/constants";
-import { isCrashGame, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
+import { isClassicOrSpeedBaccarat, isCrashGame, isLuckyBaccarat, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BaccaratXGameGuide from "./baccarat-x";
@@ -65,7 +65,7 @@ const PusoyGuide = dynamic(() => import("./pusoy"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 class GameGuide<P extends BaseProps> extends GuideBase<P> {
-    otherGuides = (name: string, gameGuideProps: any) => {
+    otherGuides = (name: string, gameGuideProps: any, gameId: number) => {
         if (name === guideNameOther.luckyWheel) {
             return <LuckyWheelGuide key={`game-${name}`} {...gameGuideProps} />;
         }
@@ -80,6 +80,10 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
 
         if (isCrashGame(gameGuideProps.gameSetting.Type)) {
             return <SpaceFlightGuide key={`game-${name}`} {...gameGuideProps} />;
+        }
+
+        if (isLuckyBaccarat(gameId) || isClassicOrSpeedBaccarat(gameId)) {
+            return <BaccaratXGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
 
         return <></>;
@@ -205,8 +209,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <CoinTossGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.LUCKY_THREE:
                 return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.BAC81:
-                return <BaccaratXGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.SE_DIE3:
                 return <SeDie3Guide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KARAKRUS:
@@ -214,7 +216,7 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.PUSOY:
                 return <PusoyGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
-                return this.otherGuides(name, gameGuideProps);
+                return this.otherGuides(name, gameGuideProps, gameId);
         }
     };
 }
