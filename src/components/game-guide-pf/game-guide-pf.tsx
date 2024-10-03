@@ -2,6 +2,7 @@ import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
 
 import { GAMES_PF } from "../../common/constants";
+import { isClassicOrSpeedBaccarat, isLuckyBaccarat } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BacBallPFGuide from "./bac-ball";
@@ -15,6 +16,14 @@ import SeBallPFGuide from "./se-ball";
 import SpaceFlightPFGuide from "./space-flight";
 
 class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
+    renderOtherGuide = (gameId: number, gameGuideProps: any) => {
+        if (isLuckyBaccarat(gameId) || isClassicOrSpeedBaccarat(gameId)) {
+            return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+        }
+
+        return <></>;
+    };
+
     renderGuide = () => {
         const { gameId } = this.props;
         const gameGuideProps = this.getGameGuideProps();
@@ -42,7 +51,7 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
             case GAMES_PF.BAC81:
                 return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
-                return <></>;
+                return this.renderOtherGuide(gameId, gameGuideProps);
         }
     };
 }
