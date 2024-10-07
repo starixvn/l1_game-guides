@@ -12,6 +12,7 @@ export type ProvablyFair = {
     mergeClientSeed?: string;
     mergeSeed?: string;
     finalHash?: string;
+    match?: any;
 };
 const ProvablyFair = (props: any) => {
     const { setTheme } = useTheme();

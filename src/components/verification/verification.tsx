@@ -10,6 +10,7 @@ import VerifyBase from "../verify-base";
 import FootballDiceVerification from "./football-dice";
 import SpaceFlightVerification from "./space-flight";
 import CoinTossVerification from "./coin-toss";
+import FootballCoinTossVerification from "./footballl-coin-toss";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -59,6 +60,12 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <CoinTossVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
+            case GAMES_PF.FOOTBALL_COIN_TOSS:
+                return (
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <FootballCoinTossVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
                 );
             default:

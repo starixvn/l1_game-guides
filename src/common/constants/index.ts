@@ -158,6 +158,7 @@ export const GAMES_PF = {
     COIN_TOSS: 80,
     LUCKY_THREE: 1006,
     BAC81: 81,
+    FOOTBALL_COIN_TOSS: 93,
 };
 
 export const TolgeeConfig = {
