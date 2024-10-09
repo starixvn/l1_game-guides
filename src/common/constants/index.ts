@@ -131,6 +131,7 @@ export const GAMES = {
     SPEED_BACCARAT: 98,
     SPEED_BACCARAT_2: 100,
     SPEED_BACCARAT_3: 101,
+    FOOTBALL_COIN_TOSS: 93,
 };
 
 export const GAMES_MINI = {

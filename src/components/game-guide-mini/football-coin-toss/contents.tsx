@@ -51,7 +51,6 @@ const renderWinningCondition = (t: Function) => {
 
 const FootballCoinTossMiniContents: React.FC<ColorGameContentsProps> = ({ gameConfigs, userStakeLevel, displayName }) => {
     const { t } = useTranslate(["FootballCoinTossInstant", "Common"]);
-    console.log("FootballCoinTossMiniContents", displayName);
     return (
         <ul className={`game-guide pt-3`}>
             <li className="guide-item-instant game-microsite">
