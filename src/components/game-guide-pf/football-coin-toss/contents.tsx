@@ -33,7 +33,11 @@ const renderHowPFInGame = (
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "FootballCoinToss" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/coin-toss/PF-flow-overall_${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
+                <img
+                    src={`./static/images/pf/football-coin-toss/PF-flow-overall_${locale}.png?v=${verImg}`}
+                    width={"1100px"}
+                    alt="pf"
+                ></img>
             </div>
         </li>
     );
@@ -41,8 +45,7 @@ const renderHowPFInGame = (
 
 const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     const finalHash =
-        "aa42f62531a0825e273d5ac91a6d899ae86fe7d763197847f8ec93d202c5000fa4bec33798b363b096f290ef0b7548be9d436b149dcfc3a6ee55472a146ae838";
-    const digits = sliceValueFromSHA512(finalHash);
+        "c357c1a94d809049445c7a189f085b0fa7b55f5569d5d4e60de7fefa3c35f30405d6f63eb952bd6724e7888126aa55787d47a0a4371c7eab0b605bd12d627587";
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
@@ -57,19 +60,19 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={Styles["section-info"]}>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>{t("pf_round", { ns: TogleeNamespace.Common })}:</div>
-                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>39876</div>
+                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>273884</div>
                     </div>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>
                             <Markup content={t("pf_result", { ns: TogleeNamespace.Common })} />:
                         </div>
                         <div className={`${Styles["value"]} ${Styles["result"]}`}>
-                            <img src={`/static/images/pf/coin-toss/result-head.png?v=${verImg}`} alt="head" />
+                            <img src={`/static/images/pf/football-coin-toss/result-home.png?v=${verImg}`} alt="head" />
                             {"  - "}
                         </div>
 
                         <div className={`${Styles["value"]} ${Styles["highlight-text"]} ${Styles["key"]}`}>
-                            {t("glossary_away", { ns: "FootballCoinToss" })}
+                            {t("glossary_home", { ns: "FootballCoinToss" })}
                         </div>
                     </div>
                 </div>
@@ -78,11 +81,11 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         {<Markup content={t("pf_server_seed_sha256", { ns: TogleeNamespace.Common })} />}
                     </div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                        4e296f53ad731306887dd8b1d73c7efaec5462979503e2356d44b074e5c7ce46<span className={Styles["icon-copy"]}></span>{" "}
+                        dd2c67159028b2ac4b5c9a73e85d25b484aab8aba9145efa70e3419d9817147d<span className={Styles["icon-copy"]}></span>{" "}
                     </div>
                     <div className={Styles["title-style"]}>{<Markup content={t("pf_server_Seed", { ns: TogleeNamespace.Common })} />}</div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                        AiICFSidLi5rZ0n9RkYijn3x18kPpC3tQq7v7mWf <span className={Styles["icon-copy"]}></span>
+                        iQY1erK3cgHC8Ei4ATszfLafDyqAbwdMkk926BRY <span className={Styles["icon-copy"]}></span>
                     </div>
                 </div>
                 <div className={`${Styles["client-section"]} ${Styles["bg-section"]}`}>
@@ -97,39 +100,39 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                             <div className={Styles["player-seed"]}>
                                 <div className={Styles["name"]}>
                                     <span>{t("pf_player", { ns: TogleeNamespace.Common })} </span>
-                                    <span>1 (M***084)</span>
+                                    <span>1 (R***332)</span>
                                 </div>
-                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>9819</div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>58</div>
                             </div>
                             <div className={Styles["player-seed"]}>
                                 <div className={Styles["name"]}>
                                     <span>{t("pf_player", { ns: TogleeNamespace.Common })} </span>
-                                    <span>2 (L***697)</span>
+                                    <span>2 (W***693)</span>
                                 </div>
-                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>6493</div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>41</div>
                             </div>
                             <div className={Styles["player-seed"]}>
                                 <div className={Styles["name"]}>
                                     <span>{t("pf_player", { ns: TogleeNamespace.Common })} </span>
-                                    <span>3 (S***580)</span>
+                                    <span>3 (W***831)</span>
                                 </div>
-                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>7520</div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>6229</div>
                             </div>
                         </div>
                         <div>
                             <div className={Styles["player-seed"]}>
                                 <div className={Styles["name"]}>
                                     <span>{t("pf_player", { ns: TogleeNamespace.Common })} </span>
-                                    <span>4 (C***304)</span>
+                                    <span>4 (N***793)</span>
                                 </div>
-                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>132</div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>5153</div>
                             </div>
                             <div className={Styles["player-seed"]}>
                                 <div className={Styles["name"]}>
                                     <span>{t("pf_player", { ns: TogleeNamespace.Common })} </span>
-                                    <span>5 (S***558)</span>
+                                    <span>5 (M***355)</span>
                                 </div>
-                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>2465</div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>24</div>
                             </div>
                         </div>
                     </div>
@@ -138,7 +141,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                             {<Markup content={t("pf_ header_merge_client_seed", { ns: "Common" })} />}
                         </div>
                         <div className={Styles["text-section"]}>
-                            9819649375201322465 <span className={Styles["icon-copy"]}></span>
+                            58416229515324 <span className={Styles["icon-copy"]}></span>
                         </div>
                     </div>
                 </div>
@@ -149,7 +152,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                             <span className={Styles["icon-info"]}></span>
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                            aa42f62531a0825e273d5ac91a6d899ae86fe7d763197847f8ec93d202c5000fa4bec33798b363b096f290ef0b7548be9d436b149dcfc3a6ee55472a146ae838
+                            c357c1a94d809049445c7a189f085b0fa7b55f5569d5d4e60de7fefa3c35f30405d6f63eb952bd6724e7888126aa55787d47a0a4371c7eab0b605bd12d627587
                             <span className={Styles["icon-copy"]}></span>
                         </div>
                     </div>
@@ -163,7 +166,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
 
 const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     const finalHash =
-        "aa42f62531a0825e273d5ac91a6d899ae86fe7d763197847f8ec93d202c5000fa4bec33798b363b096f290ef0b7548be9d436b149dcfc3a6ee55472a146ae838";
+        "c357c1a94d809049445c7a189f085b0fa7b55f5569d5d4e60de7fefa3c35f30405d6f63eb952bd6724e7888126aa55787d47a0a4371c7eab0b605bd12d627587";
     const digits = takeFirstValueFromSHA512(5, finalHash);
     const match = { home: "home", away: "away" };
     return (
@@ -172,7 +175,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={Styles["popup-title-text"]}>
                     {t("pf_title_verification", { ns: TogleeNamespace.Common })}{" "}
                     <span className={Styles["text-round"]}>
-                        ({t("pf_round", { ns: TogleeNamespace.Common })}: <span className={Styles["round-id"]}>39876</span>)
+                        ({t("pf_round", { ns: TogleeNamespace.Common })}: <span className={Styles["round-id"]}>273884</span>)
                     </span>
                 </div>
                 <div className={Styles["icon-close"]}></div>
@@ -180,16 +183,16 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             <div className={Styles["info-seed"]}>
                 <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>AiICFSidLi5rZ0n9RkYijn3x18kPpC3tQq7v7mWf</span>
+                    <span>iQY1erK3cgHC8Ei4ATszfLafDyqAbwdMkk926BRY</span>
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>9819649375201322465</span>
+                    <span>58416229515324</span>
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                     <span className={Styles["combined-hash"]}>
-                        aa42f62531a0825e273d5ac91a6d899ae86fe7d763197847f8ec93d202c5000fa4bec33798b363b096f290ef0b7548be9d436b149dcfc3a6ee55472a146ae838
+                        c357c1a94d809049445c7a189f085b0fa7b55f5569d5d4e60de7fefa3c35f30405d6f63eb952bd6724e7888126aa55787d47a0a4371c7eab0b605bd12d627587
                     </span>
                 </div>
             </div>
