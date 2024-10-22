@@ -57,6 +57,7 @@ const BacBallGameGuide = dynamic(() => import("./bac-ball"));
 const NextBallGameGuide = dynamic(() => import("./next-ball"));
 const SeBallGameGuide = dynamic(() => import("./se-ball"));
 const CoinTossGuide = dynamic(() => import("./coin-toss"));
+const SevenUpDownGuide = dynamic(() => import("./seven-up-down"));
 const SeDie3Guide = dynamic(() => import("./sedie3"));
 const KaraKrusGuide = dynamic(() => import("./karakrus"));
 const LuckyThreeGameGuide = dynamic(() => import("./lucky-three"));
@@ -204,6 +205,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <SeBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.COIN_TOSS:
                 return <CoinTossGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SEVEN_UP_DOWN:
+                return <SevenUpDownGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.LUCKY_THREE:
                 return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.SE_DIE3:
