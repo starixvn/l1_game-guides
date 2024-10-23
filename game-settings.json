@@ -334,5 +334,9 @@
     "101": {
         "id": 101,
         "gameName": "Speed Baccarat 3"
+    },
+    "103": {
+        "id": 103,
+        "gameName": "7 Up 7 Down"
     }
 }

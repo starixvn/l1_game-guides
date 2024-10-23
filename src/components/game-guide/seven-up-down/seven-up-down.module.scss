@@ -1,3 +1,27 @@
-.nowrap{
+.nowrap {
     white-space: nowrap;
+}
+
+.sha-verify-box {
+    position: relative;
+
+    %text {
+        position: absolute;
+        color: #000;
+    }
+
+    .sha-result {
+        @extend %text;
+        top: 4rem;
+        left: 2rem;
+        font-size: 1.4rem;
+    }
+
+    .sha-key {
+        @extend %text;
+        top: 3.4rem;
+        left: 0.4rem;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+    }
 }

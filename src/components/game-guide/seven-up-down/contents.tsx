@@ -150,6 +150,69 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
     );
 };
 
+const renderSHA256 = (t: Function) => {
+    const exampleResult = `{6,1}`;
+    const exampleMultiplier = `{2x:2-6}`;
+
+    return (
+        <li className="guide-item">
+            <h2>{t("sha256_title", { ns: "Common" })}</h2>
+            <ul className="style-number-dot">
+                <li className="number-dot">
+                    <span className="title-text"> {t("sha256_technology_title", { ns: "Common" })}</span>
+                    <ul className="desc">
+                        <li>{t("sha256_technology_1", { ns: "Common" })}</li>
+                        <li>{t("sha256_technology_2", { ns: "Common" })}</li>
+                        <li>{t("sha256_technology_3", { ns: "Common" })}</li>
+                    </ul>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text"> {t("sha256_validation_title", { ns: "Common" })}</span>
+                    <p>{t("sha256_validation_1", { ns: "Common" })}</p>
+                    <ul className="desc">
+                        <li>
+                            <Markup content={t("sha256_validation_2", { ns: "Common" })} />
+                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-key.png" alt="sha-key" />
+                        </li>
+                        <li>
+                            <Markup content={t("sha256_validation_3", { ns: "Common" })} />
+                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-result.png" alt="sha-result" />
+                            <p>
+                                <Markup content={t("sha256_validation_4", { ns, result: exampleResult, multiplier: exampleMultiplier })} />
+                            </p>
+                        </li>
+                        <li>
+                            <Markup content={t("sha256_validation_5", { ns: "Common" })} />
+                            <div className={`${Styles["sha-verify-box"]}  auto-center`}>
+                                <img
+                                    className="format-img "
+                                    src="/static/images/seven-up-down/verify-result-box.png"
+                                    alt="verify-result-box"
+                                />
+                                <span className={Styles["sha-result"]}>{`{1,6,2x:7}_{#1659020f56c148a9fc3c59c0fe}`}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <Markup content={t("sha256_validation_6", { ns: "Common" })} />
+                            <div className={`${Styles["sha-verify-box"]}  auto-center`}>
+                                <img
+                                    className="format-img"
+                                    src="/static/images/seven-up-down/after-verify-result.png"
+                                    alt="verify-result-box"
+                                />
+                                <span className={Styles["sha-key"]}>3190808418b6ba7214397b7dd137a035f4d9c5f5d5a7b0b9cc8c16b26204138a</span>
+                            </div>
+                        </li>
+                        <p>
+                            <Markup content={t("sha256_validation_7", { ns: "Common" })} />
+                        </p>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    );
+};
+
 const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
     const { t } = useTranslate([ns, "Common"]);
 
@@ -162,6 +225,7 @@ const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalO
             {renderGameRules(t, userStakeLevel, fractionalOddsFormat)}
             {renderMultiplierFeatures(t, gameConfigs, fractionalOddsFormat)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
+            {renderSHA256(t)}
             <TermsAndConditionsTolgee />
         </ul>
     );
