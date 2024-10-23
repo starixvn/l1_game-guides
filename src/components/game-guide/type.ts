@@ -66,4 +66,5 @@ export type GameConfigs = {
     chips?: number[];
     stakeLevels?: number[];
     extraFeeRatio?: number;
+    multiplierRange?: any;
 };

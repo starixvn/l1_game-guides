@@ -73,19 +73,17 @@ const renderGameRules = (t: Function, userStakeLevel: UserStakeLevelProps | unde
 };
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractionalOddsFormat?: boolean) => {
-    const minMultiplier = 2;
-    const maxMultiplier = 8;
+    const { multiplierRange, odds } = gameConfigs;
     const exampleMultiplier = 5;
     const exampleStake = 100;
-    console.log("-----: GameConfigs", gameConfigs);
-    const oddsSeven = gameConfigs.odds?.seven;
+    const oddsSeven = odds?.seven;
 
     return (
         <li className="guide-item">
             <h2>{t("multiplier_feature_title", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>
-                    <Markup content={t("multiplier_para_1", { ns, min_value: minMultiplier, max_value: maxMultiplier })} />
+                    <Markup content={t("multiplier_para_1", { ns, min_value: multiplierRange?.min, max_value: multiplierRange?.max })} />
                 </li>
                 <li>{t("multiplier_para_2", { ns })}</li>
             </ul>
