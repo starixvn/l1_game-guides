@@ -170,11 +170,15 @@ const renderSHA256 = (t: Function) => {
                     <ul className="desc">
                         <li>
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
-                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-key.png" alt="sha-key" />
+                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-key.png?v=2" alt="sha-key" />
                         </li>
                         <li>
                             <Markup content={t("sha256_validation_3", { ns: "Common" })} />
-                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-result.png" alt="sha-result" />
+                            <img
+                                className="format-img auto-center "
+                                src="/static/images/seven-up-down/sha-result.png?v=2"
+                                alt="sha-result"
+                            />
                             <p>
                                 <Markup content={t("sha256_validation_4", { ns, result: exampleResult, multiplier: exampleMultiplier })} />
                             </p>
@@ -184,7 +188,7 @@ const renderSHA256 = (t: Function) => {
                             <div className={`${Styles["sha-verify-box"]}  auto-center`}>
                                 <img
                                     className="format-img "
-                                    src="/static/images/seven-up-down/verify-result-box.png"
+                                    src="/static/images/seven-up-down/verify-result-box.png?v=2"
                                     alt="verify-result-box"
                                 />
                                 <span className={Styles["sha-result"]}>{`{1,6,2x:7}_{#1659020f56c148a9fc3c59c0fe}`}</span>
@@ -195,7 +199,7 @@ const renderSHA256 = (t: Function) => {
                             <div className={`${Styles["sha-verify-box"]}  auto-center`}>
                                 <img
                                     className="format-img"
-                                    src="/static/images/seven-up-down/after-verify-result.png"
+                                    src="/static/images/seven-up-down/after-verify-result.png?v=2"
                                     alt="verify-result-box"
                                 />
                                 <span className={Styles["sha-key"]}>3190808418b6ba7214397b7dd137a035f4d9c5f5d5a7b0b9cc8c16b26204138a</span>

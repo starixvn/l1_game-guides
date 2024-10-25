@@ -7,20 +7,19 @@
 
     %text {
         position: absolute;
+        top: 3.4rem;
         color: #000;
     }
 
     .sha-result {
         @extend %text;
-        top: 4rem;
         left: 2rem;
         font-size: 1.4rem;
     }
 
     .sha-key {
         @extend %text;
-        top: 3.4rem;
-        left: 0.4rem;
+        left: 1.4rem;
         font-size: 1.6rem;
         text-transform: uppercase;
     }
