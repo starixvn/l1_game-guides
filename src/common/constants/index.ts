@@ -169,7 +169,7 @@ export const TolgeeConfig = {
 };
 
 // type = 2
-export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT];
+export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT, GAMES.WAY_TO_GOAL];
 
 export const GAMES_LUCKY_BACCARAT = [
     GAMES.LUCKY_BACCARAT,

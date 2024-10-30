@@ -174,8 +174,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.UNBALANCEDBIGSMALL3:
             case GAMES.UNBALANCEDBIGSMALL4:
                 return <MultiplayBigSmallGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.WAY_TO_GOAL:
-                return <WayToGoalGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FRUIT_SLOT:
                 return <FruitSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FANTAN:
