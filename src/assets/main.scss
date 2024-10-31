@@ -344,7 +344,7 @@
     --border-line: #323232 1px solid;
 }
 
-[data-theme="number-game"] {
+%number-game {
     --page-background: #191a1e;
     --primary-color: #ffbc11;
     --text-color: #9ca3ae;
@@ -375,6 +375,21 @@
         font-family: "Montserrat", sans-serif !important;
         font-size: 1.3rem;
     }
+}
+
+[data-theme="number-game"] {
+    @extend %number-game;
+}
+
+[data-theme="number-game-instant"] {
+    @extend %number-game;
+    html {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 2.2rem;
+    }
+    // font-size
+    --font-size: 2.2rem;
+    --font-size-table: 2.2rem;
 }
 
 html {
