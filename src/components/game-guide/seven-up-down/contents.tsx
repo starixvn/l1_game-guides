@@ -180,7 +180,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
                             <img
                                 className={Styles["example-img"]}
-                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.png`}
+                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.webp`}
                                 alt="sha-key"
                             />
                         </li>
@@ -188,7 +188,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
                             <Markup content={t("sha256_validation_3", { ns: "Common" })} />
                             <img
                                 className={Styles["example-img"]}
-                                src={`/static/images/seven-up-down/SHA-256-result-${currentLang}.png?v=3`}
+                                src={`/static/images/seven-up-down/SHA-256-result-${currentLang}.webp`}
                                 alt="sha-result"
                             />
                             <p>
