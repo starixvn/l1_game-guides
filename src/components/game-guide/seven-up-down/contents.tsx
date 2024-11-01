@@ -154,12 +154,12 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
     );
 };
 
-const renderSHA256 = (t: Function) => {
+const renderSHA256 = (t: Function, locale: string | undefined) => {
     const result = "{1,6}";
     const multiplier = "2x";
     const choice = "7";
     const multiplierChoice = `{2x:${choice}}`;
-
+    const currentLang = locale || "en";
     return (
         <li className="guide-item">
             <h2>{t("sha256_title", { ns: "Common" })}</h2>
@@ -178,11 +178,19 @@ const renderSHA256 = (t: Function) => {
                     <ul className="desc">
                         <li>
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
-                            <img className={Styles["example-img"]} src="/static/images/seven-up-down/sha-key.png?v=3" alt="sha-key" />
+                            <img
+                                className={Styles["example-img"]}
+                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.png`}
+                                alt="sha-key"
+                            />
                         </li>
                         <li>
                             <Markup content={t("sha256_validation_3", { ns: "Common" })} />
-                            <img className={Styles["example-img"]} src="/static/images/seven-up-down/sha-result.png?v=3" alt="sha-result" />
+                            <img
+                                className={Styles["example-img"]}
+                                src={`/static/images/seven-up-down/SHA-256-result-${currentLang}.png?v=3`}
+                                alt="sha-result"
+                            />
                             <p>
                                 <Markup
                                     content={t("sha256_validation_4", {
@@ -239,7 +247,7 @@ const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalO
             {renderGameRules(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             {renderMultiplierFeatures(t, gameConfigs, fractionalOddsFormat)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            {renderSHA256(t)}
+            {renderSHA256(t, locale)}
             <TermsAndConditionsTolgee />
         </ul>
     );
