@@ -2,8 +2,14 @@
     white-space: nowrap;
 }
 
+.example-img {
+    display: flex;
+    margin: 1rem auto;
+}
+
 .sha-verify-box {
     position: relative;
+    display: inline-flex;
 
     %text {
         position: absolute;

@@ -6,13 +6,17 @@ import { formatOdds, formatOddsWithoutOne, numberWithCommas } from "../../../hel
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
-import gameConfigs from "./game-configs";
 import Styles from "./seven-up-down.module.scss";
 import { SevenUpDownContentsProps } from "./type";
 
 const ns = "7Up7Down";
 
-const renderGameRules = (t: Function, userStakeLevel: UserStakeLevelProps | undefined, fractionalOddsFormat?: boolean) => {
+const renderGameRules = (
+    t: Function,
+    gameConfigs: GameConfigs,
+    userStakeLevel: UserStakeLevelProps | undefined,
+    fractionalOddsFormat?: boolean
+) => {
     const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
@@ -73,7 +77,7 @@ const renderGameRules = (t: Function, userStakeLevel: UserStakeLevelProps | unde
 };
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractionalOddsFormat?: boolean) => {
-    const { multiplierRange, odds } = gameConfigs;
+    const { multipliers, odds } = gameConfigs;
     const exampleMultiplier = 5;
     const exampleStake = 100;
     const oddsSeven = odds?.seven;
@@ -83,7 +87,9 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
             <h2>{t("multiplier_feature_title", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>
-                    <Markup content={t("multiplier_para_1", { ns, min_value: multiplierRange?.min, max_value: multiplierRange?.max })} />
+                    <Markup
+                        content={t("multiplier_para_1", { ns, min_value: Math.min(...multipliers), max_value: Math.max(...multipliers) })}
+                    />
                 </li>
                 <li>{t("multiplier_para_2", { ns })}</li>
             </ul>
@@ -105,8 +111,8 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
                         <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: "Common" })}</th>
                         <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: "Common" })}</th>
                         <th className={`bold ${Styles["nowrap"]}`}>{t("title_multiplier", { ns: "Common" })}</th>
-                        <th className={`bold ${Styles["nowrap"]}`}>{t("stake", { ns })}</th>
-                        <th className={`bold ${Styles["nowrap"]}`}>{t("win", { ns })}</th>
+                        <th className={`bold ${Styles["nowrap"]}`}>{t("header_stake", { ns: "Common" })}</th>
+                        <th className={`bold ${Styles["nowrap"]}`}>{t("header_win", { ns: "Common" })}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -119,7 +125,7 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
                             <span className={Styles["highlight-text"]}>
                                 {(oddsSeven - 1) * exampleMultiplier * exampleStake + exampleStake}{" "}
                             </span>
-                            <br />{" "}
+                            <br />
                             <span>
                                 ({oddsSeven - 1} * {exampleMultiplier} * {exampleStake} + {exampleStake})
                             </span>
@@ -172,15 +178,11 @@ const renderSHA256 = (t: Function) => {
                     <ul className="desc">
                         <li>
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
-                            <img className="format-img auto-center " src="/static/images/seven-up-down/sha-key.png?v=3" alt="sha-key" />
+                            <img className={Styles["example-img"]} src="/static/images/seven-up-down/sha-key.png?v=3" alt="sha-key" />
                         </li>
                         <li>
                             <Markup content={t("sha256_validation_3", { ns: "Common" })} />
-                            <img
-                                className="format-img auto-center "
-                                src="/static/images/seven-up-down/sha-result.png?v=3"
-                                alt="sha-result"
-                            />
+                            <img className={Styles["example-img"]} src="/static/images/seven-up-down/sha-result.png?v=3" alt="sha-result" />
                             <p>
                                 <Markup
                                     content={t("sha256_validation_4", {
@@ -197,8 +199,8 @@ const renderSHA256 = (t: Function) => {
                             <Markup content={t("sha256_validation_5", { ns: "Common" })} />
                             <div className={`${Styles["sha-verify-box"]}  auto-center`}>
                                 <img
-                                    className="format-img "
-                                    src="/static/images/seven-up-down/verify-result-box.png?v=2"
+                                    className={Styles["example-img"]}
+                                    src="/static/images/sh256/verify-result-box.png?v=2"
                                     alt="verify-result-box"
                                 />
                                 <span className={Styles["sha-result"]}>{`${result}${multiplierChoice}_{#1659020f56c148a9fc3c59c0fe}`}</span>
@@ -208,8 +210,8 @@ const renderSHA256 = (t: Function) => {
                             <Markup content={t("sha256_validation_6", { ns: "Common" })} />
                             <div className={`${Styles["sha-verify-box"]}  auto-center`}>
                                 <img
-                                    className="format-img"
-                                    src="/static/images/seven-up-down/after-verify-result.png?v=2"
+                                    className={Styles["example-img"]}
+                                    src="/static/images/sh256/after-verify-result.png?v=2"
                                     alt="verify-result-box"
                                 />
                                 <span className={Styles["sha-key"]}>B0A90EF51E4106E6B36943019C0F1D570333DC19EF96B925AE158A859F4BA88E</span>
@@ -234,7 +236,7 @@ const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalO
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <p className="content">{t("intro_para", { ns })}</p>
             </li>
-            {renderGameRules(t, userStakeLevel, fractionalOddsFormat)}
+            {renderGameRules(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             {renderMultiplierFeatures(t, gameConfigs, fractionalOddsFormat)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
             {renderSHA256(t)}
