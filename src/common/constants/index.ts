@@ -146,6 +146,7 @@ export const GAMES_MINI = {
     COLOR_GAME: 71,
     COIN_TOSS: 80,
     FOOTBALL_COIN_TOSS: 93,
+    SEVEN_UP_DOWN: 103,
 };
 
 export const GAMES_PF = {
