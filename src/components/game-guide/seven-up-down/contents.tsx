@@ -119,10 +119,10 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
                     <tr>
                         <td>7</td>
                         <td>{formatOddsWithoutOne(oddsSeven, fractionalOddsFormat)}</td>
-                        <td>{`${exampleMultiplier}x`}</td>
+                        <td className={Styles["highlight-multiplier"]}>{`${exampleMultiplier}x`}</td>
                         <td>{exampleStake}</td>
                         <td>
-                            <span className={Styles["highlight-text"]}>
+                            <span className={Styles["highlight-win"]}>
                                 {(oddsSeven - 1) * exampleMultiplier * exampleStake + exampleStake}{" "}
                             </span>
                             <br />
