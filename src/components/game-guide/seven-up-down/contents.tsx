@@ -80,7 +80,8 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
     const { multipliers, odds } = gameConfigs;
     const exampleMultiplier = 8;
     const exampleStake = 100;
-    const oddsSeven = odds?.seven;
+    const oddsSeven = formatOddsWithoutOne(odds?.seven, fractionalOddsFormat);
+    const oddsSevenCheckFractionalFormat = fractionalOddsFormat ? oddsSeven : +oddsSeven - 1;
 
     return (
         <li className="guide-item">
@@ -118,17 +119,18 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
                 <tbody>
                     <tr>
                         <td>7</td>
-                        <td>{formatOddsWithoutOne(oddsSeven, fractionalOddsFormat)}</td>
+                        <td>{oddsSeven}</td>
                         <td className={Styles["highlight-multiplier"]}>{`${exampleMultiplier}x`}</td>
                         <td>{exampleStake}</td>
                         <td>
                             <span className={Styles["highlight-win"]}>
-                                {(oddsSeven - 1) * exampleMultiplier * exampleStake + exampleStake}{" "}
+                                {+oddsSevenCheckFractionalFormat * exampleMultiplier * exampleStake + exampleStake}{" "}
                             </span>
                             <br />
                             <span>
-                                ({oddsSeven - 1} * <span className={Styles["highlight-multiplier"]}>{exampleMultiplier}</span> *{" "}
-                                {exampleStake} + {exampleStake})
+                                ({oddsSevenCheckFractionalFormat} *
+                                <span className={Styles["highlight-multiplier"]}>{exampleMultiplier}</span> * {exampleStake} +{" "}
+                                {exampleStake})
                             </span>
                         </td>
                     </tr>
@@ -181,7 +183,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
                             <img
                                 className={Styles["example-img"]}
-                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.webp`}
+                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.webp?v=2`}
                                 alt="sha-key"
                             />
                         </li>
@@ -189,7 +191,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
                             <Markup content={t("sha256_validation_3", { ns: "Common" })} />
                             <img
                                 className={Styles["example-img"]}
-                                src={`/static/images/seven-up-down/SHA-256-result-${currentLang}.webp`}
+                                src={`/static/images/seven-up-down/SHA-256-result-${currentLang}.webp?v=2`}
                                 alt="sha-result"
                             />
                             <p>
