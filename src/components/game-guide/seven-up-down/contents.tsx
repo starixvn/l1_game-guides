@@ -78,7 +78,7 @@ const renderGameRules = (
 
 const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractionalOddsFormat?: boolean) => {
     const { multipliers, odds } = gameConfigs;
-    const exampleMultiplier = 5;
+    const exampleMultiplier = 8;
     const exampleStake = 100;
     const oddsSeven = odds?.seven;
 
@@ -127,7 +127,8 @@ const renderMultiplierFeatures = (t: Function, gameConfigs: GameConfigs, fractio
                             </span>
                             <br />
                             <span>
-                                ({oddsSeven - 1} * {exampleMultiplier} * {exampleStake} + {exampleStake})
+                                ({oddsSeven - 1} * <span className={Styles["highlight-multiplier"]}>{exampleMultiplier}</span> *{" "}
+                                {exampleStake} + {exampleStake})
                             </span>
                         </td>
                     </tr>
