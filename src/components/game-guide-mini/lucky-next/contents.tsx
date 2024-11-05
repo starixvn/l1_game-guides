@@ -15,7 +15,7 @@ const renderBetLimit = (t: Function, gameConfigs: GameConfigs, userStakeLevel: U
 
     return (
         <li className="guide-item-instant game-microsite">
-            <h2>{t("title_bet_limit", { ns: "Common" })}</h2>
+            <h2>{t("betlimit_payout_title", { ns: "Common" })}</h2>
 
             <ul className="desc">
                 <li>
@@ -57,8 +57,6 @@ const renderWinningCondition = (t: Function) => {
             <ul className="desc">
                 <li>{t("gamerules_para_2")}</li>
                 <li>{t("gamerules_para_3")}</li>
-                <li>{t("gamerules_para_4")}</li>
-                <li>{t("gamerules_para_5")}</li>
             </ul>
             <p>{t("gamerules_para_6")}</p>
         </li>
@@ -70,7 +68,7 @@ const LuckyNextMiniContents: React.FC<LuckyNextInstantGameContentsProps> = ({ ga
     return (
         <ul className={`game-guide pt-3`}>
             <li className="guide-item-instant game-microsite">
-                <p className="content">{t("intro_para_1", { ns: "LuckyNextInstant", gamename: displayName })}</p>
+                <p>{t("intro_para_1", { ns: "LuckyNextInstant", gamename: displayName })}</p>
             </li>
             {renderWinningCondition(t)}
             {renderBetLimit(t, gameConfigs, userStakeLevel)}

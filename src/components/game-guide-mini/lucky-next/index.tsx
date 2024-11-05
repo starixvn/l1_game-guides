@@ -19,7 +19,7 @@ const tolgee = Tolgee()
     });
 
 const LuckyNextMiniGuide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, locale, displayName } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, userStakeLevel, locale, gameName } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
     const [isLoading, setIsLoading] = useState(true);
     const getLocalGameConfigs = () => {
@@ -57,7 +57,7 @@ const LuckyNextMiniGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <LuckyNextMiniContents {...{ gameConfigs: configs, userStakeLevel, displayName }} />
+            <LuckyNextMiniContents {...{ gameConfigs: configs, userStakeLevel, displayName: gameName }} />
         </TolgeeProvider>
     );
 };
