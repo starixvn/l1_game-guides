@@ -165,8 +165,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.HILO:
                 return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.NightClubGuide:
-                return <NightClubGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.TREASURE_ISLAND:
                 return <TreasureIslandGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.UNBALANCEDBIGSMALL1:

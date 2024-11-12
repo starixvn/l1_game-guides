@@ -80,7 +80,7 @@ export const GAMES = {
     TEXAS_HOLDEM_POKER: 42,
     BITCOIN_MASTER: 43,
     HILO: 45,
-    NightClubGuide: 46,
+    NIGHT_CLUB: 46,
     TREASURE_ISLAND: 47,
     UNBALANCEDBIGSMALL1: 50,
     BLOCKCHAIN_BACCARAT: 48,
@@ -169,7 +169,7 @@ export const TolgeeConfig = {
 };
 
 // type = 2
-export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT, GAMES.WAY_TO_GOAL];
+export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT, GAMES.WAY_TO_GOAL, GAMES.NIGHT_CLUB];
 
 export const GAMES_LUCKY_BACCARAT = [
     GAMES.LUCKY_BACCARAT,
