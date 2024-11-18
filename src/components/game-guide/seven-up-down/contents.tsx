@@ -183,7 +183,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
                             <Markup content={t("sha256_validation_2", { ns: "Common" })} />
                             <img
                                 className={Styles["example-img"]}
-                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.webp?v=2`}
+                                src={`/static/images/seven-up-down/SHA-256-${currentLang}.webp?v=3`}
                                 alt="sha-key"
                             />
                         </li>
