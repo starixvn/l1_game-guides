@@ -153,8 +153,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.KENO_MATCH_1:
             case GAMES.KENO_MATCH_2:
                 return <KenoMatchGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.HEROES_SLOT:
-                return <HeroesSlotGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.CASINO_HOLDEM_POKER:
                 return <CasinoHoldGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.KENO_POWER_1:
