@@ -145,8 +145,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <FishPrawnCrabVIPGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.VIP_SE_DIE_WAR:
                 return <SeDieWarGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.FOUR_GUARDIANS:
-                return <FourGuardiansGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.LOTTERY:
                 return <LotteryGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.THREE_CARDS:
