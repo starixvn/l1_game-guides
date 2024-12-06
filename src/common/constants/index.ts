@@ -134,6 +134,7 @@ export const GAMES = {
     FOOTBALL_COIN_TOSS: 93,
     SEVEN_UP_DOWN: 103,
     CHRISTMAS_X: 106,
+    MARBLE_FOOTBALL: 104,
 };
 
 export const GAMES_MINI = {
