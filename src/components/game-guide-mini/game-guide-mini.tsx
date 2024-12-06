@@ -5,6 +5,7 @@ import { withRouter } from "next/router";
 import { GAMES_MINI } from "../../common/constants";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import SevenUpDownMiniGuide from "./seven-up-down";
 
 export interface BaseState<TranslationResource> {
     translationResource: TranslationResource;
@@ -47,6 +48,8 @@ class GameGuideMini<P extends BaseProps> extends GuideBase<P> {
                 return <CoinTossMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_MINI.FOOTBALL_COIN_TOSS:
                 return <FootBallCoinTossMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_MINI.SEVEN_UP_DOWN:
+                return <SevenUpDownMiniGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;
         }
