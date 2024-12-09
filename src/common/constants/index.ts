@@ -133,6 +133,7 @@ export const GAMES = {
     SPEED_BACCARAT_3: 101,
     FOOTBALL_COIN_TOSS: 93,
     SEVEN_UP_DOWN: 103,
+    CHRISTMAS_X: 106,
 };
 
 export const GAMES_MINI = {

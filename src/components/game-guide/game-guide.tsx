@@ -10,6 +10,7 @@ import BaccaratXGameGuide from "./baccarat-x";
 import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
 import CascadingSlotGuide from "./cascading-slot-template";
 import ChineseBlackjackGameGuide from "./chinese-blackjack";
+import ChristmasXGuide from "./christmas-x";
 import ColorGameGuide from "./color-game";
 import DragontigerFightGuide from "./dragon-tiger-fight";
 import FootballDiceGameGuide from "./football-dice";
@@ -215,6 +216,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <PusoyGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.FOOTBALL_COIN_TOSS:
                 return <FootballCoinTossGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.CHRISTMAS_X:
+                return <ChristmasXGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
         }
