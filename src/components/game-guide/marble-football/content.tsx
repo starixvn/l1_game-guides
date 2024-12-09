@@ -59,9 +59,18 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
             <h2>{t("gamerules_title", { ns: COMMON })}</h2>
             <div className="content">
                 <ul className="desc">
-                    {generateChain(1, 7, (index) => (
+                    {generateChain(1, 4, (index) => (
                         <li key={index}>{t(`game_rules_para${index}`, { ns: MARBLE_FOOTBALL })}</li>
                     ))}
+                    <li>
+                        <Markup content={t(`game_rules_para5`, { ns: MARBLE_FOOTBALL })} />{" "}
+                    </li>
+                    <div>{t("example", { ns: COMMON })}</div>
+                    <ul className="desc">
+                        <li>{t("game_rules_para5_ex", { ns: MARBLE_FOOTBALL })}</li>
+                    </ul>
+                    <li>{t(`game_rules_para6`, { ns: MARBLE_FOOTBALL })}</li>
+                    <li>{t(`game_rules_para7`, { ns: MARBLE_FOOTBALL })}</li>
                     <li>
                         <T keyName="game_rules_para8" ns={MARBLE_FOOTBALL} params={{ maxbet: maxBet }} />
                     </li>
@@ -90,7 +99,9 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                 <ul className="desc">
                     <li>{t("payouts_para1", { ns: MARBLE_FOOTBALL })}</li>
                     <li>{t("payouts_para2", { ns: MARBLE_FOOTBALL })}</li>
-                    <T keyName="payouts_para3" ns={MARBLE_FOOTBALL} params={{ maxwin: numberWithCommas(maxWinPerRound || 0) }} />
+                    <li>
+                        <T keyName="payouts_para3" ns={MARBLE_FOOTBALL} params={{ maxwin: numberWithCommas(maxWinPerRound || 0) }} />
+                    </li>
                     <li>{t("payouts_para4", { ns: MARBLE_FOOTBALL })}</li>
                     <li>{t("payouts_para5", { ns: MARBLE_FOOTBALL })}</li>
                     <li className="contentBeforeEmpty">
