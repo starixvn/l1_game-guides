@@ -7,10 +7,11 @@ import appSettings from "../../common/app-settings";
 import { GAMES_PF, TolgeeConfig } from "../../common/constants";
 import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
-import FootballDiceVerification from "./football-dice";
-import SpaceFlightVerification from "./space-flight";
+import ChristmasXVerification from "./christmas-x";
 import CoinTossVerification from "./coin-toss";
+import FootballDiceVerification from "./football-dice";
 import FootballCoinTossVerification from "./footballl-coin-toss";
+import SpaceFlightVerification from "./space-flight";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -19,7 +20,7 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "th", "id", "zh_cn", "zh_tw"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["Spaceflight", "Common", "FootballDice"],
+        ns: ["Spaceflight", "Common", "FootballDice", "ChristmasX"],
         defaultNs: "Spaceflight",
     });
 
@@ -66,6 +67,12 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <FootballCoinTossVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
+            case GAMES_PF.CHRISTMAS_X:
+                return (
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <ChristmasXVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
                 );
             default:
