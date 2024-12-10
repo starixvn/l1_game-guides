@@ -11,9 +11,10 @@ import {
     convertToDecimal,
     renderFinalResult,
     takeFirstValueFromSHA512,
-} from "../../verification/space-flight";
+} from "../../verification/christmas-x";
 import { renderContentPFBase } from "../base";
 import Styles from "./christmas-pf-game.module.scss";
+import { ChristmasXPFContentsProps } from "./type";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
@@ -26,10 +27,10 @@ const renderHowPFInGame = (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_1", { ns: "Spaceflight", gamename: gameName })} />}</li>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_2", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_1", { ns: "ChristmasX", gamename: gameName })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_2", { ns: "ChristmasX" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "ChristmasX" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "ChristmasX" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
                 <img src={`${rootImgUrl}flow-overall-pf-${locale}.png?v=${verImg}`} alt="pf"></img>
@@ -59,11 +60,11 @@ const renderGameVerifierTool = (
 ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "Spaceflight" })}</span>
+            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "ChristmasX" })}</span>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_1", { ns: "Spaceflight" })} />} </li>
-                <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_2", { ns: "Spaceflight" })} />} </li>
-                <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_3", { ns: "Spaceflight" })} />} </li>
+                <li>{<Markup content={t("pf_christmasx_verifier_tool_para_1", { ns: "ChristmasX" })} />} </li>
+                <li>{<Markup content={t("pf_christmasx_verifier_tool_para_2", { ns: "ChristmasX" })} />} </li>
+                <li>{<Markup content={t("pf_christmasx_verifier_tool_para_3", { ns: "ChristmasX" })} />} </li>
                 <div className={Styles["intro-border"]}>
                     <span style={{ textAlign: "center" }}>
                         <strong className="pf-text-yellow">{t("pf_final_result", { ns: "Common" })}</strong> ={" "}
@@ -73,17 +74,17 @@ const renderGameVerifierTool = (
                     </span>
                 </div>
                 <ul className={Styles["plus-style"]}>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_5", { ns: "Spaceflight" })} />} </li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_6", { ns: "Spaceflight" })} />} </li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_7", { ns: "Spaceflight" })} />} </li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_13", { ns: "Spaceflight" })} />} </li>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_8", { ns: "Spaceflight" })} />} </li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_5", { ns: "ChristmasX" })} />} </li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_6", { ns: "ChristmasX" })} />} </li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_7", { ns: "ChristmasX" })} />} </li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_13", { ns: "ChristmasX" })} />} </li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_8", { ns: "ChristmasX" })} />} </li>
                 </ul>
                 <div className={Styles["center-img"]}>
                     <table className={Styles["tbl-example"]}>
                         <thead>
                             <tr>
-                                <td>{<Markup content={t("pf_header_the_result_after_calculating", { ns: "Spaceflight" })} />}</td>
+                                <td>{<Markup content={t("pf_header_the_result_after_calculating", { ns: "ChristmasX" })} />}</td>
                                 <td>{<Markup content={t("pf_final_result", { ns: "Common" })} />}</td>
                             </tr>
                         </thead>
@@ -103,15 +104,15 @@ const renderGameVerifierTool = (
                         </tbody>
                     </table>
                 </div>
-                <div>{<Markup content={t("pf_spaceflight_verifier_tool_para_9", { ns: "Spaceflight" })} />} </div>
+                <div>{<Markup content={t("pf_christmasx_verifier_tool_para_9", { ns: "ChristmasX" })} />} </div>
                 <ul className={Styles["circle-style"]}>
-                    <li>{<Markup content={t("pf_spaceflight_verifier_tool_para_10", { ns: "Spaceflight" })} />}</li>
+                    <li>{<Markup content={t("pf_christmasx_verifier_tool_para_10", { ns: "ChristmasX" })} />}</li>
                     <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_11", { ns: "Spaceflight" })} />}
+                        {<Markup content={t("pf_christmasx_verifier_tool_para_11", { ns: "ChristmasX" })} />}
                         {renderImageStep2(t, verImg)}
                     </li>
                     <li>
-                        {<Markup content={t("pf_spaceflight_verifier_tool_para_12", { ns: "Spaceflight" })} />}
+                        {<Markup content={t("pf_christmasx_verifier_tool_para_12", { ns: "ChristmasX" })} />}
                         {renderImageStep3(t, verImg)}
                     </li>
                 </ul>
@@ -139,7 +140,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     </div>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>
-                            <Markup content={t("glossary_crash_point", { ns: "Spaceflight" })} />:
+                            <Markup content={t("glossary_crash_point", { ns: "ChristmasX" })} />:
                         </div>
 
                         <div className={`${Styles["value"]} ${Styles["highlight-text"]} ${Styles["key"]}`}>2.67x</div>
@@ -270,17 +271,17 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{finalHash}</div>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_2", { ns: "Spaceflight", value: "8" })}: </strong>{" "}
+                    <strong>{t("pf_verification_para_2", { ns: "ChristmasX", value: "8" })}: </strong>{" "}
                     <span className={Styles["color-second"]}>{digits}</span>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_3", { ns: "Spaceflight" })} </strong>
+                    <strong>{t("pf_verification_para_3", { ns: "ChristmasX" })} </strong>
                     <span className={Styles["color-second"]}>
                         <pre>{convertHexToDecimalSteps(digits)}</pre>
                     </span>
                 </div>
                 <div>
-                    <strong>{t("pf_verification_para_4", { ns: "Spaceflight" })} </strong>
+                    <strong>{t("pf_verification_para_4", { ns: "ChristmasX" })} </strong>
 
                     <div className={Styles["color-second"]}>
                         {MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) ={" "}
@@ -295,16 +296,16 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
 const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}</span>
+            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "ChristmasX" })}</span>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Spaceflight" })} />}</li>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Spaceflight" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "ChristmasX" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "ChristmasX" })} />}</li>
             </ul>
         </li>
     );
 };
 const ChristmasXPFContents: React.FC<ChristmasXPFContentsProps> = ({ locale, displayName, name }) => {
-    const { t } = useTranslate(["Spaceflight", "Common"]);
+    const { t } = useTranslate(["ChristmasX", "Common"]);
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
