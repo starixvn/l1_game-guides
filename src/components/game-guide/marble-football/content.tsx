@@ -119,7 +119,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{t("bet_choice_home", { ns: COMMON })}</td>
+                                        <td>{t("glossary_home", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_home", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.home, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
@@ -127,7 +127,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_away", { ns: COMMON })}</td>
+                                        <td>{t("glossary_away", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_away", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.away, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
@@ -135,15 +135,19 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_draw", { ns: COMMON })}</td>
-                                        <td>{t("win_condition_draw", { ns: MARBLE_FOOTBALL })}</td>
+                                        <td rowSpan={2}>{t("glossary_draw", { ns: MARBLE_FOOTBALL })}</td>
+                                        <td>{t("win_condition_draw_4_4", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
-                                        <td className={Styles["nowrap"]}>
+                                        <td rowSpan={2} className={Styles["nowrap"]}>
                                             {minBetMain} - {maxBetDraw}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_over", { ns: COMMON })} 2.5</td>
+                                        <td>{t("win_condition_draw", { ns: MARBLE_FOOTBALL })}</td>
+                                        <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{t("glossary_over", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_over", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.over, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
@@ -151,7 +155,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_under", { ns: COMMON })} 2.5</td>
+                                        <td>{t("glossary_under", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_under", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.under, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
@@ -159,7 +163,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_odd", { ns: COMMON })}</td>
+                                        <td>{t("glossary_odd", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_odd", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.odd, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
@@ -167,7 +171,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{t("bet_choice_even", { ns: COMMON })}</td>
+                                        <td>{t("glossary_even", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_even", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                                         <td className={Styles["nowrap"]}>
