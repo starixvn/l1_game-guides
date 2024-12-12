@@ -10,6 +10,7 @@ const GameConfigs = {
         over: 1.97,
         odd: 1.97,
         even: 1.97,
+        draw4: 50,
     },
 };
 

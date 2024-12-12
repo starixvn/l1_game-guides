@@ -137,7 +137,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                     <tr>
                                         <td rowSpan={2}>{t("glossary_draw", { ns: MARBLE_FOOTBALL })}</td>
                                         <td>{t("win_condition_draw_4_4", { ns: MARBLE_FOOTBALL })}</td>
-                                        <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                        <td>{formatOdds(odds?.draw4, fractionalOddsFormat)}</td>
                                         <td rowSpan={2} className={Styles["nowrap"]}>
                                             {minBetMain} - {maxBetDraw}
                                         </td>
