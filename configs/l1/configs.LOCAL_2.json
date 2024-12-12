@@ -6,5 +6,5 @@
     "system": "L1",
     "enableSourceMap": true,
     "resourceUrl": "https://l1-proxy2.lumigame.com/game/static/",
-    "gameSettingUrl": "http://l1_admin_api_local_2:5000/api/public/game_configs/"
+    "gameSettingUrl": "http://l1-admin-api-local2-service:5000/api/public/game_configs/"
 }
