@@ -73,7 +73,7 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
                     <li>{t(`game_rules_para6`, { ns: MARBLE_FOOTBALL })}</li>
                     <li>{t(`game_rules_para7`, { ns: MARBLE_FOOTBALL })}</li>
                     <li>
-                        <T keyName="game_rules_para8" ns={MARBLE_FOOTBALL} params={{ maxbet: maxBet }} />
+                        <T keyName="game_rules_para8" ns={MARBLE_FOOTBALL} params={{ maxbet: numberWithCommas(maxBet) }} />
                     </li>
                 </ul>
             </div>
@@ -83,7 +83,7 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
 
 const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsFormat }: MarbleFootballContentProps) => {
     const { t } = useTranslate([MARBLE_FOOTBALL, COMMON]);
-    const { odds, maxBetPerChoices, minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.home));
     const maxBetAway = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.away));
