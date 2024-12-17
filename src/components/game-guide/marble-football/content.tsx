@@ -59,6 +59,7 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
             <h2>{t("gamerules_title", { ns: COMMON })}</h2>
             <div className="content">
                 <ul className="desc">
+                    <li>{t(`game_rules_para`, { ns: MARBLE_FOOTBALL })}</li>
                     {generateChain(1, 4, (index) => (
                         <li key={index}>{t(`game_rules_para${index}`, { ns: MARBLE_FOOTBALL })}</li>
                     ))}
@@ -99,9 +100,6 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                 <ul className="desc">
                     <li>{t("payouts_para1", { ns: MARBLE_FOOTBALL })}</li>
                     <li>{t("payouts_para2", { ns: MARBLE_FOOTBALL })}</li>
-                    <li>
-                        <T keyName="payouts_para3" ns={MARBLE_FOOTBALL} params={{ maxwin: numberWithCommas(maxWinPerRound || 0) }} />
-                    </li>
                     <li>{t("payouts_para4", { ns: MARBLE_FOOTBALL })}</li>
                     <li>{t("payouts_para5", { ns: MARBLE_FOOTBALL })}</li>
                     <li className="contentBeforeEmpty">
