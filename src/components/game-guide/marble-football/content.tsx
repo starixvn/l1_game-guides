@@ -66,8 +66,10 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
                     <li>
                         <Markup content={t(`game_rules_para5`, { ns: MARBLE_FOOTBALL })} />{" "}
                     </li>
-                    <div>{t("example", { ns: COMMON })}</div>
-                    <ul className="desc">
+                    <div className={`${Styles["example"]}`}>
+                        <Markup content={t(`example_bold`, { ns: COMMON })} />{" "}
+                    </div>
+                    <ul className={`${Styles["example-list"]}`}>
                         <li>{t("game_rules_para5_ex", { ns: MARBLE_FOOTBALL })}</li>
                     </ul>
                     <li>{t(`game_rules_para6`, { ns: MARBLE_FOOTBALL })}</li>
