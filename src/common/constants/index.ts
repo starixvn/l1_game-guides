@@ -135,6 +135,7 @@ export const GAMES = {
     SEVEN_UP_DOWN: 103,
     CHRISTMAS_X: 106,
     MARBLE_FOOTBALL: 104,
+    TAP_FORTUNE: 107,
 };
 
 export const GAMES_MINI = {

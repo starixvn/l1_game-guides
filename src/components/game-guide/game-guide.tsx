@@ -31,24 +31,20 @@ const KenoProMaxGuide = dynamic(() => import("./keno-pro-max"));
 const OddEvenTurboGuide = dynamic(() => import("./odd-even-turbo"));
 const BlackjackGuide = dynamic(() => import("./blackjack"));
 const SicBoGuide = dynamic(() => import("./sic-bo"));
-const FourGuardiansGuide = dynamic(() => import("./four-guardians"));
 const LotteryGuide = dynamic(() => import("./lottery"));
 const ThreeCardsGuide = dynamic(() => import("./three-cards"));
 const KenoMaxGuide = dynamic(() => import("./keno-pro-viet/keno-max"));
 const KenoMiniGuide = dynamic(() => import("./keno-pro-viet/keno-mini"));
 const RouletteGuide = dynamic(() => import("./roulette"));
 const LuckyWheelGuide = dynamic(() => import("./lucky-wheel"));
-const HeroesSlotGuide = dynamic(() => import("./heroes-slot"));
 const KenoMatchGuide = dynamic(() => import("./keno-match"));
 const KenoPowerGuide = dynamic(() => import("./keno-power"));
 const BitCoinMasterGuide = dynamic(() => import("./bitcoin-master"));
 const CasinoHoldGuide = dynamic(() => import("./casino-hold-em"));
 const HiLoGuide = dynamic(() => import("./hi-lo"));
 const TexasHoldGuide = dynamic(() => import("./texas-hold-em"));
-const NightClubGuide = dynamic(() => import("./night-club"));
 const TreasureIslandGuide = dynamic(() => import("./treasure-island"));
 const MultiplayBigSmallGuide = dynamic(() => import("./multiplay-big-small"));
-const WayToGoalGuide = dynamic(() => import("./way-to-goal"));
 const FruitSlotGuide = dynamic(() => import("./fruit-slot"));
 const FantanGuide = dynamic(() => import("./fantan/index"));
 const WinThreeCardsGuide = dynamic(() => import("./win-three-cards"));
@@ -65,6 +61,7 @@ const LuckyThreeGameGuide = dynamic(() => import("./lucky-three"));
 const PusoyGuide = dynamic(() => import("./pusoy"));
 const FootballCoinTossGuide = dynamic(() => import("./football-coin-toss"));
 const MarbleFootballGameGuide = dynamic(() => import("./marble-football"));
+const TapFortuneGuide = dynamic(() => import("./tap-fortune"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
@@ -219,6 +216,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <ChristmasXGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.MARBLE_FOOTBALL:
                 return <MarbleFootballGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.TAP_FORTUNE:
+                return <TapFortuneGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
         }
