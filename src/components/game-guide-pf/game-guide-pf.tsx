@@ -40,15 +40,39 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.NEXT_BALL_2:
                 return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.LUCKY_NEXT:
+                return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SPEED_LUCKY_NEXT:
+                return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.VIP_LUCKY_NEXT:
+                return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SE_BALL:
+                return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SE_DIE_NUMBER:
+                return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SPEED_SE_DIE_NUMBER:
+                return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.VIP_SE_DIE_NUMBER:
                 return <SeBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.COIN_TOSS:
                 return <CoinTossPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.LUCKY_THREE:
                 return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.TRIPLE_LUCK:
+                return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SPEED_TRIPLE_LUCK:
+                return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.VIP_TRIPLE_LUCK:
+                return <LuckyThreePFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.BAC81:
                 return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SIC_BALL:
+                return <SicBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SIC_BO_NUMBER:
+                return <SicBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SPEED_SIC_BO_NUMBER:
+                return <SicBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.VIP_SIC_BO_NUMBER:
                 return <SicBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return <></>;

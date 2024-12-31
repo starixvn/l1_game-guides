@@ -206,15 +206,39 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.NEXT_BALL_2:
                 return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.LUCKY_NEXT:
+                return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPEED_LUCKY_NEXT:
+                return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_LUCKY_NEXT:
+                return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.SE_BALL:
+                return <SeBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SE_DIE_NUMBER:
+                return <SeBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPEED_SE_DIE_NUMBER:
+                return <SeBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_SE_DIE_NUMBER:
                 return <SeBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.COIN_TOSS:
                 return <CoinTossGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.LUCKY_THREE:
                 return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.TRIPLE_LUCK:
+                return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPEED_TRIPLE_LUCK:
+                return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_TRIPLE_LUCK:
+                return <LuckyThreeGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BAC81:
                 return <BaccaratXGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.SIC_BALL:
+                return <SicBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SIC_BO_NUMBER:
+                return <SicBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPEED_SIC_BO_NUMBER:
+                return <SicBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_SIC_BO_NUMBER:
                 return <SicBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps);
