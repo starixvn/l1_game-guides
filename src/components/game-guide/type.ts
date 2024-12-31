@@ -67,4 +67,5 @@ export type GameConfigs = {
     stakeLevels?: number[];
     extraFeeRatio?: number;
     multipliers?: any;
+    betLevels?: number[];
 };

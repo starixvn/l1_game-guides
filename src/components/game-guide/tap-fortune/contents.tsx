@@ -13,14 +13,9 @@ const ns = "TapFortune";
 const renderGameRules = (
     t: Function,
     gameConfigs: GameConfigs,
-    userStakeLevel: UserStakeLevelProps | undefined,
-    fractionalOddsFormat?: boolean
 ) => {
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
-    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
-    const maxBetMain = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
-    const maxBetUp = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.up));
-    const maxBetSeven = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.seven));
+    const  maxValue = 320;
+    
 
     return (
         <li className="guide-item">
@@ -35,7 +30,7 @@ const renderGameRules = (
                     </ul>
                 </li>
                 <li>{t("gamerules_para_6", { ns })}</li>
-                <li>{t("gamerules_para_7", { ns,  value: maxBetMain})}</li>
+                <li>{t("gamerules_para_7", { ns,  value: maxValue})}</li>
             </ul>
         </li>
     );
@@ -43,9 +38,13 @@ const renderGameRules = (
 
 
 const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
-    const { maxWinPerRound, maxBet } = gameConfigs;
-    const maxBetMain = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
-    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetMain);
+    const {  betLevels } = gameConfigs;
+    const  maxValue = 320;
+    let maxBet = 0;
+    if(betLevels) {
+        maxBet = betLevels[betLevels.length - 1];
+    }
+    const maxWin = numberWithCommas( maxBet * maxValue);
 
     return (
         <li className="guide-item">
@@ -53,7 +52,6 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
             <ul className="desc">
                 <li>{<Markup content={t("payouts_para_3", { ns: "Common" })} />}</li>
                 <li>{t("payouts_para_2", { ns: "Common" })}</li>
-                <li>{t("payouts_para_1", { ns, min: 10, max: 20 })}</li>
                 <li>{t("payouts_para_2", { ns, maxWin: maxWin })}</li>
                 
             </ul>
@@ -70,7 +68,7 @@ const Contents: React.FC<TapFortuneContentsProps> = ({ gameConfigs, locale, user
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <p className="content">{t("intro_para_1", { ns, gamename: displayName })}</p>
             </li>
-            {renderGameRules(t, gameConfigs, userStakeLevel)}
+            {renderGameRules(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
             <TermsAndConditionsTolgee />
         </ul>
