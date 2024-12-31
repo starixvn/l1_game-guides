@@ -196,6 +196,12 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.BAC_BALL_2:
                 return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.BACARRAT_NUMBER:
+                return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.SPEED_BACARRAT_NUMBER:
+                return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.VIP_BACARRAT_NUMBER:
+                return <BacBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.NEXT_BALL_1:
                 return <NextBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.NEXT_BALL_2:

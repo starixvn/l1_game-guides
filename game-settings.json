@@ -266,5 +266,17 @@
     "1007": {
         "id": 1007,
         "gameName": "Sic Ball"
+    },
+    "1008": {
+        "id": 1008,
+        "gameName": "Baccarat Number"
+    },
+    "1009": {
+        "id": 1009,
+        "gameName": "Speed Baccarat Number"
+    },
+    "1010": {
+        "id": 1010,
+        "gameName": "VIP Baccarat Number"
     }
 }

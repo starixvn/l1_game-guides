@@ -30,6 +30,12 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.BAC_BALL_2:
                 return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.BACARRAT_NUMBER:
+                return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SPEED_BACARRAT_NUMBER:
+                return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.VIP_BACARRAT_NUMBER:
+                return <BacBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.NEXT_BALL_1:
                 return <NextBallPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.NEXT_BALL_2:
