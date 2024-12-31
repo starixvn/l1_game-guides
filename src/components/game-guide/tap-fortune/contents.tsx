@@ -2,8 +2,6 @@ import { useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import React from "react";
 
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { TapFortuneContentsProps } from "./type";
@@ -25,7 +23,7 @@ const renderGameRules = (
                 <li>{t("gamerules_para_2", { ns })}
                     <ul className="circle">
                         <li>{t("gamerules_para_3", { ns })}</li>
-                        <li>{t("gamerules_para_4", { ns })}</li>
+                        <li>{t("gamerules_para_4", { ns })} <img src="./static/images/tap-fortune/tap-button.png" alt="" width="40px" height="40px" /></li>
                         <li><Markup content={t("gamerules_para_5", { ns })} /></li>
                     </ul>
                 </li>
@@ -37,29 +35,20 @@ const renderGameRules = (
 };
 
 
-const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
-    const {  betLevels } = gameConfigs;
-    const  maxValue = 320;
-    let maxBet = 0;
-    if(betLevels) {
-        maxBet = betLevels[betLevels.length - 1];
-    }
-    const maxWin = numberWithCommas( maxBet * maxValue);
+const renderPayout = (t: Function) => {
 
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li>{<Markup content={t("payouts_para_3", { ns: "Common" })} />}</li>
-                <li>{t("payouts_para_2", { ns: "Common" })}</li>
-                <li>{t("payouts_para_2", { ns, maxWin: maxWin })}</li>
-                
+                <li>{t("payouts_para_2", { ns: "Common" })}</li>                
             </ul>
         </li>
     );
 };
 
-const Contents: React.FC<TapFortuneContentsProps> = ({ gameConfigs, locale, userStakeLevel, displayName }) => {
+const Contents: React.FC<TapFortuneContentsProps> = ({ gameConfigs, locale, displayName }) => {
     const { t } = useTranslate([ns, "Common"]);
 
     return (
@@ -69,7 +58,7 @@ const Contents: React.FC<TapFortuneContentsProps> = ({ gameConfigs, locale, user
                 <p className="content">{t("intro_para_1", { ns, gamename: displayName })}</p>
             </li>
             {renderGameRules(t, gameConfigs)}
-            {renderPayout(t, gameConfigs, userStakeLevel)}
+            {renderPayout(t)}
             <TermsAndConditionsTolgee />
         </ul>
     );

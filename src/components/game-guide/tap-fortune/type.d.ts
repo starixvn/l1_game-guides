@@ -1,4 +1,3 @@
-import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigs } from "../type";
 
 export interface OddsProps {
@@ -16,6 +15,5 @@ export interface ChoicesMaxBetProps {
 export type TapFortuneContentsProps = {
     locale: string | undefined;
     gameConfigs: GameConfigs;
-    userStakeLevel: UserStakeLevelProps | undefined;
     displayName: string | undefined;
 };
