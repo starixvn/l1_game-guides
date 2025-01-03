@@ -1,5 +1,5 @@
 import { TolgeeInstance } from "@tolgee/react";
-import { GAMES_CLASSIC_BACCARAT, GAMES_LUCKY_BACCARAT, GAMES_NEW_SLOT } from "../common/constants";
+import { GAMES_CLASSIC_BACCARAT, GAMES_LUCKY_BACCARAT, GAMES_NEW_SLOT, GAMES_USE_THEME_SLOT } from "../common/constants";
 
 const isNewSlotGame = (type: number, gameId: number) => {
     return type == 2 && (gameId > 62 || GAMES_NEW_SLOT.includes(gameId));
@@ -24,4 +24,8 @@ const isClassicOrSpeedBaccarat = (gameId: number) => {
     return GAMES_CLASSIC_BACCARAT.includes(gameId);
 };
 
-export { handleLanguage, isClassicOrSpeedBaccarat, isCrashGame, isLuckyBaccarat, isNewCascadingSlot, isNewSlotGame };
+const isUseThemeSlot = (type: number, gameId: number) => {
+    return type == 0 && GAMES_USE_THEME_SLOT.includes(gameId);
+};
+
+export { handleLanguage, isClassicOrSpeedBaccarat, isCrashGame, isLuckyBaccarat, isNewCascadingSlot, isNewSlotGame, isUseThemeSlot };

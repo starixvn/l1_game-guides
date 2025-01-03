@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
 import { ENVIRONMENT, buildVersion } from "../common/constants";
 import { ImgVersionProvider } from "../contexts/img-version";
-import { isNewCascadingSlot, isNewSlotGame } from "../helpers/game-helper";
+import { isNewCascadingSlot, isNewSlotGame, isUseThemeSlot } from "../helpers/game-helper";
 import { checkIsInteger } from "../helpers/number-helper";
 
 const GameGuideMini = dynamic(() => import("../components/game-guide-mini/game-guide-mini"));
@@ -47,7 +47,7 @@ const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: num
         fontFamily = "SanFranciscoDisplay";
     }
 
-    if (isNewSlotGame(gameType, gameId) || isNewCascadingSlot(gameType, gameId)) {
+    if (isNewSlotGame(gameType, gameId) || isNewCascadingSlot(gameType, gameId) || isUseThemeSlot(gameType, gameId)) {
         fontFamily = FontLocaleMapper[locale] ?? "Kodchasan";
     }
 
