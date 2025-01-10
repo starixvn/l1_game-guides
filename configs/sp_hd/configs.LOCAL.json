@@ -1,0 +1,10 @@
+{
+    "sentry": {
+        "dsn": "https://c65e9ef4f6c64d928f7b31ba355a44c2@sentry.lumigame.com/84",
+        "environment": "LOCAL"
+    },
+    "system": "hd",
+    "enableSourceMap": true,
+    "resourceUrl": "https://hd-proxy.lumigame.com/game/static/",
+    "gameSettingUrl": "http://sp-hd-admin-api-local-service:5000/api/public/game_configs/"
+}
