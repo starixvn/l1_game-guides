@@ -1,5 +1,5 @@
+import React, { JSX } from "react";
 import { Markup } from "interweave";
-import React from "react";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { getBaseMD5TranslationResource } from "./languages";
 import { IMd5Resources } from "./languages/types";
@@ -17,7 +17,6 @@ export type MD5Props = {
     validationDescription?: JSX.Element | string;
 };
 
-
 export type MD5MobiProps = {
     environment?: string;
     md5Key?: string;
@@ -34,12 +33,13 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
 
     renderMD5Content() {
         const { content } = this.state.translationResource;
-        const{validationDescription} = this.props;
-    
+        const { validationDescription } = this.props;
 
         return (
             <>
-                <a href="#md5"><h2> {content.header}</h2></a>
+                <a href="#md5">
+                    <h2> {content.header}</h2>
+                </a>
                 <ul className="style-number-dot">
                     <li className="number-dot">
                         <span className="title-text"> {content.technology.header}</span>
@@ -51,7 +51,7 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
                     </li>
                     <li className="number-dot">
                         <span className="title-text"> {content.validation.header}</span>
-                        {validationDescription && <div className="content"> {this.props.validationDescription}</div>}   
+                        {validationDescription && <div className="content"> {this.props.validationDescription}</div>}
                         <ul className="desc">
                             {content.validation.details.map((detail, index) => {
                                 return (
@@ -64,7 +64,6 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
                     </li>
                     <div className="content"> {content.noted}</div>
                 </ul>
-                
             </>
         );
     }

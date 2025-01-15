@@ -2,6 +2,7 @@ import { formatOdds } from "../../../../../helpers/number-helper";
 import KenoProGuideTemplate from "../../keno-max/templates/default";
 import { getKenoMiniTranslationResource } from "../languages";
 import KenoMD5 from "../../keno-max/templates/md5";
+import { JSX } from "react";
 
 export default class KenoMiniGuideTemplate extends KenoProGuideTemplate {
     getTranslationResult(locale?: string) {

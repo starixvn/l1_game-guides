@@ -1,20 +1,20 @@
 import { Markup } from "interweave";
 import React from "react";
+import { numberWithCommas } from "../../../../helpers/number-helper";
+import { renderTermsAndConditions } from "../../../shared";
 import { GameGuideProps } from "../../type";
+import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
 import { TreasureIslandLanguage } from "../languages/types";
 import OddDetailList from "../OddDetail";
-import { GameConfigProps } from "../type";
 import Styles from "../treasure-island.module.scss";
-import { getImageDirectoryName, getTreasureIslandTranslationResource } from "../languages";
-import { renderTermsAndConditions } from "../../../shared";
-import { isMobileOnly } from "react-device-detect";
-import { numberWithCommas } from "../../../../helpers/number-helper";
+import { GameConfigProps } from "../type";
 
-export default abstract class TreasureIslandGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, {}>> {
+class TreasureIslandGuideTemplate extends React.PureComponent<GameGuideProps<GameConfigProps, {}>> {
     readonly number = "number";
     readonly numberFirst = "number-first";
     readonly numberSecond = "number-second";
     readonly iconBox = "icon-box";
+
     renderGameRule(
         minValue: number,
         maxValue: number,
@@ -551,3 +551,5 @@ export default abstract class TreasureIslandGuideTemplate extends React.Componen
         );
     }
 }
+
+export default TreasureIslandGuideTemplate;

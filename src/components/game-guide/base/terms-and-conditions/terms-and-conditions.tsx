@@ -4,28 +4,29 @@ import { ContentList, IBaseTermAndConditionResources } from "./languages/types";
 
 const BaseTermsAndConditions: React.FunctionComponent<{ resources: IBaseTermAndConditionResources }> = ({ resources }) => {
     return (
-        <li className="guide-item">
+        <li className="guide-item" role="article">
             <h2>{resources.header}</h2>
             <ul className="style-number-rule">
-                {
-                    resources.details.map((detail, index) => <li className="number-dot" key={index}><Markup content={detail} /></li>)
-                }
+                {resources.details.map((detail, index) => (
+                    <li className="number-dot" key={index}>
+                        <Markup content={detail} />
+                    </li>
+                ))}
             </ul>
         </li>
     );
 };
 
-
 export const RenderContentByList: React.FunctionComponent<{ resources: ContentList }> = ({ resources }) => {
-    return (           
+    return (
         <ul className="desc">
-            {
-                resources.details.map((detail, index) => <li key={index}><Markup content={detail} /></li>)
-            }
+            {resources.details.map((detail, index) => (
+                <li key={index}>
+                    <Markup content={detail} />
+                </li>
+            ))}
         </ul>
     );
 };
-
-
 
 export default BaseTermsAndConditions;

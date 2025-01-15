@@ -2,5 +2,6 @@ include:
     - project: ci/core-cicd
       ref: main
       file: luminet.gitlab-ci.yml
+
 variables:
-    BYPASS_CRITICAL_VULNERABILITY: "true"
+    NODEJS_IMAGE: $DOCKER_REG_LOCAL_URL/docker-hub/library/node:22-alpine

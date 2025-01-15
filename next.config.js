@@ -19,7 +19,6 @@ const nextConfig = {
     generateBuildId: async () => {
         return uuidv4();
     },
-    excludeFile: (str) => /\*.{spec,test}.js/.test(str),
     eslint: {
         ignoreDuringBuilds: true,
     },
@@ -32,16 +31,6 @@ const nextConfig = {
                 "process.env.NEXT_IS_SERVER": JSON.stringify(options.isServer.toString()),
             })
         );
-
-        config.module.rules.push({
-            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2|mp3)$/,
-            use: {
-                loader: "url-loader",
-                options: {
-                    limit: 100000,
-                },
-            },
-        });
 
         return config;
     },
