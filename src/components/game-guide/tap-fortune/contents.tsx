@@ -28,7 +28,7 @@ const renderGameRules = (
                     </ul>
                 </li>
                 <li>{t("gamerules_para_6", { ns })}</li>
-                <li>{t("gamerules_para_7", { ns})}</li>
+                <li>{t("gamerules_para_7", { ns })}</li>
             </ul>
         </li>
     );
