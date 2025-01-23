@@ -14,6 +14,7 @@ export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
     isInPromotionTime?: boolean;
     fractionalOddsFormat?: boolean;
     scrollToId?: string;
+    orientation?: string;
 };
 
 export type GameGuideBase = {
@@ -37,6 +38,7 @@ export type GameGuideBase = {
     jackpot?: boolean;
     jackpotConfigs?: JackpotConfigs;
     scrollToId?: string;
+    orientation?: string;
 };
 
 export interface JackpotConfigs {

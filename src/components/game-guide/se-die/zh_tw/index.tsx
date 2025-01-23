@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsTW } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsTW } from "../../../shared";
 import { SeDieMini } from "../index";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
@@ -103,7 +103,17 @@ const renderMd5 = (gameId: any, locale?: string) => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
+    const {
+        gameConfigs,
+        gameName,
+        maxBetFollowChoice,
+        gameId,
+        isScrollMD5,
+        environment,
+        isInPromotionTime,
+        fractionalOddsFormat,
+        orientation,
+    } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -204,7 +214,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
+                {isShowedMD5(environment, orientation) && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsTW()}
             </ul>
         </>
