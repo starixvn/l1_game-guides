@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import appSettings from "../common/app-settings";
-import { ENVIRONMENT, buildVersion } from "../common/constants";
+import { ENVIRONMENT, ORIENTATION, buildVersion } from "../common/constants";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewCascadingSlot, isNewSlotGame, isUseThemeSlot } from "../helpers/game-helper";
 import { checkIsInteger } from "../helpers/number-helper";
@@ -81,6 +81,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     const [displayName, setDisplayName] = useState<string>("");
     const [jackpot, setJackpot] = useState<boolean>(false);
     const [scrollToId, setScrollToId] = useState<string>("");
+    const [orientation, setOrientation] = useState(ORIENTATION.landscape);
 
     const getTemplateFollowEnv = () => {
         const props = {
@@ -99,6 +100,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             displayName,
             jackpot,
             scrollToId,
+            orientation,
         };
 
         if (environment === ENVIRONMENT.si) {
@@ -137,6 +139,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
             setIsInPromotionTime(queryParams?.p === "true");
             setFractionalOddsFormat(queryParams?.fof === "true");
             setDisplayName(queryParams?.displayName);
+            setOrientation(queryParams?.o);
             queryParams?.t && setTheme(queryParams.t.toString());
             handleUserStakeLevel(queryParams, setUserStakeLevel);
             if (queryParams?.dy) {

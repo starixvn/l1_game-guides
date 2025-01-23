@@ -38,6 +38,8 @@ export const BACKGROUND_THEMES: IObjectKeys = {
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si", pf: "pf" };
 
+export const ORIENTATION = { portrait: "p", landscape: "l" };
+
 export const PROJECTS = { L1: "L1", L2: "L2" };
 
 export const buildVersion = process.env.buildVersion;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { SeDieMini } from "..";
 import { ENVIRONMENT } from "../../../../common/constants";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsEN } from "../../../shared";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
@@ -109,7 +109,18 @@ const renderMd5 = (gameId: any, locale?: string) => {
 };
 
 const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, gameId, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
+    const {
+        gameConfigs,
+        gameName,
+        maxBetFollowChoice,
+        gameId,
+        isScrollMD5,
+        environment,
+        isInPromotionTime,
+        fractionalOddsFormat,
+        orientation,
+    } = props;
+    console.log("orientation", orientation);
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -212,7 +223,7 @@ const SeDieGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>
                     </ul>
                 </li>
                 {renderStatistical()}
-                {environment === ENVIRONMENT.sc && renderMd5(gameId, props.locale)}
+                {isShowedMD5(environment, orientation) && renderMd5(gameId, props.locale)}
                 {renderTermsAndConditionsEN()}
             </ul>
         </>

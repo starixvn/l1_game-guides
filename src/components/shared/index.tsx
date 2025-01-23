@@ -1,5 +1,5 @@
 import React from "react";
-import { locales } from "../../common/constants";
+import { locales, ENVIRONMENT, ORIENTATION } from "../../common/constants";
 import { baseTermAndConditionEn } from "../game-guide/base/terms-and-conditions/languages/en";
 import { baseTermAndConditionVi } from "../game-guide/base/terms-and-conditions/languages/vi";
 import { baseTermAndConditionTh } from "../game-guide/base/terms-and-conditions/languages/th";
@@ -27,31 +27,53 @@ export const renderTermsAndConditions = (locale?: string | undefined, extendDeta
 };
 
 export const renderTermsAndConditionsEN = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionEn, details: extendDetails.concat(baseTermAndConditionEn.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionEn,
+        details: extendDetails.concat(baseTermAndConditionEn.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
 
 export const renderTermsAndConditionsID = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionId, details: extendDetails.concat(baseTermAndConditionId.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionId,
+        details: extendDetails.concat(baseTermAndConditionId.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
 
 export const renderTermsAndConditionsTH = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTh, details: extendDetails.concat(baseTermAndConditionTh.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionTh,
+        details: extendDetails.concat(baseTermAndConditionTh.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
 
 export const renderTermsAndConditionsVI = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionVi, details: extendDetails.concat(baseTermAndConditionVi.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionVi,
+        details: extendDetails.concat(baseTermAndConditionVi.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
 
 export const renderTermsAndConditionsCN = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionCn, details: extendDetails.concat(baseTermAndConditionCn.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionCn,
+        details: extendDetails.concat(baseTermAndConditionCn.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
 
 export const renderTermsAndConditionsTW = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTw, details: extendDetails.concat(baseTermAndConditionTw.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionTw,
+        details: extendDetails.concat(baseTermAndConditionTw.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
+};
+
+export const isShowedMD5 = (environment?: string, orientation?: string) => {
+    return environment === ENVIRONMENT.sc && orientation !== ORIENTATION.portrait;
 };

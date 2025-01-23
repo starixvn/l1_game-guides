@@ -19,6 +19,7 @@ export type BaseProps = {
     displayName: string;
     jackpot: boolean;
     scrollToId: string;
+    orientation: string;
 } & WithTranslation &
     WithRouterProps;
 

@@ -29,6 +29,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         project,
         isInPromotionTime,
         fractionalOddsFormat,
+        orientation,
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -90,6 +91,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
         locale,
+        orientation,
     };
 
     switch (locale) {
