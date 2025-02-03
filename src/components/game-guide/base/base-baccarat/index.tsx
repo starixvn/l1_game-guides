@@ -1,16 +1,16 @@
 import React from "react";
 
+import { isShowedMD5 } from "../../../shared";
+import { handleMaxBetChoice } from "../../../shared/baccarat";
+import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import { BaccaratGuideState, GameConfigProps } from "../../baccarat/type";
 import { GameGuideBase } from "../../type";
-import BaseBaccaratThirdCardRule from "./base-baccarat-third-card-rule";
-import BaseBaccaratPayout from "./base-baccarat-payouts";
 import BaseTermsAndConditions from "../terms-and-conditions/terms-and-conditions";
-import BaseBaccaratPointCalculationRules from "./base-baccarat-point-calculation-rules";
 import BaseBaccaratGameRule from "./base-baccarat-game-rule";
 import BaseBaccaratIntroduction from "./base-baccarat-introduction";
-import ScrollToMD5 from "../../../shared/md5-count-down-timer";
-import { handleMaxBetChoice } from "../../../shared/baccarat";
-import { ENVIRONMENT } from "../../../../common/constants";
+import BaseBaccaratPayout from "./base-baccarat-payouts";
+import BaseBaccaratPointCalculationRules from "./base-baccarat-point-calculation-rules";
+import BaseBaccaratThirdCardRule from "./base-baccarat-third-card-rule";
 
 abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuideState> extends React.PureComponent<P, S> {
     private configs: any;
@@ -116,7 +116,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
                     {this.renderPointCalculationRules()}
                     {this.renderThirdCardRule()}
                     {this.renderPayout()}
-                    {this.props.environment === ENVIRONMENT.sc && this.renderMd5()}
+                    {isShowedMD5(this.props.environment, this.props.orientation) && this.renderMd5()}
                     {this.renderTermsAndConditions()}
                 </ul>
             </>
