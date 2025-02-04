@@ -25,4 +25,6 @@ export type DragonTigerFightContentsProps = {
     gameConfigs: GameConfigs;
     fractionalOddsFormat?: boolean;
     userStakeLevel: UserStakeLevelProps | undefined;
+    environment?: string;
+    orientation?: string;
 };
