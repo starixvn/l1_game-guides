@@ -36,7 +36,7 @@ export const getImageDirectoryName = (): string => {
 };
 
 const DragontigerFightGuide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel, environment, orientation } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
     const getLocalGameConfigs = () => {
@@ -74,7 +74,9 @@ const DragontigerFightGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <DragonTigerFightContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
+            <DragonTigerFightContents
+                {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel, environment, orientation }}
+            />
         </TolgeeProvider>
     );
 };
