@@ -58,9 +58,11 @@ export type GameConfigs = {
     maxBetPerChoices: any;
     maxBet: number;
     minBet: number;
+    maxWin: number;
     odds?: any;
     originalOdds?: any;
     maxWinPerRound?: number;
+    minMultiplier?: number;
     maxMultiplier?: number;
     enableFreeBet?: boolean;
     chips?: number[];
