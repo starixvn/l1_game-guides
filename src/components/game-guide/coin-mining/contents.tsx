@@ -57,9 +57,7 @@ const renderMultiplerStages = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("heading_multiplier_stages", { ns: "CoinMining" })}</h2>
 
-            <p className="content">{t("multiplier_stages_para1", { ns, min_multiplier: gameConfigs.minMultiplier, max_multiplier: gameConfigs.maxMultiplier})}</p>
             <p className="content">{t("multiplier_stages_para2", { ns})}</p>
-            <p className="content">{t("multiplier_stages_para3", { ns})}</p>
             <p className="content">{t("multiplier_stages_para4", { ns})}</p>
 
             <div className="table-container">
