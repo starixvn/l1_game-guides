@@ -25,4 +25,6 @@ const GameConfigs = {
     odds: odds,
 };
 
+export const betOptionsPortraitGame = ["dragon", "tiger", "tie"];
+
 export default GameConfigs;
