@@ -6,6 +6,6 @@
     "system": "L1",
     "enableSourceMap": false,
     "resourceUrl": "https://l1uatclient.sgamesuat.com/uat/game/static/",
-    "gameSettingUrl": "http://l1_admin_api_uat:5000/api/public/game_configs/",
+    "gameSettingUrl": "http://l1-admin-api-uat-service:5000/api/public/game_configs/",
     "useTolgeeStatic": true
 }
