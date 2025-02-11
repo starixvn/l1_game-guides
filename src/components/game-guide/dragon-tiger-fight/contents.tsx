@@ -10,8 +10,13 @@ import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { DragonTigerFightContentsProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { buildVersion } from "../../../common/constants";
+import { betOptionsPortraitGame } from "./game-configs";
 
-const renderGameRules = (t: Function, odds: any) => {
+const renderGameRules = (t: Function, odds: any, isPortraitGame: boolean) => {
+    if (isPortraitGame) {
+        odds = Object.fromEntries(Object.entries(odds).filter(([key]) => betOptionsPortraitGame.includes(key)));
+    }
+
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -88,7 +93,8 @@ const renderPayout = (
     t: Function,
     gameConfigs: GameConfigs,
     userStakeLevel: UserStakeLevelProps | undefined,
-    fractionalOddsFormat?: boolean
+    fractionalOddsFormat?: boolean,
+    isPortraitGame: boolean = false
 ) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
 
@@ -144,34 +150,38 @@ const renderPayout = (
                                         {minBetMain} - {maxBetTie}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>{t(`glossary_redDragon`, { ns: "DragonTigerFight" })}</td>
-                                    <td>{formatOdds(odds?.redDragon, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {minBetMain} - {maxBetRedDragon}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`glossary_blackDragon`, { ns: "DragonTigerFight" })}</td>
-                                    <td>{formatOdds(odds?.blackDragon, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {minBetMain} - {maxBetBlackDragon}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`glossary_redTiger`, { ns: "DragonTigerFight" })}</td>
-                                    <td>{formatOdds(odds?.redTiger, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {minBetMain} - {maxBetRedTiger}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{t(`glossary_blackTiger`, { ns: "DragonTigerFight" })}</td>
-                                    <td>{formatOdds(odds?.blackTiger, fractionalOddsFormat)}</td>
-                                    <td>
-                                        {minBetMain} - {maxBetBlackTiger}
-                                    </td>
-                                </tr>
+                                {!isPortraitGame && (
+                                    <>
+                                        <tr>
+                                            <td>{t(`glossary_redDragon`, { ns: "DragonTigerFight" })}</td>
+                                            <td>{formatOdds(odds?.redDragon, fractionalOddsFormat)}</td>
+                                            <td>
+                                                {minBetMain} - {maxBetRedDragon}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t(`glossary_blackDragon`, { ns: "DragonTigerFight" })}</td>
+                                            <td>{formatOdds(odds?.blackDragon, fractionalOddsFormat)}</td>
+                                            <td>
+                                                {minBetMain} - {maxBetBlackDragon}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t(`glossary_redTiger`, { ns: "DragonTigerFight" })}</td>
+                                            <td>{formatOdds(odds?.redTiger, fractionalOddsFormat)}</td>
+                                            <td>
+                                                {minBetMain} - {maxBetRedTiger}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t(`glossary_blackTiger`, { ns: "DragonTigerFight" })}</td>
+                                            <td>{formatOdds(odds?.blackTiger, fractionalOddsFormat)}</td>
+                                            <td>
+                                                {minBetMain} - {maxBetBlackTiger}
+                                            </td>
+                                        </tr>
+                                    </>
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -195,14 +205,16 @@ const DragonTigerFightContents: React.FC<DragonTigerFightContentsProps> = ({
     const { t } = useTranslate(["DragonTigerFight", "Common"]);
     const rootImgUrl = "/static/images/dragon-tiger-fight/";
 
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
     return (
         <ul className={`game-guide`}>
             <li className="guide-item">
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <div className="content">{t("intro_para_1", { ns: "DragonTigerFight" })}</div>
             </li>
-            {renderGameRules(t, gameConfigs.odds)}
-            {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
+            {renderGameRules(t, gameConfigs.odds, isPortraitGame)}
+            {renderPayout(t, gameConfigs, userStakeLevel, fractionalOddsFormat, isPortraitGame)}
             {isShowedMD5(environment, orientation) && (
                 <MD5Tolgee
                     {...{
