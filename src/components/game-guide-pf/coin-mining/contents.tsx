@@ -3,7 +3,6 @@ import React from "react";
 import { Markup } from "interweave";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { TogleeNamespace } from "../../game-guide/football-dice/namespace-tolgee";
 import { renderContentPFBase } from "../base";
 import Styles from "./coin-mining-pf-game.module.scss";
 import { CoinMiningPFContentsProps } from "./type";
@@ -54,7 +53,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             <div className={Styles["popup-content"]}>
                 <div className={Styles["section-info"]}>
                     <div className={Styles["info"]}>
-                        <div className={Styles["key"]}>{t("pf_round", { ns: TogleeNamespace.Common })}:</div>
+                        <div className={Styles["key"]}>{t("pf_round", { ns: "Common" })}:</div>
                         <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>19700</div>
                     </div>
                     <div className={Styles["info"]}>
@@ -70,10 +69,10 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={`${Styles["server-section"]} ${Styles["server-section-coin-mining"]}`}>
                     <div className={Styles["server-section-coin-mining-content-client-seed"]}>
                         <div className={Styles["title-style"]}>
-                                {<Markup className={Styles["title-style"]} content={t("pf_server_Seed", { ns: TogleeNamespace.Common })} />}
+                                {<Markup className={Styles["title-style"]} content={t("pf_server_Seed", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["title-style"]} ${Styles["title-client-seed"]}`}>
-                            {<Markup content={t("pf_header_client_seed", { ns: TogleeNamespace.Common })} />}
+                            {<Markup content={t("pf_header_client_seed", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                             0kdsf.hjasdsUJMWF.lfi92urnfasasUYW32
@@ -84,7 +83,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         </div>
                     </div>
                     <div className={Styles["title-style"]}>
-                        {<Markup content={t("pf_server_seed_sha256", { ns: TogleeNamespace.Common })} />}
+                        {<Markup content={t("pf_server_seed_sha256", { ns: "Common" })} />}
                     </div>
                     <div className={Styles["title-style"]}></div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
@@ -106,8 +105,8 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={`${Styles["section"]} ${Styles["bg-section"]}`}>
                     <div className={Styles["combined-hash-section"]}>                       
                     </div>
-                    <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: TogleeNamespace.Common })}</div>
-                    <div className={Styles["btn-verify"]}>{t("pf_verify", { ns: TogleeNamespace.Common })}</div>
+                    <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: "Common" })}</div>
+                    <div className={Styles["btn-verify"]}>{t("pf_verify", { ns: "Common" })}</div>
                 </div>
             </div>
         </div>
@@ -122,7 +121,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
-                    {t("pf_title_verification", { ns: TogleeNamespace.Common })}
+                    {t("pf_title_verification", { ns: "Common" })}
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
@@ -202,16 +201,16 @@ const renderGameVerifierStepByStepTool = (
 ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_verifier_tool_step_by_step", { ns: TogleeNamespace.Common })}</span>
+            <span className="title-text">{t("pf_verifier_tool_step_by_step", { ns: "Common" })}</span>
             <ul className={Styles["circle-style"]}>
                 <ul className={Styles["circle-style"]}>
-                    <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: TogleeNamespace.Common })} />}</li>
+                    <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}</li>
                     <li>
-                        {<Markup content={t("pf_verifier_tool_step_2", { ns: TogleeNamespace.Common })} />}
+                        {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
                         {renderImageStep2(t, verImg)}
                     </li>
                     <li>
-                        {<Markup content={t("pf_verifier_tool_step_3", { ns: TogleeNamespace.Common })} />}
+                        {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
                         {renderImageStep3(t, verImg)}
                     </li>
                 </ul>
@@ -230,10 +229,10 @@ const renderGameVerifierTool = (
 ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: TogleeNamespace.Common })}</span>
+            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "Common" })}</span>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_verifier_tool_para_1", { ns: TogleeNamespace.Common })} />} </li>
-                <li>{<Markup content={t("pf_verifier_tool_para_2", { ns: TogleeNamespace.Common, gamename: gameName })} />} </li>
+                <li>{<Markup content={t("pf_verifier_tool_para_1", { ns: "Common" })} />} </li>
+                <li>{<Markup content={t("pf_verifier_tool_para_2", { ns: "Common", gamename: gameName })} />} </li>
                 <li>{<Markup content={t("pf_verifier_tool_para_3", { ns: "CoinMining" })} />} </li>
                 <div className={Styles["intro-border"]}>
                     <span style={{ textAlign: "center" }}>
@@ -292,10 +291,10 @@ const renderGameVerifierTool = (
 const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: TogleeNamespace.Common })}</span>
+            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Common" })}</span>
             <ul className={Styles["circle-style"]}>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: TogleeNamespace.Common })} />}</li>
-                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: TogleeNamespace.Common })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Common" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Common" })} />}</li>
             </ul>
         </li>
     );
