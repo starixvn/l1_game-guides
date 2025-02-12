@@ -12,7 +12,7 @@ import CoinTossVerification from "./coin-toss";
 import FootballDiceVerification from "./football-dice";
 import FootballCoinTossVerification from "./footballl-coin-toss";
 import SpaceFlightVerification from "./space-flight";
-
+import CoinMiningVerification from "./coin-mining";
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
@@ -73,6 +73,12 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <ChristmasXVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
+            case GAMES_PF.COIN_MINING:
+                return (
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <CoinMiningVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
                 );
             default:

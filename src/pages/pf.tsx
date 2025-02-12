@@ -10,6 +10,7 @@ export type ProvablyFair = {
     result?: number;
     serverSeed?: string;
     mergeClientSeed?: string;
+    clientSeed?: string;
     mergeSeed?: string;
     finalHash?: string;
     match?: any;

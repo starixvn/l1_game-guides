@@ -9,11 +9,8 @@ import Styles from "./coin-mining-pf-game.module.scss";
 import { CoinMiningPFContentsProps } from "./type";
 import {
     convertHexToDecimalSteps,
-    convertToDecimal,
-    renderFinalResult,
-    renderFinalResultWithText,
     takeFirstValueFromSHA512,
-} from "../../verification/coin-toss";
+} from "../../verification/coin-mining";
 import { sliceValueFromSHA512 } from "../../verification/football-dice";
 import { GameConfigs } from "../../game-guide/type";
 
@@ -119,16 +116,13 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
 
 const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     const finalHash =
-        "bf57£55c53acd52d0a2d7faf0e262a651288b027bb6a779a50902693bf3908f6967415fe2e114b8faeSabc16090729¢615876d5e9d2090e48bdf3ad0f4fadch4";
-    const digits = takeFirstValueFromSHA512(5, finalHash);
+        "bf57f55c53acd52d0a2d7faf0e262a651288b027bb6a779a50902693bf3908f6967415fe2e114b8fae5abc16090729c615876d5e9d2090e48bdf3ad0f4fadcb4";
+    const digits = takeFirstValueFromSHA512(8, finalHash);
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
-                    {t("pf_title_verification", { ns: TogleeNamespace.Common })}{" "}
-                    <span className={Styles["text-round"]}>
-                        ({t("pf_round", { ns: TogleeNamespace.Common })}: <span className={Styles["round-id"]}>1045139</span>)
-                    </span>
+                    {t("pf_title_verification", { ns: TogleeNamespace.Common })}
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
@@ -144,22 +138,20 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span className={Styles["combined-hash"]}>
-                        {finalHash}
-                    </span>
+                    <span className={Styles["combined-hash"]}>{finalHash}</span>
                 </div>
             </div>
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    <span className={Styles["color-result"]}>{renderFinalResultWithText(t, digits)}</span>
+                    <span className={Styles["color-result"]}>1.2977701682577698</span>
                 </div>
                 <div>
                     <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
                     <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{finalHash}</div>
                 </div>
                 <div>
-                    <strong>{t("pf_take_first_{}_characters", { ns: "Common", value: "5" })}: </strong>{" "}
+                    <strong>{t("pf_take_first_{}_characters", { ns: "Common", value: "8" })}: </strong>
                     <span className={Styles["color-second"]}>{digits}</span>
                 </div>
                 <div>
@@ -170,9 +162,8 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
-
                     <div className={Styles["color-second"]}>
-                        {convertToDecimal(digits)} mod 2 = <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
+                        429467296 / (321021700 + 1) * (1- 0.03) = 1.2977701682577698
                     </div>
                 </div>
             </div>
