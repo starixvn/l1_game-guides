@@ -16,6 +16,7 @@ import LuckyThreePFGuide from "./lucky-three";
 import NextBallPFGuide from "./next-ball";
 import SeBallPFGuide from "./se-ball";
 import SpaceFlightPFGuide from "./space-flight";
+import CoinMiningPFGuide from "./coin-mining";
 
 class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
     renderOtherGuide = (gameId: number, gameGuideProps: any) => {
@@ -56,6 +57,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <FootballCoinTossPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.CHRISTMAS_X:
                 return <ChristmasXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.COIN_MINING:
+                return <CoinMiningPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.renderOtherGuide(gameId, gameGuideProps);
         }
