@@ -59,7 +59,7 @@ const CoinMiningVerification = (props: VerificationBase) => {
                 <div className={Styles["seed-value"]}>
                     <span>{provablyFair?.serverSeed}</span>
                 </div>
-                <div className={Styles["seed-key"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["seed-key"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={Styles["seed-value"]}>
                     <span>{provablyFair?.clientSeed}</span>
                 </div>
