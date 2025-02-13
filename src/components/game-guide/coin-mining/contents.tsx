@@ -14,10 +14,12 @@ const renderGameRules = (
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
-            <p className="content"><Markup content={t("game_rules_para1", { ns })} /></p>
-            <p className="content"><Markup content={t("game_rules_para2", { ns })} />   </p>
-            <p className="content"><Markup content={t("game_rules_para3", { ns })} /></p>
-            <p className="content"><Markup content={t("game_rules_para4", { ns })} /></p>
+            <ul className="desc">
+                <li><Markup content={t("game_rules_para1", { ns })}/></li>
+                <li>{t("game_rules_para2", { ns })}</li>
+                <li>{t("game_rules_para3", { ns })}</li>
+                <li>{t("game_rules_para4", { ns })}</li>
+            </ul>
         </li>
     );
 };
@@ -31,13 +33,19 @@ const renderFeatures = (
             
             <ul className="style-number-rule" >
                 <h2 className="number-dot">{t("cash_out", { ns })}</h2>
-                <p className="content">{t("features_para1", { ns})}</p>
-                <p className="content"><Markup content={t("features_para1_list1", { ns})}/></p>
-                <p className="content"><Markup content={t("features_para1_list2", { ns})}/></p>
-                <p className="content"><Markup content={t("features_para2", { ns})}/></p>
-                <p className="content"><Markup content={t("features_para3", { ns})}/></p>
+                <ul className="desc">
+                    <li>{t("features_para1", { ns })}</li>
+                    <ul className="detail">
+                        <li><Markup content={t("features_para1_list1", { ns})}/></li>
+                        <li><Markup content={t("features_para1_list2", { ns})}/></li>
+                    </ul>
+                    <li>{t("features_para2", { ns })}</li>
+                </ul>
+                <p className="content content-center"><Markup content={t("features_para3", { ns})}/></p>
                 <h2 className="number-dot">{t("auto_start", { ns })}</h2>
-                <p className="content">{t("features_para4", { ns})}</p>
+                <ul className="desc">
+                    <li>{t("features_para4", { ns })}</li>
+                </ul>
             </ul>
         </li>
     );
@@ -54,17 +62,19 @@ const renderMultiplerStages = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("heading_multiplier_stages", { ns: "CoinMining" })}</h2>
 
-            <p className="content"><Markup content={t("multiplier_stages_para2", { ns})}/></p>
-            <p className="content"><Markup content={t("multiplier_stages_para4", { ns})}/></p>
+            <ul className="desc">
+                <li><Markup content={t("multiplier_stages_para2", { ns})}/></li>
+                <li><Markup content={t("multiplier_stages_para4", { ns})}/></li>
+            </ul>
 
             <div className="table-container">
                 <table className="table">
                     <thead className="text-center">
                         <tr>
-                            <th>{t("header_stage", { ns })}</th>
-                            <th>{t("header_starting_multiplier", { ns })}</th>
-                            <th>{t("header_multiplier_per_click", { ns })}</th>
-                            <th>{t("header_max_multiplier", { ns })}</th>
+                            <th className="bold">{t("header_stage", { ns })}</th>
+                            <th className="bold">{t("header_starting_multiplier", { ns })}</th>
+                            <th className="bold">{t("header_multiplier_per_click", { ns })}</th>
+                            <th className="bold">{t("header_max_multiplier", { ns })}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,11 +98,14 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs) => {
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
-            <p className="content">{t("payouts_para1", { ns})}</p>
-            <p className="content">{t("payouts_para2", { ns})}</p>
-            <p className="content">{t("payouts_para3", { ns})}</p>
-            <p className="content">{t("payouts_para4", { ns, minbet: gameConfigs.minBet, maxbet: gameConfigs.maxBet})}</p>
-            <p className="content">{t("payouts_para5", { ns, maxwin: gameConfigs.maxWin})}</p>
+            <ul className="desc">
+                <li className="content">{t("payouts_para1", { ns})}</li>
+                <li className="content">{t("payouts_para2", { ns})}</li>
+                <li className="content">{t("payouts_para3", { ns})}</li>
+                <li className="content">{t("payouts_para4", { ns, minbet: gameConfigs.minBet, maxbet: gameConfigs.maxBet})}</li>
+                <li className="content">{t("payouts_para5", { ns, maxwin: gameConfigs.maxWinPerRound})}</li>
+            </ul>
+            
         </li>
     );
 };
