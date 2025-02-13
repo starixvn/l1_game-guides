@@ -5,6 +5,8 @@ import React from "react";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { CoinMiningContentsProps } from "./type";
+import { UserStakeLevelProps } from "../../../pages";
+import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 
 const ns = "CoinMining";
 
@@ -93,17 +95,24 @@ const renderMultiplerStages = (t: Function, gameConfigs: GameConfigs) => {
     );
 };
 
-const renderPayout = (t: Function, gameConfigs: GameConfigs) => {
+const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
+    const { minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
+
+    const maxBetMain = numberWithCommas(maxBetTmp);
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
 
     return (
         <li className="guide-item">
+             
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
             <ul className="desc">
                 <li className="content">{t("payouts_para1", { ns})}</li>
                 <li className="content">{t("payouts_para2", { ns})}</li>
                 <li className="content">{t("payouts_para3", { ns})}</li>
-                <li className="content">{t("payouts_para4", { ns, minbet: gameConfigs.minBet, maxbet: gameConfigs.maxBet})}</li>
-                <li className="content">{t("payouts_para5", { ns, maxwin: gameConfigs.maxWinPerRound})}</li>
+                <li className="content">{t("payouts_para4", { ns, minbet: minBetMain, maxbet: maxBetMain})}</li>
+                <li className="content">{t("payouts_para5", { ns, maxwin: maxWin})}</li>
             </ul>
             
         </li>
@@ -123,7 +132,7 @@ const renderTearmAndConditions = (t: Function, gameConfigs: GameConfigs) => {
     );
 };
 
-const Contents: React.FC<CoinMiningContentsProps> = ({ gameConfigs, locale, displayName }) => {
+const Contents: React.FC<CoinMiningContentsProps> = ({ gameConfigs, locale, displayName, userStakeLevel }) => {
     const { t } = useTranslate([ns, "Common"]);
 
     return (
@@ -136,7 +145,7 @@ const Contents: React.FC<CoinMiningContentsProps> = ({ gameConfigs, locale, disp
             {renderGameRules(t)}
             {renderFeatures(t)}
             {renderMultiplerStages(t, gameConfigs)}
-            {renderPayout(t, gameConfigs)}
+            {renderPayout(t, gameConfigs, userStakeLevel)}
             {renderTearmAndConditions(t, gameConfigs)}
         </ul>
     );

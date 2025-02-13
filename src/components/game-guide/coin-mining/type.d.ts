@@ -16,4 +16,5 @@ export type CoinMiningContentsProps = {
     locale: string | undefined;
     gameConfigs: GameConfigs;
     displayName: string | undefined;
+    userStakeLevel: UserStakeLevelProps | undefined;
 };
