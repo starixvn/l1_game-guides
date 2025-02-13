@@ -9,9 +9,11 @@ export type ProvablyFair = {
     roundId: number;
     result?: number;
     serverSeed?: string;
+    serverSeedHash?: string;
     mergeClientSeed?: string;
     clientSeed?: string;
     mergeSeed?: string;
+    finalResult?: number;
     finalHash?: string;
     match?: any;
 };
