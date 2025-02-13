@@ -14,10 +14,10 @@ const renderGameRules = (
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
-            <p className="content">{t("game_rules_para1", { ns })}</p>
-            <p className="content">{t("game_rules_para2", { ns })}</p>
-            <p className="content">{t("game_rules_para3", { ns })}</p>
-            <p className="content">{t("game_rules_para4", { ns })}</p>
+            <p className="content"><Markup content={t("game_rules_para1", { ns })} /></p>
+            <p className="content"><Markup content={t("game_rules_para2", { ns })} />   </p>
+            <p className="content"><Markup content={t("game_rules_para3", { ns })} /></p>
+            <p className="content"><Markup content={t("game_rules_para4", { ns })} /></p>
         </li>
     );
 };
@@ -29,17 +29,14 @@ const renderFeatures = (
         <li className="guide-item">
             <h2>{t("title_features", { ns: "Common" })}</h2>
             
-            <ul className="style-number-rule">
-                <p className="number-dot">{t("cash_out", { ns})}</p>
+            <ul className="style-number-rule" >
+                <h2 className="number-dot">{t("cash_out", { ns })}</h2>
                 <p className="content">{t("features_para1", { ns})}</p>
-                <p className="content">{t("features_para1_list1", { ns})}</p>
-                <p className="content">{t("features_para1_list2", { ns})}</p>
-                <p className="content">{t("features_para2", { ns})}</p>
-                <p className="content">{t("features_para3", { ns})}</p>
-            </ul>
-
-            <ul className="style-number-rule">
-                <p className="number-dot">{t("auto_start", { ns})}</p>
+                <p className="content"><Markup content={t("features_para1_list1", { ns})}/></p>
+                <p className="content"><Markup content={t("features_para1_list2", { ns})}/></p>
+                <p className="content"><Markup content={t("features_para2", { ns})}/></p>
+                <p className="content"><Markup content={t("features_para3", { ns})}/></p>
+                <h2 className="number-dot">{t("auto_start", { ns })}</h2>
                 <p className="content">{t("features_para4", { ns})}</p>
             </ul>
         </li>
@@ -57,8 +54,8 @@ const renderMultiplerStages = (t: Function, gameConfigs: GameConfigs) => {
         <li className="guide-item">
             <h2>{t("heading_multiplier_stages", { ns: "CoinMining" })}</h2>
 
-            <p className="content">{t("multiplier_stages_para2", { ns})}</p>
-            <p className="content">{t("multiplier_stages_para4", { ns})}</p>
+            <p className="content"><Markup content={t("multiplier_stages_para2", { ns})}/></p>
+            <p className="content"><Markup content={t("multiplier_stages_para4", { ns})}/></p>
 
             <div className="table-container">
                 <table className="table">

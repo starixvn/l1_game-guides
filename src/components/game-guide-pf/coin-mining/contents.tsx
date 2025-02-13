@@ -72,7 +72,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                                 {<Markup className={Styles["title-style"]} content={t("pf_server_Seed", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["title-style"]} ${Styles["title-client-seed"]}`}>
-                            {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
+                            {<Markup content={t("pf_header_client_seed", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                             0kdsf.hjasdsUJMWF.lfi92urnfasasUYW32
@@ -131,7 +131,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     <span>Elby29FHLbSIGUUjShPCIOYNj4EXu_XJl-6CJbrx
                     </span>
                 </div>
-                <div className={Styles["title-style"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["title-style"]}>{t("pf_header_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                     <span>2248</span>
                 </div>
