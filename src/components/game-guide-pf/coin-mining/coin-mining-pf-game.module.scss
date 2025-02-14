@@ -18,11 +18,16 @@
     margin-left: 50px;
 }
 
+.value-client-seed::before {
+    background: unset !important;
+}
+
 .value-client-seed{
     margin-left: 50px;
     width: 120px !important;
     text-align: center;
     position: unset !important;
+    
 }
 
 .styled-table {

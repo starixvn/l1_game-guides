@@ -26,7 +26,7 @@ const renderHowPFInGame = (
             <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_1", { ns: "Common", gamename: gameName })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })} />}</li>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "CoinMining" })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "CoinMining" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
@@ -201,7 +201,7 @@ const renderGameVerifierStepByStepTool = (
 ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_verifier_tool_step_by_step", { ns: "Common" })}</span>
+            <span className="title-text"><Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} /></span>
             <ul className={Styles["circle-style"]}>
                 <ul className={Styles["circle-style"]}>
                     <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}</li>
@@ -229,7 +229,7 @@ const renderGameVerifierTool = (
 ) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "Common" })}</span>
+            <span className="title-text">{<Markup content={t("pf_subtitle_in_game_verifier_tool", { ns: "Common" })} />}</span>
             <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("pf_verifier_tool_para_1", { ns: "Common" })} />} </li>
                 <li>{<Markup content={t("pf_verifier_tool_para_2", { ns: "Common", gamename: gameName })} />} </li>
@@ -255,8 +255,8 @@ const renderGameVerifierTool = (
                     <table className={Styles["styled-table"]}>
                         <thead>
                             <tr>
-                                <th>Calculated Result</th>
-                                <th>Final Result</th>
+                                <th>{<Markup content={t("pf_header_calculated_result", { ns: "CoinMining" })} />}</th>
+                                <th>{<Markup content={t("pf_header_final_result", { ns: "CoinMining" })} />}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -291,7 +291,7 @@ const renderGameVerifierTool = (
 const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
-            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Common" })}</span>
+            <span className="title-text"><Markup content={t("pf_subtitle_online_third_party_verifier_tools", { ns: "Common" })} /></span>
             <ul className={Styles["circle-style"]}>
                 <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Common" })} />}</li>
