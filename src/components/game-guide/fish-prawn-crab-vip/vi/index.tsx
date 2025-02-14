@@ -1,16 +1,19 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderTermsAndConditionsVI } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsVI } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { renderListIcon } from "../en";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 
 const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, environment, orientation } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
+    const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -22,7 +25,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bàn chơi.
                     </p>
                     <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
-                        {renderListIcon(theme)}
+                        {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Nai</div>
                         <div className="text">Bầu</div>
                         <div className="text">Gà</div>
@@ -58,7 +61,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>Lựa Chọn</th>
                                             <th>Điều Kiện Thắng</th>
                                             <th className={Styles["odd-width"]}>Tỷ Lệ Trả Thưởng</th>
-                                            <th className={Styles["min-max-width"]}>
+                                            <th className={`${Styles["min-max-width"]} ${cssClassColumnTable}`}>
                                                 Giới Hạn Cược <br /> (Min - Max)
                                             </th>
                                         </tr>
@@ -120,26 +123,29 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                 <li>Người chơi đặt vào Bầu. Kết quả: Gà, Cá, Cua. Người chơi thua. </li>
                             </ul>
                         </li>
-
-                        <li>
-                            <strong>Trên Cạn/Dưới Nước:</strong>
-                            <ul className="detail">
+                        {!isPortraitGame && (
+                            <>
                                 <li>
-                                    Người chơi đặt vào lựa chọn “Trên Cạn”. Kết quả: Nai, Bầu, Tôm. Người chơi thắng do Nai, Bầu thuộc nhóm
-                                    “Trên Cạn”.
+                                    <strong>Trên Cạn/Dưới Nước:</strong>
+                                    <ul className="detail">
+                                        <li>
+                                            Người chơi đặt vào lựa chọn “Trên Cạn”. Kết quả: Nai, Bầu, Tôm. Người chơi thắng do Nai, Bầu
+                                            thuộc nhóm “Trên Cạn”.
+                                        </li>
+                                        <li>
+                                            Người chơi đặt vào lựa chọn “Dưới Nước”. Kết quả: Nai, Cá, Cá. Người chơi thắng do kết quả có
+                                            hai linh vật Cá thuộc nhóm “Dưới Nước”.
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    Người chơi đặt vào lựa chọn “Dưới Nước”. Kết quả: Nai, Cá, Cá. Người chơi thắng do kết quả có hai linh
-                                    vật Cá thuộc nhóm “Dưới Nước”.
+                                    <strong> Bộ Ba Bất Kỳ:</strong>
+                                    <ul className="detail">
+                                        <li>Người chơi đặt vào lựa chọn “Bộ Ba Bất Kỳ”. Kết quả là 3 Bầu. Người chơi thắng.</li>
+                                    </ul>
                                 </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong> Bộ Ba Bất Kỳ:</strong>
-                            <ul className="detail">
-                                <li>Người chơi đặt vào lựa chọn “Bộ Ba Bất Kỳ”. Kết quả là 3 Bầu. Người chơi thắng.</li>
-                            </ul>
-                        </li>
+                            </>
+                        )}
                     </ul>
                 </li>
                 {renderTermsAndConditionsVI()}

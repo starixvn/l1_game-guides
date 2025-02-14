@@ -1,5 +1,5 @@
 import React from "react";
-import { renderTermsAndConditionsTH } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsTH } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
@@ -8,9 +8,12 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { renderListIcon } from "../en";
 
 const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, environment, orientation } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
+    const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -22,7 +25,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         วัตถุประสงค์ของเกมคือการทำนายผลของการทอยลูกเต๋า ผู้เล่นวางเดิมพันว่าสัญลักษณ์ใดจะปรากฏขึ้น
                     </p>
                     <div className="icon-wrapper">
-                        {renderListIcon(theme)}
+                        {renderListIcon(theme, isPortraitGame)}
                         <div className="text">กวาง</div>
                         <div className="text">น้ำเต้า</div>
                         <div className="text">ไก่ชน</div>
@@ -53,7 +56,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>ตัวเลือก</th>
                                             <th>เงื่อนไขการชนะ</th>
                                             <th style={{ width: 200 }}>อัตราต่อรอง</th>
-                                            <th className={Styles["min-max-width"]}>
+                                            <th className={`${Styles["min-max-width"]} ${cssClassColumnTable}`}>
                                                 วงเงินเดิมพัน <br></br>(ต่ำสุด - สูงสุด)
                                             </th>
                                         </tr>
@@ -116,19 +119,23 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
 
-                        <li>
-                            <strong>มหาสมุทร/ ภูเขา</strong>
-                            <ul className="detail">
-                                <li>วางเดิมพันในกลุ่มโอเชี่ยนแล้วผลเป็นปลา กุ้ง กวาง แล้วผู้เล่นชนะ</li>
-                                <li>วางเดิมพันในกลุ่ม Mountain แล้วผลเป็น ปลา, กวาง, กวาง จากนั้นผู้เล่นจะเป็นผู้ชนะ</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>ตองใดก็ได้</strong>
-                            <ul className="detail">
-                                <li>วางเดิมพันบนตัวเลือก ตอง ใดก็ได้ และผลที่ได้คือ ปู, ปู, ปู จากนั้นผู้เล่นจะเป็นผู้ชนะ</li>
-                            </ul>
-                        </li>
+                        {!isPortraitGame && (
+                            <>
+                                <li>
+                                    <strong>มหาสมุทร/ ภูเขา</strong>
+                                    <ul className="detail">
+                                        <li>วางเดิมพันในกลุ่มโอเชี่ยนแล้วผลเป็นปลา กุ้ง กวาง แล้วผู้เล่นชนะ</li>
+                                        <li>วางเดิมพันในกลุ่ม Mountain แล้วผลเป็น ปลา, กวาง, กวาง จากนั้นผู้เล่นจะเป็นผู้ชนะ</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>ตองใดก็ได้</strong>
+                                    <ul className="detail">
+                                        <li>วางเดิมพันบนตัวเลือก ตอง ใดก็ได้ และผลที่ได้คือ ปู, ปู, ปู จากนั้นผู้เล่นจะเป็นผู้ชนะ</li>
+                                    </ul>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </li>
                 {renderTermsAndConditionsTH()}

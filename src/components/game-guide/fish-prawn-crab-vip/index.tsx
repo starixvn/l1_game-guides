@@ -24,7 +24,18 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const FishPrawnCrabVIP = (props: GameGuideBase) => {
-    const { locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
+    const {
+        locale,
+        userStakeLevel,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        isGetGameConfigs,
+        project,
+        fractionalOddsFormat,
+        environment,
+        orientation,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -64,6 +75,8 @@ const FishPrawnCrabVIP = (props: GameGuideBase) => {
         gameName: gameNameTranslate,
         maxBetFollowChoice,
         fractionalOddsFormat,
+        environment,
+        orientation,
     };
 
     switch (locale) {
