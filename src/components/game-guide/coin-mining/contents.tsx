@@ -124,10 +124,13 @@ const renderTearmAndConditions = (t: Function, gameConfigs: GameConfigs) => {
     return (
         <li className="guide-item">
             <h2>{t("termsandconditions-title", { ns: "Common" })}</h2>
-            <p className="content">{t("termsandconditions_para_1", {  ns: "Common"})}</p>
-            <p className="content">{t("termsandconditions_para_2", {  ns: "Common"})}</p>
-            <p className="content">{t("termsandconditions_para_3", {  ns: "Common"})}</p>
-            <p className="content">{t("termsandconditions_para_4", {  ns: "Common"})}</p>
+
+            <ul className="style-number-rule">
+                <li className="number-dot">{t("termsandconditions_para_1", {  ns: "Common"})}</li>
+                <li className="number-dot">{t("termsandconditions_para_2", {  ns: "Common"})}</li>
+                <li className="number-dot">{t("termsandconditions_para_3", {  ns: "Common"})}</li>
+                <li className="number-dot">{t("termsandconditions_para_4", {  ns: "Common"})}</li>
+            </ul>
         </li>
     );
 };
