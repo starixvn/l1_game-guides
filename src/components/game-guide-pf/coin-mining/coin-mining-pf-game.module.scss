@@ -26,8 +26,12 @@
     margin-left: 30px;
     width: 140px !important;
     text-align: center;
-    position: unset !important;
-    
+}
+
+.content-table-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .combined-hash{

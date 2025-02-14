@@ -249,7 +249,7 @@ const renderGameVerifierTool = (
                     
 
                 </ul>
-                <ul className={Styles["circle-style"]}>
+                <ul className={`${Styles["circle-style"]} ${Styles["content-table-center"]}`}>
                     <table className={Styles["styled-table"]}>
                         <thead>
                             <tr>
