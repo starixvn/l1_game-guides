@@ -1,5 +1,5 @@
 import React from "react";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsEN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
@@ -7,31 +7,51 @@ import Styles from "../fish-prawn-crab-vip.module.scss";
 import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-export const renderListIcon = (theme: string | undefined) => {
-    const widthIcon1 = theme === Themes.blue ? 100 : 75;
-    const widthIcon2 = theme === Themes.blue ? 95 : 70;
+interface Props {
+    theme?: string;
+    isPortraitGame: boolean;
+}
+
+const iconImageData = [
+    { src: "stag.png", alt: "stag" },
+    { src: "gourd.png", alt: "gourd" },
+    { src: "rooster.png", alt: "rooster" },
+    { src: "fish.png", alt: "fish" },
+    { src: "crab.png", alt: "crab" },
+    { src: "prawn.png", alt: "prawn" },
+];
+
+const getIconWidth = (theme: string | undefined, index: number) => {
+    const isBlueTheme = theme === Themes.blue;
+    return index % 2 === 0 ? (isBlueTheme ? 100 : 75) : isBlueTheme ? 95 : 70;
+};
+
+export const renderListIcon = (theme: string | undefined, isPortraitGame: boolean) => {
+    const portraitPrefix = isPortraitGame ? "portrait-" : "";
+
     return (
         <>
-            <img src={`/static/images/fish-prawn-crab-vip/stag.png`} alt="stag" width={widthIcon2} height={widthIcon2} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/gourd.png`} alt="gourd" width={widthIcon1} height={widthIcon1} loading="lazy" />
-
-            <img
-                src={`/static/images/fish-prawn-crab-vip/crooster.png`}
-                alt="crooster"
-                width={widthIcon2}
-                height={widthIcon2}
-                loading="lazy"
-            />
-            <img src={`/static/images/fish-prawn-crab-vip/fish.png`} alt="fish" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/crab.png`} alt="crab" width={widthIcon1} height={widthIcon1} loading="lazy" />
-            <img src={`/static/images/fish-prawn-crab-vip/prawn.png`} alt="prawn" width={widthIcon1} height={widthIcon1} loading="lazy" />
+            {iconImageData.map((icon, index) => (
+                <img
+                    key={icon.alt}
+                    src={`/static/images/fish-prawn-crab-vip/${portraitPrefix}${icon.src}`}
+                    alt={icon.alt}
+                    width={getIconWidth(theme, index)}
+                    height={getIconWidth(theme, index)}
+                    loading="lazy"
+                />
+            ))}
         </>
     );
 };
 const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, orientation, environment } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
+    const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+
     return (
         <>
             <ul className="game-guide">
@@ -44,7 +64,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         bets on which symbols will appear.
                     </p>
                     <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
-                        {renderListIcon(theme)}
+                        {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Stag</div>
                         <div className="text">Gourd</div>
                         <div className="text">Rooster</div>
@@ -79,8 +99,8 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                         <tr>
                                             <th>Options</th>
                                             <th>Winning Conditions</th>
-                                            <th className={Styles["odd-width"]}>Odds</th>
-                                            <th className={Styles["min-max-width"]}>
+                                            <th className={`${Styles["odd-width"]} `}>Odds</th>
+                                            <th className={`${Styles["min-max-width"]} ${cssClassColumnTable}`}>
                                                 Bet Limit <br></br>(Min - Max)
                                             </th>
                                         </tr>
@@ -143,19 +163,23 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
 
-                        <li>
-                            <strong> Ocean/ Mountain</strong>
-                            <ul className="detail">
-                                <li>Place a bet on the Ocean group and the result is Fish, Prawn, Stag then the player wins.</li>
-                                <li>Place a bet on the Mountain group and the result is Fish, Stag, Stag then the player wins.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong> Any Triple</strong>
-                            <ul className="detail">
-                                <li>Place a bet on Any Triple option and the result is Crab, Crab, Crab then the player wins.</li>
-                            </ul>
-                        </li>
+                        {!isPortraitGame && (
+                            <>
+                                <li>
+                                    <strong> Ocean/ Mountain</strong>
+                                    <ul className="detail">
+                                        <li>Place a bet on the Ocean group and the result is Fish, Prawn, Stag then the player wins.</li>
+                                        <li>Place a bet on the Mountain group and the result is Fish, Stag, Stag then the player wins.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong> Any Triple</strong>
+                                    <ul className="detail">
+                                        <li>Place a bet on Any Triple option and the result is Crab, Crab, Crab then the player wins.</li>
+                                    </ul>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </li>
                 {renderTermsAndConditionsEN()}

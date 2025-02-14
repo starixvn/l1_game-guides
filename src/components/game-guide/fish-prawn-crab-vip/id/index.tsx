@@ -1,5 +1,5 @@
 import React from "react";
-import { renderTermsAndConditionsID } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsID } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
@@ -8,9 +8,12 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { renderListIcon } from "../en";
 
 const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, environment, orientation } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
+    const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -23,7 +26,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         hasil lemparan dadu, pemain memasang taruhan pada simbol mana yang akan muncul.
                     </p>
                     <div className="icon-wrapper">
-                        {renderListIcon(theme)}
+                        {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Rusa Jantan</div>
                         <div className="text">Kundur</div>
                         <div className="text">Ayam Jantan</div>
@@ -62,7 +65,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>Pilihan</th>
                                             <th>Kondisi Kemenangan</th>
                                             <th style={{ width: 150 }}>Odds</th>
-                                            <th className={Styles["min-max-width"]}>
+                                            <th className={`${Styles["min-max-width"]} ${cssClassColumnTable}`}>
                                                 Batas Taruhan <br></br>(Min - Maks)
                                             </th>
                                         </tr>
@@ -127,21 +130,26 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
 
-                        <li>
-                            <strong>Laut/Gunung</strong>
-                            <ul className="detail">
-                                <li>Pasang taruhan pada grup Samudera dan hasilnya Ikan, Udang, Rusa maka pemain menang.</li>
-                                <li>Pasang taruhan pada grup Gunung dan hasilnya Ikan, Rusa, Rusa maka pemain menang.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Triple Apa Saja</strong>
-                            <ul className="detail">
+                        {!isPortraitGame && (
+                            <>
                                 <li>
-                                    Pasang taruhan pada pilihan Any Triple dan hasilnya Kepiting, Kepiting, Kepiting maka pemain menang.
+                                    <strong>Laut/Gunung</strong>
+                                    <ul className="detail">
+                                        <li>Pasang taruhan pada grup Samudera dan hasilnya Ikan, Udang, Rusa maka pemain menang.</li>
+                                        <li>Pasang taruhan pada grup Gunung dan hasilnya Ikan, Rusa, Rusa maka pemain menang.</li>
+                                    </ul>
                                 </li>
-                            </ul>
-                        </li>
+                                <li>
+                                    <strong>Triple Apa Saja</strong>
+                                    <ul className="detail">
+                                        <li>
+                                            Pasang taruhan pada pilihan Any Triple dan hasilnya Kepiting, Kepiting, Kepiting maka pemain
+                                            menang.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </li>
                 {renderTermsAndConditionsID()}

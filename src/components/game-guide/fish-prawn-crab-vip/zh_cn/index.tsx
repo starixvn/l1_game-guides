@@ -1,5 +1,5 @@
 import React from "react";
-import { renderTermsAndConditionsCN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import { useTheme } from "next-themes";
@@ -8,9 +8,12 @@ import { formatOdds } from "../../../../helpers/number-helper";
 import { renderListIcon } from "../en";
 
 const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, environment, orientation } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
+    const isPortraitGame = !isShowedMD5(environment, orientation);
+
+    const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -22,7 +25,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         游戏的目的是预测掷骰子的结果，玩家下注将出现哪些符号。
                     </p>
                     <div className="icon-wrapper">
-                        {renderListIcon(theme)}
+                        {renderListIcon(theme, isPortraitGame)}
                         <div className="text">麈</div>
                         <div className="text">葫芦</div>
                         <div className="text">公鸡</div>
@@ -55,7 +58,7 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <th>选项</th>
                                             <th>获胜条件</th>
                                             <th style={{ width: 150 }}>赔率</th>
-                                            <th className={Styles["min-max-width"]}>
+                                            <th className={`${Styles["min-max-width"]} ${cssClassColumnTable}`}>
                                                 投注限额 <br></br>（最低 - 最高）
                                             </th>
                                         </tr>
@@ -116,19 +119,23 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                             </ul>
                         </li>
 
-                        <li>
-                            <strong>海洋/山</strong>
-                            <ul className="detail">
-                                <li>在海洋组下注，结果是鱼、虾、麈，则玩家获胜。</li>
-                                <li>在山组下注，结果是鱼、麈、麈，则玩家获胜。</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>任何三重奏</strong>
-                            <ul className="detail">
-                                <li>对任何三重选项下注，结果是螃蟹、螃蟹、螃蟹，然后玩家获胜。</li>
-                            </ul>
-                        </li>
+                        {!isPortraitGame && (
+                            <>
+                                <li>
+                                    <strong>海洋/山</strong>
+                                    <ul className="detail">
+                                        <li>在海洋组下注，结果是鱼、虾、麈，则玩家获胜。</li>
+                                        <li>在山组下注，结果是鱼、麈、麈，则玩家获胜。</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>任何三重奏</strong>
+                                    <ul className="detail">
+                                        <li>对任何三重选项下注，结果是螃蟹、螃蟹、螃蟹，然后玩家获胜。</li>
+                                    </ul>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </li>
                 {renderTermsAndConditionsCN()}
