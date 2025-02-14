@@ -8,9 +8,9 @@ import Styles from "./coin-mining-pf-game.module.scss";
 import { CoinMiningPFContentsProps } from "./type";
 import {
     convertHexToDecimalSteps,
-    takeFirstValueFromSHA512,
+    renderFinalResultWithText,
+    takeFirstValueFromSHA512,convertToDecimal, renderFinalResult
 } from "../../verification/coin-mining";
-import { sliceValueFromSHA512 } from "../../verification/football-dice";
 import { GameConfigs } from "../../game-guide/type";
 
 const renderHowPFInGame = (
@@ -37,9 +37,6 @@ const renderHowPFInGame = (
 };
 
 const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
-    const finalHash =
-        "b6f699f9531c00a579e89f2ae737c9acb73de31797bd6fb1b3573d60745fe8a22a908be44b481ef59bfedc67745bf5e842d2dc624a3dfad5f8dfda835383a2f7";
-    const digits = sliceValueFromSHA512(finalHash);
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
@@ -54,7 +51,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div className={Styles["section-info"]}>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>{t("pf_round", { ns: "Common" })}:</div>
-                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>19700</div>
+                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>1663</div>
                     </div>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>
@@ -62,7 +59,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         </div>
                         
                         <div className={`${Styles["value"]} ${Styles["highlight-text"]} ${Styles["key"]}`}>
-                            7.70x
+                            3.04x
                         </div>
                     </div>
                 </div>
@@ -75,11 +72,11 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                             {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                            0kdsf.hjasdsUJMWF.lfi92urnfasasUYW32
+                            L5.4UAkB_a59ymZmIxqNCjrnoI0VVujl0uA.rj4v
                             <span className={Styles["icon-copy"]}></span>
                         </div>
                         <div className={`${Styles["text-section"]} ${Styles["value-client-seed"]} ${Styles["text-blur"]}`}>
-                            275
+                            4213
                         </div>
                     </div>
                     <div className={Styles["title-style"]}>
@@ -87,7 +84,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                     </div>
                     <div className={Styles["title-style"]}></div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                        913ee2df17db0cd3007b0072d95f0b14u8infsdv7q3jr903mrsca90dj21
+                        62b714b58377e8844e13351df9ac1369fa8eb95182fc70894c36bbf006ed996b
                         <span className={Styles["icon-copy"]}></span>{" "}
                     </div>                    
                     <div className={Styles["title-style"]}></div>
@@ -97,7 +94,7 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                         </div>
                     <div className={Styles["title-style"]}></div>
                     <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                        YDabsdl.ah80hri123nrfsa fHSSdfHin8e2343k2fs.dfdsf0efEGWkjm283
+                        51cb3f2e922a7f69d20a513bc2487dcd1054fe1588b2edd897f5f0efe17aa61b6ca19da25dafab1f737c5a1ac6595f1ec6d9d0c9d1c13b53914ffba7c3bbc922
                     <span className={Styles["icon-copy"]}></span>
                     </div>
                 </div>
@@ -115,25 +112,26 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
 
 const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     const finalHash =
-        "bf57f55c53acd52d0a2d7faf0e262a651288b027bb6a779a50902693bf3908f6967415fe2e114b8fae5abc16090729c615876d5e9d2090e48bdf3ad0f4fadcb4";
+        "51cb3f2e922a7f69d20a513bc2487dcd1054fe1588b2edd897f5f0efe17aa61b6ca19da25dafab1f737c5a1ac6595f1ec6d9d0c9d1c13b53914ffba7c3bbc922";
     const digits = takeFirstValueFromSHA512(8, finalHash);
     return (
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
-                    {t("pf_title_verification", { ns: "Common" })}
+                    {t("pf_title_verification", { ns: "Common" })} (ROUND: 
+                    <span className={Styles["color-result"]}> 1663</span>)
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
-            <div className={Styles["info-seed"]}>
+            <div className={`${Styles["info-seed"]} ${Styles["combined-hash"]}`}>
                 <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>Elby29FHLbSIGUUjShPCIOYNj4EXu_XJl-6CJbrx
+                    <span>L5.4UAkB_a59ymZmIxqNCjrnoI0VVujl0uA.rj4v
                     </span>
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>2248</span>
+                    <span>4213</span>
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
@@ -143,7 +141,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
-                    <span className={Styles["color-result"]}>1.2977701682577698</span>
+                    <span className={Styles["color-result"]}>{renderFinalResultWithText(t, digits)}</span>
                 </div>
                 <div>
                     <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
@@ -162,7 +160,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
                     <div className={Styles["color-second"]}>
-                        429467296 / (321021700 + 1) * (1- 0.03) = 1.2977701682577698
+                        429467296 / ({convertToDecimal(digits ?? '')} + 1) * (1- 0.03) = {renderFinalResult(digits ?? '')}
                     </div>
                 </div>
             </div>

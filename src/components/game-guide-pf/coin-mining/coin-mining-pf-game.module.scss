@@ -15,7 +15,7 @@
 }
 
 .title-client-seed{
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .value-client-seed::before {
@@ -23,11 +23,15 @@
 }
 
 .value-client-seed{
-    margin-left: 50px;
-    width: 120px !important;
+    margin-left: 30px;
+    width: 140px !important;
     text-align: center;
     position: unset !important;
     
+}
+
+.combined-hash{
+    grid-template-columns: 280px 1fr !important;
 }
 
 .styled-table {
