@@ -14,6 +14,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const isPortraitGame = !isShowedMD5(environment, orientation);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+    const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -24,7 +25,7 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         dẫn.Trò chơi sử dụng 3 viên xúc xắc (xí ngầu) 6 mặt, mỗi mặt sẽ có một biểu tượng (linh vật) ứng với một cửa trên
                         bàn chơi.
                     </p>
-                    <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Nai</div>
                         <div className="text">Bầu</div>
@@ -83,30 +84,34 @@ const FishPrawnCrabGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Linh vật được chọn xuất hiện trong kết quả ba lần.</td>
                                             <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Trên Cạn (Nai, Bầu, Gà)</td>
-                                            <td className="text-start">
-                                                Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần trong
-                                                kết quả.
-                                            </td>
-                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dưới Nước (Cá, Cua, Tôm)</td>
-                                            <td className="text-start">
-                                                Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần trong
-                                                kết quả.
-                                            </td>
-                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bộ Ba Bất Kỳ</td>
-                                            <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
-                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
-                                            </td>
-                                        </tr>
+                                        {!isPortraitGame && (
+                                            <>
+                                                <tr>
+                                                    <td>Trên Cạn (Nai, Bầu, Gà)</td>
+                                                    <td className="text-start">
+                                                        Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần
+                                                        trong kết quả.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dưới Nước (Cá, Cua, Tôm)</td>
+                                                    <td className="text-start">
+                                                        Người chơi sẽ thắng cửa này nếu số linh vật trong nhóm này xuất hiện hai hoặc ba lần
+                                                        trong kết quả.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bộ Ba Bất Kỳ</td>
+                                                    <td className="text-start">Linh vật bất kỳ xuất hiện trong kết quả ba lần.</td>
+                                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
+                                                    <td>
+                                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

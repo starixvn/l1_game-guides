@@ -7,11 +7,6 @@ import Styles from "../fish-prawn-crab-vip.module.scss";
 import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 
-interface Props {
-    theme?: string;
-    isPortraitGame: boolean;
-}
-
 const iconImageData = [
     { src: "stag.png", alt: "stag" },
     { src: "gourd.png", alt: "gourd" },
@@ -51,6 +46,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const isPortraitGame = !isShowedMD5(environment, orientation);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+    const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";
 
     return (
         <>
@@ -63,7 +59,7 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         crab, rooster, gourd, and stag). The objective of the game is to predict the outcome of the dice roll, players place
                         bets on which symbols will appear.
                     </p>
-                    <div className={`${Styles["wrapper-icon"]} icon-wrapper`}>
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Stag</div>
                         <div className="text">Gourd</div>

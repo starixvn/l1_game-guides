@@ -14,6 +14,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const isPortraitGame = !isShowedMD5(environment, orientation);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+    const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -24,7 +25,7 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         遊戲使用三個標準骰子，每個骰子包含六個獨特的符號（魚、蝦、蟹、公雞、葫蘆和麈）。
                         遊戲的目的是預測擲骰子的結果，玩家下注將出現哪些符號
                     </p>
-                    <div className="icon-wrapper">
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className="text">麈</div>
                         <div className="text">葫蘆</div>
