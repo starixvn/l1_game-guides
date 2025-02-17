@@ -87,32 +87,36 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">Jika simbol yang dipilih muncul tiga kali. </td>
                                             <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Gunung (Ayam, Labu, Rusa)</td>
-                                            <td className="text-start">
-                                                Pasang taruhan pada grup 3 simbol Gunung. Pemain akan menang jika memiliki setidaknya dua
-                                                simbol dari grup Gunung muncul di hasil.
-                                            </td>
-                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Laut (Ikan, Udang, Kepiting)</td>
-                                            <td className="text-start">
-                                                Pasang taruhan pada kelompok Ocean dari 3 simbol. Pemain akan menang jika memiliki
-                                                setidaknya dua simbol dari grup Samudra muncul di hasil.
-                                            </td>
-                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Triple Apa Saja</td>
-                                            <td className="text-start">
-                                                Untuk memenangkan taruhan ini, ketiga dadu harus menunjukkan simbol yang sama.
-                                            </td>
-                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
-                                            </td>
-                                        </tr>
+                                        {!isPortraitGame && (
+                                            <>
+                                                <tr>
+                                                    <td>Gunung (Ayam, Labu, Rusa)</td>
+                                                    <td className="text-start">
+                                                        Pasang taruhan pada grup 3 simbol Gunung. Pemain akan menang jika memiliki
+                                                        setidaknya dua simbol dari grup Gunung muncul di hasil.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Laut (Ikan, Udang, Kepiting)</td>
+                                                    <td className="text-start">
+                                                        Pasang taruhan pada kelompok Ocean dari 3 simbol. Pemain akan menang jika memiliki
+                                                        setidaknya dua simbol dari grup Samudra muncul di hasil.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Triple Apa Saja</td>
+                                                    <td className="text-start">
+                                                        Untuk memenangkan taruhan ini, ketiga dadu harus menunjukkan simbol yang sama.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
+                                                    <td>
+                                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
