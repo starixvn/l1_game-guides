@@ -122,30 +122,36 @@ const FishPrawnCrabGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">If the chosen symbol appears three times. </td>
                                             <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Mountain (Rooster, Gourd, Stag)</td>
-                                            <td className="text-start">
-                                                Place a bet on the Mountain group of 3 symbols. The player will win if having at least two
-                                                symbols from the Mountain group appear in the result.
-                                            </td>
-                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ocean (Fish, Prawn, Crab)</td>
-                                            <td className="text-start">
-                                                Place a bet on the Ocean group of 3 symbols. The player will win if having at least two
-                                                symbols from the Ocean group appear in the result.
-                                            </td>
-                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Any Triple</td>
-                                            <td className="text-start">To win this bet, all three dice must show the same symbol.</td>
-                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
-                                            </td>
-                                        </tr>
+                                        {!isPortraitGame && (
+                                            <>
+                                                <tr>
+                                                    <td>Mountain (Rooster, Gourd, Stag)</td>
+                                                    <td className="text-start">
+                                                        Place a bet on the Mountain group of 3 symbols. The player will win if having at
+                                                        least two symbols from the Mountain group appear in the result.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ocean (Fish, Prawn, Crab)</td>
+                                                    <td className="text-start">
+                                                        Place a bet on the Ocean group of 3 symbols. The player will win if having at least
+                                                        two symbols from the Ocean group appear in the result.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Any Triple</td>
+                                                    <td className="text-start">
+                                                        To win this bet, all three dice must show the same symbol.
+                                                    </td>
+                                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
+                                                    <td>
+                                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

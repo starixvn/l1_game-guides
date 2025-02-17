@@ -80,28 +80,32 @@ const FishPrawnCrabGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">如果所選符號出現三次。</td>
                                             <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
-                                        <tr>
-                                            <td>山（公雞、葫蘆、麈）</td>
-                                            <td className="text-start">
-                                                投注 “山” 組的 3 個符號。 如果結果中出現至少兩個山組符號，則玩家將獲勝。
-                                            </td>
-                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>海洋（魚、蝦、蟹）</td>
-                                            <td className="text-start">
-                                                投注 “海洋” 組的 3 個符號。 如果結果中出現至少兩個來自海洋組的符號，則玩家將獲勝。
-                                            </td>
-                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>任何三重奏</td>
-                                            <td className="text-start">要贏得這個賭注，所有三個骰子必須顯示相同的符號。</td>
-                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
-                                            </td>
-                                        </tr>
+                                        {!isPortraitGame && (
+                                            <>
+                                                <tr>
+                                                    <td>山（公雞、葫蘆、麈）</td>
+                                                    <td className="text-start">
+                                                        投注 “山” 組的 3 個符號。 如果結果中出現至少兩個山組符號，則玩家將獲勝。
+                                                    </td>
+                                                    <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>海洋（魚、蝦、蟹）</td>
+                                                    <td className="text-start">
+                                                        投注 “海洋” 組的 3 個符號。 如果結果中出現至少兩個來自海洋組的符號，則玩家將獲勝。
+                                                    </td>
+                                                    <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>任何三重奏</td>
+                                                    <td className="text-start">要贏得這個賭注，所有三個骰子必須顯示相同的符號。</td>
+                                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
+                                                    <td>
+                                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

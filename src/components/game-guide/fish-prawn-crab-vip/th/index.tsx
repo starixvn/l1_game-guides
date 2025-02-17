@@ -78,30 +78,36 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                                             <td className="text-start">หากสัญลักษณ์ที่เลือกปรากฏขึ้นสามครั้ง </td>
                                             <td>{formatOdds(odds?.triple, fractionalOddsFormat)}</td>
                                         </tr>
-                                        <tr>
-                                            <td>ภูเขา (ไก่, น้ำเต้า, กวาง)</td>
-                                            <td className="text-start">
-                                                วางเดิมพันบนกลุ่มภูเขา 3 สัญลักษณ์ ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่ม
-                                                Mountain ปรากฏในผลลัพธ์
-                                            </td>
-                                            <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>มหาสมุทร (ปลา กุ้ง ปู)</td>
-                                            <td className="text-start">
-                                                วางเดิมพันในกลุ่มมหาสมุทร 3 สัญลักษณ์
-                                                ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่มมหาสมุทรปรากฏในผลลัพธ์
-                                            </td>
-                                            <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ตองใดก็ได้</td>
-                                            <td className="text-start">ในการชนะเดิมพันนี้ ลูกเต๋าทั้งสามจะต้องแสดงสัญลักษณ์เดียวกัน</td>
-                                            <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
-                                            <td>
-                                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
-                                            </td>
-                                        </tr>
+                                        {!isPortraitGame && (
+                                            <>
+                                                <tr>
+                                                    <td>ภูเขา (ไก่, น้ำเต้า, กวาง)</td>
+                                                    <td className="text-start">
+                                                        วางเดิมพันบนกลุ่มภูเขา 3 สัญลักษณ์
+                                                        ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่ม Mountain ปรากฏในผลลัพธ์
+                                                    </td>
+                                                    <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>มหาสมุทร (ปลา กุ้ง ปู)</td>
+                                                    <td className="text-start">
+                                                        วางเดิมพันในกลุ่มมหาสมุทร 3 สัญลักษณ์
+                                                        ผู้เล่นจะชนะหากมีสัญลักษณ์อย่างน้อยสองสัญลักษณ์จากกลุ่มมหาสมุทรปรากฏในผลลัพธ์
+                                                    </td>
+                                                    <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ตองใดก็ได้</td>
+                                                    <td className="text-start">
+                                                        ในการชนะเดิมพันนี้ ลูกเต๋าทั้งสามจะต้องแสดงสัญลักษณ์เดียวกัน
+                                                    </td>
+                                                    <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
+                                                    <td>
+                                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
+                                                    </td>
+                                                </tr>
+                                            </>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
