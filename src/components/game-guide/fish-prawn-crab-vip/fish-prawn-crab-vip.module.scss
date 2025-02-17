@@ -17,6 +17,10 @@
     width: 14rem;
 }
 
+.icon-wrapper-portrait-mode {
+    grid-gap: 0.5rem 2rem !important;
+}
+
 @media (max-width: 576px) {
     .wrapper-icon {
         img {

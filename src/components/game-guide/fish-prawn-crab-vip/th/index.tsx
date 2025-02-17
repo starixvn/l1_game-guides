@@ -14,6 +14,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const isPortraitGame = !isShowedMD5(environment, orientation);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+    const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -24,7 +25,7 @@ const FishPrawnCrabGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         เกมนี้เล่นโดยใช้ลูกเต๋ามาตรฐานสามลูก และลูกเต๋าแต่ละลูกมีสัญลักษณ์เฉพาะหกตัว (ปลา กุ้ง ปู ไก่ น้ำเต้า และกวาง)
                         วัตถุประสงค์ของเกมคือการทำนายผลของการทอยลูกเต๋า ผู้เล่นวางเดิมพันว่าสัญลักษณ์ใดจะปรากฏขึ้น
                     </p>
-                    <div className="icon-wrapper">
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className="text">กวาง</div>
                         <div className="text">น้ำเต้า</div>

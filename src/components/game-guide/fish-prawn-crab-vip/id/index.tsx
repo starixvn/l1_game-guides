@@ -14,6 +14,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
     const isPortraitGame = !isShowedMD5(environment, orientation);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
+    const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";
     return (
         <>
             <ul className="game-guide">
@@ -25,7 +26,7 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         simbol unik (ikan, udang, kepiting, ayam jago, labu, dan rusa jantan). Tujuan permainan ini adalah untuk memprediksi
                         hasil lemparan dadu, pemain memasang taruhan pada simbol mana yang akan muncul.
                     </p>
-                    <div className="icon-wrapper">
+                    <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className="text">Rusa Jantan</div>
                         <div className="text">Kundur</div>
