@@ -17,8 +17,12 @@
     width: 14rem;
 }
 
+.icon-text {
+    margin-left: 2rem;
+}
+
 .icon-wrapper-portrait-mode {
-    grid-gap: 0.5rem 2rem !important;
+    grid-gap: 0.5rem 3rem !important;
 }
 
 @media (max-width: 576px) {

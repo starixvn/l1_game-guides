@@ -28,12 +28,12 @@ const FishPrawnCrabGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </p>
                     <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
-                        <div className="text">Rusa Jantan</div>
-                        <div className="text">Kundur</div>
-                        <div className="text">Ayam Jantan</div>
-                        <div className="text">Ikan</div>
-                        <div className="text">Kepiting</div>
-                        <div className="text">Udang</div>
+                        <div className={`${Styles["icon-text"]} text`}>Rusa Jantan</div>
+                        <div className={`${Styles["icon-text"]} text`}>Kundur</div>
+                        <div className={`${Styles["icon-text"]} text`}>Ayam Jantan</div>
+                        <div className={`${Styles["icon-text"]} text`}>Ikan</div>
+                        <div className={`${Styles["icon-text"]} text`}>Kepiting</div>
+                        <div className={`${Styles["icon-text"]} text`}>Udang</div>
                     </div>
                 </li>
                 <li className="guide-item">

@@ -27,12 +27,12 @@ const FishPrawnCrabGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </p>
                     <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
-                        <div className="text">麈</div>
-                        <div className="text">葫芦</div>
-                        <div className="text">公鸡</div>
-                        <div className="text">鱼</div>
-                        <div className="text">蟹</div>
-                        <div className="text">虾</div>
+                        <div className={`${Styles["icon-text"]} text`}>麈</div>
+                        <div className={`${Styles["icon-text"]} text`}>葫芦</div>
+                        <div className={`${Styles["icon-text"]} text`}>公鸡</div>
+                        <div className={`${Styles["icon-text"]} text`}>鱼</div>
+                        <div className={`${Styles["icon-text"]} text`}>蟹</div>
+                        <div className={`${Styles["icon-text"]} text`}>虾</div>
                     </div>
                 </li>
                 <li className="guide-item">
