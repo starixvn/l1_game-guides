@@ -52,6 +52,8 @@ export interface ChoicesMaxBetProps {
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds?: OddsProps;
     maxBetPerChoices: ChoicesMaxBetProps;
+    environment?: string;
+    orientation?: string;
 }
 
 export interface MaxBetChoicesProps {
