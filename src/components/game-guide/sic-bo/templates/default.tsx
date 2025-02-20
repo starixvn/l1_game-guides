@@ -1,15 +1,16 @@
 import React from "react";
 
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import { GameGuideProps } from "../../type";
-import Styles from "../sic-bo.module.scss";
+import { Markup } from "interweave";
 import { formatOdds } from "../../../../helpers/number-helper";
+import { StringFormat } from "../../../../helpers/string-helper";
+import { isShowedMD5 } from "../../../shared";
+import MD5 from "../../base/md5";
+import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
+import { GameGuideProps } from "../../type";
 import { getSicBoTranslationResource } from "../languages";
 import { ISicBoTranslationResource } from "../languages/types";
-import { StringFormat } from "../../../../helpers/string-helper";
-import { Markup } from "interweave";
-import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
-import MD5 from "../../base/md5";
+import Styles from "../sic-bo.module.scss";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 export default class SicBoTemplate extends React.Component<
     GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -103,11 +104,12 @@ export default class SicBoTemplate extends React.Component<
                                         <td>{table.betOnAnyNumber}</td>
                                         <td className="text-start">{bettingOptions.description.specificNumber}</td>
                                     </tr>
+                                    {isShowedMD5(this.props.environment, this.props.orientation) &&
                                     <tr>
                                         <td>{table.totalPoints}</td>
                                         <td>{table.betOnTotalPoints}</td>
                                         <td className="text-start">{bettingOptions.description.totalPoints}</td>
-                                    </tr>
+                                    </tr>}
                                 </tbody>
                             </table>
                         </div>
@@ -186,7 +188,9 @@ export default class SicBoTemplate extends React.Component<
                                     {StringFormat(table.numberAppearsThreeTimes, formatOdds(odds?.triple, fractionalOddsFormat))}
                                 </td>
                             </tr>
-                            <tr>
+                            {isShowedMD5(this.props.environment, this.props.orientation) &&
+                            <>
+                                <tr>
                                 <td rowSpan={14}>{table.totalPoints}</td>
                                 <td>4</td>
                                 <td rowSpan={2}>{formatOdds(odds?.total4, fractionalOddsFormat)}</td>
@@ -241,6 +245,8 @@ export default class SicBoTemplate extends React.Component<
                             <tr>
                                 <td>12</td>
                             </tr>
+                            </>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -259,6 +265,7 @@ export default class SicBoTemplate extends React.Component<
                     {this.renderGameRules()}
                     {this.renderBettingOptions()}
                     {this.renderPayouts()}
+                    {isShowedMD5(this.props.environment, this.props.orientation) && 
                     <MD5
                         locale={locale}
                         step1ImageUrl={md5.step1ImageUrl}
@@ -266,7 +273,7 @@ export default class SicBoTemplate extends React.Component<
                         step3ImageUrl="/static/images/sicbo/md5_step3.png"
                         step4ImageUrl="/static/images/sicbo/md5_step4.png"
                         note={md5.note}
-                    />
+                    />}
                     <BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} />
                 </ul>
             </>
