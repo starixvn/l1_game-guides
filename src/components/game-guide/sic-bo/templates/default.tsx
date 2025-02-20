@@ -53,7 +53,7 @@ export default class SicBoTemplate extends React.Component<
         );
     }
 
-    renderBettingOptions() {
+    renderBettingOptions(environment: string, orientation: string) {
         const { bettingOptions, table } = this.state.translationResource;
 
         return (
@@ -104,7 +104,7 @@ export default class SicBoTemplate extends React.Component<
                                         <td>{table.betOnAnyNumber}</td>
                                         <td className="text-start">{bettingOptions.description.specificNumber}</td>
                                     </tr>
-                                    {isShowedMD5(this.props.environment, this.props.orientation) &&
+                                    {isShowedMD5(environment, orientation) &&
                                     <tr>
                                         <td>{table.totalPoints}</td>
                                         <td>{table.betOnTotalPoints}</td>
@@ -119,7 +119,7 @@ export default class SicBoTemplate extends React.Component<
         );
     }
 
-    renderPayouts() {
+    renderPayouts(environment: string, orientation: string) {
         const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = this.props;
         const { odds } = gameConfigs;
         const { payouts, table } = this.state.translationResource;
@@ -188,7 +188,7 @@ export default class SicBoTemplate extends React.Component<
                                     {StringFormat(table.numberAppearsThreeTimes, formatOdds(odds?.triple, fractionalOddsFormat))}
                                 </td>
                             </tr>
-                            {isShowedMD5(this.props.environment, this.props.orientation) &&
+                            {isShowedMD5(environment, orientation) &&
                             <>
                                 <tr>
                                 <td rowSpan={14}>{table.totalPoints}</td>
@@ -255,7 +255,7 @@ export default class SicBoTemplate extends React.Component<
     }
 
     render(): React.ReactNode {
-        const { locale } = this.props;
+        const { locale, environment, orientation } = this.props;
         const { md5 } = this.state.translationResource;
 
         return (
@@ -263,9 +263,9 @@ export default class SicBoTemplate extends React.Component<
                 <ul className="game-guide">
                     {this.renderIntroduction()}
                     {this.renderGameRules()}
-                    {this.renderBettingOptions()}
-                    {this.renderPayouts()}
-                    {isShowedMD5(this.props.environment, this.props.orientation) && 
+                    {this.renderBettingOptions(environment || "", orientation || "")}
+                    {this.renderPayouts(environment || "", orientation || "")}
+                    {isShowedMD5(environment, orientation) && 
                     <MD5
                         locale={locale}
                         step1ImageUrl={md5.step1ImageUrl}
