@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { GameGuideBase } from "../type";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
-import SicBoTemplate from "./templates/default";
 import { getGameConfigProject } from "../../index.helper";
+import { GameGuideBase } from "../type";
+import SicBoTemplate from "./templates/default";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -29,7 +29,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SicBoGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat, environment, orientation } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -69,6 +69,8 @@ const SicBoGuide = (props: GameGuideBase) => {
         maxBetFollowChoice,
         fractionalOddsFormat,
         locale,
+        environment,
+        orientation
     };
     return <SicBoTemplate {...resource} />;
 };
