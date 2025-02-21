@@ -118,7 +118,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
-                    {t("pf_title_verification", { ns: "Common" })} (ROUND: 
+                    {t("pf_title_verification", { ns: "Common" })} ({t("round", { ns: "Common" })}: 
                     <span className={Styles["color-result"]}> 1663</span>)
                 </div>
                 <div className={Styles["icon-close"]}></div>
@@ -160,7 +160,8 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
                     <div className={Styles["color-second"]}>
-                        429467296 / ({convertToDecimal(digits ?? '')} + 1) * (1- 0.03) = {renderFinalResult(digits ?? '')}
+                        429467296 / ({convertToDecimal(digits ?? '')} + 1) * (1- 0.03) = 
+                        <span className={Styles["color-result"]}>{renderFinalResult(digits ?? '')}</span>
                     </div>
                 </div>
             </div>
@@ -246,8 +247,6 @@ const renderGameVerifierTool = (
                     <li>{<Markup content={t("pf_verifier_tool_para_7", { ns: "CoinMining", max_multiplier:  gameSetting?.maxMultiplier})} />}</li>
                     <li>{<Markup content={t("pf_verifier_tool_para_8", { ns: "CoinMining" })} />}</li>
                     <li>{<Markup content={t("pf_verifier_tool_para_9", { ns: "CoinMining" })} />}</li>
-                    
-
                 </ul>
                 <ul className={`${Styles["circle-style"]} ${Styles["content-table-center"]}`}>
                     <table className={Styles["styled-table"]}>

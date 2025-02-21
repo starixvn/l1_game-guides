@@ -10,24 +10,21 @@ export const convertToDecimal = (hex?: string) => {
     return parseInt(hex ?? "0", 16);
 };
 
-export const convertHexToDecimalSteps = (hex?: string) => {
-    if (!hex) return "0";
-    
-    const value = hex.toLowerCase();
-    let total = 0;
-    const steps: string[] = [];
-    
-    for (let i = 0; i < value.length; i++) {
-        const char = value[i];
-        const position = value.length - 1 - i;
-        const hexValue = parseInt(char, 16);
-        const calculation = hexValue * Math.pow(16, position);
-        total += calculation;
-        
-        steps.push(`${i > 0 ? '+' : ' '}${calculation}    (${char} * (16^${position}))`);
-    }
-    
-    return `(${value})=${total}\n${steps.join('\n')}${total > 0 ? ` = ${total}` : ''}`;
+export const convertToHexString = (hex: string) => {
+    return hex.split("").join(",");
+};
+
+export const convertHexToDecimalSteps = (hex: string = "4f1f06cd") => {
+    const decimal = convertToDecimal(hex);
+    const prefix = `(${convertToHexString(hex)})=${decimal}`;
+    const suffix = `=${decimal}`;
+    const steps = hex.split("").map((digit, index) => {
+        const power = hex.length - 1 - index;
+        const stepValue = convertToDecimal(digit) * Math.pow(16, power);
+        const currentDecimal = stepValue.toString().padEnd(hex.length * 2 + (index === 0 ? 1 : 0));
+        return `${currentDecimal} (${digit} * (16^${power}))`;
+    });
+    return `${prefix}\n${steps.join("\n+")}${suffix}`;
 };
 
 export const renderFinalResult = (hex?: string) => {
@@ -84,7 +81,7 @@ const CoinMiningVerification = (props: VerificationBase) => {
                 <div>
                     <strong>{t("pf_verification_para_3", { ns: "Common" })} </strong>
                     <span className={Styles["color-second"]}>
-                        <pre>{convertHexToDecimalSteps(digits)}</pre>
+                        <span className={Styles["color-second"]}><pre>{convertHexToDecimalSteps(digits)}</pre></span>
                     </span>
                 </div>
                 <div>
