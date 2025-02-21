@@ -118,8 +118,8 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
         <div className={Styles["popup-wrapper"]}>
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
-                    {t("pf_title_verification", { ns: "Common" })} ({t("round", { ns: "Common" })}: 
-                    <span className={Styles["color-result"]}> 1663</span>)
+                    {t("pf_title_verification", { ns: "Common" })}
+                    {" "}({t("pf_round", { ns: "Common" })}: <span className={Styles["color-result"]}>1663</span>)
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
