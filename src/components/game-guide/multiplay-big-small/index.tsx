@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import MultiplayBigSmallGuideEN from "./en";
-import MultiplayBigSmallGuideVI from "./vi";
-import { GameGuideBase } from "../type";
 import { locales } from "../../../common/constants";
+import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../index.helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import { GameGuideBase } from "../type";
+import MultiplayBigSmallGuideEN from "./en";
 import MultiplayBigSmallGuideID from "./id";
 import MultiplayBigSmallGuideTH from "./th";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import MultiplayBigSmallGuideVI from "./vi";
 import MultiplayBigSmallGuideCN from "./zh_cn";
 import MultiplayBigSmallGuideTW from "./zh_tw";
-import { getGameConfigProject } from "../../index.helper";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -24,6 +24,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
         environment,
         project,
         fractionalOddsFormat,
+        orientation
     } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
@@ -66,6 +67,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
         environment,
         fractionalOddsFormat,
         locale,
+        orientation
     };
 
     switch (locale) {

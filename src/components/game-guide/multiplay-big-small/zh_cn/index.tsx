@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
-import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderTermsAndConditionsCN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsCN } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import MD5 from "../../base/md5";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import MD5 from "../../base/md5";
 
 const renderMd5Cn = (locale?: string) => {
     return (
@@ -22,7 +21,7 @@ const renderMd5Cn = (locale?: string) => {
 };
 
 const MultiplayBigSmallGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -62,7 +61,7 @@ const MultiplayBigSmallGuideCN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>投注结算后，所有中奖金额都会立即添加到您的账户余额中。</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && renderMd5Cn(props.locale)}
+                {isShowedMD5(environment, orientation) && renderMd5Cn(props.locale)}
                 {renderTermsAndConditionsCN()}
             </ul>
         </>

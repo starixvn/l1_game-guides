@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 
-import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderTermsAndConditionsEN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsEN } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import MD5 from "../../base/md5";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import MD5 from "../../base/md5";
 
 
 const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -56,7 +55,7 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>All winning amounts are instantly added to your account balance when bets are settled.</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && <MD5
+                {isShowedMD5(environment, orientation) &&  <MD5
                     locale={props.locale}
                     step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
                     step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}

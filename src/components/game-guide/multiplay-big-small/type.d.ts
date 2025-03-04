@@ -8,6 +8,8 @@ export interface OddsProps {
 export interface GameConfigProps extends GameConfigsBaseProps {
     odds?: OddsProps;
     maxBetPerChoices: {};
+    environment?: string;
+    orientation?: string;
 }
 
 export interface MaxBetChoicesProps {
