@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
-import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderTermsAndConditionsID } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsID } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import MD5 from "../../base/md5";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import MD5 from "../../base/md5";
 
 const renderMd5Id = (locale?: string) => {
     return (
@@ -22,7 +21,7 @@ const renderMd5Id = (locale?: string) => {
 };
 
 const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -68,7 +67,7 @@ const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>Semua jumlah kemenangan langsung ditambahkan ke saldo akun Anda saat taruhan diselesaikan.</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && renderMd5Id(props.locale)}
+                {isShowedMD5(environment, orientation) && renderMd5Id(props.locale)}
                 {renderTermsAndConditionsID()}
             </ul>
         </>

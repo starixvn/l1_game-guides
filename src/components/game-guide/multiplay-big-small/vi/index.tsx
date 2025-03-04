@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
-import { ENVIRONMENT } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
-import { renderTermsAndConditionsVI } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsVI } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
+import MD5 from "../../base/md5";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import MD5 from "../../base/md5";
 
 const renderMd5Vi = (locale?: string) => {
     return <MD5
@@ -20,7 +19,7 @@ const renderMd5Vi = (locale?: string) => {
 };
 
 const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation } = props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -67,7 +66,7 @@ const MultiplayBigSmallGuideVI: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         <li>Tiền thắng đã bao gồm tiền cược.</li>
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && renderMd5Vi(props.locale)}
+                {isShowedMD5(environment, orientation) && renderMd5Vi(props.locale)}
                 {renderTermsAndConditionsVI()}
             </ul>
         </>
