@@ -299,12 +299,6 @@ ul {
         padding: 0.2rem;
         overflow: auto;
         font-size: var(--font-size-table);
-
-        .table tr {
-            td,th {
-               background-color: transparent !important;
-            }   
-        }
     }
 
     .table {
@@ -343,6 +337,11 @@ ul {
 
         &.left {
             margin-left: 0;
+        }
+        tr {
+            td,th {
+               background-color: transparent !important;
+            }   
         }
     }
 

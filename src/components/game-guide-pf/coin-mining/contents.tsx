@@ -1,17 +1,18 @@
 import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
-import React from "react";
 import { Markup } from "interweave";
+import React from "react";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
+import { GameConfigs } from "../../game-guide/type";
+import {
+    convertHexToDecimalSteps,
+    convertToDecimal, renderFinalResult,
+    renderFinalResultWithText,
+    takeFirstValueFromSHA512
+} from "../../verification/coin-mining";
 import { renderContentPFBase } from "../base";
 import Styles from "./coin-mining-pf-game.module.scss";
 import { CoinMiningPFContentsProps } from "./type";
-import {
-    convertHexToDecimalSteps,
-    renderFinalResultWithText,
-    takeFirstValueFromSHA512,convertToDecimal, renderFinalResult
-} from "../../verification/coin-mining";
-import { GameConfigs } from "../../game-guide/type";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
@@ -182,42 +183,13 @@ const renderVerifyPF = (
             <h2>{<Markup content={t("pf_title_verify_the_provably_fair", { ns: "Common" })} />}</h2>
             <ul className="style-number-dot">
                 {renderGameVerifierTool(t, verImg, rootImgUrl, locale, gameName, gameSetting)}
-                {renderGameVerifierStepByStepTool(t, verImg, rootImgUrl, locale, gameName, gameSetting)}
+                
 
                 {render3rdVerifierTool(t, verImg)}
             </ul>
         </li>
     );
 };
-
-const renderGameVerifierStepByStepTool = (
-    t: TFnType<DefaultParamType, string, TranslationKey>,
-    verImg: string,
-    rootImgUrl: string,
-    locale: string,
-    gameName: string,
-    gameSetting: GameConfigs
-) => {
-    return (
-        <li className="number-dot">
-            <span className="title-text"><Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} /></span>
-            <ul className={Styles["circle-style"]}>
-                <ul className={Styles["circle-style"]}>
-                    <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}</li>
-                    <li>
-                        {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
-                        {renderImageStep2(t, verImg)}
-                    </li>
-                    <li>
-                        {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
-                        {renderImageStep3(t, verImg)}
-                    </li>
-                </ul>
-            </ul>
-        </li>        
-    );
-};
-
 const renderGameVerifierTool = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     verImg: string,
@@ -279,6 +251,18 @@ const renderGameVerifierTool = (
                             </tr>
                         </tbody>
                     </table>
+                </ul>
+                <div>{<Markup content={t("pf_verifier_tool_step_by_step", {  ns: "Common" })} />}{" "}  </div>  
+                <ul className={Styles["circle-style"]}>
+                    <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}</li>
+                    <li>
+                        {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
+                        {renderImageStep2(t, verImg)}
+                    </li>
+                    <li>
+                        {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
+                        {renderImageStep3(t, verImg)}
+                    </li>
                 </ul>
             </ul>
         </li>        
