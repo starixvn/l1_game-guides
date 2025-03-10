@@ -30,9 +30,12 @@ const MultiplayBigSmallGuideTH: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>แนะนำ</h2>
-                    <p className="content">
+                    {isShowedMD5(environment, orientation) ?
+                    (<p className="content">
                         "{gameName}" เป็นเกมส์ลูกเต๋าง่ายๆ ที่ประกอบด้วย 4 โต๊ะ ได้แก่ ลาสเวกัส, มาริน่าเบย์, มาเก๊า และ มอนติคาร์โล ซึ่ง มาริน่าเบย์ และ มอนติคาร์โล เป็นเวอร์ชั่นเทอร์โบที่ใช้เวลาในการเดิมพันสั้นลง
-                    </p>
+                    </p>) : (<p className="content">
+                        มอนติคาร์โล ใหญ่-เล็ก หรือที่รู้จักกันทั่วไปว่า ไฮโล หรือ ไทไซ เป็นเกมที่เล่นด้วยลูกเต๋าสามลูก ผู้เล่นวางเดิมพันและทำนายแต้มรวมของลูกเต๋าสามลูกใหญ่หรือเล็ก
+                    </p>)}
                 </li>
                 <li className="guide-item">
                     <h2>กฎของเกม</h2>

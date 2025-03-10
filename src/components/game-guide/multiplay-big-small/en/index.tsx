@@ -19,9 +19,12 @@ const MultiplayBigSmallGuideEN: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Introduction</h2>
-                    <p className="content">
+                    {isShowedMD5(environment, orientation) ? 
+                    (<p className="content">
                         "{gameName}" is a simple dice game that consists of 4 tables: Las Vegas, Marina Bay, Macau, and Monte Carlo, in which Marina Bay and Monte Carlo are turbo versions with shortened betting time.
-                    </p>
+                    </p>) : (<p className="content">
+                        Monte Carlo Big Small or commonly known as Sicbo or Tai Sai, is a game played with three dice. The players place bets and predict the total points of the three dice are BIG or SMALL.
+                    </p>)}                    
                 </li>
                 <li className="guide-item">
                     <h2>Game Rules</h2>

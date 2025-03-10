@@ -31,9 +31,11 @@ const MultiplayBigSmallGuideTW: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>介紹</h2>
-                    <p className="content">
+                    {isShowedMD5(environment, orientation) ? 
+                    (<p className="content">
                         "{gameName}" 是一款簡單的骰子遊戲，由4個賭桌組成：拉斯維加斯、濱海灣、澳門和蒙特卡洛，其中濱海灣和蒙特卡羅是渦輪版，下注時間將縮短。
-                    </p>
+                    </p>) : (<p className="content">蒙特卡羅大小或俗稱 Sicbo 或 Tai Sai，是一種用三個骰子進行的遊戲。玩家下注並預測三個骰子的總點數是大還是小。
+                    </p>)}
                 </li>
                 <li className="guide-item">
                     <h2>遊戲規則</h2>

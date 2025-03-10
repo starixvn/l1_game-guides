@@ -31,9 +31,12 @@ const MultiplayBigSmallGuideID: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>Perkenalan</h2>
-                    <p className="content">
+                    {isShowedMD5(environment, orientation) ?
+                    (<p className="content">
                         "{gameName}" adalah permainan dadu sederhana yang terdiri dari 4 meja: Las Vegas, Marina Bay, Macau, dan Monte Carlo, di mana Marina Bay dan Monte Carlo adalah versi turbo dengan waktu taruhan yang dipersingkat.
-                    </p>
+                    </p>) : (<p className="content">
+                        Monte Carlo Besar Kecil atau yang biasa dikenal dengan Sicbo atau Ta Siaw, adalah permainan yang dimainkan dengan menggunakan tiga buah dadu. Para pemain memasang taruhan dan memprediksi total poin dari ketiga dadu tersebut BESAR atau KECIL.
+                    </p>)}
                 </li>
                 <li className="guide-item">
                     <h2>Aturan Permainan</h2>
