@@ -21,7 +21,7 @@ const renderGameRules = (
                 <li>{t("game_rules_para2", { ns })}</li>
                 <li>{t("game_rules_para3", { ns })}</li>
                 <li>{t("game_rules_para4", { ns })}</li>
-            </ul>
+            </ul>            
         </li>
     );
 };
@@ -31,10 +31,10 @@ const renderFeatures = (
 ) => {
     return (
         <li className="guide-item">
-            <h2>{t("title_features", { ns: "Common" })}</h2>
+            <h2>{t("cash_out", { ns})}</h2>
             
             <ul className="style-number-rule" >
-                <h2 className="number-dot">{t("cash_out", { ns })}</h2>
+              
                 <ul className="desc">
                     <li>{t("features_para1", { ns })}</li>
                     <ul className="detail">
@@ -44,10 +44,7 @@ const renderFeatures = (
                     <li>{t("features_para2", { ns })}</li>
                 </ul>
                 <p className="content content-center"><Markup content={t("features_para3", { ns})}/></p>
-                <h2 className="number-dot">{t("auto_start", { ns })}</h2>
-                <ul className="desc">
-                    <li>{t("features_para4", { ns })}</li>
-                </ul>
+                
             </ul>
         </li>
     );
