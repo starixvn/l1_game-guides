@@ -66,6 +66,7 @@ const CoinMiningGuide = dynamic(() => import("./coin-mining"));
 const SicBallGameGuide = dynamic(() => import("./sic-ball"));
 const MarbleFootball2GameGuide = dynamic(() => import("./marble-football2"));
 
+const RocketXGuide = dynamic(() => import("./rocket-x"));
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
 class GameGuide<P extends BaseProps> extends GuideBase<P> {
@@ -226,6 +227,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <CoinMiningGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.SIC_BALL:
                 return <SicBallGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.ROCKET_X:
+                return <RocketXGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
         }

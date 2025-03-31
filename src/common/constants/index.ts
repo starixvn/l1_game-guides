@@ -141,6 +141,7 @@ export const GAMES = {
     COIN_MINING: 109,
     SIC_BALL: 1007,
     MARBLE_FOOTBALL_2: 114,
+    ROCKET_X: 113,
 };
 
 export const GAMES_MINI = {
