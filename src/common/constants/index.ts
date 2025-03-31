@@ -139,6 +139,7 @@ export const GAMES = {
     MARBLE_FOOTBALL: 104,
     TAP_FORTUNE: 107,
     COIN_MINING: 109,
+    ROCKET_X: 113,
 };
 
 export const GAMES_MINI = {
