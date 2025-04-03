@@ -9,6 +9,32 @@ import MarbleFootballContent from "./content";
 const GAME_NAME = "marble-football2";
 const tolgee = initTolgee([MARBLE_FOOTBALL2]);
 
+export interface RangeValue {
+    min?: number;
+    max?: number;
+    value?: number;
+}
+
+export interface HalfMatchOddsRange {
+    home: RangeValue;
+    away: RangeValue;
+    draw: RangeValue;
+    over: RangeValue;
+    under: RangeValue;
+    odd: RangeValue;
+    even: RangeValue;
+}
+
+export interface MarbleFootbal2OddsRangeProps {
+    prematch: HalfMatchOddsRange;
+    live: HalfMatchOddsRange;
+}
+
+export interface MarbleFootball2GameConfigs extends GameConfigs {
+    oddsRange: MarbleFootbal2OddsRangeProps;
+}
+
+
 const MarbleFootballGameGuide = ({
     gameConfigs,
     project,
@@ -17,7 +43,7 @@ const MarbleFootballGameGuide = ({
     fractionalOddsFormat,
     userStakeLevel,
 }: GameGuideBase) => {
-    const [configs, setConfigs] = useState<GameConfigs>();
+    const [configs, setConfigs] = useState<MarbleFootball2GameConfigs>();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject(GAME_NAME, project, setConfigs);
@@ -25,10 +51,10 @@ const MarbleFootballGameGuide = ({
 
     const getDynamicGameConfig = () => {
         if (dynamic) {
-            setConfigs(gameConfigs);
+            setConfigs(gameConfigs as MarbleFootball2GameConfigs);
         } else {
             gameConfigs.odds = configs?.odds;
-            setConfigs(gameConfigs);
+            setConfigs(gameConfigs as MarbleFootball2GameConfigs);
         }
     };
 

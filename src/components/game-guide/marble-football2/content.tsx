@@ -4,40 +4,24 @@ import { ReactNode } from "react";
 import Styles from "./marble-football2.module.scss";
 import { Markup } from "interweave";
 import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigs } from "../type";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { MARBLE_FOOTBALL } from "../marble-football/namespace-tolgee";
+import { MarbleFootball2GameConfigs } from ".";
 
-interface RangeValue {
-    min?: number;
-    max?: number;
-    value?: number;
-}
 
-interface HalfMatchOddsRange {
-    home: RangeValue;
-    away: RangeValue;
-    draw: RangeValue;
-    over: RangeValue;
-    under: RangeValue;
-    odd: RangeValue;
-    even: RangeValue;
-}
-
-interface MarbleFootbal2OddsRangeProps {
-    prematch: HalfMatchOddsRange;
-    live: HalfMatchOddsRange;
-}
-
-interface MarbleFootball2GameConfigs extends GameConfigs {
-    oddsRange: MarbleFootbal2OddsRangeProps;
-}
 
 interface MarbleFootballContentProps {
     gameConfigs: MarbleFootball2GameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
+}
+
+const formatOddRange = (range: RangeValue, fractionalOddsFormat: boolean = false) => {
+    if (range.value) {
+        return formatOdds(range.value, fractionalOddsFormat);
+    }
+    return `${formatOdds(range.min, fractionalOddsFormat)} - ${formatOdds(range.max, fractionalOddsFormat)}`;
 }
 
 const MarbleFootballContent = (props: MarbleFootballContentProps) => {
@@ -111,7 +95,7 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
 
 const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsFormat }: MarbleFootballContentProps) => {
     const { t } = useTranslate([MARBLE_FOOTBALL2, COMMON]);
-    const { odds, maxBetPerChoices, minBet, maxBet, oddsRange } = gameConfigs;
+    const { maxBetPerChoices, minBet, maxBet, oddsRange } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.home));
     const maxBetAway = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.away));
@@ -120,9 +104,29 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
     const maxBetOver = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.over));
     const maxBetOdd = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.odd));
     const maxBetEven = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.even));
+    const maxBetHomeLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.homeLive));
+    const maxBetAwayLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.awayLive));
+    const maxBetDrawLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.drawLive));
+    const maxBetUnderLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.underLive));
+    const maxBetOverLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.overLive));
+    const maxBetOddLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.oddLive));
+    const maxBetEvenLive = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.evenLive)); 
 
+    const homeOddRange = formatOddRange(oddsRange.prematch.home, fractionalOddsFormat);
+    const awayOddRange = formatOddRange(oddsRange.prematch.away, fractionalOddsFormat);
+    const drawOddRange = formatOddRange(oddsRange.prematch.draw, fractionalOddsFormat);
+    const overOddRange = formatOddRange(oddsRange.prematch.over, fractionalOddsFormat);
+    const underOddRange = formatOddRange(oddsRange.prematch.under, fractionalOddsFormat);
+    const oddOddRange = formatOddRange(oddsRange.prematch.odd, fractionalOddsFormat);
+    const evenOddRange = formatOddRange(oddsRange.prematch.even, fractionalOddsFormat);
 
-
+    const homeLiveOddRange = formatOddRange(oddsRange.live.home, fractionalOddsFormat);
+    const awayLiveOddRange = formatOddRange(oddsRange.live.away, fractionalOddsFormat);
+    const drawLiveOddRange = formatOddRange(oddsRange.live.draw, fractionalOddsFormat);
+    const overLiveOddRange = formatOddRange(oddsRange.live.over, fractionalOddsFormat);
+    const underLiveOddRange = formatOddRange(oddsRange.live.under, fractionalOddsFormat);
+    const oddLiveOddRange = formatOddRange(oddsRange.live.odd, fractionalOddsFormat);
+    const evenLiveOddRange = formatOddRange(oddsRange.live.even, fractionalOddsFormat);
 
     return (
         <li className={`guide-item`}>
@@ -153,7 +157,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_home", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_home", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.home, fractionalOddsFormat)}</td>
+                                                <td>{homeOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetHome}
                                                 </td>
@@ -161,7 +165,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_away", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_away", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.away, fractionalOddsFormat)}</td>
+                                                <td>{awayOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetAway}
                                                 </td>
@@ -169,7 +173,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_draw", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_draw", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                                <td>{drawOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetDraw}
                                                 </td>
@@ -180,7 +184,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_over", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_over", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.over, fractionalOddsFormat)}</td>
+                                                <td>{overOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetOver}
                                                 </td>
@@ -188,7 +192,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_under", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_under", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.under, fractionalOddsFormat)}</td>
+                                                <td>{underOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetUnder}
                                                 </td>
@@ -196,7 +200,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_odd", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_odd", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.odd, fractionalOddsFormat)}</td>
+                                                <td>{oddOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetOdd}
                                                 </td>
@@ -204,7 +208,7 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_even", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{t("win_condition_even", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
+                                                <td>{evenOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetEven}
                                                 </td>
@@ -234,23 +238,23 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         <tbody>
                                             <tr>
                                                 <td>{t("glossary_home_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.home, fractionalOddsFormat)}</td>
+                                                <td>{homeLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetHome}
+                                                    {minBetMain} - {maxBetHomeLive}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_away_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.away, fractionalOddsFormat)}</td>
+                                                <td>{awayLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetAway}
+                                                    {minBetMain} - {maxBetAwayLive}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_draw_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.draw, fractionalOddsFormat)}</td>
+                                                <td>{drawLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetDraw}
+                                                    {minBetMain} - {maxBetDrawLive}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -258,30 +262,30 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_over_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.over, fractionalOddsFormat)}</td>
+                                                <td>{overLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetOver}
+                                                    {minBetMain} - {maxBetOverLive}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_under_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.under, fractionalOddsFormat)}</td>
+                                                <td>{underLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetUnder}
+                                                    {minBetMain} - {maxBetUnderLive}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_odd_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.odd, fractionalOddsFormat)}</td>
+                                                <td>{oddLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetOdd}
+                                                    {minBetMain} - {maxBetOddLive}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>{t("glossary_even_live", { ns: MARBLE_FOOTBALL2 })}</td>
-                                                <td>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
+                                                <td>{evenLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
-                                                    {minBetMain} - {maxBetEven}
+                                                    {minBetMain} - {maxBetEvenLive}
                                                 </td>
                                             </tr>
                                         </tbody>
