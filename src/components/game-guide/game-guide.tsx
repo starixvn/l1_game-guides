@@ -64,6 +64,7 @@ const MarbleFootballGameGuide = dynamic(() => import("./marble-football"));
 const TapFortuneGuide = dynamic(() => import("./tap-fortune"));
 const CoinMiningGuide = dynamic(() => import("./coin-mining"));
 const SicBallGameGuide = dynamic(() => import("./sic-ball"));
+const MarbleFootball2GameGuide = dynamic(() => import("./marble-football2"));
 
 const guideNameOther = { luckyWheel: "luckyWheel" };
 
@@ -95,7 +96,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
     renderGuide = () => {
         const { gameId, name } = this.props;
         const gameGuideProps = this.getGameGuideProps();
-
         switch (gameId) {
             case GAMES.BIG_SMALL:
             case GAMES.TURBO_BIG_SMALL:
@@ -217,8 +217,9 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.CHRISTMAS_X:
                 return <ChristmasXGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.MARBLE_FOOTBALL:
-            case GAMES.MARBLE_FOOTBALL_2:
                 return <MarbleFootballGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.MARBLE_FOOTBALL_2:
+                return <MarbleFootball2GameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.TAP_FORTUNE:
                 return <TapFortuneGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.COIN_MINING:
