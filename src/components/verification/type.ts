@@ -10,4 +10,5 @@ export type VerificationBase = {
     dynamic: boolean;
     environment?: string;
     displayName?: string;
+    orientation?: string;
 };

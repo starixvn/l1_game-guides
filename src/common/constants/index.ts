@@ -174,6 +174,7 @@ export const GAMES_PF = {
     CHRISTMAS_X: 106,
     COIN_MINING: 109,
     SIC_BALL: 1007,
+    ROCKET_X: 113,
 };
 
 export const TolgeeConfig = {

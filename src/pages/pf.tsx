@@ -1,9 +1,10 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
-import { ImgVersionProvider } from "../contexts/img-version";
+import { useEffect, useRef, useState } from "react";
+import { ENVIRONMENT, ORIENTATION } from "../common/constants";
 import Verification from "../components/verification/verification";
-import { ENVIRONMENT } from "../common/constants";
+import { ImgVersionProvider } from "../contexts/img-version";
+
 export type ProvablyFair = {
     provablyFair: string;
     roundId: number;
@@ -29,6 +30,7 @@ const ProvablyFair = (props: any) => {
     const [displayName, setDisplayName] = useState<string>("");
     const [scrollToId, setScrollToId] = useState<string>("");
     const [environment, setEnvironment] = useState<string>(ENVIRONMENT.sm);
+    const [orientation, setOrientation] = useState(ORIENTATION.landscape);
 
     const getTemplateFollowEnv = () => {
         const props = {
@@ -39,6 +41,7 @@ const ProvablyFair = (props: any) => {
             dynamic,
             environment,
             displayName,
+            orientation,
         };
 
         return <Verification {...props} />;
@@ -66,6 +69,7 @@ const ProvablyFair = (props: any) => {
             setDisplayName(queryParams?.displayName);
             queryParams?.t && setTheme(queryParams.t.toString());
             queryParams?.scrollToId && setScrollToId(queryParams.scrollToId);
+            setOrientation(queryParams?.o);
         }
 
         bindEvent(window, "message", function (event: any) {

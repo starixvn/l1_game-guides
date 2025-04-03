@@ -9,7 +9,7 @@ abstract class VerifyBase<P extends PFProps> extends React.PureComponent<P> {
     }
 
     getPFProps() {
-        const { gameId, provablyFair, locale, dynamic, environment, displayName } = this.props;
+        const { gameId, provablyFair, locale, dynamic, environment, displayName, orientation } = this.props;
 
         const { gameSettings } = appSettings;
         return {
@@ -20,6 +20,7 @@ abstract class VerifyBase<P extends PFProps> extends React.PureComponent<P> {
             dynamic,
             project: appSettings.system,
             displayName,
+            orientation,
         };
     }
 
