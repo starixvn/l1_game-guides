@@ -1,6 +1,19 @@
 import { DefaultParamType, TFnType, TranslationKey } from "@tolgee/react";
 import { Markup } from "interweave";
+import {
+    MAX_VALUE,
+    RTP,
+    convertHexToDecimalSteps,
+    convertToDecimal,
+    renderFinalResult,
+    takeFirstValueFromSHA512,
+} from "../../verification/helper/hash-helper";
 import Styles from "./pf-base.module.scss";
+
+export type PFMeta = {
+    hasCrashPoint?: boolean;
+    potrait?: boolean;
+};
 
 const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
@@ -66,4 +79,207 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
     );
 };
 
-export { renderAdvertisePF, renderContentPFBase };
+const renderStepByStep = (t: TFnType<DefaultParamType, string, TranslationKey>, meta: PFMeta) => {
+    return (
+        <>
+            <div>{<Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} />} </div>
+            <ul className={Styles["circle-style"]}>
+                <li>{<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}</li>
+                <li>
+                    {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
+                    {renderImageStep2(t, meta)}
+                </li>
+                <li>
+                    {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
+                    {renderImageStep3(t)}
+                </li>
+            </ul>
+        </>
+    );
+};
+
+const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, meta: PFMeta) => {
+    return (
+        <div className={Styles["popup-wrapper"]}>
+            <div className={Styles["popup-title"]}>
+                <div className={Styles["popup-title-text"]}>
+                    <span className={Styles["title-provably-fair"]}>{t("pf_provably_fair", { ns: "Common" })} </span>
+                    <span className={Styles["icon-guide"]}></span>
+                </div>
+                <div className={Styles["icon-close"]}></div>
+            </div>
+            <div className={Styles["close-button"]}></div>
+            <div className={Styles["popup-content"]}>
+                <div className={Styles["section-info"]}>
+                    <div className={Styles["info"]}>
+                        <div className={Styles["key"]}>{t("pf_round", { ns: "Common" })}:</div>
+                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>296748</div>
+                    </div>
+                    <div className={Styles["info"]}>
+                        {meta.hasCrashPoint && (
+                            <div className={Styles["key"]}>
+                                <Markup content={t("glossary_crash_point", { ns: "Common" })} />:
+                            </div>
+                        )}
+                        <div className={`${Styles["value"]} ${Styles["highlight-text"]} ${Styles["key"]}`}>2.67x</div>
+                    </div>
+                </div>
+                <div className={`${Styles["server-section"]} ${Styles["bg-section"]}`}>
+                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_seed_sha256", { ns: "Common" })} />}</div>
+                    <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                        8f9d5336931352e44e8755ba4ee9f734đfb39f72899a268ef61ca30f8948ea4<span className={Styles["icon-copy"]}></span>{" "}
+                    </div>
+                    <div className={Styles["title-style"]}>{<Markup content={t("pf_server_Seed", { ns: "Common" })} />}</div>
+                    <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                        xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H<span className={Styles["icon-copy"]}></span>
+                    </div>
+                </div>
+                <div className={`${Styles["client-section"]} ${Styles["bg-section"]}`}>
+                    <div className={Styles["title-section"]}>
+                        <span className={Styles["title-style"]}>{<Markup content={t("pf_client_seed", { ns: "Common" })} />}</span>
+                        <span className={Styles["icon-info"]}></span>
+                    </div>
+                    <div className={Styles["client-seed-section"]}>
+                        <div>
+                            <div className={Styles["player-seed"]}>
+                                <div className={Styles["name"]}>
+                                    <span>{t("pf_player", { ns: "Common" })} </span>
+                                    <span>1 (R***r40)</span>
+                                </div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>5596</div>
+                            </div>
+                            <div className={Styles["player-seed"]}>
+                                <div className={Styles["name"]}>
+                                    <span>{t("pf_player", { ns: "Common" })} </span>
+                                    <span>2 (L***992)</span>
+                                </div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>0056</div>
+                            </div>
+                            <div className={Styles["player-seed"]}>
+                                <div className={Styles["name"]}>
+                                    <span>{t("pf_player", { ns: "Common" })} </span>
+                                    <span>3 (B***069)</span>
+                                </div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>3544</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className={Styles["player-seed"]}>
+                                <div className={Styles["name"]}>
+                                    <span>{t("pf_player", { ns: "Common" })} </span>
+                                    <span>4 (A***744)</span>
+                                </div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>0748</div>
+                            </div>
+                            <div className={Styles["player-seed"]}>
+                                <div className={Styles["name"]}>
+                                    <span>{t("pf_player", { ns: "Common" })} </span>
+                                    <span>5 (S***676)</span>
+                                </div>
+                                <div className={`${Styles["client-seed-value"]} ${Styles["text-section"]}`}>7830</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={Styles["merge-cs-section"]}>
+                        <div className={`${Styles["title-style"]} ${Styles["title-merge-cs"]}`}>
+                            {<Markup content={t("pf_ header_merge_client_seed", { ns: "Common" })} />}
+                        </div>
+                        <div className={Styles["text-section"]}>
+                            55960056354407487830 <span className={Styles["icon-copy"]}></span>
+                        </div>
+                    </div>
+                </div>
+                <div className={`${Styles["section"]} ${Styles["bg-section"]}`}>
+                    <div className={Styles["combined-hash-section"]}>
+                        <div className={`${Styles["title-style"]} ${Styles["title-hash-string"]}`}>
+                            {<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })} />}
+                            <span className={Styles["icon-info"]}></span>
+                        </div>
+                        <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                            5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6
+                            <span className={Styles["icon-copy"]}></span>
+                        </div>
+                    </div>
+                    <div className={Styles["para-desc"]}>{t("pf_provably_fair_para_2", { ns: "Common" })}</div>
+                    <div className={Styles["btn-verify"]}>{t("pf_verify", { ns: "Common" })}</div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    const finalHash =
+        "5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6";
+    const digits = takeFirstValueFromSHA512(finalHash);
+    return (
+        <div className={Styles["popup-wrapper"]}>
+            <div className={Styles["popup-title"]}>
+                <div className={Styles["popup-title-text"]}>
+                    {t("pf_title_verification", { ns: "Common" })}{" "}
+                    <span className={Styles["text-round"]}>
+                        ({t("pf_round", { ns: "Common" })}: <span className={Styles["round-id"]}>296748</span>)
+                    </span>
+                </div>
+                <div className={Styles["icon-close"]}></div>
+            </div>
+            <div className={Styles["info-seed"]}>
+                <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
+                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                    <span>xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H</span>
+                </div>
+                <div className={Styles["title-style"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                    <span>55960056354407487830</span>
+                </div>
+                <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                    <span className={Styles["combined-hash"]}>
+                        5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6
+                    </span>
+                </div>
+            </div>
+            <div className={Styles["convert-info"]}>
+                <div>
+                    <strong>{t("pf_final_result", { ns: "Common" })}: </strong>
+                    <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
+                </div>
+                <div>
+                    <strong>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</strong>
+                    <div className={`${Styles["color-second"]} ${Styles["break-word"]}`}>{finalHash}</div>
+                </div>
+                <div>
+                    <strong>{t("pf_verification_para_2", { ns: "Common", value: "8" })}: </strong>{" "}
+                    <span className={Styles["color-second"]}>{digits}</span>
+                </div>
+                <div>
+                    <strong>{t("pf_verification_para_3", { ns: "Common" })} </strong>
+                    <span className={Styles["color-second"]}>
+                        <pre>{convertHexToDecimalSteps(digits)}</pre>
+                    </span>
+                </div>
+                <div>
+                    <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
+
+                    <div className={Styles["color-second"]}>
+                        {MAX_VALUE} / ({convertToDecimal(digits)} + 1) * (1- {RTP}) ={" "}
+                        <span className={Styles["color-result"]}>{renderFinalResult(digits)}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
+    return (
+        <li className="number-dot">
+            <span className="title-text">{t("pf_subtitle_online_third_party_verifier_tools", { ns: "Common" })}</span>
+            <ul className={Styles["circle-style"]}>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_1", { ns: "Common" })} />}</li>
+                <li>{<Markup content={t("pf_online_third_party_verifier_tools_para_2", { ns: "Common" })} />}</li>
+            </ul>
+        </li>
+    );
+};
+export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderStepByStep };
