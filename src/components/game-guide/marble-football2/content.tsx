@@ -7,7 +7,7 @@ import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { MARBLE_FOOTBALL } from "../marble-football/namespace-tolgee";
-import { MarbleFootball2GameConfigs } from ".";
+import { MarbleFootball2GameConfigs, RangeValue } from ".";
 
 
 
