@@ -342,6 +342,29 @@
     --table-header-background: #141414;
     --table-header-color: #fff;
     --border-line: #323232 1px solid;
+
+    @media (min-height: 768px) {
+        --primary-color: #fff;
+
+        // scrollbar
+        --scrollbar-background: #1b1f46;
+        --scrollbar-thumb-background: linear-gradient(to bottom, rgba(134, 119, 190, 0.6), rgba(172, 166, 213, 0.6));
+        --scrollbar-thumb-opacity: 0.6;
+    
+        // font-size
+        --font-size: 2.4rem;
+        --font-size-table: 2.4rem;
+        --font-size-section: 2.6rem;
+    
+        // table
+        --table-background: #292929;
+        --table-border: #323232;
+        --table-color: #fff;
+        --table-header-background: #141414;
+        --table-header-color: #fff;
+        --border-line: #323232 1px solid;
+    
+    }
 }
 
 [data-theme="number-game"] {

@@ -73,6 +73,12 @@
     --sub-title-font-size: 2rem;
     --font-weight: 700;
     --line-height: 3rem;
+
+    @media (min-height: 768px) {
+        --big-title-font-size: 2.8rem;
+        --title-font-size: 2.6rem;
+        --sub-title-font-size: 2.4rem;
+    }
 }
 
 [data-theme="number-game"] {
@@ -346,6 +352,12 @@ ul {
         }
 
         --bs-table-color: var(--table-color);
+        tr {
+            td,
+            th {
+                background-color: transparent !important;
+            }
+        }
     }
 
     .table-small {
@@ -542,6 +554,10 @@ ul {
     }
     .section {
         margin-bottom: 0.7rem;
+    }
+
+    @media (min-height: 768px) {
+        padding: 2.5rem 4rem 4rem 4rem;
     }
 }
 
