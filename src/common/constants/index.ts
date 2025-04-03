@@ -171,6 +171,7 @@ export const GAMES_PF = {
     FOOTBALL_COIN_TOSS: 93,
     CHRISTMAS_X: 106,
     COIN_MINING: 109,
+    ROCKET_X: 113,
 };
 
 export const TolgeeConfig = {

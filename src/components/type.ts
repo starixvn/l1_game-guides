@@ -31,5 +31,6 @@ export type PFProps = {
     dynamic: boolean;
     environment: string;
     displayName: string;
+    orientation: string;
 } & WithTranslation &
     WithRouterProps;
