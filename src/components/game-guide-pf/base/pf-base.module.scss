@@ -17,7 +17,7 @@ $color-second: #c4bce0;
     justify-content: center;
 
     @media (min-height: 768px) {
-        font-size: 2.8rem;
+        font-size: 1.8rem;
     }
 }
 
@@ -39,11 +39,13 @@ $color-second: #c4bce0;
         border-radius: 2.5rem;
         border: 0.2rem solid #303030;
         height: 4rem;
-        width: 66rem;
-        //line-height: 5rem;
+        width: 44rem;
 
         span {
-            font-size: 2rem;
+            font-size: 1.3rem;
+        }
+        &.final-result {
+            width: 38rem;
         }
     }
 }
@@ -136,7 +138,7 @@ $color-second: #c4bce0;
         padding: 0 16px;
         box-shadow: #8385a5 0px 0px 6px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
         position: relative;
-        
+
         @media (min-height: 768px) {
             background-color: #151719;
             border: 0.1rem solid #303030;

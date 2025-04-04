@@ -58,7 +58,7 @@ const renderGameVerifierTool = (
                 <li>{<Markup content={t("pf_verifier_tool_para_1", { ns: "Common" })} />} </li>
                 <li>{<Markup content={t("pf_verifier_tool_para_2", { ns: "Common", gamename: displayName })} />} </li>
                 <li>{<Markup content={t("pf_verifier_tool_para_3", { ns: "RocketX" })} />} </li>
-                <div className={Styles["intro-border"]}>
+                <div className={`${Styles["intro-border"]} ${Styles["final-result"]}`}>
                     <span style={{ textAlign: "center" }}>
                         <strong className="pf-text-yellow">{t("pf_final_result", { ns: "Common" })}</strong> ={" "}
                         <span>
