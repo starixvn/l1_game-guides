@@ -8,11 +8,73 @@ import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { MARBLE_FOOTBALL } from "../marble-football/namespace-tolgee";
 import { MarbleFootball2GameConfigs, RangeValue } from ".";
+import { GameConfigs } from "../type";
 
+const oddsRange = {
+    prematch: {
+        home: {
+            min: 2.34,
+            max: 2.35
+        },
+        away: {
+            min: 2.34,
+            max: 2.35
+        },
+        draw: {
+            min: 6.32,
+            max: 6.56
+        },
+        over: {
+            min: 1.97,
+            max: 2.00
+        },
+        under: {
+            min: 2.00,
+            max: 2.03
+        },   
+        odd: {
+            value: 2.00,
+        },
+        even: { 
+            value: 2.00,
+        }
+            
+    },
+    live: {
+        home: {
+            min: 2.34,
+            max: 2.35
+        },
+        away: {
+            min: 2.34,
+            max: 2.35
+        },
+        draw: {
+            min: 6.32,
+            max: 6.56
+        },
+        over: {
+            min: 1.97,
+            max: 2.00
+        },
+        under: {
+            min: 2.00,
+            max: 2.03
+        },   
+        odd: {
+            min: 1.98,
+            max: 2.08
+        },
+        even: { 
+            min: 1.98,
+            max: 2.08
+        }
+    }
+}
 
 
 interface MarbleFootballContentProps {
-    gameConfigs: MarbleFootball2GameConfigs;
+    gameConfigs: GameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
 }
@@ -95,7 +157,7 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
 
 const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsFormat }: MarbleFootballContentProps) => {
     const { t } = useTranslate([MARBLE_FOOTBALL2, COMMON]);
-    const { maxBetPerChoices, minBet, maxBet, oddsRange } = gameConfigs;
+    const { maxBetPerChoices, minBet, maxBet, } = gameConfigs;
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.home));
     const maxBetAway = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.away));
