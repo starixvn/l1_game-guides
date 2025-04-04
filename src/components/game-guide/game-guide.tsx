@@ -219,7 +219,7 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.MARBLE_FOOTBALL:
                 return <MarbleFootballGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.MARBLE_FOOTBALL_2:
-                return <MarbleFootball2GameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+                return <MarbleFootball2GameGuide key={`game-${gameId}`} {...gameGuideProps} folderConfigName="marble-football2" />;
             case GAMES.TAP_FORTUNE:
                 return <TapFortuneGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.COIN_MINING:
