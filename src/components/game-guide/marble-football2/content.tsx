@@ -299,21 +299,21 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{t("glossary_home_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_homeLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{homeLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetHomeLive}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_away_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_awayLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{awayLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetAwayLive}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_draw_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_drawLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{drawLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetDrawLive}
@@ -323,28 +323,28 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                                 
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_over_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_overLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{overLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetOverLive}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_under_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_underLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{underLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetUnderLive}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_odd_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_oddLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{oddLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetOddLive}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_even_live", { ns: MARBLE_FOOTBALL2 })}</td>
+                                                <td>{t("glossary_evenLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{evenLiveOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetEvenLive}
