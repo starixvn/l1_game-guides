@@ -30,13 +30,14 @@ const renderVerifyPF = (
     verImg: string,
     rootImgUrl: string,
     locale: string,
-    displayName: string
+    displayName: string,
+    orientation: string
 ) => {
     return (
         <li className="guide-item">
             <h2>{<Markup content={t("pf_title_verify_the_provably_fair", { ns: "Common" })} />}</h2>
             <ul className="style-number-dot">
-                {renderGameVerifierTool(t, verImg, rootImgUrl, locale, displayName)}
+                {renderGameVerifierTool(t, verImg, rootImgUrl, locale, displayName, orientation)}
 
                 {render3rdVerifierTool(t, verImg)}
             </ul>
@@ -49,7 +50,8 @@ const renderGameVerifierTool = (
     verImg: string,
     rootImgUrl: string,
     locale: string,
-    displayName: string
+    displayName: string,
+    orientation: string
 ) => {
     return (
         <li className="number-dot">
@@ -97,7 +99,7 @@ const renderGameVerifierTool = (
                         </tbody>
                     </table>
                 </div>
-                {renderStepByStep(t, { hasCrashPoint: false })}
+                {renderStepByStep(t, { hasCrashPoint: false, isPortrait: orientation === "portrait" })}
             </ul>
         </li>
     );
@@ -108,12 +110,13 @@ const RocketXPFContents: React.FC<RocketXPFContentsProps> = ({ locale, displayNa
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
+
     return (
         <div>
             <ul className={`game-guide game-guide-pf ${orientation}`}>
                 {renderContentPFBase(t, displayName || "", verImg, locale || "")}
                 {renderHowPFInGame(t, verImg, displayName || "", locale || "")}
-                {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "")}
+                {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "", orientation || "")}
             </ul>
         </div>
     );

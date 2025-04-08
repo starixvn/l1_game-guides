@@ -148,7 +148,7 @@ ul {
         line-height: 2rem;
         font-size: var(--font-size);
         @media screen and (min-height: 768px) {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
     }
 }
@@ -171,7 +171,7 @@ ul {
     user-select: var(--select-text);
 
     @media screen and (min-height: 768px) {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     p,
@@ -379,7 +379,9 @@ ul {
         padding-left: 1rem;
         counter-reset: number-dot-list;
         margin-bottom: 1rem;
-
+        @media screen and (min-height: 768px) {
+            padding-left: 0rem;
+        }
         .number-dot {
             margin: 0.5rem 0;
             counter-increment: number-dot-list;
@@ -481,6 +483,9 @@ ul {
 
             list-style-type: circle;
         }
+        @media screen and (min-height: 768px) {
+            padding-left: 2rem;
+        }
     }
 }
 
@@ -533,10 +538,16 @@ ul {
         .number-dot {
             .title-text {
                 color: #fff;
+                @media (min-height: 768px) {
+                    color: #ffbc11;
+                }
             }
 
             &:before {
                 color: #fff;
+                @media (min-height: 768px) {
+                    color: #ffbc11;
+                }
             }
 
             .style-number-dot-number {
@@ -556,7 +567,7 @@ ul {
     }
 
     @media (min-height: 768px) {
-        padding: 2.5rem 1rem 1rem 1rem;
+        padding: 0rem 1rem 1rem 1rem;
     }
 }
 
