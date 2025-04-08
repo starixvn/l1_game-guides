@@ -12,7 +12,7 @@ import Styles from "./pf-base.module.scss";
 
 export type PFMeta = {
     hasCrashPoint?: boolean;
-    potrait?: boolean;
+    isPortrait?: boolean;
 };
 
 const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
@@ -91,7 +91,7 @@ const renderStepByStep = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </li>
                 <li>
                     {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
-                    {renderImageStep3(t)}
+                    {renderImageStep3(t, meta)}
                 </li>
             </ul>
         </>
@@ -99,8 +99,18 @@ const renderStepByStep = (t: TFnType<DefaultParamType, string, TranslationKey>, 
 };
 
 const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, meta: PFMeta) => {
-    return (
-        <div className={Styles["popup-wrapper"]}>
+    const isPortrait = meta.isPortrait;
+    const renderHeader = () => {
+        if (isPortrait) {
+            return (
+                <div className={Styles["popup-title"]}>
+                    <span className={Styles["icon-guide"]}></span>
+                    <span className={Styles["title-provably-fair"]}>{t("pf_provably_fair", { ns: "Common" })} </span>
+                    <div className={Styles["icon-close"]}></div>
+                </div>
+            );
+        }
+        return (
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
                     <span className={Styles["title-provably-fair"]}>{t("pf_provably_fair", { ns: "Common" })} </span>
@@ -108,12 +118,16 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
-            <div className={Styles["close-button"]}></div>
+        );
+    };
+    return (
+        <div className={Styles["popup-wrapper"]}>
+            {renderHeader()}
             <div className={Styles["popup-content"]}>
                 <div className={Styles["section-info"]}>
                     <div className={Styles["info"]}>
                         <div className={Styles["key"]}>{t("pf_round", { ns: "Common" })}:</div>
-                        <div className={`${Styles["value"]} ${Styles["highlight-text"]}`}>296748</div>
+                        <div className={`${Styles["value"]} ${Styles["highlight-text"]} ${Styles["round-id"]}`}>296748</div>
                     </div>
                     <div className={Styles["info"]}>
                         {meta.hasCrashPoint && (
@@ -208,12 +222,22 @@ const renderImageStep2 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
     );
 };
 
-const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, meta: PFMeta) => {
     const finalHash =
         "5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6";
     const digits = takeFirstValueFromSHA512(finalHash);
-    return (
-        <div className={Styles["popup-wrapper"]}>
+    const isPortrait = meta.isPortrait;
+    const renderHeader = () => {
+        if (isPortrait) {
+            return (
+                <div className={Styles["popup-title"]}>
+                    <span className={Styles["icon-guide"]}></span>
+                    <div className={Styles["title-provably-fair"]}>{t("pf_title_verification", { ns: "Common" })}</div>
+                    <div className={Styles["icon-close"]}></div>
+                </div>
+            );
+        }
+        return (
             <div className={Styles["popup-title"]}>
                 <div className={Styles["popup-title-text"]}>
                     {t("pf_title_verification", { ns: "Common" })}{" "}
@@ -223,22 +247,59 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>) 
                 </div>
                 <div className={Styles["icon-close"]}></div>
             </div>
-            <div className={Styles["info-seed"]}>
-                <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
-                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H</span>
-                </div>
-                <div className={Styles["title-style"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
-                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>55960056354407487830</span>
-                </div>
+        );
+    };
+    const renderResult = () => {
+        return (
+            <div className={Styles["result-section"]}>
+                <span className={Styles["text-round"]}>
+                    {t("pf_round", { ns: "Common" })}: <span className={Styles["round-id"]}>296748</span>
+                </span>
+                <div className={Styles["result"]}>2.67x</div>
+            </div>
+        );
+    };
+    const renderSHA512 = () => {
+        return (
+            <>
                 <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
                     <span className={Styles["combined-hash"]}>
                         5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6
                     </span>
                 </div>
+            </>
+        );
+    };
+    const renderSHA512Portrait = () => {
+        return (
+            <>
+                <div className={Styles["title-style"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                <span className={`${Styles["combined-hash"]} ${Styles["break-word"]}`}>
+                    5d1a48c3b2653ee73fb5fb58a40c27f883206927b28243895be4976910fb197caf2c891403a9ef4c6bd2b5826cd9e3d26a944af446e2078adf139ec3a57c6c6
+                </span>
+            </>
+        );
+    };
+
+    return (
+        <div className={Styles["popup-wrapper"]}>
+            {renderHeader()}
+            {isPortrait && renderResult()}
+            <div className={Styles["info-seed"]}>
+                <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
+                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                    <span>xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H</span>
+                    {isPortrait && <span className={Styles["icon-copy"]}></span>}
+                </div>
+                <div className={Styles["title-style"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
+                    <span>55960056354407487830</span>
+                    {isPortrait && <span className={Styles["icon-copy"]}></span>}
+                </div>
+                {!isPortrait && renderSHA512()}
             </div>
+            {isPortrait && renderSHA512Portrait()}
             <div className={Styles["convert-info"]}>
                 <div>
                     <strong>{t("pf_final_result", { ns: "Common" })}: </strong>

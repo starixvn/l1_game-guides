@@ -43,6 +43,9 @@
 .plus-style{
     margin-bottom: 1rem;
     padding-left: 2rem;
+    @media screen and (min-height: 768px) {
+        padding-left: 0rem;
+    }
     > li {
         margin: 0.5rem 0;
         font-weight: normal;

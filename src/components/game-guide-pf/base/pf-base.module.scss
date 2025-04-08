@@ -17,7 +17,7 @@ $color-second: #c4bce0;
     justify-content: center;
 
     @media (min-height: 768px) {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -64,7 +64,12 @@ $color-second: #c4bce0;
     border-radius: 12px;
     padding: 0 40px 24px;
     margin-top: 10px;
-
+    @media (min-height: 768px) {
+        padding: 0 1rem 24px;
+    }
+    .title-text {
+        align-self: center;
+    }
     .popup-title-text {
         text-align: center;
         font-size: 24px;
@@ -97,15 +102,32 @@ $color-second: #c4bce0;
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-question.png");
+        @media (min-height: 768px) {
+            background: url("/static/images/pf/popup/portrait/pf-icon-question.png");
+            width: 4.8rem;
+            height: 4.8rem;
+            scale: 0.6;
+        }
     }
+
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-info.png");
+        @media (min-height: 768px) {
+            background: url("/static/images/pf/popup/portrait/pf-icon-info.png");
+            width: 4.8rem;
+            height: 4.8rem;
+        }
     }
     .popup-title {
         position: relative;
         height: 48px;
         line-height: 55px;
+        @media (min-height: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         .icon-close {
             background: url("/static/images/pf/popup/pf-icon-close.png");
             width: 48px;
@@ -115,9 +137,18 @@ $color-second: #c4bce0;
             top: 1px;
             z-index: 99;
             transform: scale(0.8);
+            @media (min-height: 768px) {
+                background: url("/static/images/pf/popup/portrait/pf-icon-close.png");
+                position: unset;
+                scale: 0.7;
+            }
         }
         .title-provably-fair {
             text-transform: uppercase;
+            @media (min-height: 768px) {
+                font-size: 2rem;
+                font-weight: 700;
+            }
         }
     }
 
@@ -127,6 +158,12 @@ $color-second: #c4bce0;
         grid-row-gap: 8px;
         align-items: center;
         margin: 30px 36px 0;
+        @media (min-height: 768px) {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            align-items: unset;
+        }
     }
     .text-section {
         background-color: #3e4174;
@@ -142,8 +179,11 @@ $color-second: #c4bce0;
         @media (min-height: 768px) {
             background-color: #151719;
             border: 0.1rem solid #303030;
-            height: 4.2rem;
-            line-height: 4.2rem;
+            height: 3rem;
+            line-height: 3rem;
+            box-shadow: unset;
+            padding: 0 0 0 1rem;
+            font-size: 1.3rem;
         }
 
         &.text-blur {
@@ -175,9 +215,12 @@ $color-second: #c4bce0;
             right: -1px;
             top: -6px;
             @media (min-height: 768px) {
-                background: url("/static/images/pf/portrait/icon-copy.png");
+                background: url("/static/images/pf/popup/portrait/pf-icon-copy.png");
                 width: 4.2rem;
                 height: 4.2rem;
+                scale: 0.6;
+                top: -12px;
+                right: -8px;
             }
         }
     }
@@ -187,6 +230,9 @@ $color-second: #c4bce0;
         display: flex;
         &.title-merge-cs {
             width: 30rem;
+        }
+        @media (min-height: 768px) {
+            text-transform: unset;
         }
     }
     .bold {
@@ -198,9 +244,19 @@ $color-second: #c4bce0;
         box-shadow: #080a31 0px 4px 16px 0px inset, #35376a 0px 8px 32px 0px;
         padding: 20px 40px;
         margin-top: 20px;
+        @media (min-height: 768px) {
+            background-color: #191d20;
+            border: 0.1rem solid #303030;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: unset;
+        }
     }
     .color-result {
         color: #06c5dc;
+        @media (min-height: 768px) {
+            color: #2ba911;
+        }
     }
     .color-second {
         color: $color-second;
@@ -209,10 +265,24 @@ $color-second: #c4bce0;
             line-height: 20px;
             margin-bottom: 0;
         }
+        @media (min-height: 768px) {
+            color: var(--text-color);
+        }
     }
     @media (min-height: 768px) {
-        background-color: #151719;
+        background-color: #000000;
         border: 0.2rem solid #303030;
+    }
+    .result-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .text-round {
+            font-size: 1.5rem;
+        }
+        .result {
+            color: #06c5dc;
+        }
     }
 }
 
@@ -222,6 +292,9 @@ $color-second: #c4bce0;
 
 .popup-content {
     padding-top: 20px;
+    @media (min-height: 768px) {
+        padding-top: 1rem;
+    }
 
     .section-info {
         display: flex;
@@ -243,6 +316,9 @@ $color-second: #c4bce0;
                 &.result {
                     color: #fff;
                 }
+                &.round-id {
+                    color: var(--text-color);
+                }
             }
         }
     }
@@ -257,11 +333,17 @@ $color-second: #c4bce0;
         padding: 20px 40px;
         .text-section {
             width: 100%;
+            @media screen and (min-height: 768px) {
+                font-size: 1.3rem;
+                padding-left: 1rem;
+            }
         }
         @media (min-height: 768px) {
-            display: unset;
-            background-color: unset;
+            display: block;
+            padding: 1rem 1rem 2rem 1rem;
+            background-color: #191d20;
             box-shadow: unset;
+            border: 0.1rem solid #303030;
         }
     }
     .title-section {
@@ -276,6 +358,12 @@ $color-second: #c4bce0;
         box-shadow: #080a31 0px 4px 16px 0px inset, #35376a 0px 8px 32px 0px;
         border-radius: 15px;
         margin-top: 20px;
+        @media (min-height: 768px) {
+            box-shadow: unset;
+            border: 0.1rem solid #303030;
+            background-color: #191d20;
+            padding: 1rem 1rem 2rem 1rem;
+        }
         .client-seed-section {
             display: flex;
             justify-content: space-between;
@@ -283,12 +371,24 @@ $color-second: #c4bce0;
                 display: flex;
                 gap: 8px;
                 margin-bottom: 8px;
+                @media screen and (min-height: 768px) {
+                    gap: 1px;
+                }
                 .name {
                     width: 220px;
                     color: $color-second;
+                    @media screen and (min-height: 768px) {
+                        color: var(--text-color);
+                        font-size: 1.3rem;
+                        width: 142px;
+                    }
                 }
                 .text-section {
                     width: 120px;
+                    @media screen and (min-height: 768px) {
+                        font-size: 1.3rem;
+                        width: 6rem;
+                    }
                 }
             }
         }
@@ -297,6 +397,14 @@ $color-second: #c4bce0;
             justify-content: space-between;
             .text-section {
                 width: 650px;
+                @media screen and (min-height: 768px) {
+                    font-size: 1.3rem;
+                    padding-left: 1rem;
+                    width: 36rem;
+                }
+            }
+            @media screen and (min-height: 768px) {
+                flex-direction: column;
             }
         }
     }
@@ -305,15 +413,28 @@ $color-second: #c4bce0;
         display: flex;
         justify-content: space-between;
         margin-top: 16px;
+        @media screen and (min-height: 768px) {
+            flex-direction: column;
+            padding: 0 1rem;
+            margin-top: 0px;
+        }
         .title-style {
             display: flex;
             width: 32rem;
             .icon-info {
                 margin-left: 4px;
             }
+            @media screen and (min-height: 768px) {
+                align-items: center;
+            }
         }
         .text-section {
             width: 600px;
+            @media screen and (min-height: 768px) {
+                font-size: 1.3rem;
+                padding-left: 1rem;
+                width: 36rem;
+            }
         }
     }
     .btn-verify {
@@ -326,11 +447,25 @@ $color-second: #c4bce0;
         text-transform: uppercase;
         font-weight: bold;
         margin-top: 2.5rem;
+        @media screen and (min-height: 768px) {
+            background: unset;
+            background-color: #26a90b;
+            border-radius: 2.5rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            text-transform: unset;
+            font-size: 1.7rem;
+        }
     }
 
     .para-desc {
         padding: 0 40px;
         color: $color-second;
+        @media screen and (min-height: 768px) {
+            padding: 0.1rem;
+            text-align: center;
+            color: var(--text-color);
+        }
     }
 }
 .highlight-text {

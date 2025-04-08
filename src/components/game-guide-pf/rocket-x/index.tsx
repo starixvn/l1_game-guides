@@ -31,7 +31,7 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
-const ChristmasXPFGuide = (props: GameGuideBase) => {
+const RocketXPFGuide = (props: GameGuideBase) => {
     const { displayName, name, gameSetting, locale, orientation } = props;
     const [isLoading, setIsLoading] = useState(true);
 
@@ -52,4 +52,4 @@ const ChristmasXPFGuide = (props: GameGuideBase) => {
     );
 };
 
-export default ChristmasXPFGuide;
+export default RocketXPFGuide;
