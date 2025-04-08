@@ -4,7 +4,7 @@ import React from "react";
 import { Markup } from "interweave";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { render3rdVerifierTool, renderContentPFBase, renderStepByStep } from "../base";
+import { render3rdVerifierTool, renderContentPFBase, renderPFAppliedExample, renderStepByStep } from "../base";
 import Styles from "./rocket-x-pf-game.module.scss";
 import { RocketXPFContentsProps } from "./type";
 
@@ -18,9 +18,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "RocketX" })} />}</li>
             </ul>
-            <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
-            </div>
+            {renderPFAppliedExample(t, verImg)}
         </li>
     );
 };
@@ -114,7 +112,7 @@ const RocketXPFContents: React.FC<RocketXPFContentsProps> = ({ locale, displayNa
     return (
         <div>
             <ul className={`game-guide game-guide-pf ${orientation}`}>
-                {renderContentPFBase(t, displayName || "", verImg, locale || "")}
+                {renderContentPFBase(t, displayName || "", verImg, locale || "", orientation || "")}
                 {renderHowPFInGame(t, verImg, displayName || "", locale || "")}
                 {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "", orientation || "")}
             </ul>

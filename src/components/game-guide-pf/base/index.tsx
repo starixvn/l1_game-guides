@@ -31,13 +31,14 @@ const renderContentPFBase = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     displayName: string,
     imgVersion: string,
-    locale: string
+    locale: string,
+    orientation?: string
 ) => {
     return (
         <>
             {renderAdvertisePF(t, displayName || "", imgVersion)}
             {renderPFInfo(t)}
-            {renderHowPFWork(t, imgVersion, locale)}
+            {renderHowPFWork(t, imgVersion, locale, orientation)}
         </>
     );
 };
@@ -51,7 +52,12 @@ const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     );
 };
 
-const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
+const renderHowPFWork = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    imgVersion: string,
+    locale: string,
+    orientation?: string
+) => {
     return (
         <li className="guide-item section">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
@@ -72,9 +78,14 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            <div className="center-img">
-                <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
-            </div>
+
+            {orientation === "portrait" ? (
+                renderPFWorkExample(t, imgVersion)
+            ) : (
+                <div className="center-img">
+                    <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
+                </div>
+            )}
         </li>
     );
 };
@@ -343,4 +354,101 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
         </li>
     );
 };
-export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderStepByStep };
+
+const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+    return (
+        <div className={Styles["pf-work-example"]}>
+            <div className={Styles["pf-work-example-block-1"]}>
+                <div className={`${Styles["pf-work-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-work-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]}`}>
+                    {<Markup content={t("pf_nonce", { ns: "Common" })} />}
+                </div>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf-snng/pf-work-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+
+                <div className={Styles["pf-work-example-img-text"]}>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                </div>
+            </div>
+            <div className={Styles["pf-word-example-block-2"]}>
+                <div className={Styles["pf-text-highlight"]}>{t("pf_merge_seed", { ns: "Common" })}</div>
+                <div className={Styles["pf-text-highlight"]}>{t("pf_server_client_nonce", { ns: "Common" })}</div>
+                <img
+                    className={Styles["pf-merge-seed-img"]}
+                    src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
+                    alt="pf"
+                ></img>
+            </div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+        </div>
+    );
+};
+const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+    return (
+        <div className={Styles["pf-applied-example"]}>
+            <div className={Styles["pf-applied-example-block-1"]}>
+                <div className={`${Styles["pf-applied-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-applied-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf-snng/pf-applied-ingame-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+                <div className={`${Styles["pf-applied-example-text-3"]} ${Styles["pf-text-highlight"]} text-center`}>
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })} <br />({t("pf_provably_guide_flow", { ns: "SabaNumber" })})
+                </div>
+                <div className={Styles["pf-applied-example-img-text"]}>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
+                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                </div>
+            </div>
+            <div className={Styles["pf-applied-example-block-2"]}>
+                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_combined_seed", { ns: "Common" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-merge-seed-img"]}
+                        src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={Styles["pf-combined-hash"]}>
+                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-combined-hash-img"]}
+                        src={`./static/images/pf-snng/pf-combined-hash.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+        </div>
+    );
+};
+
+export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderStepByStep, renderPFAppliedExample };
