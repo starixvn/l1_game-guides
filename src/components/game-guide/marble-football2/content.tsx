@@ -7,67 +7,67 @@ import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { MARBLE_FOOTBALL } from "../marble-football/namespace-tolgee";
-import { MarbleFootball2GameConfigs, RangeValue } from ".";
+import { RangeValue } from ".";
 import { GameConfigs } from "../type";
 
 const oddsRange = {
     prematch: {
         home: {
-            min: 2.34,
-            max: 2.35
+            min: 2.28,
+            max: 2.29
         },
         away: {
-            min: 2.34,
-            max: 2.35
+            min: 2.28,
+            max: 2.29
         },
         draw: {
-            min: 6.32,
-            max: 6.56
+            min: 6.42,
+            max: 6.53
         },
         over: {
-            min: 1.97,
-            max: 2.00
+            min: 1.93,
+            max: 1.96
         },
         under: {
-            min: 2.00,
-            max: 2.03
+            min: 1.96,
+            max: 1.99
         },   
         odd: {
-            value: 2.00,
+            value: 1.96
         },
         even: { 
-            value: 2.00,
+            value: 1.96
         }
             
     },
     live: {
         home: {
-            min: 2.34,
-            max: 2.35
+            min: 1.11,
+            max: 44.36
         },
         away: {
-            min: 2.34,
-            max: 2.35
+            min: 1.11,
+            max: 44.36
         },
         draw: {
-            min: 6.32,
-            max: 6.56
+            min: 5.58,
+            max: 10.34
         },
         over: {
-            min: 1.97,
-            max: 2.00
+            min: 1.09,
+            max: 13.19
         },
         under: {
-            min: 2.00,
-            max: 2.03
+            min: 1.05,
+            max: 9.34
         },   
         odd: {
-            min: 1.98,
-            max: 2.08
+            min: 1.88,
+            max: 2.04
         },
         even: { 
-            min: 1.98,
-            max: 2.08
+            min: 1.88,
+            max: 2.04
         }
     }
 }
@@ -108,6 +108,7 @@ const MarbleFootBallIntroduction = () => {
                 <ul className="desc">
                     <li>{t("intro_para1", { ns: MARBLE_FOOTBALL2 })}</li>
                     <li>{t("intro_para2", { ns: MARBLE_FOOTBALL2 })}</li>
+                    <li>{t("intro_para3", { ns: MARBLE_FOOTBALL2 })}</li>
                 </ul>
             </div>
         </li>
