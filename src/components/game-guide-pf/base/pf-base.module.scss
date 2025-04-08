@@ -479,3 +479,168 @@ $color-second: #c4bce0;
 .client-seed-value {
     text-align: center;
 }
+// How Does Provably Fair Work? images example
+
+.pf-work-example {
+    width: 34rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.pf-work-example-img-background-full {
+    width: 34rem;
+    margin: 0 auto;
+}
+
+.pf-merge-seed-img {
+    width: 19.7rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.pf-work-example-block-1 {
+    position: relative;
+    margin: 0 auto;
+    font-size: 1.2rem;
+
+    .pf-work-example-text-1 {
+        position: absolute;
+        top: -1.3rem;
+        width: 6.5rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .pf-work-example-text-2 {
+        position: absolute;
+        top: -1.5rem;
+        right: 50%;
+        transform: translate(50%, 0);
+    }
+
+    .pf-work-example-text-3 {
+        position: absolute;
+        top: -1.3rem;
+        width: 7rem;
+        right: -0.2rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .pf-work-example-img-text {
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, 0);
+        top: 6.2rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+
+        > span {
+            width: 5rem;
+            text-align: center;
+            &.pf-player {
+                line-height: 1.4rem;
+            }
+        
+        }
+    }
+}
+
+.pf-word-example-block-2 {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.pf-example-block-final {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 1rem;
+    background: #14204a;
+    border: 1px solid #2a327c;
+    padding: 1rem;
+    width: 19.7rem;
+    margin: 1rem auto;
+}
+
+// How is Provably Fair Applied In-game? images example
+.pf-applied-example {
+    position: relative;
+    width: 34rem;
+    margin: 0 auto;
+    font-size: 1.2rem;
+
+    .pf-applied-example-block-1 {
+        position: relative;
+    }
+
+    .pf-applied-example-text-1 {
+        position: absolute;
+        top: 1rem;
+        width: 8.5rem;
+        text-align: center;
+    }
+
+    .pf-applied-example-text-2 {
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        width: 21rem;
+        text-align: center;
+    }
+
+    .pf-applied-example-text-3 {
+        position: absolute;
+        width: 24rem;
+        top: 17.5rem;
+        right: -1.5rem;
+    }
+
+    .pf-applied-example-img-text {
+        position: absolute;
+        right: 1.7rem;
+        top: 8.5rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+
+        > span {
+            width: 5rem;
+            text-align: center;
+        }
+    }
+}
+
+.pf-text-highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.pf-combined-hash {
+    position: relative;
+
+    .pf-combined-hash-img {
+        width: 28.3rem;
+    }
+
+    .pf-combined-hash-text {
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, 0);
+        top: 1rem;
+    }
+}
