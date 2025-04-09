@@ -17,7 +17,8 @@ $color-second: #c4bce0;
     justify-content: center;
 
     @media (max-width: 600px) {
-        font-size: 1.7rem;
+        font-size: 2.2rem;
+        text-align: center;
     }
 }
 
@@ -39,13 +40,13 @@ $color-second: #c4bce0;
         border-radius: 2.5rem;
         border: 0.2rem solid #303030;
         height: 4rem;
-        width: 44rem;
+        width: 53rem;
 
         span {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
         }
         &.final-result {
-            width: 32rem;
+            width: 38rem;
         }
     }
 }
@@ -109,7 +110,10 @@ $color-second: #c4bce0;
             scale: 0.6;
         }
     }
-
+.icon-guide{
+    position: absolute;
+    left: 0;
+}
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-info.png");
@@ -139,8 +143,8 @@ $color-second: #c4bce0;
             transform: scale(0.8);
             @media (max-width: 600px) {
                 background: url("/static/images/pf/popup/portrait/pf-icon-close.png");
-                position: unset;
                 scale: 0.7;
+                right: 0.5rem;
             }
         }
         .title-provably-fair {
@@ -148,6 +152,7 @@ $color-second: #c4bce0;
             @media (max-width: 600px) {
                 font-size: 2rem;
                 font-weight: 700;
+                margin: auto;
             }
         }
     }
@@ -182,8 +187,14 @@ $color-second: #c4bce0;
             height: 3rem;
             line-height: 3rem;
             box-shadow: unset;
-            padding: 0 0 0 0.2rem;
-            font-size: 1.3rem;
+            padding: 0 0 0 0.3rem;
+            font-size: 1.5rem;
+            .server-seed{
+                padding-left: 0.5rem;
+            }
+            .client-seed{
+                padding-left: 0.5rem;
+            }
         }
 
         &.text-blur {
@@ -334,7 +345,7 @@ $color-second: #c4bce0;
         .text-section {
             width: 100%;
             @media screen and (max-width: 600px) {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
                 padding-left: 1rem;
             }
         }
@@ -382,15 +393,15 @@ $color-second: #c4bce0;
                     color: $color-second;
                     @media screen and (max-width: 600px) {
                         color: var(--text-color);
-                        font-size: 1.2rem;
-                        width: 135px;
+                        font-size: 1.4rem;
+                        width: 17rem;
                     }
                 }
                 .text-section {
                     width: 120px;
                     @media screen and (max-width: 600px) {
-                        font-size: 1.2rem;
-                        width: 4.5rem;
+                        font-size: 1.4rem;
+                        width: 6rem;
                     }
                 }
             }
@@ -401,9 +412,9 @@ $color-second: #c4bce0;
             .text-section {
                 width: 650px;
                 @media screen and (max-width: 600px) {
-                    font-size: 1.3rem;
+                    font-size: 1.5rem;
                     padding-left: 1rem;
-                    width: 36rem;
+                    width: 47rem;
                 }
             }
             @media screen and (max-width: 600px) {
@@ -434,9 +445,9 @@ $color-second: #c4bce0;
         .text-section {
             width: 600px;
             @media screen and (max-width: 600px) {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
                 padding-left: 1rem;
-                width: 36rem;
+                width: 47rem;
             }
         }
     }
@@ -504,12 +515,12 @@ $color-second: #c4bce0;
 .pf-work-example-block-1 {
     position: relative;
     margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
     .pf-work-example-text-1 {
         position: absolute;
         top: -1.3rem;
-        width: 6.5rem;
+        width: 9rem;
         text-align: center;
         line-height: 1.2;
     }
@@ -524,8 +535,8 @@ $color-second: #c4bce0;
     .pf-work-example-text-3 {
         position: absolute;
         top: -1.3rem;
-        width: 7rem;
-        right: -0.2rem;
+        width: 8rem;
+        right: -1rem;
         text-align: center;
         line-height: 1.2;
     }
@@ -557,14 +568,14 @@ $color-second: #c4bce0;
 .pf-word-example-block-2 {
     text-align: center;
     padding-top: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .pf-example-block-final {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     font-weight: 700;
     text-align: center;
@@ -581,7 +592,7 @@ $color-second: #c4bce0;
     position: relative;
     width: 34rem;
     margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
     .pf-applied-example-block-1 {
         position: relative;
@@ -589,14 +600,15 @@ $color-second: #c4bce0;
 
     .pf-applied-example-text-1 {
         position: absolute;
-        top: 1rem;
-        width: 8.5rem;
+        top: 0.5rem;
+        width: 9.5rem;
         text-align: center;
+        left: -1rem;
     }
 
     .pf-applied-example-text-2 {
         position: absolute;
-        top: 1rem;
+        top: 0.5rem;
         right: 0;
         width: 21rem;
         text-align: center;
@@ -604,9 +616,9 @@ $color-second: #c4bce0;
 
     .pf-applied-example-text-3 {
         position: absolute;
-        width: 24rem;
-        top: 17.5rem;
-        right: -1.5rem;
+        width: 28rem;
+        top: 17rem;
+        right: -3.5rem;
         line-height: 2rem;
     }
 
@@ -621,6 +633,7 @@ $color-second: #c4bce0;
         font-size: 1rem;
         font-weight: 700;
         color: #fff;
+        line-height: 1.5rem;
 
         > span {
             width: 5rem;
@@ -646,6 +659,7 @@ $color-second: #c4bce0;
         right: 50%;
         transform: translate(50%, 0);
         top: 0.5rem;
+        width: 18rem;
     }
 }
 

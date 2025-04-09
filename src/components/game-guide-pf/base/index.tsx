@@ -242,7 +242,6 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
         if (isPortrait) {
             return (
                 <div className={Styles["popup-title"]}>
-                    <span className={Styles["icon-guide"]}></span>
                     <div className={Styles["title-provably-fair"]}>{t("pf_title_verification", { ns: "Common" })}</div>
                     <div className={Styles["icon-close"]}></div>
                 </div>
@@ -300,13 +299,11 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
             <div className={Styles["info-seed"]}>
                 <div className={Styles["title-style"]}>{t("pf_server_Seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H</span>
-                    {isPortrait && <span className={Styles["icon-copy"]}></span>}
+                    <span className={Styles["server-seed"]}>xFBRGc1DtkWNfMZvi9QAms0q45UEp7e3bwdrjO2H</span>
                 </div>
                 <div className={Styles["title-style"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["text-section"]} ${Styles["text-blur"]}`}>
-                    <span>55960056354407487830</span>
-                    {isPortrait && <span className={Styles["icon-copy"]}></span>}
+                    <span className={Styles["client-seed"]}>55960056354407487830</span>
                 </div>
                 {!isPortrait && renderSHA512()}
             </div>
