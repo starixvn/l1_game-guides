@@ -182,7 +182,7 @@ $color-second: #c4bce0;
             height: 3rem;
             line-height: 3rem;
             box-shadow: unset;
-            padding: 0 0 0 1rem;
+            padding: 0 0 0 0.2rem;
             font-size: 1.3rem;
         }
 
@@ -220,7 +220,7 @@ $color-second: #c4bce0;
                 height: 4.2rem;
                 scale: 0.6;
                 top: -12px;
-                right: -8px;
+                right: -9px;
             }
         }
     }
@@ -367,27 +367,30 @@ $color-second: #c4bce0;
         .client-seed-section {
             display: flex;
             justify-content: space-between;
+            @media screen and (min-height: 768px) {
+                gap:0.5rem;
+            }
             .player-seed {
                 display: flex;
                 gap: 8px;
                 margin-bottom: 8px;
                 @media screen and (min-height: 768px) {
-                    gap: 1px;
+                    gap: 0.2rem;
                 }
                 .name {
                     width: 220px;
                     color: $color-second;
                     @media screen and (min-height: 768px) {
                         color: var(--text-color);
-                        font-size: 1.3rem;
-                        width: 142px;
+                        font-size: 1.2rem;
+                        width: 135px;
                     }
                 }
                 .text-section {
                     width: 120px;
                     @media screen and (min-height: 768px) {
-                        font-size: 1.3rem;
-                        width: 6rem;
+                        font-size: 1.2rem;
+                        width: 4.5rem;
                     }
                 }
             }
@@ -604,6 +607,7 @@ $color-second: #c4bce0;
         width: 24rem;
         top: 17.5rem;
         right: -1.5rem;
+        line-height: 2rem;
     }
 
     .pf-applied-example-img-text {
@@ -641,6 +645,10 @@ $color-second: #c4bce0;
         position: absolute;
         right: 50%;
         transform: translate(50%, 0);
-        top: 1rem;
+        top: 0.5rem;
     }
+}
+
+.pf-text-merge-seed{
+    line-height: 2rem;
 }

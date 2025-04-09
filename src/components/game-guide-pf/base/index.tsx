@@ -422,7 +422,7 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
                 </div>
             </div>
             <div className={Styles["pf-applied-example-block-2"]}>
-                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
+                <div className={`text-center ${Styles["pf-text-highlight"]} ${Styles["pf-text-merge-seed"]}`}>
                     {t("pf_combined_seed", { ns: "Common" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
                     {t("pf_ header_merge_client_seed", { ns: "Common" })})
                 </div>
