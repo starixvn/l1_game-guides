@@ -144,7 +144,6 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
                     <li>
                         <T keyName="game_rules_para10" ns={MARBLE_FOOTBALL2} params={{ maxbet: numberWithCommas(maxBet) }} />
                     </li>
-                    <li>{t(`game_rules_para11`, { ns: MARBLE_FOOTBALL2 })}</li>
                     <li>{t(`game_rules_para12`, { ns: MARBLE_FOOTBALL2 })}</li>
                     <li>
                         <Markup content={t(`game_rules_para13`, { ns: MARBLE_FOOTBALL2 })} />
