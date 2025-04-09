@@ -10,6 +10,7 @@ import {
     convertHexToDecimalSteps,
     renderFinalResult,
 } from "../helper/hash-helper";
+import { numberWithCommasAndSuffix } from "../../../helpers/number-helper";
 
 const RocketXVerification = (props: VerificationBase) => {
     const { t } = useTranslate(["RocketX", "Common"]);
@@ -25,9 +26,7 @@ const RocketXVerification = (props: VerificationBase) => {
                     <div>
                         {t("pf_round", { ns: "Common" })}: {provablyFair?.roundId ?? "1234"}
                     </div>
-                    <div className={Styles["result"]}>
-                        {provablyFair?.result ?? "4.15"}x
-                    </div>
+                    <div className={Styles["result"]}>{`${numberWithCommasAndSuffix(provablyFair?.result ?? 4.15, 2, false)}x`}</div>
                 </div>
 
                 <div className={Styles["seed-key"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
