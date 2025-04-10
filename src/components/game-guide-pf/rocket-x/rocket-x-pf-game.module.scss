@@ -43,7 +43,7 @@
 .plus-style{
     margin-bottom: 1rem;
     padding-left: 2rem;
-    @media screen and (max-width: 600px) {
+    @media screen and (orientation: portrait) {
         padding-left: 0rem;
     }
     > li {

@@ -74,7 +74,7 @@
     --font-weight: 700;
     --line-height: 3rem;
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         --big-title-font-size: 2rem;
         --title-font-size: 1.8rem;
         --sub-title-font-size: 1.6rem;
@@ -147,7 +147,7 @@ ul {
     li {
         line-height: 2rem;
         font-size: var(--font-size);
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             font-size: 1.8rem;
         }
     }
@@ -170,7 +170,7 @@ ul {
     font-size: var(--font-size);
     user-select: var(--select-text);
 
-    @media screen and (max-width: 600px) {
+    @media screen and (orientation: portrait) {
         font-size: 1.8rem;
     }
 
@@ -379,7 +379,7 @@ ul {
         padding-left: 1rem;
         counter-reset: number-dot-list;
         margin-bottom: 1rem;
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             padding-left: 0rem;
         }
         .number-dot {
@@ -483,7 +483,7 @@ ul {
 
             list-style-type: circle;
         }
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             padding-left: 2rem;
         }
     }
@@ -538,14 +538,14 @@ ul {
         .number-dot {
             .title-text {
                 color: #fff;
-                @media (max-width: 600px) {
+                @media (orientation: portrait) {
                     color: #ffbc11;
                 }
             }
 
             &:before {
                 color: #fff;
-                @media (max-width: 600px) {
+                @media (orientation: portrait) {
                     color: #ffbc11;
                 }
             }
@@ -566,7 +566,7 @@ ul {
         margin-bottom: 0.7rem;
     }
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         padding: 0rem 1rem 1rem 1rem;
     }
 }

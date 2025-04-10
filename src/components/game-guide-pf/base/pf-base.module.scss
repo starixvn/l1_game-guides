@@ -16,7 +16,7 @@ $color-second: #c4bce0;
     display: flex;
     justify-content: center;
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         font-size: 2.2rem;
         text-align: center;
     }
@@ -34,7 +34,7 @@ $color-second: #c4bce0;
     align-items: center;
     margin: 2rem 0 1.2rem 0;
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         background-image: unset;
         background-color: #151719;
         border-radius: 2.5rem;
@@ -65,7 +65,7 @@ $color-second: #c4bce0;
     border-radius: 12px;
     padding: 0 40px 24px;
     margin-top: 10px;
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         padding: 0 1rem 24px;
     }
     .title-text {
@@ -103,7 +103,7 @@ $color-second: #c4bce0;
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-question.png");
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             background: url("/static/images/pf/popup/portrait/pf-icon-question.png");
             width: 4.8rem;
             height: 4.8rem;
@@ -117,7 +117,7 @@ $color-second: #c4bce0;
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-info.png");
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             background: url("/static/images/pf/popup/portrait/pf-icon-info.png");
             width: 4.8rem;
             height: 4.8rem;
@@ -127,7 +127,7 @@ $color-second: #c4bce0;
         position: relative;
         height: 48px;
         line-height: 55px;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -141,7 +141,7 @@ $color-second: #c4bce0;
             top: 1px;
             z-index: 99;
             transform: scale(0.8);
-            @media (max-width: 600px) {
+            @media (orientation: portrait) {
                 background: url("/static/images/pf/popup/portrait/pf-icon-close.png");
                 scale: 0.7;
                 right: 0.5rem;
@@ -149,7 +149,7 @@ $color-second: #c4bce0;
         }
         .title-provably-fair {
             text-transform: uppercase;
-            @media (max-width: 600px) {
+            @media (orientation: portrait) {
                 font-size: 2rem;
                 font-weight: 700;
                 margin: auto;
@@ -163,7 +163,7 @@ $color-second: #c4bce0;
         grid-row-gap: 8px;
         align-items: center;
         margin: 30px 36px 0;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             display: flex;
             flex-direction: column;
             margin: 0;
@@ -181,7 +181,7 @@ $color-second: #c4bce0;
         box-shadow: #8385a5 0px 0px 6px 0px inset, rgba(17, 17, 26, 0.05) 0px 8px 32px 0px;
         position: relative;
 
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             background-color: #151719;
             border: 0.1rem solid #303030;
             height: 3rem;
@@ -209,7 +209,7 @@ $color-second: #c4bce0;
                 height: 34px;
                 top: -3px;
             }
-            @media (max-width: 600px) {
+            @media (orientation: portrait) {
                 &:before {
                     background: url("/static/images/pf/portrait/pf-veryfication-blur.png");
                     width: 14rem;
@@ -225,7 +225,7 @@ $color-second: #c4bce0;
             position: absolute;
             right: -1px;
             top: -6px;
-            @media (max-width: 600px) {
+            @media (orientation: portrait) {
                 background: url("/static/images/pf/popup/portrait/pf-icon-copy.png");
                 width: 4.2rem;
                 height: 4.2rem;
@@ -242,7 +242,7 @@ $color-second: #c4bce0;
         &.title-merge-cs {
             width: 30rem;
         }
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             text-transform: unset;
         }
     }
@@ -255,7 +255,7 @@ $color-second: #c4bce0;
         box-shadow: #080a31 0px 4px 16px 0px inset, #35376a 0px 8px 32px 0px;
         padding: 20px 40px;
         margin-top: 20px;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             background-color: #191d20;
             border: 0.1rem solid #303030;
             padding: 1rem;
@@ -265,7 +265,7 @@ $color-second: #c4bce0;
     }
     .color-result {
         color: #06c5dc;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             color: #2ba911;
         }
     }
@@ -276,11 +276,11 @@ $color-second: #c4bce0;
             line-height: 20px;
             margin-bottom: 0;
         }
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             color: var(--text-color);
         }
     }
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         background-color: #000000;
         border: 0.2rem solid #303030;
     }
@@ -303,7 +303,7 @@ $color-second: #c4bce0;
 
 .popup-content {
     padding-top: 20px;
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         padding-top: 1rem;
     }
 
@@ -311,7 +311,7 @@ $color-second: #c4bce0;
         display: flex;
         justify-content: space-between;
         padding: 5px 40px 10px;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             padding: 0.5rem 0rem 1rem;
         }
         .key {
@@ -344,12 +344,12 @@ $color-second: #c4bce0;
         padding: 20px 40px;
         .text-section {
             width: 100%;
-            @media screen and (max-width: 600px) {
+            @media screen and (orientation: portrait) {
                 font-size: 1.5rem;
                 padding-left: 1rem;
             }
         }
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             display: block;
             padding: 1rem 1rem 2rem 1rem;
             background-color: #191d20;
@@ -369,7 +369,7 @@ $color-second: #c4bce0;
         box-shadow: #080a31 0px 4px 16px 0px inset, #35376a 0px 8px 32px 0px;
         border-radius: 15px;
         margin-top: 20px;
-        @media (max-width: 600px) {
+        @media (orientation: portrait) {
             box-shadow: unset;
             border: 0.1rem solid #303030;
             background-color: #191d20;
@@ -378,20 +378,20 @@ $color-second: #c4bce0;
         .client-seed-section {
             display: flex;
             justify-content: space-between;
-            @media screen and (max-width: 600px) {
+            @media screen and (orientation: portrait) {
                 gap:0.5rem;
             }
             .player-seed {
                 display: flex;
                 gap: 8px;
                 margin-bottom: 8px;
-                @media screen and (max-width: 600px) {
+                @media screen and (orientation: portrait) {
                     gap: 0.2rem;
                 }
                 .name {
                     width: 220px;
                     color: $color-second;
-                    @media screen and (max-width: 600px) {
+                    @media screen and (orientation: portrait) {
                         color: var(--text-color);
                         font-size: 1.4rem;
                         width: 17rem;
@@ -399,7 +399,7 @@ $color-second: #c4bce0;
                 }
                 .text-section {
                     width: 120px;
-                    @media screen and (max-width: 600px) {
+                    @media screen and (orientation: portrait) {
                         font-size: 1.4rem;
                         width: 6rem;
                     }
@@ -411,13 +411,13 @@ $color-second: #c4bce0;
             justify-content: space-between;
             .text-section {
                 width: 650px;
-                @media screen and (max-width: 600px) {
+                @media screen and (orientation: portrait) {
                     font-size: 1.5rem;
                     padding-left: 1rem;
                     width: 47rem;
                 }
             }
-            @media screen and (max-width: 600px) {
+            @media screen and (orientation: portrait) {
                 flex-direction: column;
             }
         }
@@ -427,7 +427,7 @@ $color-second: #c4bce0;
         display: flex;
         justify-content: space-between;
         margin-top: 16px;
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             flex-direction: column;
             padding: 0 1rem;
             margin-top: 0px;
@@ -438,13 +438,13 @@ $color-second: #c4bce0;
             .icon-info {
                 margin-left: 4px;
             }
-            @media screen and (max-width: 600px) {
+            @media screen and (orientation: portrait) {
                 align-items: center;
             }
         }
         .text-section {
             width: 600px;
-            @media screen and (max-width: 600px) {
+            @media screen and (orientation: portrait) {
                 font-size: 1.5rem;
                 padding-left: 1rem;
                 width: 47rem;
@@ -461,7 +461,7 @@ $color-second: #c4bce0;
         text-transform: uppercase;
         font-weight: bold;
         margin-top: 2.5rem;
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             background: unset;
             background-color: #26a90b;
             border-radius: 2.5rem;
@@ -475,7 +475,7 @@ $color-second: #c4bce0;
     .para-desc {
         padding: 0 40px;
         color: $color-second;
-        @media screen and (max-width: 600px) {
+        @media screen and (orientation: portrait) {
             padding: 0.1rem;
             text-align: center;
             color: var(--text-color);

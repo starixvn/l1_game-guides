@@ -343,7 +343,7 @@
     --table-header-color: #fff;
     --border-line: #323232 1px solid;
 
-    @media (max-width: 600px) {
+    @media (orientation: portrait) {
         --primary-color: #ffbc11;
         --text-color: #E6E5DF;
 
