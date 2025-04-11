@@ -18,7 +18,7 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "RocketX" })} />}</li>
             </ul>
-            {renderPFAppliedExample(t, verImg)}
+            {renderPFAppliedExample(t, verImg, locale)}
         </li>
     );
 };

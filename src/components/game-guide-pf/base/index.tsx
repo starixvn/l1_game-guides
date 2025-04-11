@@ -80,7 +80,7 @@ const renderHowPFWork = (
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
 
             {orientation === "portrait" ? (
-                renderPFWorkExample(t, imgVersion)
+                renderPFWorkExample(t, imgVersion, locale)
             ) : (
                 <div className="center-img">
                     <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
@@ -352,17 +352,17 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
     );
 };
 
-const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <div className={Styles["pf-work-example"]}>
             <div className={Styles["pf-work-example-block-1"]}>
-                <div className={`${Styles["pf-work-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                <div className={`${Styles["pf-work-example-text-1"]} ${Styles["pf-text-highlight"]} ${Styles[locale]}`}>
                     {t("pf_server_Seed", { ns: "Common" })}
                 </div>
                 <div className={`${Styles["pf-work-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
                     {t("pf_client_seed", { ns: "Common" })}
                 </div>
-                <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]}`}>
+                <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]} ${Styles[locale]}`}>
                     {<Markup content={t("pf_nonce", { ns: "Common" })} />}
                 </div>
                 <div className="center-img">
@@ -392,7 +392,7 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
         </div>
     );
 };
-const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <div className={Styles["pf-applied-example"]}>
             <div className={Styles["pf-applied-example-block-1"]}>
@@ -432,7 +432,7 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
                 </div>
             </div>
             <div className={Styles["pf-combined-hash"]}>
-                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
+                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]} ${Styles[locale]}`}>
                     {t("pf_header_combined_sha512_hash", { ns: "Common" })}
                 </div>
                 <div className="center-img" style={{ paddingTop: "0" }}>

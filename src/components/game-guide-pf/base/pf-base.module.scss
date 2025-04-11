@@ -520,14 +520,17 @@ $color-second: #c4bce0;
     .pf-work-example-text-1 {
         position: absolute;
         top: -1.3rem;
-        width: 9rem;
+        left: -1rem;
         text-align: center;
         line-height: 1.2;
+        &.th {
+            left: -0.5rem;
+        }
     }
 
     .pf-work-example-text-2 {
         position: absolute;
-        top: -1.5rem;
+        top: -2rem;
         right: 50%;
         transform: translate(50%, 0);
     }
@@ -539,6 +542,15 @@ $color-second: #c4bce0;
         right: -1rem;
         text-align: center;
         line-height: 1.2;
+        &.th {
+            width: unset;
+            right: -3rem;
+        }
+        &.zh_cn,
+        &.zh_tw {
+            width: 7rem;
+            right: -0.5rem;
+        }
     }
 
     .pf-work-example-img-text {
@@ -569,6 +581,7 @@ $color-second: #c4bce0;
     text-align: center;
     padding-top: 1rem;
     font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .pf-example-block-final {
@@ -659,10 +672,13 @@ $color-second: #c4bce0;
         right: 50%;
         transform: translate(50%, 0);
         top: 0.5rem;
-        width: 18rem;
+        &.id,
+        &.en {
+            width: 18rem;
+        }
     }
 }
 
-.pf-text-merge-seed{
+.pf-text-merge-seed {
     line-height: 2rem;
 }
