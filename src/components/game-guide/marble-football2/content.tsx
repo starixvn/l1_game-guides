@@ -132,9 +132,12 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
             <div className="content">
                 <ul className="desc">
                     <li>{t(`game_rules_para`, { ns: MARBLE_FOOTBALL2 })}</li>
-                    {generateChain(1, 3, (index) => (
+                    {generateChain(1, 2, (index) => (
                         <li key={index}>{t(`game_rules_para${index}`, { ns: MARBLE_FOOTBALL2 })}</li>
                     ))}
+                    <li>
+                        <Markup content={t(`game_rules_para3`, { ns: MARBLE_FOOTBALL2 })} />
+                    </li>
                     <li>
                         {t(`game_rules_para4`, { ns: MARBLE_FOOTBALL2 })}
                         <ul className={`${Styles["example-list"]}`}>
