@@ -4,7 +4,7 @@ import { GameConfigs, GameGuideBase } from "../type";
 import { MARBLE_FOOTBALL2 } from "./namespace-tolgee";
 import { getGameConfigProject } from "../../index.helper";
 import { TolgeeProvider } from "@tolgee/react";
-import MarbleFootballContent from "./content";
+import Content from "./content";
 
 const GAME_NAME = "marble-football2";
 const tolgee = initTolgee([MARBLE_FOOTBALL2]);
@@ -80,7 +80,7 @@ const MarbleFootballGameGuide = ({
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <MarbleFootballContent {...{ gameConfigs: configs, fractionalOddsFormat, userStakeLevel }} />
+            <Content {...{ gameConfigs: configs, fractionalOddsFormat, userStakeLevel }} />
         </TolgeeProvider>
     );
 };
