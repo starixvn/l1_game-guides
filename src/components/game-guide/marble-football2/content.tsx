@@ -10,6 +10,9 @@ import { MARBLE_FOOTBALL } from "../marble-football/namespace-tolgee";
 import { RangeValue } from ".";
 import { GameConfigs } from "../type";
 
+const PAYOUT_HEADER_STYLE = "payout-header";
+const BET_OPTION_STYLE = "bet-option";
+
 const oddsRange = {
     prematch: {
         home: {
@@ -79,14 +82,14 @@ interface MarbleFootballContentProps {
     fractionalOddsFormat?: boolean;
 }
 
-const formatOddRange = (range: RangeValue, fractionalOddsFormat: boolean = false) => {
+const formatOddRange = (range: RangeValue, fractionalOddsFormat = false) => {
     if (range.value) {
         return formatOdds(range.value, fractionalOddsFormat);
     }
     return `${formatOdds(range.min, fractionalOddsFormat)} - ${formatOdds(range.max, fractionalOddsFormat)}`;
 }
 
-const MarbleFootballContent = (props: MarbleFootballContentProps) => {
+const Content = (props: MarbleFootballContentProps) => {
     const { maxBet } = props.gameConfigs;
     return (
         <ul className={`game-guide`}>
@@ -155,8 +158,8 @@ const MarbleFootballGameRules = ({ maxBet }: { maxBet: number }) => {
                     <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
-                                            <tr className={Styles["payout-header"]}>
-                                                <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: COMMON })}</th>
+                                            <tr className={Styles[PAYOUT_HEADER_STYLE]}>
+                                                <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>{t("header_betoption", { ns: COMMON })}</th>
                                                 <th className="bold">{t("guide_header_winning_condition", { ns: COMMON })}</th>
                                             </tr>
                                         </thead>
@@ -275,8 +278,8 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
-                                            <tr className={Styles["payout-header"]}>
-                                                <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: COMMON })}</th>
+                                            <tr className={Styles[PAYOUT_HEADER_STYLE]}>
+                                                <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>{t("header_betoption", { ns: COMMON })}</th>
                                                 <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
                                                 <th className={`bold ${Styles["nowrap"]}`}>
                                                     <Markup content={t("header_betlimit", { ns: MARBLE_FOOTBALL2 })} />{" "}
@@ -349,8 +352,8 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                 <div className="table-container">
                                     <table className="table text-center">
                                         <thead>
-                                            <tr className={Styles["payout-header"]}>
-                                                <th className={`bold ${Styles["bet-option"]}`}>{t("header_betoption", { ns: COMMON })}</th>
+                                            <tr className={Styles[PAYOUT_HEADER_STYLE]}>
+                                                <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>{t("header_betoption", { ns: COMMON })}</th>
                                                 <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
                                                 <th className={`bold ${Styles["nowrap"]}`}>
                                                     <Markup content={t("header_betlimit", { ns: MARBLE_FOOTBALL2 })} />{" "}
@@ -361,8 +364,8 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                             <tr>
                                                 <td>{t("glossary_homeLive", { ns: MARBLE_FOOTBALL2 })}</td>
                                                 <td>{homeLiveOddRange}</td>
-                                                <td className={Styles["nowrap"]} rowSpan={7}>
-                                                    The maximum bet limit will change according to the payout ratio
+                                                <td className={Styles["bet-limit-column"]} rowSpan={7}>
+                                                {t("payout_para_table", { ns: MARBLE_FOOTBALL2 })}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -401,4 +404,4 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
     );
 };
 
-export default MarbleFootballContent;
+export default Content;
