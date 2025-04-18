@@ -270,7 +270,6 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                     <li>{t("payout_para1", { ns: MARBLE_FOOTBALL2 })}</li>
                     <li>{t("payout_para2", { ns: MARBLE_FOOTBALL2 })}</li>
                     <li>{t("payout_para3", { ns: MARBLE_FOOTBALL2 })}</li>
-                    <li>{t("payout_para4", { ns: MARBLE_FOOTBALL2 })}</li>
                     <li className="contentBeforeEmpty">
                         <ol className={Styles["payout-sections-parenthesis"]}>
                             <li>
