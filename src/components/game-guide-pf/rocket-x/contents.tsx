@@ -8,7 +8,21 @@ import { render3rdVerifierTool, renderContentPFBase, renderPFAppliedExample, ren
 import Styles from "./rocket-x-pf-game.module.scss";
 import { RocketXPFContentsProps } from "./type";
 
-const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, gameName: string, locale: string) => {
+const renderHowPFInGame = ({
+    t,
+    verImg,
+    gameName,
+    locale,
+    orientation,
+    rootImgUrl,
+}: {
+    t: TFnType<DefaultParamType, string, TranslationKey>;
+    verImg: string;
+    gameName: string;
+    locale: string;
+    orientation: string;
+    rootImgUrl: string;
+}) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
@@ -18,7 +32,13 @@ const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "RocketX" })} />}</li>
             </ul>
-            {renderPFAppliedExample(t, verImg, locale)}
+            {orientation === "portrait" ? (
+                renderPFAppliedExample(t, verImg, locale)
+            ) : (
+                <div className={Styles["center-img"]}>
+                    <img src={`/static/images/pf/flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
+                </div>
+            )}
         </li>
     );
 };
@@ -113,7 +133,14 @@ const RocketXPFContents: React.FC<RocketXPFContentsProps> = ({ locale, displayNa
         <div>
             <ul className={`game-guide game-guide-pf ${orientation}`}>
                 {renderContentPFBase(t, displayName || "", verImg, locale || "", orientation || "")}
-                {renderHowPFInGame(t, verImg, displayName || "", locale || "")}
+                {renderHowPFInGame({
+                    t,
+                    verImg,
+                    gameName: displayName || "",
+                    locale: locale || "",
+                    orientation: orientation || "",
+                    rootImgUrl,
+                })}
                 {renderVerifyPF(t, verImg, rootImgUrl, locale || "", displayName || "", orientation || "")}
             </ul>
         </div>

@@ -13,20 +13,32 @@
 
 .tbl-example {
     width: 600px;
-    border: 1px solid #303030 ;
+    border: 1px solid #27244e;
     thead td {
-        background-color: #151719;
+        background-color: #323661;
         height: 51px;
         text-align: center;
         color: #fff;
-        border: 1px solid #303030;
+        border: 1px solid #27244e;
         text-align: center;
     }
-    tbody td{
-        background-color: #151719;
+    tbody td {
+        background-color: #3e4174;
         height: 42px;
-        border: 1px solid #303030;
+        border: 1px solid #27244e;
         text-align: center;
+    }
+
+    @media screen and (orientation: portrait) {
+        border: 1px solid #303030;
+        thead td {
+            background-color: #151719;
+            border: 1px solid #303030;
+        }
+        tbody td {
+            background-color: #151719;
+            border: 1px solid #303030;
+        }
     }
 }
 
