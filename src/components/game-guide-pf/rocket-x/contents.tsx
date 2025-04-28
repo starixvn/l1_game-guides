@@ -36,7 +36,7 @@ const renderHowPFInGame = ({
                 renderPFAppliedExample(t, verImg, locale)
             ) : (
                 <div className={Styles["center-img"]}>
-                    <img src={`/static/images/pf/flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
+                    <img src={`/static/images/pf/rocket-x/flow-overall_${locale}.png?v=${verImg}`} alt="pf"></img>
                 </div>
             )}
         </li>
