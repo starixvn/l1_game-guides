@@ -157,7 +157,9 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
     );
 };
 
-const renderSHA256 = (t: Function, locale: string | undefined) => {
+const renderSHA256 = (t: Function, locale: string | undefined, orientation?: string) => {
+    if (orientation === 'portrait') return null;
+
     const result = "{1,6}";
     const multiplier = "2x";
     const choice = "7";
@@ -238,7 +240,7 @@ const renderSHA256 = (t: Function, locale: string | undefined) => {
     );
 };
 
-const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel }) => {
+const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalOddsFormat, locale, userStakeLevel, orientation }) => {
     const { t } = useTranslate([ns, "Common"]);
 
     return (
@@ -250,7 +252,7 @@ const Contents: React.FC<SevenUpDownContentsProps> = ({ gameConfigs, fractionalO
             {renderGameRules(t, gameConfigs, userStakeLevel, fractionalOddsFormat)}
             {renderMultiplierFeatures(t, gameConfigs, fractionalOddsFormat)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            {renderSHA256(t, locale)}
+            {renderSHA256(t, locale, orientation)}
             <TermsAndConditionsTolgee />
         </ul>
     );

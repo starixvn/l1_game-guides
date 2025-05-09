@@ -18,4 +18,5 @@ export type SevenUpDownContentsProps = {
     gameConfigs: GameConfigs;
     fractionalOddsFormat?: boolean;
     userStakeLevel: UserStakeLevelProps | undefined;
+    orientation?: string;
 };
