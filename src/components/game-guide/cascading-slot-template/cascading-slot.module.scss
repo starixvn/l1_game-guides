@@ -79,6 +79,7 @@
     display: grid;
     grid-template-columns: 1.5rem 2rem;
     justify-content: flex-start;
+    align-items: center;
     grid-column-gap: 0.3rem;
 
     &.free-spin {
