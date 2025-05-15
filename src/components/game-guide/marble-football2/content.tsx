@@ -279,8 +279,8 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         <thead>
                                             <tr className={Styles[PAYOUT_HEADER_STYLE]}>
                                                 <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>{t("header_betoption", { ns: COMMON })}</th>
-                                                <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
-                                                <th className={`bold ${Styles["nowrap"]}`}>
+                                                <th className={`bold`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
+                                                <th className={`bold`}>
                                                     <Markup content={t("header_betlimit", { ns: MARBLE_FOOTBALL2 })} />{" "}
                                                 </th>
                                             </tr>
@@ -353,8 +353,8 @@ const MarbleFootballPayout = ({ gameConfigs, userStakeLevel, fractionalOddsForma
                                         <thead>
                                             <tr className={Styles[PAYOUT_HEADER_STYLE]}>
                                                 <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>{t("header_betoption", { ns: COMMON })}</th>
-                                                <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
-                                                <th className={`bold ${Styles["nowrap"]}`}>
+                                                <th className={`bold`}>{t("header_odds", { ns: MARBLE_FOOTBALL2 })}</th>
+                                                <th className={`bold`}>
                                                     <Markup content={t("header_betlimit", { ns: MARBLE_FOOTBALL2 })} />{" "}
                                                 </th>
                                             </tr>
