@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { renderTermsAndConditionsCN } from "../../../shared";
+import { isShowedMD5, renderTermsAndConditionsCN } from "../../../shared";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../type";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
@@ -10,7 +10,8 @@ import MD5 from "../../base/md5";
 import { renderPromotionNoteCN } from "../../../shared/promotion-note/zh_cn";
 
 const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, isInPromotionTime, fractionalOddsFormat, orientation } =
+        props;
     const { odds } = gameConfigs;
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -59,7 +60,7 @@ const BigSmallGuideZH_CN: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
                         {renderPromotionNoteCN(isInPromotionTime)}
                     </ul>
                 </li>
-                {environment === ENVIRONMENT.sc && (
+                {isShowedMD5(environment, orientation) && (
                     <MD5
                         locale={props.locale}
                         step1ImageUrl={"/static/images/big-small/md5_step1_cn.png?v=3"}

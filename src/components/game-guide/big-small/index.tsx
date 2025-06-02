@@ -27,6 +27,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         project,
         isInPromotionTime,
         fractionalOddsFormat,
+        orientation
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -76,6 +77,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
         locale,
+        orientation
     };
 
     switch (locale) {
