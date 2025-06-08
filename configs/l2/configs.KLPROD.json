@@ -1,0 +1,11 @@
+{
+    "sentry": {
+        "dsn": "https://65f2ba49d2e04240b998eb783efc9315@sentry.sabagaming.com/156",
+        "environment": "PROD"
+    },
+    "system": "L2",
+    "enableSourceMap": false,
+    "resourceUrl": "https://client.vgaming88.net/game/static/",
+    "gameSettingUrl": "http://l2-admin-api-klprod-service:5000/api/public/game_configs/",
+    "useTolgeeStatic": true
+}
