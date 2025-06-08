@@ -1,0 +1,11 @@
+{
+    "sentry": {
+        "dsn": "http://65f2ba49d2e04240b998eb783efc9315@sentry.sabagaming.com/156",
+        "environment": "PROD"
+    },
+    "system": "L1",
+    "enableSourceMap": false,
+    "resourceUrl": "https://client.sabagaming.com/game/static/",
+    "gameSettingUrl": "http://l1-admin-api-klprod-service:5000/api/public/game_configs/",
+    "useTolgeeStatic": true
+}
