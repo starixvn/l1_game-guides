@@ -489,7 +489,7 @@ const renderJackpot = (t: Function, locale: any, jackpotConfigs: JackpotConfigs)
     if (jackpotConfigs) {
         const { winningRatio, pools } = jackpotConfigs;
         const contribution = pools ? pools.map((item) => item.contribute).reduce((prev, curr) => prev + curr, 0) : 0;
-        contributionValue = `${(contribution * 100).toFixed(2)}%`;
+        contributionValue = `${(contribution * 100).toFixed(1)}%`;
         jackpotWinningRatio = `${winningRatio * 100}%`;
     }
 
