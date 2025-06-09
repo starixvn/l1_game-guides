@@ -1,11 +1,11 @@
 {
     "sentry": {
-        "dsn": "https://707edaf283cc4eed88a563bc734b975f@sentry.sabagame.com/174",
+        "dsn": "https://aec64e89fed64d25a73926e63f2500f7@sentry.sabagame.com/179",
         "environment": "PROD"
     },
     "system": "hd",
     "enableSourceMap": false,
-    "resourceUrl": "https://proxy.numberx.win/game/static/",
+    "resourceUrl": "https://proxy.hotdog-games.com/game/static/",
     "gameSettingUrl": "http://sp_hd_admin_api_prod:5000/api/public/game_configs/",
     "useTolgeeStatic": true
 }
