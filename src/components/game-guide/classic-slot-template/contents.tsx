@@ -489,7 +489,7 @@ const renderJackpot = (t: Function, locale: any, jackpotConfigs: JackpotConfigs)
     if (jackpotConfigs) {
         const { winningRatio, pools } = jackpotConfigs;
         const contribution = pools ? pools.map((item) => item.contribute).reduce((prev, curr) => prev + curr, 0) : 0;
-        contributionValue = `${contribution * 100}%`;
+        contributionValue = `${(contribution * 100).toFixed(2)}%`;
         jackpotWinningRatio = `${winningRatio * 100}%`;
     }
 
@@ -563,7 +563,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { odds, name, displayName, jackpot, locale, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
-    console.log("locale", locale);
+
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]}`}>
