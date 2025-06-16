@@ -1,0 +1,35 @@
+const GameConfigs = {
+    maxBet: 3000,
+    minBet: 1,
+    maxWinPerRound: 2000,
+    odds: {
+        straightUp: 36,
+        split: 18,
+        street: 12,
+        triangle: 12,
+        corner: 9,
+        fourNumbers: 9,
+        line: 6,
+        column: 3,
+        dozen: 3,
+        redBlack: 2,
+        oddEven: 2,
+        bigSmall: 2,
+    },
+    maxBetPerChoices: {
+        straightUp: 20000,
+        split: 20000,
+        street: 20000,
+        triangle: 20000,
+        corner: 20000,
+        fourNumbers: 20000,
+        line: 20000,
+        column: 20000,
+        dozen: 20000,
+        redBlack: 20000,
+        oddEven: 20000,
+        bigSmall: 20000,
+    },
+};
+
+export default GameConfigs;
