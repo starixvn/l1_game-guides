@@ -18,22 +18,6 @@ type TLocalStorageData = {
     isShowConfig: number;
 };
 
-const SelectOptions = (listData: Object, setData: Function, value: string) => {
-    return (
-        <div>
-            <select className="form-select form-select-lg mb-3" value={value} onChange={(event) => setData(event.target.value)}>
-                {Object.values(listData).map((data, index) => {
-                    return (
-                        <option key={index} value={data}>
-                            {data}
-                        </option>
-                    );
-                })}
-            </select>
-        </div>
-    );
-};
-
 const renderGameName = (setGameId: Function, t: TFunction, gameId: number, environment: string) => {
     const getGameFollowEnv = () => {
         if (environment === ENVIRONMENT.si) {
@@ -67,6 +51,24 @@ const renderGameName = (setGameId: Function, t: TFunction, gameId: number, envir
         </div>
     );
 };
+
+
+const SelectOptions = (listData: Object, setData: Function, value: string) => {
+    return (
+        <div>
+            <select className="form-select form-select-lg mb-3" value={value} onChange={(event) => setData(event.target.value)}>
+                {Object.values(listData).map((data, index) => {
+                    return (
+                        <option key={index} value={data}>
+                            {data}
+                        </option>
+                    );
+                })}
+            </select>
+        </div>
+    );
+};
+
 
 const Demo = () => {
     const { t } = useTranslation();
