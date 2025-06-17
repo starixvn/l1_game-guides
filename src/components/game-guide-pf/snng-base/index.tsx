@@ -34,7 +34,7 @@ const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>,
             <div className={Styles["pf-main-title"]}>{t("pf_advertise_para_1", { ns: "Common" })}</div>
             <p>{<Markup content={t("pf_advertise_bac_ball", { ns: "Common", gamename: displayName })} />}</p>
             <div className="center-img">
-                <img src={`./static/images/pf-snng/pf-intro.svg?v=${imgVersion}`} alt="pf"></img>
+                <img width={137} src={`./static/images/pf-snng/pf-intro.png?v=${imgVersion}`} alt="pf"></img>
             </div>
         </div>
     );

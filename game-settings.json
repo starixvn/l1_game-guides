@@ -342,5 +342,9 @@
     "104": {
         "id": 104,
         "gameName": "Marble Football"
+    },
+    "1007": {
+        "id": 1007,
+        "gameName": "Sic Ball"
     }
 }

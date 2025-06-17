@@ -139,6 +139,7 @@ export const GAMES = {
     MARBLE_FOOTBALL: 104,
     TAP_FORTUNE: 107,
     COIN_MINING: 109,
+    SIC_BALL: 1007,
 };
 
 export const GAMES_MINI = {
@@ -170,6 +171,7 @@ export const GAMES_PF = {
     FOOTBALL_COIN_TOSS: 93,
     CHRISTMAS_X: 106,
     COIN_MINING: 109,
+    SIC_BALL: 1007,
 };
 
 export const TolgeeConfig = {
