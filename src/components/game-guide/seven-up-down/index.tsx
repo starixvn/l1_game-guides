@@ -36,7 +36,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const Guide = (props: GameGuideBase) => {
-    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel } = props;
+    const { gameConfigs, project, dynamic, isGetGameConfigs, fractionalOddsFormat, userStakeLevel, orientation } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
     const getLocalGameConfigs = () => {
@@ -74,7 +74,7 @@ const Guide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <Contents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
+            <Contents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel, orientation }} />
         </TolgeeProvider>
     );
 };
