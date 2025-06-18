@@ -344,6 +344,8 @@ ul {
         &.left {
             margin-left: 0;
         }
+
+        --bs-table-color: var(--table-color);
     }
 
     .table-small {
