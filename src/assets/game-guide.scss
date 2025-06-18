@@ -140,6 +140,15 @@
     }
 }
 
+[data-theme="lang-live"] .game-guide {
+    // text-size
+    --title-font-size: 2.8rem;
+    --sub-title-font-size: 2.8rem;
+    --line-height: 1.6;
+    --select-text: auto;
+    --font-weight: 700;
+}
+
 ul {
     list-style: none;
     padding-left: 0;

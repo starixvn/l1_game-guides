@@ -1,14 +1,15 @@
 import { useTranslate } from "@tolgee/react";
 import React, { useEffect } from "react";
-import appSettings from "../../../common/app-settings";
-import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
+import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { scrollToIDContent } from "../../shared/md5-number";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
-import { SpaceFlightContentsProps } from "./type";
+import { MiniRouletteContentsProps } from "./type";
+import Styles from "./mini-roulette.module.scss";
+import { Markup } from "interweave";
 
 const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
@@ -37,10 +38,12 @@ const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: 
                 <table className="table text-center">
                     <thead>
                         <tr>
-                            <th>{t("header_bet_types")}</th>
+                            <th className={Styles["text-nowrap"]}>{t("header_bet_types")}</th>
                             <th>{t("header_description")}</th>
-                            <th>{t("header_payout")}</th>
-                            <th>{t("header_bet_limit")}</th>
+                            <th className={Styles["text-nowrap"]}>{t("header_payout")}</th>
+                            <th className={Styles["text-nowrap"]}>
+                                <Markup content={t("header_bet_limit", { ns: "MiniRoulette" })} />
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,7 +76,7 @@ const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: 
     );
 };
 
-const MiniRouletteContents: React.FC<SpaceFlightContentsProps> = ({
+const MiniRouletteContents: React.FC<MiniRouletteContentsProps> = ({
     gameConfigs,
     locale,
     userStakeLevel,

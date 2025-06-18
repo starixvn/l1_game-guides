@@ -18,6 +18,7 @@ export const Themes = {
     infoSite: "info-site",
     pf: "pf",
     numberGame: "number-game",
+    langLive: "lang-live",
 };
 
 export const BACKGROUND_THEMES: IObjectKeys = {
@@ -34,6 +35,7 @@ export const BACKGROUND_THEMES: IObjectKeys = {
     [Themes.infoSite]: "#FFF",
     [Themes.pf]: "#5d5e70",
     [Themes.numberGame]: "#191A1E",
+    [Themes.langLive]: "#000",
 };
 
 export const ENVIRONMENT = { sm: "sm", sc: "sc", si: "si", pf: "pf" };
