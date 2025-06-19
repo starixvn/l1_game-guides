@@ -5,11 +5,11 @@ import { UserStakeLevelProps } from "../../../pages";
 import { scrollToIDContent } from "../../shared/md5-number";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
-import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { GameConfigs } from "../type";
 import { MiniRouletteContentsProps } from "./type";
 import Styles from "./mini-roulette.module.scss";
 import { Markup } from "interweave";
+import TermsAndConditionsLangLiveTolgee from "../base/terms-and-conditions-langlive/terms-and-conditions-tolgee";
+import { GameConfigs } from "../type";
 
 const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
     const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
@@ -96,7 +96,7 @@ const MiniRouletteContents: React.FC<MiniRouletteContentsProps> = ({
                 <div className="content">{t("intro_para", { ns: "MiniRoulette", gameName: displayName })}</div>
             </li>
             {renderGameRules(t, gameConfigs, userStakeLevel)}
-            <TermsAndConditionsTolgee />
+            <TermsAndConditionsLangLiveTolgee />
         </ul>
     );
 };

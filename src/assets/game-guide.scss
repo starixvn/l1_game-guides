@@ -443,6 +443,12 @@ ul {
         }
     }
 
+    .style-number-sub-rule {
+        padding-left: 2rem;
+        margin-left: 3rem;
+        list-style: circle;
+    }
+
     .icon-wrapper {
         display: grid;
         grid-template-columns: repeat(6, minmax(5rem, calc(7rem - 1rem)));
