@@ -1,6 +1,6 @@
 {
     "sentry": {
-        "dsn": "https://aec64e89fed64d25a73926e63f2500f7@sentry.sabagaming.com/179",
+        "dsn": "https://aec64e89fed64d25a73926e63f2500f7@sentry.sabagame.com/179",
         "environment": "PROD"
     },
     "system": "hd",
