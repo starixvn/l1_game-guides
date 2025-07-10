@@ -1,3 +1,22 @@
 .text-nowrap {
     white-space: nowrap;
 }
+
+:global([data-theme="lang-live"]) {
+    .miniRouletteTable {
+        background-color: transparent;
+        border: none;
+
+        th,
+        td {
+            background: transparent !important;
+            border: 1px solid white !important;
+            color: white;
+        }
+
+        thead,
+        tbody {
+            background: transparent !important;
+        }
+    }
+}

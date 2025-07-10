@@ -12,10 +12,14 @@ import TermsAndConditionsLangLiveTolgee from "../base/terms-and-conditions-langl
 import { GameConfigs } from "../type";
 
 const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
-    const { odds, maxBetPerChoices, minBet, maxBet } = gameConfigs;
-    const maxBetStraightUp = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.straightUp));
-    const maxBetDozen = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.dozen));
-    const maxBetRedBlack = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.redBlack));
+    const { odds, maxBetPerChoices, minBet, maxBet, probabilities } = gameConfigs;
+
+    const formatProbability = (value: number | undefined) => {
+        if (typeof value !== "number") {
+            return "";
+        }
+        return value.toFixed(2);
+    };
 
     let commonResources: ContentList = {
         header: t("title_gamerules", { ns: "Common" }),
@@ -24,10 +28,6 @@ const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: 
             t(`game_rules_para2`),
             t(`game_rules_para3`),
             t(`game_rules_para4`),
-            t(`game_rules_para6`),
-            t(`game_rules_para7`),
-            t(`game_rules_para8`),
-            t(`game_rules_para9`),
         ],
     };
     return (
@@ -35,39 +35,44 @@ const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: 
             <h2>{commonResources.header}</h2>
             <RenderContentByList resources={commonResources} />
             <div className="table-container">
-                <table className="table text-center">
+                <table className={`table text-center ${Styles.miniRouletteTable}`}>
                     <thead>
                         <tr>
-                            <th className={Styles["text-nowrap"]}>{t("header_bet_types")}</th>
-                            <th>{t("header_description")}</th>
+                            <th className={Styles["text-nowrap"]}>{t("header_bet_choice")}</th>
                             <th className={Styles["text-nowrap"]}>{t("header_payout")}</th>
-                            <th className={Styles["text-nowrap"]}>
-                                <Markup content={t("header_bet_limit", { ns: "MiniRoulette" })} />
-                            </th>
+                            <th className={Styles["text-nowrap"]}>{t("header_probability", { ns: "MiniRoulette" })}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{t("glossary_straight_up")}</td>
-                            <td>{t("payout_para1")}</td>
-                            <td>{`${odds?.straightUp}x`}</td>
-                            <td>{`${minBet} - ${maxBetStraightUp}`}</td>
+                            <td>[0-36]</td>
+                            <td>{`X${odds?.straightUp}`}</td>
+                            <td>{`${formatProbability(probabilities?.straightUp)}%`}</td>
                         </tr>
                         <tr>
-                            <td>{t("glossary_dozen")}</td>
-                            <td>{t("payout_para2")}</td>
-                            <td>{`${odds?.dozen}x`}</td>
-                            <td>{`${minBet} - ${maxBetDozen}`}</td>
+                            <td>1-12</td>
+                            <td>{`X${odds?.dozen}`}</td>
+                            <td>{`${probabilities?.dozen}%`}</td>
                         </tr>
                         <tr>
-                            <td>{t("glossary_red_black")}</td>
-                            <td>{t("payout_para3")}</td>
-                            <td rowSpan={2}>{`${odds?.redBlack}x`}</td>
-                            <td rowSpan={2}>{`${minBet} - ${maxBetRedBlack}`}</td>
+                            <td>13-24</td>
+                            <td>{`X${odds?.dozen}`}</td>
+                            <td>{`${probabilities?.dozen}%`}</td>
+                        </tr>
+                        <tr>
+                            <td>25-36</td>
+                            <td>{`X${odds?.dozen}`}</td>
+                            <td>{`${probabilities?.dozen}%`}</td>
                         </tr>
                         <tr>
                             <td>{t("glossary_odd_even")}</td>
-                            <td>{t("payout_para4")}</td>
+                            <td>{`X${odds?.oddEven}`}</td>
+                            <td>{`${probabilities?.oddEven}%`}</td>
+                        </tr>
+                        <tr>
+                            <td>{t("glossary_red_black")}</td>
+                            <td>{`X${odds?.redBlack}`}</td>
+                            <td>{`${probabilities?.redBlack}%`}</td>
                         </tr>
                     </tbody>
                 </table>

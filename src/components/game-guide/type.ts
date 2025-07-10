@@ -71,4 +71,5 @@ export type GameConfigs = {
     extraFeeRatio?: number;
     multipliers?: any;
     betLevels?: number[];
+    probabilities?: any;
 };
