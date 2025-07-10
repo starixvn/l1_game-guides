@@ -1,25 +1,16 @@
 import { useTranslate } from "@tolgee/react";
 import React, { useEffect } from "react";
-import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { scrollToIDContent } from "../../shared/md5-number";
 import { ContentList } from "../base/terms-and-conditions/languages/types";
 import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
 import { MiniRouletteContentsProps } from "./type";
 import Styles from "./mini-roulette.module.scss";
-import { Markup } from "interweave";
 import TermsAndConditionsLangLiveTolgee from "../base/terms-and-conditions-langlive/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 
 const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
-    const { odds, maxBetPerChoices, minBet, maxBet, probabilities } = gameConfigs;
-
-    const formatProbability = (value: number | undefined) => {
-        if (typeof value !== "number") {
-            return "";
-        }
-        return value.toFixed(2);
-    };
+    const { odds } = gameConfigs;
 
     let commonResources: ContentList = {
         header: t("title_gamerules", { ns: "Common" }),
@@ -47,32 +38,32 @@ const renderGameRules = (t: Function, gameConfigs: GameConfigs, userStakeLevel: 
                         <tr>
                             <td>[0-36]</td>
                             <td>{`X${odds?.straightUp}`}</td>
-                            <td>{`${formatProbability(probabilities?.straightUp)}%`}</td>
+                            <td>2.70%</td>
                         </tr>
                         <tr>
                             <td>1-12</td>
                             <td>{`X${odds?.dozen}`}</td>
-                            <td>{`${probabilities?.dozen}%`}</td>
+                            <td>32.43%</td>
                         </tr>
                         <tr>
                             <td>13-24</td>
                             <td>{`X${odds?.dozen}`}</td>
-                            <td>{`${probabilities?.dozen}%`}</td>
+                            <td>32.43%</td>
                         </tr>
                         <tr>
                             <td>25-36</td>
                             <td>{`X${odds?.dozen}`}</td>
-                            <td>{`${probabilities?.dozen}%`}</td>
+                            <td>32.43%</td>
                         </tr>
                         <tr>
                             <td>{t("glossary_odd_even")}</td>
                             <td>{`X${odds?.oddEven}`}</td>
-                            <td>{`${probabilities?.oddEven}%`}</td>
+                            <td>48.64%</td>
                         </tr>
                         <tr>
                             <td>{t("glossary_red_black")}</td>
                             <td>{`X${odds?.redBlack}`}</td>
-                            <td>{`${probabilities?.redBlack}%`}</td>
+                            <td>48.64%</td>
                         </tr>
                     </tbody>
                 </table>

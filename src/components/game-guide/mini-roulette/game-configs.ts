@@ -16,12 +16,6 @@ const GameConfigs = {
         oddEven: 2,
         bigSmall: 2,
     },
-    probabilities: {
-        straightUp: 2.70,
-        dozen: 32.43,
-        oddEven: 48.64,
-        redBlack: 48.64,
-    },
     maxBetPerChoices: {
         straightUp: 20000,
         split: 20000,

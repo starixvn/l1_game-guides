@@ -7,6 +7,7 @@ import { TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import MiniRouletteContents from "./contents";
+import Styles from "./mini-roulette.module.scss";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -76,20 +77,22 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
         return <></>;
     } else {
         return (
-            <TolgeeProvider tolgee={tolgee} fallback="">
-                <MiniRouletteContents
-                    {...{
-                        gameConfigs: configs,
-                        fractionalOddsFormat,
-                        locale: tolgee.getLanguage(),
-                        userStakeLevel,
-                        isScrollMD5,
-                        displayName,
-                        name: name ?? gameSetting?.Name,
-                        scrollToId,
-                    }}
-                />
-            </TolgeeProvider>
+            <div className={Styles.miniRouletteContainer}>
+                <TolgeeProvider tolgee={tolgee} fallback="">
+                    <MiniRouletteContents
+                        {...{
+                            gameConfigs: configs,
+                            fractionalOddsFormat,
+                            locale: tolgee.getLanguage(),
+                            userStakeLevel,
+                            isScrollMD5,
+                            displayName,
+                            name: name ?? gameSetting?.Name,
+                            scrollToId,
+                        }}
+                    />
+                </TolgeeProvider>
+            </div>
         );
     }
 };
