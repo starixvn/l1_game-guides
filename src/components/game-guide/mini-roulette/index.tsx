@@ -51,7 +51,7 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
 
     const scrollbarStyles = `
         [data-theme="lang-live"] {
-            --scrollbar-background: #d9d9d9;
+            --scrollbar-background: #d9d9d980;
             --scrollbar-thumb-background: #fff;
         }
 
