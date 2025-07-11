@@ -65,6 +65,19 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
         }
     `;
 
+    useEffect(() => {
+        const originalHtmlFont = document.documentElement.style.fontFamily;
+        const originalBodyFont = document.body.style.fontFamily;
+
+        document.documentElement.style.fontFamily = "'PingFangRegular', sans-serif";
+        document.body.style.fontFamily = "'PingFangRegular', sans-serif";
+
+        return () => {
+            document.documentElement.style.fontFamily = originalHtmlFont;
+            document.body.style.fontFamily = originalBodyFont;
+        };
+    }, []);
+
     const getLocalGameConfigs = () => {
         getGameConfigProject("mini-roulette", project, setConfigs);
     };
@@ -96,22 +109,20 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
         return (
             <>
                 <LangliveStyleOverride styles={scrollbarStyles} />
-                <div className={Styles.miniRouletteContainer}>
-                    <TolgeeProvider tolgee={tolgee} fallback="">
-                        <MiniRouletteContents
-                            {...{
-                                gameConfigs: configs,
-                                fractionalOddsFormat,
-                                locale: tolgee.getLanguage(),
-                                userStakeLevel,
-                                isScrollMD5,
-                                displayName,
-                                name: name ?? gameSetting?.Name,
-                                scrollToId,
-                            }}
-                        />
-                    </TolgeeProvider>
-                </div>
+                <TolgeeProvider tolgee={tolgee} fallback="">
+                    <MiniRouletteContents
+                        {...{
+                            gameConfigs: configs,
+                            fractionalOddsFormat,
+                            locale: tolgee.getLanguage(),
+                            userStakeLevel,
+                            isScrollMD5,
+                            displayName,
+                            name: name ?? gameSetting?.Name,
+                            scrollToId,
+                        }}
+                    />
+                </TolgeeProvider>
             </>
         );
     }
