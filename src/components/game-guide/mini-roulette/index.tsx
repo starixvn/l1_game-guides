@@ -4,6 +4,7 @@ import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
 import appSettings from "../../../common/app-settings";
 import { TolgeeConfig } from "../../../common/constants";
+import LangliveStyleOverride from "../../shared/langlive-style-override";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import MiniRouletteContents from "./contents";
@@ -48,6 +49,22 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
     } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
+    const scrollbarStyles = `
+        [data-theme="lang-live"] {
+            --scrollbar-background: #d9d9d9;
+            --scrollbar-thumb-background: #fff;
+        }
+
+        [data-theme="lang-live"] ::-webkit-scrollbar {
+            width: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        [data-theme="lang-live"] ::-webkit-scrollbar-thumb {
+            border-radius: 0.5rem;
+        }
+    `;
+
     const getLocalGameConfigs = () => {
         getGameConfigProject("mini-roulette", project, setConfigs);
     };
@@ -77,22 +94,25 @@ const MiniRouletteGuide = (props: GameGuideBase) => {
         return <></>;
     } else {
         return (
-            <div className={Styles.miniRouletteContainer}>
-                <TolgeeProvider tolgee={tolgee} fallback="">
-                    <MiniRouletteContents
-                        {...{
-                            gameConfigs: configs,
-                            fractionalOddsFormat,
-                            locale: tolgee.getLanguage(),
-                            userStakeLevel,
-                            isScrollMD5,
-                            displayName,
-                            name: name ?? gameSetting?.Name,
-                            scrollToId,
-                        }}
-                    />
-                </TolgeeProvider>
-            </div>
+            <>
+                <LangliveStyleOverride styles={scrollbarStyles} />
+                <div className={Styles.miniRouletteContainer}>
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <MiniRouletteContents
+                            {...{
+                                gameConfigs: configs,
+                                fractionalOddsFormat,
+                                locale: tolgee.getLanguage(),
+                                userStakeLevel,
+                                isScrollMD5,
+                                displayName,
+                                name: name ?? gameSetting?.Name,
+                                scrollToId,
+                            }}
+                        />
+                    </TolgeeProvider>
+                </div>
+            </>
         );
     }
 };
