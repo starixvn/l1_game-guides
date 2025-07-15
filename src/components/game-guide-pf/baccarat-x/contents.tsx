@@ -4,15 +4,17 @@ import React from "react";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { TogleeNamespace } from "../../game-guide/football-dice/namespace-tolgee";
+import { renderPFWorkExample } from "../base";
 import Styles from "./baccarat-x-pf-game.module.scss";
-import { CoinTossPFContentsProps } from "./type";
+import { BaccaratXPFContentsProps } from "./type";
 
 const renderHowPFInGame = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     verImg: string,
     rootImgUrl: string,
     gameName: string,
-    locale: string
+    locale: string,
+    isPortrait: boolean
 ) => {
     return (
         <li className="guide-item">
@@ -38,9 +40,57 @@ const renderHowPFInGame = (
                 </li>
             </ul>
 
-            <div className={Styles["center-img"]}>
-                <img src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
-            </div>
+            {isPortrait ? (
+                <div className={Styles["merge-client-seed-section"]}>
+                    <div className={Styles["container"]}>
+                        <div className={Styles["merge-client-seed-section-left"]}>
+                            <div className={Styles["server-seed-container"]}>
+                                <div className={Styles["pf-text-highlight"]}>
+                                    {t("pf_server_Seed", { ns: "Common" })}
+
+                                    <p className={Styles["cut-card-index"]}>290</p>
+                                </div>
+                            </div>
+                            <div className={`${Styles["pf-text-highlight"]} ${Styles["client-seed"]} ${Styles["client-seed-1"]}`}>
+                                {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
+                                <p className={Styles["cut-card-index"]}>275</p>
+                            </div>
+                            <div className={`${Styles["pf-text-highlight"]} ${Styles["client-seed"]} ${Styles["client-seed-2"]}`}>
+                                {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
+                                <p className={Styles["cut-card-index"]}>300</p>
+                            </div>
+                            <div className={`${Styles["pf-text-highlight"]} ${Styles["client-seed"]} ${Styles["client-seed-3"]}`}>
+                                {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
+                                <p className={Styles["cut-card-index"]}>270</p>
+                            </div>
+                            <div className={`${Styles["pf-text-highlight"]} ${Styles["client-seed"]} ${Styles["client-seed-4"]}`}>
+                                {<Markup content={t("pf_client_seed", { ns: "Common" })} />}
+                                <p className={Styles["cut-card-index"]}>260</p>
+                            </div>
+                        </div>
+                        <div className={Styles["merge-client-seed-section-right"]}>
+                            <div className={Styles["merge-client-seed"]}>
+                                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]} ${Styles[locale]}`}>
+                                    {t("pf_merge_seed", { ns: "Common" })}
+                                    <p className={Styles["merge-cut-card-index"]}>{t("average", { ns: "BaccaratX" })}(290+275+300+270+260) = 279</p>
+                                </div>
+                            </div>
+                            <div className={`${Styles["final-result"]} ${Styles["pf-text-highlight"]}`}>
+                                {t("final_cut-card_index", { ns: "BaccaratX" })}
+                                <p className={Styles["cut-card-index"]}>279</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={Styles["center-img"]}>
+                        <img src={`./static/images/pf/baccarat-x/pf-guide-merge-client-seed.png?v=${verImg}`} width={"100%"} alt="pf"></img>
+                    </div>
+                </div>
+            ) : (
+                <div className={Styles["center-img"]}>
+                    <img src={`./static/images/pf/baccarat-x/pf-guide-${locale}.png?v=${verImg}`} width={"1100px"} alt="pf"></img>
+                </div>
+            )}
         </li>
     );
 };
@@ -113,15 +163,16 @@ const renderVerifyPF = (
     verImg: string,
     rootImgUrl: string,
     locale: string,
-    gameName: string
+    gameName: string,
+    isPortrait: boolean
 ) => {
     return (
         <li className="guide-item">
             <h2>{<Markup content={t("fairness_title_verify_the_fairness", { ns: "BaccaratX" })} />}</h2>
             <ul className="style-number-dot">
-                {renderNewShoe(t, verImg, rootImgUrl, locale, gameName)}
+                {renderNewShoe(t, verImg, rootImgUrl, locale, gameName, isPortrait)}
 
-                {renderCardShoeEnd(t, verImg, locale)}
+                {renderCardShoeEnd(t, verImg, locale, isPortrait)}
             </ul>
         </li>
     );
@@ -132,7 +183,8 @@ const renderNewShoe = (
     verImg: string,
     rootImgUrl: string,
     locale: string,
-    gameName: string
+    gameName: string,
+    isPortrait: boolean
 ) => {
     return (
         <li className="number-dot">
@@ -141,7 +193,7 @@ const renderNewShoe = (
                 <li>
                     {<Markup content={t("fairness_start_a_new_shoe_para_1", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img width={"90%"} src={`./static/images/pf/baccarat-x/fs-${locale}.png?v=${verImg}`} alt="pf"></img>
+                        <img className={`${isPortrait ? Styles["img-border"] : ""}`} width={"90%"} src={`./static/images/pf/baccarat-x/${isPortrait ? "portrait" : ""}/step1-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>{<Markup content={t("fairness_start_a_new_shoe_para_2", { ns: "BaccaratX" })} />} </li>
@@ -152,7 +204,10 @@ const renderNewShoe = (
     );
 };
 
-const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, locale: string) => {
+const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, locale: string, isPortrait: boolean) => {
+    
+    
+    
     return (
         <li className="number-dot">
             <span className="title-text">{t("fairness_subtitle_when_the_cardshoe_end", { ns: "BaccaratX" })}</span>
@@ -161,14 +216,15 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_2", { ns: "BaccaratX" })} />}{" "}
                     <div className="center-img">
-                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step2-${locale}.png?v=${verImg}`} alt="pf"></img>
+                        <img className={`${isPortrait ? Styles["img-border"] : ""}`} width={"90%"} src={`./static/images/pf/baccarat-x/${isPortrait ? "portrait" : ""}/step2-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_3", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img className="img-border" src={`./static/images/pf/baccarat-x/step3-sha256.png?v=${verImg}`} alt="pf"></img>
+                        <img className={`${isPortrait ? Styles["img-border"] : ""}`} width={"90%"} src={`./static/images/pf/baccarat-x/${isPortrait ? "portrait" : ""}/step3-sha256.png?v=${verImg}`} alt="pf"></img>
                     </div>
+
                 </li>
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_4", { ns: "BaccaratX" })} />}
@@ -179,13 +235,13 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_6", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step5-${locale}.png?v=${verImg}`} alt="pf"></img>
+                        <img className={`${isPortrait ? Styles["img-border"] : ""}`} width={"90%"} src={`./static/images/pf/baccarat-x/${isPortrait ? "portrait" : ""}/step5-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
                 <li>
                     {<Markup content={t("fairness_when_the_cardshoe_end_para_7", { ns: "BaccaratX" })} />}
                     <div className="center-img">
-                        <img width={"90%"} src={`./static/images/pf/baccarat-x/step6-${locale}.png?v=${verImg}`} alt="pf"></img>
+                        <img className={`${isPortrait ? Styles["img-border"] : ""}`} width={"90%"} src={`./static/images/pf/baccarat-x/${isPortrait ? "portrait" : ""}/step6-${locale}.png?v=${verImg}`} alt="pf"></img>
                     </div>
                 </li>
             </ul>
@@ -193,11 +249,17 @@ const renderCardShoeEnd = (t: TFnType<DefaultParamType, string, TranslationKey>,
     );
 };
 
-const renderContentPF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string, locale: string) => {
+const renderContentPF = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    displayName: string,
+    imgVersion: string,
+    locale: string,
+    isPortrait: boolean
+) => {
     return (
         <>
             {renderPFInfo(t)}
-            {renderHowPFWork(t, imgVersion, locale)}
+            {renderHowPFWork(t, imgVersion, locale, isPortrait)}
         </>
     );
 };
@@ -211,7 +273,7 @@ const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     );
 };
 
-const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
+const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string, isPortrait: boolean) => {
     return (
         <li className="guide-item section">
             <h2>{t("fairness_title_how_does_the_fairness_feature_work", { ns: "BaccaratX" })} </h2>
@@ -242,24 +304,29 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            <div className="center-img">
-                <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
-            </div>
+            {isPortrait ? (
+                <>{renderPFWorkExample(t, imgVersion, locale)}</>
+            ) : (
+                <div className="center-img">
+                    <img className="img-border" src={`./static/images/pf/flow-final-result_${locale}.png?v=${imgVersion}`} alt="pf"></img>
+                </div>
+            )}
         </li>
     );
 };
 
-const BaccaratXPFContents: React.FC<CoinTossPFContentsProps> = ({ locale, displayName, name }) => {
+const BaccaratXPFContents: React.FC<BaccaratXPFContentsProps> = ({ locale, displayName, name, orientation }) => {
     const { t } = useTranslate(["BaccaratX", "Common"]);
     const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
+    const isPortrait = orientation === "portrait";
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>
-                {renderContentPF(t, displayName ?? "", verImg, locale ?? "en")}
-                {renderHowPFInGame(t, verImg, rootImgUrl, displayName ?? "", locale ?? "en")}
-                {renderVerifyPF(t, verImg, rootImgUrl, locale ?? "en", displayName ?? "")}
+                {renderContentPF(t, displayName ?? "", verImg, locale ?? "en", isPortrait)}
+                {renderHowPFInGame(t, verImg, rootImgUrl, displayName ?? "", locale ?? "en", isPortrait)}
+                {renderVerifyPF(t, verImg, rootImgUrl, locale ?? "en", displayName ?? "", isPortrait)}
             </ul>
         </div>
     );

@@ -32,7 +32,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const BaccaratXPFGuide = (props: GameGuideBase) => {
-    const { displayName, name, gameSetting, locale } = props;
+    const { displayName, name, gameSetting, locale, orientation } = props;
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const BaccaratXPFGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <BaccaratXPFContents {...{ locale, displayName, name: name ?? gameSetting?.Name }} />
+            <BaccaratXPFContents {...{ locale, displayName, name: name ?? gameSetting?.Name, orientation }} />
         </TolgeeProvider>
     );
 };

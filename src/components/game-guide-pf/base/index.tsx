@@ -352,7 +352,7 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
     );
 };
 
-const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
+export const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <div className={Styles["pf-work-example"]}>
             <div className={Styles["pf-work-example-block-1"]}>
@@ -374,9 +374,9 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                 </div>
 
                 <div className={Styles["pf-work-example-img-text"]}>
-                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
-                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
-                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "Common" })} 1</span>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "Common" })} 2</span>
+                    <span className={Styles["pf-player"]}>{t("example_Player", { ns: "Common" })}...</span>
                 </div>
             </div>
             <div className={Styles["pf-word-example-block-2"]}>
@@ -413,9 +413,9 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
                     {t("pf_ header_merge_client_seed", { ns: "Common" })} <br />({t("pf_provably_guide_flow", { ns: "SabaNumber" })})
                 </div>
                 <div className={Styles["pf-applied-example-img-text"]}>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                    <span>{t("example_Player", { ns: "Common" })} 1</span>
+                    <span>{t("example_Player", { ns: "Common" })} 2</span>
+                    <span>{t("example_Player", { ns: "Common" })}...</span>
                 </div>
             </div>
             <div className={Styles["pf-applied-example-block-2"]}>
@@ -448,4 +448,5 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
     );
 };
 
-export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderStepByStep, renderPFAppliedExample };
+export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderPFAppliedExample, renderStepByStep };
+
