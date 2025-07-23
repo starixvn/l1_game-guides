@@ -71,12 +71,14 @@ export const renderTermsAndConditionsCN = (extendDetails: Array<string> = []) =>
 
 export const renderTermsAndConditionsTW = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTw, details: extendDetails.concat(baseTermAndConditionTw.details) };
+    return <BaseTermsAndConditions resources={resources} />;
 };
 
 
 export const isShowedMD5 = (environment?: string, orientation?: string) => {
     return environment === ENVIRONMENT.sc && orientation !== ORIENTATION.portrait;
 };
+
 export const renderTermsAndConditionsJA = (extendDetails: Array<string> = []) => {
     const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionJa, details: extendDetails.concat(baseTermAndConditionJa.details) };
     return <BaseTermsAndConditions resources={resources} />;
