@@ -7,6 +7,7 @@ import { baseTermAndConditionId } from "../game-guide/base/terms-and-conditions/
 import { baseTermAndConditionTw } from "../game-guide/base/terms-and-conditions/languages/tw";
 import BaseTermsAndConditions from "../game-guide/base/terms-and-conditions/terms-and-conditions";
 import { baseTermAndConditionCn } from "../game-guide/base/terms-and-conditions/languages/cn";
+import { baseTermAndConditionJa } from "../game-guide/base/terms-and-conditions/languages/ja";
 import { IBaseTermAndConditionResources } from "../game-guide/base/terms-and-conditions/languages/types";
 
 export const renderTermsAndConditions = (locale?: string | undefined, extendDetails: Array<string> = []) => {
@@ -21,6 +22,8 @@ export const renderTermsAndConditions = (locale?: string | undefined, extendDeta
             return renderTermsAndConditionsCN(extendDetails);
         case locales.zh_tw:
             return renderTermsAndConditionsTW(extendDetails);
+        case locales.ja:
+            return renderTermsAndConditionsJA(extendDetails);
         default:
             return renderTermsAndConditionsEN(extendDetails);
     }
@@ -67,13 +70,14 @@ export const renderTermsAndConditionsCN = (extendDetails: Array<string> = []) =>
 };
 
 export const renderTermsAndConditionsTW = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = {
-        ...baseTermAndConditionTw,
-        details: extendDetails.concat(baseTermAndConditionTw.details),
-    };
-    return <BaseTermsAndConditions resources={resources} />;
+    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTw, details: extendDetails.concat(baseTermAndConditionTw.details) };
 };
+
 
 export const isShowedMD5 = (environment?: string, orientation?: string) => {
     return environment === ENVIRONMENT.sc && orientation !== ORIENTATION.portrait;
+};
+export const renderTermsAndConditionsJA = (extendDetails: Array<string> = []) => {
+    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionJa, details: extendDetails.concat(baseTermAndConditionJa.details) };
+    return <BaseTermsAndConditions resources={resources} />;
 };
