@@ -4,6 +4,7 @@ import { en } from "./en";
 import { id } from "./id";
 import { cn } from "./cn";
 import { tw } from "./tw";
+import { ja } from "./ja";
 import { vi } from "./vi";
 import { getTranslationResource } from "../../../../../helpers/resource-helper";
 
@@ -14,6 +15,7 @@ const supportedLanguages: { [name: string]: IMd5Resources } = {
     id: id,
     zh_cn: cn,
     zh_tw: tw,
+    ja,
 };
 
 export const getBaseMD5TranslationResource = (langKey: string | undefined) => {
