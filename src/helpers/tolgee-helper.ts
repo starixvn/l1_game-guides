@@ -6,7 +6,7 @@ const initTolgee = (ns: string[]) => {
         .use(FormatIcu())
         .use(BackendFetch())
         .init({
-            availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw"],
+            availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
             fallbackLanguage: "en",
             defaultLanguage: "en",
             ns: ["Common", ...ns],
