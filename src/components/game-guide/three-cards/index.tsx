@@ -13,6 +13,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
+import ThreeCardsGuideJA from "./ja";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -104,6 +105,15 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
         case locales.zh_tw:
             return (
                 <ThreeCardsGuideZH_TW
+                    gameConfigs={configs}
+                    gameName={gameNameTranslate}
+                    maxBetFollowChoice={maxBetFollowChoice}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            );
+        case locales.ja:
+            return (
+                <ThreeCardsGuideJA
                     gameConfigs={configs}
                     gameName={gameNameTranslate}
                     maxBetFollowChoice={maxBetFollowChoice}

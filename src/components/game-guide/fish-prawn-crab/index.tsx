@@ -12,6 +12,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
+import FishPrawnCrabGuideJA from "./ja";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -87,6 +88,8 @@ const FishPrawnCrab = (props: GameGuideBase) => {
             return <FishPrawnCrabGuideCN {...resource} />;
         case locales.zh_tw:
             return <FishPrawnCrabGuideTW {...resource} />;
+        case locales.ja:
+            return <FishPrawnCrabGuideJA {...resource} />;
 
         default:
             return <FishPrawnCrabGuideEN {...resource} />;

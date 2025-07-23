@@ -13,6 +13,7 @@ const KenoProMaxGuideTH = dynamic(() => import("./th"));
 const KenoProMaxGuideID = dynamic(() => import("./id"));
 const KenoProMaxGuideZHCN = dynamic(() => import("./zh_cn"));
 const KenoProMaxGuideZHTW = dynamic(() => import("./zh_tw"));
+const KenoProMaxGuideJA = dynamic(() => import("./ja"));
 
 const KenoProMaxGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -67,6 +68,8 @@ const KenoProMaxGuide = (props: GameGuideBase) => {
             return <KenoProMaxGuideZHCN {...resource} />;
         case locales.zh_tw:
             return <KenoProMaxGuideZHTW {...resource} />;
+        case locales.ja:
+            return <KenoProMaxGuideJA {...resource} />;
 
         default:
             return <KenoProMaxGuideEN {...resource} />;

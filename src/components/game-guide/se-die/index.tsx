@@ -11,6 +11,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../../shared/se-die";
+import SeDieGuideJA from "./ja";
 
 export const SeDieVip = [22];
 export const SeDieMini = [9, 56, 57, 58];
@@ -105,6 +106,8 @@ const SeDieGuide = (props: GameGuideBase) => {
             return <SeDieGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <SeDieGuideZH_TW {...resource} />;
+        case locales.ja:
+            return <SeDieGuideJA {...resource} />;
 
         default:
             return <SeDieGuideEN {...resource} />;

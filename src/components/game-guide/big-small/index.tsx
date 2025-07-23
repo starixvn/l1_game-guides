@@ -11,6 +11,7 @@ import { locales, IObjectKeys } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
+import BigSmallGuideJA from "./ja";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 const BigSmallGuide = (props: GameGuideBase) => {
@@ -91,6 +92,8 @@ const BigSmallGuide = (props: GameGuideBase) => {
             return <BigSmallGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <BigSmallGuideZH_TW {...resource} />;
+        case locales.ja:
+            return <BigSmallGuideJA {...resource} />;
 
         default:
             return <BigSmallGuideEN {...resource} />;
