@@ -11,6 +11,7 @@ import { locales } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
+import SeDieGuideJA from "./ja";
 
 const SeDieSpecialGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -65,6 +66,8 @@ const SeDieSpecialGuide = (props: GameGuideBase) => {
             return <SeDieGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <SeDieGuideZH_TW {...resource} />;
+        case locales.ja:
+            return <SeDieGuideJA {...resource} />;
 
         default:
             return <SeDieGuideEN {...resource} />;
