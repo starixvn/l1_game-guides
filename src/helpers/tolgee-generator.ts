@@ -28,7 +28,7 @@ const tolgeeNamespaceByGameSetting = Object.values(tmpGameSettings)
     .filter((ns) => ns);
 
 const namespaces = tolgeeNamespaces;
-const languageCodes = ["en", "id", "th", "vi", "zh_cn", "zh_tw"];
+const languageCodes = ["en", "id", "th", "vi", "zh_cn", "zh_tw", "ja"];
 const tg = Tolgee().use(DevTools()).init({
     defaultLanguage: "en",
     fallbackLanguage: "en",
