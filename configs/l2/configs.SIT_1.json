@@ -1,0 +1,11 @@
+{
+    "sentry": {
+        "dsn": "https://936d6f9d99064ccdab5bece39bc3bc07@sentryuat.sabagame.com/258",
+        "environment": "SIT"
+    },
+    "system": "L2",
+    "enableSourceMap": false,
+    "resourceUrl": "https://l2client.sgamesuat.com/sit/game/static/",
+    "gameSettingUrl": "http://l2-admin-api-sit-service:5000/api/public/game_configs/",
+    "useTolgeeStatic": true
+}
