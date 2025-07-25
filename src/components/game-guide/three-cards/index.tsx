@@ -14,6 +14,12 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
 import ThreeCardsGuideJA from "./ja";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
+import ThreeCardsGameGuideContent from "./content-tolgee";
+import appSettings from "../../../common/app-settings";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -29,6 +35,29 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
         maxBetDiamonds,
     };
 };
+
+const tolgee = Tolgee()
+    .use(FormatIcu())
+    .use(BackendFetch())
+    .init({
+        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        fallbackLanguage: "en",
+        defaultLanguage: "en",
+        ns: ["SeDie", "Common"],
+        defaultNs: "SeDie",
+    });
+
+if (!appSettings.useTolgeeStatic) {
+    tolgee.addPlugin(
+        InContextTools({
+            credentials: {
+                apiUrl: TolgeeConfig.url,
+                apiKey: TolgeeConfig.key,
+                projectId: TolgeeConfig.projectId,
+            },
+        })
+    );
+}
 
 const ThreeCardsGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -50,6 +79,10 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -111,23 +144,17 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
                     fractionalOddsFormat={fractionalOddsFormat}
                 />
             );
-        case locales.ja:
-            return (
-                <ThreeCardsGuideJA
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
-            );
         default:
             return (
-                <ThreeCardsGuideEN
-                    gameConfigs={configs}
-                    gameName={gameNameTranslate}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
+                <TolgeeProvider tolgee={tolgee}>
+                    <ThreeCardsGameGuideContent
+                        locale={locale}
+                        gameConfigs={configs}
+                        maxBetFollowChoice={maxBetFollowChoice}
+                        fractionalOddsFormat={fractionalOddsFormat}
+                        displayName={gameNameTranslate}
+                    />
+                </TolgeeProvider>
             );
     }
 };

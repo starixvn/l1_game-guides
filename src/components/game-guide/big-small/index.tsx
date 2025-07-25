@@ -11,9 +11,38 @@ import { locales, IObjectKeys } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
-import BigSmallGuideJA from "./ja";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
+import BigSmallGameGuideContent from "./content-tolgee";
+import appSettings from "../../../common/app-settings";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
+
+const tolgee = Tolgee()
+    .use(FormatIcu())
+    .use(BackendFetch())
+    .init({
+        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        fallbackLanguage: "en",
+        defaultLanguage: "en",
+        ns: ["SeDie", "Common"],
+        defaultNs: "SeDie",
+    });
+
+if (!appSettings.useTolgeeStatic) {
+    tolgee.addPlugin(
+        InContextTools({
+            credentials: {
+                apiUrl: TolgeeConfig.url,
+                apiKey: TolgeeConfig.key,
+                projectId: TolgeeConfig.projectId,
+            },
+        })
+    );
+}
+
 const BigSmallGuide = (props: GameGuideBase) => {
     const {
         locale,
@@ -55,6 +84,10 @@ const BigSmallGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -92,11 +125,13 @@ const BigSmallGuide = (props: GameGuideBase) => {
             return <BigSmallGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <BigSmallGuideZH_TW {...resource} />;
-        case locales.ja:
-            return <BigSmallGuideJA {...resource} />;
 
         default:
-            return <BigSmallGuideEN {...resource} />;
+            return (
+                <TolgeeProvider tolgee={tolgee}>
+                    <BigSmallGameGuideContent {...resource} />
+                </TolgeeProvider>
+            );
     }
 };
 export default BigSmallGuide;
