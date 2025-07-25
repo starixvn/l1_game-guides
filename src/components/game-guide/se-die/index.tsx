@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import SeDieGuideEN from "./en";
 import SeDieGuideVI from "./vi";
 import SeDieGuideTH from "./th";
 import SeDieGuideID from "./id";
@@ -11,10 +10,38 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../../shared/se-die";
-import SeDieGuideJA from "./ja";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
+import SeDieGameGuideContent from "./content-tolgee";
+import appSettings from "../../../common/app-settings";
 
 export const SeDieVip = [22];
 export const SeDieMini = [9, 56, 57, 58];
+
+const tolgee = Tolgee()
+    .use(FormatIcu())
+    .use(BackendFetch())
+    .init({
+        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        fallbackLanguage: "en",
+        defaultLanguage: "en",
+        ns: ["SeDie", "Common"],
+        defaultNs: "SeDie",
+    });
+
+if (!appSettings.useTolgeeStatic) {
+    tolgee.addPlugin(
+        InContextTools({
+            credentials: {
+                apiUrl: TolgeeConfig.url,
+                apiKey: TolgeeConfig.key,
+                projectId: TolgeeConfig.projectId,
+            },
+        })
+    );
+}
 
 const SeDieGuide = (props: GameGuideBase) => {
     const {
@@ -66,6 +93,10 @@ const SeDieGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -106,11 +137,22 @@ const SeDieGuide = (props: GameGuideBase) => {
             return <SeDieGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <SeDieGuideZH_TW {...resource} />;
-        case locales.ja:
-            return <SeDieGuideJA {...resource} />;
-
         default:
-            return <SeDieGuideEN {...resource} />;
+            return (
+                <TolgeeProvider tolgee={tolgee}>
+                    <SeDieGameGuideContent
+                       gameConfigs={configs}
+                       maxBetFollowChoice={maxBetFollowChoice}
+                       fractionalOddsFormat={fractionalOddsFormat}
+                       displayName={gameNameTranslate}
+                       gameId={id || 0}
+                       environment={environment}
+                       orientation={orientation}
+                       locale={locale}
+                       isScrollMD5={isScrollMD5}
+                    />
+                </TolgeeProvider>
+            );
     }
 };
 

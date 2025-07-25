@@ -12,7 +12,12 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
-import FishPrawnCrabGuideJA from "./ja";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
+import FishPrawnCrabGameGuideContent from "./content-tolgee";
+import appSettings from "../../../common/app-settings";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -22,6 +27,29 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 
     return { maxBetMain, minBetMain, maxBetChoice };
 };
+
+const tolgee = Tolgee()
+    .use(FormatIcu())
+    .use(BackendFetch())
+    .init({
+        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        fallbackLanguage: "en",
+        defaultLanguage: "en",
+        ns: ["SeDie", "Common"],
+        defaultNs: "SeDie",
+    });
+
+if (!appSettings.useTolgeeStatic) {
+    tolgee.addPlugin(
+        InContextTools({
+            credentials: {
+                apiUrl: TolgeeConfig.url,
+                apiKey: TolgeeConfig.key,
+                projectId: TolgeeConfig.projectId,
+            },
+        })
+    );
+}
 
 const FishPrawnCrab = (props: GameGuideBase) => {
     const {
@@ -53,6 +81,10 @@ const FishPrawnCrab = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -88,11 +120,19 @@ const FishPrawnCrab = (props: GameGuideBase) => {
             return <FishPrawnCrabGuideCN {...resource} />;
         case locales.zh_tw:
             return <FishPrawnCrabGuideTW {...resource} />;
-        case locales.ja:
-            return <FishPrawnCrabGuideJA {...resource} />;
-
         default:
-            return <FishPrawnCrabGuideEN {...resource} />;
+            return (
+                <TolgeeProvider tolgee={tolgee}>
+                    <FishPrawnCrabGameGuideContent
+                        gameConfigs={configs}
+                        maxBetFollowChoice={maxBetFollowChoice}
+                        fractionalOddsFormat={fractionalOddsFormat}
+                        displayName={gameNameTranslate}
+                        environment={environment}
+                        locale={locale}
+                    />
+                </TolgeeProvider>
+            );
     }
 };
 export default FishPrawnCrab;
