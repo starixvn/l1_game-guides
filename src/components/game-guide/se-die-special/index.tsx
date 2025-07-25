@@ -11,7 +11,35 @@ import { locales } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
-import SeDieGuideJA from "./ja";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
+import appSettings from "../../../common/app-settings";
+import SeDieSpecialGameGuideContent from "./content-tolgee";
+
+const tolgee = Tolgee()
+    .use(FormatIcu())
+    .use(BackendFetch())
+    .init({
+        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        fallbackLanguage: "en",
+        defaultLanguage: "en",
+        ns: ["SeDieSpecial", "Common"],
+        defaultNs: "SeDieSpecial",
+    });
+
+if (!appSettings.useTolgeeStatic) {
+    tolgee.addPlugin(
+        InContextTools({
+            credentials: {
+                apiUrl: TolgeeConfig.url,
+                apiKey: TolgeeConfig.key,
+                projectId: TolgeeConfig.projectId,
+            },
+        })
+    );
+}
 
 const SeDieSpecialGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -33,6 +61,10 @@ const SeDieSpecialGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -66,11 +98,13 @@ const SeDieSpecialGuide = (props: GameGuideBase) => {
             return <SeDieGuideZH_CN {...resource} />;
         case locales.zh_tw:
             return <SeDieGuideZH_TW {...resource} />;
-        case locales.ja:
-            return <SeDieGuideJA {...resource} />;
 
         default:
-            return <SeDieGuideEN {...resource} />;
+            return (
+                <TolgeeProvider tolgee={tolgee}>
+                    <SeDieSpecialGameGuideContent {...resource} />
+                </TolgeeProvider>
+            );
     }
 };
 export default SeDieSpecialGuide;

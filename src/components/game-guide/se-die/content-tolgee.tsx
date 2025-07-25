@@ -215,7 +215,64 @@ const SeDieStatistical: FC<{ t: Function }> = ({ t }) => {
         <li className="guide-item">
             <h2>{t("title_statistical")}</h2>
             <ul className="desc">
-                <li className="contentBeforeEmpty"> {StatisticalTable()}</li>
+                <li className="contentBeforeEmpty">
+                    <table className="table text-center table-small">
+                        <thead>
+                            <tr>
+                                <th>{t("table_header_results")}</th>
+                                <th>{t("table_header_descriptions")}</th>
+                                <th>{t("table_header_symbols")}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{t("winning_condition_4red")}</td>
+                                {renderFourRed()}
+                                <td>
+                                    <div className="d-flex justify-content-center">
+                                        <span className="dot-even">4</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{t("winning_condition_4white")}</td>
+                                {renderFourWhite()}
+                                <td>
+                                    <div className="d-flex justify-content-center">
+                                        <span className="dot-even">0</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{t("winning_condition_2red2white")}</td>
+                                {renderTwoRedTwoWhite()}
+                                <td>
+                                    <div className="d-flex justify-content-center">
+                                        <span className="dot-even">2</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{t("winning_condition_3red1white")}</td>
+                                {renderThreeRedOneWhite()}
+                                <td>
+                                    <div className="d-flex justify-content-center">
+                                        <span className="dot-odd">3</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{t("winning_condition_1red3white")}</td>
+                                {renderOneRedThreeWhite()}
+                                <td>
+                                    <div className="d-flex justify-content-center">
+                                        <span className="dot-odd en">1</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
             </ul>
         </li>
     );
@@ -233,7 +290,7 @@ const SeDieMD5: FC<{
     }
 
     const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
-    
+
     // Map locale to image suffix
     const getImageSuffix = (locale?: string) => {
         switch (locale) {
