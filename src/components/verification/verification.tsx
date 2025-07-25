@@ -4,22 +4,22 @@ import { InContextTools } from "@tolgee/web/tools";
 import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
 import appSettings from "../../common/app-settings";
-import { GAMES_PF, TolgeeConfig } from "../../common/constants";
+import { AVAILABLE_LANGUAGES, GAMES_PF, TolgeeConfig } from "../../common/constants";
 import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
 import ChristmasXVerification from "./christmas-x";
+import CoinMiningVerification from "./coin-mining";
 import CoinTossVerification from "./coin-toss";
 import FootballDiceVerification from "./football-dice";
 import FootballCoinTossVerification from "./footballl-coin-toss";
-import SpaceFlightVerification from "./space-flight";
-import CoinMiningVerification from "./coin-mining";
 import RocketXVerification from "./rocket-x";
+import SpaceFlightVerification from "./space-flight";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh_cn", "zh_tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["Spaceflight", "Common", "FootballDice", "ChristmasX"],

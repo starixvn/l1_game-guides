@@ -1,15 +1,15 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee } from "@tolgee/react";
-import appSettings from "../common/app-settings";
-import { TolgeeConfig } from "../common/constants";
 import { InContextTools } from "@tolgee/web/tools";
+import appSettings from "../common/app-settings";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../common/constants";
 
 const initTolgee = (ns: string[]) => {
     const tolgee = Tolgee()
         .use(FormatIcu())
         .use(BackendFetch())
         .init({
-            availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+            availableLanguages: AVAILABLE_LANGUAGES,
             fallbackLanguage: "en",
             defaultLanguage: "en",
             ns: ["Common", ...ns],
