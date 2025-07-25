@@ -3,18 +3,17 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
 import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
-import FootballDiceContents from "./contents";
+import Contents from "./contents";
 import { TogleeNamespace } from "./namespace-tolgee";
-
 
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: [TogleeNamespace.SpecificGame, TogleeNamespace.Common],
@@ -72,7 +71,7 @@ const FootballDiceGameGuide = (props: GameGuideBase) => {
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <FootballDiceContents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
+            <Contents {...{ gameConfigs: configs, fractionalOddsFormat, locale: tolgee.getLanguage(), userStakeLevel }} />
         </TolgeeProvider>
     );
 };

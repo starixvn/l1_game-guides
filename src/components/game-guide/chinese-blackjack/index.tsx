@@ -3,7 +3,7 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
 import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameGuideBase } from "../type";
@@ -14,7 +14,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["ChineseBlackjack", "Common"],

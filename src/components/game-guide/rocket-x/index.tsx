@@ -3,7 +3,7 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
 import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
 import { GameConfigs, GameGuideBase } from "../type";
 import RocketXContents from "./contents";
@@ -12,7 +12,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["RocketX", "Common"],
@@ -42,7 +42,7 @@ const RocketXGuide = (props: GameGuideBase) => {
         userStakeLevel,
         displayName,
         name,
-        scrollToId
+        scrollToId,
     } = props;
     const [configs, setConfigs] = useState<GameConfigs>();
 
@@ -68,13 +68,12 @@ const RocketXGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
-         isGetGameConfigs && getDynamicGameConfig();
+        isGetGameConfigs && getDynamicGameConfig();
     }, [configs]);
 
     if (!configs) {
         return <></>;
-    }
-    else {
+    } else {
         return (
             <TolgeeProvider tolgee={tolgee} fallback="">
                 <RocketXContents
@@ -85,14 +84,12 @@ const RocketXGuide = (props: GameGuideBase) => {
                         userStakeLevel,
                         displayName,
                         name: name ?? gameSetting?.Name,
-                        scrollToId
+                        scrollToId,
                     }}
                 />
             </TolgeeProvider>
         );
     }
-
-   
 };
 
 export default RocketXGuide;

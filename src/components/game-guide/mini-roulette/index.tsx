@@ -3,18 +3,17 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
 import { useEffect, useState } from "react";
 import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
-import LangliveStyleOverride from "../../shared/langlive-style-override";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
+import LangliveStyleOverride from "../../shared/langlive-style-override";
 import { GameConfigs, GameGuideBase } from "../type";
 import MiniRouletteContents from "./contents";
-import Styles from "./mini-roulette.module.scss";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["MiniRoulette", "Common"],

@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { getGameConfigProject } from "../../index.helper";
-import { GameConfigs, GameGuideBase } from "../type";
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { TolgeeConfig } from "../../../common/constants";
-import appSettings from "../../../common/app-settings";
 import { InContextTools } from "@tolgee/web/tools";
+import { useEffect, useState } from "react";
+import appSettings from "../../../common/app-settings";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
+import { getGameConfigProject } from "../../index.helper";
+import { GameConfigs, GameGuideBase } from "../type";
 import BandarQiuQiuGameContents from "./contents";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["BandarQiuQiu", "Common"],

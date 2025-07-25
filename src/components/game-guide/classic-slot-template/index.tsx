@@ -4,7 +4,7 @@ import { InContextTools } from "@tolgee/web/tools";
 import { useEffect } from "react";
 
 import appSettings from "../../../common/app-settings";
-import { TolgeeConfig } from "../../../common/constants";
+import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
 import { GameGuideBase } from "../type";
 import Contents from "./contents";
 
@@ -12,7 +12,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "th", "id", "zh-cn", "zh-tw"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["Classicslot", "Common"],
