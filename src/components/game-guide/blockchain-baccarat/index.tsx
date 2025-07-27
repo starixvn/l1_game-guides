@@ -2,17 +2,18 @@ import { GameGuideBase } from "../type";
 import { BaccaratGuideState } from "../baccarat/type";
 import BaseBaccaratGuide from "../base/base-baccarat";
 import { getBlockchainBaccaratTranslationResource } from "./languages";
-import { getBlockchainBaccaratTolgeeTranslationResource } from "./languages/tolgee";
+import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../helpers/tolgee-helper";
 import { Cards } from "../base/base-baccarat/card-model";
 import { Markup } from "interweave";
 import { IBlockchainBaccaratResources } from "./languages/types";
 import BaseBaccaratGameRule from "../base/base-baccarat/base-baccarat-game-rule";
 import { isMobile } from "react-device-detect";
 import Styles from "../base/base-baccarat/base-baccarat.module.scss";
-import { TolgeeInstance } from "@tolgee/react";
-import initTolgee from "../../../helpers/tolgee-helper";
 
 const tolgee = initTolgee(["BaseBaccarat", "BlockchainBaccarat", "Common"]);
+
+const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
 const CutCard: React.FunctionComponent<{ resources: IBlockchainBaccaratResources }> = ({ resources }) => {
     const { cutCard, burnCard } = resources.extendGameRules;
@@ -94,15 +95,30 @@ class BlockChainBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratG
     }
 
     isTolgeeSupportLanguage = () => {
-        const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
         return !excludedLanguages.includes(this.props.locale || "en");
     }
 
-    getResources = () => {
+    componentDidMount() {
+        // Set the language immediately for Tolgee
         if (this.isTolgeeSupportLanguage()) {
-            const languageTag = this.props.locale || "en";
-            return getBlockchainBaccaratTolgeeTranslationResource(tolgee, languageTag);
+            tolgee.changeLanguage(this.props.locale || "en");
         }
+        
+        // Initialize resources properly
+        this.setState({ resources: this.getResources() });
+    }
+
+    componentDidUpdate(prevProps: GameGuideBase) {
+        if (prevProps.locale !== this.props.locale) {
+            if (this.isTolgeeSupportLanguage()) {
+                tolgee.changeLanguage(this.props.locale || "en");
+            }
+            this.setState({ resources: this.getResources() });
+        }
+    }
+
+    getResources = () => {
+        // For now, use only static translations to avoid import issues
         return getBlockchainBaccaratTranslationResource(this.props.locale);
     };
 
@@ -117,6 +133,42 @@ class BlockChainBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratG
             </li>
         );
     };
+
+    render() {
+        if (!this.state?.resources || !this.state.configs) {
+            return <></>;
+        }
+
+        return (
+            <ul className="game-guide">
+                {this.renderIntroduction()}
+                {this.renderGameRule()}
+                {this.renderPointCalculationRules()}
+                {this.renderThirdCardRule()}
+                {this.renderPayout()}
+                {this.renderTermsAndConditions()}
+            </ul>
+        );
+    }
 }
 
-export default BlockChainBaccaratGuide;
+// Simple wrapper component that provides Tolgee context when needed
+const BlockChainBaccaratGuideWrapper = (props: GameGuideBase) => {
+    const isTolgeeSupportLanguage = () => {
+        return !excludedLanguages.includes(props.locale || "en");
+    };
+
+    // For non-Tolgee languages, render directly
+    if (!isTolgeeSupportLanguage()) {
+        return <BlockChainBaccaratGuide {...props} />;
+    }
+
+    // For Tolgee-supported languages, wrap with TolgeeProvider
+    return (
+        <TolgeeProvider tolgee={tolgee} fallback="">
+            <BlockChainBaccaratGuide {...props} />
+        </TolgeeProvider>
+    );
+};
+
+export default BlockChainBaccaratGuideWrapper;

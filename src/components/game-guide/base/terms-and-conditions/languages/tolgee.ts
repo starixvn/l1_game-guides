@@ -3,14 +3,7 @@ import { IBaseTermAndConditionResources } from "./types";
 
 export function generatebaseTermAndConditionTolgee(tolgee: TolgeeInstance): IBaseTermAndConditionResources {
     const namespace = "Common";
-    const getTranslation = (key: string) => {
-        try {
-            return tolgee.t(key, {ns: namespace});
-        } catch (error) {
-            console.warn(`Failed to get translation for key: ${key}`, error);
-            return key; // Return the key as fallback
-        }
-    };
+    const getTranslation = (key: string) => tolgee.t(key, {ns: namespace});
     
     return {
         header: getTranslation("termsandconditions-title"),

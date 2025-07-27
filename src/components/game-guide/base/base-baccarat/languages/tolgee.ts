@@ -4,14 +4,7 @@ import { IBaseBaccaratResources } from "./types";
 
 export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBaseBaccaratResources {
     const namespace = "BaseBaccarat";
-    const getTranslation = (key: string) => {
-        try {
-            return tolgee.t(key, {ns: namespace});
-        } catch (error) {
-            console.warn(`Failed to get translation for key: ${key}`, error);
-            return key; // Return the key as fallback
-        }
-    };
+    const getTranslation = (key: string) => tolgee.t(key, {ns: namespace});
     return {
         introduction: {
             header: "",

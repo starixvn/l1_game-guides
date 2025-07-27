@@ -1,63 +1,47 @@
 import { GameGuideBase } from "../type";
+import { BaccaratGuideState } from "../baccarat/type";
 import { getVipBaccaratTranslationResource } from "./languages";
 import { getVipBaccaratTolgeeTranslationResource } from "./languages/tolgee";
-import BaccaratGuide from "../baccarat";
-import { TolgeeInstance, TolgeeProvider, useTolgee } from "@tolgee/react";
+import BaseBaccaratGuide from "../base/base-baccarat";
+import { TolgeeProvider } from "@tolgee/react";
 import initTolgee from "../../../helpers/tolgee-helper";
-import { useEffect, useState } from "react";
-import { handleLanguage } from "../../../helpers/game-helper";
 import { isShowedMD5 } from "../../shared";
 import ScrollToMD5 from "../../shared/md5-count-down-timer";
+import MD5 from "../base/md5";
+import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
+import { getBaseMD5TranslationResource } from "../base/md5/languages";
 
 const tolgee = initTolgee(["BaseBaccarat", "BaccaratVip", "Common"]);
 
-// Functional component that uses Tolgee hooks for VIP baccarat
-const VipBaccaratGuideWithTolgee = (props: GameGuideBase) => {
-    const { t } = useTolgee();
-    const [resources, setResources] = useState<any>(null);
+const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
-    const isTolgeeSupportLanguage = () => {
-        const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
-        return !excludedLanguages.includes(props.locale || "en");
-    };
-
-    useEffect(() => {
-        if (isTolgeeSupportLanguage()) {
-            handleLanguage(tolgee, props.locale || "en", () => {
-                const languageTag = props.locale || "en";
-                const tolgeeResources = getVipBaccaratTolgeeTranslationResource(tolgee, languageTag);
-                setResources(tolgeeResources);
-            });
-        } else {
-            const staticResources = getVipBaccaratTranslationResource(props.locale);
-            setResources(staticResources);
-        }
-    }, [props.locale]);
-
-    if (!resources) {
-        return <></>;
-    }
-
-    // Create a class component that extends BaccaratGuide
-    class VipBaccaratGuideClass extends BaccaratGuide {
-        constructor(props: GameGuideBase) {
-            super(props);
-        }
-
-        getResources = () => resources;
-    }
-
-    return <VipBaccaratGuideClass {...props} />;
-};
-
-class VipBaccaratGuide extends BaccaratGuide {
+// Main class component that extends BaseBaccaratGuide
+class VipBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
     constructor(props: GameGuideBase) {
         super(props);
     }
 
     isTolgeeSupportLanguage = () => {
-        const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
         return !excludedLanguages.includes(this.props.locale || "en");
+    }
+
+    componentDidMount() {
+        // Set the language immediately for Tolgee
+        if (this.isTolgeeSupportLanguage()) {
+            tolgee.changeLanguage(this.props.locale || "en");
+        }
+        
+        // Initialize resources properly
+        this.setState({ resources: this.getResources() });
+    }
+
+    componentDidUpdate(prevProps: GameGuideBase) {
+        if (prevProps.locale !== this.props.locale) {
+            if (this.isTolgeeSupportLanguage()) {
+                tolgee.changeLanguage(this.props.locale || "en");
+            }
+            this.setState({ resources: this.getResources() });
+        }
     }
 
     getResources = () => {
@@ -73,6 +57,26 @@ class VipBaccaratGuide extends BaccaratGuide {
         return getVipBaccaratTranslationResource(this.props.locale);
     }
 
+    renderMd5 = () => {
+        const { md5 } = this.state.resources;
+
+        return (
+            <MD5
+                resources={this.isTolgeeSupportLanguage() ? generateMD5TranslationResource(tolgee) : getBaseMD5TranslationResource(this.props.locale)}
+                locale={this.props.locale}
+                step1ImageUrl={md5.step1ImageUrl}
+                step2ImageUrl={md5.step2ImageUrl}
+                step3ImageUrl={md5.step3ImageUrl}
+                step4ImageUrl={md5.step4ImageUrl}
+                note={
+                    <>
+                        {md5.step2Noted1Text} 7♠️ 3♠️ 7♦️ K♣️ 2♠️ Q♦️ {md5.step2Noted2Text}
+                    </>
+                }
+            />
+        );
+    };
+
     render() {
         if (!this.state?.resources || !this.state.configs) {
             return <></>;
@@ -80,28 +84,37 @@ class VipBaccaratGuide extends BaccaratGuide {
 
         this.props.isScrollMD5 && ScrollToMD5();
         
-        // For non-Tolgee languages, render normally
-        if (!this.isTolgeeSupportLanguage()) {
-            return (
-                <ul className="game-guide">
-                    {this.renderIntroduction()}
-                    {this.renderGameRule()}
-                    {this.renderPointCalculationRules()}
-                    {this.renderThirdCardRule()}
-                    {this.renderPayout()}
-                    {isShowedMD5(this.props.environment, this.props.orientation) && this.renderMd5()}
-                    {this.renderTermsAndConditions()}
-                </ul>
-            );
-        }
-
-        // Wrap the content with TolgeeProvider for Tolgee-supported languages
         return (
-            <TolgeeProvider tolgee={tolgee} fallback="">
-                <VipBaccaratGuideWithTolgee {...this.props} />
-            </TolgeeProvider>
+            <ul className="game-guide">
+                {this.renderIntroduction()}
+                {this.renderGameRule()}
+                {this.renderPointCalculationRules()}
+                {this.renderThirdCardRule()}
+                {this.renderPayout()}
+                {isShowedMD5(this.props.environment, this.props.orientation) && this.renderMd5()}
+                {this.renderTermsAndConditions()}
+            </ul>
         );
     }
 }
 
-export default VipBaccaratGuide;
+// Simple wrapper component that provides Tolgee context when needed
+const VipBaccaratGuideWrapper = (props: GameGuideBase) => {
+    const isTolgeeSupportLanguage = () => {
+        return !excludedLanguages.includes(props.locale || "en");
+    };
+
+    // For non-Tolgee languages, render directly
+    if (!isTolgeeSupportLanguage()) {
+        return <VipBaccaratGuide {...props} />;
+    }
+
+    // For Tolgee-supported languages, wrap with TolgeeProvider
+    return (
+        <TolgeeProvider tolgee={tolgee} fallback="">
+            <VipBaccaratGuide {...props} />
+        </TolgeeProvider>
+    );
+};
+
+export default VipBaccaratGuideWrapper;

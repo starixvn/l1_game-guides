@@ -6,14 +6,7 @@ import { generateBaccaratTranslationResource } from "../../base/base-baccarat/la
 export function getBaccaratTolgeeTranslationResource(tolgee: TolgeeInstance, languageTag: string): IBaseBaccaratResources {
     const baseBaccaratResources = generateBaccaratTranslationResource(tolgee);
     const namespace = "Baccarat";
-    const getTranslation = (key: string, params?: any) => {
-        try {
-            return tolgee.t(key, {ns: namespace, params});
-        } catch (error) {
-            console.warn(`Failed to get translation for key: ${key}`, error);
-            return key; // Return the key as fallback
-        }
-    };
+    const getTranslation = (key: string, params?: any) => tolgee.t(key, {ns: namespace, params});
     return {
         ...baseBaccaratResources,
         introduction: {
