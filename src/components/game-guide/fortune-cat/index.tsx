@@ -10,6 +10,7 @@ import FortuneCatGuideTH from "./th";
 import FortuneCatGuideCN from "./zh_cn";
 import FortuneCatGuideTW from "./zh_tw";
 import { getGameConfigProject } from "../../index.helper";
+import FortuneCatGuideTolgeeWrapper from "./tolgee";
 
 const FortuneCatGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -44,6 +45,7 @@ const FortuneCatGuide = (props: GameGuideBase) => {
     const resource = {
         gameConfigs: configs,
         gameName: gameNameTranslate,
+        locale,
     };
 
     switch (locale) {
@@ -58,7 +60,7 @@ const FortuneCatGuide = (props: GameGuideBase) => {
         case locales.zh_tw:
             return <FortuneCatGuideTW {...resource} />;
         default:
-            return <FortuneCatGuideEN {...resource} />;
+            return <FortuneCatGuideTolgeeWrapper {...resource} />;
     }
 };
 export default FortuneCatGuide;
