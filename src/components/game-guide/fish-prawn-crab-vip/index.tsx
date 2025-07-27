@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import FishPrawnCrabGuideEN from "./en";
 import FishPrawnCrabGuideVI from "./vi";
 import FishPrawnCrabGuideID from "./id";
 import FishPrawnCrabGuideTH from "./th";
@@ -12,6 +10,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
+import FishPrawnCrabGuideTolgeeWrapper from "./tolgee";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -92,7 +91,7 @@ const FishPrawnCrabVIP = (props: GameGuideBase) => {
             return <FishPrawnCrabGuideTW {...resource} />;
 
         default:
-            return <FishPrawnCrabGuideEN {...resource} />;
+            return <FishPrawnCrabGuideTolgeeWrapper {...resource} />;
     }
 };
 export default FishPrawnCrabVIP;
