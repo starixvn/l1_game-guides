@@ -7,6 +7,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
+import LotteryGuideTolgeeWrapper from "./tolgee";
 
 const LotteryGuideEN = dynamic(() => import("./en"));
 const LotteryGuideVI = dynamic(() => import("./vi"));
@@ -84,7 +85,7 @@ const LotteryGuide = (props: GameGuideBase) => {
             return <LotteryGuideZHTW {...resource} />;
 
         default:
-            return <LotteryGuideEN {...resource} />;
+            return <LotteryGuideTolgeeWrapper {...resource} />;
     }
 };
 export default LotteryGuide;
