@@ -12,6 +12,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
+import RouletteGuideTolgeeWrapper from "./tolgee";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -83,7 +84,7 @@ const RouletteGuide = (props: GameGuideBase) => {
             return <RouletteGuideTW {...resource} />;
 
         default:
-            return <RouletteGuideEN {...resource} />;
+            return <RouletteGuideTolgeeWrapper {...resource} />;
     }
 };
 export default RouletteGuide;
