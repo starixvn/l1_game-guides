@@ -12,6 +12,7 @@ import { locales } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
+import BlackjackGuideTolgeeWrapper from "./tolgee";
 
 const BlackjackGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat } = props;
@@ -68,7 +69,7 @@ const BlackjackGuide = (props: GameGuideBase) => {
             return <BlackjackGuideTW {...resource} />;
 
         default:
-            return <BlackjackGuideEN {...resource} />;
+            return <BlackjackGuideTolgeeWrapper {...resource} />;
     }
 };
 
