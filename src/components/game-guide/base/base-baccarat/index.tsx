@@ -84,7 +84,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
                 <BaseBaccaratPayout
                     {...{
                         fractionalOddsFormat: this.props.fractionalOddsFormat,
-                        odds: this.configs.odds,
+                        odds: this.configs?.odds,
                         maxBetFollowChoice: this.state.maxBetFollowChoice,
                         resources: this.state.resources,
                         locale: this.props.locale,
@@ -103,7 +103,7 @@ abstract class BaseBaccaratGuide<P extends GameGuideBase, S extends BaccaratGuid
     };
 
     render() {
-        if (!this.state?.resources) {
+        if (!this.state?.resources || !this.configs) {
             return <></>;
         }
 

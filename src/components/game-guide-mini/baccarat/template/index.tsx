@@ -5,8 +5,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import { GameGuideProps } from "../../../game-guide/type";
 import { IBaccaratMiniTranslationResource } from "../languages/types";
 import { getBaccaratMiniTranslationResource } from "../languages";
+import { getBaccaratMiniTolgeeTranslationResource } from "../languages/tolgee";
 import { StringFormat } from "../../../../helpers/string-helper";
 import { BaseState } from "../../game-guide-mini";
+import { TolgeeInstance } from "@tolgee/react";
+import initTolgee from "../../../../helpers/tolgee-helper";
+
+const tolgee = initTolgee(["BaccaratMini", "Common"]);
 
 class BaccaratMiniGuideTemplate<
     P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
@@ -15,8 +20,29 @@ class BaccaratMiniGuideTemplate<
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getBaccaratMiniTranslationResource(props.locale),
+            translationResource: this.getTranslationResource(),
         } as S;
+    }
+
+    isTolgeeSupportLanguage = () => {
+        const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
+        return !excludedLanguages.includes(this.props.locale || "en");
+    }
+
+    getTranslationResource = () => {
+        if (this.isTolgeeSupportLanguage()) {
+            const languageTag = this.props.locale || "en";
+            return getBaccaratMiniTolgeeTranslationResource(tolgee, languageTag);
+        }
+        return getBaccaratMiniTranslationResource(this.props.locale);
+    }
+
+    componentDidUpdate(prevProps: P) {
+        if (prevProps.locale !== this.props.locale) {
+            this.setState({
+                translationResource: this.getTranslationResource(),
+            });
+        }
     }
 
     renderIntroduction() {
