@@ -10,6 +10,7 @@ import FourGuardiansGuideTH from "./th";
 import FourGuardiansGuideCN from "./zh_cn";
 import FourGuardiansGuideTW from "./zh_tw";
 import { getGameConfigProject } from "../../index.helper";
+import FourGuardiansGuideTolgeeWrapper from "./tolgee";
 
 const FourGuardiansGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -60,7 +61,7 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
             return <FourGuardiansGuideTW {...resource} />;
 
         default:
-            return <FourGuardiansGuideEN {...resource} />;
+            return <FourGuardiansGuideTolgeeWrapper {...resource} />;
     }
 };
 export default FourGuardiansGuide;
