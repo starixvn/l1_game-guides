@@ -12,6 +12,7 @@ import { numberWithCommas } from "../../../helpers/number-helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
+import SeDieGuideTolgeeWrapper from "./tolgee";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -94,7 +95,7 @@ const SeDieWarGuide = (props: GameGuideBase) => {
             return <SeDieGuideZH_TW {...resource} />;
 
         default:
-            return <SeDieGuideEN {...resource} />;
+            return <SeDieGuideTolgeeWrapper {...resource} />;
     }
 };
 export default SeDieWarGuide;
