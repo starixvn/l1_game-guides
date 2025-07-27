@@ -11,6 +11,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import MultiplayBigSmallGuideVI from "./vi";
 import MultiplayBigSmallGuideCN from "./zh_cn";
 import MultiplayBigSmallGuideTW from "./zh_tw";
+import MultiplayBigSmallGuideTolgeeWrapper from "./tolgee";
 
 const MultiplayBigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -83,7 +84,7 @@ const MultiplayBigSmallGuide = (props: GameGuideBase) => {
             return <MultiplayBigSmallGuideTW {...resource} />;
 
         default:
-            return <MultiplayBigSmallGuideEN {...resource} />;
+            return <MultiplayBigSmallGuideTolgeeWrapper {...resource} />;
     }
 };
 export default MultiplayBigSmallGuide;
