@@ -275,11 +275,18 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
 };
 
 const SeDieGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const { t } = useTranslate([NAMESPACE]);
     const pathImg = theme === Themes.light || Themes.infoSite ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
+    
+    // Handle locale changes
+    React.useEffect(() => {
+        if (locale) {
+            tolgee.changeLanguage(locale);
+        }
+    }, [locale]);
     
     return (
         <>

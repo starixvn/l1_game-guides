@@ -54,6 +54,7 @@ const BlackjackGuide = (props: GameGuideBase) => {
         gameName: gameNameTranslate,
         maxBetFollowChoice,
         fractionalOddsFormat,
+        locale,
     };
 
     switch (locale) {

@@ -76,6 +76,7 @@ const FishPrawnCrabVIP = (props: GameGuideBase) => {
         fractionalOddsFormat,
         environment,
         orientation,
+        locale,
     };
 
     switch (locale) {

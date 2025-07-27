@@ -573,9 +573,16 @@ const renderWild = (odds: number[][], project: string | undefined) => {
 };
 
 const FourGuardiansGuideTolgee: React.FC<GameGuideProps<GameConfigProps, {}>> = (props) => {
-    const { gameName, gameConfigs, project } = props;
+    const { gameName, gameConfigs, project, locale } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslate(["FourGuardians"]);
+    
+    // Handle locale changes
+    React.useEffect(() => {
+        if (locale) {
+            tolgee.changeLanguage(locale);
+        }
+    }, [locale]);
     
     return (
         <>

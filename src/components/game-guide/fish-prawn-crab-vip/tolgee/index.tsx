@@ -47,11 +47,18 @@ export const renderListIcon = (theme: string | undefined, isPortraitGame: boolea
 };
 
 const FishPrawnCrabGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, orientation, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, orientation, environment, locale } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isPortraitGame = !isShowedMD5(environment, orientation);
     const { t } = useTranslate(["FishPrawnCrabVip"]);
+
+    // Handle locale changes
+    React.useEffect(() => {
+        if (locale) {
+            tolgee.changeLanguage(locale);
+        }
+    }, [locale]);
 
     const cssClassColumnTable = isPortraitGame ? `${Styles["table-portrait-mode"]}` : "";
     const cssClassIconWrapper = isPortraitGame ? `${Styles["icon-wrapper-portrait-mode"]}` : "";

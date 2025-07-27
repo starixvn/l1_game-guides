@@ -69,6 +69,7 @@ const RouletteGuide = (props: GameGuideBase) => {
         gameName: gameNameTranslate,
         maxBetFollowChoice,
         fractionalOddsFormat,
+        locale,
     };
 
     switch (locale) {

@@ -219,9 +219,16 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
 };
 
 const BlackjackGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslate(["Blackjack"]);
+
+    // Handle locale changes
+    React.useEffect(() => {
+        if (locale) {
+            tolgee.changeLanguage(locale);
+        }
+    }, [locale]);
 
     return (
         <>

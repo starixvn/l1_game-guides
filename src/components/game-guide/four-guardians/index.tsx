@@ -46,6 +46,7 @@ const FourGuardiansGuide = (props: GameGuideBase) => {
         gameConfigs: configs,
         gameName: gameNameTranslate,
         project: project,
+        locale,
     };
 
     switch (locale) {
