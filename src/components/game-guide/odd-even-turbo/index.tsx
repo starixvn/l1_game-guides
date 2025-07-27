@@ -10,6 +10,7 @@ import { locales, IObjectKeys } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
+import OddEvenTurboGuideTolgeeWrapper from "./tolgee";
 
 export const OddEvenTurboName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 
@@ -68,7 +69,7 @@ const OddEvenTurboGuide = (props: GameGuideBase) => {
             return <OddEvenTurboGuideTW {...resource} />;
 
         default:
-            return <OddEvenTurboGuideEN {...resource} />;
+            return <OddEvenTurboGuideTolgeeWrapper {...resource} />;
     }
 };
 export default OddEvenTurboGuide;
