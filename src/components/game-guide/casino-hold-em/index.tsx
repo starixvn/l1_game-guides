@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import CasinoHoldGuideTemplate from "./templates/default";
 import CasinoHoldGuideVI from "./templates";
+import CasinoHoldEmGuideTolgeeWrapper from "./tolgee";
 import { locales } from "../../../common/constants";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
@@ -69,6 +70,21 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
     if (locale === locales.vi) {
         return (
             <CasinoHoldGuideVI
+                gameConfigs={configs}
+                userStakeLevel={userStakeLevel}
+                gameName={gameNameTranslate}
+                gameId={id}
+                maxBetFollowChoice={maxBetFollowChoice}
+                isScrollMD5={isScrollMD5}
+                fractionalOddsFormat={fractionalOddsFormat}
+                locale={locale}
+            />
+        );
+    }
+
+    if (locale === locales.ja) {
+        return (
+            <CasinoHoldEmGuideTolgeeWrapper
                 gameConfigs={configs}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
