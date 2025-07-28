@@ -871,7 +871,7 @@ const renderMD5 = (locale: string | undefined) => {
                         details: [
                             t("md5_validation_step1"),
                             t("md5_validation_step2"),
-                            t("md5_validation_step3"),
+                            t("md5_validation_step3", { 0: md5ServicesUrl }),
                             t("md5_validation_step4"),
                         ],
                     },

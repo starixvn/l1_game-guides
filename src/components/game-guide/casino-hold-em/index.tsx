@@ -10,6 +10,8 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
 
+const oldLanguage = ["id", "th", "zh_cn", "zh_tw"];
+
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
     const maxBetRound = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet));
@@ -82,9 +84,9 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
         );
     }
 
-    if (locale === locales.ja) {
+    if (oldLanguage.includes(locale ?? "")) {
         return (
-            <CasinoHoldEmGuideTolgeeWrapper
+            <CasinoHoldGuideTemplate
                 gameConfigs={configs}
                 userStakeLevel={userStakeLevel}
                 gameName={gameNameTranslate}
@@ -98,7 +100,7 @@ const CasinoHoldGuide = (props: GameGuideBase) => {
     }
 
     return (
-        <CasinoHoldGuideTemplate
+        <CasinoHoldEmGuideTolgeeWrapper
             gameConfigs={configs}
             userStakeLevel={userStakeLevel}
             gameName={gameNameTranslate}
