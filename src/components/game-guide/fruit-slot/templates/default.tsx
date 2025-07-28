@@ -8,7 +8,9 @@ import { IFruitSlotTranslationResource } from "../languages/types";
 import { Markup } from "interweave";
 import { buildVersion } from "../../../../common/constants";
 
-class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> {
+class FruitSlotGuideTemplate extends React.Component<
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFruitSlotTranslationResource }
+> {
     renderIntroduction(translationResource: IFruitSlotTranslationResource, gameName: string) {
         return (
             <li className="guide-item">
@@ -263,17 +265,17 @@ class FruitSlotGuideTemplate extends React.Component<GameGuideProps<GameConfigPr
     }
 
     render(): React.ReactNode {
-        const { gameConfigs, gameName, locale, maxBetFollowChoice } = this.props;
+        const { gameConfigs, gameName, locale, maxBetFollowChoice, translationResource } = this.props;
         const { odds } = gameConfigs;
-        const translationResource = getFruitSlotTranslationResource(locale);
+        const resources = translationResource || getFruitSlotTranslationResource(locale);
 
         return (
             <>
                 <ul className="game-guide">
-                    {this.renderIntroduction(translationResource, gameName)}
-                    {this.renderGameRule(translationResource, maxBetFollowChoice)}
-                    {this.renderPayouts(translationResource, odds)}
-                    {this.renderLuckySymbol(translationResource)}
+                    {this.renderIntroduction(resources, gameName)}
+                    {this.renderGameRule(resources, maxBetFollowChoice)}
+                    {this.renderPayouts(resources, odds)}
+                    {this.renderLuckySymbol(resources)}
                     {renderTermsAndConditions(locale)}
                 </ul>
             </>

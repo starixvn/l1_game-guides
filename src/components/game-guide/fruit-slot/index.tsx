@@ -7,6 +7,15 @@ import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import FruitSlotGuideTemplate from "./templates/default";
 import { getGameConfigProject } from "../../index.helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { TolgeeProvider } from "@tolgee/react";
+import FruitSlotContent from "./content-tolgee";
+
+const tolgee = initTolgee(["FruitSlot"]);
+
+const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw", "en"].includes(languageTag);
+};
 
 const FruitSlotGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, isScrollMD5, environment, project } = props;
@@ -29,6 +38,13 @@ const FruitSlotGuide = (props: GameGuideBase) => {
     useEffect(() => {
         getLocalGameConfigs();
     }, []);
+
+    useEffect(() => {
+        const languageTag = locale || "vi";
+        if (isTolgeeSupportLanguage(languageTag)) {
+            tolgee.changeLanguage(languageTag);
+        }
+    }, [locale]);
 
     useEffect(() => {
         if (configs) {
@@ -55,6 +71,27 @@ const FruitSlotGuide = (props: GameGuideBase) => {
         );
     }
 
+    // Use Tolgee for supported languages, fallback to static translations for others
+    if (locale && isTolgeeSupportLanguage(locale)) {
+        return (
+            <TolgeeProvider tolgee={tolgee}>
+                <FruitSlotContent
+                    locale={locale}
+                    gameConfigs={gameConfigs}
+                    gameNameTranslate={gameNameTranslate}
+                    gameName={gameNameTranslate}
+                    dynamic={dynamic}
+                    isGetGameConfigs={isGetGameConfigs}
+                    isScrollMD5={isScrollMD5}
+                    environment={environment}
+                    userStakeLevel={userStakeLevel}
+                    project={project}
+                />
+            </TolgeeProvider>
+        );
+    }
+
+    // Fallback to static translations for unsupported languages
     return (
         <FruitSlotGuideTemplate
             gameConfigs={configs}
