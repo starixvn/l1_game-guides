@@ -17,31 +17,11 @@ import { InContextTools } from "@tolgee/web/tools";
 import { TolgeeConfig } from "../../../common/constants";
 import BigSmallGameGuideContent from "./content-tolgee";
 import appSettings from "../../../common/app-settings";
+import initTolgee from "../../../helpers/tolgee-helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 
-const tolgee = Tolgee()
-    .use(FormatIcu())
-    .use(BackendFetch())
-    .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
-        fallbackLanguage: "en",
-        defaultLanguage: "en",
-        ns: ["SeDie", "Common"],
-        defaultNs: "SeDie",
-    });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
+const tolgee = initTolgee(["BigSmall", "Common"]);
 
 const BigSmallGuide = (props: GameGuideBase) => {
     const {

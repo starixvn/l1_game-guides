@@ -1,19 +1,23 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { UserStakeLevelProps } from "../../../pages";
 import { T, useTranslate } from "@tolgee/react";
 import { formatOdds } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { Markup } from "interweave";
 import MD5 from "../base/md5";
 import { isShowedMD5 } from "../../shared";
+import { GameGuideProps } from "../type";
+import ScrollToMD5 from "../../shared/md5-number";
+import MD5Tolgee from "../base/md5/md5-tolgee";
+
+const bigSmallNamespace = "BigSmall";
 
 const BigSmallIntroduction: FC<{ t: Function; displayName?: string }> = ({ t, displayName }) => {
     return (
         <li className={`guide-item `}>
-            <h2>{t("title_introduction", { ns: "Common" })}</h2>
+            <h2>{t("title_introduction")}</h2>
             <div className="content">
-                <T keyName={"intro_para_1"} params={{ gameName: displayName }} ns="BigSmall"></T>
+                <T keyName={"intro_para_1"} params={{ gameName: displayName }} ns={bigSmallNamespace}></T>
             </div>
         </li>
     );
@@ -27,13 +31,13 @@ const BigSmallGameRules: FC<{
         <li className={`guide-item`}>
             <h2>{t("gamerules_title")}</h2>
             <ul className="desc">
-                <li>{t("gamerules_para_1")}</li>
-                <li>{t("gamerules_para_2")}</li>
+                <li>{t("gamerules_para_1", { ns: bigSmallNamespace })}</li>
+                <li>{t("gamerules_para_2", { ns: bigSmallNamespace })}</li>
                 <ul className="detail">
-                    <li>{t("big_definition")}</li>
-                    <li>{t("small_definition")}</li>
+                    <li>{t("big_definition", { ns: bigSmallNamespace })}</li>
+                    <li>{t("small_definition", { ns: bigSmallNamespace })}</li>
                 </ul>
-                <li>{t("gamerules_para_3")}</li>
+                <li>{t("gamerules_para_3", { ns: bigSmallNamespace })}</li>
                 <li>
                     <T
                         keyName="gamerules_para_4"
@@ -41,13 +45,14 @@ const BigSmallGameRules: FC<{
                             minBet: maxBetFollowChoice?.minBetMain || 0,
                             maxBet: maxBetFollowChoice?.maxBetMain || 0
                         }}
+                        ns={bigSmallNamespace}
                     />
                 </li>
-                <li>{t("gamerules_para_5")}</li>
+                <li>{t("gamerules_para_5", { ns: bigSmallNamespace })}</li>
                 <li>
-                    {t("gamerules_para_6")}
+                    {t("gamerules_para_6", { ns: bigSmallNamespace })}
                     <p>
-                        <strong>{t("gamerules_example")}</strong>
+                        {t("gamerules_example", { ns: bigSmallNamespace })}
                     </p>
                 </li>
             </ul>
@@ -70,10 +75,11 @@ const BigSmallPayout: FC<{
                     <T
                         keyName="payouts_para_1"
                         params={{ odds: formatOdds(odds?.big, fractionalOddsFormat) }}
+                        ns={bigSmallNamespace}
                     />
                 </li>
-                <li>{t("payouts_para_2")}</li>
-                <li>{t("payouts_para_3")}</li>
+                <li>{t("payouts_para_2", { ns: bigSmallNamespace })}</li>
+                <li>{t("payouts_para_3", { ns: bigSmallNamespace })}</li>
             </ul>
         </li>
     );
@@ -89,21 +95,25 @@ export interface BigSmallGameGuideContentsProps {
     locale?: string;
 }
 
-const BigSmallGameGuideContent: FC<BigSmallGameGuideContentsProps> = ({ 
-    maxBetFollowChoice, 
-    gameConfigs, 
-    fractionalOddsFormat, 
-    displayName,
-    environment,
-    orientation,
-    locale
-}) => {
-    const { t } = useTranslate(["BigSmall", "Common"]);
+const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { t } = useTranslate();
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, locale, fractionalOddsFormat, orientation } =
+        props;
 
+    useEffect(() => {
+        isScrollMD5 && ScrollToMD5();
+    });
+
+    try {
+        const md5Note = t("md5_note", { ns: "BigSmall" });
+        console.log("md5Note", md5Note);
+    } catch (error) {
+        console.log("error", error);
+    }
     return (
         <div className={`bigsmall`}>
             <ul className={`game-guide`}>
-                <BigSmallIntroduction t={t} displayName={displayName || ""} />
+                <BigSmallIntroduction t={t} displayName={gameName} />
                 <BigSmallGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} />
                 <BigSmallPayout
                     gameConfigs={gameConfigs}
@@ -111,13 +121,12 @@ const BigSmallGameGuideContent: FC<BigSmallGameGuideContentsProps> = ({
                     t={t}
                 />
                 {isShowedMD5(environment, orientation) && (
-                    <MD5
-                        locale={locale}
+                    <MD5Tolgee
                         step1ImageUrl={`/static/images/big-small/md5_step1_${locale}.png?v=3`}
                         step2ImageUrl={`/static/images/big-small/md5_step2_${locale}.png?v=3`}
                         step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
                         step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
-                        note={<div>{t("md5_note")}</div>}
+                        note={<div>{t("big_definition", { ns: "BigSmall" })}</div>}
                     />
                 )}
                 <TermsAndConditionsTolgee />

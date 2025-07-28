@@ -4,12 +4,13 @@ import { formatOdds } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../shared/dot";
-import { StatisticalTable } from "../../shared/se-die/en";
+import { GameGuideProps } from "../type";
 
 const SeDieSpecialIntroduction: FC<{
     t: Function;
     displayName?: string;
 }> = ({ t, displayName }) => {
+    console.log("displayName", displayName);
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
@@ -199,18 +200,14 @@ export interface SeDieSpecialGameGuideContentsProps {
     displayName?: string;
 }
 
-const SeDieSpecialGameGuideContent: FC<SeDieSpecialGameGuideContentsProps> = ({
-    maxBetFollowChoice,
-    gameConfigs,
-    fractionalOddsFormat,
-    displayName,
-}) => {
+const SeDieSpecialGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { t } = useTranslate(["SeDieSpecial", "Common"]);
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
 
     return (
         <div className={`sedie-special`}>
             <ul className={`game-guide`}>
-                <SeDieSpecialIntroduction t={t} displayName={displayName || ""} />
+                <SeDieSpecialIntroduction t={t} displayName={gameName || ""} />
                 <SeDieSpecialGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} />
                 <SeDieSpecialPayout
                     gameConfigs={gameConfigs}

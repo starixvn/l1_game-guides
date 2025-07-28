@@ -9,7 +9,6 @@ import { Markup } from "interweave";
 import KenoMD5 from "./md5";
 import BaseTermsAndConditions from "../../../base/terms-and-conditions/terms-and-conditions";
 import { useTranslate } from "@tolgee/react";
-import { getKenoMaxTolgeeTranslationResource } from "../languages/tolgee-helper";
 
 // Functional component wrapper to use useTranslate hook
 const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
