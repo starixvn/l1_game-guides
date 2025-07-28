@@ -10,13 +10,13 @@ import { StringFormat } from "../../../../helpers/string-helper";
 import BaseTermsAndConditions from "../../base/terms-and-conditions/terms-and-conditions";
 
 export default class BitcoinMasterTemplate extends React.Component<
-    GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IBitcoinMasterTranslationResource },
     { translationResource: IBitcoinMasterTranslationResource }
 > {
-    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps>) {
+    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IBitcoinMasterTranslationResource }) {
         super(props);
         this.state = {
-            translationResource: getBitcoinMasterTranslationResource(props.locale),
+            translationResource: props.translationResource || getBitcoinMasterTranslationResource(props.locale),
         };
     }
 

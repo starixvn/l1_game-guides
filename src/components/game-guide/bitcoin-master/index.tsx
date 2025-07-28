@@ -6,6 +6,15 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import BitcoinMasterTemplate from "./templates/default";
 import { getGameConfigProject } from "../../index.helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { TolgeeProvider } from "@tolgee/react";
+import BitcoinMasterContent from "./content-tolgee";
+
+const tolgee = initTolgee(["BitcoinMaster"]);
+
+const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
+};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -35,6 +44,14 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
     };
 
     useEffect(() => {
+        const languageTag = locale || "vi";
+        if (isTolgeeSupportLanguage(languageTag)) {
+            console.log("tolgee.changeLanguage", languageTag);
+            tolgee.changeLanguage(languageTag);
+        }
+    }, [locale]);
+
+    useEffect(() => {
         getLocalGameConfigs();
     }, []);
 
@@ -51,7 +68,11 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
-    return (
+    return isTolgeeSupportLanguage(locale || "vi") ? (
+        <TolgeeProvider tolgee={tolgee}>
+            <BitcoinMasterContent {...props} />
+        </TolgeeProvider>
+    ) : (
         <BitcoinMasterTemplate
             gameConfigs={configs}
             gameName={gameNameTranslate}
@@ -61,4 +82,5 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
         />
     );
 };
+
 export default BitcoinMasterGuide;
