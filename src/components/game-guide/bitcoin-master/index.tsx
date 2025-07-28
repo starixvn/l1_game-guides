@@ -46,7 +46,6 @@ const BitcoinMasterGuide = (props: GameGuideBase) => {
     useEffect(() => {
         const languageTag = locale || "vi";
         if (isTolgeeSupportLanguage(languageTag)) {
-            console.log("tolgee.changeLanguage", languageTag);
             tolgee.changeLanguage(languageTag);
         }
     }, [locale]);

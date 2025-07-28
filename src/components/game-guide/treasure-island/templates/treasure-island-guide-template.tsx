@@ -9,7 +9,9 @@ import OddDetailList from "../OddDetail";
 import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
 
-class TreasureIslandGuideTemplate extends React.PureComponent<GameGuideProps<GameConfigProps, {}>> {
+class TreasureIslandGuideTemplate extends React.PureComponent<
+    GameGuideProps<GameConfigProps, {}> & { translationResource?: TreasureIslandLanguage }
+> {
     readonly number = "number";
     readonly numberFirst = "number-first";
     readonly numberSecond = "number-second";
@@ -518,9 +520,9 @@ class TreasureIslandGuideTemplate extends React.PureComponent<GameGuideProps<Gam
     }
 
     render(): React.ReactNode {
-        const { gameConfigs, locale } = this.props;
+        const { gameConfigs, locale, translationResource } = this.props;
         const { odds, betMultiplier, coin, level, coinValues, betLevels, maxWinPerRound } = gameConfigs;
-        const resources = getTreasureIslandTranslationResource(locale);
+        const resources = translationResource || getTreasureIslandTranslationResource(locale);
         const imageDirectoryName = getImageDirectoryName();
         const sortedCoinValue = coinValues.sort((a, b) => a - b);
         const sortedBetLevel = betLevels.sort((a, b) => a - b);
