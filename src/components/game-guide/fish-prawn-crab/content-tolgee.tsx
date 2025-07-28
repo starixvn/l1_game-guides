@@ -5,6 +5,9 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { ENVIRONMENT } from "../../../common/constants";
 import MD5 from "../base/md5";
+import { GameGuideProps } from "../type";
+
+const fishPrawnCrabNamespace = "FishPrawnCrab";
 
 export const renderIconChoice = () => {
     return (
@@ -30,7 +33,7 @@ const FishPrawnCrabIntroduction: FC<{
                 <T 
                     keyName={"intro_para_1"} 
                     params={{ gameName: displayName }} 
-                    ns="FishPrawnCrab"
+                    ns={fishPrawnCrabNamespace}
                 />
             </div>
             <div className="icon-wrapper">
@@ -58,9 +61,9 @@ const FishPrawnCrabGameRules: FC<{
         <li className={`guide-item`}>
             <h2>{t("gamerules_title")}</h2>
             <ul className="desc">
-                <li>{t("gamerules_para_1")}</li>
-                <li>{t("gamerules_para_2")}</li>
-                <li>{t("gamerules_para_3")}</li>
+                <li>{t("gamerules_para_1", { ns: fishPrawnCrabNamespace })}</li>
+                <li>{t("gamerules_para_2", { ns: fishPrawnCrabNamespace })}</li>
+                <li>{t("gamerules_para_3", { ns: fishPrawnCrabNamespace })}</li>
                 <li>
                     <T
                         keyName="gamerules_para_4"
@@ -69,37 +72,41 @@ const FishPrawnCrabGameRules: FC<{
                             maxBet: maxBetFollowChoice?.maxBetChoice || 0,
                             maxBetMain: maxBetFollowChoice?.maxBetMain || 0
                         }}
+                        ns={fishPrawnCrabNamespace}
                     />
                 </li>
                 <li>
-                    {t("gamerules_para_5")}
+                    {t("gamerules_para_5", { ns: fishPrawnCrabNamespace })}
                     <ul className="detail">
                         <li>
                             <T
                                 keyName="odds_single"
                                 params={{ odds: formatOdds(odds?.single, fractionalOddsFormat) }}
+                                ns={fishPrawnCrabNamespace}
                             />
                         </li>
                         <li>
                             <T
                                 keyName="odds_double"
                                 params={{ odds: formatOdds(odds?.double, fractionalOddsFormat) }}
+                                ns={fishPrawnCrabNamespace}
                             />
                         </li>
                         <li>
                             <T
                                 keyName="odds_triple"
                                 params={{ odds: formatOdds(odds?.triple, fractionalOddsFormat) }}
+                                ns={fishPrawnCrabNamespace}
                             />
                         </li>
                     </ul>
                 </li>
-                <li>{t("gamerules_para_6")}</li>
-                <li>{t("gamerules_para_7")}</li>
+                <li>{t("gamerules_para_6", { ns: fishPrawnCrabNamespace })}</li>
+                <li>{t("gamerules_para_7", { ns: fishPrawnCrabNamespace })}</li>
                 <li>
-                    {t("gamerules_para_8")}
+                    {t("gamerules_para_8", { ns: fishPrawnCrabNamespace })}
                     <div>
-                        <strong>{t("example_title")}</strong>
+                        <strong>{t("example", { ns: "Common" })}</strong>
                         <ul className="detail">
                             <li>
                                 <T
@@ -107,6 +114,7 @@ const FishPrawnCrabGameRules: FC<{
                                     params={{ 
                                         amount: numberWithCommas(10 * (odds?.single ?? 0))
                                     }}
+                                    ns={fishPrawnCrabNamespace}
                                 />
                             </li>
                             <li>
@@ -115,6 +123,7 @@ const FishPrawnCrabGameRules: FC<{
                                     params={{ 
                                         amount: numberWithCommas(10 * (odds?.double ?? 0))
                                     }}
+                                    ns={fishPrawnCrabNamespace}
                                 />
                             </li>
                         </ul>
@@ -177,14 +186,8 @@ export interface FishPrawnCrabGameGuideContentsProps {
     locale?: string;
 }
 
-const FishPrawnCrabGameGuideContent: FC<FishPrawnCrabGameGuideContentsProps> = ({ 
-    maxBetFollowChoice, 
-    gameConfigs, 
-    fractionalOddsFormat, 
-    displayName,
-    environment,
-    locale
-}) => {
+const FishPrawnCrabGameGuideContent: FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, environment, locale } = props;
     const { t } = useTranslate(["FishPrawnCrab", "Common"]);
 
     return (
@@ -192,7 +195,7 @@ const FishPrawnCrabGameGuideContent: FC<FishPrawnCrabGameGuideContentsProps> = (
             <ul className={`game-guide`}>
                 <FishPrawnCrabIntroduction 
                     t={t} 
-                    displayName={displayName || ""} 
+                    displayName={gameName} 
                 />
                 <FishPrawnCrabGameRules 
                     t={t} 

@@ -11,6 +11,7 @@ import { isShowedMD5 } from "../../shared";
 import { ENVIRONMENT } from "../../../common/constants";
 import MD5 from "../base/md5";
 import { GameGuideProps } from "../type";
+import { Markup } from "interweave";
 
 const SeDieIntroduction: FC<{
     t: Function;
@@ -158,7 +159,9 @@ const SeDiePayout: FC<{
                                 <tr>
                                     <th>{t("table_header_options")}</th>
                                     <th>{t("payout_table_header_odds")}</th>
-                                    <th>{t("payout_table_header_bet_limit")}</th>
+                                    <th>
+                                        <Markup content={t("header_betlimit", { ns: "Common" })} />
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>

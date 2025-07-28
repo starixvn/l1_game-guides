@@ -6,12 +6,9 @@ import { GameGuideBase } from "../type";
 import { handleMaxBetChoiceKenoPro } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { FormatIcu } from "@tolgee/format-icu";
-import { InContextTools } from "@tolgee/web/tools";
-import { TolgeeConfig } from "../../../common/constants";
+import {  TolgeeProvider } from "@tolgee/react";
 import KenoProMaxGameGuideContent from "./content-tolgee";
-import appSettings from "../../../common/app-settings";
+import initTolgee from "../../../helpers/tolgee-helper";
 
 const KenoProMaxGuideEN = dynamic(() => import("./en"));
 const KenoProMaxGuideVI = dynamic(() => import("./vi"));
@@ -19,31 +16,9 @@ const KenoProMaxGuideTH = dynamic(() => import("./th"));
 const KenoProMaxGuideID = dynamic(() => import("./id"));
 const KenoProMaxGuideZHCN = dynamic(() => import("./zh_cn"));
 const KenoProMaxGuideZHTW = dynamic(() => import("./zh_tw"));
-const KenoProMaxGuideJA = dynamic(() => import("./ja"));
 
 
-const tolgee = Tolgee()
-    .use(FormatIcu())
-    .use(BackendFetch())
-    .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
-        fallbackLanguage: "en",
-        defaultLanguage: "en",
-        ns: ["SeDie", "Common"],
-        defaultNs: "SeDie",
-    });
-
-if (!appSettings.useTolgeeStatic) {
-    tolgee.addPlugin(
-        InContextTools({
-            credentials: {
-                apiUrl: TolgeeConfig.url,
-                apiKey: TolgeeConfig.key,
-                projectId: TolgeeConfig.projectId,
-            },
-        })
-    );
-}
+const tolgee = initTolgee(["KenoProMax", "Common"]);
 
 
 const KenoProMaxGuide = (props: GameGuideBase) => {

@@ -4,6 +4,9 @@ import { formatOdds } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "./type";
 import Styles from "./three.module.scss";
+import { GameGuideProps } from "../type";
+import { Themes } from "../../../common/constants";
+import { useTheme } from "next-themes";
 
 const renderChoiceImage = (locale = "en", isSM: boolean, t: Function) => {
     const imgCustomize = "img-customize";
@@ -229,25 +232,21 @@ export interface ThreeCardsGameGuideContentsProps {
     isSM?: boolean;
 }
 
-const ThreeCardsGameGuideContent: FC<ThreeCardsGameGuideContentsProps> = ({ 
-    maxBetFollowChoice, 
-    gameConfigs, 
-    fractionalOddsFormat, 
-    displayName,
-    locale,
-    isSM
-}) => {
+const ThreeCardsGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { t } = useTranslate(["ThreeCards", "Common"]);
     const { odds } = gameConfigs;
+    const { theme } = useTheme();
+    const isSM = theme === Themes.blue ? false : true;
     
     return (
         <div className={`three-cards`}>
             <ul className={`game-guide`}>
                 <ThreeCardsIntroduction 
                     t={t} 
-                    displayName={displayName || ""} 
+                    displayName={gameName} 
                     locale={locale}
-                    isSM={isSM || false}
+                    isSM={isSM}
                 />
                 <ThreeCardsGameRules 
                     t={t} 

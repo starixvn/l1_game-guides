@@ -148,11 +148,10 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
             return (
                 <TolgeeProvider tolgee={tolgee}>
                     <ThreeCardsGameGuideContent
-                        locale={locale}
                         gameConfigs={configs}
+                        gameName={gameNameTranslate}
                         maxBetFollowChoice={maxBetFollowChoice}
                         fractionalOddsFormat={fractionalOddsFormat}
-                        displayName={gameNameTranslate}
                     />
                 </TolgeeProvider>
             );

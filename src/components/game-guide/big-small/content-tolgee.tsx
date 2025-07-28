@@ -52,7 +52,7 @@ const BigSmallGameRules: FC<{
                 <li>
                     {t("gamerules_para_6", { ns: bigSmallNamespace })}
                     <p>
-                        {t("gamerules_example", { ns: bigSmallNamespace })}
+                        <strong>{t("example", { ns: "Common" })}</strong> {t("gamerules_example", { ns: bigSmallNamespace })}
                     </p>
                 </li>
             </ul>

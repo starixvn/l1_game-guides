@@ -4,27 +4,29 @@ import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, OddsProMaxProps, MaxBetChoicesProps } from "./type";
 import { Markup } from "interweave";
+import { GameGuideProps } from "../type";
 
-// New FiveElementsTolgee component to replace hardcoded FiveElements
+const kenoProMaxNamespace = "KenoProMax";
+
 const FiveElementsTolgee: FC<{ t: Function }> = ({ t }) => {
     return (
         <>
             <span className="font-weight-medium title-text">{t("five_elements_title")}</span>
             <ul className="desc">
                 <li>
-                    <strong>{t("option_gold")}:</strong> {t("five_elements_gold_desc")}
+                    <strong>{t("option_gold")}:</strong> {t("five_elements_gold_desc", { ns: kenoProMaxNamespace })}
                 </li>
                 <li>
-                    <strong>{t("option_wood")}:</strong> {t("five_elements_wood_desc")}
+                    <strong>{t("option_wood")}:</strong> {t("five_elements_wood_desc", { ns: kenoProMaxNamespace })}
                 </li>
                 <li>
-                    <strong>{t("option_water")}:</strong> {t("five_elements_water_desc")}
+                    <strong>{t("option_water")}:</strong> {t("five_elements_water_desc", { ns: kenoProMaxNamespace })}
                 </li>
                 <li>
-                    <strong>{t("option_fire")}:</strong> {t("five_elements_fire_desc")}
+                    <strong>{t("option_fire")}:</strong> {t("five_elements_fire_desc", { ns: kenoProMaxNamespace })}
                 </li>
                 <li>
-                    <strong>{t("option_earth")}:</strong> {t("five_elements_earth_desc")}
+                    <strong>{t("option_earth")}:</strong> {t("five_elements_earth_desc", { ns: kenoProMaxNamespace })}
                 </li>
             </ul>
         </>
@@ -51,7 +53,7 @@ const KenoProMaxIntroduction: FC<{
 
 const KenoProMaxGameRules: FC<{ 
     t: Function; 
-    maxBetFollowChoice: MaxBetChoicesProps | undefined;
+    maxBetFollowChoice: string | undefined;
 }> = ({ t, maxBetFollowChoice }) => {
     return (
         <li className={`guide-item`}>
@@ -62,7 +64,8 @@ const KenoProMaxGameRules: FC<{
                 <li>
                     <T
                         keyName="gamerules_para_3"
-                        params={{ maxBet: maxBetFollowChoice?.maxBetMain || 0 }}
+                        params={{ maxBet: maxBetFollowChoice || 0 }}
+                        ns={kenoProMaxNamespace}
                     />
                 </li>
             </ul>
@@ -79,14 +82,14 @@ const KenoProMaxBettingOptions: FC<{ t: Function }> = ({ t }) => {
                     <span className="font-weight-medium title-text">{t("big_small_title")}</span>
                     <ul className="desc">
                         <li>
-                            <strong>{t("option_big")}:</strong> {t("big_condition")}
+                            <strong>{t("option_big")}:</strong> {t("big_condition", { ns: kenoProMaxNamespace })}
                         </li>
                         <li>
-                            <strong>{t("option_small")}:</strong> {t("small_condition")}
+                            <strong>{t("option_small")}:</strong> {t("small_condition", { ns: kenoProMaxNamespace })}
                         </li>
                     </ul>
                     <div>
-                        <strong>{t("example_title")}</strong> {t("example_big_small")}
+                        <strong>{t("example", { ns: "Common" })}</strong> {t("example_big_small", { ns: kenoProMaxNamespace })}
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -131,14 +134,14 @@ const KenoProMaxBettingOptions: FC<{ t: Function }> = ({ t }) => {
                     <span className="font-weight-medium title-text">{t("odd_even_title")}</span>
                     <ul className="desc">
                         <li>
-                            <strong>{t("option_odd")}:</strong> {t("odd_condition")}
+                            <strong>{t("option_odd")}:</strong> {t("odd_condition", { ns: kenoProMaxNamespace })}
                         </li>
                         <li>
-                            <strong>{t("option_even")}:</strong> {t("even_condition")}
+                            <strong>{t("option_even")}:</strong> {t("even_condition", { ns: kenoProMaxNamespace })}
                         </li>
                     </ul>
                     <div>
-                        <strong>{t("example_title")}</strong> {t("example_odd_even")}
+                        <strong>{t("example", { ns: "Common" })}</strong> {t("example_odd_even", { ns: kenoProMaxNamespace })}
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -182,7 +185,7 @@ const KenoProMaxBettingOptions: FC<{ t: Function }> = ({ t }) => {
                 <li className="number-dot">
                     <FiveElementsTolgee t={t} />
                     <div>
-                        <strong>{t("example_title")}</strong> {t("example_five_elements")}
+                        <strong>{t("example", { ns: "Common" })}</strong> {t("example_five_elements", { ns: kenoProMaxNamespace })}
                         <div className="table-container">
                             <table className="table text-center table-medium">
                                 <thead>
@@ -321,25 +324,23 @@ export interface KenoProMaxGameGuideContentsProps {
     displayName?: string;
 }
 
-const KenoProMaxGameGuideContent: FC<KenoProMaxGameGuideContentsProps> = ({ 
-    maxBetFollowChoice, 
-    gameConfigs, 
-    fractionalOddsFormat, 
-    displayName
-}) => {
+const KenoProMaxGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { t } = useTranslate(["KenoProMax", "Common"]);
-    const { odds } = gameConfigs;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { odds, maxBet } = gameConfigs;
+
+    const maxBetRound = numberWithCommas(maxBet);
 
     return (
         <div className={`keno-pro-max`}>
             <ul className={`game-guide`}>
                 <KenoProMaxIntroduction 
                     t={t} 
-                    displayName={displayName || ""} 
+                    displayName={gameName} 
                 />
                 <KenoProMaxGameRules 
                     t={t} 
-                    maxBetFollowChoice={maxBetFollowChoice}
+                    maxBetFollowChoice={maxBetRound}
                 />
                 <KenoProMaxBettingOptions 
                     t={t} 
