@@ -31,6 +31,15 @@ export default class MD5 extends React.Component<MD5Props & MD5MobiProps, { tran
         };
     }
 
+    componentDidUpdate(prevProps: MD5Props) {
+        // Update translation resources when locale or resources change
+        if (prevProps.locale !== this.props.locale || prevProps.resources !== this.props.resources) {
+            this.setState({
+                translationResource: this.props.resources || getBaseMD5TranslationResource(this.props.locale),
+            });
+        }
+    }
+
     renderMD5Content() {
         const { content } = this.state.translationResource;
         const { validationDescription } = this.props;

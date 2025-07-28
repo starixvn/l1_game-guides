@@ -6,7 +6,7 @@ import { generateBaccaratTranslationResource } from "../../base/base-baccarat/la
 export function getBaccaratTolgeeTranslationResource(tolgee: TolgeeInstance, languageTag: string): IBaseBaccaratResources {
     const baseBaccaratResources = generateBaccaratTranslationResource(tolgee);
     const namespace = "Baccarat";
-    const getTranslation = (key: string, params?: any) => tolgee.t(key, {ns: namespace, params});
+    const getTranslation = (key: string, params?: any) => tolgee.t({ key, ns: namespace, params });
     return {
         ...baseBaccaratResources,
         introduction: {
@@ -18,22 +18,19 @@ export function getBaccaratTolgeeTranslationResource(tolgee: TolgeeInstance, lan
             ...{
                 getDetails(environment: string | undefined, maxBetMain: number | string) {
                     let details: Array<string> = [getTranslation("game_rules_details_1")];
-    
+
                     if (environment === ENVIRONMENT.sc || environment === ENVIRONMENT.sm) {
                         details = details.concat([getTranslation("game_rules_details_2")]);
                     }
-    
+
                     if (environment === ENVIRONMENT.sc) {
-                        details = details.concat([
-                            getTranslation("game_rules_details_3"),
-                            getTranslation("game_rules_details_4"),
-                        ]);
+                        details = details.concat([getTranslation("game_rules_details_3"), getTranslation("game_rules_details_4")]);
                     }
-    
+
                     return details.concat([
                         getTranslation("game_rules_details_5"),
                         getTranslation("game_rules_details_6"),
-                        getTranslation("game_rules_details_7", {maxBetMain}),
+                        getTranslation("game_rules_details_7", { maxBetMain }),
                         getTranslation("game_rules_details_8"),
                         getTranslation("game_rules_details_9"),
                         getTranslation("game_rules_details_10"),

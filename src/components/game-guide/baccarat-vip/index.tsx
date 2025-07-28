@@ -11,7 +11,7 @@ import MD5 from "../base/md5";
 import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 import { getBaseMD5TranslationResource } from "../base/md5/languages";
 
-const tolgee = initTolgee(["BaseBaccarat", "BaccaratVip", "Common"]);
+const tolgee = initTolgee(["BaseBaccarat", "Baccarat", "BaccaratVip"]);
 
 const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
@@ -23,24 +23,30 @@ class VipBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideSta
 
     isTolgeeSupportLanguage = () => {
         return !excludedLanguages.includes(this.props.locale || "en");
-    }
+    };
 
-    componentDidMount() {
+    async componentDidMount() {
         // Set the language immediately for Tolgee
         if (this.isTolgeeSupportLanguage()) {
-            tolgee.changeLanguage(this.props.locale || "en");
+            await tolgee.changeLanguage(this.props.locale || "en");
         }
-        
+
         // Initialize resources properly
-        this.setState({ resources: this.getResources() });
+        this.setState({
+            resources: this.getResources(),
+            md5Resources: this.getMD5Resources(),
+        });
     }
 
-    componentDidUpdate(prevProps: GameGuideBase) {
+    async componentDidUpdate(prevProps: GameGuideBase) {
         if (prevProps.locale !== this.props.locale) {
             if (this.isTolgeeSupportLanguage()) {
-                tolgee.changeLanguage(this.props.locale || "en");
+                await tolgee.changeLanguage(this.props.locale || "en");
             }
-            this.setState({ resources: this.getResources() });
+            this.setState({
+                resources: this.getResources(),
+                md5Resources: this.getMD5Resources(),
+            });
         }
     }
 
@@ -55,14 +61,26 @@ class VipBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideSta
             }
         }
         return getVipBaccaratTranslationResource(this.props.locale);
-    }
+    };
+
+    getMD5Resources = () => {
+        if (this.isTolgeeSupportLanguage()) {
+            try {
+                return generateMD5TranslationResource(tolgee);
+            } catch (error) {
+                console.warn("Tolgee MD5 translation failed, falling back to static translations:", error);
+                return getBaseMD5TranslationResource(this.props.locale);
+            }
+        }
+        return getBaseMD5TranslationResource(this.props.locale);
+    };
 
     renderMd5 = () => {
         const { md5 } = this.state.resources;
 
         return (
             <MD5
-                resources={this.isTolgeeSupportLanguage() ? generateMD5TranslationResource(tolgee) : getBaseMD5TranslationResource(this.props.locale)}
+                resources={this.state.md5Resources}
                 locale={this.props.locale}
                 step1ImageUrl={md5.step1ImageUrl}
                 step2ImageUrl={md5.step2ImageUrl}
@@ -83,7 +101,7 @@ class VipBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideSta
         }
 
         this.props.isScrollMD5 && ScrollToMD5();
-        
+
         return (
             <ul className="game-guide">
                 {this.renderIntroduction()}

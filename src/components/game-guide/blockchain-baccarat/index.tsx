@@ -10,8 +10,9 @@ import { IBlockchainBaccaratResources } from "./languages/types";
 import BaseBaccaratGameRule from "../base/base-baccarat/base-baccarat-game-rule";
 import { isMobile } from "react-device-detect";
 import Styles from "../base/base-baccarat/base-baccarat.module.scss";
+import { getBlockchainBaccaratTolgeeTranslationResource } from "./languages/tolgee";
 
-const tolgee = initTolgee(["BaseBaccarat", "BlockchainBaccarat", "Common"]);
+const tolgee = initTolgee(["BaseBaccarat", "BlockchainBaccarat"]);
 
 const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
@@ -96,29 +97,31 @@ class BlockChainBaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratG
 
     isTolgeeSupportLanguage = () => {
         return !excludedLanguages.includes(this.props.locale || "en");
-    }
+    };
 
-    componentDidMount() {
+    async componentDidMount() {
         // Set the language immediately for Tolgee
         if (this.isTolgeeSupportLanguage()) {
-            tolgee.changeLanguage(this.props.locale || "en");
+            await tolgee.changeLanguage(this.props.locale || "en");
         }
-        
+
         // Initialize resources properly
         this.setState({ resources: this.getResources() });
     }
 
-    componentDidUpdate(prevProps: GameGuideBase) {
+    async componentDidUpdate(prevProps: GameGuideBase) {
         if (prevProps.locale !== this.props.locale) {
             if (this.isTolgeeSupportLanguage()) {
-                tolgee.changeLanguage(this.props.locale || "en");
+                await tolgee.changeLanguage(this.props.locale || "en");
             }
             this.setState({ resources: this.getResources() });
         }
     }
 
     getResources = () => {
-        // For now, use only static translations to avoid import issues
+        if (this.isTolgeeSupportLanguage()) {
+            return getBlockchainBaccaratTolgeeTranslationResource(tolgee, this.props.locale || "en");
+        }
         return getBlockchainBaccaratTranslationResource(this.props.locale);
     };
 

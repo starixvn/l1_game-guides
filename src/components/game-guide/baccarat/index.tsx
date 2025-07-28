@@ -17,31 +17,36 @@ const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
 // Main class component that extends BaseBaccaratGuide
 class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState> {
-    
     constructor(props: GameGuideBase) {
         super(props);
     }
 
     isTolgeeSupportLanguage = () => {
         return !excludedLanguages.includes(this.props.locale || "en");
-    }
+    };
 
-    componentDidMount() {
+    async componentDidMount() {
         // Set the language immediately for Tolgee
         if (this.isTolgeeSupportLanguage()) {
-            tolgee.changeLanguage(this.props.locale || "en");
+            await tolgee.changeLanguage(this.props.locale || "en");
         }
-        
+
         // Initialize resources properly
-        this.setState({ resources: this.getResources() });
+        this.setState({
+            resources: this.getResources(),
+            md5Resources: this.getMD5Resources(),
+        });
     }
 
-    componentDidUpdate(prevProps: GameGuideBase) {
+    async componentDidUpdate(prevProps: GameGuideBase) {
         if (prevProps.locale !== this.props.locale) {
             if (this.isTolgeeSupportLanguage()) {
-                tolgee.changeLanguage(this.props.locale || "en");
+                await tolgee.changeLanguage(this.props.locale || "en");
             }
-            this.setState({ resources: this.getResources() });
+            this.setState({
+                resources: this.getResources(),
+                md5Resources: this.getMD5Resources(),
+            });
         }
     }
 
@@ -58,12 +63,24 @@ class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState>
         return getBaccaratTranslationResource(this.props.locale);
     };
 
+    getMD5Resources = () => {
+        if (this.isTolgeeSupportLanguage()) {
+            try {
+                return generateMD5TranslationResource(tolgee);
+            } catch (error) {
+                console.warn("Tolgee MD5 translation failed, falling back to static translations:", error);
+                return getBaseMD5TranslationResource(this.props.locale);
+            }
+        }
+        return getBaseMD5TranslationResource(this.props.locale);
+    };
+
     renderMd5 = () => {
         const { md5 } = this.state.resources;
 
         return (
             <MD5
-                resources={this.isTolgeeSupportLanguage() ? generateMD5TranslationResource(tolgee) : getBaseMD5TranslationResource(this.props.locale)}
+                resources={this.state.md5Resources}
                 locale={this.props.locale}
                 step1ImageUrl={md5.step1ImageUrl}
                 step2ImageUrl={md5.step2ImageUrl}
@@ -84,7 +101,7 @@ class BaccaratGuide extends BaseBaccaratGuide<GameGuideBase, BaccaratGuideState>
         }
 
         this.props.isScrollMD5 && ScrollToMD5();
-        
+
         return (
             <ul className="game-guide">
                 {this.renderIntroduction()}
