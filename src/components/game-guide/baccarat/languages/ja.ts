@@ -39,11 +39,11 @@ export const baccaratResourcesJa: IBaseBaccaratResources = {
         },
     },
     md5: {
-        step1ImageUrl: "/static/images/baccarat/md5_step1_en.png?v=1",
-        step2ImageUrl: "/static/images/baccarat/md5_step2_en.png?v=1",
+        step1ImageUrl: "/static/images/baccarat/md5_step1_ja.png?v=1",
+        step2ImageUrl: "/static/images/baccarat/md5_step2_ja.png?v=1",
         step3ImageUrl: "/static/images/baccarat/md5_step3.png?v=1",
         step4ImageUrl: "/static/images/baccarat/md5_step4.png?v=1",
         step2Noted1Text: "注意：左から右へ、",
         step2Noted2Text: "ゲームラウンドの開始時の配られたカードの順序に対応しています。",
     },
-}; 
+};
