@@ -6,16 +6,16 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { SeDieMini } from "./index";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../shared/dot";
-import { RedWhiteDataOnTable, StatisticalTable } from "../../shared/se-die/en";
 import ScrollToMD5 from "../../shared/md5-count-down-timer";
 import { isShowedMD5 } from "../../shared";
 import { ENVIRONMENT } from "../../../common/constants";
 import MD5 from "../base/md5";
+import { GameGuideProps } from "../type";
 
 const SeDieIntroduction: FC<{
     t: Function;
     displayName?: string;
-    gameId: number;
+    gameId?: number;
     environment?: string;
 }> = ({ t, displayName, gameId, environment }) => {
     const getGameDescription = () => {
@@ -54,7 +54,7 @@ const SeDieIntroduction: FC<{
 const SeDieGameRules: FC<{
     t: Function;
     maxBetFollowChoice: MaxBetChoicesProps | undefined;
-    gameId: number;
+    gameId?: number;
 }> = ({ t, maxBetFollowChoice, gameId }) => {
     return (
         <li className={`guide-item`}>
@@ -114,7 +114,7 @@ const SeDieGameRules: FC<{
                                     <td>{t("winning_condition_1red3white")}</td>
                                     {renderOneRedThreeWhite()}
                                 </tr>
-                                {!SeDieMini.includes(gameId) && (
+                                {!SeDieMini.includes(gameId!) && (
                                     <tr>
                                         <td>{t("winning_condition_2red2white")}</td>
                                         <td>{t("winning_condition_2red2white")}</td>
@@ -139,7 +139,7 @@ const SeDiePayout: FC<{
     t: Function;
     gameConfigs: GameConfigProps;
     maxBetFollowChoice: MaxBetChoicesProps | undefined;
-    gameId: number;
+    gameId?: number;
     fractionalOddsFormat?: boolean;
 }> = ({ t, gameConfigs, maxBetFollowChoice, gameId, fractionalOddsFormat }) => {
     const { odds } = gameConfigs;
@@ -192,7 +192,7 @@ const SeDiePayout: FC<{
                                 <tr>
                                     <td>{t("winning_condition_1red3white")}</td>
                                 </tr>
-                                {!SeDieMini.includes(gameId) && (
+                                {!SeDieMini.includes(gameId!) && (
                                     <tr>
                                         <td>{t("winning_condition_2red2white")}</td>
                                         <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
@@ -280,7 +280,7 @@ const SeDieStatistical: FC<{ t: Function }> = ({ t }) => {
 
 const SeDieMD5: FC<{
     t: Function;
-    gameId: number;
+    gameId?: number;
     locale?: string;
     environment?: string;
     orientation?: string;
@@ -289,7 +289,7 @@ const SeDieMD5: FC<{
         return null;
     }
 
-    const currentGameType = SeDieMini.includes(gameId) ? "mini-sedie" : "sedie";
+    const currentGameType = SeDieMini.includes(gameId!) ? "mini-sedie" : "sedie";
 
     // Map locale to image suffix
     const getImageSuffix = (locale?: string) => {
@@ -337,17 +337,20 @@ export interface SeDieGameGuideContentsProps {
     isScrollMD5?: boolean;
 }
 
-const SeDieGameGuideContent: FC<SeDieGameGuideContentsProps> = ({
-    maxBetFollowChoice,
-    gameConfigs,
-    fractionalOddsFormat,
-    displayName,
-    gameId,
-    environment,
-    orientation,
-    locale,
-    isScrollMD5,
-}) => {
+const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const {
+        gameConfigs,
+        gameName,
+        gameId,
+        maxBetFollowChoice,
+        isScrollMD5,
+        environment,
+        isInPromotionTime,
+        fractionalOddsFormat,
+        orientation,
+        locale,
+    } = props;
+
     const { t } = useTranslate(["SeDie", "Common"]);
 
     useEffect(() => {
@@ -357,7 +360,7 @@ const SeDieGameGuideContent: FC<SeDieGameGuideContentsProps> = ({
     return (
         <div className={`sedie`}>
             <ul className={`game-guide`}>
-                <SeDieIntroduction t={t} displayName={displayName || ""} gameId={gameId} environment={environment} />
+                <SeDieIntroduction t={t} displayName={gameName || ""} gameId={gameId} environment={environment} />
                 <SeDieGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} gameId={gameId} />
                 <SeDiePayout
                     gameConfigs={gameConfigs}

@@ -140,17 +140,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         default:
             return (
                 <TolgeeProvider tolgee={tolgee}>
-                    <SeDieGameGuideContent
-                       gameConfigs={configs}
-                       maxBetFollowChoice={maxBetFollowChoice}
-                       fractionalOddsFormat={fractionalOddsFormat}
-                       displayName={gameNameTranslate}
-                       gameId={id || 0}
-                       environment={environment}
-                       orientation={orientation}
-                       locale={locale}
-                       isScrollMD5={isScrollMD5}
-                    />
+                    <SeDieGameGuideContent {...resource}/>
                 </TolgeeProvider>
             );
     }
