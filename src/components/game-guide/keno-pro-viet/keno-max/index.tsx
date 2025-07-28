@@ -3,7 +3,14 @@ import { GameGuideBase } from "../../type";
 import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import KenoProGuideTemplate from "./templates/default";
+import KenoProTolgeeTemplate from "./templates/tolgee-template";
 import { getGameConfigProject } from "../../../index.helper";
+import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../../helpers/tolgee-helper";
+
+const tolgee = initTolgee(["MegaKeno", "Common"]);
+
+const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
 const KenoMaxGuide = (props: GameGuideBase) => {
     const {
@@ -75,18 +82,46 @@ const KenoMaxGuide = (props: GameGuideBase) => {
         }
     }, [configs]);
 
+    useEffect(() => {
+        if (isTolgeeSupportLanguage()) {
+            tolgee.changeLanguage(locale || "en");
+        }
+    }, [locale]);
+
+    const isTolgeeSupportLanguage = () => {
+        return !excludedLanguages.includes(locale || "en");
+    };
+
     if (!configs) {
         return <></>;
     }
+
+    // For non-Tolgee languages, use the default template
+    if (!isTolgeeSupportLanguage()) {
+        return (
+            <KenoProGuideTemplate
+                locale={locale}
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        );
+    }
+
+    // For Tolgee-supported languages, use the Tolgee template
     return (
-        <KenoProGuideTemplate
-            locale={locale}
-            gameConfigs={configs}
-            gameName={gameNameTranslate}
-            maxBetFollowChoice={maxBetFollowChoice}
-            environment={environment}
-            fractionalOddsFormat={fractionalOddsFormat}
-        />
+        <TolgeeProvider tolgee={tolgee} fallback="">
+            <KenoProTolgeeTemplate
+                locale={locale}
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        </TolgeeProvider>
     );
 };
 export default KenoMaxGuide;
