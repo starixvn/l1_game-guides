@@ -7,7 +7,16 @@ import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import FanTanTemplate from "./templates/default";
 import FanTanGuideVI from "./templates/vi";
+import FanTanContent from "./content-tolgee";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { TolgeeProvider } from "@tolgee/react";
 import { getGameConfigProject } from "../../index.helper";
+
+const tolgee = initTolgee(["FanTan"]);
+
+const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
+};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -57,6 +66,13 @@ const FantanGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
+        const languageTag = locale || "vi";
+        if (isTolgeeSupportLanguage(languageTag)) {
+            tolgee.changeLanguage(languageTag);
+        }
+    }, [locale]);
+
+    useEffect(() => {
         if (configs) {
             if (isGetGameConfigs) {
                 getDynamicGameConfig();
@@ -80,6 +96,26 @@ const FantanGuide = (props: GameGuideBase) => {
         locale: props.locale,
     };
 
+    if (locale && isTolgeeSupportLanguage(locale)) {
+        return (
+            <TolgeeProvider tolgee={tolgee}>
+                <FanTanContent
+                    locale={locale}
+                    userStakeLevel={userStakeLevel}
+                    gameConfigs={gameConfigs}
+                    gameNameTranslate={gameNameTranslate}
+                    gameName={gameNameTranslate}
+                    dynamic={dynamic}
+                    isGetGameConfigs={isGetGameConfigs}
+                    environment={environment}
+                    project={project}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                />
+            </TolgeeProvider>
+        );
+    }
+
+    // Fallback to static translations for unsupported languages
     if (locale === locales.vi) {
         return <FanTanGuideVI {...resource} />;
     }

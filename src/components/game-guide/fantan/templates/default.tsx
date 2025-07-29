@@ -12,13 +12,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
 
 export default class FanTanTemplate extends React.Component<
-    GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFanTanTranslationResource },
     { translationResource: IFanTanTranslationResource }
 > {
-    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps>) {
+    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFanTanTranslationResource }) {
         super(props);
         this.state = {
-            translationResource: getFanTanTranslationResource(props.locale),
+            translationResource: props.translationResource || getFanTanTranslationResource(props.locale),
         };
     }
 
