@@ -3,9 +3,9 @@ import { GameGuideBase } from "../../type";
 import { handleMaxBetChoiceKenoPro } from "../../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import KenoMiniGuideTemplate from "./templates/default";
-import KenoMiniTolgeeTemplate from "./templates/tolgee-template";
 import { getGameConfigProject } from "../../../index.helper";
 import { TolgeeProvider } from "@tolgee/react";
+import KenoMiniGameGuideContent from "./content-tolgee";
 import initTolgee from "../../../../helpers/tolgee-helper";
 
 const tolgee = initTolgee(["KenoMini", "Common"]);
@@ -74,30 +74,25 @@ const KenoMiniGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
+    const resource = {
+        gameConfigs: configs,
+        gameName: gameNameTranslate,
+        maxBetFollowChoice,
+        fractionalOddsFormat,
+        environment,
+        locale,
+    };
+
     // For non-Tolgee languages, use the default template
     if (!isTolgeeSupportLanguage()) {
-        const resource = {
-            gameConfigs: configs,
-            gameName: gameNameTranslate,
-            maxBetFollowChoice,
-            fractionalOddsFormat,
-            environment,
-            locale,
-        };
+        
         return <KenoMiniGuideTemplate {...resource} />;
     }
 
     // For Tolgee-supported languages, use the Tolgee template
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <KenoMiniTolgeeTemplate
-                locale={locale}
-                gameConfigs={configs}
-                gameName={gameNameTranslate}
-                maxBetFollowChoice={maxBetFollowChoice}
-                environment={environment}
-                fractionalOddsFormat={fractionalOddsFormat}
-            />
+            <KenoMiniGameGuideContent {...resource} />
         </TolgeeProvider>
     );
 };
