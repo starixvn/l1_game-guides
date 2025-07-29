@@ -9,13 +9,13 @@ import { IFishPrawnCrabMiniTranslationResource } from "../languages/types";
 import { getFishPrawnCrabMiniTranslationResource } from "../languages";
 
 class FishPrawnCrabMiniGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFishPrawnCrabMiniTranslationResource },
     S extends BaseState<IFishPrawnCrabMiniTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getFishPrawnCrabMiniTranslationResource(props.locale),
+            translationResource: props.translationResource || getFishPrawnCrabMiniTranslationResource(props.locale),
         } as S;
     }
 

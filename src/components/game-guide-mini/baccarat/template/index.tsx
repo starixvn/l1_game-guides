@@ -15,20 +15,8 @@ class BaccaratMiniGuideTemplate<
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: props.translationResource || this.getTranslationResource(),
+            translationResource: props.translationResource || getBaccaratMiniTranslationResource(this.props.locale),
         } as S;
-    }
-
-    getTranslationResource = () => {
-        return getBaccaratMiniTranslationResource(this.props.locale);
-    };
-
-    componentDidUpdate(prevProps: P) {
-        if (prevProps.locale !== this.props.locale) {
-            this.setState({
-                translationResource: this.getTranslationResource(),
-            });
-        }
     }
 
     renderIntroduction() {
