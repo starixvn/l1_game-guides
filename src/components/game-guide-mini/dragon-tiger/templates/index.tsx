@@ -8,13 +8,13 @@ import { getDragonTigerTranslationResource } from "../languages";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 class DragonTigerMiniGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IDragonTigerMiniTranslationResource },
     S extends BaseState<IDragonTigerMiniTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getDragonTigerTranslationResource(props.locale),
+            translationResource: props.translationResource || getDragonTigerTranslationResource(props.locale),
         } as S;
     }
 

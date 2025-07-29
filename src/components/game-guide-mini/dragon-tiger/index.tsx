@@ -4,7 +4,16 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
 import DragonTigerMiniGuideTemplate from "./templates/index";
+import DragonTigerMiniContent from "./content-tolgee";
 import { GameGuideBase } from "../../game-guide/type";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { TolgeeProvider } from "@tolgee/react";
+
+const tolgee = initTolgee(["DragonTigerMini"]);
+
+const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
+};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -34,6 +43,13 @@ const DragonTigerMiniGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
+        const languageTag = locale || "vi";
+        if (isTolgeeSupportLanguage(languageTag)) {
+            tolgee.changeLanguage(languageTag);
+        }
+    }, [locale]);
+
+    useEffect(() => {
         if (configs) {
             if (isGetGameConfigs) {
                 getDynamicGameConfig();
@@ -53,6 +69,27 @@ const DragonTigerMiniGuide = (props: GameGuideBase) => {
         locale,
     };
 
+    if (locale && isTolgeeSupportLanguage(locale)) {
+        return (
+            <TolgeeProvider tolgee={tolgee}>
+                <DragonTigerMiniContent
+                    locale={locale}
+                    gameConfigs={gameConfigs}
+                    gameNameTranslate={gameNameTranslate}
+                    gameName={gameNameTranslate}
+                    dynamic={props.dynamic}
+                    isGetGameConfigs={isGetGameConfigs}
+                    project={project}
+                    userStakeLevel={userStakeLevel}
+                    environment={props.environment}
+                    isInPromotionTime={props.isInPromotionTime}
+                    fractionalOddsFormat={props.fractionalOddsFormat}
+                />
+            </TolgeeProvider>
+        );
+    }
+
+    // Fallback to static translations for unsupported languages
     return <DragonTigerMiniGuideTemplate {...resource} />;
 };
 export default DragonTigerMiniGuide;
