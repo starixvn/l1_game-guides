@@ -248,7 +248,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>{t("hand_two_pairs")}</strong>
+                                                        <strong>{t("hand_two_pair")}</strong>
                                                     </td>
                                                     <td>{t("gamerules_hand_ranking_desc_two_pair")}</td>
                                                     <td>
@@ -284,7 +284,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <strong>{t("hand_high_cards")}</strong>
+                                                        <strong>{t("hand_high_card")}</strong>
                                                     </td>
                                                     <td>{t("gamerules_hand_ranking_desc_high_card")}</td>
                                                     <td>
@@ -352,7 +352,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                     10<span className={Styles["font-large"]}>♣</span>
                                                 </span>
                                             </td>
-                                            <td>{t("hand_two_pairs")}</td>
+                                            <td>{t("hand_two_pair")}</td>
                                         </tr>
                                         <tr>
                                             <td>{t("common_dealer")}</td>
@@ -462,7 +462,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                     5<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>{t("hand_two_pairs")}</td>
+                                            <td>{t("hand_two_pair")}</td>
                                         </tr>
                                         <tr>
                                             <td>{t("common_dealer")}</td>
@@ -496,7 +496,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                     10<span className={Styles["font-large"]}>♥</span>
                                                 </span>
                                             </td>
-                                            <td>{t("hand_two_pairs")}</td>
+                                            <td>{t("hand_two_pair")}</td>
                                         </tr>
                                         <tr>
                                             <td>{t("common_community_cards")}</td>
@@ -572,7 +572,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                     J<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>{t("hand_two_pairs")}</td>
+                                            <td>{t("hand_two_pair")}</td>
                                         </tr>
                                         <tr>
                                             <td>{t("common_dealer")}</td>
@@ -606,7 +606,7 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                                                     J<span className={Styles["font-large"]}>♦</span>
                                                 </span>
                                             </td>
-                                            <td>{t("hand_two_pairs")}</td>
+                                            <td>{t("hand_two_pair")}</td>
                                         </tr>
                                         <tr>
                                             <td>{t("common_community_cards")}</td>
