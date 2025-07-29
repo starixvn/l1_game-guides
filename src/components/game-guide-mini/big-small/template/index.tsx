@@ -9,13 +9,13 @@ import { StringFormat } from "../../../../helpers/string-helper";
 import { BaseState } from "../../game-guide-mini";
 
 class BigSmallGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IBigSmallMiniTranslationResource },
     S extends BaseState<IBigSmallMiniTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getBigSmallMiniTranslationResource(props.locale),
+            translationResource: props.translationResource || getBigSmallMiniTranslationResource(props.locale),
         } as S;
     }
 
