@@ -7,6 +7,14 @@ import Styles from "./three.module.scss";
 import { GameGuideProps } from "../type";
 import { Themes } from "../../../common/constants";
 import { useTheme } from "next-themes";
+import { StringFormat } from "../../../helpers/string-helper";
+import { renderToString } from "react-dom/server";
+import { Markup } from "interweave";
+
+const diamondSpan = <span className={Styles["img-red"]}>♦</span>;
+const heartSpan = <span className={Styles["img-red"]}>♥</span>;
+const spadeSpan = <span className={Styles["img-black"]}>♠</span>;
+const clubSpan = <span className={Styles["img-black"]}>♣</span>;
 
 const renderChoiceImage = (locale = "en", isSM: boolean, t: Function) => {
     const imgCustomize = "img-customize";
@@ -74,27 +82,17 @@ const ThreeCardsIntroduction: FC<{
     locale?: string;
     isSM: boolean;
 }> = ({ t, displayName, locale, isSM }) => {
-    // Create styled span components for the card suits
-    const diamondSpan = <span className={Styles["img-red"]}>♦</span>;
-    const heartSpan = <span className={Styles["img-red"]}>♥</span>;
-    const spadeSpan = <span className={Styles["img-black"]}>♠</span>;
-    const clubSpan = <span className={Styles["img-black"]}>♣</span>;
-
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className={`content ${Styles["content-customize"]}`}>
-                <T 
-                    keyName={"intro_para_1"} 
-                    params={{ 
-                        gameName: displayName,
-                        diamondSpan,
-                        heartSpan,
-                        spadeSpan,
-                        clubSpan
-                    }} 
-                    ns="ThreeCards"
-                />
+                <Markup content={StringFormat(t("intro_para_1", { 
+                    gameName: displayName, 
+                    diamondSpan: renderToString(diamondSpan), 
+                    heartSpan: renderToString(heartSpan), 
+                    spadeSpan: renderToString(spadeSpan), 
+                    clubSpan: renderToString(clubSpan) 
+                }))} />
             </div>
             <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>
                 {renderChoiceImage(locale, isSM, t)}
@@ -169,7 +167,7 @@ const ThreeCardsGameRules: FC<{
             </p>
             <ul className="desc">
                 <li>
-                    {t("example_content")}
+                    <Markup content={StringFormat(t("example_content", { diamondSpan: renderToString(diamondSpan) }))} />
                 </li>
             </ul>
         </li>
