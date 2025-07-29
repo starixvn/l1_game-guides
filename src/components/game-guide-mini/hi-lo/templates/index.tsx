@@ -9,13 +9,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "../../big-small/type";
 import Styles from "../hi-lo.module.scss";
 
 class HiLoMiniGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IHiLoMiniTranslationResource },
     S extends BaseState<IHiLoMiniTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getHiLoTranslationResource(props.locale),
+            translationResource: props.translationResource || getHiLoTranslationResource(props.locale),
         } as S;
     }
 
