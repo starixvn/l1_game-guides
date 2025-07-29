@@ -8,6 +8,7 @@ import { UserStakeLevelProps } from "../../../pages";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
 import { getGameConfigProject } from "../../index.helper";
+import DragonTigerGuideTolgeeWrapper from "./tolgee";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -54,6 +55,12 @@ const DragonTigerGuide = (props: GameGuideBase) => {
         return <></>;
     }
 
+    const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
+
+    const isTolgeeSupportLanguage = () => {
+        return !excludedLanguages.includes(locale || "en");
+    };
+
     const resource = {
         gameConfigs: configs,
         gameName: gameNameTranslate,
@@ -66,6 +73,12 @@ const DragonTigerGuide = (props: GameGuideBase) => {
         return <DragonTigerGuideVI {...resource} />;
     }
 
+    // For Tolgee-supported languages, use the Tolgee template
+    if (isTolgeeSupportLanguage()) {
+        return <DragonTigerGuideTolgeeWrapper {...resource} />;
+    }
+
+    // For non-Tolgee languages, use the default template
     return <DragonTigerGuideTemplate {...resource} />;
 };
 export default DragonTigerGuide;
