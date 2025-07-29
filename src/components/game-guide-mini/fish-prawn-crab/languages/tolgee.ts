@@ -5,19 +5,27 @@ export const getFishPrawnCrabMiniTolgeeTranslationResource = (
     tolgee: TolgeeInstance,
     languageTag: string
 ): IFishPrawnCrabMiniTranslationResource => {
-    const getFishPrawnCrabMiniTranslation = (key: string, params?: any) => tolgee.t({ key, ns: "FishPrawnCrabMini", params });
+    const getCommonTranslation = (key: string, params?: any) => {
+        const translation = tolgee.t({ key, ns: "Common", params });
+        return translation === key ? `[Common:${key}]` : translation;
+    };
+
+    const getFishPrawnCrabMiniTranslation = (key: string, params?: any) => {
+        const translation = tolgee.t({ key, ns: "FishPrawnCrabMini", params });
+        return translation === key ? `[FishPrawnCrabMini:${key}]` : translation;
+    };
 
     return {
         introduction: getFishPrawnCrabMiniTranslation("introduction"),
         winningCondition: {
-            title: getFishPrawnCrabMiniTranslation("winning_condition_title"),
+            title: getCommonTranslation("guide_header_winning_condition"),
             description: [
                 getFishPrawnCrabMiniTranslation("winning_condition_description_1"),
                 getFishPrawnCrabMiniTranslation("winning_condition_description_2"),
             ],
         },
         betLimit: {
-            title: getFishPrawnCrabMiniTranslation("bet_limit_title"),
+            title: getCommonTranslation("title_bet_limit"),
             description: getFishPrawnCrabMiniTranslation("bet_limit_description"),
         },
     };

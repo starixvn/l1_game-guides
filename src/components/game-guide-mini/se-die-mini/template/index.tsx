@@ -11,13 +11,13 @@ import { BaseState } from "../../game-guide-mini";
 import Styles from "../sedie-mini.module.scss";
 
 class SeDieMiniGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISeDieMiniTranslationResource },
     S extends BaseState<ISeDieMiniTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getSeDieMiniTranslationResource(props.locale),
+            translationResource: props.translationResource || getSeDieMiniTranslationResource(props.locale),
         } as S;
     }
 

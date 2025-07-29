@@ -18,7 +18,7 @@ export const getDragonTigerMiniTolgeeTranslationResource = (
     return {
         introduction: getDragonTigerMiniTranslation("introduction"),
         winningCondition: {
-            title: getDragonTigerMiniTranslation("winning_condition_title"),
+            title: getCommonTranslation("guide_header_winning_condition"),
             description: {
                 ruleDrawCards: getDragonTigerMiniTranslation("winning_condition_rule_draw_cards"),
                 winOption: [
@@ -35,14 +35,11 @@ export const getDragonTigerMiniTolgeeTranslationResource = (
             },
         },
         betLimit: {
-            title: getDragonTigerMiniTranslation("bet_limit_title"),
+            title: getCommonTranslation("title_bet_limit"),
             maxBetRound: getDragonTigerMiniTranslation("bet_limit_max_bet_round"),
             tieResult: getDragonTigerMiniTranslation("bet_limit_tie_result"),
             table: {
-                headers: [
-                    getDragonTigerMiniTranslation("bet_limit_table_header_options"),
-                    getDragonTigerMiniTranslation("bet_limit_table_header_bet_limit"),
-                ],
+                headers: [getCommonTranslation("header_betoption"), getCommonTranslation("header_bet_limit")],
                 dragon: getDragonTigerMiniTranslation("bet_limit_table_dragon"),
                 tiger: getDragonTigerMiniTranslation("bet_limit_table_tiger"),
                 tie: getDragonTigerMiniTranslation("bet_limit_table_tie"),
