@@ -38,6 +38,7 @@ const FontLocaleMapper: { [key: string]: string } = {
     th: "Noto-Thai",
     zh_cn: "Noto-ZH-CN",
     zh_tw: "Noto-ZH-TW",
+    ja: "Noto-JA",
 };
 
 const changeFontFamilyFollowLanguage = (locale: string, env: string, gameId: number, gameType = 0) => {
