@@ -1,12 +1,12 @@
-import React from "react";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import React from "react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
-import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import Styles from "../roulette.module.scss";
 import { renderGameRuleImage } from "../shared";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
 const NAMESPACE = "OldRoulette";
 
@@ -133,7 +133,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/A-X.png" alt="A-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_straight_up")}: </strong>{t("bet_straight_up_desc")}<br></br>+ {t("bet_straight_up_placement")}
+                                    <strong>{t("bet_straight_up")}: </strong>
+                                    {t("bet_straight_up_desc")}
+                                    <br></br>+ {t("bet_straight_up_placement")}
                                 </div>
                             </div>
                         </td>
@@ -141,7 +143,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/H-X.png" alt="H-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_column")}: </strong>{t("bet_column_desc")}<br></br>+ {t("bet_column_placement", { odds: formatOdds(odds?.column, fractionalOddsFormat) })}
+                                    <strong>{t("bet_column")}: </strong>
+                                    {t("bet_column_desc")}
+                                    <br></br>+ {t("bet_column_placement", { odds: formatOdds(odds?.column, fractionalOddsFormat) })}
                                 </div>
                             </div>
                         </td>
@@ -151,7 +155,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/B-X.png" alt="B-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_split")}: </strong>{t("bet_split_desc")}<br></br>+ {t("bet_split_placement")}
+                                    <strong>{t("bet_split")}: </strong>
+                                    {t("bet_split_desc")}
+                                    <br></br>+ {t("bet_split_placement")}
                                 </div>
                             </div>
                         </td>
@@ -159,7 +165,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/I-X.png" alt="I-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_dozen")}: </strong>{t("bet_dozen_desc")}<br></br>+ {t("bet_dozen_placement")}
+                                    <strong>{t("bet_dozen")}: </strong>
+                                    {t("bet_dozen_desc")}
+                                    <br></br>+ {t("bet_dozen_placement")}
                                 </div>
                             </div>
                         </td>
@@ -169,7 +177,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/C-X.png" alt="C-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_street")}: </strong>{t("bet_street_desc")}<br></br>+ {t("bet_street_placement")}
+                                    <strong>{t("bet_street")}: </strong>
+                                    {t("bet_street_desc")}
+                                    <br></br>+ {t("bet_street_placement")}
                                 </div>
                             </div>
                         </td>
@@ -177,7 +187,8 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/J-X.png" alt="J-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_red_black")}: </strong>{t("bet_red_black_desc")}
+                                    <strong>{t("bet_red_black")}: </strong>
+                                    {t("bet_red_black_desc")}
                                 </div>
                             </div>
                         </td>
@@ -187,7 +198,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/D-X.png" alt="D-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_triangle")}: </strong>{t("bet_triangle_desc")}<br></br>+ {t("bet_triangle_placement")}
+                                    <strong>{t("bet_triangle")}: </strong>
+                                    {t("bet_triangle_desc")}
+                                    <br></br>+ {t("bet_triangle_placement")}
                                 </div>
                             </div>
                         </td>
@@ -195,7 +208,8 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/K-X.png" alt="K-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_odd_even")}: </strong>{t("bet_odd_even_desc")}
+                                    <strong>{t("bet_odd_even")}: </strong>
+                                    {t("bet_odd_even_desc")}
                                 </div>
                             </div>
                         </td>
@@ -205,7 +219,8 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/E-X.png" alt="E-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_corner")}: </strong>{t("bet_corner_desc")}
+                                    <strong>{t("bet_corner")}: </strong>
+                                    {t("bet_corner_desc")}
                                     <br></br>+ {t("bet_corner_placement")}
                                 </div>
                             </div>
@@ -214,7 +229,8 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/L-X.png" alt="L-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_big_small")}: </strong>{t("bet_big_small_desc")}
+                                    <strong>{t("bet_big_small")}: </strong>
+                                    {t("bet_big_small_desc")}
                                 </div>
                             </div>
                         </td>
@@ -224,7 +240,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/F-X.png" alt="F-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_four_numbers")}: </strong>{t("bet_four_numbers_desc")}<br></br>+ {t("bet_four_numbers_placement")}
+                                    <strong>{t("bet_four_numbers")}: </strong>
+                                    {t("bet_four_numbers_desc")}
+                                    <br></br>+ {t("bet_four_numbers_placement")}
                                 </div>
                             </div>
                         </td>
@@ -235,7 +253,9 @@ const renderBetChipsNotice = (odds: OddsProps | undefined, fractionalOddsFormat 
                             <div className={Styles["img-chip"]}>
                                 <img src="/static/images/roulette/G-X.png" alt="G-X" width={37} height={37} loading="lazy" />
                                 <div>
-                                    <strong>{t("bet_line")}: </strong>{t("bet_line_desc")}<br></br>+ {t("bet_line_placement")}
+                                    <strong>{t("bet_line")}: </strong>
+                                    {t("bet_line_desc")}
+                                    <br></br>+ {t("bet_line_placement")}
                                 </div>
                             </div>
                         </td>
@@ -543,9 +563,7 @@ const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     return (
         <>
             <span className="font-weight-medium title-text">{t("call_bet_neighbors_title")}</span>
-            <p>
-                {t("call_bet_neighbors_desc_1")}
-            </p>
+            <p>{t("call_bet_neighbors_desc_1")}</p>
             <ul className="desc">
                 <li>{t("call_bet_neighbors_desc_2")}</li>
             </ul>
@@ -611,15 +629,13 @@ const renderCallBetNeighbors = (fractionalOddsFormat = false) => {
     );
 };
 
-const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
+const renderBettingOptions = (odds: OddsProps | undefined, fractionalOddsFormat = false, locale: string) => {
     const { t } = useTranslate([NAMESPACE]);
     return (
         <li className="guide-item">
             <h2>{t("betting_options_title")}</h2>
-            <p>
-                {t("betting_options_desc")}
-            </p>
-            {renderGameRuleImage(fractionalOddsFormat, "en")}
+            <p>{t("betting_options_desc")}</p>
+            {renderGameRuleImage(fractionalOddsFormat, locale)}
             {renderBetChipsNotice(odds, fractionalOddsFormat)}
         </li>
     );
@@ -630,9 +646,7 @@ const renderCallBet = (fractionalOddsFormat = false) => {
     return (
         <li className="guide-item">
             <h2>{t("call_bet_title")}</h2>
-            <p>
-                {t("call_bet_desc")}
-            </p>
+            <p>{t("call_bet_desc")}</p>
             <div className={Styles[wrapperImg]}>
                 <div className={Styles["wrapper-img-circle"]}>
                     <img src="/static/images/roulette/game_guide-cuoc_nhanh.png" alt="game_guide-cuoc_nhanh" loading="lazy" />
@@ -672,12 +686,10 @@ const RouletteGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName })}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
-                {renderBettingOptions(odds, fractionalOddsFormat)}
+                {renderBettingOptions(odds, fractionalOddsFormat, locale || "en")}
                 {renderCallBet(fractionalOddsFormat)}
                 <TermsAndConditionsTolgee />
             </ul>
@@ -693,4 +705,4 @@ const RouletteGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBe
     );
 };
 
-export default RouletteGuideTolgeeWrapper; 
+export default RouletteGuideTolgeeWrapper;
