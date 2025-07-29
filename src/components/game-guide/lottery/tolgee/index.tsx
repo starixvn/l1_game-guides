@@ -46,9 +46,7 @@ const renderBettingOptions = () => {
                             {t("option_4_sets")}
                         </td>
                         <td>
-                            <p>
-                                {t("option_4_sets_desc_1")}
-                            </p>
+                            <p>{t("option_4_sets_desc_1")}</p>
                             <p>
                                 <strong>{t("option_4_sets_note")}</strong> {t("option_4_sets_desc_2")}
                             </p>
@@ -58,34 +56,26 @@ const renderBettingOptions = () => {
                         <td colSpan={2} className="text-center">
                             {t("option_special")}
                         </td>
-                        <td>
-                            {t("option_special_desc")}
-                        </td>
+                        <td>{t("option_special_desc")}</td>
                     </tr>
                     <tr>
                         <td colSpan={2} className="text-center">
                             {t("option_head")}
                         </td>
-                        <td>
-                            {t("option_head_desc")}
-                        </td>
+                        <td>{t("option_head_desc")}</td>
                     </tr>
                     <tr>
                         <td colSpan={2} className="text-center">
                             {t("option_tail")}
                         </td>
-                        <td>
-                            {t("option_tail_desc")}
-                        </td>
+                        <td>{t("option_tail_desc")}</td>
                     </tr>
                     <tr>
                         <td colSpan={2} className="text-center">
                             {t("option_27_sets")}
                         </td>
                         <td>
-                            <p>
-                                {t("option_27_sets_desc_1")}
-                            </p>
+                            <p>{t("option_27_sets_desc_1")}</p>
                             <p>
                                 <strong>{t("option_27_sets_note")}</strong> {t("option_27_sets_desc_2")}
                             </p>
@@ -491,9 +481,7 @@ const renderViewStatistic = () => {
         <li className="guide-item">
             <h2>{t("statistic_title")}</h2>
             <ul className="desc">
-                <li>
-                    {t("statistic_para_1")}
-                </li>
+                <li>{t("statistic_para_1")}</li>
                 <li>
                     {t("statistic_para_2")}
                     <ul className={Styles[statsList]}>
@@ -553,7 +541,8 @@ const renderViewStatistic = () => {
                                     {t("statistic_example_2_condition_1")} <span className={Styles["text-red"]}>{t("statistic_red")}</span>.
                                 </li>
                                 <li>
-                                    {t("statistic_example_2_condition_2")} <span className={Styles["text-blue"]}>{t("statistic_blue")}</span>.
+                                    {t("statistic_example_2_condition_2")}{" "}
+                                    <span className={Styles["text-blue"]}>{t("statistic_blue")}</span>.
                                 </li>
                             </ul>
                             <p className="bold">{t("example_title")}</p>
@@ -580,11 +569,11 @@ const renderViewStatistic = () => {
                             <p className="bold">{t("example_title")}</p>
                             <div className={Styles["others"]}>
                                 <div className={Styles["result"]}>
-                                    <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>ODD</span>
+                                    <span className={`${Styles["choice"]} ${Styles["text-red"]}`}>{t("option_odd")}</span>
                                     <span className={`${Styles[subNumber]}`}>48%</span>
                                 </div>
                                 <div className={Styles["result"]}>
-                                    <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>EVEN</span>
+                                    <span className={`${Styles["choice"]} ${Styles["text-white"]}`}>{t("option_even")}</span>
                                     <span className={`${Styles[subNumber]}`}>52%</span>
                                 </div>
                             </div>
@@ -614,9 +603,7 @@ const LotteryGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName })}</p>
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
                             <table className={`table text-center ${Styles["table-medium"]}`}>
@@ -772,4 +759,4 @@ const LotteryGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBet
     );
 };
 
-export default LotteryGuideTolgeeWrapper; 
+export default LotteryGuideTolgeeWrapper;
