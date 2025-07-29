@@ -10,13 +10,13 @@ import { BaseState } from "../../game-guide-mini";
 import Styles from "../sicbo.module.scss";
 
 class SicBoGuideTemplate<
-    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    P extends GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISicBoTranslationResource },
     S extends BaseState<ISicBoTranslationResource>
 > extends React.PureComponent<P, S> {
     constructor(props: P) {
         super(props);
         this.state = {
-            translationResource: getSicBoTranslationResource(props.locale),
+            translationResource: props.translationResource || getSicBoTranslationResource(props.locale),
         } as S;
     }
 
@@ -34,9 +34,11 @@ class SicBoGuideTemplate<
                 <ul className={`${Styles["desc-row"]} desc`}>
                     <li>{description.number}</li>
                     <li>{description.big}</li>
-                    <li>{description.small}</li>                   
+                    <li>{description.small}</li>
                 </ul>
-                <div className={Styles["note"]}><Markup content={description.note} /></div>
+                <div className={Styles["note"]}>
+                    <Markup content={description.note} />
+                </div>
             </>
         );
     }
@@ -48,35 +50,34 @@ class SicBoGuideTemplate<
         const { title, description, table } = betLimit;
         return (
             <>
-                <h2> {title}</h2>                
+                <h2> {title}</h2>
                 <ul className="desc">
-                    <li>      
-                    <Markup content={StringFormat(description, (maxBetFollowChoice?.maxBetMain ?? 0).toString())} />                 
+                    <li>
+                        <Markup content={StringFormat(description, (maxBetFollowChoice?.maxBetMain ?? 0).toString())} />
                         <div className="table-container">
                             <table className="table text-center table-small">
                                 <thead>
                                     <tr>
                                         <th className={`${Styles["col-first"]}`}>{table.header.options}</th>
-                                        <th className={`${Styles["col-second"]}`}><Markup content={table.header.betLimit} /></th>
+                                        <th className={`${Styles["col-second"]}`}>
+                                            <Markup content={table.header.betLimit} />
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>{table.rows.big}</td>
                                         <td rowSpan={2}>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetBig}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>{table.rows.small}
-                                        </td>
+                                        <td>{table.rows.small}</td>
                                     </tr>
                                     <tr>
+                                        <td>{table.rows.specificNumber}</td>
                                         <td>
-                                        {table.rows.specificNumber}
-                                        </td>
-                                        <td>
-                                        {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetSpecific1}
                                         </td>
                                     </tr>
                                 </tbody>
