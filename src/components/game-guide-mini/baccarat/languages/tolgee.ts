@@ -1,41 +1,48 @@
 import { TolgeeInstance } from "@tolgee/react";
 import { IBaccaratMiniTranslationResource } from "./types";
 
-export function getBaccaratMiniTolgeeTranslationResource(tolgee: TolgeeInstance, languageTag: string): IBaccaratMiniTranslationResource {
-    const namespace = "BaccaratMini";
-    const getTranslation = (key: string, params?: any) => tolgee.t(key, {ns: namespace, params});
-    
+export const getBaccaratMiniTolgeeTranslationResource = (tolgee: TolgeeInstance, languageTag: string): IBaccaratMiniTranslationResource => {
+    const getCommonTranslation = (key: string, params?: any) => {
+        const translation = tolgee.t({ key, ns: "Common", params });
+        return translation === key ? `[Common:${key}]` : translation;
+    };
+
+    const getBaccaratMiniTranslation = (key: string, params?: any) => {
+        const translation = tolgee.t({ key, ns: "BaccaratMini", params });
+        return translation === key ? `[BaccaratMini:${key}]` : translation;
+    };
+
     return {
         introduction: {
-            title: getTranslation("introduction_title"),
-            description: getTranslation("introduction_description"),
+            title: getCommonTranslation("title_introduction"),
+            description: getBaccaratMiniTranslation("introduction_description"),
         },
         gameRule: {
-            title: getTranslation("game_rule_title"),
+            title: getCommonTranslation("gamerules_title"),
             description: {
-                byDefault: getTranslation("game_rule_description_by_default"),
-                theThirdCard: getTranslation("game_rule_description_the_third_card"),
-                theGameDetermines: getTranslation("game_rule_description_the_game_determines"),
-                theCards: getTranslation("game_rule_description_the_cards"),
+                byDefault: getBaccaratMiniTranslation("game_rule_description_by_default"),
+                theThirdCard: getBaccaratMiniTranslation("game_rule_description_the_third_card"),
+                theGameDetermines: getBaccaratMiniTranslation("game_rule_description_the_game_determines"),
+                theCards: getBaccaratMiniTranslation("game_rule_description_the_cards"),
             },
         },
         payouts: {
-            title: getTranslation("payouts_title"),
+            title: getCommonTranslation("title_payouts"),
             description: {
-                thePayout: getTranslation("payouts_description_the_payout"),
-                note: getTranslation("payouts_description_note"),
+                thePayout: getCommonTranslation("payouts_para_2"),
+                note: getBaccaratMiniTranslation("payouts_description_note"),
             },
             table: {
                 header: {
-                    options: getTranslation("payouts_table_header_options"),
-                    betLimit: getTranslation("payouts_table_header_bet_limit"),
+                    options: getBaccaratMiniTranslation("payouts_table_header_options"),
+                    betLimit: getCommonTranslation("header_bet_limit"),
                 },
                 rows: {
-                    player: getTranslation("payouts_table_rows_player"),
-                    banker: getTranslation("payouts_table_rows_banker"),
-                    tie: getTranslation("payouts_table_rows_tie"),
+                    player: getBaccaratMiniTranslation("payouts_table_rows_player"),
+                    banker: getBaccaratMiniTranslation("payouts_table_rows_banker"),
+                    tie: getBaccaratMiniTranslation("payouts_table_rows_tie"),
                 },
             },
         },
     };
-} 
+};
