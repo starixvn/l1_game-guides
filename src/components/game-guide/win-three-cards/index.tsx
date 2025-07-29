@@ -12,6 +12,7 @@ import WinThreeCardsGuideZH_TW from "./zh_tw";
 import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { getGameConfigProject } from "../../index.helper";
+import WinThreeCardsGuideTolgeeWrapper from "./tolgee";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -93,7 +94,7 @@ const WinThreeCardsGuide = (props: GameGuideBase) => {
         case locales.zh_tw:
             return <WinThreeCardsGuideZH_TW {...resource} />;
         default:
-            return <WinThreeCardsGuideEN {...resource} />;
+            return <WinThreeCardsGuideTolgeeWrapper {...resource} />;
     }
 };
 export default WinThreeCardsGuide;
