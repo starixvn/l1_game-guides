@@ -15,7 +15,7 @@ import { zhTW } from "./languages/zh-tw";
 import { TexasHoldemLanguage } from "./languages/types";
 import { getGameConfigProject } from "../../index.helper";
 
-const oldLanguage = ["en", "id", "th", "zh_cn", "zh_tw"];
+const oldLanguage = ["id", "th", "zh_cn", "zh_tw"];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;

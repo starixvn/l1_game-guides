@@ -9,7 +9,6 @@ import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import Styles from "../texas-hold-em.module.scss";
 import MD5, { md5ServicesUrl } from "../../base/md5";
-import { TexasHoldemLanguage } from "../languages/types";
 
 const tolgee = initTolgee(["TexasHoldEm"]);
 
@@ -59,6 +58,23 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <strong>{t("gamerules_turn_river_bet_title")}</strong>: {t("gamerules_additional_bets_desc")}
+                    <ul className="detail">
+                        <li>
+                            <strong>{t("gamerules_turn_bet_title")}: </strong>
+                            {t("gamerules_turn_bet_desc")}
+                        </li>
+                        <li>
+                            <strong>{t("gamerules_river_bet_title")}: </strong>
+                            {t("gamerules_river_desc")}
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>{t("gamerules_check")}: </strong>
+                    {t("gamerules_check_desc")}
+                </li>
                 <li>{t("gamerules_combined_cards_desc")}</li>
                 <li>
                     {t("gamerules_maximum_total")}
@@ -73,9 +89,19 @@ const renderGameRule = (maxBetFollowChoice: MaxBetChoicesProps | undefined) => {
                             <span className="title-text">{t("gamerules_card_values_title")}</span>
                             <ul className="desc">
                                 <li>{t("gamerules_card_values_desc_line1")}</li>
-                                <li>{t("gamerules_card_values_desc_line2")}</li>
                                 <li>
-                                    <Markup content={t("gamerules_card_values_desc_line3")} />
+                                    {t("gamerules_card_values_desc_line2")}
+                                    <ul className="detail">
+                                        <li>{t("gamerules_card_values_desc_line3")}</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    {t("gamerules_card_values_desc_line4")} - {t("gamerules_card_values_heart")} (
+                                    <span className={Styles["red"]}>♥</span>), {t("gamerules_card_values_spade")} (
+                                    <span className={Styles["black"]}>♠</span>), {t("gamerules_card_values_diamond")} (
+                                    <span className={Styles["red"]}>♦</span>), {t("gamerules_card_values_and_club")}(
+                                    <span className={Styles["black"]}>♣</span>) {t("gamerules_card_values_equal")}
                                 </li>
                             </ul>
                         </li>
@@ -641,13 +667,13 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                     </ul>
                 </li>
                 <li>
-                    <h2>{t("payouts_odds_bet_limit_title")}</h2>
-                    <table className="table table-small text-center">
+                    {t("payouts_odds_bet_limit_title")}
+                    <table className="table table-medium text-center">
                         <thead>
                             <tr>
-                                <td>{t("bet_limit_table_title_options")}</td>
-                                <td>{t("bet_limit_table_title_odds")}</td>
-                                <td>{t("bet_limit_table_title_bet_limit")}</td>
+                                <td>{t("payouts_table_title_option")}</td>
+                                <td>{t("payouts_table_title_odds")}</td>
+                                <td>{t("payouts_table_title_bet_limit")}</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -666,21 +692,21 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
                                 </td>
                             </tr>
                             <tr>
-                                <td>{t("bet_limit_table_content_call")}</td>
+                                <td>{t("payouts_table_content_call")}</td>
                                 <td>{formatOdds(odds?.call, fractionalOddsFormat)}</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetCallBetChoice}
                                 </td>
                             </tr>
                             <tr>
-                                <td>{t("bet_limit_table_content_turn")}</td>
+                                <td>{t("payouts_table_content_turn")}</td>
                                 <td>{formatOdds(odds?.turn, fractionalOddsFormat)}</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetTurnBetChoice}
                                 </td>
                             </tr>
                             <tr>
-                                <td>{t("bet_limit_table_content_river")}</td>
+                                <td>{t("payouts_table_content_river")}</td>
                                 <td>{formatOdds(odds?.river, fractionalOddsFormat)}</td>
                                 <td>
                                     {maxBetFollowChoice?.minBetRound} - {maxBetFollowChoice?.maxBetRiverBetChoice}
@@ -738,10 +764,10 @@ const renderMD5 = (locale: string | undefined) => {
                     <strong>{t("md5_note_title")}</strong>
                     <ul className="detail">
                         <li>
-                            <Markup content={t("md5_note_line1", { 0: "(J♣ 10♥)", 1: "(3♦ 2♠)", 2: "(K♣ 5♥ 3♠ 10♦ 4♦)" })} />
+                            <Markup content={t("md5_note_line1", { 0: "(Q♥, 4♥)", 1: "(3♠, 8♥)", 2: "(A♦, J♦, K♥, 3♥, 3♣)" })} />
                         </li>
                         <li>
-                            <Markup content={t("md5_note_line2", { 0: "(J♣ 10♥)", 1: "(3♦ 2♠)" })} />
+                            <Markup content={t("md5_note_line2", { 0: "(Q♥, 4♥)", 1: "(3♠, 8♥)" })} />
                         </li>
                     </ul>
                 </>
