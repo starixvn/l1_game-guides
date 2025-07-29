@@ -6,6 +6,7 @@ import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-
 import { GameGuideProps } from "../../type";
 import { renderToString } from "react-dom/server";
 import Styles from "../hi-lo.module.scss";
+import { Markup } from "interweave";
 
 const tolgee = initTolgee(["HiLo"]);
 
@@ -58,21 +59,15 @@ const HiLoGuideTolgee: React.FC<GameGuideProps<{}, {}>> = (props) => {
                 </ul>
                 <div>{t("gamerules_example_title")}:</div>
                 <p>
-                    <span dangerouslySetInnerHTML={{
-                        __html: StringFormat(t("gamerules_example_intro"), renderToString(heart9))
-                    }} />
+                    <Markup content={StringFormat(t("gamerules_example_intro", { 0: renderToString(heart9) }))} />
                 </p>
                 <p>
-                    <span dangerouslySetInnerHTML={{
-                        __html: StringFormat(t("gamerules_example_result_detail"), renderToString(spade4))
-                    }} />
+                    <Markup content={StringFormat(t("gamerules_example_result_detail", { 0: renderToString(spade4) }))} />
                 </p>
                 <ul className="plus">
                     <li>{t("gamerules_example_option1")}</li>
                     <li>
-                        <span dangerouslySetInnerHTML={{
-                            __html: StringFormat(t("gamerules_example_option2"), renderToString(spade4))
-                        }} />
+                        <Markup content={StringFormat(t("gamerules_example_option2", { 0: renderToString(spade4) }))} />
                     </li>
                 </ul>
                 {renderGameRulesExampleNote()}
@@ -108,15 +103,7 @@ const HiLoGuideTolgee: React.FC<GameGuideProps<{}, {}>> = (props) => {
                 <ul className="desc">
                     <li>{t("cardvalues_line1")}</li>
                     <li>
-                        <span dangerouslySetInnerHTML={{
-                            __html: StringFormat(
-                                t("cardvalues_line2"),
-                                renderToString(heart),
-                                renderToString(spade),
-                                renderToString(diamond),
-                                renderToString(club)
-                            )
-                        }} />
+                        <Markup content={StringFormat(t("cardvalues_line2", { 0: renderToString(heart), 1: renderToString(spade), 2: renderToString(diamond), 3: renderToString(club) }))} />
                     </li>
                 </ul>
                 <p>
@@ -163,4 +150,4 @@ const HiLoGuideTolgeeWrapper: React.FC<GameGuideProps<{}, {}>> = (props) => {
     );
 };
 
-export default HiLoGuideTolgeeWrapper; 
+export default HiLoGuideTolgeeWrapper;

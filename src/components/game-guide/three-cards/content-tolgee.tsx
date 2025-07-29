@@ -74,13 +74,25 @@ const ThreeCardsIntroduction: FC<{
     locale?: string;
     isSM: boolean;
 }> = ({ t, displayName, locale, isSM }) => {
+    // Create styled span components for the card suits
+    const diamondSpan = <span className={Styles["img-red"]}>♦</span>;
+    const heartSpan = <span className={Styles["img-red"]}>♥</span>;
+    const spadeSpan = <span className={Styles["img-black"]}>♠</span>;
+    const clubSpan = <span className={Styles["img-black"]}>♣</span>;
+
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className={`content ${Styles["content-customize"]}`}>
                 <T 
                     keyName={"intro_para_1"} 
-                    params={{ gameName: displayName }} 
+                    params={{ 
+                        gameName: displayName,
+                        diamondSpan,
+                        heartSpan,
+                        spadeSpan,
+                        clubSpan
+                    }} 
                     ns="ThreeCards"
                 />
             </div>
