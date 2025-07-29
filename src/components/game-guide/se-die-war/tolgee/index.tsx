@@ -1,15 +1,15 @@
-import React from "react";
-import { useTheme } from "next-themes";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import { useTheme } from "next-themes";
+import React from "react";
+import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
+import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
+import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderTwoRedTwoWhite, renderThreeRedOneWhite } from "../../../shared/dot";
-import { StatisticalTable, RedWhiteDataOnTable } from "../../../shared/se-die/en";
 import { GameGuideProps } from "../../type";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import Styles from "../se-die-war.module.scss";
-import { Themes } from "../../../../common/constants";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const NAMESPACE = "SeDieWar";
 
@@ -180,7 +180,9 @@ const renderPayouts = (odds: object | any, maxBetFollowChoice: undefined | MaxBe
                                 <tr>
                                     <th>{t("table_options")}</th>
                                     <th>{t("table_payouts")}</th>
-                                    <th>{t("table_bet_limit")} ({t("table_min")} - {t("table_max")})</th>
+                                    <th>
+                                        {t("table_bet_limit")} ({t("table_min")} - {t("table_max")})
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -279,23 +281,21 @@ const SeDieGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const { t } = useTranslate([NAMESPACE]);
-    const pathImg = theme === Themes.light || Themes.infoSite ? "dark/guide-stats-en.png" : "guide-stats-en.png?1";
-    
+    const pathImg = theme === Themes.light || Themes.infoSite ? `dark/guide-stats-${locale}.png` : `guide-stats-${locale}.png?1`;
+
     // Handle locale changes
     React.useEffect(() => {
         if (locale) {
             tolgee.changeLanguage(locale);
         }
     }, [locale]);
-    
+
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName })}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 
@@ -333,4 +333,4 @@ const SeDieGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
     );
 };
 
-export default SeDieGuideTolgeeWrapper; 
+export default SeDieGuideTolgeeWrapper;
