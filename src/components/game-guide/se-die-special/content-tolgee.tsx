@@ -74,7 +74,7 @@ const SeDieSpecialGameRules: FC<{
                 <li>
                     {t("gamerules_para_4")}
                     <br></br>
-                    <strong>{t("gamerules_example")}</strong>
+                    <strong>{t("example", { ns: "Common" })}</strong> {t("gamerules_example")}
                 </li>
             </ul>
         </li>
