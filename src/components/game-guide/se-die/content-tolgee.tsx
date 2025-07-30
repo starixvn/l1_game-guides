@@ -363,7 +363,7 @@ const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
     return (
         <div className={`sedie`}>
             <ul className={`game-guide`}>
-                <SeDieIntroduction t={t} displayName={gameName || ""} gameId={gameId} environment={environment} />
+                <SeDieIntroduction t={t} displayName={t("game_name", { ns: "SeDie" }) || ""} gameId={gameId} environment={environment} />
                 <SeDieGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} gameId={gameId} />
                 <SeDiePayout
                     gameConfigs={gameConfigs}
