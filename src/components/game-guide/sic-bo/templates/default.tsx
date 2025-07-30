@@ -13,13 +13,13 @@ import Styles from "../sic-bo.module.scss";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 export default class SicBoTemplate extends React.Component<
-    GameGuideProps<GameConfigProps, MaxBetChoicesProps>,
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISicBoTranslationResource },
     { translationResource: ISicBoTranslationResource }
 > {
-    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps>) {
+    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISicBoTranslationResource }) {
         super(props);
         this.state = {
-            translationResource: getSicBoTranslationResource(props.locale),
+            translationResource: props.translationResource || getSicBoTranslationResource(props.locale),
         };
     }
 
@@ -104,12 +104,13 @@ export default class SicBoTemplate extends React.Component<
                                         <td>{table.betOnAnyNumber}</td>
                                         <td className="text-start">{bettingOptions.description.specificNumber}</td>
                                     </tr>
-                                    {isShowedMD5(environment, orientation) &&
-                                    <tr>
-                                        <td>{table.totalPoints}</td>
-                                        <td>{table.betOnTotalPoints}</td>
-                                        <td className="text-start">{bettingOptions.description.totalPoints}</td>
-                                    </tr>}
+                                    {isShowedMD5(environment, orientation) && (
+                                        <tr>
+                                            <td>{table.totalPoints}</td>
+                                            <td>{table.betOnTotalPoints}</td>
+                                            <td className="text-start">{bettingOptions.description.totalPoints}</td>
+                                        </tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -188,65 +189,65 @@ export default class SicBoTemplate extends React.Component<
                                     {StringFormat(table.numberAppearsThreeTimes, formatOdds(odds?.triple, fractionalOddsFormat))}
                                 </td>
                             </tr>
-                            {isShowedMD5(environment, orientation) &&
-                            <>
-                                <tr>
-                                <td rowSpan={14}>{table.totalPoints}</td>
-                                <td>4</td>
-                                <td rowSpan={2}>{formatOdds(odds?.total4, fractionalOddsFormat)}</td>
-                                <td rowSpan={8}>
-                                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal4}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td rowSpan={2}>{formatOdds(odds?.total5, fractionalOddsFormat)}</td>
-                            </tr>
-                            <tr>
-                                <td>16</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td rowSpan={2}>{formatOdds(odds?.total6, fractionalOddsFormat)}</td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td rowSpan={2}>{formatOdds(odds?.total7, fractionalOddsFormat)}</td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td rowSpan={2}>{formatOdds(odds?.total8, fractionalOddsFormat)}</td>
-                                <td rowSpan={6}>
-                                    {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal8}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td rowSpan={4}>{formatOdds(odds?.total9, fractionalOddsFormat)}</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                            </tr>
-                            </>
-                            }
+                            {isShowedMD5(environment, orientation) && (
+                                <>
+                                    <tr>
+                                        <td rowSpan={14}>{table.totalPoints}</td>
+                                        <td>4</td>
+                                        <td rowSpan={2}>{formatOdds(odds?.total4, fractionalOddsFormat)}</td>
+                                        <td rowSpan={8}>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal4}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td rowSpan={2}>{formatOdds(odds?.total5, fractionalOddsFormat)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td rowSpan={2}>{formatOdds(odds?.total6, fractionalOddsFormat)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td rowSpan={2}>{formatOdds(odds?.total7, fractionalOddsFormat)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td rowSpan={2}>{formatOdds(odds?.total8, fractionalOddsFormat)}</td>
+                                        <td rowSpan={6}>
+                                            {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetTotal8}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td rowSpan={4}>{formatOdds(odds?.total9, fractionalOddsFormat)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                    </tr>
+                                </>
+                            )}
                         </tbody>
                     </table>
                 </div>
@@ -265,15 +266,16 @@ export default class SicBoTemplate extends React.Component<
                     {this.renderGameRules()}
                     {this.renderBettingOptions(environment || "", orientation || "")}
                     {this.renderPayouts(environment || "", orientation || "")}
-                    {isShowedMD5(environment, orientation) && 
-                    <MD5
-                        locale={locale}
-                        step1ImageUrl={md5.step1ImageUrl}
-                        step2ImageUrl={md5.step2ImageUrl}
-                        step3ImageUrl="/static/images/sicbo/md5_step3.png"
-                        step4ImageUrl="/static/images/sicbo/md5_step4.png"
-                        note={md5.note}
-                    />}
+                    {isShowedMD5(environment, orientation) && (
+                        <MD5
+                            locale={locale}
+                            step1ImageUrl={md5.step1ImageUrl}
+                            step2ImageUrl={md5.step2ImageUrl}
+                            step3ImageUrl="/static/images/sicbo/md5_step3.png"
+                            step4ImageUrl="/static/images/sicbo/md5_step4.png"
+                            note={md5.note}
+                        />
+                    )}
                     <BaseTermsAndConditions resources={this.state.translationResource.termsAndConditions} />
                 </ul>
             </>

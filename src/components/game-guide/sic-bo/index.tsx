@@ -5,7 +5,16 @@ import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
 import { GameGuideBase } from "../type";
 import SicBoTemplate from "./templates/default";
+import SicBoContent from "./content-tolgee";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { TolgeeProvider } from "@tolgee/react";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+
+const tolgee = initTolgee(["SicBo"]);
+
+const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
+};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -29,7 +38,18 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const SicBoGuide = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, userStakeLevel, isGetGameConfigs, project, fractionalOddsFormat, environment, orientation } = props;
+    const {
+        locale,
+        gameConfigs,
+        gameNameTranslate,
+        dynamic,
+        userStakeLevel,
+        isGetGameConfigs,
+        project,
+        fractionalOddsFormat,
+        environment,
+        orientation,
+    } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -51,6 +71,13 @@ const SicBoGuide = (props: GameGuideBase) => {
     }, []);
 
     useEffect(() => {
+        const languageTag = locale || "vi";
+        if (isTolgeeSupportLanguage(languageTag)) {
+            tolgee.changeLanguage(languageTag);
+        }
+    }, [locale]);
+
+    useEffect(() => {
         if (configs) {
             if (isGetGameConfigs) {
                 getDynamicGameConfig();
@@ -70,8 +97,30 @@ const SicBoGuide = (props: GameGuideBase) => {
         fractionalOddsFormat,
         locale,
         environment,
-        orientation
+        orientation,
     };
+
+    if (locale && isTolgeeSupportLanguage(locale)) {
+        return (
+            <TolgeeProvider tolgee={tolgee}>
+                <SicBoContent
+                    locale={locale}
+                    gameConfigs={gameConfigs}
+                    gameNameTranslate={gameNameTranslate}
+                    gameName={gameNameTranslate}
+                    dynamic={dynamic}
+                    userStakeLevel={userStakeLevel}
+                    isGetGameConfigs={isGetGameConfigs}
+                    project={project}
+                    fractionalOddsFormat={fractionalOddsFormat}
+                    environment={environment}
+                    orientation={orientation}
+                />
+            </TolgeeProvider>
+        );
+    }
+
+    // Fallback to static translations for unsupported languages
     return <SicBoTemplate {...resource} />;
 };
 export default SicBoGuide;
