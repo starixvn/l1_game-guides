@@ -5,7 +5,7 @@
     },
     "system": "gn",
     "enableSourceMap": false,
-    "resourceUrl": "https://gnproxy.sgamesuat.com/sit/game/static/",
-    "gameSettingUrl": "http://gn_admin_api_sit:5000/api/public/game_configs/",
+    "resourceUrl": "https://gnproxy.playonesit.com/sit/game/static/",
+    "gameSettingUrl": "http://gn-admin-api-sit1-servic:5000/api/public/game_configs/",
     "useTolgeeStatic": true
 }
