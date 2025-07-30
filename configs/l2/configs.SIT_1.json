@@ -5,7 +5,7 @@
     },
     "system": "L2",
     "enableSourceMap": false,
-    "resourceUrl": "https://l2client.sgamesuat.com/sit/game/static/",
-    "gameSettingUrl": "http://l2-admin-api-sit-service:5000/api/public/game_configs/",
+    "resourceUrl": "https://l2client.playonesit.com/sit/game/static/",
+    "gameSettingUrl": "http://l2-admin-api-sit1-service:5000/api/public/game_configs/",
     "useTolgeeStatic": true
 }

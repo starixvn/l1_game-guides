@@ -5,7 +5,7 @@
     },
     "system": "L1",
     "enableSourceMap": false,
-    "resourceUrl": "https://l1proxy.sgamesuat.com/sit/game/static/",
-    "gameSettingUrl": "http://l1-admin-api-sit-service:5000/api/public/game_configs/",
+    "resourceUrl": "https://l1proxy.playonesit.com/sit/game/static/",
+    "gameSettingUrl": "http://l1-admin-api-sit1-service:5000/api/public/game_configs/",
     "useTolgeeStatic": true
 }
