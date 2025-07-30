@@ -8,6 +8,7 @@ import { GameGuideProps } from "../../type";
 import { StringFormat } from "../../../../helpers/string-helper";
 import MD5Tolgee from "../../base/md5/md5-tolgee";
 import MD5 from "../../base/md5";
+import KenoMD5 from "../keno-max/templates/md5";
 
 const kenoMiniNamespace = "KenoMini";
 
@@ -168,7 +169,7 @@ const KenoMiniBettingOptions: FC<{ t: Function }> = ({ t }) => {
                     <div>
                         <Markup content={StringFormat(t("bettingOptions_example_description", { ns: kenoMiniNamespace }))} />
                         <div className="table-container">
-                            <table className="table text-center table-medium">
+                            <table className="table text-center table-small">
                                 <thead>
                                     <tr>
                                         <th colSpan={10}>
@@ -309,12 +310,15 @@ const KenoMiniGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <KenoMiniGameRules t={t} maxBetFollowChoice={maxBetFollowChoice?.maxBetMain} />
             <KenoMiniBettingOptions t={t} />
             <KenoMiniPayouts t={t} odds={odds} maxBetFollowChoice={maxBetFollowChoice} fractionalOddsFormat={fractionalOddsFormat} />
-            <MD5
+            <KenoMD5
                 locale={locale}
+                environment={environment}
+                md5Key="f2bbd32524fe6e2e41eaaaa0eacd6d86"
+                md5Result="{237}_{#26907421fad9b51da1169691982}"
                 step1ImageUrl={`/static/images/keno-mini/md5_step1_${locale}.png?v=3`}
                 step2ImageUrl={`/static/images/keno-mini/md5_step2_${locale}.png?v=3`}
-                step3ImageUrl={"/static/images/keno-mini/md5_step3.png?v=1"}
-                step4ImageUrl={"/static/images/keno-mini/md5_step4.png?v=1"}
+                step3ImageUrl="/static/images/keno-mini/md5_step3.png"
+                step4ImageUrl="/static/images/keno-mini/md5_step4.png"
                 note={<div>{t("md5_note")}</div>}
             />
             <TermsAndConditionsTolgee />
