@@ -4,7 +4,7 @@ import { IBaseBaccaratResources } from "./types";
 
 export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBaseBaccaratResources {
     const namespace = "BaseBaccarat";
-    const getTranslation = (key: string) => tolgee.t(key, {ns: namespace});
+    const getTranslation = (key: string) => tolgee.t(key, { ns: namespace });
     return {
         introduction: {
             header: "",
@@ -42,11 +42,11 @@ export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBa
                         rule: getTranslation("table_content_rule_banker_pair"),
                     },
                     {
-                        choice: getTranslation("table_content_choice_big"),
+                        choice: getTranslation("glossary_big"),
                         rule: getTranslation("table_content_rule_big"),
                     },
                     {
-                        choice: getTranslation("table_content_choice_small"),
+                        choice: getTranslation("glossary_small"),
                         rule: getTranslation("table_content_rule_small"),
                     },
                 ],
@@ -57,13 +57,9 @@ export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBa
             descriptions: {
                 paragraph1: {
                     cardPointValues: getTranslation("point_rules_paragraph1_card_point_values"),
-                    details: [
-                        getTranslation("point_rules_paragraph1_details_1"),
-                        getTranslation("point_rules_paragraph1_details_2"),
-                    ],
+                    details: [getTranslation("point_rules_paragraph1_details_1"), getTranslation("point_rules_paragraph1_details_2")],
                 },
-                paragraph2:
-                    getTranslation("point_rules_paragraph2"),
+                paragraph2: getTranslation("point_rules_paragraph2"),
             },
             examples: {
                 firstTwoCard: getTranslation("point_rules_examples_first_two_card"),
@@ -74,10 +70,7 @@ export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBa
         },
         thirdCardRules: {
             header: getTranslation("third_card_rules_header"),
-            descriptions: [
-                getTranslation("third_card_rules_descriptions_1"),
-                getTranslation("third_card_rules_descriptions_2"),
-            ],
+            descriptions: [getTranslation("third_card_rules_descriptions_1"), getTranslation("third_card_rules_descriptions_2")],
             playerHand: {
                 header: getTranslation("third_card_rules_player_hand_header"),
                 cardsTotal: getTranslation("third_card_rules_player_hand_cards_total"),
@@ -132,9 +125,7 @@ export function generateBaccaratTranslationResource(tolgee: TolgeeInstance): IBa
                         action: getTranslation("third_card_rules_banker_hand_examples_7_action"),
                     },
                 ],
-                secondDescription: [
-                    getTranslation("third_card_rules_banker_hand_second_description"),
-                ],
+                secondDescription: [getTranslation("third_card_rules_banker_hand_second_description")],
             },
         },
         payouts: {
