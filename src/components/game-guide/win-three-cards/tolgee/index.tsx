@@ -77,7 +77,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
             <ul className="desc">
                 <li>
                     {t("payouts_para_1", { ns: "Common" })}
-                    <strong> {t("payouts_note")}</strong> {t("Common:payouts_para_2")}
+                    <strong> {t("payouts_note")}</strong> {t("payouts_para_2")}
                 </li>
                 <li>
                     {t("payouts_para_3", { ns: "Common" })}
