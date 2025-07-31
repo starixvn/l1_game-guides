@@ -11,12 +11,8 @@ import { locales, IObjectKeys } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { FormatIcu } from "@tolgee/format-icu";
-import { InContextTools } from "@tolgee/web/tools";
-import { TolgeeConfig } from "../../../common/constants";
+import {  TolgeeProvider } from "@tolgee/react";
 import BigSmallGameGuideContent from "./content-tolgee";
-import appSettings from "../../../common/app-settings";
 import initTolgee from "../../../helpers/tolgee-helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };

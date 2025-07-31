@@ -104,12 +104,6 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
         isScrollMD5 && ScrollToMD5();
     });
 
-    try {
-        const md5Note = t("md5_note", { ns: "BigSmall" });
-        console.log("md5Note", md5Note);
-    } catch (error) {
-        console.log("error", error);
-    }
     return (
         <div className={`bigsmall`}>
             <ul className={`game-guide`}>
@@ -126,7 +120,7 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                         step2ImageUrl={`/static/images/big-small/md5_step2_${locale}.png?v=3`}
                         step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
                         step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
-                        note={<div>{t("big_definition", { ns: "BigSmall" })}</div>}
+                        note={<div>{t("md5_note", { ns: "BigSmall" })}</div>}
                     />
                 )}
                 <TermsAndConditionsTolgee />

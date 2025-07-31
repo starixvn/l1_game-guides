@@ -24,7 +24,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        availableLanguages: ["en", "ja"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["SeDie", "Common"],
