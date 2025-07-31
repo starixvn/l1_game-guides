@@ -5,7 +5,6 @@ import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../../shared/dot";
-import { RedWhiteDataOnTable, StatisticalTable } from "../../../shared/se-die/en";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
 import Styles from "../se-die-war.module.scss";
@@ -13,7 +12,7 @@ import { GameConfigProps, MaxBetChoicesProps } from "../type";
 
 const NAMESPACE = "SeDieWar";
 
-const tolgee = initTolgee([NAMESPACE]);
+const tolgee = initTolgee([NAMESPACE, "SeDie"]);
 
 const renderGameRule = (maxBet: string | undefined) => {
     const { t } = useTranslate([NAMESPACE]);
@@ -106,7 +105,35 @@ const renderGameRulePlayerOrBanker = (isBanker = false) => {
                 <td>{t("option_2_red_2_white")}</td>
                 {renderTwoRedTwoWhite()}
             </tr>
-            {RedWhiteDataOnTable()}
+            <RedWhiteDataOnTable />
+        </>
+    );
+};
+
+const RedWhiteDataOnTable = () => {
+    const { t } = useTranslate([NAMESPACE]);
+    return (
+        <>
+            <tr>
+                <td>{t("option_4_red")}</td>
+                <td>{t("option_4_red")}</td>
+                {renderFourRed()}
+            </tr>
+            <tr>
+                <td>{t("option_4_white")}</td>
+                <td>{t("option_4_white")}</td>
+                {renderFourWhite()}
+            </tr>
+            <tr>
+                <td className={Styles["rule-option-choice"]}>{t("option_3_red_1_white")}</td>
+                <td>{t("option_3_red_1_white")}</td>
+                {renderThreeRedOneWhite()}
+            </tr>
+            <tr>
+                <td className={Styles["rule-option-choice"]}>{t("option_1_red_3_white")}</td>
+                <td>{t("option_1_red_3_white")}</td>
+                {renderOneRedThreeWhite()}
+            </tr>
         </>
     );
 };
@@ -158,6 +185,70 @@ const renderGameRuleTable = (data: string[]) => {
                     <tr>
                         <td>{t("option_banker")}</td>
                         <td>{data[1]}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const StatisticalTable = () => {
+    const { t } = useTranslate([NAMESPACE]);
+    return (
+        <div className="table-container">
+            <table className="table text-center table-small">
+                <thead>
+                    <tr>
+                        <th>{t("table_header_results", { ns: "SeDie" })}</th>
+                        <th>{t("table_header_descriptions", { ns: "SeDie" })}</th>
+                        <th>{t("table_header_symbols", { ns: "SeDie" })}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{t("option_4_red")}</td>
+                        {renderFourRed()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">4</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{t("option_4_white")}</td>
+                        {renderFourWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">0</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{t("option_2_red_2_white")}</td>
+                        {renderTwoRedTwoWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-even">2</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{t("option_3_red_1_white")}</td>
+                        {renderThreeRedOneWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd">3</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{t("option_1_red_3_white")}</td>
+                        {renderOneRedThreeWhite()}
+                        <td>
+                            <div className="d-flex justify-content-center">
+                                <span className="dot-odd en">1</span>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -305,7 +396,7 @@ const SeDieGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
                     <ul className="style-number-dot">
                         <li className="number-dot">
                             <strong className="title-text">{t("scoreboard_odd_even_title")}</strong>
-                            {StatisticalTable()}
+                            <StatisticalTable />
                         </li>
                         <li className="number-dot">
                             <strong className="title-text">{t("scoreboard_statistical_round_title")}</strong>

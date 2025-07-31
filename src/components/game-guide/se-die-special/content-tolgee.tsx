@@ -134,9 +134,9 @@ const SeDieSpecialStatistical: FC<{ t: Function }> = ({ t }) => {
                     <table className="table text-center table-small">
                         <thead>
                             <tr>
-                                <th>{t("table_header_results")}</th>
-                                <th>{t("table_header_descriptions")}</th>
-                                <th>{t("table_header_symbols")}</th>
+                                <th>{t("table_header_results", { ns: "SeDie" })}</th>
+                                <th>{t("table_header_descriptions", { ns: "SeDie" })}</th>
+                                <th>{t("table_header_symbols", { ns: "SeDie" })}</th>
                             </tr>
                         </thead>
                         <tbody>

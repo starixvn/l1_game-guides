@@ -25,7 +25,7 @@ const tolgee = Tolgee()
         availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["SeDieSpecial", "Common"],
+        ns: ["SeDieSpecial", "Common", "SeDie"],
         defaultNs: "SeDieSpecial",
     });
 
