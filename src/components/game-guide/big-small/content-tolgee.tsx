@@ -104,6 +104,8 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
         isScrollMD5 && ScrollToMD5();
     });
 
+    const md5Value = "{6, 2, 5}";
+
     return (
         <div className={`bigsmall`}>
             <ul className={`game-guide`}>
@@ -115,12 +117,13 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                     t={t}
                 />
                 {isShowedMD5(environment, orientation) && (
-                    <MD5Tolgee
+                    <MD5
+                        locale={locale}
                         step1ImageUrl={`/static/images/big-small/md5_step1_${locale}.png?v=3`}
                         step2ImageUrl={`/static/images/big-small/md5_step2_${locale}.png?v=3`}
                         step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
                         step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
-                        note={<div>{t("md5_note", { ns: "BigSmall" })}</div>}
+                        note={<T keyName={"md5_note"} params={{ md5Value: md5Value }} ns="BigSmall"/>}
                     />
                 )}
                 <TermsAndConditionsTolgee />
