@@ -34,8 +34,9 @@ if (!appSettings.useTolgeeStatic) {
 
 const CascadingSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;
-    const [configs, setConfigs] = useState<GameConfigProps>();
+    const isRemodeling = !!gameSetting.CascadingSlotsConfig.OddsByCounts[9];
 
+    const [configs, setConfigs] = useState<GameConfigProps>();
     const getLocalGameConfigs = () => {
         getGameConfigProject("cascading-slot-template", project, setConfigs);
     };
@@ -73,6 +74,7 @@ const CascadingSlotGuide = (props: GameGuideBase) => {
                 gameSettings={gameSetting?.CascadingSlotsConfig}
                 name={name ?? gameSetting?.Name}
                 gameConfigs={configs}
+                isRemodeling={isRemodeling}
             />
         </TolgeeProvider>
     );

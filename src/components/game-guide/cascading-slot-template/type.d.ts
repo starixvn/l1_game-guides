@@ -3,4 +3,5 @@ export interface GameConfigProps {
     gameConfigs: object[number];
     name: string;
     displayName: string;
+    isRemodeling: boolean;
 }

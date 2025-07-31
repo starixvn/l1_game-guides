@@ -1,4 +1,5 @@
 import { useTranslate } from "@tolgee/react";
+import { Markup } from "interweave";
 import { Trans } from "next-i18next";
 import React from "react";
 
@@ -41,8 +42,29 @@ const renderGameRule = (coin: number, level: number, betMultiplier: number, t: F
     );
 };
 
-const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: number, t: Function) => {
+const renderPayouts = ({
+    odds,
+    coin,
+    level,
+    maxWinPerRound,
+    t,
+    isRemodeling,
+    freeSpin,
+}: {
+    odds: any;
+    coin: number;
+    level: number;
+    maxWinPerRound: number;
+    t: Function;
+    isRemodeling: boolean;
+    freeSpin?: any;
+}) => {
     const oddDetail = convertOddDetail(odds, false);
+    const volatilityLevel = isRemodeling ? 5 : 2;
+    const volatilityImage = (isEnabled: boolean) => (
+        <img src={`./static/images/slot/volatility-${isEnabled ? "enabled" : "disabled"}.png`} alt="" width="20rem" height="20rem" />
+    );
+
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("Payout-title")}</h2>
@@ -54,10 +76,22 @@ const renderPayouts = (odds: any, coin: number, level: number, maxWinPerRound: n
                     {renderPayoutsIconFirstLine(oddDetail, coin, level)}
                     {renderPayoutsIconSecondLine(oddDetail, coin, level)}
                     {renderPayoutsIconThirdLine(oddDetail, coin, level)}
+                    {isRemodeling && renderPayoutsIconFourthLine(freeSpin, oddDetail[9])}
                     {renderExamplePayout(oddDetail[8], coin, level, t)}
                 </li>
                 <li>{t("Payout-line-4")}</li>
                 <li>{t("Payout-line-5", { value: maxWinPerRound })}</li>
+                <li>{t(`paytable_line_6_${isRemodeling ? "high" : "low"}_volatility`)}</li>
+                <div className={Styles["volatility-wrapper"]}>
+                    {t(`volatility`)}
+                    <div className={Styles["volatility-stars"]}>
+                        {Array.from({ length: 5 }, (_, index) => (
+                            <div key={index} className={`${Styles["volatility-star"]}`}>
+                                {volatilityImage(index < volatilityLevel)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </ul>
         </li>
     );
@@ -175,6 +209,36 @@ const renderPayoutsIconThirdLine = (symbols: OddDetailList[], coin: number, leve
                 {renderIconContent("symbol-0", false, false, symbols[0], coin, level)}
             </div>
         </>
+    );
+};
+
+const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any) => {
+    const itemName = "symbol-9";
+    return (
+        <div className={Styles["payout-row"]}>
+            {
+                <div className={Styles["symbol-wrapper"]}>
+                    <div className="img-fluid">
+                        <img
+                            className={`${Styles[itemName]} ${Styles["customize"]}`}
+                            src={`${imgSrc}/${itemName}.png?v1`}
+                            alt={itemName}
+                        ></img>
+                    </div>
+                    <div>
+                        {freeSpin.InitialOdds.map((data: any, index: number) => {
+                            const odds = oddDetail.oddItem[index].count;
+                            return (
+                                <div key={generateKey(data.Count)} className={Styles["icon-content"]}>
+                                    <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.Count}</span>
+                                    <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(odds)}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            }
+        </div>
     );
 };
 
@@ -420,9 +484,9 @@ const renderExampleWinFreespin = (t: Function) => {
         </>
     );
 };
-
-const renderFreeSpins = (odds: number[][], t: Function) => {
+const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) => {
     const oddDetail = convertOddDetail(odds, true);
+    const symbol9Src = `<img className={Styles["symbol-example"]}  src=${`${imgSrc}/symbol-9.png?v=${imgVer}`} width=40 height=40 alt="item9" />`;
 
     return (
         <>
@@ -430,10 +494,44 @@ const renderFreeSpins = (odds: number[][], t: Function) => {
                 <h2 className={Styles["heading1"]}>{t("FreeSpin-title")}</h2>
                 <ul className="desc">
                     <li>
-                        {t("FreeSpin-line-1")}
+                        {isRemodeling ? (
+                            <>
+                                {
+                                    <Markup
+                                        content={`<li>
+                                            ${t("free_spin_line_1", {
+                                                value: oddDetail[0].oddItem[0].count,
+                                                image: symbol9Src,
+                                            })}
+                                            </li>`}
+                                    />
+                                }
+                            </>
+                        ) : (
+                            t("FreeSpin-line-1")
+                        )}
+
                         {renderExampleFreespin(oddDetail, t)}
                     </li>
-                    <li>{t("FreeSpin-line-2", { value: oddDetail[1].oddItem[0].count })}</li>
+                    <li>
+                        {isRemodeling ? (
+                            <>
+                                {
+                                    <Markup
+                                        content={`<li>
+                                            ${t("free_spin_line_2", {
+                                                numOfScatters: oddDetail[1].oddItem[0].count,
+                                                numOfSpins: oddDetail[1].oddItem[0].countString,
+                                                image: symbol9Src,
+                                            })}
+                                            </li>`}
+                                    />
+                                }
+                            </>
+                        ) : (
+                            t("FreeSpin-line-2", { value: oddDetail[1].oddItem[0].count })
+                        )}
+                    </li>
                     <li>{t("FreeSpin-line-3")}</li>
                     <li>{t("FreeSpin-line-6")}</li>
                     <li>
@@ -575,7 +673,7 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["cascadingslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
-    const { gameSettings, name, displayName, gameConfigs } = props;
+    const { gameSettings, name, displayName, gameConfigs, isRemodeling } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
@@ -594,11 +692,18 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                     </div>
                 </li>
                 <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
-
-                {renderPayouts(odds, gameConfigs.coin, gameConfigs.level, maxWinPerRound, t)}
+                {renderPayouts({
+                    odds,
+                    coin: gameConfigs.coin,
+                    level: gameConfigs.level,
+                    maxWinPerRound,
+                    t,
+                    isRemodeling,
+                    freeSpin: gameSettings.FreeSpins,
+                })}
                 {renderTumble(t)}
                 {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
-                {renderFreeSpins(gameSettings.FreeSpins, t)}
+                {renderFreeSpins(gameSettings.FreeSpins, t, isRemodeling)}
                 <TermsAndConditionsTolgee />
             </ul>
         </>

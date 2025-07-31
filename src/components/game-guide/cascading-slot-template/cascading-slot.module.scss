@@ -362,3 +362,21 @@
     opacity: 1 !important;
     z-index: -1;
 }
+.volatility-wrapper {
+    text-transform: uppercase;
+    border: 0.1rem solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    justify-self: anchor-center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.volatility-stars {
+    display: flex;
+}
+.volatility-star {
+    transform: rotate(10deg);
+    font-size: 1.5rem;
+    margin-right: 0.1rem;
+}
