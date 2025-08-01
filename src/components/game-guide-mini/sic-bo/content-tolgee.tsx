@@ -68,22 +68,7 @@ const SicBoMiniContent = (props: GameGuideBase) => {
         locale,
     };
 
-    return (
-        <SicBoGuideTemplate
-            gameConfigs={gameConfigs}
-            gameNameTranslate={gameNameTranslate}
-            gameName={gameNameTranslate}
-            dynamic={dynamic}
-            userStakeLevel={userStakeLevel}
-            isGetGameConfigs={isGetGameConfigs}
-            environment={environment}
-            project={project}
-            isInPromotionTime={isInPromotionTime}
-            fractionalOddsFormat={fractionalOddsFormat}
-            locale={locale}
-            translationResource={translationResource}
-        />
-    );
+    return <SicBoGuideTemplate {...resource} translationResource={translationResource} />;
 };
 
 export default SicBoMiniContent;
