@@ -449,4 +449,3 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
 };
 
 export { render3rdVerifierTool, renderAdvertisePF, renderContentPFBase, renderPFAppliedExample, renderStepByStep };
-

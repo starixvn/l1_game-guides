@@ -2,11 +2,7 @@ import { DefaultParamType, TFnType, TranslationKey, useTranslate } from "@tolgee
 import React from "react";
 
 import { Markup } from "interweave";
-import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderContentPFBase } from "../base";
-import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
-import { SpaceFlightPFContentsProps } from "./type";
 import {
     MAX_VALUE,
     RTP,
@@ -15,14 +11,11 @@ import {
     renderFinalResult,
     takeFirstValueFromSHA512,
 } from "../../verification/space-flight";
+import { renderContentPFBase } from "../base";
+import Styles from "./../space-flight/spaceflight-pf-game.module.scss";
+import { SpaceFlightPFContentsProps } from "./type";
 
-const renderHowPFInGame = (
-    t: TFnType<DefaultParamType, string, TranslationKey>,
-    verImg: string,
-    rootImgUrl: string,
-    gameName: string,
-    locale: string
-) => {
+const renderHowPFInGame = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, gameName: string, locale: string) => {
     return (
         <li className="guide-item">
             <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })} </h2>
@@ -33,18 +26,18 @@ const renderHowPFInGame = (
                 <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })} />}</li>
             </ul>
             <div className={Styles["center-img"]}>
-                <img src={`${rootImgUrl}flow-overall-pf-${locale}.png?v=${verImg}`} alt="pf"></img>
+                <img src={`./static/images/pf/space-flight/flow-overall-pf-${locale}.png?v=${verImg}`} alt="pf"></img>
             </div>
         </li>
     );
 };
 
-const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string, rootImgUrl: string, locale: string) => {
+const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="guide-item">
             <h2>{<Markup content={t("pf_title_verify_the_provably_fair", { ns: "Common" })} />}</h2>
             <ul className="style-number-dot">
-                {renderGameVerifierTool(t, verImg, rootImgUrl, locale)}
+                {renderGameVerifierTool(t, verImg)}
 
                 {render3rdVerifierTool(t, verImg)}
             </ul>
@@ -52,12 +45,7 @@ const renderVerifyPF = (t: TFnType<DefaultParamType, string, TranslationKey>, ve
     );
 };
 
-const renderGameVerifierTool = (
-    t: TFnType<DefaultParamType, string, TranslationKey>,
-    verImg: string,
-    rootImgUrl: string,
-    locale: string
-) => {
+const renderGameVerifierTool = (t: TFnType<DefaultParamType, string, TranslationKey>, verImg: string) => {
     return (
         <li className="number-dot">
             <span className="title-text">{t("pf_subtitle_in_game_verifier_tool", { ns: "Spaceflight" })}</span>
@@ -306,15 +294,14 @@ const render3rdVerifierTool = (t: TFnType<DefaultParamType, string, TranslationK
 };
 const SpaceFlightPFContents: React.FC<SpaceFlightPFContentsProps> = ({ locale, displayName, name }) => {
     const { t } = useTranslate(["Spaceflight", "Common"]);
-    const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion || "";
     return (
         <div>
             <ul className={`game-guide game-guide-pf`}>
                 {renderContentPFBase(t, displayName || "", verImg, locale || "")}
-                {renderHowPFInGame(t, verImg, rootImgUrl, displayName || "", locale || "")}
-                {renderVerifyPF(t, verImg, rootImgUrl, locale || "")}
+                {renderHowPFInGame(t, verImg, displayName || "", locale || "")}
+                {renderVerifyPF(t, verImg)}
             </ul>
         </div>
     );
