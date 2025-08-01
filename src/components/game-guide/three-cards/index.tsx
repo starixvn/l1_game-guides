@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import ThreeCardsGuideEN from "./en";
-import ThreeCardsGuideVI from "./vi";
 import ThreeCardsGuideID from "./id";
 import ThreeCardsGuideTH from "./th";
+import ThreeCardsGuideVI from "./vi";
 import ThreeCardsGuideZH_CN from "./zh_cn";
 import ThreeCardsGuideZH_TW from "./zh_tw";
 
-import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
+import { FormatIcu } from "@tolgee/format-icu";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { InContextTools } from "@tolgee/web/tools";
+import appSettings from "../../../common/app-settings";
+import { locales, TolgeeConfig } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
-import ThreeCardsGuideJA from "./ja";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { FormatIcu } from "@tolgee/format-icu";
-import { InContextTools } from "@tolgee/web/tools";
-import { TolgeeConfig } from "../../../common/constants";
+import { GameGuideBase } from "../type";
 import ThreeCardsGameGuideContent from "./content-tolgee";
-import appSettings from "../../../common/app-settings";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -152,6 +149,7 @@ const ThreeCardsGuide = (props: GameGuideBase) => {
                         gameName={gameNameTranslate}
                         maxBetFollowChoice={maxBetFollowChoice}
                         fractionalOddsFormat={fractionalOddsFormat}
+                        locale={locale}
                     />
                 </TolgeeProvider>
             );
