@@ -26,7 +26,7 @@ const KenoMatchTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
         return {
             main: {
                 introduction: t("title_introduction", { ns: kenoMatchNamespace }),
-                description: t("introduction_description", { ns: kenoMatchNamespace }),
+                description: t("introduction_description", { 0: gameName, ns: kenoMatchNamespace }),
             },
             gameRule: {
                 title: t("gameRule_title", { ns: kenoMatchNamespace }),
@@ -34,6 +34,7 @@ const KenoMatchTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                     t("gameRule_detail1", { ns: kenoMatchNamespace }),
                     t("gameRule_detail2", { ns: kenoMatchNamespace }),
                     t("gameRule_detail3", { ns: kenoMatchNamespace }),
+                    t("gamerules_para_3", { maxbet: maxBetFollowChoice?.maxBetRound?.toString() || "0", ns: commonNamespace }),
                 ],
                 bettingOptions: {
                     text: t("bettingOptions_text", { ns: kenoMatchNamespace }),
@@ -143,110 +144,110 @@ const KenoMatchTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                             <table className="table text-center">
                                 <thead>
                                     <tr>
-                                        <th colSpan={2}> {t("common_options", { ns: commonNamespace })}</th>
+                                        <th colSpan={2}> {t("options", { ns: kenoMatchNamespace })}</th>
                                         <th>{bettingOptions.winningConditions}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_teamBlue", { ns: commonNamespace })}
+                                            {t("teamBlue", { ns: kenoMatchNamespace })}
                                         </td>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}> {t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}> {t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">
                                             <Markup content={StringFormat(bettingOptions.firstHalfTeamBlueDescription)} />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             <Markup content={StringFormat(bettingOptions.fullTimeTeamBlueDescription)} />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_teamRed", { ns: commonNamespace })}
+                                            {t("teamRed", { ns: kenoMatchNamespace })}
                                         </td>
-                                        <td className="text-start">{t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className="text-start">{t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">
                                             <Markup content={StringFormat(bettingOptions.firstHalfTeamRedDescription)} />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             <Markup content={StringFormat(bettingOptions.fullTimeTeamRedDescription)} />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_over", { ns: commonNamespace })}
+                                            {t("bet_choice_over", { ns: commonNamespace })}
                                         </td>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">{bettingOptions.firstHalfOverDescription}</td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             {bettingOptions.fullTimeOverDescription}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_under", { ns: commonNamespace })}
+                                            {t("bet_choice_under", { ns: commonNamespace })}
                                         </td>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">{bettingOptions.firstHalfUnderDescription}</td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             {bettingOptions.fullTimeUnderDescription}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_even", { ns: commonNamespace })}
+                                            {t("bet_option_even", { ns: commonNamespace })}
                                         </td>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">{bettingOptions.firstHalfEvenDescription}</td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             {bettingOptions.fullTimeEvenDescription}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                     <tr>
                                         <td rowSpan={3} className={Styles[classBetTeamWd]}>
-                                            {t("common_odd", { ns: commonNamespace })}
+                                            {t("bet_option_odd", { ns: commonNamespace })}
                                         </td>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_firstHalf", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("firstHalf", { ns: kenoMatchNamespace })}</td>
                                         <td className="text-start">{bettingOptions.firstHalfOddnDescription}</td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTime", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTime", { ns: kenoMatchNamespace })}</td>
                                         <td rowSpan={2} className="text-start">
                                             {bettingOptions.fullTimeOddDescription}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("common_fullTimeLive", { ns: commonNamespace })}</td>
+                                        <td className={`text-start ${Styles[classBetOptionWd]}`}>{t("fullTimeLive", { ns: kenoMatchNamespace })}</td>
                                     </tr>
                                 </tbody>
                             </table>
