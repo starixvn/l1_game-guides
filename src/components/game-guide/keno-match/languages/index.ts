@@ -5,7 +5,6 @@ import { id } from "./id";
 import { cn } from "./cn";
 import { tw } from "./tw";
 import { vi } from "./vi";
-import { ja } from "./ja";
 import { getTranslationResource } from "../../../../helpers/resource-helper";
 
 const supportedLanguages: { [name: string]: IPowerSoccerTranslationResource } = {
@@ -15,7 +14,6 @@ const supportedLanguages: { [name: string]: IPowerSoccerTranslationResource } = 
     zh_cn: cn,
     zh_tw: tw,
     vi,
-    ja: ja,
 };
 
 export const getPowerSoccerTranslationResource = (langKey: string | undefined) => {

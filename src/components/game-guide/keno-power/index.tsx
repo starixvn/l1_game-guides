@@ -6,6 +6,13 @@ import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { GameGuideBase } from "../type";
 import { getGameConfigProject } from "../../index.helper";
 import KenoPowerGuideTemplate from "./templates";
+import KenoPowerTolgeeTemplate from "./templates/tolgee-template";
+import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../helpers/tolgee-helper";
+
+const tolgee = initTolgee(["KenoPower", "Common"]);
+
+const excludedLanguages = ["th", "id", "vi", "zh_cn", "zh_tw"];
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -18,7 +25,7 @@ export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefin
 };
 
 const KenoPowerGuide = (props: GameGuideBase) => {
-    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat } = props;
+    const { id, locale, userStakeLevel, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, fractionalOddsFormat, environment } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
 
@@ -48,19 +55,48 @@ const KenoPowerGuide = (props: GameGuideBase) => {
         }
     }, [configs]);
 
+    useEffect(() => {
+        if (isTolgeeSupportLanguage()) {
+            tolgee.changeLanguage(locale || "en");
+        }
+    }, [locale]);
+
+    const isTolgeeSupportLanguage = () => {
+        return !excludedLanguages.includes(locale || "en");
+    };
+
     if (!configs) {
         return <></>;
     }
 
-    return <KenoPowerGuideTemplate {... {
-        gameConfigs: configs,
-        userStakeLevel,
-        gameName: gameNameTranslate,
-        gameId: id,
-        maxBetFollowChoice,
-        fractionalOddsFormat,
-        locale
-    }} />
+    // For non-Tolgee languages, use the default template
+    if (!isTolgeeSupportLanguage()) {
+        return (
+            <KenoPowerGuideTemplate
+                gameConfigs={configs}
+                userStakeLevel={userStakeLevel}
+                gameName={gameNameTranslate}
+                gameId={id}
+                maxBetFollowChoice={maxBetFollowChoice}
+                fractionalOddsFormat={fractionalOddsFormat}
+                locale={locale}
+            />
+        );
+    }
+
+    // For Tolgee-supported languages, use the Tolgee template
+    return (
+        <TolgeeProvider tolgee={tolgee} fallback="">
+            <KenoPowerTolgeeTemplate
+                locale={locale}
+                gameConfigs={configs}
+                gameName={gameNameTranslate}
+                maxBetFollowChoice={maxBetFollowChoice}
+                environment={environment}
+                fractionalOddsFormat={fractionalOddsFormat}
+            />
+        </TolgeeProvider>
+    );
 };
 
 export default KenoPowerGuide;
