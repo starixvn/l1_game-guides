@@ -3,7 +3,6 @@ import { IBaseBaccaratResources } from "../../base/base-baccarat/languages/types
 import { vipBaccaratResourcesCn } from "./cn";
 import { vipBaccaratResourcesEn } from "./en";
 import { vipBaccaratResourcesId } from "./id";
-import { vipBaccaratResourcesJa } from "./ja";
 import { vipBaccaratResourcesTh } from "./th";
 import { vipBaccaratResourcesTw } from "./tw";
 import { vipBaccaratResourcesVi } from "./vi";
@@ -15,7 +14,6 @@ const supportedLanguages: { [name: string]: IBaseBaccaratResources } = {
     vi: vipBaccaratResourcesVi,
     zh_cn: vipBaccaratResourcesCn,
     zh_tw: vipBaccaratResourcesTw,
-    ja: vipBaccaratResourcesJa,
 };
 
 export const getVipBaccaratTranslationResource = (langKey: string | undefined) => {
