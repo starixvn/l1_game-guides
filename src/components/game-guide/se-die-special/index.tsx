@@ -7,7 +7,7 @@ import SeDieGuideZH_CN from "./zh_cn";
 import SeDieGuideTH from "./th";
 import SeDieGuideID from "./id";
 import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
+import { AVAILABLE_LANGUAGES, locales } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
@@ -22,7 +22,7 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["SeDieSpecial", "Common", "SeDie"],

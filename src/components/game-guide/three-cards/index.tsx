@@ -6,17 +6,18 @@ import ThreeCardsGuideVI from "./vi";
 import ThreeCardsGuideZH_CN from "./zh_cn";
 import ThreeCardsGuideZH_TW from "./zh_tw";
 
-import { FormatIcu } from "@tolgee/format-icu";
-import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
-import { InContextTools } from "@tolgee/web/tools";
-import appSettings from "../../../common/app-settings";
-import { locales, TolgeeConfig } from "../../../common/constants";
+import { GameGuideBase } from "../type";
+import { AVAILABLE_LANGUAGES, locales } from "../../../common/constants";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
-import { GameGuideBase } from "../type";
+import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
+import { FormatIcu } from "@tolgee/format-icu";
+import { InContextTools } from "@tolgee/web/tools";
+import { TolgeeConfig } from "../../../common/constants";
 import ThreeCardsGameGuideContent from "./content-tolgee";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import appSettings from "../../../common/app-settings";
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -37,11 +38,11 @@ const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["SeDie", "Common"],
-        defaultNs: "SeDie",
+        ns: ["ThreeCards", "Common"],
+        defaultNs: "ThreeCards",
     });
 
 if (!appSettings.useTolgeeStatic) {
