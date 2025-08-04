@@ -34,7 +34,7 @@ if (!appSettings.useTolgeeStatic) {
 
 const CascadingSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;
-    const isRemodeling = !!gameSetting.CascadingSlotsConfig.OddsByCounts[9];
+    const isRemodeling = gameSetting.CascadingSlotsConfig.OddsByCounts[9]?.[0].Odds > 0;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
     const getLocalGameConfigs = () => {

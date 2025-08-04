@@ -485,9 +485,14 @@ const renderExampleWinFreespin = (t: Function) => {
         </>
     );
 };
+
 const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) => {
     const oddDetail = convertOddDetail(odds, true);
     const symbol9Src = `<img className={Styles["symbol-example"]}  src=${`${imgSrc}/symbol-9.png?v=${imgVer}`} width=40 height=40 alt="item9" />`;
+
+    const freeSpinLine1Data = oddDetail[0].oddItem.reduce((lowest, current) =>
+        current.countString < lowest.countString ? current : lowest
+    );
 
     return (
         <>
@@ -501,7 +506,8 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_1", {
-                                                value: oddDetail[0].oddItem[0].count,
+                                                numOfScatters: freeSpinLine1Data.countString,
+                                                numOfSpins: freeSpinLine1Data.count,
                                                 image: symbol9Src,
                                             })}
                                             </li>`}
@@ -512,7 +518,7 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                             t("FreeSpin-line-1")
                         )}
 
-                        {renderExampleFreespin(oddDetail, t)}
+                        {!isRemodeling && renderExampleFreespin(oddDetail, t)}
                     </li>
                     <li>
                         {isRemodeling ? (
@@ -521,8 +527,8 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_2", {
-                                                numOfScatters: oddDetail[1].oddItem[0].count,
-                                                numOfSpins: oddDetail[1].oddItem[0].countString,
+                                                numOfScatters: oddDetail[1].oddItem[0].countString,
+                                                numOfSpins: oddDetail[1].oddItem[0].count,
                                                 image: symbol9Src,
                                             })}
                                             </li>`}
