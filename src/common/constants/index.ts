@@ -184,7 +184,7 @@ export const TolgeeConfig = {
     projectId: "2",
 };
 
-export const AVAILABLE_LANGUAGES = ["en", "vi", "th", "id", "zh-cn", "zh-tw", "ja"];
+export const AVAILABLE_LANGUAGES = ["en", "vi", "th", "id", "zh-cn", "zh-tw", "ja", "es"];
 
 // type = 2
 export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT, GAMES.WAY_TO_GOAL, GAMES.NIGHT_CLUB, GAMES.HEROES_SLOT, GAMES.FOUR_GUARDIANS];
