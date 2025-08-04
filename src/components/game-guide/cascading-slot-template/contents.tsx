@@ -76,7 +76,7 @@ const renderPayouts = ({
                     {renderPayoutsIconFirstLine(oddDetail, coin, level)}
                     {renderPayoutsIconSecondLine(oddDetail, coin, level)}
                     {renderPayoutsIconThirdLine(oddDetail, coin, level)}
-                    {isRemodeling && renderPayoutsIconFourthLine(freeSpin, oddDetail[9])}
+                    {isRemodeling && renderPayoutsIconFourthLine(freeSpin, oddDetail[9], coin, level)}
                     {renderExamplePayout(oddDetail[8], coin, level, t)}
                 </li>
                 <li>{t("Payout-line-4")}</li>
@@ -212,7 +212,7 @@ const renderPayoutsIconThirdLine = (symbols: OddDetailList[], coin: number, leve
     );
 };
 
-const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any) => {
+const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any, coin: number, level: number) => {
     const itemName = "symbol-9";
     return (
         <div className={Styles["payout-row"]}>
@@ -226,12 +226,13 @@ const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any) => {
                         ></img>
                     </div>
                     <div>
-                        {freeSpin.InitialOdds.map((data: any, index: number) => {
-                            const odds = oddDetail.oddItem[index].count;
+                        {freeSpin.InitialOdds.reverse().map((data: any, index: number) => {
+                            const odds = oddDetail.oddItem.reverse()[index].count;
+                            const value = +(odds * coin * level).toFixed(2);
                             return (
                                 <div key={generateKey(data.Count)} className={Styles["icon-content"]}>
                                     <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.Count}</span>
-                                    <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(odds)}</span>
+                                    <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
                                 </div>
                             );
                         })}
