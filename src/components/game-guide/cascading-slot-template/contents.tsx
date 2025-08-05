@@ -231,7 +231,10 @@ const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any, coin: number
                             const value = +(odds * coin * level).toFixed(2);
                             return (
                                 <div key={generateKey(data.Count)} className={Styles["icon-content"]}>
-                                    <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.Count}</span>
+                                    <span className={`${Styles[number]} ${Styles[numberFirst]}`}>
+                                        {index === 0 ? "≥" : ""}
+                                        {data.Count}
+                                    </span>
                                     <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
                                 </div>
                             );
