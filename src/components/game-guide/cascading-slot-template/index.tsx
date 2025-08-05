@@ -36,6 +36,8 @@ const CascadingSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
 
+    console.log("test");
+
     const getLocalGameConfigs = () => {
         getGameConfigProject("cascading-slot-template", project, setConfigs);
     };
