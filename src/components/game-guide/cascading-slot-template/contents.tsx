@@ -83,13 +83,15 @@ const renderPayouts = ({
                 <li>{t("Payout-line-5", { value: maxWinPerRound })}</li>
                 <li>{t(`paytable_line_6_${isRemodeling ? "high" : "low"}_volatility`)}</li>
                 <div className={Styles["volatility-wrapper"]}>
-                    {t(`volatility`)}
-                    <div className={Styles["volatility-stars"]}>
-                        {Array.from({ length: 5 }, (_, index) => (
-                            <div key={index} className={`${Styles["volatility-star"]}`}>
-                                {volatilityImage(index < volatilityLevel)}
-                            </div>
-                        ))}
+                    <div className={Styles["volatility-content"]}>
+                        {t(`volatility`)}
+                        <div className={Styles["volatility-stars"]}>
+                            {Array.from({ length: 5 }, (_, index) => (
+                                <div key={index} className={`${Styles["volatility-star"]}`}>
+                                    {volatilityImage(index < volatilityLevel)}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </ul>

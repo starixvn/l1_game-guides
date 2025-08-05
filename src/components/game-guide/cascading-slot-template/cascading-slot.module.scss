@@ -362,12 +362,17 @@
     opacity: 1 !important;
     z-index: -1;
 }
+
 .volatility-wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.volatility-content {
     text-transform: uppercase;
     border: 0.1rem solid white;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
-    justify-self: anchor-center;
     display: flex;
     align-items: center;
     gap: 0.5rem;
