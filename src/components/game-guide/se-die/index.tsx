@@ -140,7 +140,7 @@ const SeDieGuide = (props: GameGuideBase) => {
         default:
             return (
                 <TolgeeProvider tolgee={tolgee}>
-                    <SeDieGameGuideContent {...resource}/>
+                    <SeDieGameGuideContent {...resource} tolgee={tolgee} />
                 </TolgeeProvider>
             );
     }

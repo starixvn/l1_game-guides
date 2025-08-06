@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
@@ -7,6 +7,8 @@ import { GameGuideProps } from "../../type";
 import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import Styles from "../win-three.module.scss";
 import MD5 from "../../base/md5";
+import { IMd5Resources } from "../../base/md5/languages/types";
+import { generateMD5TranslationResource } from "../../base/md5/languages/tolgee";
 
 const tolgee = initTolgee(["WinThreeCards"]);
 
@@ -317,14 +319,18 @@ const renderRankingLevel = () => {
 const WinThreeCardsGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
+    const [md5Resources, setMd5Resources] = useState<IMd5Resources | undefined>(undefined);
     const { t } = useTranslate(["WinThreeCards", "Common"]);
 
-    // Handle locale changes
-    React.useEffect(() => {
+    useEffect(() => {
         if (locale) {
-            tolgee.changeLanguage(locale);
+            (async () => {
+                await tolgee.changeLanguage(locale);
+                const md5Resources = generateMD5TranslationResource(tolgee);
+                setMd5Resources(md5Resources);
+            })();
         }
-    }, [locale]);
+    }, [locale, tolgee]);
 
     return (
         <>
@@ -339,6 +345,7 @@ const WinThreeCardsGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 {renderRankingLevel()}
                 <MD5
                     locale={locale}
+                    resources={md5Resources}
                     step1ImageUrl={"/static/images/win-three-cards/md5_step1_en.png?v=3"}
                     step2ImageUrl={"/static/images/win-three-cards/md5_step2_en.png?v=3"}
                     step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}

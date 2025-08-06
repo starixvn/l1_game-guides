@@ -1,6 +1,6 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { UserStakeLevelProps } from "../../../pages";
-import { T, useTranslate } from "@tolgee/react";
+import { T, TolgeeInstance, useTranslate } from "@tolgee/react";
 import { formatOdds, formatOddsNotTwoDot, numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
@@ -12,6 +12,7 @@ import { ENVIRONMENT } from "../../../common/constants";
 import MD5 from "../base/md5";
 import { GameGuideProps } from "../type";
 import { Markup } from "interweave";
+import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 
 const SeDieIntroduction: FC<{
     t: Function;
@@ -287,10 +288,13 @@ const SeDieMD5: FC<{
     locale?: string;
     environment?: string;
     orientation?: string;
-}> = ({ t, gameId, locale, environment, orientation }) => {
+    tolgee: TolgeeInstance;
+}> = ({ t, gameId, locale, environment, orientation, tolgee }) => {
     if (!isShowedMD5(environment, orientation)) {
         return null;
     }
+
+    const md5Resources = useMemo(() => generateMD5TranslationResource(tolgee), [tolgee]);
 
     const currentGameType = SeDieMini.includes(gameId!) ? "mini-sedie" : "sedie";
 
@@ -319,6 +323,7 @@ const SeDieMD5: FC<{
     return (
         <MD5
             locale={locale}
+            resources={md5Resources}
             step1ImageUrl={`/static/images/${currentGameType}/md5_step1_${imageSuffix}.png?v=5`}
             step2ImageUrl={`/static/images/${currentGameType}/md5_step2_${imageSuffix}.png?v=5`}
             step3ImageUrl={`/static/images/${currentGameType}/md5_step3.png?v=2`}
@@ -338,9 +343,10 @@ export interface SeDieGameGuideContentsProps {
     orientation?: string;
     locale?: string;
     isScrollMD5?: boolean;
+    tolgee: TolgeeInstance;
 }
 
-const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
     const {
         gameConfigs,
         gameName,
@@ -352,6 +358,7 @@ const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
         fractionalOddsFormat,
         orientation,
         locale,
+        tolgee,
     } = props;
 
     const { t } = useTranslate(["SeDie", "Common"]);
@@ -373,7 +380,7 @@ const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
                     t={t}
                 />
                 <SeDieStatistical t={t} />
-                <SeDieMD5 t={t} gameId={gameId} locale={locale} environment={environment} orientation={orientation} />
+                <SeDieMD5 t={t} gameId={gameId} locale={locale} environment={environment} orientation={orientation} tolgee={tolgee} />
                 <TermsAndConditionsTolgee />
             </ul>
         </div>
