@@ -142,36 +142,17 @@ const FishPrawnCrabMD5: FC<{
     if (environment !== ENVIRONMENT.sc) {
         return null;
     }
-
-    const getImageSuffix = (locale?: string) => {
-        switch (locale) {
-            case "vi":
-                return "vi";
-            case "id":
-                return "id";
-            case "th":
-                return "th";
-            case "zh-cn":
-                return "zh_cn";
-            case "zh-tw":
-                return "zh_tw";
-            case "ja":
-                return "ja";
-            default:
-                return "en"; // fallback to English
-        }
-    };
-
-    const imageSuffix = getImageSuffix(locale);
+    
+    const noteValue = "{3,1,2}";
 
     return (
         <MD5
             locale={locale}
-            step1ImageUrl={`/static/images/fish-prawn-crab/md5_step1_${imageSuffix}.png?v=4`}
-            step2ImageUrl={`/static/images/fish-prawn-crab/md5_step2_${imageSuffix}.png?v=4`}
+            step1ImageUrl={`/static/images/fish-prawn-crab/md5_step1_${locale}.png?v=4`}
+            step2ImageUrl={`/static/images/fish-prawn-crab/md5_step2_${locale}.png?v=4`}
             step3ImageUrl={`/static/images/fish-prawn-crab/md5_step3_en.png?v=5`}
             step4ImageUrl={`/static/images/fish-prawn-crab/md5_step4_en.png?v=5`}
-            note={<div>{t("md5_note")}</div>}
+            note={<T keyName={"md5_note"} params={{ noteValue: noteValue }} ns="FishPrawnCrab"/>}
         />
     );
 
