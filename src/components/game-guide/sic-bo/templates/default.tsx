@@ -11,15 +11,26 @@ import { getSicBoTranslationResource } from "../languages";
 import { ISicBoTranslationResource } from "../languages/types";
 import Styles from "../sic-bo.module.scss";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { IMd5Resources } from "../../base/md5/languages/types";
+import { getBaseMD5TranslationResource } from "../../base/md5/languages";
 
 export default class SicBoTemplate extends React.Component<
-    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISicBoTranslationResource },
-    { translationResource: ISicBoTranslationResource }
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & {
+        translationResource?: ISicBoTranslationResource;
+        md5TranslationResource?: IMd5Resources;
+    },
+    { translationResource: ISicBoTranslationResource; md5TranslationResource: IMd5Resources }
 > {
-    constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: ISicBoTranslationResource }) {
+    constructor(
+        props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & {
+            translationResource?: ISicBoTranslationResource;
+            md5TranslationResource?: IMd5Resources;
+        }
+    ) {
         super(props);
         this.state = {
             translationResource: props.translationResource || getSicBoTranslationResource(props.locale),
+            md5TranslationResource: props.md5TranslationResource || getBaseMD5TranslationResource(props.locale),
         };
     }
 
@@ -269,6 +280,7 @@ export default class SicBoTemplate extends React.Component<
                     {isShowedMD5(environment, orientation) && (
                         <MD5
                             locale={locale}
+                            resources={this.state.md5TranslationResource}
                             step1ImageUrl={md5.step1ImageUrl}
                             step2ImageUrl={md5.step2ImageUrl}
                             step3ImageUrl="/static/images/sicbo/md5_step3.png"

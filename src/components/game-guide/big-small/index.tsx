@@ -11,7 +11,7 @@ import { locales, IObjectKeys } from "../../../common/constants";
 import { handleMaxBetChoice } from "../index.helper";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { getGameConfigProject } from "../../index.helper";
-import {  TolgeeProvider } from "@tolgee/react";
+import { TolgeeProvider } from "@tolgee/react";
 import BigSmallGameGuideContent from "./content-tolgee";
 import initTolgee from "../../../helpers/tolgee-helper";
 
@@ -33,7 +33,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         project,
         isInPromotionTime,
         fractionalOddsFormat,
-        orientation
+        orientation,
     } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
@@ -87,7 +87,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         isInPromotionTime: isInPromotionTime,
         fractionalOddsFormat,
         locale,
-        orientation
+        orientation,
     };
 
     switch (locale) {
@@ -105,7 +105,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
         default:
             return (
                 <TolgeeProvider tolgee={tolgee}>
-                    <BigSmallGameGuideContent {...resource} />
+                    <BigSmallGameGuideContent {...resource} tolgee={tolgee} />
                 </TolgeeProvider>
             );
     }

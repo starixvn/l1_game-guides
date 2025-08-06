@@ -1,6 +1,6 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { UserStakeLevelProps } from "../../../pages";
-import { T, useTranslate } from "@tolgee/react";
+import { T, TolgeeInstance, useTranslate } from "@tolgee/react";
 import { formatOdds } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
@@ -9,6 +9,8 @@ import { isShowedMD5 } from "../../shared";
 import { GameGuideProps } from "../type";
 import ScrollToMD5 from "../../shared/md5-number";
 import MD5Tolgee from "../base/md5/md5-tolgee";
+import { getBaseMD5TranslationResource } from "../base/md5/languages";
+import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 
 const bigSmallNamespace = "BigSmall";
 
@@ -23,8 +25,8 @@ const BigSmallIntroduction: FC<{ t: Function; displayName?: string }> = ({ t, di
     );
 };
 
-const BigSmallGameRules: FC<{ 
-    t: Function; 
+const BigSmallGameRules: FC<{
+    t: Function;
     maxBetFollowChoice: MaxBetChoicesProps | undefined;
 }> = ({ t, maxBetFollowChoice }) => {
     return (
@@ -41,9 +43,9 @@ const BigSmallGameRules: FC<{
                 <li>
                     <T
                         keyName="gamerules_para_4"
-                        params={{ 
+                        params={{
                             minBet: maxBetFollowChoice?.minBetMain || 0,
-                            maxBet: maxBetFollowChoice?.maxBetMain || 0
+                            maxBet: maxBetFollowChoice?.maxBetMain || 0,
                         }}
                         ns={bigSmallNamespace}
                     />
@@ -72,11 +74,7 @@ const BigSmallPayout: FC<{
             <h2>{t("title_payouts")}</h2>
             <ul className="desc">
                 <li>
-                    <T
-                        keyName="payouts_para_1"
-                        params={{ odds: formatOdds(odds?.big, fractionalOddsFormat) }}
-                        ns={bigSmallNamespace}
-                    />
+                    <T keyName="payouts_para_1" params={{ odds: formatOdds(odds?.big, fractionalOddsFormat) }} ns={bigSmallNamespace} />
                 </li>
                 <li>{t("payouts_para_2", { ns: bigSmallNamespace })}</li>
                 <li>{t("payouts_para_3", { ns: bigSmallNamespace })}</li>
@@ -95,14 +93,15 @@ export interface BigSmallGameGuideContentsProps {
     locale?: string;
 }
 
-const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
     const { t } = useTranslate();
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, locale, fractionalOddsFormat, orientation } =
+    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, locale, fractionalOddsFormat, orientation, tolgee } =
         props;
 
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
+    const md5Resources = useMemo(() => generateMD5TranslationResource(tolgee), [tolgee]);
 
     const md5Value = "{6, 2, 5}";
 
@@ -111,19 +110,16 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className={`game-guide`}>
                 <BigSmallIntroduction t={t} displayName={gameName} />
                 <BigSmallGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} />
-                <BigSmallPayout
-                    gameConfigs={gameConfigs}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                    t={t}
-                />
+                <BigSmallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} t={t} />
                 {isShowedMD5(environment, orientation) && (
                     <MD5
+                        resources={md5Resources}
                         locale={locale}
                         step1ImageUrl={`/static/images/big-small/md5_step1_${locale}.png?v=3`}
                         step2ImageUrl={`/static/images/big-small/md5_step2_${locale}.png?v=3`}
                         step3ImageUrl={"/static/images/big-small/md5_step3.png?v=1"}
                         step4ImageUrl={"/static/images/big-small/md5_step4.png?v=1"}
-                        note={<T keyName={"md5_note"} params={{ md5Value: md5Value }} ns="BigSmall"/>}
+                        note={<T keyName={"md5_note"} params={{ md5Value: md5Value }} ns="BigSmall" />}
                     />
                 )}
                 <TermsAndConditionsTolgee />
@@ -132,4 +128,4 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
     );
 };
 
-export default BigSmallGameGuideContent; 
+export default BigSmallGameGuideContent;

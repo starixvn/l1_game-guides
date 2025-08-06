@@ -98,7 +98,7 @@ const FishPrawnCrab = (props: GameGuideBase) => {
         default:
             return (
                 <TolgeeProvider tolgee={tolgee}>
-                    <FishPrawnCrabGameGuideContent {...resource} />
+                    <FishPrawnCrabGameGuideContent {...resource} tolgee={tolgee} />
                 </TolgeeProvider>
             );
     }

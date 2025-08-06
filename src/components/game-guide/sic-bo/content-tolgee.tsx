@@ -6,6 +6,7 @@ import { getSicBoTolgeeTranslationResource } from "./languages/tolgee";
 import { handleMaxBetChoice } from "./index";
 import SicBoTemplate from "./templates/default";
 import { getGameConfigProject } from "../../index.helper";
+import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 
 const SicBoContent = (props: GameGuideBase) => {
     const {
@@ -59,6 +60,13 @@ const SicBoContent = (props: GameGuideBase) => {
         return undefined;
     }, [tolgee, locale]);
 
+    const md5TranslationResource = useMemo(() => {
+        if (tolgee) {
+            return generateMD5TranslationResource(tolgee);
+        }
+        return undefined;
+    }, [tolgee]);
+
     if (!configs) {
         return <></>;
     }
@@ -73,7 +81,7 @@ const SicBoContent = (props: GameGuideBase) => {
         orientation,
     };
 
-    return <SicBoTemplate {...resource} translationResource={translationResource} />;
+    return <SicBoTemplate {...resource} translationResource={translationResource} md5TranslationResource={md5TranslationResource} />;
 };
 
 export default SicBoContent;
