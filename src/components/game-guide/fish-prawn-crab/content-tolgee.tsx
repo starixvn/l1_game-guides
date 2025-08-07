@@ -173,7 +173,7 @@ const FishPrawnCrabGameGuideContent: FC<GameGuideProps<GameConfigProps, MaxBetCh
     return (
         <div className={`fish-prawn-crab`}>
             <ul className={`game-guide`}>
-                <FishPrawnCrabIntroduction t={t} displayName={gameName} />
+                <FishPrawnCrabIntroduction t={t} displayName={t("game_name", { ns: "FishPrawnCrab" })} />
                 <FishPrawnCrabGameRules
                     t={t}
                     maxBetFollowChoice={maxBetFollowChoice}

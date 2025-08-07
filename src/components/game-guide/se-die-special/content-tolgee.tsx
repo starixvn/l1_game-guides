@@ -15,7 +15,7 @@ const SeDieSpecialIntroduction: FC<{
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className="content">
-                <T keyName={"intro_para_1"} params={{ gameName: displayName }} ns="SeDieSpecial" />
+                <T keyName={"intro_para_1"} params={{ gameName: t("game_name", { ns: "SeDieSpecial" }) }} ns="SeDieSpecial" />
             </div>
         </li>
     );

@@ -1,15 +1,14 @@
-import { FormatIcu } from "@tolgee/format-icu";
-import { BackendFetch, Tolgee, TolgeeProvider, useTranslate } from "@tolgee/react";
+import { TolgeeProvider, useTranslate } from "@tolgee/react";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
-import { AVAILABLE_LANGUAGES, Themes } from "../../../../common/constants";
+import React, { useEffect } from "react";
+import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
+import initTolgee from "../../../../helpers/tolgee-helper";
 import { isShowedMD5 } from "../../../shared";
+import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
 import Styles from "../fish-prawn-crab-vip.module.scss";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
-import initTolgee from "../../../../helpers/tolgee-helper";
-import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 
 const tolgee = initTolgee([]);
 
@@ -47,14 +46,13 @@ export const renderListIcon = (theme: string | undefined, isPortraitGame: boolea
 };
 
 const FishPrawnCrabGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, orientation, environment, locale } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, orientation, environment, locale } = props;
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isPortraitGame = !isShowedMD5(environment, orientation);
-    const { t } = useTranslate(["FishPrawnCrabVip"]);
+    const { t } = useTranslate(["FishPrawnCrabVip", "VipFishPrawnCrab"]);
 
-    // Handle locale changes
-    React.useEffect(() => {
+    useEffect(() => {
         if (locale) {
             tolgee.changeLanguage(locale);
         }
@@ -68,9 +66,7 @@ const FishPrawnCrabGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName: t("game_name", { ns: "VipFishPrawnCrab" }) })}</p>
                     <div className={`${Styles["wrapper-icon"]} icon-wrapper ${cssClassIconWrapper}`}>
                         {renderListIcon(theme, isPortraitGame)}
                         <div className={`${Styles["icon-text"]} text`}>{t("symbols_stag")}</div>
@@ -131,23 +127,17 @@ const FishPrawnCrabGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                                             <>
                                                 <tr>
                                                     <td>{t("table_mountain")}</td>
-                                                    <td className="text-start">
-                                                        {t("table_mountain_desc")}
-                                                    </td>
+                                                    <td className="text-start">{t("table_mountain_desc")}</td>
                                                     <td>{formatOdds(odds?.mountain, fractionalOddsFormat)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("table_ocean")}</td>
-                                                    <td className="text-start">
-                                                        {t("table_ocean_desc")}
-                                                    </td>
+                                                    <td className="text-start">{t("table_ocean_desc")}</td>
                                                     <td>{formatOdds(odds?.ocean, fractionalOddsFormat)}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>{t("table_any_triple")}</td>
-                                                    <td className="text-start">
-                                                        {t("table_any_triple_desc")}
-                                                    </td>
+                                                    <td className="text-start">{t("table_any_triple_desc")}</td>
                                                     <td>{formatOdds(odds?.anyTriple, fractionalOddsFormat)}</td>
                                                     <td>
                                                         {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetAnyTriple}
@@ -205,4 +195,4 @@ const FishPrawnCrabGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, 
     );
 };
 
-export default FishPrawnCrabGuideTolgeeWrapper; 
+export default FishPrawnCrabGuideTolgeeWrapper;

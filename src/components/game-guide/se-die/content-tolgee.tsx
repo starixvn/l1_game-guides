@@ -1,18 +1,17 @@
-import { FC, useEffect, useMemo } from "react";
-import { UserStakeLevelProps } from "../../../pages";
 import { T, TolgeeInstance, useTranslate } from "@tolgee/react";
-import { formatOdds, formatOddsNotTwoDot, numberWithCommas } from "../../../helpers/number-helper";
-import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { SeDieMini } from "./index";
+import { Markup } from "interweave";
+import { FC, useEffect, useMemo } from "react";
+import { ENVIRONMENT } from "../../../common/constants";
+import { formatOdds } from "../../../helpers/number-helper";
+import { isShowedMD5 } from "../../shared";
 import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../shared/dot";
 import ScrollToMD5 from "../../shared/md5-count-down-timer";
-import { isShowedMD5 } from "../../shared";
-import { ENVIRONMENT } from "../../../common/constants";
 import MD5 from "../base/md5";
-import { GameGuideProps } from "../type";
-import { Markup } from "interweave";
 import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
+import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
+import { GameGuideProps } from "../type";
+import { SeDieMini } from "./index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const SeDieIntroduction: FC<{
     t: Function;
@@ -346,10 +345,15 @@ export interface SeDieGameGuideContentsProps {
     tolgee: TolgeeInstance;
 }
 
+const GameNameMapping: Record<number, string> = {
+    2: "game_name",
+    9: "game_name_9",
+    22: "game_name_22",
+};
+
 const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
     const {
         gameConfigs,
-        gameName,
         gameId,
         maxBetFollowChoice,
         isScrollMD5,
@@ -363,6 +367,10 @@ const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
 
     const { t } = useTranslate(["SeDie", "Common"]);
 
+    const displayName = useMemo(() => {
+        return t(GameNameMapping[gameId || 2]!, { ns: "SeDie" });
+    }, [t]);
+
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
@@ -370,7 +378,7 @@ const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
     return (
         <div className={`sedie`}>
             <ul className={`game-guide`}>
-                <SeDieIntroduction t={t} displayName={gameName} gameId={gameId} environment={environment} />
+                <SeDieIntroduction t={t} displayName={displayName} gameId={gameId} environment={environment} />
                 <SeDieGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} gameId={gameId} />
                 <SeDiePayout
                     gameConfigs={gameConfigs}
