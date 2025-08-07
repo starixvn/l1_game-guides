@@ -685,7 +685,8 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["cascadingslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
-    const { gameSettings, name, displayName, gameConfigs, isRemodeling } = props;
+    const { gameSettings, name, displayName, gameConfigs } = props;
+    const isRemodeling = gameSettings.OddsByCounts[9]?.[0].Odds > 0;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
