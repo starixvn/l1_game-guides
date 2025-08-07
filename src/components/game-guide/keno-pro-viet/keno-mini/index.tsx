@@ -85,14 +85,13 @@ const KenoMiniGuide = (props: GameGuideBase) => {
 
     // For non-Tolgee languages, use the default template
     if (!isTolgeeSupportLanguage()) {
-        
         return <KenoMiniGuideTemplate {...resource} />;
     }
 
     // For Tolgee-supported languages, use the Tolgee template
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
-            <KenoMiniGameGuideContent {...resource} />
+            <KenoMiniGameGuideContent {...resource} tolgee={tolgee} />
         </TolgeeProvider>
     );
 };

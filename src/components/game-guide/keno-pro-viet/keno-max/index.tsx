@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { GameGuideBase } from "../../type";
+import { TolgeeProvider } from "@tolgee/react";
+import { useEffect, useState } from "react";
+import initTolgee from "../../../../helpers/tolgee-helper";
+import { getGameConfigProject } from "../../../index.helper";
 import { handleMaxBetChoiceKenoPro } from "../../index.helper";
+import { GameGuideBase } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import KenoProGuideTemplate from "./templates/default";
 import KenoProTolgeeTemplate from "./templates/tolgee-template";
-import { getGameConfigProject } from "../../../index.helper";
-import { TolgeeProvider } from "@tolgee/react";
-import initTolgee from "../../../../helpers/tolgee-helper";
 
 const tolgee = initTolgee(["MegaKeno", "Common"]);
 
@@ -120,6 +120,7 @@ const KenoMaxGuide = (props: GameGuideBase) => {
                 maxBetFollowChoice={maxBetFollowChoice}
                 environment={environment}
                 fractionalOddsFormat={fractionalOddsFormat}
+                tolgee={tolgee}
             />
         </TolgeeProvider>
     );

@@ -1,21 +1,21 @@
-import React from "react";
-import { renderTermsAndConditions } from "../../../../shared";
+import { TolgeeInstance, useTranslate } from "@tolgee/react";
+import { Markup } from "interweave";
+import React, { useMemo } from "react";
+import { formatOdds } from "../../../../../helpers/number-helper";
+import { StringFormat } from "../../../../../helpers/string-helper";
+import { generateMD5TranslationResource } from "../../../base/md5/languages/tolgee";
+import BaseTermsAndConditions from "../../../base/terms-and-conditions/terms-and-conditions";
 import { GameGuideProps } from "../../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../../type";
-import { formatOdds } from "../../../../../helpers/number-helper";
 import { IKenoTranslationResource } from "../languages/types";
-import { StringFormat } from "../../../../../helpers/string-helper";
-import { Markup } from "interweave";
 import KenoMD5 from "./md5";
-import BaseTermsAndConditions from "../../../base/terms-and-conditions/terms-and-conditions";
-import { useTranslate } from "@tolgee/react";
 
 // Functional component wrapper to use useTranslate hook
-const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
     const { t } = useTranslate();
     const kenoProMaxNamespace = "MegaKeno";
     const commonNamespace = "Common";
-    const { locale, environment, gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
+    const { locale, environment, gameConfigs, maxBetFollowChoice, fractionalOddsFormat, tolgee } = props;
 
     const getTranslationResult = (): IKenoTranslationResource => {
         return {
@@ -107,6 +107,10 @@ const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
             },
         };
     };
+
+    const md5Resource = useMemo(() => {
+        return generateMD5TranslationResource(tolgee);
+    }, [tolgee]);
 
     const translationResource = getTranslationResult();
 
@@ -358,6 +362,7 @@ const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
         return (
             <KenoMD5
                 locale={locale}
+                resources={md5Resource}
                 environment={environment}
                 md5Key="520e543659d05eb7024f9f76d85479f7"
                 md5Result="{363}_{#26907421fad9b51da1169691982}"
@@ -386,4 +391,4 @@ const KenoProTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetChoi
     );
 };
 
-export default KenoProTolgeeTemplate; 
+export default KenoProTolgeeTemplate;

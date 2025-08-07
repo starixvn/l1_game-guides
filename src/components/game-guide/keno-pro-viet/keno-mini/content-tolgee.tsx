@@ -1,14 +1,13 @@
-import { FC } from "react";
-import { T, useTranslate } from "@tolgee/react";
-import { formatOdds } from "../../../../helpers/number-helper";
-import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { T, TolgeeInstance, useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
-import { GameGuideProps } from "../../type";
+import { FC, useMemo } from "react";
+import { formatOdds } from "../../../../helpers/number-helper";
 import { StringFormat } from "../../../../helpers/string-helper";
-import MD5Tolgee from "../../base/md5/md5-tolgee";
-import MD5 from "../../base/md5";
+import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
+import { GameGuideProps } from "../../type";
 import KenoMD5 from "../keno-max/templates/md5";
+import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { generateMD5TranslationResource } from "../../base/md5/languages/tolgee";
 
 const kenoMiniNamespace = "KenoMini";
 
@@ -45,7 +44,7 @@ const KenoMiniIntroduction: FC<{
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className="content">
-                <T keyName={"introduction_description"} params={{ gameName: displayName }} ns="KenoMini" />
+                <T keyName={"introduction_description"} params={{ gameName: displayName }} ns={kenoMiniNamespace} />
             </div>
         </li>
     );
@@ -299,10 +298,14 @@ export interface KenoMiniGameGuideContentsProps {
     displayName?: string;
 }
 
-const KenoMiniGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+const KenoMiniGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
     const { t } = useTranslate(["KenoMini", "Common"]);
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale, environment } = props;
+    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale, environment, tolgee } = props;
     const { odds } = gameConfigs;
+
+    const md5Resource = useMemo(() => {
+        return generateMD5TranslationResource(tolgee);
+    }, [tolgee]);
 
     return (
         <ul className="game-guide">
@@ -312,6 +315,7 @@ const KenoMiniGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
             <KenoMiniPayouts t={t} odds={odds} maxBetFollowChoice={maxBetFollowChoice} fractionalOddsFormat={fractionalOddsFormat} />
             <KenoMD5
                 locale={locale}
+                resources={md5Resource}
                 environment={environment}
                 md5Key="f2bbd32524fe6e2e41eaaaa0eacd6d86"
                 md5Result="{237}_{#26907421fad9b51da1169691982}"
