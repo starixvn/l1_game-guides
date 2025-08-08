@@ -670,7 +670,7 @@ const renderCallBet = (fractionalOddsFormat = false) => {
 };
 
 const RouletteGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     const { t } = useTranslate([NAMESPACE]);
 
@@ -686,7 +686,7 @@ const RouletteGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">{t("intro_para_1", { gameName })}</p>
+                    <p className="content">{t("intro_para_1", { gameName: t("game_name", { ns: NAMESPACE }) })}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(odds, maxBetFollowChoice, fractionalOddsFormat)}</li>
                 {renderBettingOptions(odds, fractionalOddsFormat, locale || "en")}

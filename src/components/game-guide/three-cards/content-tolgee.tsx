@@ -1,20 +1,21 @@
-import { FC } from "react";
 import { T, useTranslate } from "@tolgee/react";
-import { formatOdds } from "../../../helpers/number-helper";
-import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "./type";
-import Styles from "./three.module.scss";
-import { GameGuideProps } from "../type";
-import { Themes } from "../../../common/constants";
-import { useTheme } from "next-themes";
-import { StringFormat } from "../../../helpers/string-helper";
-import { renderToString } from "react-dom/server";
 import { Markup } from "interweave";
+import { useTheme } from "next-themes";
+import { FC } from "react";
+import { renderToString } from "react-dom/server";
+import { Themes } from "../../../common/constants";
+import { formatOdds } from "../../../helpers/number-helper";
+import { StringFormat } from "../../../helpers/string-helper";
+import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
+import { GameGuideProps } from "../type";
+import Styles from "./three.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "./type";
 
 const diamondSpan = <span className={Styles["img-red"]}>♦</span>;
 const heartSpan = <span className={Styles["img-red"]}>♥</span>;
 const spadeSpan = <span className={Styles["img-black"]}>♠</span>;
 const clubSpan = <span className={Styles["img-black"]}>♣</span>;
+const NAMESPACE = "ThreeCards";
 
 const renderChoiceImage = (locale = "en", isSM: boolean, t: Function) => {
     const imgCustomize = "img-customize";
@@ -76,33 +77,34 @@ const renderChoiceImage = (locale = "en", isSM: boolean, t: Function) => {
     );
 };
 
-const ThreeCardsIntroduction: FC<{ 
-    t: Function; 
-    displayName?: string;
+const ThreeCardsIntroduction: FC<{
+    t: Function;
     locale?: string;
     isSM: boolean;
-}> = ({ t, displayName, locale, isSM }) => {
+}> = ({ t, locale, isSM }) => {
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className={`content ${Styles["content-customize"]}`}>
-                <Markup content={StringFormat(t("intro_para_1", { 
-                    gameName: displayName, 
-                    diamondSpan: renderToString(diamondSpan), 
-                    heartSpan: renderToString(heartSpan), 
-                    spadeSpan: renderToString(spadeSpan), 
-                    clubSpan: renderToString(clubSpan) 
-                }))} />
+                <Markup
+                    content={StringFormat(
+                        t("intro_para_1", {
+                            gameName: t("game_name", { ns: NAMESPACE }) || "",
+                            diamondSpan: renderToString(diamondSpan),
+                            heartSpan: renderToString(heartSpan),
+                            spadeSpan: renderToString(spadeSpan),
+                            clubSpan: renderToString(clubSpan),
+                        })
+                    )}
+                />
             </div>
-            <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>
-                {renderChoiceImage(locale, isSM, t)}
-            </div>
+            <div className={`${Styles["container-img"]} ${isSM ? Styles["sm"] : ""}`}>{renderChoiceImage(locale, isSM, t)}</div>
         </li>
     );
 };
 
-const ThreeCardsGameRules: FC<{ 
-    t: Function; 
+const ThreeCardsGameRules: FC<{
+    t: Function;
     maxBetFollowChoice: MaxBetChoicesProps | undefined;
 }> = ({ t, maxBetFollowChoice }) => {
     return (
@@ -113,10 +115,7 @@ const ThreeCardsGameRules: FC<{
                 <li>{t("gamerules_para_2")}</li>
                 <li>{t("gamerules_para_3")}</li>
                 <li>
-                    <T
-                        keyName="gamerules_para_4"
-                        params={{ maxBet: maxBetFollowChoice?.maxBetMain || 0 }}
-                    />
+                    <T keyName="gamerules_para_4" params={{ maxBet: maxBetFollowChoice?.maxBetMain || 0 }} />
                 </li>
                 <li>
                     {t("gamerules_para_5")}
@@ -174,8 +173,8 @@ const ThreeCardsGameRules: FC<{
     );
 };
 
-const ThreeCardsPayouts: FC<{ 
-    t: Function; 
+const ThreeCardsPayouts: FC<{
+    t: Function;
     odds: OddsProps | undefined;
     maxBetFollowChoice: MaxBetChoicesProps | undefined;
     fractionalOddsFormat?: boolean;
@@ -243,35 +242,22 @@ export interface ThreeCardsGameGuideContentsProps {
 }
 
 const ThreeCardsGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
-    const { t } = useTranslate(["ThreeCards", "Common"]);
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
+    const { t } = useTranslate([NAMESPACE, "Common"]);
     const { odds } = gameConfigs;
     const { theme } = useTheme();
     const isSM = theme === Themes.blue ? false : true;
-    
+
     return (
         <div className={`three-cards`}>
             <ul className={`game-guide`}>
-                <ThreeCardsIntroduction 
-                    t={t} 
-                    displayName={gameName} 
-                    locale={locale}
-                    isSM={isSM}
-                />
-                <ThreeCardsGameRules 
-                    t={t} 
-                    maxBetFollowChoice={maxBetFollowChoice}
-                />
-                <ThreeCardsPayouts 
-                    t={t} 
-                    odds={odds}
-                    maxBetFollowChoice={maxBetFollowChoice}
-                    fractionalOddsFormat={fractionalOddsFormat}
-                />
+                <ThreeCardsIntroduction t={t} locale={locale} isSM={isSM} />
+                <ThreeCardsGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} />
+                <ThreeCardsPayouts t={t} odds={odds} maxBetFollowChoice={maxBetFollowChoice} fractionalOddsFormat={fractionalOddsFormat} />
                 <TermsAndConditionsTolgee />
             </ul>
         </div>
     );
 };
 
-export default ThreeCardsGameGuideContent; 
+export default ThreeCardsGameGuideContent;
