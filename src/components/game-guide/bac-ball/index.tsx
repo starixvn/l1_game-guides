@@ -5,12 +5,13 @@ import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { FormatIcu } from "@tolgee/format-icu";
 import BacBallGameGuideContent from "./content";
 import { getGameConfigProject } from "../../index.helper";
+import { AVAILABLE_LANGUAGES } from "../../../common/constants";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
     .use(BackendFetch())
     .init({
-        availableLanguages: ["en", "vi", "id", "th", "zh-cn", "zh-tw", "ja"],
+        availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
         ns: ["BacBall", "Common"],

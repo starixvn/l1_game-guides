@@ -2,7 +2,9 @@ export interface IObjectKeys {
     [key: string]: string;
 }
 
-export const locales: IObjectKeys = { en: "en", vi: "vi", th: "th", id: "id", zh_cn: "zh_cn", zh_tw: "zh_tw", ja: "ja" };
+export const AVAILABLE_LANGUAGES = ["en", "vi", "th", "id", "zh_cn", "zh_tw", "ja", "es"];
+
+export const locales: IObjectKeys = { en: "en", vi: "vi", th: "th", id: "id", zh_cn: "zh_cn", zh_tw: "zh_tw", ja: "ja", es: "es" };
 export const Themes = {
     light: "light",
     dark: "dark",

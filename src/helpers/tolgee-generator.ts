@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const gameSettings = require("../../game-settings.json");
 const tolgeeNamespaces = require("../../tolgee-namespaces.json");
+import { AVAILABLE_LANGUAGES } from "../common/constants";
 
 function writeFile(fileName: string, content: string, extension = "json") {
     const dirname = path.dirname(fileName);
@@ -28,7 +29,7 @@ const tolgeeNamespaceByGameSetting = Object.values(tmpGameSettings)
     .filter((ns) => ns);
 
 const namespaces = tolgeeNamespaces;
-const languageCodes = ["en", "id", "th", "vi", "zh_cn", "zh_tw", "ja"];
+const languageCodes = AVAILABLE_LANGUAGES;
 const tg = Tolgee().use(DevTools()).init({
     defaultLanguage: "en",
     fallbackLanguage: "en",
