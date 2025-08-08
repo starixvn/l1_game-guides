@@ -8,9 +8,8 @@ import MD5 from "../base/md5";
 import { isShowedMD5 } from "../../shared";
 import { GameGuideProps } from "../type";
 import ScrollToMD5 from "../../shared/md5-number";
-import MD5Tolgee from "../base/md5/md5-tolgee";
-import { getBaseMD5TranslationResource } from "../base/md5/languages";
 import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
+import { BigSmallName } from ".";
 
 const bigSmallNamespace = "BigSmall";
 
@@ -98,9 +97,19 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
     const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, locale, fractionalOddsFormat, orientation, tolgee } =
         props;
 
+    const GameNameMapping: Record<string, string> = {
+        [BigSmallName.TXTurbo]: "game_name_4",
+        [BigSmallName.taixiu]: "game_name",
+    };
+
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
+
+    const displayName = useMemo(() => {
+        return t(GameNameMapping[gameName] || "game_name", { ns: "BigSmall" });
+    }, [gameName]);
+
     const md5Resources = useMemo(() => generateMD5TranslationResource(tolgee), [tolgee]);
 
     const md5Value = "{6, 2, 5}";
@@ -108,7 +117,7 @@ const BigSmallGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetC
     return (
         <div className={`bigsmall`}>
             <ul className={`game-guide`}>
-                <BigSmallIntroduction t={t} displayName={gameName} />
+                <BigSmallIntroduction t={t} displayName={displayName} />
                 <BigSmallGameRules t={t} maxBetFollowChoice={maxBetFollowChoice} />
                 <BigSmallPayout gameConfigs={gameConfigs} fractionalOddsFormat={fractionalOddsFormat} t={t} />
                 {isShowedMD5(environment, orientation) && (

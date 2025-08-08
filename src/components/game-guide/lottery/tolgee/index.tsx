@@ -1,20 +1,21 @@
-import React from "react";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import React, { useEffect } from "react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
-import { GameConfigProps, OddsProps, MaxBetChoicesProps } from "../type";
 import Styles from "../lottery.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
-const tolgee = initTolgee(["Lottery"]);
+const NAMESPACE = "Lottery";
+const tolgee = initTolgee([NAMESPACE]);
 
 const exampleTitle = "example-title";
 const tableSmall = "table-small";
 const textRedLight = "text-red-light";
 
 const renderGameRule = (maxBet: string | undefined) => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <li className="guide-item">
             <h2>{t("gamerules_title")}</h2>
@@ -29,7 +30,7 @@ const renderGameRule = (maxBet: string | undefined) => {
 };
 
 const renderBettingOptions = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <li className="guide-item">
             <h2>{t("betting_options_title")}</h2>
@@ -117,7 +118,7 @@ const renderBettingOptions = () => {
 };
 
 const BettingOptions4Sets = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <>
             <div className={Styles[exampleTitle]}>{t("example_4_sets_title")}</div>
@@ -150,7 +151,7 @@ const BettingOptions4Sets = () => {
 };
 
 const BettingOptionsSpecial = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <>
             <div className={Styles[exampleTitle]}>{t("example_special_title")}</div>
@@ -183,7 +184,7 @@ const BettingOptionsSpecial = () => {
 };
 
 const BettingOptionsHead = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <>
             <div className={Styles[exampleTitle]}>{t("example_head_title")}</div>
@@ -217,7 +218,7 @@ const BettingOptionsHead = () => {
 };
 
 const BettingOptionsTail = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <>
             <div className={Styles[exampleTitle]}>{t("example_tail_title")}</div>
@@ -250,7 +251,7 @@ const BettingOptionsTail = () => {
 };
 
 const BettingOptions27Sets = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <>
             <div className={Styles[exampleTitle]}>{t("example_27_sets_title")}</div>
@@ -385,7 +386,7 @@ const BettingOptions27Sets = () => {
 };
 
 const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     return (
         <li className="guide-item">
             <h2>{t("payouts_title")}</h2>
@@ -472,7 +473,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const renderViewStatistic = () => {
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
     const statsList = "stats-list";
     const resultRow = "result-row";
     const statsResult = "stats-result";
@@ -587,12 +588,11 @@ const renderViewStatistic = () => {
 };
 
 const LotteryGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
-    const { t } = useTranslate(["Lottery"]);
+    const { t } = useTranslate([NAMESPACE]);
 
-    // Handle locale changes
-    React.useEffect(() => {
+    useEffect(() => {
         if (locale) {
             tolgee.changeLanguage(locale);
         }
@@ -603,7 +603,7 @@ const LotteryGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoices
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">{t("intro_para_1", { gameName })}</p>
+                    <p className="content">{t("intro_para_1", { gameName: t("table_rng_lottery", { ns: NAMESPACE }) })}</p>
                     <ul className="desc">
                         <li className="contentBeforeEmpty">
                             <table className={`table text-center ${Styles["table-medium"]}`}>

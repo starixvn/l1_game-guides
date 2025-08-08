@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
-import { GameGuideBase } from "../type";
-import { UserStakeLevelProps } from "../../../pages";
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { locales } from "../../../common/constants";
+import { numberWithCommas } from "../../../helpers/number-helper";
+import { UserStakeLevelProps } from "../../../pages";
 import { getGameConfigProject } from "../../index.helper";
+import { GameGuideBase } from "../type";
 import LotteryGuideTolgeeWrapper from "./tolgee";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const LotteryGuideEN = dynamic(() => import("./en"));
 const LotteryGuideVI = dynamic(() => import("./vi"));

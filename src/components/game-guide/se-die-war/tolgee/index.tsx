@@ -1,6 +1,6 @@
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect } from "react";
 import { Themes } from "../../../../common/constants";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
@@ -374,8 +374,7 @@ const SeDieGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
     const { t } = useTranslate([NAMESPACE]);
     const pathImg = theme === Themes.light || Themes.infoSite ? `dark/guide-stats-${locale}.png` : `guide-stats-${locale}.png?1`;
 
-    // Handle locale changes
-    React.useEffect(() => {
+    useEffect(() => {
         if (locale) {
             tolgee.changeLanguage(locale);
         }
@@ -386,7 +385,7 @@ const SeDieGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesPr
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">{t("intro_para_1", { gameName })}</p>
+                    <p className="content">{t("intro_para_1", { gameName: t("game_name", { ns: NAMESPACE }) })}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
 

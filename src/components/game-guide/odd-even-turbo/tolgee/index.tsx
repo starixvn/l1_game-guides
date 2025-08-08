@@ -25,9 +25,7 @@ const OddEvenTurboGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName: t("game_name", { ns: "OddEvenTurbo" }) })}</p>
                 </li>
                 <li className="guide-item">
                     <h2>{t("gamerules_title")}</h2>
@@ -41,9 +39,9 @@ const OddEvenTurboGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
                         <li>{t("gamerules_para_3")}</li>
                         <li>{t("gamerules_para_4")}</li>
                         <li>
-                            {t("gamerules_para_5", { 
-                                minBet: maxBetFollowChoice?.minBetMain, 
-                                maxBet: maxBetFollowChoice?.maxBetMain 
+                            {t("gamerules_para_5", {
+                                minBet: maxBetFollowChoice?.minBetMain,
+                                maxBet: maxBetFollowChoice?.maxBetMain,
                             })}
                         </li>
                         <li>{t("gamerules_para_6")}</li>
@@ -78,4 +76,4 @@ const OddEvenTurboGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, M
     );
 };
 
-export default OddEvenTurboGuideTolgeeWrapper; 
+export default OddEvenTurboGuideTolgeeWrapper;

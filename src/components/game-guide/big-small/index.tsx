@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import BigSmallGuideEN from "./en";
-import BigSmallGuideVI from "./vi";
+import { TolgeeProvider } from "@tolgee/react";
+import { IObjectKeys, locales } from "../../../common/constants";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "../index.helper";
+import { GameGuideBase } from "../type";
+import BigSmallGameGuideContent from "./content-tolgee";
 import BigSmallGuideID from "./id";
 import BigSmallGuideTH from "./th";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import BigSmallGuideVI from "./vi";
 import BigSmallGuideZH_CN from "./zh_cn";
 import BigSmallGuideZH_TW from "./zh_tw";
-import { GameGuideBase } from "../type";
-import { locales, IObjectKeys } from "../../../common/constants";
-import { handleMaxBetChoice } from "../index.helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../../index.helper";
-import { TolgeeProvider } from "@tolgee/react";
-import BigSmallGameGuideContent from "./content-tolgee";
-import initTolgee from "../../../helpers/tolgee-helper";
 
 export const BigSmallName: IObjectKeys = { taixiu: "taixiu", TXTurbo: "TXTurbo" };
 
@@ -80,7 +79,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
     }
     const resource = {
         gameConfigs: configs,
-        gameName: gameNameTranslate,
+        gameName,
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
