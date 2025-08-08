@@ -23,7 +23,7 @@ $color-second: #c4bce0;
 }
 
 .intro-border {
-    background-image: url("/static/images/pf/bg-how-pf.png");
+    background-image: url("/static/images/pf/bg-how-pf.png?v=1");
     background-repeat: no-repeat;
     height: 50px;
     width: 100%;
@@ -110,10 +110,10 @@ $color-second: #c4bce0;
             scale: 0.6;
         }
     }
-.icon-guide{
-    position: absolute;
-    left: 0;
-}
+    .icon-guide {
+        position: absolute;
+        left: 0;
+    }
     .icon-info {
         @extend .icon-main;
         background: url("/static/images/pf/popup/pf-icon-info.png");
@@ -189,10 +189,10 @@ $color-second: #c4bce0;
             box-shadow: unset;
             padding: 0 0 0 0.3rem;
             font-size: 1.5rem;
-            .server-seed{
+            .server-seed {
                 padding-left: 0.5rem;
             }
-            .client-seed{
+            .client-seed {
                 padding-left: 0.5rem;
             }
         }
@@ -379,7 +379,7 @@ $color-second: #c4bce0;
             display: flex;
             justify-content: space-between;
             @media screen and (orientation: portrait) {
-                gap:0.5rem;
+                gap: 0.5rem;
             }
             .player-seed {
                 display: flex;
@@ -572,7 +572,6 @@ $color-second: #c4bce0;
             &.pf-player {
                 line-height: 1.4rem;
             }
-        
         }
     }
 }
