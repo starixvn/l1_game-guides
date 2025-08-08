@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { GameGuideBase } from "../../game-guide/type";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
-import { getGameConfigProject } from "../../index.helper";
-import SicBoGuideTemplate from "./template";
-import SicBoMiniContent from "./content-tolgee";
-import { UserStakeLevelProps } from "../../../pages";
+import { TolgeeInstance, TolgeeProvider } from "@tolgee/react";
 import { numberWithCommas } from "../../../helpers/number-helper";
 import initTolgee from "../../../helpers/tolgee-helper";
-import { TolgeeProvider } from "@tolgee/react";
-
-const tolgee = initTolgee(["SicBoMini"]);
+import { UserStakeLevelProps } from "../../../pages";
+import { getGameConfigProject } from "../../index.helper";
+import SicBoMiniContent from "./content-tolgee";
+import SicBoGuideTemplate from "./template";
 
 const isTolgeeSupportLanguage = (languageTag: string) => {
     return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
@@ -50,16 +48,16 @@ const SicBoMiniGuide = (props: GameGuideBase) => {
         setConfigs(gameConfigs);
     };
 
+    const tolgee = useMemo(() => {
+        if (isTolgeeSupportLanguage(locale || "en")) {
+            return initTolgee(["SicBoMini"], locale || "en", "en");
+        }
+        return null;
+    }, [locale]);
+
     useEffect(() => {
         getLocalGameConfigs();
     }, []);
-
-    useEffect(() => {
-        const languageTag = locale || "vi";
-        if (isTolgeeSupportLanguage(languageTag)) {
-            tolgee.changeLanguage(languageTag);
-        }
-    }, [locale]);
 
     useEffect(() => {
         if (configs) {
@@ -82,7 +80,7 @@ const SicBoMiniGuide = (props: GameGuideBase) => {
 
     if (locale && isTolgeeSupportLanguage(locale)) {
         return (
-            <TolgeeProvider tolgee={tolgee}>
+            <TolgeeProvider tolgee={tolgee as TolgeeInstance}>
                 <SicBoMiniContent
                     gameConfigs={gameConfigs}
                     gameNameTranslate={gameNameTranslate}

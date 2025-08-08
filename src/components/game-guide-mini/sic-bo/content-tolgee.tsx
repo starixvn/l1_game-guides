@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
 import { useTolgee } from "@tolgee/react";
+import { useEffect, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getSicBoMiniTolgeeTranslationResource } from "./languages/tolgee";
-import { handleMaxBetChoice } from "./index";
-import SicBoGuideTemplate from "./template/index";
 import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "./index";
+import { getSicBoMiniTolgeeTranslationResource } from "./languages/tolgee";
+import { ISicBoTranslationResource } from "./languages/types";
+import SicBoGuideTemplate from "./template/index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const SicBoMiniContent = (props: GameGuideBase) => {
     const {
@@ -22,6 +23,7 @@ const SicBoMiniContent = (props: GameGuideBase) => {
     } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
+    const [translationResource, setTranslationResource] = useState<ISicBoTranslationResource>();
 
     const tolgee = useTolgee();
 
@@ -46,14 +48,16 @@ const SicBoMiniContent = (props: GameGuideBase) => {
         }
     }, [configs]);
 
-    const translationResource = useMemo(() => {
+    useEffect(() => {
         if (tolgee) {
-            tolgee.changeLanguage(locale || "vi");
-            const resource = getSicBoMiniTolgeeTranslationResource(tolgee, locale || "vi");
-            return resource;
+            (async () => {
+                await tolgee.changeLanguage(locale || "en");
+                const resource = getSicBoMiniTolgeeTranslationResource(tolgee, locale || "en");
+                setTranslationResource(resource);
+            })();
         }
         return undefined;
-    }, [locale]);
+    }, [tolgee]);
 
     if (!configs) {
         return <></>;
