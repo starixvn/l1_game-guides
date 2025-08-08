@@ -491,6 +491,43 @@ ul {
             }
         }
     }
+    
+
+    .icon-wrapper-es {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: var(--grid-gap-FPC);
+        text-align: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(6, 7rem);
+            grid-template-rows: auto;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .symbol-size {
+            font-size: var(--font-size-FPC);
+
+            padding: 0.5rem;
+
+            &.icon-bau {
+                font-size: calc(var(--font-size-FPC) - 0.6rem);
+            }
+
+            &.icon-ca {
+                font-size: calc(var(--font-size-FPC) + 0.6rem);
+            }
+        }
+    }
+    
 
     .game-guide-alpha {
         padding-left: 1rem;

@@ -10,37 +10,42 @@ import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 
 const fishPrawnCrabNamespace = "FishPrawnCrab";
 
-export const renderIconChoice = () => {
-    return (
-        <>
-            <div className="symbol-size icon-nai"></div>
-            <div className="symbol-size icon-bau"></div>
-            <div className="symbol-size icon-ga"></div>
-            <div className="symbol-size icon-ca"></div>
-            <div className="symbol-size icon-cua"></div>
-            <div className="symbol-size icon-tom"></div>
-        </>
-    );
-};
-
 const FishPrawnCrabIntroduction: FC<{
     t: Function;
     displayName?: string;
-}> = ({ t, displayName }) => {
+    locale?: string;
+}> = ({ t, displayName, locale }) => {
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: "Common" })}</h2>
             <div className="content">
                 <T keyName={"intro_para_1"} params={{ gameName: displayName }} ns={fishPrawnCrabNamespace} />
             </div>
-            <div className="icon-wrapper">
-                {renderIconChoice()}
-                <div className="text">{t("symbol_stag")}</div>
-                <div className="text">{t("symbol_gourd")}</div>
-                <div className="text">{t("symbol_rooster")}</div>
-                <div className="text">{t("symbol_fish")}</div>
-                <div className="text">{t("symbol_crab")}</div>
-                <div className="text">{t("symbol_prawn")}</div>
+            <div className={`${locale === "es" ? "icon-wrapper-es" : "icon-wrapper"}`}>
+                <div className="icon-item">
+                    <div className="symbol-size icon-nai"></div>
+                    <div className="text">{t("symbol_stag")}</div>
+                </div>
+                <div className="icon-item">
+                    <div className="symbol-size icon-bau"></div>
+                    <div className="text">{t("symbol_gourd")}</div>
+                </div>
+                <div className="icon-item">
+                    <div className="symbol-size icon-ga"></div>
+                    <div className="text">{t("symbol_rooster")}</div>
+                </div>
+                <div className="icon-item">
+                    <div className="symbol-size icon-ca"></div>
+                    <div className="text">{t("symbol_fish")}</div>
+                </div>
+                <div className="icon-item">
+                    <div className="symbol-size icon-cua"></div>
+                    <div className="text">{t("symbol_crab")}</div>
+                </div>
+                <div className="icon-item">
+                    <div className="symbol-size icon-tom"></div>
+                    <div className="text">{t("symbol_prawn")}</div>
+                </div>
             </div>
         </li>
     );
@@ -173,7 +178,7 @@ const FishPrawnCrabGameGuideContent: FC<GameGuideProps<GameConfigProps, MaxBetCh
     return (
         <div className={`fish-prawn-crab`}>
             <ul className={`game-guide`}>
-                <FishPrawnCrabIntroduction t={t} displayName={t("game_name", { ns: "FishPrawnCrab" })} />
+                <FishPrawnCrabIntroduction t={t} displayName={t("game_name", { ns: "FishPrawnCrab" })} locale={locale} />
                 <FishPrawnCrabGameRules
                     t={t}
                     maxBetFollowChoice={maxBetFollowChoice}
