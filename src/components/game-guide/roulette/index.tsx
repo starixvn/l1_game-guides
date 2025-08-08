@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import RouletteGuideEN from "./en";
-import RouletteGuideVI from "./vi";
+import { TolgeeProvider } from "@tolgee/react";
+import { locales } from "../../../common/constants";
+import { numberWithCommas } from "../../../helpers/number-helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { getGameConfigProject } from "../../index.helper";
+import { GameGuideBase } from "../type";
 import RouletteGuideID from "./id";
 import RouletteGuideTH from "./th";
+import RouletteGuideTolgee from "./tolgee";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
+import RouletteGuideVI from "./vi";
 import RouletteGuideCN from "./zh_cn";
 import RouletteGuideTW from "./zh_tw";
-import { GameGuideBase } from "../type";
-import { locales } from "../../../common/constants";
-import { UserStakeLevelProps } from "../../../pages";
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../../index.helper";
-import RouletteGuideTolgeeWrapper from "./tolgee";
+
+export const NAMESPACE = "OldRoulette";
+const tolgee = initTolgee([NAMESPACE]);
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBetPerChoices, maxBet, minBet } = gameConfigs;
@@ -49,6 +53,9 @@ const RouletteGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replaceAll("/", ""));
+        }
     }, []);
 
     useEffect(() => {
@@ -85,7 +92,11 @@ const RouletteGuide = (props: GameGuideBase) => {
             return <RouletteGuideTW {...resource} />;
 
         default:
-            return <RouletteGuideTolgeeWrapper {...resource} />;
+            return (
+                <TolgeeProvider tolgee={tolgee}>
+                    <RouletteGuideTolgee {...resource} />
+                </TolgeeProvider>
+            );
     }
 };
 export default RouletteGuide;

@@ -1,16 +1,12 @@
-import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import { useTranslate } from "@tolgee/react";
 import React from "react";
+import { NAMESPACE } from "..";
 import { formatOdds } from "../../../../helpers/number-helper";
-import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
 import Styles from "../roulette.module.scss";
 import { renderGameRuleImage } from "../shared";
 import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
-
-const NAMESPACE = "OldRoulette";
-
-const tolgee = initTolgee([NAMESPACE]);
 
 const wrapperImg = "wrapper-img";
 const tableSmall = "table-small";
@@ -674,13 +670,6 @@ const RouletteGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
     const { odds } = gameConfigs;
     const { t } = useTranslate([NAMESPACE]);
 
-    // Handle locale changes
-    React.useEffect(() => {
-        if (locale) {
-            tolgee.changeLanguage(locale);
-        }
-    }, [locale]);
-
     return (
         <>
             <ul className="game-guide">
@@ -697,12 +686,4 @@ const RouletteGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoice
     );
 };
 
-const RouletteGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    return (
-        <TolgeeProvider tolgee={tolgee} fallback="">
-            <RouletteGuideTolgee {...props} />
-        </TolgeeProvider>
-    );
-};
-
-export default RouletteGuideTolgeeWrapper;
+export default RouletteGuideTolgee;
