@@ -18,13 +18,13 @@ const KenoPowerTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
     const { t } = useTranslate();
     const kenoPowerNamespace = "KenoPower";
     const commonNamespace = "Common";
-    const { locale, environment, gameConfigs, maxBetFollowChoice, fractionalOddsFormat, gameName } = props;
-    console.log("gameName", gameName);
+    const { locale, environment, gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
+
     const getTranslationResult = (): IPowerKenoTranslationResource => {
         return {
             main: {
                 introduction: t("title_introduction", {  ns: kenoPowerNamespace }),
-                description: t("introduction_description", { 0: gameName,ns: kenoPowerNamespace }),
+                description: t("introduction_description", { 0: t("game_name", { ns: kenoPowerNamespace }),ns: kenoPowerNamespace }),
             },
             gameRule: {
                 title: t("gameRule_title", { ns: kenoPowerNamespace }),
@@ -82,7 +82,7 @@ const KenoPowerTolgeeTemplate: React.FC<GameGuideProps<GameConfigProps, MaxBetCh
         return (
             <li className="guide-item">
                 <h2>{main.introduction}</h2>
-                <p className="content">{StringFormat(main.description, gameName)}</p>
+                <p className="content">{StringFormat(main.description)}</p>
             </li>
         );
     };
