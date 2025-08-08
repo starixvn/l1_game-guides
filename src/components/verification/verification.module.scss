@@ -1,22 +1,26 @@
 @import "../../assets/components/fonts";
 
 $color-second: #c4bce0;
+
 .wrapper {
     font-family: "Noto";
     width: 1070px;
     font-size: 16px;
     margin: 0 auto;
 }
+
 .info-seed {
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-row-gap: 8px;
     align-items: center;
     margin: 0 36px;
+
     .seed-key {
         text-transform: uppercase;
         font-weight: bold;
     }
+
     .seed-value {
         background: url("/static/images/pf/pf-veryfication-bg-text.png") no-repeat;
         height: 40px;
@@ -25,6 +29,7 @@ $color-second: #c4bce0;
         padding: 0 8px 0 20px;
         color: #fff;
         position: relative;
+
         &:before {
             background: url("/static/images/pf/pf-veryfication-blur.png");
             content: "";
@@ -36,6 +41,7 @@ $color-second: #c4bce0;
             top: 0;
         }
     }
+
     .combined-hash {
         display: block;
         overflow: hidden;
@@ -45,20 +51,24 @@ $color-second: #c4bce0;
 
 .wrapper.portrait {
     width: unset;
+
     pre {
         font-size: 2.4rem;
     }
+
     font-size: 2.4rem;
 }
 
 .info-seed-portrait {
     padding: 1rem 3.6rem;
+
     .top {
         font-size: 2.6rem;
 
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .result {
             color: #0aaccf;
         }
@@ -69,6 +79,7 @@ $color-second: #c4bce0;
         padding-top: 1rem;
         font-size: 2.6rem;
     }
+
     .seed-value {
         background-color: #151719;
         border-radius: 2.5rem;
@@ -79,6 +90,7 @@ $color-second: #c4bce0;
         padding: 0 0.8rem 0 0.5rem;
         color: #fff;
         position: relative;
+
         &:before {
             background: url("/static/images/pf/portrait/pf-veryfication-blur.png");
             content: "";
@@ -96,6 +108,7 @@ $color-second: #c4bce0;
         overflow: hidden;
         text-overflow: clip;
     }
+
     .combined-hash {
         overflow-wrap: normal;
         word-break: break-word;
@@ -105,6 +118,7 @@ $color-second: #c4bce0;
 .convert-info {
     margin: 28px 36px 0;
     position: relative;
+
     &:before {
         background: url("/static/images/pf/pf-verification-convert-bg.png");
         content: "";
@@ -119,15 +133,18 @@ $color-second: #c4bce0;
 
 .convert-info-portrait {
     margin: 0px 2rem 0;
+
     .container {
         background-color: #181d20;
         border-radius: 1rem;
         border: 0.2rem solid #303030;
-        width: 69rem;
-        height: 73rem;
+
+        // width: 69rem;
+        // height: 73rem;
         .content {
             margin: 0 1.6rem auto;
             padding-top: 1rem;
+
             .key {
                 font-size: 2.6rem;
             }
@@ -145,15 +162,18 @@ $color-second: #c4bce0;
 
 .color-second {
     color: $color-second;
+
     pre {
         font-size: 16px;
         line-height: 20px;
         margin-bottom: 0;
     }
+
     .portrait {
         color: #2ba911;
     }
 }
+
 .break-word {
     word-break: break-word;
 }
