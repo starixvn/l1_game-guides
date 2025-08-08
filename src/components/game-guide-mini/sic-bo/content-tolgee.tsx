@@ -48,11 +48,12 @@ const SicBoMiniContent = (props: GameGuideBase) => {
 
     const translationResource = useMemo(() => {
         if (tolgee) {
+            tolgee.changeLanguage(locale || "vi");
             const resource = getSicBoMiniTolgeeTranslationResource(tolgee, locale || "vi");
             return resource;
         }
         return undefined;
-    }, [tolgee, locale]);
+    }, [locale]);
 
     if (!configs) {
         return <></>;

@@ -23,7 +23,7 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
             tolgee.changeLanguage(locale);
         }
     }, [locale]);
-    
+
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
     });
@@ -33,12 +33,11 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    {isShowedMD5(environment, orientation) ? 
-                    (<p className="content">
-                        {t("intro_para_1_md5", { gameName })}
-                    </p>) : (<p className="content">
-                        {t("intro_para_1_regular")}
-                    </p>)}                    
+                    {isShowedMD5(environment, orientation) ? (
+                        <p className="content">{t("intro_para_1_md5", { gameName: t("game_name", { ns: NAMESPACE }) })}</p>
+                    ) : (
+                        <p className="content">{t("intro_para_1_regular")}</p>
+                    )}
                 </li>
                 <li className="guide-item">
                     <h2>{t("gamerules_title")}</h2>
@@ -51,9 +50,9 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
                         </ul>
                         <li>{t("gamerules_para_3")}</li>
                         <li>
-                            {t("gamerules_para_4", { 
-                                minBet: maxBetFollowChoice?.minBetMain, 
-                                maxBet: maxBetFollowChoice?.maxBetMain 
+                            {t("gamerules_para_4", {
+                                minBet: maxBetFollowChoice?.minBetMain,
+                                maxBet: maxBetFollowChoice?.maxBetMain,
                             })}
                         </li>
                         <li>{t("gamerules_para_5")}</li>
@@ -68,14 +67,16 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
                         <li>{t("payouts_para_4")}</li>
                     </ul>
                 </li>
-                {isShowedMD5(environment, orientation) &&  <MD5
-                    locale={locale}
-                    step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
-                    step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
-                    step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
-                    step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
-                    note={<div>{t("md5_note")}</div>}
-                />}
+                {isShowedMD5(environment, orientation) && (
+                    <MD5
+                        locale={locale}
+                        step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
+                        step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
+                        step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
+                        step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+                        note={<div>{t("md5_note")}</div>}
+                    />
+                )}
                 <TermsAndConditionsTolgee />
             </ul>
         </>
@@ -90,4 +91,4 @@ const MultiplayBigSmallGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigPro
     );
 };
 
-export default MultiplayBigSmallGuideTolgeeWrapper; 
+export default MultiplayBigSmallGuideTolgeeWrapper;

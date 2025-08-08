@@ -4,14 +4,14 @@ import { InContextTools } from "@tolgee/web/tools";
 import appSettings from "../common/app-settings";
 import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../common/constants";
 
-const initTolgee = (ns: string[]) => {
+const initTolgee = (ns: string[], defaultLanguage: string = "en") => {
     const tolgee = Tolgee()
         .use(FormatIcu())
         .use(BackendFetch())
         .init({
             availableLanguages: AVAILABLE_LANGUAGES,
-            fallbackLanguage: "en",
-            defaultLanguage: "en",
+            fallbackLanguage: defaultLanguage,
+            defaultLanguage: defaultLanguage,
             ns: ["Common", ...ns],
             defaultNs: "Common",
         });

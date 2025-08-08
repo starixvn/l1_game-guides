@@ -349,6 +349,9 @@ const GameNameMapping: Record<number, string> = {
     2: "game_name",
     9: "game_name_9",
     22: "game_name_22",
+    56: "game_name_9",
+    57: "game_name_9",
+    58: "game_name_9",
 };
 
 const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
