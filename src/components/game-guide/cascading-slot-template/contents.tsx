@@ -49,6 +49,7 @@ const renderPayouts = ({
     maxWinPerRound,
     t,
     isRemodeling,
+    volatility,
     freeSpin,
 }: {
     odds: any;
@@ -57,10 +58,10 @@ const renderPayouts = ({
     maxWinPerRound: number;
     t: Function;
     isRemodeling: boolean;
+    volatility: number;
     freeSpin?: any;
 }) => {
     const oddDetail = convertOddDetail(odds, false);
-    const volatilityLevel = isRemodeling ? 5 : 2;
     const volatilityImage = (isEnabled: boolean) => (
         <img src={`./static/images/slot/volatility-${isEnabled ? "enabled" : "disabled"}.png`} alt="" width="20rem" height="20rem" />
     );
@@ -81,14 +82,14 @@ const renderPayouts = ({
                 </li>
                 <li>{t("Payout-line-4")}</li>
                 <li>{t("Payout-line-5", { value: maxWinPerRound })}</li>
-                <li>{t(`paytable_line_6_${isRemodeling ? "high" : "low"}_volatility`)}</li>
+                <li>{t(`paytable_line_6_${volatility === 5 ? "high" : "low"}_volatility`)}</li>
                 <div className={Styles["volatility-wrapper"]}>
                     <div className={Styles["volatility-content"]}>
                         {t(`volatility`)}
                         <div className={Styles["volatility-stars"]}>
                             {Array.from({ length: 5 }, (_, index) => (
                                 <div key={index} className={`${Styles["volatility-star"]}`}>
-                                    {volatilityImage(index < volatilityLevel)}
+                                    {volatilityImage(index < volatility)}
                                 </div>
                             ))}
                         </div>
@@ -686,7 +687,9 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["cascadingslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
-    const isRemodeling = gameSettings.OddsByCounts[9]?.[0].Odds > 0;
+    const isRemodeling = gameSettings.OddsByCounts[9]?.every((item: any) => item.Odds > 0);
+    const volatility = gameSettings.Volatility === 0 ? 2 : gameSettings.Volatility;
+
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
@@ -712,6 +715,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                     maxWinPerRound,
                     t,
                     isRemodeling,
+                    volatility,
                     freeSpin: gameSettings.FreeSpins,
                 })}
                 {renderTumble(t)}
