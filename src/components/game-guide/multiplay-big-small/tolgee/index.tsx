@@ -70,10 +70,10 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
                 {isShowedMD5(environment, orientation) && (
                     <MD5
                         locale={locale}
-                        step1ImageUrl={"/static/images/mega-bigsmall/md5_step1_en.png?v=3"}
-                        step2ImageUrl={"/static/images/mega-bigsmall/md5_step2_en.png?v=3"}
-                        step3ImageUrl={"/static/images/mega-bigsmall/md5_step3_en.png?v=1"}
-                        step4ImageUrl={"/static/images/mega-bigsmall/md5_step4_en.png?v=1"}
+                        step1ImageUrl={`/static/images/mega-bigsmall/md5_step1_${locale}.png?v=3`}
+                        step2ImageUrl={`/static/images/mega-bigsmall/md5_step2_${locale}.png?v=3`}
+                        step3ImageUrl={`/static/images/mega-bigsmall/md5_step3_en.png?v=1`}
+                        step4ImageUrl={`/static/images/mega-bigsmall/md5_step4_en.png?v=1`}
                         note={<div>{t("md5_note")}</div>}
                     />
                 )}

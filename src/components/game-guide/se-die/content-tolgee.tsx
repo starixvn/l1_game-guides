@@ -312,6 +312,8 @@ const SeDieMD5: FC<{
                 return "zh_tw";
             case "ja":
                 return "ja";
+            case "es":
+                return "es";
             default:
                 return "en"; // fallback to English
         }

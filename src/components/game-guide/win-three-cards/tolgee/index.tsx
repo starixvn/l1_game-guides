@@ -346,8 +346,8 @@ const WinThreeCardsGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
                 <MD5
                     locale={locale}
                     resources={md5Resources}
-                    step1ImageUrl={"/static/images/win-three-cards/md5_step1_en.png?v=3"}
-                    step2ImageUrl={"/static/images/win-three-cards/md5_step2_en.png?v=3"}
+                    step1ImageUrl={`/static/images/win-three-cards/md5_step1_${locale}.png?v=3`}
+                    step2ImageUrl={`/static/images/win-three-cards/md5_step2_${locale}.png?v=3`}
                     step3ImageUrl={"/static/images/win-three-cards/md5_step3_vi.png?v=1"}
                     step4ImageUrl={"/static/images/win-three-cards/md5_step4_vi.png?v=1"}
                     note={<div>{t("md5_note")}</div>}
