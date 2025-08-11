@@ -62,8 +62,9 @@ const renderPayouts = ({
     freeSpin?: any;
 }) => {
     const oddDetail = convertOddDetail(odds, false);
-    const volatilityImage = (isEnabled: boolean) => (
-        <img src={`./static/images/slot/volatility-${isEnabled ? "enabled" : "disabled"}.png`} alt="" width="20rem" height="20rem" />
+
+    const volatilityImage = (isFilled: boolean) => (
+        <img src={`./static/images/slot/volatility-${isFilled ? "filled" : "empty"}.png`} alt="" width="20rem" height="20rem" />
     );
 
     return (
