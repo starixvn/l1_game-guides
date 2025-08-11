@@ -10,6 +10,19 @@ import { generateMD5TranslationResource } from "../base/md5/languages/tolgee";
 
 const fishPrawnCrabNamespace = "FishPrawnCrab";
 
+export const renderIconChoice = () => {
+    return (
+        <>
+            <div className="symbol-size icon-nai"></div>
+            <div className="symbol-size icon-bau"></div>
+            <div className="symbol-size icon-ga"></div>
+            <div className="symbol-size icon-ca"></div>
+            <div className="symbol-size icon-cua"></div>
+            <div className="symbol-size icon-tom"></div>
+        </>
+    );
+};
+
 const FishPrawnCrabIntroduction: FC<{
     t: Function;
     displayName?: string;
@@ -21,31 +34,14 @@ const FishPrawnCrabIntroduction: FC<{
             <div className="content">
                 <T keyName={"intro_para_1"} params={{ gameName: displayName }} ns={fishPrawnCrabNamespace} />
             </div>
-            <div className={`${locale === "es" ? "icon-wrapper-es" : "icon-wrapper"}`}>
-                <div className="icon-item">
-                    <div className="symbol-size icon-nai"></div>
-                    <div className="text">{t("symbol_stag")}</div>
-                </div>
-                <div className="icon-item">
-                    <div className="symbol-size icon-bau"></div>
-                    <div className="text">{t("symbol_gourd")}</div>
-                </div>
-                <div className="icon-item">
-                    <div className="symbol-size icon-ga"></div>
-                    <div className="text">{t("symbol_rooster")}</div>
-                </div>
-                <div className="icon-item">
-                    <div className="symbol-size icon-ca"></div>
-                    <div className="text">{t("symbol_fish")}</div>
-                </div>
-                <div className="icon-item">
-                    <div className="symbol-size icon-cua"></div>
-                    <div className="text">{t("symbol_crab")}</div>
-                </div>
-                <div className="icon-item">
-                    <div className="symbol-size icon-tom"></div>
-                    <div className="text">{t("symbol_prawn")}</div>
-                </div>
+            <div className="icon-wrapper">
+                {renderIconChoice()}
+                <div className="text">{t("symbol_stag")}</div>
+                <div className="text">{t("symbol_gourd")}</div>
+                <div className="text">{t("symbol_rooster")}</div>
+                <div className="text">{t("symbol_fish")}</div>
+                <div className="text" data-locale={locale}>{t("symbol_crab")}</div>
+                <div className="text">{t("symbol_prawn")}</div>
             </div>
         </li>
     );
