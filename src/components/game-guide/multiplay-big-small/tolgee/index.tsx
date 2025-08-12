@@ -1,28 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
-import { isShowedMD5, renderTermsAndConditionsEN } from "../../../shared";
+import { isShowedMD5 } from "../../../shared";
 import ScrollToMD5 from "../../../shared/md5-count-down-timer";
 import MD5 from "../../base/md5";
 import { GameGuideProps } from "../../type";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
+import { IMd5Resources } from "../../base/md5/languages/types";
+import { generateMD5TranslationResource } from "../../base/md5/languages/tolgee";
 
 const NAMESPACE = "MultiplayBigSmall";
 
 const tolgee = initTolgee([NAMESPACE]);
 
 const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation, locale } = props;
+    const { gameConfigs, maxBetFollowChoice, isScrollMD5, environment, fractionalOddsFormat, orientation, locale } = props;
     const { odds } = gameConfigs;
+    const [md5Resources, setMd5Resources] = useState<IMd5Resources | undefined>(undefined);
     const { t } = useTranslate([NAMESPACE]);
 
     useEffect(() => {
         if (locale) {
-            tolgee.changeLanguage(locale);
+            (async () => {
+                await tolgee.changeLanguage(locale);
+                const md5Resources = generateMD5TranslationResource(tolgee);
+                setMd5Resources(md5Resources);
+            })();
         }
-    }, [locale]);
+    }, [locale, tolgee]);
 
     useEffect(() => {
         isScrollMD5 && ScrollToMD5();
@@ -70,6 +77,7 @@ const MultiplayBigSmallGuideTolgee: React.FC<GameGuideProps<GameConfigProps, Max
                 {isShowedMD5(environment, orientation) && (
                     <MD5
                         locale={locale}
+                        resources={md5Resources}
                         step1ImageUrl={`/static/images/mega-bigsmall/md5_step1_${locale}.png?v=3`}
                         step2ImageUrl={`/static/images/mega-bigsmall/md5_step2_${locale}.png?v=3`}
                         step3ImageUrl={`/static/images/mega-bigsmall/md5_step3_en.png?v=1`}
