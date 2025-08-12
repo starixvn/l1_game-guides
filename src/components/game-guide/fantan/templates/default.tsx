@@ -1,5 +1,5 @@
 import { Markup } from "interweave";
-import React from "react";
+import React, { JSX } from "react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import { StringFormat } from "../../../../helpers/string-helper";
 
@@ -10,9 +10,14 @@ import { getFanTanTranslationResource } from "../languages";
 import { IFanTanTranslationResource } from "../languages/types";
 import { GameConfigProps, MaxBetChoicesProps } from "../type";
 import MD5 from "../../base/md5";
+import { IMd5Resources } from "../../base/md5/languages/types";
 
 export default class FanTanTemplate extends React.Component<
-    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFanTanTranslationResource },
+    GameGuideProps<GameConfigProps, MaxBetChoicesProps> & {
+        translationResource?: IFanTanTranslationResource;
+        termsAndConditions?: JSX.Element;
+        md5TranslationResource?: IMd5Resources;
+    },
     { translationResource: IFanTanTranslationResource }
 > {
     constructor(props: GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { translationResource?: IFanTanTranslationResource }) {
@@ -263,6 +268,7 @@ export default class FanTanTemplate extends React.Component<
         return (
             <MD5
                 locale={locale}
+                resources={this.props?.md5TranslationResource}
                 step1ImageUrl={`/static/images/fantan/${locale}/md5_step1.png?v=1`}
                 step2ImageUrl={`/static/images/fantan/${locale}/md5_step2.png?v=1`}
                 step3ImageUrl={"/static/images/fantan/md5_step3.png?v=1"}
@@ -284,7 +290,7 @@ export default class FanTanTemplate extends React.Component<
                     {this.renderGameRule()}
                     {this.renderPayouts()}
                     {this.renderMD5()}
-                    {renderTermsAndConditions(this.props.locale)}
+                    {this.props.termsAndConditions || renderTermsAndConditions(this.props.locale)}
                 </ul>
             </>
         );

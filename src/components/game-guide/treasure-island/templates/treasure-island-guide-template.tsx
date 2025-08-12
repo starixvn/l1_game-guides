@@ -10,7 +10,7 @@ import Styles from "../treasure-island.module.scss";
 import { GameConfigProps } from "../type";
 
 class TreasureIslandGuideTemplate extends React.PureComponent<
-    GameGuideProps<GameConfigProps, {}> & { translationResource?: TreasureIslandLanguage } & { renderTermsAndConditions?: React.ReactNode }
+    GameGuideProps<GameConfigProps, {}> & { translationResource?: TreasureIslandLanguage; termsAndConditions?: React.ReactNode }
 > {
     readonly number = "number";
     readonly numberFirst = "number-first";
@@ -547,7 +547,7 @@ class TreasureIslandGuideTemplate extends React.PureComponent<
                         {this.renderMultipliers(odds, gameConfigs.coin, gameConfigs.level, resources, imageDirectoryName)}
                     </li>
                     <li className="guide-item">{this.renderFreeSpins(odds, resources, imageDirectoryName, locale)}</li>
-                    {this.props.renderTermsAndConditions || renderTermsAndConditions(locale)}
+                    {this.props.termsAndConditions || renderTermsAndConditions(locale)}
                 </ul>
             </>
         );

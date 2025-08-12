@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { GameGuideBase } from "../type";
+import { TolgeeInstance, TolgeeProvider } from "@tolgee/react";
 import { locales } from "../../../common/constants";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { UserStakeLevelProps } from "../../../pages";
 import { numberWithCommas } from "../../../helpers/number-helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { getGameConfigProject } from "../../index.helper";
+import { GameGuideBase } from "../type";
+import FanTanContent from "./content-tolgee";
 import FanTanTemplate from "./templates/default";
 import FanTanGuideVI from "./templates/vi";
-import FanTanContent from "./content-tolgee";
-import initTolgee from "../../../helpers/tolgee-helper";
-import { TolgeeProvider } from "@tolgee/react";
-import { getGameConfigProject } from "../../index.helper";
-
-const tolgee = initTolgee(["FanTan"]);
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const isTolgeeSupportLanguage = (languageTag: string) => {
     return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
@@ -65,11 +63,11 @@ const FantanGuide = (props: GameGuideBase) => {
         getLocalGameConfigs();
     }, []);
 
-    useEffect(() => {
-        const languageTag = locale || "vi";
-        if (isTolgeeSupportLanguage(languageTag)) {
-            tolgee.changeLanguage(languageTag);
+    const tolgee = useMemo(() => {
+        if (isTolgeeSupportLanguage(locale || "en")) {
+            return initTolgee(["FanTan"], locale || "en", "en");
         }
+        return null;
     }, [locale]);
 
     useEffect(() => {
@@ -98,7 +96,7 @@ const FantanGuide = (props: GameGuideBase) => {
 
     if (locale && isTolgeeSupportLanguage(locale)) {
         return (
-            <TolgeeProvider tolgee={tolgee}>
+            <TolgeeProvider tolgee={tolgee as TolgeeInstance}>
                 <FanTanContent
                     locale={locale}
                     userStakeLevel={userStakeLevel}

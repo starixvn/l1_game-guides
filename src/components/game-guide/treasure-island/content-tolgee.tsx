@@ -1,12 +1,11 @@
 import { useTolgee } from "@tolgee/react";
 import { useEffect, useMemo, useState } from "react";
 import { getGameConfigProject } from "../../index.helper";
-import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
+import { renderTermsAndConditionsTolgee } from "../../shared";
 import { GameGuideBase } from "../type";
 import { generateTreasureIslandTolgeeTranslationResource } from "./languages/tolgee";
 import TreasureIslandGuideTemplate from "./templates/treasure-island-guide-template";
 import { GameConfigProps } from "./type";
-import { renderTermsAndConditionsTolgee } from "../../shared";
 
 const TreasureIslandContent = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -49,20 +48,14 @@ const TreasureIslandContent = (props: GameGuideBase) => {
     }
 
     return (
-        <TreasureIslandContentTolgee
+        <TreasureIslandGuideTemplate
             gameConfigs={configs}
             gameName={gameNameTranslate}
             locale={locale}
             translationResource={translationResource}
-            renderTermsAndConditions={renderTermsAndConditionsTolgee(tolgee)}
+            termsAndConditions={renderTermsAndConditionsTolgee(tolgee)}
         />
     );
 };
-
-class TreasureIslandContentTolgee extends TreasureIslandGuideTemplate {
-    renderTermsAndConditions = () => {
-        return <TermsAndConditionsTolgee />;
-    };
-}
 
 export default TreasureIslandContent;
