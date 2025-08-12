@@ -689,7 +689,7 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { imgVersion } = useImgVersionContext();
     const { gameSettings, name, displayName, gameConfigs } = props;
     const isRemodeling = gameSettings.OddsByCounts[9]?.every((item: any) => item.Odds > 0);
-    const volatility = gameSettings.Volatility === 0 ? 2 : gameSettings.Volatility;
+    const volatility = !gameSettings.Volatility ? 2 : gameSettings.Volatility;
 
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
