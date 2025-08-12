@@ -9,6 +9,8 @@ import BaseTermsAndConditions from "../game-guide/base/terms-and-conditions/term
 import { baseTermAndConditionCn } from "../game-guide/base/terms-and-conditions/languages/cn";
 import { baseTermAndConditionJa } from "../game-guide/base/terms-and-conditions/languages/ja";
 import { IBaseTermAndConditionResources } from "../game-guide/base/terms-and-conditions/languages/types";
+import { generatebaseTermAndConditionTolgee } from "../game-guide/base/terms-and-conditions/languages/tolgee";
+import { TolgeeInstance } from "@tolgee/react";
 
 export const renderTermsAndConditions = (locale?: string | undefined, extendDetails: Array<string> = []) => {
     switch (locale) {
@@ -22,8 +24,6 @@ export const renderTermsAndConditions = (locale?: string | undefined, extendDeta
             return renderTermsAndConditionsCN(extendDetails);
         case locales.zh_tw:
             return renderTermsAndConditionsTW(extendDetails);
-        case locales.ja:
-            return renderTermsAndConditionsJA(extendDetails);
         default:
             return renderTermsAndConditionsEN(extendDetails);
     }
@@ -70,16 +70,26 @@ export const renderTermsAndConditionsCN = (extendDetails: Array<string> = []) =>
 };
 
 export const renderTermsAndConditionsTW = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionTw, details: extendDetails.concat(baseTermAndConditionTw.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionTw,
+        details: extendDetails.concat(baseTermAndConditionTw.details),
+    };
     return <BaseTermsAndConditions resources={resources} />;
 };
-
 
 export const isShowedMD5 = (environment?: string, orientation?: string) => {
     return environment === ENVIRONMENT.sc && orientation !== ORIENTATION.portrait;
 };
 
 export const renderTermsAndConditionsJA = (extendDetails: Array<string> = []) => {
-    const resources: IBaseTermAndConditionResources = { ...baseTermAndConditionJa, details: extendDetails.concat(baseTermAndConditionJa.details) };
+    const resources: IBaseTermAndConditionResources = {
+        ...baseTermAndConditionJa,
+        details: extendDetails.concat(baseTermAndConditionJa.details),
+    };
+    return <BaseTermsAndConditions resources={resources} />;
+};
+
+export const renderTermsAndConditionsTolgee = (tolgee: TolgeeInstance, extendDetails: Array<string> = []) => {
+    const resources: IBaseTermAndConditionResources = generatebaseTermAndConditionTolgee(tolgee);
     return <BaseTermsAndConditions resources={resources} />;
 };

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { GameGuideBase } from "../type";
-import { GameConfigProps } from "./type";
-import TreasureIslandGuideTemplate from "./templates/treasure-island-guide-template";
+import { TolgeeInstance, TolgeeProvider } from "@tolgee/react";
 import { getGameConfigProject } from "../../index.helper";
-import initTolgee from "../../../helpers/tolgee-helper";
-import { TolgeeProvider } from "@tolgee/react";
+import { GameGuideBase } from "../type";
 import TreasureIslandContent from "./content-tolgee";
-
-const tolgee = initTolgee(["TreasureIsland"]);
+import TreasureIslandGuideTemplate from "./templates/treasure-island-guide-template";
+import { GameConfigProps } from "./type";
+import initTolgee from "../../../helpers/tolgee-helper";
 
 const isTolgeeSupportLanguage = (languageTag: string) => {
     return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
@@ -32,11 +30,11 @@ const TreasureIslandGuide = (props: GameGuideBase) => {
         getLocalGameConfigs();
     }, []);
 
-    useEffect(() => {
-        const languageTag = locale || "vi";
-        if (isTolgeeSupportLanguage(languageTag)) {
-            tolgee.changeLanguage(languageTag);
+    const tolgee = useMemo(() => {
+        if (isTolgeeSupportLanguage(locale || "en")) {
+            return initTolgee(["TreasureIsland"], locale || "en", "en");
         }
+        return null;
     }, [locale]);
 
     useEffect(() => {
@@ -54,7 +52,7 @@ const TreasureIslandGuide = (props: GameGuideBase) => {
     // Use Tolgee for supported languages, fallback to static translations for others
     if (locale && isTolgeeSupportLanguage(locale)) {
         return (
-            <TolgeeProvider tolgee={tolgee}>
+            <TolgeeProvider tolgee={tolgee as TolgeeInstance}>
                 <TreasureIslandContent
                     locale={locale}
                     gameConfigs={gameConfigs}
