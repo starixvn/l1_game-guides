@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
+import { TolgeeProvider, useTolgee, useTranslate } from "@tolgee/react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
@@ -10,10 +10,10 @@ import MD5 from "../../base/md5";
 import { IMd5Resources } from "../../base/md5/languages/types";
 import { generateMD5TranslationResource } from "../../base/md5/languages/tolgee";
 
-const tolgee = initTolgee(["WinThreeCards"]);
+const NAMESPACE = "WinThreeCards";
 
 const renderGameRule = (maxBet: string | undefined) => {
-    const { t } = useTranslate(["WinThreeCards", "Common"]);
+    const { t } = useTranslate([NAMESPACE, "Common"]);
     return (
         <>
             <h2>{t("gamerules_title", { ns: "Common" })}</h2>
@@ -72,7 +72,7 @@ const renderGameRule = (maxBet: string | undefined) => {
 };
 
 const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetChoicesProps | undefined, fractionalOddsFormat = false) => {
-    const { t } = useTranslate(["WinThreeCards", "Common"]);
+    const { t } = useTranslate([NAMESPACE, "Common"]);
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
@@ -154,7 +154,7 @@ const renderPayouts = (odds: OddsProps | undefined, maxBetFollowChoice: MaxBetCh
 };
 
 const renderCardType = () => {
-    const { t } = useTranslate(["WinThreeCards", "Common"]);
+    const { t } = useTranslate([NAMESPACE, "Common"]);
     return (
         <>
             <li className="guide-item">
@@ -320,24 +320,24 @@ const WinThreeCardsGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
     const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
     const { odds } = gameConfigs;
     const [md5Resources, setMd5Resources] = useState<IMd5Resources | undefined>(undefined);
-    const { t } = useTranslate(["WinThreeCards", "Common"]);
+    const { t } = useTranslate([NAMESPACE, "Common"]);
+    const tolgee = useTolgee();
 
     useEffect(() => {
         if (locale) {
-            (async () => {
-                await tolgee.changeLanguage(locale);
-                const md5Resources = generateMD5TranslationResource(tolgee);
-                setMd5Resources(md5Resources);
-            })();
+            const md5Resources = generateMD5TranslationResource(tolgee);
+            setMd5Resources(md5Resources);
         }
-    }, [locale, tolgee]);
+    }, [tolgee]);
 
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("title_introduction", { ns: "Common" })}</h2>
-                    <p className={`content ${Styles["content-customize"]}`}>{t("intro_para_1", { gameName })}</p>
+                    <p className={`content ${Styles["content-customize"]}`}>
+                        {t("intro_para_1", { gameName: t("game_name", { ns: NAMESPACE }) })}
+                    </p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain)}</li>
                 {renderPayouts(odds, maxBetFollowChoice, fractionalOddsFormat)}
@@ -359,6 +359,8 @@ const WinThreeCardsGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetC
 };
 
 const WinThreeCardsGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { locale } = props;
+    const tolgee = useMemo(() => initTolgee([NAMESPACE], locale || "en"), [locale]);
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
             <WinThreeCardsGuideTolgee {...props} />
