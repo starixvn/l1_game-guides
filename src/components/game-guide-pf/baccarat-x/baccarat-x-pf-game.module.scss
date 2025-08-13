@@ -230,7 +230,7 @@
 .img-border {
     border: 1px solid #3f437b;
     border-radius: 19px;
-    
+
     @media (orientation: portrait) {
         border: 1px solid #323232;
     }
@@ -240,6 +240,7 @@
     position: relative;
     .merge-client-seed-section-left {
         position: absolute;
+
         .server-seed-container {
             position: absolute;
             top: 8rem;
@@ -247,6 +248,13 @@
             line-height: normal;
             text-align: center;
             height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .pf-text-highlight {
+                font-size: 1.3rem;
+            }
         }
         .client-seed {
             position: absolute;

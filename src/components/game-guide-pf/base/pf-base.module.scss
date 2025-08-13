@@ -37,14 +37,15 @@ $color-second: #c4bce0;
     @media (orientation: portrait) {
         background-image: unset;
         background-color: #151719;
-        border-radius: 2.5rem;
+        border-radius: 4rem;
         border: 0.2rem solid #303030;
-        height: 4rem;
-        width: 53rem;
+        height: unset;
 
         span {
             font-size: 1.5rem;
+            display: inline-block;
         }
+
         &.final-result {
             width: 38rem;
         }
@@ -523,8 +524,13 @@ $color-second: #c4bce0;
         left: -1rem;
         text-align: center;
         line-height: 1.2;
+
         &.th {
             left: -0.5rem;
+        }
+
+        &.es {
+            width: 9rem;
         }
     }
 
@@ -613,9 +619,9 @@ $color-second: #c4bce0;
     .pf-applied-example-text-1 {
         position: absolute;
         top: 0.5rem;
-        width: 9.5rem;
+        width: 16rem;
         text-align: center;
-        left: -1rem;
+        left: -4rem;
     }
 
     .pf-applied-example-text-2 {
@@ -628,9 +634,9 @@ $color-second: #c4bce0;
 
     .pf-applied-example-text-3 {
         position: absolute;
-        width: 28rem;
+        width: 33rem;
         top: 17rem;
-        right: -3.5rem;
+        right: -5.5rem;
         line-height: 2rem;
     }
 
@@ -674,6 +680,10 @@ $color-second: #c4bce0;
         &.id,
         &.en {
             width: 18rem;
+        }
+        &.es {
+            width: 34rem;
+            text-align: center;
         }
     }
 }
