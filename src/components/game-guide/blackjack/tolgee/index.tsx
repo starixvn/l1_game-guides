@@ -1,17 +1,17 @@
-import React from "react";
 import { TolgeeProvider, useTranslate } from "@tolgee/react";
+import React, { useMemo } from "react";
 import { formatOdds } from "../../../../helpers/number-helper";
 import initTolgee from "../../../../helpers/tolgee-helper";
 import TermsAndConditionsTolgee from "../../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../../type";
-import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 import Styles from "../blackjack.module.scss";
+import { GameConfigProps, MaxBetChoicesProps, OddsProps } from "../type";
 
-const tolgee = initTolgee(["Blackjack"]);
+const NAMESPACE = "Blackjack";
 
 const CardPointValuesTable = () => {
-    const { t } = useTranslate(["Blackjack"]);
-    
+    const { t } = useTranslate([NAMESPACE]);
+
     return (
         <div className="table-container">
             <table className="table text-center">
@@ -59,10 +59,10 @@ const CardPointValuesTable = () => {
 };
 
 const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) => {
-    const { t } = useTranslate(["Blackjack"]);
+    const { t } = useTranslate([NAMESPACE]);
     const wrapperImg = "wrapper-img";
     const optionsWidth = "options-width";
-    
+
     return (
         <>
             <h2>{t("gamerules_title")}</h2>
@@ -181,8 +181,8 @@ const renderGameRule = (maxBet: string | undefined, minBet: string | undefined) 
 };
 
 const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false) => {
-    const { t } = useTranslate(["Blackjack"]);
-    
+    const { t } = useTranslate([NAMESPACE]);
+
     return (
         <li className="guide-item">
             <h2>{t("payouts_title")}</h2>
@@ -219,25 +219,16 @@ const renderPayouts = (odds: OddsProps | undefined, fractionalOddsFormat = false
 };
 
 const BlackjackGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
-    const { gameConfigs, gameName, maxBetFollowChoice, fractionalOddsFormat, locale } = props;
+    const { gameConfigs, maxBetFollowChoice, fractionalOddsFormat } = props;
     const { odds } = gameConfigs;
-    const { t } = useTranslate(["Blackjack"]);
-
-    // Handle locale changes
-    React.useEffect(() => {
-        if (locale) {
-            tolgee.changeLanguage(locale);
-        }
-    }, [locale]);
+    const { t } = useTranslate([NAMESPACE]);
 
     return (
         <>
             <ul className="game-guide">
                 <li className="guide-item">
                     <h2>{t("intro_title")}</h2>
-                    <p className="content">
-                        {t("intro_para_1", { gameName })}
-                    </p>
+                    <p className="content">{t("intro_para_1", { gameName: t("game_name") })}</p>
                 </li>
                 <li className="guide-item">{renderGameRule(maxBetFollowChoice?.maxBetMain, maxBetFollowChoice?.minBetMain)}</li>
                 <li className="guide-item">
@@ -246,7 +237,10 @@ const BlackjackGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                         <li>{t("point_calculation_para_1")}</li>
                         <li>{t("point_calculation_para_2")}</li>
                         <li>{t("point_calculation_para_3")}</li>
-                        <li>{t("point_calculation_para_4")}<CardPointValuesTable /></li>
+                        <li>
+                            {t("point_calculation_para_4")}
+                            <CardPointValuesTable />
+                        </li>
                     </ul>
                     <strong>{t("point_calculation_example_title")}</strong>
                     <ul className="detail">
@@ -255,15 +249,15 @@ const BlackjackGuideTolgee: React.FC<GameGuideProps<GameConfigProps, MaxBetChoic
                     </ul>
                 </li>
                 {renderPayouts(odds, fractionalOddsFormat)}
-                <TermsAndConditionsTolgee extendDetails={[
-                    t("terms_para_1")
-                ]} />
+                <TermsAndConditionsTolgee extendDetails={[t("terms_para_1")]} />
             </ul>
         </>
     );
 };
 
 const BlackjackGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps>> = (props) => {
+    const { locale } = props;
+    const tolgee = useMemo(() => initTolgee([NAMESPACE], locale || "en", locale || "en"), [locale]);
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
             <BlackjackGuideTolgee {...props} />
@@ -271,4 +265,4 @@ const BlackjackGuideTolgeeWrapper: React.FC<GameGuideProps<GameConfigProps, MaxB
     );
 };
 
-export default BlackjackGuideTolgeeWrapper; 
+export default BlackjackGuideTolgeeWrapper;
