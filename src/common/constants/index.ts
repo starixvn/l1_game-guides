@@ -176,6 +176,7 @@ export const GAMES_PF = {
     CHRISTMAS_X: 106,
     COIN_MINING: 109,
     ROCKET_X: 113,
+    SE_DIE_MULTIPLAYER: 148,
 };
 
 export const TolgeeConfig = {
