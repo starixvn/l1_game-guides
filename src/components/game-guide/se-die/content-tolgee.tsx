@@ -314,6 +314,14 @@ const SeDieMD5: FC<{
                 return "ja";
             case "es":
                 return "es";
+            case "ko":
+                return "ko";
+            case "tr":
+                return "tr";
+            case "fil_ph":
+                return "fil_ph";
+            case "pt_br":
+                return "pt_br";
             default:
                 return "en"; // fallback to English
         }

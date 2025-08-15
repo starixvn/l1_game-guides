@@ -2,7 +2,7 @@ export interface IObjectKeys {
     [key: string]: string;
 }
 
-export const locales: IObjectKeys = { en: "en", vi: "vi", th: "th", id: "id", zh_cn: "zh_cn", zh_tw: "zh_tw", ja: "ja", es: "es" };
+export const locales: IObjectKeys = { en: "en", vi: "vi", th: "th", id: "id", zh_cn: "zh_cn", zh_tw: "zh_tw", ja: "ja", es: "es", ko: "ko", tr: "tr", fil_ph: "fil_ph", pt_br: "pt_br" };
 export const Themes = {
     light: "light",
     dark: "dark",
@@ -184,7 +184,7 @@ export const TolgeeConfig = {
     projectId: "2",
 };
 
-export const AVAILABLE_LANGUAGES = ["en", "vi", "th", "id", "zh-cn", "zh-tw", "ja", "es"];
+export const AVAILABLE_LANGUAGES = ["en", "vi", "th", "id", "zh-cn", "zh-tw", "ja", "es", "ko", "tr", "fil_ph", "pt_br"];
 
 // type = 2
 export const GAMES_NEW_SLOT = [GAMES.FORTUNE_CAT, GAMES.WAY_TO_GOAL, GAMES.NIGHT_CLUB, GAMES.HEROES_SLOT, GAMES.FOUR_GUARDIANS];
