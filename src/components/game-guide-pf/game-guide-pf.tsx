@@ -18,6 +18,7 @@ import NextBallPFGuide from "./next-ball";
 import RocketXPFGuide from "./rocket-x";
 import SeBallPFGuide from "./se-ball";
 import SpaceFlightPFGuide from "./space-flight";
+import SeDieMultiplayerPFGuide from "./sedie-multiplayer";
 
 class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
     renderOtherGuide = (gameId: number, gameGuideProps: any) => {
@@ -62,6 +63,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <CoinMiningPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.ROCKET_X:
                 return <RocketXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.SE_DIE_MULTIPLAYER:
+                return <SeDieMultiplayerPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.renderOtherGuide(gameId, gameGuideProps);
         }
