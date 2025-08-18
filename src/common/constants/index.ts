@@ -144,6 +144,7 @@ export const GAMES = {
     ROCKET_X: 113,
     MARBLE_FOOTBALL_2: 114,
     MINI_ROULETTE: 134,
+    SE_DIE_MULTIPLAYER: 148,
 };
 
 export const GAMES_MINI = {
