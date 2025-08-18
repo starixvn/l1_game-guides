@@ -42,12 +42,10 @@ const SeDieGameRules: FC<{
 }> = ({ t, maxBetFollowChoice, gameId }) => {
     return (
         <li className={`guide-item`}>
-            <h2>{t("gamerules_title", { ns: TogleeNamespace.Common })}</h2>
+            <h2 className="font-bold">{t("gamerules_title", { ns: TogleeNamespace.Common })}</h2>
             <ul className="desc">
                 <li>{t("gamerules_para_1", { ns: TogleeNamespace.SpecificGame })}</li>
-                {/* <li>Players place bets on one or more options before time runs out (bets cannot be canceled).</li> */}
                 <li>{t("gamerules_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
-                {/* <li>After the betting time ends, the 4 buttons will be shaken automatically, and the result will be revealed.</li> */}
                 <li>
                     {t("gamerules_betting_options", { ns: TogleeNamespace.SpecificGame })}
                     <ul className="detail">
