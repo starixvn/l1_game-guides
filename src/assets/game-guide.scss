@@ -167,6 +167,119 @@
     }
 }
 
+[data-theme="original"] {
+    .game-guide {
+        background: linear-gradient(180deg, #094998 0%, #062B57 18.41%, #142030 36.83%);
+        padding: 2rem 2rem 0 2rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0.8rem 3.2rem rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        margin-bottom: 0;
+        border-top: none;
+        border-bottom:none;
+        padding-bottom:10px
+        
+        h2 {
+            color: #FFBC11;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+        }
+
+        .guide-item {
+            background: transparent;
+            
+            h2 {
+                color: #FFBC11;
+                margin-bottom: 1.5rem;
+                font-size: 1.8rem;
+                font-weight: 600;
+                text-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
+            }
+            
+            .content {
+                background: transparent;
+                color: #fff;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+                text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+            }
+            
+            .desc {
+                background: transparent;
+                color: #fff;
+                
+                > li {
+                    background: transparent;
+                    color: #fff;
+                    margin-bottom: 1rem;
+                    line-height: 1.5;
+                    text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+                }
+                
+                .detail {
+                    background: transparent;
+                    
+                    > li {
+                        background: transparent;
+                        color: #fff;
+                        margin-bottom: 0.8rem;
+                        line-height: 1.4;
+                        text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+        
+        .table-container {
+            background: transparent;
+            margin-top: 1rem;
+            
+            .table {
+                thead {
+                    background: rgba(255, 255, 255, 0.1);
+                    
+                    th {
+                        background: rgba(255, 255, 255, 0.1);
+                        color: #FFBC11;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        font-weight: 600;
+                        text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+                    }
+                }
+                
+                tbody {
+                    background: transparent;
+                    
+                    td {
+                        background: transparent;
+                        color: #fff;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+        }
+        
+        .style-number-rule {
+            background: transparent;
+            
+            .number-dot {
+                background: transparent;
+                color: #fff;
+                text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+
+    .dot-even, .dot-odd {
+        margin-right: 0.3rem;
+    }
+}
+
+
 ul {
     list-style: none;
     padding-left: 0;
@@ -751,7 +864,6 @@ ul {
     }
 }
 
-// ----------------PF---------------
 .pf-text-yellow {
     color: #fbc35f;
 }
