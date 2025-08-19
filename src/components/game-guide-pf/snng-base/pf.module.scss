@@ -928,13 +928,16 @@
     background-color: #0C192B !important;
     
     td {
-        border-top: 2px solid #3c3e43;
         font-weight: 600;      
     }
 
     .pf-text-not-highlight {
         color: #B3BEC1 !important;
     }
+}
+
+.pf-summary-row-netprofit {
+    background-color: #172C47 !important;
 }
 
 .pf-summary-label {
@@ -956,9 +959,12 @@
 .pf-bet-details-table-sedie {
     
     border-radius: 1rem;
+    border: 2px solid #3c3e43;
+    overflow: hidden;
 
     th {
-        background: #2E5D97 !important;
+        background: var(--table-header-bg, #FFFFFF1A) !important;
+        color: var(--table-header-color, #FFFFFF) !important;
     }
 
     tbody {

@@ -188,7 +188,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </tr>
                     <tr>
                         <td>12:00:00 PM</td>
-                        <td className={Styles["pf-text-highlight"]}>Even</td>
+                        <td >Even</td>
                         <td>100</td>
                         <td className={Styles["pf-text-highlight-red"]}>-100</td>
                     </tr>
@@ -201,7 +201,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                         <td className={Styles["pf-text-not-highlight"]}>100</td>
                         <td className={Styles["pf-text-highlight"]}>444.00M</td>
                     </tr>
-                    <tr className={Styles["pf-summary-row"]}>
+                    <tr className={`${Styles["pf-summary-row"]} ${Styles["pf-summary-row-netprofit"]}`}>
                         <td colSpan={2} className={Styles["pf-summary-label"]}>
                             {t("pf_net_profit", { ns: "Common" })}
                         </td>
