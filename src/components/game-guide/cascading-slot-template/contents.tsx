@@ -559,6 +559,22 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
     );
 };
 
+const renderBuyFreeSpin = (t: Function, multiplier: number, odds: number[][]) => {
+    const oddDetail = convertOddDetail(odds, true);
+
+    const freeSpinOdds = oddDetail[0].oddItem.reduce((lowest, current) => (current.countString < lowest.countString ? current : lowest));
+
+    return (
+        <li className="guide-item">
+            <h2 className={Styles["heading1"]}>{t("buy_free_spins")}</h2>
+            <ul className="desc">
+                <li>{t("buy_free_spins_line_1", { value: multiplier })}</li>
+                <li>{t("buy_free_spins_line_2", { value: freeSpinOdds.countString })}</li>
+            </ul>
+        </li>
+    );
+};
+
 const renderTumble = (t: Function) => {
     return (
         <li className="guide-item">
@@ -694,36 +710,37 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     imgVer = imgVersion ?? "";
     const odds = gameSettings.OddsByCounts;
     const betMultiplier = gameSettings.BetMultiplier;
-
+    const buyFreeSpinSetting = gameSettings.Features?.BuyFreeSpins;
     const maxWinPerRound = gameConfigs.maxWinPerRound;
 
     return (
-        <>
-            <ul className={`game-guide ${Styles["slot-guide"]}`}>
-                <li className="guide-item">
-                    <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
-                    <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
-                    <div className={`${Styles["list-symbols-wrapper"]}`}>
-                        {[9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((imgIndex, index) => generateSymbol(imgIndex, index))}
-                    </div>
-                </li>
-                <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
-                {renderPayouts({
-                    odds,
-                    coin: gameConfigs.coin,
-                    level: gameConfigs.level,
-                    maxWinPerRound,
-                    t,
-                    isRemodeling,
-                    volatility,
-                    freeSpin: gameSettings.FreeSpins,
-                })}
-                {renderTumble(t)}
-                {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
-                {renderFreeSpins(gameSettings.FreeSpins, t, isRemodeling)}
-                <TermsAndConditionsTolgee />
-            </ul>
-        </>
+        <ul className={`game-guide ${Styles["slot-guide"]}`}>
+            <li className="guide-item">
+                <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
+                <p className="content">{t("Introduction-content", { gameName: displayName })}</p>
+                <div className={`${Styles["list-symbols-wrapper"]}`}>
+                    {[9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((imgIndex, index) => generateSymbol(imgIndex, index))}
+                </div>
+            </li>
+            <li className="guide-item">{renderGameRule(gameConfigs.coin, gameConfigs.level, betMultiplier, t)}</li>
+            {renderPayouts({
+                odds,
+                coin: gameConfigs.coin,
+                level: gameConfigs.level,
+                maxWinPerRound,
+                t,
+                isRemodeling,
+                volatility,
+                freeSpin: gameSettings.FreeSpins,
+            })}
+            {renderTumble(t)}
+            {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
+            {renderFreeSpins(gameSettings.FreeSpins, t, isRemodeling)}
+            {buyFreeSpinSetting?.Enabled &&
+                gameSettings.FreeSpins &&
+                renderBuyFreeSpin(t, buyFreeSpinSetting.Multiplier, gameSettings.FreeSpins)}
+            <TermsAndConditionsTolgee />
+        </ul>
     );
 };
 export default Contents;
