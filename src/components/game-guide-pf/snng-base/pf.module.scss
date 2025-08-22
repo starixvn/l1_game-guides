@@ -635,7 +635,7 @@
         margin-bottom: 1rem;
         justify-content: center;
     }
-    
+
     .pf-verify-info-item {
         display: flex;
         align-items: center;
@@ -791,20 +791,20 @@
         overflow-wrap: break-word;
         word-wrap: break-word;
     }
-    
+
     .pf-bet-details-table {
         font-size: 0.9rem;
-        
-        th, td {
+
+        th,
+        td {
             padding: 0.5rem 0.3rem;
         }
     }
-    
-    
+
     .pf-bet-choice-dots {
         gap: 0.1rem;
     }
-    
+
     .pf-dot-row {
         gap: 0.1rem;
     }
@@ -925,19 +925,19 @@
 }
 
 .pf-summary-row {
-    background-color: #0C192B !important;
-    
+    background-color: #0c192b !important;
+
     td {
-        font-weight: 600;      
+        font-weight: 600;
     }
 
     .pf-text-not-highlight {
-        color: #B3BEC1 !important;
+        color: #b3bec1 !important;
     }
 }
 
 .pf-summary-row-netprofit {
-    background-color: #172C47 !important;
+    background-color: #172c47 !important;
 }
 
 .pf-summary-label {
@@ -952,24 +952,23 @@
 }
 
 .pf-verify-example-sedie {
-    background: linear-gradient(180deg, #094998 0%, #062B57 18.41%, #142030 36.83%);
+    background: linear-gradient(180deg, #094998 0%, #062b57 18.41%, #142030 36.83%);
     padding: 1rem;
 }
 
 .pf-bet-details-table-sedie {
-    
     border-radius: 1rem;
     border: 2px solid #3c3e43;
     overflow: hidden;
 
     th {
-        background: var(--table-header-bg, #FFFFFF1A) !important;
-        color: var(--table-header-color, #FFFFFF) !important;
+        background: var(--table-header-bg, #ffffff1a) !important;
+        color: var(--table-header-color, #ffffff) !important;
     }
 
     tbody {
         background-color: #2d3035;
-        color: #B3BEC1;
+        color: #b3bec1;
 
         td {
             padding: 0.7rem;
@@ -982,17 +981,17 @@
                 background-color: #102136;
             }
             &:nth-child(even) {
-                background-color: #172C47;
+                background-color: #172c47;
             }
         }
     }
 
     tfoot {
-        background-color: #0C192B;
+        background-color: #0c192b;
 
         tr {
             &:nth-child {
-                background-color: #0C192B;
+                background-color: #0c192b;
             }
         }
     }
@@ -1006,4 +1005,34 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.pf-verify-icon-back {
+    transform: rotate(-90deg);
+}
+
+.pf-verify-icon-back-container {
+    background: #3f5f8d;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-right: 0.2rem;
+}
+
+.pf-setting-header-sedie {
+    background: #2a4770;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem 1rem 0 0;
+    padding: 0.5rem 1rem;
+}
+
+.pf-setting-content {
+    background: #1b293f;
+    padding: 1rem;
 }
