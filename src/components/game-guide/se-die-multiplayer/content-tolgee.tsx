@@ -112,14 +112,6 @@ const SeDiePayout: FC<{
                             </td>
                         </tr>
                         <tr>
-                            {renderDiceImage("red4")}
-                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
-                            <td rowSpan={2}>
-                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
-                            </td>
-                        </tr>
-                        <tr>{renderDiceImage("white4")}</tr>
-                        <tr>
                             {renderDiceImage("red3")}
                             <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
@@ -127,6 +119,14 @@ const SeDiePayout: FC<{
                             </td>
                         </tr>
                         <tr>{renderDiceImage("white3")}</tr>
+                        <tr>
+                            {renderDiceImage("red4")}
+                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
+                            <td rowSpan={2}>
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
+                            </td>
+                        </tr>
+                        <tr>{renderDiceImage("white4")}</tr>
                     </tbody>
                 </table>
             </div>
