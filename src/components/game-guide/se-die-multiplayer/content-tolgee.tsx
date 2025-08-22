@@ -6,7 +6,6 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameGuideProps } from "../type";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { TogleeNamespace } from "./namespace-tolgee";
-import Styles from "./se-die.module.scss";
 
 const SeDieIntroduction: FC<{
     t: Function;
@@ -61,11 +60,13 @@ const SeDieGameRules: FC<{
 
 const renderDiceImage = (imageName: string) => {
     return (
-        <td>
-            <div className="d-flex justify-content-center">
-                <img style={{ width: "40px", height: "40px" }} src={`/static/images/sedie-multiplayer/bet-detail-${imageName}.svg`} alt={imageName} />
-            </div>
-        </td>
+        <div className="d-flex justify-content-center">
+            <img
+                style={{ width: "31px", height: "31px" }}
+                src={`/static/images/sedie-multiplayer/bet-detail-${imageName}.svg`}
+                alt={imageName}
+            />
+        </div>
     );
 };
 
@@ -82,7 +83,7 @@ const SeDiePayout: FC<{
         <li className={`guide-item`}>
             <h2>{t("title_payouts", { ns: TogleeNamespace.Common })}</h2>
             <div className="table-container">
-                <table className={`table text-center ${Styles.sedieMultiplayerTable}`}>
+                <table className={`table text-center`}>
                     <thead>
                         <tr>
                             <th>{t("table_header_options", { ns: TogleeNamespace.SpecificGame })}</th>
@@ -94,46 +95,52 @@ const SeDiePayout: FC<{
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{t("option_odd", { ns: TogleeNamespace.SpecificGame })}</td>
-                            <td rowSpan={2}>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
-                            <td rowSpan={2}>
+                            <td className="d-flex justify-content-center align-items-center gap-2">
+                                <span>{t("option_odd", { ns: TogleeNamespace.SpecificGame })}</span>
+                                <span style={{width:"1px", height: "18px", backgroundColor: "#b3bec1"}}></span>
+                                <span>{t("option_even", { ns: TogleeNamespace.SpecificGame })}</span>
+                            </td>
+                            <td>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
+                            <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetEven}
                             </td>
                         </tr>
+
                         <tr>
-                            <td>{t("option_even", { ns: TogleeNamespace.SpecificGame })}</td>
-                        </tr>
-                        
-                        <tr>
-                            {renderDiceImage("red2")}
+                            <td>{renderDiceImage("red2")}</td>
                             <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                             </td>
                         </tr>
                         <tr>
-                            {renderDiceImage("red3")}
-                            <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
-                            <td rowSpan={2}>
+                            <td className="d-flex justify-content-center align-items-center gap-2">
+                                {renderDiceImage("red3")}
+                                <span style={{width:"1px", height: "18px", backgroundColor: "#b3bec1"}}></span>
+                                {renderDiceImage("white3")}
+                            </td>
+                            <td>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
+                            <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                             </td>
                         </tr>
-                        <tr>{renderDiceImage("white3")}</tr>
                         <tr>
-                            {renderDiceImage("red4")}
-                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
-                            <td rowSpan={2}>
+                            <td className="d-flex justify-content-center align-items-center gap-2">
+                                {renderDiceImage("red4")}
+                                <span style={{width:"1px", height: "18px", backgroundColor: "#b3bec1"}}></span>
+                                {renderDiceImage("white4")}
+                            </td>
+                            <td>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
+                            <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
                             </td>
                         </tr>
-                        <tr>{renderDiceImage("white4")}</tr>
                     </tbody>
                 </table>
             </div>
         </li>
     );
 };
-
 
 export interface SeDieGameGuideContentsProps {
     gameConfigs: GameConfigProps;
@@ -153,13 +160,7 @@ const GameNameMapping: Record<number, string> = {
 };
 
 const SeDieGameGuideContent: React.FC<GameGuideProps<GameConfigProps, MaxBetChoicesProps> & { tolgee: TolgeeInstance }> = (props) => {
-    const {
-        gameConfigs,
-        gameId,
-        maxBetFollowChoice,
-        environment,
-        fractionalOddsFormat,
-    } = props;
+    const { gameConfigs, gameId, maxBetFollowChoice, environment, fractionalOddsFormat } = props;
 
     const { t } = useTranslate([TogleeNamespace.Common, TogleeNamespace.SpecificGame]);
 
