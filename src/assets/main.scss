@@ -424,8 +424,9 @@
 
 [data-theme="original"] {
     // Colors
-    --primary-color: #FFBC11;
-    --text-color: #CED8E6;
+    --primary-color: #ffbc11;
+    --text-color: #ced8e6;
+    --page-background: transparent;
 
     // Scrollbar
     --scrollbar-background: rgba(0, 0, 0, 0.3);
@@ -437,27 +438,30 @@
     --font-family: "Inter", sans-serif;
 
     // Table
-    --table-background: #172C47;
+    --table-background: #172c47;
     --table-border: rgba(255, 255, 255, 0.3);
     --table-color: #fff;
     --table-header-background: #233046;
     --table-header-color: #fff;
     --table-border-radius: 0.8rem;
-    
+
     // Layout
     --container-width: 100%;
     --container-max-width: 100%;
-    
+
+    body,
+    html {
+        background: none transparent !important;
+    }
+
     .game-container {
-        background-color: transparent !important;
-        width: var(--container-width) !important;
-        max-width: var(--container-max-width) !important;
+        background: none transparent !important;
     }
 }
 
 [data-theme="pf-original"] {
-    --primary-color: #FFBC11;
-    --text-color: #CED8E6;
+    --primary-color: #ffbc11;
+    --text-color: #ced8e6;
     --page-background: transparent;
 
     // scrollbar
@@ -482,14 +486,15 @@
     --table-border: rgba(255, 255, 255, 0.3);
     --table-color: #fff;
     --table-header-background: rgba(255, 255, 255, 0.1);
-    --table-header-color: #FFF;
+    --table-header-color: #fff;
     --border-line: rgba(255, 255, 255, 0.3) 1px solid;
-    
+
     // Ensure body and html are transparent
-    body, html {
+    body,
+    html {
         background-color: transparent !important;
     }
-    
+
     .game-container {
         background-color: transparent !important;
     }
