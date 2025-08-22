@@ -4,7 +4,7 @@ import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tol
 import Styles from "../snng-base/pf.module.scss";
 import { SeDieMultiplayerPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderContentPFBase, renderPFSettingsExample, renderPopupHeader } from "../snng-base";
+import { renderContentPFBase } from "../snng-base";
 
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
 const iconCSV = <img src="./static/images/pf-snng/pf-verify-icon-csv.svg" alt="pf-icon" />;
@@ -12,6 +12,9 @@ const iconEdit = <img src="./static/images/pf-snng/pf-verify-icon-edit.svg" alt=
 const iconPF2 = <img src="./static/images/pf/sedie/bet-details-pf.png" alt="bet-details-pf-icon" />;
 const iconInfo = <img src="./static/images/pf-snng/pf-verify-icon-info.svg" alt="pf-icon" />;
 const iconBack = <img src="./static/images/pf/sedie/icon-back.svg" alt="icon-back" />;
+const iconChecked = <img src="./static/images/pf-snng/pf-verify-icon-checked.svg" alt="pf-icon" />;
+const iconUnCheck = <img src="./static/images/pf-snng/pf-verify-icon-uncheck.svg" alt="pf-icon" />;
+const iconClose = <img src="./static/images/pf-snng/pf-verify-icon-close-sedie.svg" alt="pf-icon" />;
 
 const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string) => {
     return (
@@ -31,7 +34,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                     {t("pf_result", { ns: "Common" })}:
                     <div className={Styles["pf-result-dot-container"]}>
                         <div className={Styles["pf-result-dot-row"]}>
-                            <div className={Styles["dot-odd"]} />
+                            <div className={Styles["dot-even"]} />
                             <div className={Styles["dot-even"]} />
                         </div>
                         <div className={Styles["pf-result-dot-row"]}>
@@ -69,7 +72,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     {t("pf_result", { ns: "Common" })}:
                     <div className={Styles["pf-result-dot-container"]}>
                         <div className={Styles["pf-result-dot-row"]}>
-                            <div className={Styles["dot-odd"]} />
+                            <div className={Styles["dot-even"]} />
                             <div className={Styles["dot-even"]} />
                         </div>
                         <div className={Styles["pf-result-dot-row"]}>
@@ -96,13 +99,24 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 </thead>
                 <tbody>
                     <tr>
-                        <td>12:00:00 PM</td>
-                        <td className={Styles["pf-text-highlight"]}>Odd</td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight"]}>+200</td>
+                        <td>17:02:43</td>
+                        <td>
+                            <div className={Styles["pf-bet-choice-dots"]}>
+                                <div className={Styles["pf-dot-row"]}>
+                                    <div className={Styles["dot-odd"]} />
+                                    <div className={Styles["dot-odd"]} />
+                                </div>
+                                <div className={Styles["pf-dot-row"]}>
+                                    <div className={Styles["dot-odd"]} />
+                                    <div className={Styles["dot-even"]} />
+                                </div>
+                            </div>
+                        </td>
+                        <td>200</td>
+                        <td>-200</td>
                     </tr>
                     <tr>
-                        <td>12:00:00 PM</td>
+                        <td>17:02:42</td>
                         <td>
                             <div className={Styles["pf-bet-choice-dots"]}>
                                 <div className={Styles["pf-dot-row"]}>
@@ -115,82 +129,14 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                                 </div>
                             </div>
                         </td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
+                        <td>200</td>
+                        <td>-200</td>
                     </tr>
                     <tr>
-                        <td>12:00:00 PM</td>
-                        <td>
-                            <div className={Styles["pf-bet-choice-dots"]}>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-odd"]} />
-                                    <div className={Styles["dot-odd"]} />
-                                </div>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-odd"]} />
-                                    <div className={Styles["dot-odd"]} />
-                                </div>
-                            </div>
-                        </td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
-                    </tr>
-                    <tr>
-                        <td>12:00:00 PM</td>
-                        <td>
-                            <div className={Styles["pf-bet-choice-dots"]}>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-even"]} />
-                                    <div className={Styles["dot-odd"]} />
-                                </div>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-even"]} />
-                                    <div className={Styles["dot-odd"]} />
-                                </div>
-                            </div>
-                        </td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
-                    </tr>
-                    <tr>
-                        <td>12:00:00 PM</td>
-                        <td>
-                            <div className={Styles["pf-bet-choice-dots"]}>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-odd"]} />
-                                    <div className={Styles["dot-even"]} />
-                                </div>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-odd"]} />
-                                    <div className={Styles["dot-odd"]} />
-                                </div>
-                            </div>
-                        </td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
-                    </tr>
-                    <tr>
-                        <td>12:00:00 PM</td>
-                        <td>
-                            <div className={Styles["pf-bet-choice-dots"]}>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-even"]} />
-                                    <div className={Styles["dot-even"]} />
-                                </div>
-                                <div className={Styles["pf-dot-row"]}>
-                                    <div className={Styles["dot-odd"]} />
-                                    <div className={Styles["dot-even"]} />
-                                </div>
-                            </div>
-                        </td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
-                    </tr>
-                    <tr>
-                        <td>12:00:00 PM</td>
-                        <td >Even</td>
-                        <td>100</td>
-                        <td className={Styles["pf-text-highlight-red"]}>-100</td>
+                        <td>17:02:41</td>
+                        <td>{t("bet_choice_odd", { ns: "Common" })}</td>
+                        <td>200</td>
+                        <td>-200</td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -198,15 +144,15 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                         <td colSpan={2} className={Styles["pf-summary-label"]}>
                             {t("pf_total", { ns: "Common" })}
                         </td>
-                        <td className={Styles["pf-text-not-highlight"]}>100</td>
-                        <td className={Styles["pf-text-highlight"]}>444.00M</td>
+                        <td className={Styles["pf-text-not-highlight"]}>600</td>
+                        <td className={Styles["pf-text-highlight"]}>0</td>
                     </tr>
                     <tr className={`${Styles["pf-summary-row"]} ${Styles["pf-summary-row-netprofit"]}`}>
                         <td colSpan={2} className={Styles["pf-summary-label"]}>
                             {t("pf_net_profit", { ns: "Common" })}
                         </td>
                         <td></td>
-                        <td className={Styles["pf-text-highlight"]}>4,444.00M</td>
+                        <td className={Styles["pf-text-highlight"]}>-600</td>
                     </tr>
                 </tfoot>
             </table>
@@ -222,7 +168,7 @@ const renderClientSeedInfoExample = (
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
             {renderPFHeader(t)}
-            {resultBlock(t, "123456")}
+            {resultBlock(t, "1073")}
 
             <div className={Styles["pf-verify-block-form"]}>
                 <div className="flex justify-between items-center" style={{ marginBottom: "0.5rem" }}>
@@ -242,8 +188,7 @@ const renderClientSeedInfoExample = (
                 </div>
             </div>
             <div className={Styles["pf-verify-section-title"]}>
-                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>12</span>
-                <span className={`${Styles["pf-verify-icon"]} ${Styles["icon-export"]}`}>{iconCSV}</span>
+                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>15</span>
             </div>
             <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-client-seed-info-table"]}`}>
                 <thead>
@@ -313,7 +258,7 @@ const renderClientSeedInfoExample = (
                     <tr>
                         <td>12</td>
                         <td className={Styles["pf-text-highlight-green"]}>Dragon72864</td>
-                        <td className={Styles["pf-text-highlight-green"]}>1991</td>
+                        <td className={Styles["pf-text-highlight-green"]}>7842</td>
                     </tr>
                 </tbody>
             </table>
@@ -359,7 +304,7 @@ const renderVerifyDetailExample = (
                     <div className="flex gap-4 items-center">
                         <div className={Styles["pf-result-dot-container"]}>
                             <div className={Styles["pf-result-dot-row"]}>
-                                <div className={Styles["dot-odd"]} />
+                                <div className={Styles["dot-even"]} />
                                 <div className={Styles["dot-even"]} />
                             </div>
                             <div className={Styles["pf-result-dot-row"]}>
@@ -372,29 +317,41 @@ const renderVerifyDetailExample = (
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
-                <p className="bold">83 ={">"} 215</p>
-                <p className="bold">65 ={">"} 215</p>
-                <p className="bold">52 ={">"} 215</p>
-                <p className="bold">f9 ={">"} 215</p>
+                <p className="bold">e3 ={">"} 227</p>
+                <p className="bold">3d ={">"} 61</p>
+                <p className="bold">d2 ={">"} 210</p>
+                <p className="bold">a9 ={">"} 169</p>
 
                 <div>
                     <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
-                    <span> {" "} - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (41 + 131) mode 2 = 0 ={" "} {t("glossary_white", { ns: "SeDieMultiPlayer" })} 1 = 1
+                    <span>
+                        {" "}
+                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mode 2 = 0 {"=>"} {" "}
+                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                     </span>
                 </div>
                 <div>
                     <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
-                    <span> {" "} - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (41 + 131) mode 2 = 0 ={" "} {t("glossary_white", { ns: "SeDieMultiPlayer" })} 1 = 1
+                    <span>
+                        {" "}
+                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mode 2 = 0 {"=>"} {" "}
+                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                     </span>
                 </div>
                 <div>
                     <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
-                    <span> {" "} - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (41 + 131) mode 2 = 0 ={" "} {t("glossary_white", { ns: "SeDieMultiPlayer" })} 1 = 1
+                    <span>
+                        {" "}
+                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mode 2 = 0 {"=>"}{" "}
+                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                     </span>
                 </div>
                 <div>
                     <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
-                    <span> {" "} - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (41 + 131) mode 2 = 0 ={" "} {t("glossary_red", { ns: "SeDieMultiPlayer" })} 1 = 1
+                    <span>
+                        {" "}
+                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mode 2 = 0 {"=>"}{" "}
+                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                     </span>
                 </div>
             </div>
@@ -420,8 +377,8 @@ const renderVerifyExample = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     serverSeedSHA256: string,
     serverSeed: string,
-    mergeServerSeed: string,
     combinedSHA512Hash: string,
+    mergeClientSeed: string,
     resultBlock: any
 ) => {
     return (
@@ -448,7 +405,7 @@ const renderVerifyExample = (
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-link"]}>{t("pf_provably_fair_details", { ns: "SabaNumber" })}</span>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
-                    <span className={`${Styles["pf-verify-input-text"]}`}>{mergeServerSeed}</span>
+                    <span className={`${Styles["pf-verify-input-text"]}`}>{mergeClientSeed}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
@@ -475,17 +432,17 @@ const renderSeDieMultiplayerVerifyPF = (
     imgVersion: string
 ) => {
     const iconPF = `<img src="/static/images/pf-snng/pf-guide.svg" alt="pf-verify" />`;
-    const serverSeedSHA256 = "06b2debe526f6544f55ed206d23f825a3a0b76dba0094bdd31ea285fe5166d5f";
-    const randomNumber = "1991";
+    const serverSeedSHA256 = "295be5037f34988531577bc4b2f070681c99f1bcc7885018762521d4447c2485";
+    const randomNumber = "7842";
     const serverSeed =
-        "{&quot;random&quot;:&quot;3;14&quot;,&quot;remain&quot;:&quot;1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:17:19:20:21:22:23:24:26:27:28:29:30;1:2:3:4:5:6:7:8:9:10:11:12:13:14:15:16:18:19:20:21:22:23:24:25:26:28:29:30&quot;,&quot;secret&quot;:&quot;TGpH~Hr6m5T5KzOFCEcGVqNm624VJoi.&quot;}";
-    const mergeServerSeed = "{“random”:“41;40;17;11”,“secret”:”Wblob91UE.”";
+        "{&quot;random&quot;:&quot;37;1;72;71&quot;,&quot;secret&quot;:&quot;pYYVdOj7TaMqbJn0AZPE7mfO5Vi2TiUp;}";
+    const mergeServerSeed = "{“random”:“37;1;72;71”,“secret”:pYYVdOj7TaMqbJn0AZPE7mfO5Vi2TiUp”";
     const combinedSHA512Hash =
-        "4eb1ec458c6001e7c12fe3ef534794cb3b0f670596b1c6e1a643106a9d9bfa61a0064838dec0db10d3e9f8b2676be9c41fe9ffa0d6abed796d02aef4b7af968d";
-    const drawId = "53231";
+        "e33dd2a9c3921aa9ea9c93528a4cdb4e8a6e405aa9592c3ccfa3f4c31d67190108371f2c61f839d0aca4c0638c705dc592858770cb8f5b25a408a2ac6603eda4";
+    const drawId = "1073";
     const combinedHashExample =
-        "2624df77dcd9833bc56a1f9443e5f2634d9a164638ddaa3d4a76cc088b7c45b651f7126e36faf44586a122717ff96349b3f45fe018ccf4e91bf9724594dd7b1c";
-
+        "d662aefd7de9e24ae822d472d502798098ee0adaa91642dbd1efdd93987d464fb537fba22b002b5ec91d4f0a3fb98d404b78feac4650568fd6c279eb097d8cb9";
+    const mergeClientSeed = "604684676893831440990810328513133527842945619939";
     return (
         <div className="guide-item">
             <h2>{t("pf_title_verify_the_provably_fair", { ns: "Common" })}</h2>
@@ -559,11 +516,41 @@ const renderSeDieMultiplayerVerifyPF = (
                             {<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })} />}
                         </div>
                         <div className={`flex ${Styles["pf-hash-example-container"]}`}>{combinedHashExample}</div>
-                        <img
-                            className={Styles["pf-combined-hash-example-img"]}
-                            src={`./static/images/pf/sedie/pf-combine-example.png?v=${imgVersion}`}
-                            alt="pf"
-                        />
+                        <div className={Styles["pf-convert-hash"]}>
+                            <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
+                                <span className={Styles["color-ball-1"]}>d6</span>
+                                <span className={Styles["color-ball-2"]}>62</span>
+                                <span className={Styles["color-ball-3"]}>ae</span>
+                                <span className={Styles["color-ball-4"]}>fd</span>7de...
+                            </div>
+                            <div className={Styles["convert-hash-1"]}>
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "1" })} />}
+                                </div>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                            </div>
+
+                            <div className={Styles["convert-hash-2"]}>
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "2" })} />}
+                                </div>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                            </div>
+
+                            <div className={Styles["convert-hash-3"]}>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "3" })} />}
+                                </div>
+                            </div>
+
+                            <div className={Styles["convert-hash-4"]}>
+                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
+                                <div className={Styles["text"]}>
+                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "4" })} />}
+                                </div>
+                            </div>
+                        </div>
 
                         <p>{<Markup content={t("pf_content_1_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
                         <p>{<Markup content={t("pf_content_2_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
@@ -595,15 +582,15 @@ const renderSeDieMultiplayerVerifyPF = (
                                 t,
                                 serverSeedSHA256,
                                 serverSeed,
-                                mergeServerSeed,
                                 combinedSHA512Hash,
+                                mergeClientSeed,
                                 resultBlock(t, drawId)
                             )}
-                            {renderClientSeedInfoExample(t, randomNumber, mergeServerSeed)}
+                            {renderClientSeedInfoExample(t, randomNumber, mergeClientSeed)}
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_26", { ns: "BacBall" })} />}
                             </li>
-                            {renderVerifyDetailExample(t, mergeServerSeed, serverSeed, combinedSHA512Hash)}
+                            {renderVerifyDetailExample(t, mergeClientSeed, serverSeed, combinedSHA512Hash)}
                         </ul>
                     </ul>
                 </li>
@@ -636,6 +623,62 @@ const renderPFAppliedInGame = (t: TFnType<DefaultParamType, string, TranslationK
 
                 <li>{t("pf_how_is_pf_applied_in_game_para_4", { ns: "Spaceflight" })}</li>
             </ul>
+        </div>
+    );
+};
+
+const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, randomNumber: string, serverSeedSHA256: string) => {
+    return (
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
+            {renderPopupHeader("pf_title_provably_fair_settings", "Common", t)}
+            <div className={Styles["pf-setting-content"]}>
+                <p>{t("pf_setting_para_1", { ns: "SabaNumber" })}</p>
+                <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["pf-verify-block-form"]}>
+                    <div className={Styles["pf-verify-option"]}>
+                        <div className={Styles["pf-verify-option-radio"]} style={{ color: "#fff" }}>
+                            <span className={Styles["pf-verify-icon"]}>{iconUnCheck}</span>
+                            <span className={Styles["pf-verify-check-label"]}>{t("pf_random", { ns: "Common" })}</span>
+                        </div>
+
+                        <div
+                            className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`}
+                            style={{ color: "#fff" }}
+                        >
+                            {randomNumber}
+                        </div>
+                    </div>
+                    <div className={Styles["pf-verify-option"]}>
+                        <div className={Styles["pf-verify-option-radio"]}>
+                            <span className={Styles["pf-verify-icon"]}>{iconChecked}</span>
+                            <span className={`${Styles["pf-verify-check-label"]} text-center`}>
+                                {t("pf_manual_input", { ns: "Common" })} <br /> (0 - 9999)
+                            </span>
+                        </div>
+
+                        <div className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`}>7842</div>
+                    </div>
+                </div>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
+                <div className={Styles["pf-verify-block-form"]}>
+                    <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                        <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
+                        <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    return (
+        <div className={` ${Styles["pf-setting-header-sedie"]}`}>
+            <span className={Styles["pf-verify-header-title"]}>{t(headerTitleKey, { ns: nameSpace })}</span>
+            <div className={Styles["pf-verify-icon-back-container"]}>
+                <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-back"]}`}>{iconBack}</span>
+            </div>
         </div>
     );
 };
