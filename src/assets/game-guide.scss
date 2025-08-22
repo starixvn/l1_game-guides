@@ -212,23 +212,37 @@
         .table-container {
             padding: 0;
             width: 100%;
-            
+
             .table {
                 margin: 0;
                 width: 100%;
                 border-radius: var(--table-border-radius);
                 overflow: hidden;
-                
-                th, td {
-                    font-size: var(--font-size);
-                    line-height: 2rem;
+
+                thead {
+                    background: var(--table-header-background);
+                }
+
+                td {
+                    font-size: 1.4rem;
+                    line-height: 1.4rem;
                     font-weight: 400;
                     color: var(--table-color);
+                    border: var(--border-line);
+                    padding: 1.2rem 0.4rem;
+                    text-align: center;
+                    flex: 1 0 0;
+                }
+
+                td > span {
+                    margin: 0;
                 }
 
                 th {
                     background-color: var(--table-header-background);
                     color: var(--table-header-color);
+                    font-weight: var(--table-header-font-weight);
+                    padding: 1.2rem;
                 }
 
                 tr {
