@@ -2,11 +2,11 @@ import { T, TolgeeInstance, useTranslate } from "@tolgee/react";
 import { Markup } from "interweave";
 import { FC, useMemo } from "react";
 import { formatOdds } from "../../../helpers/number-helper";
-import { renderFourRed, renderFourWhite, renderOneRedThreeWhite, renderThreeRedOneWhite, renderTwoRedTwoWhite } from "../../shared/dot";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameGuideProps } from "../type";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 import { TogleeNamespace } from "./namespace-tolgee";
+import Styles from "./se-die.module.scss";
 
 const SeDieIntroduction: FC<{
     t: Function;
@@ -59,6 +59,16 @@ const SeDieGameRules: FC<{
     );
 };
 
+const renderDiceImage = (imageName: string) => {
+    return (
+        <td>
+            <div className="d-flex justify-content-center">
+                <img style={{ width: "40px", height: "40px" }} src={`/static/images/sedie-multiplayer/bet-detail-${imageName}.svg`} alt={imageName} />
+            </div>
+        </td>
+    );
+};
+
 const SeDiePayout: FC<{
     t: Function;
     gameConfigs: GameConfigProps;
@@ -72,7 +82,7 @@ const SeDiePayout: FC<{
         <li className={`guide-item`}>
             <h2>{t("title_payouts", { ns: TogleeNamespace.Common })}</h2>
             <div className="table-container">
-                <table className="table text-center table-small">
+                <table className={`table text-center ${Styles.sedieMultiplayerTable}`}>
                     <thead>
                         <tr>
                             <th>{t("table_header_options", { ns: TogleeNamespace.SpecificGame })}</th>
@@ -93,29 +103,30 @@ const SeDiePayout: FC<{
                         <tr>
                             <td>{t("option_even", { ns: TogleeNamespace.SpecificGame })}</td>
                         </tr>
+                        
                         <tr>
-                            {renderFourRed()}
-                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
-                            <td rowSpan={2}>
-                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
-                            </td>
-                        </tr>
-                        <tr>{renderFourWhite()}</tr>
-                        <tr>
-                            {renderTwoRedTwoWhite()}
+                            {renderDiceImage("red2")}
                             <td>{formatOdds(odds?.red2, fractionalOddsFormat)}</td>
                             <td>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed2}
                             </td>
                         </tr>
                         <tr>
-                            {renderThreeRedOneWhite()}
+                            {renderDiceImage("red4")}
+                            <td rowSpan={2}>{formatOdds(odds?.red4, fractionalOddsFormat)}</td>
+                            <td rowSpan={2}>
+                                {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed4}
+                            </td>
+                        </tr>
+                        <tr>{renderDiceImage("white4")}</tr>
+                        <tr>
+                            {renderDiceImage("red3")}
                             <td rowSpan={2}>{formatOdds(odds?.red3, fractionalOddsFormat)}</td>
                             <td rowSpan={2}>
                                 {maxBetFollowChoice?.minBetMain} - {maxBetFollowChoice?.maxBetRed3}
                             </td>
                         </tr>
-                        <tr>{renderOneRedThreeWhite()}</tr>
+                        <tr>{renderDiceImage("white3")}</tr>
                     </tbody>
                 </table>
             </div>
