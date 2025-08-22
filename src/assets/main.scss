@@ -425,7 +425,7 @@
 [data-theme="original"] {
     // Colors
     --primary-color: #ffbc11;
-    --text-color: #ced8e6;
+    --text-color: #cfcfcf;
     --page-background: transparent;
 
     // Scrollbar
@@ -440,10 +440,12 @@
     // Table
     --table-background: #172c47;
     --table-border: rgba(255, 255, 255, 0.3);
-    --table-color: #fff;
+    --table-color: #b3bec1;
     --table-header-background: #233046;
     --table-header-color: #fff;
+    --table-header-font-weight: 600;
     --table-border-radius: 0.8rem;
+    --border-line: none;
 
     // Layout
     --container-width: 100%;
