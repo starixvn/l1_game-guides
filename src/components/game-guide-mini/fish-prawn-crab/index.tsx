@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { UserStakeLevelProps } from "../../../pages";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../../index.helper";
-import { GameGuideBase } from "../../game-guide/type";
-import FishPrawnCrabMiniGuideTemplate from "./template";
-import FishPrawnCrabMiniContent from "./content-tolgee";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import { numberWithCommas } from "../../../helpers/number-helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { GameGuideBase } from "../../game-guide/type";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
+import FishPrawnCrabMiniContent from "./content-tolgee";
+import FishPrawnCrabMiniGuideTemplate from "./template";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const tolgee = initTolgee(["FishPrawnCrabMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -84,6 +80,7 @@ const FishPrawnCrabMiniGuide = (props: GameGuideBase) => {
                     environment={props.environment}
                     isInPromotionTime={props.isInPromotionTime}
                     fractionalOddsFormat={props.fractionalOddsFormat}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

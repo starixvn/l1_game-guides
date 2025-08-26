@@ -1,18 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { handleMaxBetChoice } from "./index";
-import FishPrawnCrabMiniGuideTemplate from "./template";
 import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "./index";
 import { getFishPrawnCrabMiniTolgeeTranslationResource } from "./languages/tolgee";
+import FishPrawnCrabMiniGuideTemplate from "./template";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const FishPrawnCrabMiniContent = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, isGetGameConfigs, project, tolgee } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const tolgee = useTolgee();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("fish-prawn-crab", project, setConfigs, "game-guide-mini");

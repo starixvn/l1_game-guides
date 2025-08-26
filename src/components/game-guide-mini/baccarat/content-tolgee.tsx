@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getBaccaratMiniTolgeeTranslationResource } from "./languages/tolgee";
-import { handleMaxBetChoice } from "../../shared/baccarat";
-import BaccaratMiniGuideTemplate from "./template";
 import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "../../shared/baccarat";
+import { getBaccaratMiniTolgeeTranslationResource } from "./languages/tolgee";
+import BaccaratMiniGuideTemplate from "./template";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const BaccaratMiniContent = (props: GameGuideBase) => {
     const {
@@ -19,11 +18,11 @@ const BaccaratMiniContent = (props: GameGuideBase) => {
         environment,
         isInPromotionTime,
         fractionalOddsFormat,
+        tolgee,
     } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const tolgee = useTolgee();
+    1;
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("baccarat", project, setConfigs, "game-guide-mini");

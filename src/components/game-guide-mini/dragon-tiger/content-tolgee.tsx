@@ -1,18 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getDragonTigerMiniTolgeeTranslationResource } from "./languages/tolgee";
-import { handleMaxBetChoice } from "./index";
-import DragonTigerMiniGuideTemplate from "./templates/index";
 import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "./index";
+import { getDragonTigerMiniTolgeeTranslationResource } from "./languages/tolgee";
+import DragonTigerMiniGuideTemplate from "./templates/index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const DragonTigerMiniContent = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, userStakeLevel, isGetGameConfigs, project, tolgee } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const tolgee = useTolgee();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("dragon-tiger", project, setConfigs, "game-guide-mini");

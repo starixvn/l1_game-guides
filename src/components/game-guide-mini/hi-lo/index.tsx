@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { GameConfigProps } from "../big-small/type";
-import { getGameConfigProject } from "../../index.helper";
-import { GameGuideBase } from "../../game-guide/type";
-import HiLoMiniGuideTemplate from "./templates";
-import HiLoMiniContent from "./content-tolgee";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import { useEffect, useState } from "react";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { GameGuideBase } from "../../game-guide/type";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
+import { GameConfigProps } from "../big-small/type";
+import HiLoMiniContent from "./content-tolgee";
+import HiLoMiniGuideTemplate from "./templates";
 
 const tolgee = initTolgee(["HiLoMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 const HiLoMiniGuide = (props: GameGuideBase) => {
     const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
@@ -64,6 +60,7 @@ const HiLoMiniGuide = (props: GameGuideBase) => {
                     dynamic={dynamic}
                     isGetGameConfigs={isGetGameConfigs}
                     project={project}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

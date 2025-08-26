@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import BaccaratMiniGuideTemplate from "./template";
-import BaccaratMiniContent from "./content-tolgee";
-import { getGameConfigProject } from "../../index.helper";
-import { handleMaxBetChoice } from "../../shared/baccarat";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { GameGuideBase } from "../../game-guide/type";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
+import { handleMaxBetChoice } from "../../shared/baccarat";
+import BaccaratMiniContent from "./content-tolgee";
+import BaccaratMiniGuideTemplate from "./template";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const tolgee = initTolgee(["BaccaratMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 const BaccaratMiniGuide = (props: GameGuideBase) => {
     const {
@@ -94,6 +90,7 @@ const BaccaratMiniGuide = (props: GameGuideBase) => {
                     environment={environment}
                     isInPromotionTime={isInPromotionTime}
                     fractionalOddsFormat={fractionalOddsFormat}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

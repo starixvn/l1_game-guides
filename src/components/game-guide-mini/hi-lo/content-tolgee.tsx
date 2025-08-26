@@ -1,16 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
+import { getGameConfigProject } from "../../index.helper";
 import { GameConfigProps } from "../big-small/type";
 import { getHiLoMiniTolgeeTranslationResource } from "./languages/tolgee";
 import HiLoMiniGuideTemplate from "./templates/index";
-import { getGameConfigProject } from "../../index.helper";
 
 const HiLoMiniContent = (props: GameGuideBase) => {
-    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project } = props;
+    const { locale, gameConfigs, gameNameTranslate, dynamic, isGetGameConfigs, project, tolgee } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
-
-    const tolgee = useTolgee();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("hi-lo", project, setConfigs, "game-guide-mini");

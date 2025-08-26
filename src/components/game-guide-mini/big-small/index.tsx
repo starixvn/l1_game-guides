@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import BigSmallGuideTemplate from "./template";
-import BigSmallMiniContent from "./content-tolgee";
 import { GameGuideBase } from "../../game-guide/type";
+import BigSmallMiniContent from "./content-tolgee";
+import BigSmallGuideTemplate from "./template";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
-import { handleMaxBetChoice } from "../../game-guide/index.helper";
-import { getGameConfigProject } from "../../index.helper";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { handleMaxBetChoice } from "../../game-guide/index.helper";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
 
 const tolgee = initTolgee(["BigSmallMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 const BigSmallGuide = (props: GameGuideBase) => {
     const {
@@ -91,6 +87,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
                     isInPromotionTime={isInPromotionTime}
                     fractionalOddsFormat={fractionalOddsFormat}
                     locale={locale}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

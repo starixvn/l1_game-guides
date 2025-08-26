@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { numberWithCommas } from "../../../helpers/number-helper";
-import { UserStakeLevelProps } from "../../../pages";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getGameConfigProject } from "../../index.helper";
-import DragonTigerMiniGuideTemplate from "./templates/index";
-import DragonTigerMiniContent from "./content-tolgee";
-import { GameGuideBase } from "../../game-guide/type";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import { useEffect, useState } from "react";
+import { numberWithCommas } from "../../../helpers/number-helper";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { GameGuideBase } from "../../game-guide/type";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
+import DragonTigerMiniContent from "./content-tolgee";
+import DragonTigerMiniGuideTemplate from "./templates/index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const tolgee = initTolgee(["DragonTigerMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 export const handleMaxBetChoice = (userStakeLevel: UserStakeLevelProps | undefined, gameConfigs: GameConfigProps) => {
     const { maxBet, minBet, maxBetPerChoices } = gameConfigs;
@@ -84,6 +80,7 @@ const DragonTigerMiniGuide = (props: GameGuideBase) => {
                     environment={props.environment}
                     isInPromotionTime={props.isInPromotionTime}
                     fractionalOddsFormat={props.fractionalOddsFormat}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

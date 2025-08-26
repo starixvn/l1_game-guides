@@ -3,3 +3,7 @@ export const getGameConfigProject = (path: string, project: string | undefined, 
         config(mod.default);
     });
 };
+
+export const isTolgeeSupportLanguage = (languageTag: string) => {
+    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
+};

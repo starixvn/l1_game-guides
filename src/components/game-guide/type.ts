@@ -1,3 +1,4 @@
+import { TolgeeInstance } from "@tolgee/react";
 import { UserStakeLevelProps } from "../../pages";
 
 export type GameGuideProps<GameConfigs, MaxBetChoicesProps> = {
@@ -39,6 +40,7 @@ export type GameGuideBase = {
     jackpotConfigs?: JackpotConfigs;
     scrollToId?: string;
     orientation?: string;
+    tolgee?: TolgeeInstance;
 };
 
 export interface JackpotConfigs {

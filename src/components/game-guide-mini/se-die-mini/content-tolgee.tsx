@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
+import { useEffect, useMemo, useState } from "react";
 import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getSeDieMiniTolgeeTranslationResource } from "./languages/tolgee";
-import { handleMaxBetChoice } from "../../shared/se-die";
-import SeDieMiniGuideTemplate from "./template/index";
 import { getGameConfigProject } from "../../index.helper";
+import { handleMaxBetChoice } from "../../shared/se-die";
+import { getSeDieMiniTolgeeTranslationResource } from "./languages/tolgee";
+import SeDieMiniGuideTemplate from "./template/index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const SeDieMiniContent = (props: GameGuideBase) => {
     const {
@@ -19,11 +18,10 @@ const SeDieMiniContent = (props: GameGuideBase) => {
         isInPromotionTime,
         fractionalOddsFormat,
         locale,
+        tolgee,
     } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const tolgee = useTolgee();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("se-die-mini", project, setConfigs, "game-guide-mini");

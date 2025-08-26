@@ -1,11 +1,11 @@
-import { ISeDieMiniTranslationResource } from "./types";
-import { th } from "./th";
+import { getTranslationResource } from "../../../../helpers/resource-helper";
 import { en } from "./en";
 import { id } from "./id";
+import { th } from "./th";
+import { ISeDieMiniTranslationResource } from "./types";
+import { vi } from "./vi";
 import { cn } from "./zh-cn";
 import { tw } from "./zh-tw";
-import { vi } from "./vi";
-import { getTranslationResource } from "../../../../helpers/resource-helper";
 
 const supportedLanguages: { [name: string]: ISeDieMiniTranslationResource } = {
     vi: vi,

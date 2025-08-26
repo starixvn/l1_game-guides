@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import SeDieMiniGuideTemplate from "./template";
-import SeDieMiniContent from "./content-tolgee";
 import { GameGuideBase } from "../../game-guide/type";
+import SeDieMiniContent from "./content-tolgee";
+import SeDieMiniGuideTemplate from "./template";
 import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
-import { getGameConfigProject } from "../../index.helper";
-import { handleMaxBetChoice } from "../../shared/se-die";
-import initTolgee from "../../../helpers/tolgee-helper";
 import { TolgeeProvider } from "@tolgee/react";
+import initTolgee from "../../../helpers/tolgee-helper";
+import { getGameConfigProject, isTolgeeSupportLanguage } from "../../index.helper";
+import { handleMaxBetChoice } from "../../shared/se-die";
 
 const tolgee = initTolgee(["SeDieMini"]);
-
-const isTolgeeSupportLanguage = (languageTag: string) => {
-    return !["th", "id", "vi", "zh_cn", "zh_tw"].includes(languageTag);
-};
 
 const SeDieMiniGuide = (props: GameGuideBase) => {
     const {
@@ -66,6 +62,10 @@ const SeDieMiniGuide = (props: GameGuideBase) => {
         }
     }, [configs]);
 
+    if (!configs) {
+        return <></>;
+    }
+
     const resource = {
         gameName: gameNameTranslate ?? "",
         environment,
@@ -76,7 +76,7 @@ const SeDieMiniGuide = (props: GameGuideBase) => {
         locale,
     };
 
-    if (locale && isTolgeeSupportLanguage(locale)) {
+    if (locale && isTolgeeSupportLanguage(locale) && tolgee) {
         return (
             <TolgeeProvider tolgee={tolgee}>
                 <SeDieMiniContent
@@ -91,6 +91,7 @@ const SeDieMiniGuide = (props: GameGuideBase) => {
                     isInPromotionTime={isInPromotionTime}
                     fractionalOddsFormat={fractionalOddsFormat}
                     locale={locale}
+                    tolgee={tolgee}
                 />
             </TolgeeProvider>
         );

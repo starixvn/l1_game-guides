@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTolgee } from "@tolgee/react";
-import { GameGuideBase } from "../../game-guide/type";
-import { GameConfigProps, MaxBetChoicesProps } from "./type";
-import { getBigSmallMiniTolgeeTranslationResource } from "./languages/tolgee";
+import { useEffect, useMemo, useState } from "react";
 import { handleMaxBetChoice } from "../../game-guide/index.helper";
-import BigSmallGuideTemplate from "./template/index";
+import { GameGuideBase } from "../../game-guide/type";
 import { getGameConfigProject } from "../../index.helper";
+import { getBigSmallMiniTolgeeTranslationResource } from "./languages/tolgee";
+import BigSmallGuideTemplate from "./template/index";
+import { GameConfigProps, MaxBetChoicesProps } from "./type";
 
 const BigSmallMiniContent = (props: GameGuideBase) => {
     const {
@@ -19,11 +18,10 @@ const BigSmallMiniContent = (props: GameGuideBase) => {
         isInPromotionTime,
         fractionalOddsFormat,
         locale,
+        tolgee,
     } = props;
     const [configs, setConfigs] = useState<GameConfigProps>();
     const [maxBetFollowChoice, setMaxBetFollowChoice] = useState<MaxBetChoicesProps>();
-
-    const tolgee = useTolgee();
 
     const getLocalGameConfigs = () => {
         getGameConfigProject("big-small", project, setConfigs, "game-guide-mini");
