@@ -70,7 +70,7 @@ const CascadingSlotGuide = (props: GameGuideBase) => {
         <TolgeeProvider tolgee={tolgee} fallback="">
             <Contents
                 displayName={displayName || ""}
-                gameSettings={gameSetting?.CascadingSlotsConfig}
+                gameSetting={gameSetting}
                 name={name ?? gameSetting?.Name}
                 gameConfigs={configs}
             />

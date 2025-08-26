@@ -492,7 +492,17 @@ const renderExampleWinFreespin = (t: Function) => {
     );
 };
 
-const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) => {
+const renderFreeSpins = ({
+    odds,
+    t,
+    isRemodeling,
+    isAutoSettle,
+}: {
+    odds: number[][];
+    t: Function;
+    isRemodeling: boolean;
+    isAutoSettle: boolean;
+}) => {
     const oddDetail = convertOddDetail(odds, true);
     const symbol9Src = `<img className={Styles["symbol-example"]}  src=${`${imgSrc}/symbol-9.png?v=${imgVer}`} width=40 height=40 alt="item9" />`;
 
@@ -552,24 +562,20 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                         <div className="text-center">{t("Win-amount")}</div>
                         {renderExampleWinFreespin(t)}
                     </li>
-                    <li>{t("FreeSpin-line-5")} </li>
+                    <li>{t(`${isAutoSettle ? "free_spin_line_5" : "FreeSpin-line-5"}`)} </li>
                 </ul>
             </li>
         </>
     );
 };
 
-const renderBuyFreeSpin = (t: Function, multiplier: number, odds: number[][]) => {
-    const oddDetail = convertOddDetail(odds, true);
-
-    const freeSpinOdds = oddDetail[0].oddItem.reduce((lowest, current) => (current.countString < lowest.countString ? current : lowest));
-
+const renderBuyFreeSpin = (t: Function, multiplier: number) => {
     return (
         <li className="guide-item">
             <h2 className={Styles["heading1"]}>{t("buy_free_spins")}</h2>
             <ul className="desc">
                 <li>{t("buy_free_spins_line_1", { value: multiplier })}</li>
-                <li>{t("buy_free_spins_line_2", { value: freeSpinOdds.countString })}</li>
+                <li>{t("buy_free_spins_line_2", { value: 5 })}</li>
             </ul>
         </li>
     );
@@ -699,20 +705,30 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
     return oddList;
 };
 
+enum AutoSettle24hGameIds {
+    WuKong = 121,
+}
+
+const isAutoSettle = (gameId: number) => {
+    return Object.values(AutoSettle24hGameIds).includes(gameId);
+};
+
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["cascadingslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
-    const { gameSettings, name, displayName, gameConfigs } = props;
-    const isRemodeling = gameSettings.OddsByCounts[9]?.every((item: any) => item.Odds > 0);
-    const volatility = !gameSettings.Volatility ? 2 : gameSettings.Volatility;
+    const { gameSetting, name, displayName, gameConfigs } = props;
+    const cascadingSlotSetting = gameSetting.CascadingSlotsConfig;
+    const isRemodeling = cascadingSlotSetting.OddsByCounts[9]?.every((item: any) => item.Odds > 0);
+    const volatility = !cascadingSlotSetting.Volatility ? 2 : cascadingSlotSetting.Volatility;
 
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
-    const odds = gameSettings.OddsByCounts;
-    const betMultiplier = gameSettings.BetMultiplier;
-    const buyFreeSpinSetting = gameSettings.Features?.BuyFreeSpins;
+    const odds = cascadingSlotSetting.OddsByCounts;
+    const betMultiplier = cascadingSlotSetting.BetMultiplier;
+    const buyFreeSpinSetting = cascadingSlotSetting.Features?.BuyFreeSpins;
     const maxWinPerRound = gameConfigs.maxWinPerRound;
 
+    const isBuyFreeSpinsSupported = buyFreeSpinSetting?.Enabled;
     return (
         <ul className={`game-guide ${Styles["slot-guide"]}`}>
             <li className="guide-item">
@@ -731,14 +747,17 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 t,
                 isRemodeling,
                 volatility,
-                freeSpin: gameSettings.FreeSpins,
+                freeSpin: cascadingSlotSetting.FreeSpins,
             })}
             {renderTumble(t)}
             {renderMultiplier(odds, gameConfigs.coin, gameConfigs.level, t)}
-            {renderFreeSpins(gameSettings.FreeSpins, t, isRemodeling)}
-            {buyFreeSpinSetting?.Enabled &&
-                gameSettings.FreeSpins &&
-                renderBuyFreeSpin(t, buyFreeSpinSetting.Multiplier, gameSettings.FreeSpins)}
+            {renderFreeSpins({
+                odds: cascadingSlotSetting.FreeSpins,
+                t,
+                isRemodeling,
+                isAutoSettle: isAutoSettle(gameSetting.GameId),
+            })}
+            {isBuyFreeSpinsSupported && renderBuyFreeSpin(t, buyFreeSpinSetting.Multiplier)}
             <TermsAndConditionsTolgee />
         </ul>
     );
