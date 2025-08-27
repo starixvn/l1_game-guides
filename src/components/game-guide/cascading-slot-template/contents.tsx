@@ -575,7 +575,7 @@ const renderBuyFreeSpin = (t: Function, multiplier: number) => {
             <h2 className={Styles["heading1"]}>{t("buy_free_spins")}</h2>
             <ul className="desc">
                 <li>{t("buy_free_spins_line_1", { value: multiplier })}</li>
-                <li>{t("buy_free_spins_line_2", { value: 5 })}</li>
+                <li>{t("buy_free_spins_line_2", { value: 4 })}</li>
             </ul>
         </li>
     );
@@ -727,8 +727,9 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const betMultiplier = cascadingSlotSetting.BetMultiplier;
     const buyFreeSpinSetting = cascadingSlotSetting.Features?.BuyFreeSpins;
     const maxWinPerRound = gameConfigs.maxWinPerRound;
+    const features = gameConfigs.features;
+    const isBuyFreeSpinsSupported = features?.BuyFreeSpins?.enabled && buyFreeSpinSetting?.Multiplier > 0;
 
-    const isBuyFreeSpinsSupported = buyFreeSpinSetting?.Enabled;
     return (
         <ul className={`game-guide ${Styles["slot-guide"]}`}>
             <li className="guide-item">
