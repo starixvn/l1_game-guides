@@ -952,7 +952,7 @@
 }
 
 .pf-verify-example-sedie {
-    background: linear-gradient(180deg, #094998 0%, #062b57 18.41%, #142030 36.83%);
+    background: linear-gradient(180deg, #0854B2 0%, #05264D 9.84%, #060D15 25.58%);
     padding: 1rem;
 }
 
@@ -962,8 +962,8 @@
     overflow: hidden;
 
     th {
-        background: var(--table-header-bg, #ffffff1a) !important;
-        color: var(--table-header-color, #ffffff) !important;
+        background: var(--table-header-bg, #233046) !important;
+        color: var(#ffffff) !important;
     }
 
     tbody {
@@ -988,11 +988,19 @@
 
     tfoot {
         background-color: #0c192b;
-
+        
+        
         tr {
             &:nth-child {
                 background-color: #0c192b;
             }
+
+            
+        }
+
+        td {
+            text-align: center !important;
+            vertical-align: middle;
         }
     }
 }
@@ -1024,7 +1032,6 @@
 }
 
 .pf-setting-header-sedie {
-    background: #2a4770;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1032,7 +1039,10 @@
     padding: 0.5rem 1rem;
 }
 
-.pf-setting-content {
-    background: #1b293f;
-    padding: 1rem;
+.pf-verify-block-form-sedie {
+    background: #182130 !important;
+}
+
+.pf-main-title-sedie {
+    color: var(--primary-color) !important;
 }

@@ -19,8 +19,7 @@ export const Themes = {
     pf: "pf",
     numberGame: "number-game",
     langLive: "lang-live",
-    original: "original",
-    pfOriginal: "pf-original",
+    original: "original"
 };
 
 export const BACKGROUND_THEMES: IObjectKeys = {
