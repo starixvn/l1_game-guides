@@ -186,26 +186,25 @@
             font-size: var(--font-size);
             font-weight: 400;
             line-height: 2.2rem;
-            margin: 1rem 0;
+            margin: 0 0;
         }
 
         // Headings
         h2 {
             color: var(--primary-color);
-            margin: 1.2rem 0 0.8rem 0;
+            margin: 0 0 0.8rem 0;
             font-size: var(--font-size);
             font-weight: 700;
             letter-spacing: 0.28px;
         }
 
         .guide-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
 
             .content {
                 font-size: var(--font-size);
                 font-weight: 400;
                 line-height: 2.2rem;
-                margin: 1rem 0;
             }
         }
 
@@ -259,6 +258,7 @@
                 font-size: var(--font-size);
                 font-weight: 400;
                 line-height: 2.2rem;
+                margin: 0;
             }
         }
     }
