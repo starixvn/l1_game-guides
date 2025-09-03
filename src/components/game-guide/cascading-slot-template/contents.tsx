@@ -170,7 +170,7 @@ const renderIconContent = (
                     return (
                         <div key={generateKey(data.count)} className={Styles["icon-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommasAndSuffix(value)}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommasAndSuffix(value, 2)}</span>
                         </div>
                     );
                 })}
