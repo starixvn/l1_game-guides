@@ -814,7 +814,6 @@
     display: flex;
     align-items: center;
     padding-right: 1rem;
-    padding-left: 2rem;
 }
 
 .pf-verify-header-title-sedie {
@@ -891,7 +890,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    font-size: 1.1rem;
+    font-size: var(--font-size);
     color: #fff;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
@@ -953,17 +952,20 @@
 
 .pf-verify-example-sedie {
     background: linear-gradient(180deg, #0854B2 0%, #05264D 9.84%, #060D15 25.58%);
-    padding: 1rem;
+    padding: 12px;
+    font-size: var(--font-size);
 }
 
 .pf-bet-details-table-sedie {
     border-radius: 1rem;
     border: 2px solid #3c3e43;
     overflow: hidden;
+    font-size: var(--font-size);
 
     th {
         background: var(--table-header-bg, #233046) !important;
         color: var(#ffffff) !important;
+        
     }
 
     tbody {
@@ -974,6 +976,7 @@
             padding: 0.7rem;
             text-align: center;
             vertical-align: middle;
+            border: none
         }
 
         tr {
@@ -1050,4 +1053,8 @@
 .pf-block-highlight-text-sedie {
     margin-top: 8px !important;
     background: #243678 !important;
+}
+
+.pf-verify-block-form-sedie {
+    background: #182130 !important;
 }

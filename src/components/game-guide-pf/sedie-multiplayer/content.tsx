@@ -9,11 +9,9 @@ import { renderPFAppliedInGame } from "../snng-base";
 const uppercaseToTitleCase = (str: string): string => {
     return str
         .toLowerCase()
-        .split(' ')
-        .map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-        )
-        .join(' ');
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
 };
 
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
@@ -195,7 +193,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     <tr>
                         <th>{t("pf_time", { ns: "SabaNumber" })}</th>
                         <th>{t("pf_bet_choice", { ns: "SabaNumber" })}</th>
-                        <th>{t("pf_bet_amount", { ns: "Common" })}</th>
+                        <th>{t("bet_amount", { ns: "SeDieMultiPlayer" })}</th>
                         <th>{t("pf_win", { ns: "SabaNumber" })}</th>
                     </tr>
                 </thead>
@@ -232,7 +230,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </tr>
 
                     <tr className={`${Styles["pf-summary-row"]} ${Styles["pf-summary-row-netprofit"]}`}>
-                        <td className={Styles["pf-summary-label"]}>{t("pf_net_profit", { ns: "Common" })}</td>
+                        <td className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
                         <td></td>
                         <td></td>
                         <td className={Styles["pf-text-highlight"]}>-600</td>
@@ -253,7 +251,7 @@ const renderClientSeedInfoExample = (
             {renderPFHeader(t)}
             {resultBlock(t, "1073")}
 
-            <div className={Styles["pf-verify-block-form"]}>
+            <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className="flex justify-between items-center" style={{ marginBottom: "0.5rem" }}>
                     <div className={Styles["pf-verify-section-title"]}>{t("pf_your_seed", { ns: "Common" })}</div>
                     <div
@@ -273,7 +271,7 @@ const renderClientSeedInfoExample = (
             <div className={Styles["pf-verify-section-title"]}>
                 {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>15</span>
             </div>
-            <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-client-seed-info-table"]}`}>
+            <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                 <thead>
                     <tr>
                         <th>{t("example_Player", { ns: "BandarQiuQiu" })}</th>
@@ -379,7 +377,7 @@ const renderVerifyDetailExample = (
             <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
             <p className={Styles["pf-text-highlight-green"]}>{t("pf_verification_msg_verify_successful", { ns: "SabaNumber" })}</p>
 
-            <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "1.1rem", backgroundColor: "#101721" }}>
+            <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "var(--font-size)", backgroundColor: "#101721" }}>
                 <div className="flex gap-3 items-center">
                     <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
                         {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
@@ -434,13 +432,11 @@ const renderVerifyDetailExample = (
 const renderPFHeader = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     return (
         <div className={`${Styles["pf-verify-header-sedie"]}`}>
-            <span className={`${Styles["pf-verify-icon"]}`}>{iconBack}</span>
+            <span className={`${Styles["pf-verify-icon"]}`}>{iconQuestion}</span>
             <span className={`${Styles["pf-verify-header-title"]} ${Styles["pf-verify-header-title-sedie"]}`}>
                 {t("pf_provably_fair", { ns: "Common" })}
             </span>
-            <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-close-sedie"]}`}>
-                <img src="./static/images/pf/sedie/pf-button-question.png" alt="button-pf-question" />
-            </span>
+            <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-close-sedie"]}`}>{iconClose}</span>
         </div>
     );
 };
@@ -457,7 +453,7 @@ const renderVerifyExample = (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
             {renderPFHeader(t)}
             {resultBlock}
-            <div className={Styles["pf-verify-block-form"]}>
+            <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
@@ -471,7 +467,7 @@ const renderVerifyExample = (
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
-            <div className={Styles["pf-verify-block-form"]}>
+            <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
@@ -481,7 +477,7 @@ const renderVerifyExample = (
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
-            <div className={Styles["pf-verify-block-form"]}>
+            <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1.2rem" }}>
