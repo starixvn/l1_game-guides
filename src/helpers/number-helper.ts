@@ -27,11 +27,14 @@ const checkIsInteger = (number: string | number | object) => {
 const formatCommasReg = /\B(?=(\d{3})+(?!\d))/g;
 const numberWithCommasAndSuffix = (number: number, toFixed = 1, noZeroSuffix = true) => {
     if (number) {
-        let trimZeroNumber: string;
+        let trimZeroNumber;
+        const inputNumber = +number;
+        const multiplier = Math.pow(10, toFixed);
+        const roundedNumber = Math.round(inputNumber * multiplier) / multiplier;
         if (noZeroSuffix) {
-            trimZeroNumber = `${+(+number).toFixed(toFixed)}`;
+            trimZeroNumber = `${+(roundedNumber).toFixed(toFixed)}`;
         } else {
-            trimZeroNumber = (+number).toFixed(toFixed);
+            trimZeroNumber = (roundedNumber).toFixed(toFixed);
         }
         return trimZeroNumber.replace(formatCommasReg, ",");
     }
