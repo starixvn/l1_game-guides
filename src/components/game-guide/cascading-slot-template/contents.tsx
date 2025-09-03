@@ -166,7 +166,7 @@ const renderIconContent = (
                     }`}
             >
                 {oddItemList.map((data) => {
-                    const value = +(+(data.count * coin * level)).toFixed(2);
+                    const value = data.count * coin * level;
                     return (
                         <div key={generateKey(data.count)} className={Styles["icon-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
