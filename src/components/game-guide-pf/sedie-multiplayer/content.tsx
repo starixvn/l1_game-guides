@@ -168,7 +168,9 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 </span>
             </div>
 
-            <div className={Styles["pf-verify-note"]} style={{ fontSize: "var(--font-size)", color: "white", fontStyle: "normal" }}>{t("pf_note_data_available", { ns: "Common" })}</div>
+            <div className={Styles["pf-verify-note"]} style={{ fontSize: "var(--font-size)", color: "white", fontStyle: "normal" }}>
+                {t("pf_note_data_available", { ns: "Common" })}
+            </div>
 
             <div className={`${Styles["pf-verify-draw-info-sedie"]}`}>
                 <div className={Styles["pf-verify-info-item"]}>
@@ -355,72 +357,74 @@ const renderVerifyDetailExample = (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
             {renderPFHeader(t)}
 
-            <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
-            <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
-                <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconEdit}</span>
-            </div>
-
-            <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
-                {t("pf_server_Seed", { ns: "Common" })}
-            </div>
-            <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
-                <span className={Styles["pf-verify-input-text"]}>{<Markup content={serverSeed} />}</span>
-                <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
-            </div>
-
-            <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
-                {t("pf_header_combined_sha512_hash", { ns: "Common" })}
-            </div>
-            <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
-            <p className={Styles["pf-text-highlight-green"]}>{t("pf_verification_msg_verify_successful", { ns: "SabaNumber" })}</p>
-
-            <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "var(--font-size)", backgroundColor: "#101721" }}>
-                <div className="flex gap-3 items-center">
-                    <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
-                        {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
-                    </h3>
-                    <div className="flex items-center">{renderDiceImage("white4")}</div>
+            <div>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconEdit}</span>
                 </div>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+
+                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
+                    <span className={Styles["pf-verify-input-text"]}>{<Markup content={serverSeed} />}</span>
+                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                </div>
+
+                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
+                </div>
                 <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
-                <p className="bold">e3 ={">"} 227</p>
-                <p className="bold">3d ={">"} 61</p>
-                <p className="bold">d2 ={">"} 210</p>
-                <p className="bold">a9 ={">"} 169</p>
+                <p className={Styles["pf-text-highlight-green"]}>{t("pf_verification_msg_verify_successful", { ns: "SabaNumber" })}</p>
 
-                <div>
-                    <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
-                    <span>
-                        {" "}
-                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mode 2 = 0 {"=>"}{" "}
-                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
-                    </span>
-                </div>
-                <div>
-                    <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
-                    <span>
-                        {" "}
-                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mode 2 = 0 {"=>"}{" "}
-                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
-                    </span>
-                </div>
-                <div>
-                    <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
-                    <span>
-                        {" "}
-                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mode 2 = 0 {"=>"}{" "}
-                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
-                    </span>
-                </div>
-                <div>
-                    <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
-                    <span>
-                        {" "}
-                        - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mode 2 = 0 {"=>"}{" "}
-                        {t("glossary_white", { ns: "SeDieMultiPlayer" })}
-                    </span>
+                <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "var(--font-size)", backgroundColor: "#101721" }}>
+                    <div className="flex gap-3 items-center">
+                        <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
+                            {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
+                        </h3>
+                        <div className="flex items-center">{renderDiceImage("white4")}</div>
+                    </div>
+                    <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                    <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
+                    <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
+                    <p className="bold">e3 ={">"} 227</p>
+                    <p className="bold">3d ={">"} 61</p>
+                    <p className="bold">d2 ={">"} 210</p>
+                    <p className="bold">a9 ={">"} 169</p>
+
+                    <div>
+                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
+                        <span>
+                            {" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mode 2 = 0 {"=>"}{" "}
+                            {t("glossary_white", { ns: "SeDieMultiPlayer" })}
+                        </span>
+                    </div>
+                    <div>
+                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
+                        <span>
+                            {" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mode 2 = 0 {"=>"}{" "}
+                            {t("glossary_white", { ns: "SeDieMultiPlayer" })}
+                        </span>
+                    </div>
+                    <div>
+                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
+                        <span>
+                            {" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mode 2 = 0 {"=>"}{" "}
+                            {t("glossary_white", { ns: "SeDieMultiPlayer" })}
+                        </span>
+                    </div>
+                    <div>
+                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
+                        <span>
+                            {" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mode 2 = 0 {"=>"}{" "}
+                            {t("glossary_white", { ns: "SeDieMultiPlayer" })}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
