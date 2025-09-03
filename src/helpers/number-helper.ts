@@ -1,12 +1,6 @@
 const numberWithCommas = (number: number, toFixed = 2) => {
-    return number.toLocaleString("en-US", { maximumFractionDigits: toFixed });
+    return number.toLocaleString("en-US", { maximumFractionDigits: toFixed + 0.0000001 });
 };
-
-const roundUpToDecimal = (number: number, decimals = 2): number => {
-    const multiplier = Math.pow(10, decimals);
-    return Math.ceil(number * multiplier) / multiplier;
-};
-
 const randomInteger = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -49,6 +43,5 @@ export {
     formatOddsWithoutOne,
     numberWithCommas,
     numberWithCommasAndSuffix,
-    randomInteger,
-    roundUpToDecimal,
+    randomInteger
 };
