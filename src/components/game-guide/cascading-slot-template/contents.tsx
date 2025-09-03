@@ -5,7 +5,7 @@ import React from "react";
 
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
+import { numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import Styles from "./cascading-slot.module.scss";
 import OddDetailList from "./OddDetail";
@@ -170,7 +170,7 @@ const renderIconContent = (
                     return (
                         <div key={generateKey(data.count)} className={Styles["icon-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommasAndSuffix(value)}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
                         </div>
                     );
                 })}

@@ -28,13 +28,10 @@ const formatCommasReg = /\B(?=(\d{3})+(?!\d))/g;
 const numberWithCommasAndSuffix = (number: number, toFixed = 1, noZeroSuffix = true) => {
     if (number) {
         let trimZeroNumber: string;
-        const inputNumber = +number;
-        const multiplier = Math.pow(10, toFixed);
-        const roundedNumber = Math.round(inputNumber * multiplier) / multiplier;
         if (noZeroSuffix) {
-            trimZeroNumber = `${+(roundedNumber).toFixed(toFixed)}`;
+            trimZeroNumber = `${+(+number).toFixed(toFixed)}`;
         } else {
-            trimZeroNumber = (roundedNumber).toFixed(toFixed);
+            trimZeroNumber = (+number).toFixed(toFixed);
         }
         return trimZeroNumber.replace(formatCommasReg, ",");
     }
