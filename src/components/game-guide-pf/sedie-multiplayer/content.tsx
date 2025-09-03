@@ -6,6 +6,16 @@ import { SeDieMultiplayerPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderPFAppliedInGame } from "../snng-base";
 
+const uppercaseToTitleCase = (str: string): string => {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        )
+        .join(' ');
+};
+
 const iconCopy = <img src="./static/images/pf-snng/pf-verify-icon-copy.svg" alt="pf-icon" />;
 const iconEdit = <img src="./static/images/pf-snng/pf-verify-icon-edit.svg" alt="pf-icon" />;
 const iconPF2 = <img src="./static/images/pf/sedie/bet-details-pf.png" alt="bet-details-pf-icon" />;
@@ -67,7 +77,7 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
             <div className="content">{<Markup content={t("pf_how_pf_work_para_1", { ns: "Common" })} />}</div>
 
-            <div className={Styles["pf-block-highlight-text"]}>
+            <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
                 <span style={{ textAlign: "center" }}>
                     <strong className={Styles["pf-text-highlight"]}>{t("pf_fair_result", { ns: "Common" })}</strong>
                     <strong className={Styles["pf-text-content"]}> = {t("pf_casino_contribution", { ns: "Common" })}</strong>
@@ -726,7 +736,7 @@ const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType
             <div>
                 <span>{iconQuestion}</span>
             </div>
-            <span className={Styles["pf-verify-header-title"]}>{t(headerTitleKey, { ns: nameSpace })}</span>
+            <span className={Styles["pf-verify-header-title"]}>{uppercaseToTitleCase(t(headerTitleKey, { ns: nameSpace }))}</span>
             <div>
                 <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-back"]}`}>{iconClose}</span>
             </div>
