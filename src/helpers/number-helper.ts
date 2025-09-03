@@ -1,6 +1,9 @@
 const numberWithCommas = (number: number, toFixed = 2) => {
-    return number.toLocaleString("en-US", { maximumFractionDigits: toFixed + 0.0000001 });
+    return number.toLocaleString("en-US", { maximumFractionDigits: toFixed });
 };
+
+
+
 const randomInteger = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
