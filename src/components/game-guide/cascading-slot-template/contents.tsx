@@ -5,7 +5,7 @@ import React from "react";
 
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { numberWithCommas } from "../../../helpers/number-helper";
+import { numberWithCommas, roundUpToDecimal } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import Styles from "./cascading-slot.module.scss";
 import OddDetailList from "./OddDetail";
@@ -162,16 +162,15 @@ const renderIconContent = (
             </div>
 
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
-                    isGem && Styles["gem-position"]
-                }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
+                    }`}
             >
                 {oddItemList.map((data) => {
                     const value = +(+(data.count * coin * level)).toFixed(2);
                     return (
                         <div key={generateKey(data.count)} className={Styles["icon-content"]}>
                             <span className={`${Styles[number]} ${Styles[numberFirst]}`}>{data.countString}</span>
-                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{roundUpToDecimal(value)}</span>
                         </div>
                     );
                 })}
@@ -513,10 +512,10 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_1", {
-                                                numOfScatters: freeSpinLine1Data.countString,
-                                                numOfSpins: freeSpinLine1Data.count,
-                                                image: symbol9Src,
-                                            })}
+                                            numOfScatters: freeSpinLine1Data.countString,
+                                            numOfSpins: freeSpinLine1Data.count,
+                                            image: symbol9Src,
+                                        })}
                                             </li>`}
                                     />
                                 }
@@ -534,10 +533,10 @@ const renderFreeSpins = (odds: number[][], t: Function, isRemodeling: boolean) =
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_2", {
-                                                numOfScatters: oddDetail[1].oddItem[0].countString,
-                                                numOfSpins: oddDetail[1].oddItem[0].count,
-                                                image: symbol9Src,
-                                            })}
+                                            numOfScatters: oddDetail[1].oddItem[0].countString,
+                                            numOfSpins: oddDetail[1].oddItem[0].count,
+                                            image: symbol9Src,
+                                        })}
                                             </li>`}
                                     />
                                 }
