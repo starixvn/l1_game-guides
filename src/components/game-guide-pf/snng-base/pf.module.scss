@@ -813,7 +813,7 @@
 .pf-verify-header-sedie {
     display: flex;
     align-items: center;
-    padding-right: 1rem;
+    padding-right: 1px;
 }
 
 .pf-verify-header-title-sedie {
@@ -954,6 +954,9 @@
     background: linear-gradient(180deg, #0854B2 0%, #05264D 9.84%, #060D15 25.58%);
     padding: 12px;
     font-size: var(--font-size);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .pf-bet-details-table-sedie {
@@ -1039,11 +1042,11 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 1rem 1rem 0 0;
-    padding: 0.5rem 1rem;
 }
 
 .pf-verify-block-form-sedie {
     background: #182130 !important;
+    margin-bottom: 5px !important;
 }
 
 .pf-main-title-sedie {

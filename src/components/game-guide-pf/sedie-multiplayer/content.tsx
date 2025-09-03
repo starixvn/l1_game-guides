@@ -142,15 +142,13 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
             <div
                 className="bold text-white"
                 style={{
-                    marginTop: "1rem",
-                    marginBottom: "1rem",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                 }}
             >
                 {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
-                <div className={Styles["pf-verify-info-item"]} style={{ marginRight: "1rem" }}>
+                <div className={Styles["pf-verify-info-item"]}>
                     {t("pf_result", { ns: "Common" })}:{renderDiceImage("white4")}
                 </div>
             </div>
@@ -170,7 +168,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 </span>
             </div>
 
-            <div className={Styles["pf-verify-note"]}>{t("pf_note_data_available", { ns: "Common" })}</div>
+            <div className={Styles["pf-verify-note"]} style={{ fontSize: "var(--font-size)", color: "white", fontStyle: "normal" }}>{t("pf_note_data_available", { ns: "Common" })}</div>
 
             <div className={`${Styles["pf-verify-draw-info-sedie"]}`}>
                 <div className={Styles["pf-verify-info-item"]}>
