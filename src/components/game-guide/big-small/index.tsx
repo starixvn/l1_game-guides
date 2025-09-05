@@ -79,7 +79,7 @@ const BigSmallGuide = (props: GameGuideBase) => {
     }
     const resource = {
         gameConfigs: configs,
-        gameName,
+        gameName: gameNameTranslate,
         maxBetFollowChoice,
         isScrollMD5: isScrollMD5,
         environment,
