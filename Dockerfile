@@ -39,7 +39,7 @@ RUN mkdir .next  \
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/configs.json ./configs.json
+COPY --from=builder --chown=nextjs:nodejs /app/configs.json ./configs/configs.json
 
 USER nextjs
 

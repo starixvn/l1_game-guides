@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const server = fs.readFileSync("/app/.next/standalone/server.js", "utf8");
 
-const content = `const runtimeConfig = require("./configs.json")
+const content = `const runtimeConfig = require("./configs/configs.json")
 nextConfig.publicRuntimeConfig = runtimeConfig
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig)`;
 
