@@ -16,12 +16,14 @@ FROM base AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
-COPY package.json yarn.lock tsconfig.json configs.json game-settings.json next.config.js next-i18next.config.js ./
+COPY package.json yarn.lock tsconfig.json configs.json next.config.js next-i18next.config.js ./
 COPY configs ./configs
 COPY public ./public
 COPY src ./src
-
+COPY custom-scripts/modify-server.js ./modify-server.js
 RUN yarn build
+RUN node modify-server.js
+
 
 FROM hub.lumigame.com/docker-hub/library/node:22-alpine AS runner
 WORKDIR /app
@@ -37,6 +39,7 @@ RUN mkdir .next  \
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/configs.json ./configs.json
 
 USER nextjs
 
