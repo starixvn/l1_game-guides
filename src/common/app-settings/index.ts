@@ -1,7 +1,12 @@
-import getConfig from "next/config";
+import gameSettings from "./game-settings";
+import AppSettings, { GameSettingProps } from "./type";
+import { getConfig } from "next/config";
 
-import AppSettings from "./type";
+const config = (globalThis as any).cf;
 
-const appSettings: AppSettings = getConfig().publicRuntimeConfig;
+const appSettings = {
+    ...config,
+    gameSettings: gameSettings as unknown as { [id: string]: GameSettingProps },
+} as AppSettings;
 
 export default appSettings;

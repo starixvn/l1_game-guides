@@ -4,7 +4,6 @@ import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-import appSettings from "../common/app-settings";
 import { ENVIRONMENT, ORIENTATION, buildVersion } from "../common/constants";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewCascadingSlot, isNewSlotGame, isUseThemeSlot } from "../helpers/game-helper";
@@ -64,7 +63,7 @@ const handleEnv = (queryParams: object | any) => {
     return ENVIRONMENT.sm;
 };
 
-const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
+const Home: React.FC<{ gameSetting: any; appSettings: any }> = ({ gameSetting, appSettings }) => {
     const { setTheme } = useTheme();
     const [gameId, setGameId] = useState<number>(0);
     const [userStakeLevel, setUserStakeLevel] = useState<UserStakeLevelProps>({});
@@ -157,7 +156,11 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
         });
     }, [router.isReady]);
 
-    if (isLoading) {
+    if (appSettings && !(globalThis as any).cf) {
+        (globalThis as any).cf = appSettings;
+    }
+
+    if (isLoading || !appSettings) {
         return <></>;
     }
 
@@ -173,7 +176,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
 const getGameSetting = async (gameId: number) => {
     if (gameId) {
         try {
-            const response = await fetch(`${appSettings.gameSettingUrl}${+gameId}`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_gameSettingUrl}${+gameId}`);
 
             if (response.ok) {
                 return await response.json();
@@ -188,12 +191,24 @@ const getGameSetting = async (gameId: number) => {
     return {};
 };
 
+const getAppSettings = () => {
+    return {
+        gameSettingUrl: process.env.NEXT_PUBLIC_gameSettingUrl,
+        resourceUrl: process.env.NEXT_PUBLIC_resourceUrl,
+        system: process.env.NEXT_PUBLIC_system,
+        useTolgeeStatic: process.env.NEXT_PUBLIC_useTolgeeStatic === "true",
+        proxy: JSON.parse(process.env.NEXT_PUBLIC_proxy ?? "{}"),
+        sentry: JSON.parse(process.env.NEXT_PUBLIC_sentry ?? "{}"),
+    };
+};
+
 export const getServerSideProps = async (context: NextPageContext) => {
     const gameId = context.query?.gId ?? 0;
 
     return {
         props: {
             gameSetting: await getGameSetting(+gameId),
+            appSettings: getAppSettings(),
             ...(await serverSideTranslations(context.locale ?? "en", [
                 "common",
                 "blackjack",
