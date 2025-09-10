@@ -260,6 +260,24 @@
                 margin: 0;
             }
         }
+
+        .guide-item {
+            counter-increment: guide-list;
+    
+            h2 {
+                display: inline-block;
+                font-size: var(--title-font-size);
+                font-weight: var(--font-weight, 700);
+                color: var(--primary-color);
+    
+                &:before {
+                    content: counter(guide-list) ". ";
+                    color: var(--primary-color);
+                    font-weight: var(--font-weight, 700);
+                    font-size: var(--title-font-size);
+                }
+            }
+        }
     }
 }
 

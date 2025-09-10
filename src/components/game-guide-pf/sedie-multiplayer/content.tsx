@@ -77,9 +77,9 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
 
             <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
                 <span style={{ textAlign: "center" }}>
-                    <strong className={Styles["pf-text-highlight"]}>{t("pf_fair_result", { ns: "Common" })}</strong>
-                    <strong className={Styles["pf-text-content"]}> = {t("pf_casino_contribution", { ns: "Common" })}</strong>
-                    <strong className={Styles["pf-text-content"]}> + {t("pf_player_contribution", { ns: "Common" })}</strong>
+                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem"}}>{t("pf_fair_result", { ns: "Common" })}</strong>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem"}}> = {t("pf_casino_contribution", { ns: "Common" })}</strong>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem"}}> + {t("pf_player_contribution", { ns: "Common" })}</strong>
                 </span>
             </div>
 
@@ -538,10 +538,10 @@ const renderSeDieMultiplayerVerifyPF = (
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div className={Styles["pf-text-highlight"]}>
+                            <div className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem"}}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
-                            <div>
+                            <div style={{ fontSize: "1.4rem"}}>
                                 &#123;“random”:“
                                 <span className={Styles["pf-text-highlight-blue"]}>
                                     {t("pf_server_seed_format_random_player", { ns: "SeDieMultiPlayer" })}
@@ -558,7 +558,7 @@ const renderSeDieMultiplayerVerifyPF = (
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div>
+                            <div style={{ fontSize: "1.4rem"}}>
                                 <strong>{t("pf_final_result", { ns: "SeDieMultiPlayer" })}</strong> = (
                                 {t("pf_algorithm_random_number", { ns: "BacBall" })} +{" "}
                                 <span className={Styles["pf-text-highlight-red"]}>X</span>) mod 2
