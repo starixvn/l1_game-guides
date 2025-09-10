@@ -204,7 +204,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                             <div className={Styles["pf-bet-choice-dots"]}>{renderDiceImage("red3")}</div>
                         </td>
                         <td>200</td>
-                        <td>-200</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>17:02:42</td>
@@ -212,13 +212,13 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                             <div className={Styles["pf-bet-choice-dots"]}>{renderDiceImage("white3")}</div>
                         </td>
                         <td>200</td>
-                        <td>-200</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>17:02:41</td>
                         <td>{t("bet_choice_odd", { ns: "Common" })}</td>
                         <td>200</td>
-                        <td>-200</td>
+                        <td>0</td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -233,7 +233,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                         <td className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
                         <td></td>
                         <td></td>
-                        <td className={Styles["pf-text-highlight"]}>-600</td>
+                        <td>0</td>
                     </tr>
                 </tfoot>
             </table>
