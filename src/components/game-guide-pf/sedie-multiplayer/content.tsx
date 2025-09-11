@@ -487,8 +487,8 @@ const renderVerifyExample = (
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
-            <div className={Styles["pf-verify-button-green"]}>{t("pf_verify", { ns: "Spaceflight" })}</div>
-            <div className="text-center" style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
+            <div className={Styles["pf-verify-button-green"]} style={{ fontSize: "1.4rem" }}>{t("pf_verify", { ns: "Spaceflight" })}</div>
+            <div className="text-center" style={{ marginTop: "1rem", fontSize: "1.4rem" }}>
                 {t("pf_provably_fair_para_2", { ns: "Spaceflight" })}
             </div>
         </div>
