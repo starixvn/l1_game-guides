@@ -96,9 +96,9 @@ const SeDiePayout: FC<{
                     <tbody>
                         <tr>
                             <td className="d-flex justify-content-center align-items-center gap-2">
-                                <span>{t("option_odd", { ns: TogleeNamespace.SpecificGame })}</span>
+                                <span style={{fontWeight: "400"}}>{t("option_odd", { ns: TogleeNamespace.SpecificGame })}</span>
                                 <span style={{width:"1px", height: "18px", backgroundColor: "#b3bec1"}}></span>
-                                <span>{t("option_even", { ns: TogleeNamespace.SpecificGame })}</span>
+                                <span style={{fontWeight: "400"}}>{t("option_even", { ns: TogleeNamespace.SpecificGame })}</span>
                             </td>
                             <td>{formatOdds(odds?.even, fractionalOddsFormat)}</td>
                             <td>

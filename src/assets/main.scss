@@ -433,9 +433,10 @@
     --scrollbar-thumb-background: rgba(77, 134, 202, 0.8);
 
     // Typography
-    --font-size: 1.4rem;
-    --font-size-table: 1.6rem;
-    --font-family: "Inter", sans-serif;
+    --font-size: 14px;
+    --font-size-table: 14px;
+    --font-family: "Inter", -apple-system, arial, sans-serif;
+    --font-number: "Inter", sans-serif;
 
     // Table
     --table-background: #182130;
@@ -454,6 +455,7 @@
     body,
     html {
         background: none transparent !important;
+        font-family: "Inter", -apple-system, arial, sans-serif !important;
     }
 
     .game-container {
