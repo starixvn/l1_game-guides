@@ -148,6 +148,7 @@ export const GAMES = {
     MINI_ROULETTE: 134,
     SOCCER_PIN_GOAL: 156,
     SE_DIE_MULTIPLAYER: 148,
+    BACCARAT_MULTIPLAYER: 150,
 };
 
 export const GAMES_MINI = {
