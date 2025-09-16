@@ -84,6 +84,7 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                     </TolgeeProvider>
                 );
             case GAMES_PF.ROCKET_X:
+            case GAMES_PF.CRASH_X:
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <RocketXVerification key={`game-${name}`} {...pfProps} />
