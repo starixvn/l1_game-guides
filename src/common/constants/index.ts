@@ -181,6 +181,7 @@ export const GAMES_PF = {
     CHRISTMAS_X: 106,
     COIN_MINING: 109,
     ROCKET_X: 113,
+    CRASH_X: 144,
     SE_DIE_MULTIPLAYER: 148,
 };
 
