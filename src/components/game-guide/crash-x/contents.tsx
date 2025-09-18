@@ -1,0 +1,152 @@
+import { useTranslate } from "@tolgee/react";
+import React, { useEffect } from "react";
+import appSettings from "../../../common/app-settings";
+import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
+import { UserStakeLevelProps } from "../../../pages";
+import { scrollToIDContent } from "../../shared/md5-number";
+import { ContentList } from "../base/terms-and-conditions/languages/types";
+import { RenderContentByList } from "../base/terms-and-conditions/terms-and-conditions";
+import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
+import { GameConfigs } from "../type";
+import { CrashXContentsProps } from "./type";
+
+const renderGameRules = (t: Function) => {
+    let commonResources: ContentList = {
+        header: t("title_gamerules", { ns: "Common" }),
+        details: [
+            t(`gamerules_para_1`, { ns: "CrashX" }),
+            t(`gamerules_para_2`, { ns: "CrashX" }),
+            t(`crash_gamerules_para_3`, { ns: "Common" }),
+            t(`crash_gamerules_para_4`, { ns: "Common" }),
+            t(`crash_gamerules_para_5`, { ns: "Common" }),
+            t(`gamerules_para_6`, { ns: "CrashX" }),
+            t(`gamerules_para_7`, { ns: "CrashX" }),
+        ],
+    };
+    return (
+        <li className="guide-item">
+            <h2>{commonResources.header}</h2>
+            <RenderContentByList resources={commonResources} />
+        </li>
+    );
+};
+
+const renderCashingOut = (t: Function) => {
+    let commonResources: ContentList = {
+        header: t("subtitle_cash_out", { ns: "Common" }),
+        details: [t(`cash_out_para_1`), t(`cash_out_para_2`)],
+    };
+    return <RenderContentByList resources={commonResources} />;
+};
+
+const renderAutoPlay = (t: Function) => {
+    let commonResources: ContentList = {
+        header: t("subtitle_auto_play", { ns: "Common" }),
+        details: [t(`crash_autoplay_para_1`, { ns: "Common" }), t(`autoplay_para_2`, { ns: "CrashX" }), t(`crash_autoplay_para_3`, { ns: "Common" })],
+    };
+    return <RenderContentByList resources={commonResources} />;
+};
+
+const renderStatistic = (t: Function) => {
+    let commonResources: ContentList = {
+        header: t("title_statistics"),
+        details: [t(`crash_statistics_para_1`, { ns: "Common" }), t(`crash_statistics_para_2`, { ns: "Common" }), t(`statistics_para_3`, { ns: "CrashX" })],
+    };
+    return <RenderContentByList resources={commonResources} />;
+};
+
+const renderAutoCashout = (t: Function) => {
+    let commonResources: ContentList = {
+        header: t("subtitle_auto_cashout", { ns: "Common" }),
+        details: [t(`auto_cash_out_para_1`), t(`auto_cash_out_para_2`)],
+    };
+    return <RenderContentByList resources={commonResources} />;
+};
+
+const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: UserStakeLevelProps | undefined) => {
+    const { minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
+
+    const maxBetMain = numberWithCommas(maxBetTmp);
+    const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
+
+    return (
+        <li className="guide-item">
+            <h2>{t("title_payouts", { ns: "Common" })}</h2>
+            <ul className="desc">
+                <li>{t("payouts_para_1")}</li>
+                <li>{t("payouts_para_2")}</li>
+                <li>{t("payouts_para_3")}</li>
+                <li>{t("payouts_para_4", { min: minBetMain, max: maxBetMain })}</li>
+                <li>{t("payouts_para_5", { maxWin: maxWin })}</li>
+            </ul>
+        </li>
+    );
+};
+
+const renderMultiplier = (t: Function, gameConfigs: GameConfigs) => {
+    return (
+        <li className="guide-item">
+            <h2>{t("title_multiplier", { ns: "Common" })}</h2>
+            <ul className="desc">
+                <li>
+                    {t("multiplier_para_1", { maxMultiplier: `${numberWithCommasAndSuffix(gameConfigs?.maxMultiplier || 0, 2, false)}` })}
+                </li>
+                <li>{t("multiplier_para_2", { ns: "CrashX" })}</li>
+            </ul>
+        </li>
+    );
+};
+
+const CrashXContents: React.FC<CrashXContentsProps> = ({
+    gameConfigs,
+    locale,
+    userStakeLevel,
+    displayName,
+    name,
+    scrollToId,
+}) => {
+    const { t } = useTranslate(["RocketX", "Common", "CrashX"]);
+    const rootImgUrl = `${appSettings.resourceUrl}${name}/`;
+    useEffect(() => {
+        scrollToId !== "" && scrollToIDContent(scrollToId);
+    });
+
+    return (
+        <ul className={`game-guide`}>
+            <li className="guide-item">
+                <h2>{t("title_introduction", { ns: "CrashX" })}</h2>
+                <div className="content">{t("intro_para_1", { ns: "CrashX", gameName: displayName })}</div>
+            </li>
+            {renderGameRules(t)}
+            <li className="guide-item">
+                <h2>{t("title_features", { ns: "Common" })}</h2>
+                <ul className="style-number-dot">
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_cash_out", { ns: "Common" })}</span>
+                        {renderCashingOut(t)}
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_auto_cashout", { ns: "Common" })}</span>
+                        {renderAutoCashout(t)}
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text">{t("subtitle_auto_play", { ns: "Common" })}</span>
+                        {renderAutoPlay(t)}
+                    </li>
+                    <li className="number-dot">
+                        <span className="title-text">{t("title_statistics")}</span>
+                        {renderStatistic(t)}
+                    </li>
+                </ul>
+            </li>
+            {renderMultiplier(t, gameConfigs)}
+            {renderPayout(t, gameConfigs, userStakeLevel)}
+
+            <TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
+        </ul>
+    );
+};
+
+export default CrashXContents;

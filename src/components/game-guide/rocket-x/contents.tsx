@@ -143,7 +143,7 @@ const RocketXContents: React.FC<RocketXContentsProps> = ({
             </li>
             {renderMultiplier(t, gameConfigs)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
-            
+
             <TermsAndConditionsTolgee extendDetails={[t("terms_conditions_para_1")]} />
         </ul>
     );
