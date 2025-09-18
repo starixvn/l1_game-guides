@@ -116,7 +116,7 @@ const CrashXContents: React.FC<CrashXContentsProps> = ({
     return (
         <ul className={`game-guide`}>
             <li className="guide-item">
-                <h2>{t("title_introduction", { ns: "CrashX" })}</h2>
+                <h2>{t("title_introduction", { ns: "Common" })}</h2>
                 <div className="content">{t("intro_para_1", { ns: "CrashX", gameName: displayName })}</div>
             </li>
             {renderGameRules(t)}
