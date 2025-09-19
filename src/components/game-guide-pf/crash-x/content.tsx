@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Markup } from "interweave";
 import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tolgee/react";
 import Styles from "../snng-base/pf.module.scss";
+import PFStyles from "./pf-original.module.scss";
 import { CrashXPFContentsProps } from "./type";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { renderPFAppliedExample } from "../snng-base";
@@ -38,7 +39,7 @@ const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey
 const renderAdvertisePF = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
         <div>
-            <div className={`${Styles["pf-main-title"]} ${Styles["pf-main-title-sedie"]}`}>
+            <div className={`${Styles["pf-main-title"]} ${PFStyles["pf-main-title"]}`}>
                 {t("pf_advertise_para_1", { ns: "Common" })}
             </div>
             <p>{<Markup content={t("pf_advertise_bac_ball", { ns: "Common", gamename: displayName })} />}</p>
@@ -518,8 +519,8 @@ const renderCrashXVerifyPF = (
         <div className="guide-item">
             <h2>{t("pf_title_verify_the_provably_fair", { ns: "Common" })}</h2>
             <ul className={`style-number-dot ${Styles["pf-style-number-dot"]}`}>
-                <li className={`number-dot ${Styles["pf-number-dot"]}`}>
-                    <span className={`title-text ${Styles["pf-sub-title"]}`}>
+                <li className={`number-dot ${PFStyles["pf-number-dot"]}`}>
+                    <span className={`title-text ${PFStyles["pf-sub-title"]}`}>
                         {t("pf_subtitle_in_game_verifier_tool", { ns: "Spaceflight" })}
                     </span>
                     <ul className="desc">
@@ -530,7 +531,7 @@ const renderCrashXVerifyPF = (
                         <li>{t("crash_pf_verifier_tool_para_3", { ns: "Common" })}</li>
 
                         <div
-                            className={`${Styles["pf-block-highlight-text"]} ${
+                            className={`${Styles["pf-block-highlight-text"]} ${PFStyles["pf-block-highlight-text"]} ${
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
@@ -549,7 +550,7 @@ const renderCrashXVerifyPF = (
                         </ul>
 
                         <div className={Styles["center-img"]}>
-                        <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
+                        <table className={`${PFStyles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                                 <thead>
                                     <tr>
                                         <td>{<Markup content={t("pf_header_the_result_after_calculating", { ns: "RocketX" })} />}</td>
@@ -575,81 +576,26 @@ const renderCrashXVerifyPF = (
 
 
 
-                        <li className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_verifier_tool_para_9", { ns: "SeDieMultiPlayer" })} />}
-                        </li>
-                        <li className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_verifier_tool_para_10", { ns: "SeDieMultiPlayer" })} />}
-                        </li>
-                        <li className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_verifier_tool_para_11", { ns: "SeDieMultiPlayer" })} />}
-                        </li>
-                        <li className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_verifier_tool_para_12", { ns: "SeDieMultiPlayer" })} />}
-                        </li>
 
-                        <span className={`title-text ${Styles["pf-sub-title"]}`}>
-                            {t("pf_bacball_verifier_tool_para_10", { ns: "BacBall" })}
-                        </span>
 
-                        <div className={Styles["pf-has-highlight-red"]}>
-                            {<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })} />}
-                        </div>
-                        <div className={`flex ${Styles["pf-hash-example-container"]}`}>{combinedHashExample}</div>
-                        <div className={Styles["pf-convert-hash"]} style={{ marginTop: "80px", marginBottom: "80px" }}>
-                            <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
-                                <span className={Styles["color-ball-1"]}>d6</span>
-                                <span className={Styles["color-ball-2"]}>62</span>
-                                <span className={Styles["color-ball-3"]}>ae</span>
-                                <span className={Styles["color-ball-4"]}>fd</span>7de...
-                            </div>
-                            <div className={Styles["convert-hash-1"]}>
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "1" })} />}
-                                </div>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                            </div>
 
-                            <div className={Styles["convert-hash-2"]}>
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "2" })} />}
-                                </div>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                            </div>
 
-                            <div className={Styles["convert-hash-3"]}>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "3" })} />}
-                                </div>
-                            </div>
-
-                            <div className={Styles["convert-hash-4"]}>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "4" })} />}
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>{<Markup content={t("pf_content_1_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
-                        <p>{<Markup content={t("pf_content_2_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
-                        <p>{<Markup content={t("pf_content_3_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
 
                         <p className={`title-text ${Styles["pf-sub-title"]}`}>
-                            {<Markup content={t("pf_bacball_verifier_tool_para_20", { ns: "BacBall" })} />}
+                            {<Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} />}
                         </p>
                         <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
                             <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_bacball_verifier_tool_para_21", { ns: "BacBall", icon: iconPF })} />}
+                                {<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}
                             </li>
-                            {renderPFSettingsExample(t, randomNumber, serverSeedSHA256)}
+
                             <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_para_22a", { ns: "SabaNumber" })} />}
+                                {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
                             </li>
-                            <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_para_23a", { ns: "SabaNumber" })} />}
-                            </li>
+
+
+
+
                             {renderBetDetailsExample(t, drawId)}
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_24", { ns: "BacBall" })} />}
@@ -674,8 +620,8 @@ const renderCrashXVerifyPF = (
                         </ul>
                     </ul>
                 </li>
-                <li className={`number-dot ${Styles["pf-number-dot"]}`}>
-                    <span className={`title-text ${Styles["pf-sub-title"]}`}>
+                <li className={`number-dot ${PFStyles["pf-number-dot"]}`}>
+                    <span className={`title-text ${PFStyles["pf-sub-title"]}`}>
                         {t("pf_subtitle_online_third_party_verifier_tools", { ns: "Spaceflight" })}
                     </span>
                     <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
@@ -780,7 +726,7 @@ const CrashXPFGuideContent: FC<CrashXPFContentsProps> = ({ locale, displayName }
     const verImg = imgVersion ?? "1";
 
     return (
-        <div className={`game-guide ${Styles["pf-guide-content"]}`}>
+        <div className={`game-guide ${PFStyles["original-guides"]}`}>
             {renderContentPFBase(t, displayName ?? "", verImg)}
             {renderPFAppliedInGame(t, displayName ?? "", verImg, false)}
             {renderCrashXVerifyPF(t, locale, displayName ?? "", verImg)}

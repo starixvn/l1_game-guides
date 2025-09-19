@@ -466,6 +466,10 @@
     .game-container {
         background: none transparent !important;
     }
+
+    @media screen and (orientation: portrait) {
+        --font-size: 24px;
+    }
 }
 
 

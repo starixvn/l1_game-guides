@@ -1,0 +1,68 @@
+[data-theme=pf] .original-guides {
+    --primary-color: #ffbc11;
+    --text-color: #cfcfcf;
+    --page-background: transparent;
+    --scrollbar-background: rgba(0, 0, 0, 0.3);
+    --scrollbar-thumb-background: rgba(77, 134, 202, 0.8);
+    --font-size: 14px;
+    --font-size-table: 14px;
+    --title-font-size: 18px;
+    --font-family: "Inter", -apple-system, arial, sans-serif;
+    --font-number: "Inter", sans-serif;
+    --table-background: #182130;
+    --table-border: rgba(255, 255, 255, 0.3);
+    --table-color: #b3bec1;
+    --table-header-background: #233046;
+    --table-header-color: #fff;
+    --table-header-font-weight: 600;
+    --table-border-radius: 0.8rem;
+    --border-line: none;
+    --container-width: 100%;
+    --container-max-width: 100%;
+}
+
+
+.original-guides {
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+
+    .guide-item h2 {
+        display: inline-block;
+        font-size: var(--title-font-size);
+        font-weight: var(--font-weight, 700);
+        color: var(--primary-color);
+    }
+
+    .pf-number-dot::before {
+        color: #a6c0fc !important;
+        font-size: var(--font-size) !important;
+        content: counter(guide-list) "." counter(number-dot-list) " ";
+    }
+
+    .pf-sub-title {
+        color: #a6c0fc !important;
+        font-size: var(--font-size) !important;
+        font-weight: 700;
+    }
+
+
+}
+
+.pf-main-title {
+    color: var(--primary-color) !important;
+}
+
+.pf-bet-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+
+    thead {
+        background: var(--table-header-bg, #233046) !important;
+
+        td {
+            padding: 0.7rem;
+            font-weight: 600;
+        }
+    }
+}

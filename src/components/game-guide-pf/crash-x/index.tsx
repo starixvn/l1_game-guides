@@ -14,7 +14,7 @@ const tolgee = Tolgee()
         availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["SeDieMultiPlayer", "Common"],
+        ns: ["SeDieMultiPlayer", "Common", "CrashX", "RocketX"],
         defaultNs: "SeDieMultiPlayer",
     });
 if (!appSettings.useTolgeeStatic) {
