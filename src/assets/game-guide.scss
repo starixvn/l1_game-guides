@@ -282,6 +282,19 @@
             }
         }
     }
+
+
+    @media screen and (orientation: portrait) {
+        --title-font-size: 24px;
+        .game-guide .guide-item .content {
+            line-height: 1.5;
+        }
+
+        .game-guide ul > li,  .game-guide .style-number-rule .number-dot {
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 
