@@ -17,7 +17,6 @@ export default class CustomDocument extends Document {
                     <meta httpEquiv="Pragma" content="no-cache" />
                     <meta httpEquiv="Expires" content="-1" />
                     <meta name="theme-color" content="transparent" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
                 </Head>
                 <body>
                     <Main />
