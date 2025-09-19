@@ -168,6 +168,12 @@
 }
 
 [data-theme="original"] {
+    --title-font-size: 16px;
+
+    @media (min-width: 768px) {
+        --title-font-size: 18px;
+    }
+
     // Main game guide container
     .game-guide {
         font-family: var(--font-family) !important;
@@ -199,11 +205,26 @@
 
         .guide-item {
             margin-bottom: 1.2rem;
+            counter-increment: guide-list;
 
             .content {
                 font-size: var(--font-size);
                 font-weight: 400;
                 line-height: 2.2rem;
+            }
+
+            h2 {
+                display: inline-block;
+                font-size: var(--title-font-size);
+                font-weight: var(--font-weight, 700);
+                color: var(--primary-color);
+
+                &:before {
+                    content: counter(guide-list) ". ";
+                    color: var(--primary-color);
+                    font-weight: var(--font-weight, 700);
+                    font-size: var(--title-font-size);
+                }
             }
         }
 
@@ -222,7 +243,7 @@
                 }
 
                 td {
-                    font-size: 14px;
+                    font-size: var(--font-size-table);
                     line-height: 1.4rem;
                     font-weight: 600;
                     color: var(--table-color);
@@ -258,24 +279,6 @@
                 font-weight: 400;
                 line-height: 2.2rem;
                 margin: 0;
-            }
-        }
-
-        .guide-item {
-            counter-increment: guide-list;
-    
-            h2 {
-                display: inline-block;
-                font-size: var(--title-font-size);
-                font-weight: var(--font-weight, 700);
-                color: var(--primary-color);
-    
-                &:before {
-                    content: counter(guide-list) ". ";
-                    color: var(--primary-color);
-                    font-weight: var(--font-weight, 700);
-                    font-size: var(--title-font-size);
-                }
             }
         }
     }

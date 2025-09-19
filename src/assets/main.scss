@@ -438,6 +438,11 @@
     --font-family: "Inter", -apple-system, arial, sans-serif;
     --font-number: "Inter", sans-serif;
 
+    @media (min-width: 768px) {
+        --font-size: 16px;
+        --font-size-table: 16px;
+    }
+
     // Table
     --table-background: #182130;
     --table-border: rgba(255, 255, 255, 0.3);
