@@ -34,7 +34,10 @@ const renderGameRules = (t: Function) => {
 const renderCashingOut = (t: Function) => {
     let commonResources: ContentList = {
         header: t("subtitle_cash_out", { ns: "Common" }),
-        details: [t(`cash_out_para_1`), t(`cash_out_para_2`)],
+        details: [
+            t(`crash_cashout_para_1`, { ns: "Common" }),
+            t(`cashout_para_2`, { ns: "CrashX" }),
+        ],
     };
     return <RenderContentByList resources={commonResources} />;
 };

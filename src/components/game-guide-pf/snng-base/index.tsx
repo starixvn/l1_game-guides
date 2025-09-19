@@ -119,13 +119,9 @@ const renderPFAppliedInGame = (
                 <li>
                     <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Spaceflight" />
                 </li>
-
-                {isGameDRAW ? (
-                    <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "SabaNumber" })}</li>
-                ) : (
-                    <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
-                )}
-                <li>{t("pf_how_pf_work_para_3", { ns: "BacBall" })}</li>
+                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
+                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Spaceflight" })} />}</li>
+                <li>{t("crash_pf_how_is_pf_applied_in_game_para_4", { ns: "Common" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}
         </div>
@@ -290,4 +286,4 @@ const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 
-export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample, renderPopupHeader, renderPFAppliedInGame };
+export { renderContentPFBase, renderPFSettingsExample, renderVerifyExample, renderPopupHeader, renderPFAppliedInGame, renderPFAppliedExample };
