@@ -543,7 +543,7 @@ const renderCrashXVerifyPF = (
 
                         <ul className="desc">
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_5", { ns: "Common" })} />} </li>
-                            <li>{<Markup content={t("crash_pf_verifier_tool_para_6", { ns: "Common" })} />} </li>
+                            <li>{<Markup content={t("pf_crash_verifier_tool_para_6", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_7", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_8", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_9", { ns: "Common" })} />} </li>
@@ -574,19 +574,12 @@ const renderCrashXVerifyPF = (
                             </table>
                         </div>
 
-
-
-
-
-
-
-
                         <p className={`title-text ${Styles["pf-sub-title"]}`}>
                             {<Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} />}
                         </p>
                         <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
                             <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_step_1", { ns: "Common" })} />}
+                                {<Markup content={t("pf_verifier_tool_step_1_para_10", { ns: "CrashX" })} />}
                             </li>
 
                             <li className={Styles["pf-sub-desc-highlight"]}>

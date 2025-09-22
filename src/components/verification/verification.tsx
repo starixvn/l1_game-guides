@@ -14,6 +14,7 @@ import FootballDiceVerification from "./football-dice";
 import FootballCoinTossVerification from "./footballl-coin-toss";
 import RocketXVerification from "./rocket-x";
 import SpaceFlightVerification from "./space-flight";
+import CrashXVerification from "./crash-x";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -22,7 +23,7 @@ const tolgee = Tolgee()
         availableLanguages: AVAILABLE_LANGUAGES,
         fallbackLanguage: "en",
         defaultLanguage: "en",
-        ns: ["Spaceflight", "Common", "FootballDice", "ChristmasX"],
+        ns: ["Spaceflight", "Common", "FootballDice", "ChristmasX", "CrashX"],
         defaultNs: "Spaceflight",
     });
 
@@ -83,8 +84,13 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                         <CoinMiningVerification key={`game-${name}`} {...pfProps} />
                     </TolgeeProvider>
                 );
-            case GAMES_PF.ROCKET_X:
             case GAMES_PF.CRASH_X:
+                return (
+                    <TolgeeProvider tolgee={tolgee} fallback="">
+                        <CrashXVerification key={`game-${name}`} {...pfProps} />
+                    </TolgeeProvider>
+                );
+            case GAMES_PF.ROCKET_X:
                 return (
                     <TolgeeProvider tolgee={tolgee} fallback="">
                         <RocketXVerification key={`game-${name}`} {...pfProps} />
