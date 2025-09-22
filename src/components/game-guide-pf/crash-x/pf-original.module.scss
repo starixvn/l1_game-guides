@@ -67,3 +67,49 @@
         }
     }
 }
+
+.pf-summary-row {
+    background-color: #31415B !important;
+}
+
+.pf-summary-row-netprofit {
+    background-color: #253248 !important;
+}
+
+.pf-text-green {
+    color: #20E500;
+}
+
+
+
+.pf-verify-example-sedie {
+    background: linear-gradient(180deg, #0854B2 0%, #05264D 9.84%, #060D15 25.58%);
+    padding: 12px;
+    font-size: var(--font-size);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pf-bet-details-table-sedie {
+    border-radius: 1rem;
+    border: 2px solid #3c3e43;
+    overflow: hidden;
+    font-size: var(--font-size);
+
+    th {
+        background: var(--table-header-bg, #233046) !important;
+        color: #ffffff !important;
+
+    }
+}
+
+.pf-client-seed-info-table {
+    font-weight: 600;
+
+    thead th,
+    td {
+        height: 3.6rem;
+        border: 1px solid #3c3e43;
+    }
+}
