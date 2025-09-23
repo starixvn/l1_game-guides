@@ -282,20 +282,6 @@
             }
         }
     }
-
-
-    @media screen and (orientation: portrait) {
-        --title-font-size: 30px;
-
-        .game-guide .guide-item .content {
-            line-height: 1.5;
-        }
-
-        .game-guide ul > li,  .game-guide .style-number-rule .number-dot {
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-    }
 }
 
 
@@ -891,5 +877,27 @@ ul {
     margin: 0 !important;
     &::first-letter {
         font-weight: bold;
+    }
+}
+
+
+@media screen and (orientation: portrait) {
+    .game-crash-container {
+        --title-font-size: 30px;
+        --font-size: 30px;
+
+        .guide-item .content {
+            line-height: 1.5 !important;
+        }
+
+        ul > li {
+            line-height: 1.5 !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .style-number-rule .number-dot {
+            line-height: 1.5 !important;
+            margin-bottom: 1rem !important;
+        }
     }
 }
