@@ -338,8 +338,8 @@ const renderClientSeedInfoExample = (
                     </tr>
                     <tr>
                         <td>12</td>
-                        <td className={Styles["pf-text-highlight-green"]}>Dragon72864</td>
-                        <td className={Styles["pf-text-highlight-green"]}>7842</td>
+                        <td className={Styles["pf-text-highlight-green-sedie"]}>Dragon72864</td>
+                        <td className={Styles["pf-text-highlight-green-sedie"]}>7842</td>
                     </tr>
                 </tbody>
             </table>
@@ -534,14 +534,12 @@ const renderSeDieMultiplayerVerifyPF = (
                         </ul>
 
                         <div
-                            className={`${Styles["pf-block-highlight-text"]} ${
-                                locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
-                            }`}
+                            className={`${Styles["pf-block-highlight-verify"]}`}
                         >
-                            <div className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem"}}>
+                            <div className={Styles["pf-text-highlight"]} >
                                 {<Markup content={t("pf_bacball_verifier_tool_para_7", { ns: "BacBall" })} />}
                             </div>
-                            <div style={{ fontSize: "1.4rem"}}>
+                            <div >
                                 &#123;“random”:“
                                 <span className={Styles["pf-text-highlight-blue"]}>
                                     {t("pf_server_seed_format_random_player", { ns: "SeDieMultiPlayer" })}
@@ -586,7 +584,7 @@ const renderSeDieMultiplayerVerifyPF = (
                             {<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })} />}
                         </div>
                         <div className={`flex ${Styles["pf-hash-example-container"]}`}>{combinedHashExample}</div>
-                        <div className={Styles["pf-convert-hash"]} style={{ marginTop: "80px", marginBottom: "80px" }}>
+                        <div className={Styles["pf-convert-hash-sedie"]} style={{ marginTop: "80px", marginBottom: "80px" }}>
                             <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
                                 <span className={Styles["color-ball-1"]}>d6</span>
                                 <span className={Styles["color-ball-2"]}>62</span>
