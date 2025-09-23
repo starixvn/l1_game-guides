@@ -53,7 +53,7 @@ const renderAutoPlay = (t: Function) => {
 const renderStatistic = (t: Function) => {
     let commonResources: ContentList = {
         header: t("title_statistics"),
-        details: [t(`crash_statistics_para_1`, { ns: "Common" }), t(`crash_statistics_para_2`, { ns: "Common" }), t(`statistics_para_3`, { ns: "CrashX" })],
+        details: [t(`crash_statistics_para_1`, { ns: "Common" }), t(`crash_statistics_para_2`, { ns: "Common" })],
     };
     return <RenderContentByList resources={commonResources} />;
 };
@@ -77,7 +77,7 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
     return (
         <li className="guide-item">
             <h2>{t("title_payouts", { ns: "Common" })}</h2>
-            <ul className="desc">
+            <ul className={`desc`}>
                 <li>{t("payouts_para_1")}</li>
                 <li>{t("payouts_para_2")}</li>
                 <li>{t("payouts_para_3")}</li>
@@ -92,7 +92,7 @@ const renderMultiplier = (t: Function, gameConfigs: GameConfigs) => {
     return (
         <li className="guide-item">
             <h2>{t("title_multiplier", { ns: "Common" })}</h2>
-            <ul className="desc">
+            <ul className={`desc`}>
                 <li>
                     {t("multiplier_para_1", { maxMultiplier: `${numberWithCommasAndSuffix(gameConfigs?.maxMultiplier || 0, 2, false)}` })}
                 </li>
@@ -117,13 +117,13 @@ const CrashXContents: React.FC<CrashXContentsProps> = ({
     });
 
     return (
-        <ul className={`game-guide`}>
-            <li className="guide-item">
+        <ul className={`game-guide game-crash-container`}>
+            <li className={`guide-item`}>
                 <h2>{t("title_introduction", { ns: "Common" })}</h2>
-                <div className="content">{t("intro_para_1", { ns: "CrashX", gameName: displayName })}</div>
+                <div className={`content`} >{t("intro_para_1", { ns: "CrashX", gameName: displayName })}</div>
             </li>
             {renderGameRules(t)}
-            <li className="guide-item">
+            <li className={`guide-item`}>
                 <h2>{t("title_features", { ns: "Common" })}</h2>
                 <ul className="style-number-dot">
                     <li className="number-dot">
