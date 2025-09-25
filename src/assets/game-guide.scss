@@ -245,7 +245,7 @@
                 td {
                     font-size: var(--font-size-table);
                     line-height: 1.4rem;
-                    font-weight: 600;
+                    font-weight: 400;
                     color: var(--table-color);
                     border: var(--border-line);
                     padding: 1.2rem 0.4rem;
@@ -260,7 +260,7 @@
                 th {
                     background-color: var(--table-header-background);
                     color: var(--table-header-color);
-                    font-weight: var(--table-header-font-weight);
+                    font-weight: 600;
                     padding: 1.2rem;
                 }
 
