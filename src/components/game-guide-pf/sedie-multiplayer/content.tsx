@@ -225,15 +225,15 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     <tr className={Styles["pf-summary-row"]}>
                         <td className={Styles["pf-summary-label"]}>{t("pf_total", { ns: "Common" })}</td>
                         <td></td>
-                        <td className={Styles["pf-text-not-highlight"]}>600</td>
-                        <td className={Styles["pf-text-highlight"]}>0</td>
+                        <td className={Styles["pf-text-not-highlight-original"]}>600</td>
+                        <td className={Styles["pf-text-highlight-original"]}>0</td>
                     </tr>
 
                     <tr className={`${Styles["pf-summary-row"]} ${Styles["pf-summary-row-netprofit"]}`}>
                         <td className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
                         <td></td>
                         <td></td>
-                        <td>0</td>
+                        <td className={Styles["pf-text-not-highlight-original"]}>0</td>
                     </tr>
                 </tfoot>
             </table>
@@ -269,7 +269,7 @@ const renderClientSeedInfoExample = (
                 </div>
             </div>
             <div className={Styles["pf-verify-section-title"]}>
-                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight"]}>15</span>
+                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight-original-bold"]}>15</span>
             </div>
             <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                 <thead>
@@ -397,7 +397,7 @@ const renderVerifyDetailExample = (
                         <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
                         <span>
                             {" "}
-                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mode 2 = 0 {"=>"}{" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mod 2 = 0 {"=>"}{" "}
                             {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                         </span>
                     </div>
@@ -405,7 +405,7 @@ const renderVerifyDetailExample = (
                         <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
                         <span>
                             {" "}
-                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mode 2 = 0 {"=>"}{" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mod 2 = 0 {"=>"}{" "}
                             {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                         </span>
                     </div>
@@ -413,7 +413,7 @@ const renderVerifyDetailExample = (
                         <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
                         <span>
                             {" "}
-                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mode 2 = 0 {"=>"}{" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mod 2 = 0 {"=>"}{" "}
                             {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                         </span>
                     </div>
@@ -421,7 +421,7 @@ const renderVerifyDetailExample = (
                         <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
                         <span>
                             {" "}
-                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mode 2 = 0 {"=>"}{" "}
+                            - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mod 2 = 0 {"=>"}{" "}
                             {t("glossary_white", { ns: "SeDieMultiPlayer" })}
                         </span>
                     </div>
