@@ -6,12 +6,12 @@ import BaseTermsAndConditions from "./terms-and-conditions";
 const TermsAndConditionsTolgee: React.FunctionComponent<{ extendDetails?: Array<string> }> = ({ extendDetails }) => {
     const { t } = useTranslate(["Common"]);
     let commonResources: IBaseTermAndConditionResources = {
-        header: t("termsandconditions-title"),
+        header: t("title_terms_conditions"),
         details: [
-            t(`termsandconditions_para_1`),
-            t(`termsandconditions_para_2`),
-            t(`termsandconditions_para_3`),
-            t(`termsandconditions_para_4`),
+            t(`terms_conditions_para_1`),
+            t(`terms_conditions_para_2`),
+            t(`terms_conditions_para_3`),
+            t(`terms_conditions_para_4`),
         ],
     };
 
