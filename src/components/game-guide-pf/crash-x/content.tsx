@@ -25,6 +25,17 @@ const iconUnCheck = <img src="./static/images/pf-snng/pf-verify-icon-uncheck.svg
 const iconClose = <img src="./static/images/pf-snng/pf-verify-icon-close-sedie.svg" alt="pf-icon" />;
 const iconQuestion = <img src="./static/images/pf/sedie/pf-button-question.png" alt="icon-question" />;
 
+const iconPF = `<img src="/static/images/pf-snng/pf-guide.svg" alt="pf-verify" />`;
+const serverSeedSHA256 = "7351789d88eb5e85a40e13375472736d48e2872e7f08d4e0fbb2c0eb1152aebf";
+const serverSeed = "pG8ThIMYfdl1hB0yhfcFxxHoVLH1LKDNueF4Eqvg";
+const combinedSHA512Hash =
+    "128fb9f28d5e16a05419a7320ec39ff6d4f1d97781ef88e7a9059d2378667783968e04d706599eba7b626d3fa9ac0617d2801c2d1b22bbfd1fe9cc90f5e41a2a";
+const roundId = "23986";
+const crashPoint = "13.38x";
+const combinedHashExample =
+    "d662aefd7de9e24ae822d472d502798098ee0adaa91642dbd1efdd93987d464fb537fba22b002b5ec91d4f0a3fb98d404b78feac4650568fd6c279eb097d8cb9";
+const mergeClientSeed = "88647423094441333241";
+
 const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
     return (
         <>
@@ -131,7 +142,7 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
     );
 };
 
-const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string, crashPoint: string) => {
+const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, crashPoint: string) => {
     return (
         <div className={Styles["pf-result-block"]}>
             <div
@@ -142,7 +153,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                     justifyContent: "space-between",
                 }}
             >
-                {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
+                {t("glossary_round_id", { ns: "SabaNumber" })}: {roundId}
                 <div className={Styles["pf-verify-info-item"]}>
                     {t("glossary_crash_point", { ns: "Common" })}: {crashPoint}
                 </div>
@@ -151,7 +162,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
     );
 };
 
-const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string, crashPoint: string) => {
+const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, crashPoint: string) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-3"]} ${Styles["pf-verify-example-sedie"]}`}>
             <div className={`${Styles["pf-verify-header-sedie"]}`}>
@@ -173,7 +184,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
             <div className={`${Styles["pf-verify-draw-info-sedie"]}`}>
                 <div className={Styles["pf-verify-info-item"]}>
                     <strong>
-                        {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
+                        {t("glossary_round_id", { ns: "SabaNumber" })}: {roundId}
                     </strong>
                 </div>
                 <div className={Styles["pf-verify-info-item"]}>
@@ -237,7 +248,7 @@ const renderVerifyDetailExample = (
 ) => {
     return (
         <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
-            {renderPFHeader(t)}
+            {renderVerifyPFHeader(t)}
 
             <div>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
@@ -327,6 +338,17 @@ const renderPFHeader = (t: TFnType<DefaultParamType, string, TranslationKey>) =>
     );
 };
 
+const renderVerifyPFHeader = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
+    return (
+        <div className={`${Styles["pf-verify-header-sedie"]}`}>
+            <span className={`${Styles["pf-verify-header-title"]} ${Styles["pf-verify-header-title-sedie"]}`}>
+                {t("pf_title_verification", { ns: "Common" })} (Round: <span className={`${PFStyles["pf-verify-header-round"]}`}>{roundId}</span>)
+            </span>
+            <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-close-sedie"]}`}>{iconClose}</span>
+        </div>
+    );
+};
+
 const renderVerifyExample = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
     serverSeedSHA256: string,
@@ -357,7 +379,6 @@ const renderVerifyExample = (
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
 
                 <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                     <thead>
@@ -396,6 +417,8 @@ const renderVerifyExample = (
                     </tbody>
                 </table>
 
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1rem" }}>
                     <span className={`${Styles["pf-verify-input-text"]}`}>{mergeClientSeed}</span>
                     <span className={`${Styles["pf-verify-icon"]} ${PFStyles["pf-verify-icon"]}`}>{iconCopy}</span>
@@ -425,17 +448,6 @@ const renderCrashXVerifyPF = (
     displayName: string,
     imgVersion: string
 ) => {
-    const iconPF = `<img src="/static/images/pf-snng/pf-guide.svg" alt="pf-verify" />`;
-    const serverSeedSHA256 = "7351789d88eb5e85a40e13375472736d48e2872e7f08d4e0fbb2c0eb1152aebf";
-    const serverSeed = "pG8ThIMYfdl1hB0yhfcFxxHoVLH1LKDNueF4Eqvg";
-    const combinedSHA512Hash =
-        "128fb9f28d5e16a05419a7320ec39ff6d4f1d97781ef88e7a9059d2378667783968e04d706599eba7b626d3fa9ac0617d2801c2d1b22bbfd1fe9cc90f5e41a2a";
-    const drawId = "23986";
-    const crashPoint = "13.38x";
-    const combinedHashExample =
-        "d662aefd7de9e24ae822d472d502798098ee0adaa91642dbd1efdd93987d464fb537fba22b002b5ec91d4f0a3fb98d404b78feac4650568fd6c279eb097d8cb9";
-    const mergeClientSeed = "88647423094441333241";
-
     return (
         <div className="guide-item">
             <h2>{t("pf_title_verify_the_provably_fair", { ns: "Common" })}</h2>
@@ -504,7 +516,7 @@ const renderCrashXVerifyPF = (
                                 {<Markup content={t("pf_verifier_tool_step_1_para_10", { ns: "CrashX" })} />}
                             </li>
 
-                            {renderBetDetailsExample(t, drawId, crashPoint)}
+                            {renderBetDetailsExample(t, crashPoint)}
 
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
@@ -516,7 +528,7 @@ const renderCrashXVerifyPF = (
                                 serverSeed,
                                 combinedSHA512Hash,
                                 mergeClientSeed,
-                                resultBlock(t, drawId, crashPoint),
+                                resultBlock(t, crashPoint),
                                 crashPoint
                             )}
 
@@ -578,7 +590,7 @@ const renderPFAppliedInGame = (
 };
 
 const CrashXPFGuideContent: FC<CrashXPFContentsProps> = ({ locale, displayName }) => {
-    const { t } = useTranslate(["Common", "SabaNumber",]);
+    const { t } = useTranslate(["Common", "SabaNumber"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion ?? "1";
 
