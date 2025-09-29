@@ -119,9 +119,9 @@ const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey
                 </div>
 
                 <div className={Styles["pf-work-example-img-text"]}>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
+                    <span>{t("example_Player", { ns: "Common" })} 1</span>
+                    <span>{t("example_Player", { ns: "Common" })} 2</span>
+                    <span>{t("example_Player", { ns: "Common" })}...</span>
                 </div>
             </div>
             <div className={Styles["pf-word-example-block-2"]}>
@@ -265,7 +265,7 @@ const renderClientSeedInfoExample = (
             <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                 <thead>
                     <tr>
-                        <th>{t("example_Player", { ns: "BandarQiuQiu" })}</th>
+                        <th>{t("example_Player", { ns: "Common" })}</th>
                         <th>{t("pf_nickname", { ns: "SabaNumber" })}</th>
                         <th>{t("pf_seed", { ns: "SabaNumber" })}</th>
                     </tr>
@@ -436,14 +436,14 @@ const renderVerifyExample = (
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
-                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                    <span className={`${Styles["pf-verify-icon"]} ${PFStyles["pf-verify-icon"]}`} >{iconCopy}</span>
                 </div>
                 <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
                     {t("pf_server_Seed", { ns: "Common" })}
                 </div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{<Markup content={serverSeed} />}</span>
-                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                    <span className={`${Styles["pf-verify-icon"]} ${PFStyles["pf-verify-icon"]}`}>{iconCopy}</span>
                 </div>
             </div>
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
@@ -454,7 +454,7 @@ const renderVerifyExample = (
                 <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
                     <thead>
                         <tr>
-                            <th>{t("example_Player", { ns: "BandarQiuQiu" })}</th>
+                            <th>{t("example_Player", { ns: "Common" })}</th>
                             <th>{t("pf_nickname", { ns: "SabaNumber" })}</th>
                             <th>{t("pf_seed", { ns: "SabaNumber" })}</th>
                         </tr>
@@ -490,7 +490,7 @@ const renderVerifyExample = (
 
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1rem" }}>
                     <span className={`${Styles["pf-verify-input-text"]}`}>{mergeClientSeed}</span>
-                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                    <span className={`${Styles["pf-verify-icon"]} ${PFStyles["pf-verify-icon"]}`}>{iconCopy}</span>
                 </div>
             </div>
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
@@ -498,7 +498,7 @@ const renderVerifyExample = (
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1.2rem" }}>
                     <span className={`${Styles["pf-verify-input-text"]}`}>{combinedSHA512Hash}</span>
-                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
+                    <span className={`${Styles["pf-verify-icon"]} ${PFStyles["pf-verify-icon"]}`}>{iconCopy}</span>
                 </div>
             </div>
             <div className={Styles["pf-verify-button-green"]} style={{ fontSize: "1.4rem" }}>{t("pf_verify", { ns: "Spaceflight" })}</div>
@@ -547,7 +547,7 @@ const renderCrashXVerifyPF = (
                             }`}
                         >
                             <div style={{ fontSize: "1.4rem"}}>
-                                <strong>{t("pf_final_result", { ns: "SeDieMultiPlayer" })}</strong> =
+                                <strong>{t("pf_final_result", { ns: "Common" })}</strong> =
                                 2 ^ 32 / (<span className={Styles["pf-text-highlight-red"]}>X</span> + 1) * (1 - 0.03)
                             </div>
                         </div>
@@ -718,7 +718,7 @@ const renderPFAppliedInGame = (
 };
 
 const CrashXPFGuideContent: FC<CrashXPFContentsProps> = ({ locale, displayName }) => {
-    const { t } = useTranslate(["SeDieMultiPlayer", "Common", "SabaNumber", "Spaceflight", "BandarQiuQiu", "BacBall"]);
+    const { t } = useTranslate(["Common", "SabaNumber", "Spaceflight"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion ?? "1";
 
