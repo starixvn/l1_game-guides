@@ -1,9 +1,9 @@
 import { useTranslate } from "@tolgee/react";
+import { numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { COMMON, SOCCER_PIN_GOAL } from "./namespace-tolgee";
-import { numberWithCommas } from "../../../helpers/number-helper";
 
 interface SoccerPinGoalContentProps {
     gameConfigs: GameConfigs;
@@ -12,12 +12,15 @@ interface SoccerPinGoalContentProps {
 }
 
 const Content = (props: SoccerPinGoalContentProps) => {
-    const { maxBet } = props.gameConfigs;
+    const { gameConfigs, userStakeLevel } = props;
+    const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? gameConfigs?.maxBet, gameConfigs?.maxBet);
+
+    const maxBetMain = numberWithCommas(maxBetTmp);
 
     return (
         <ul className={`game-guide`}>
             <SoccerPinGoalIntroduction />
-            <SoccerPinGoalGameRules maxBet={maxBet} />
+            <SoccerPinGoalGameRules maxBet={maxBetMain} />
             <SoccerPinGoalPayout gameConfigs={props.gameConfigs} userStakeLevel={props.userStakeLevel} />
             <TermsAndConditionsTolgee />
         </ul>
@@ -40,7 +43,7 @@ const SoccerPinGoalIntroduction = () => {
     );
 };
 
-const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: number }) => {
+const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
     const { t } = useTranslate([SOCCER_PIN_GOAL, COMMON]);
 
     return (
@@ -64,7 +67,7 @@ const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: number }) => {
                             glossary_draw: t("glossary_draw", { ns: SOCCER_PIN_GOAL }),
                         })}
                     </li>
-                    <li>{t("pregame_phase_para3", { maxbet: numberWithCommas(maxBet), ns: SOCCER_PIN_GOAL })}</li>
+                    <li>{t("pregame_phase_para3", { maxbet: maxBet, ns: SOCCER_PIN_GOAL })}</li>
                 </ul>
             </div>
             <h3>{t("title_gameplay", { ns: SOCCER_PIN_GOAL })}</h3>
