@@ -1,5 +1,5 @@
 import { useTranslate } from "@tolgee/react";
-import { numberWithCommas } from "../../../helpers/number-helper";
+import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
@@ -12,7 +12,7 @@ interface SoccerPinGoalContentProps {
 }
 
 const Content = (props: SoccerPinGoalContentProps) => {
-    const { gameConfigs, userStakeLevel } = props;
+    const { gameConfigs, userStakeLevel, fractionalOddsFormat } = props;
     const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? gameConfigs?.maxBet, gameConfigs?.maxBet);
 
     const maxBetMain = numberWithCommas(maxBetTmp);
@@ -21,7 +21,7 @@ const Content = (props: SoccerPinGoalContentProps) => {
         <ul className={`game-guide`}>
             <SoccerPinGoalIntroduction />
             <SoccerPinGoalGameRules maxBet={maxBetMain} />
-            <SoccerPinGoalPayout gameConfigs={props.gameConfigs} userStakeLevel={props.userStakeLevel} />
+            <SoccerPinGoalPayout gameConfigs={props.gameConfigs} userStakeLevel={props.userStakeLevel} fractionalOddsFormat={fractionalOddsFormat} />
             <TermsAndConditionsTolgee />
         </ul>
     );
@@ -49,61 +49,74 @@ const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
     return (
         <li className={`guide-item`}>
             <h2>{t("title_gamerules", { ns: COMMON })}</h2>
-            <h3>{t("title_game_seup", { ns: SOCCER_PIN_GOAL })}</h3>
-            <div className="content">
-                <ul className="desc">
-                    <li>{t("game_setup_para1", { game_name: t("game_name", { ns: SOCCER_PIN_GOAL }) })}</li>
-                    <li>{t("game_setup_para2", { ns: SOCCER_PIN_GOAL })}</li>
-                </ul>
-            </div>
-            <h3>{t("title_pregame_phase", { ns: SOCCER_PIN_GOAL })}</h3>
-            <div className="content">
-                <ul className="desc">
-                    <li>{t("pregame_phase_para1", { ns: SOCCER_PIN_GOAL })}</li>
-                    <li>
-                        {t("pregame_phase_para2", {
-                            glossary_red: t("glossary_red", { ns: SOCCER_PIN_GOAL }),
-                            glossary_blue: t("glossary_blue", { ns: SOCCER_PIN_GOAL }),
-                            glossary_draw: t("glossary_draw", { ns: SOCCER_PIN_GOAL }),
-                        })}
-                    </li>
-                    <li>{t("pregame_phase_para3", { maxbet: maxBet, ns: SOCCER_PIN_GOAL })}</li>
-                </ul>
-            </div>
-            <h3>{t("title_gameplay", { ns: SOCCER_PIN_GOAL })}</h3>
-            <div className="content">
-                <ul className="desc">
-                    <li>{t("gameplay_para1", { ns: SOCCER_PIN_GOAL })}</li>
-                    <li>{t("gameplay_para2", { ns: SOCCER_PIN_GOAL })}</li>
-                    <li>{t("gameplay_para3", { ns: SOCCER_PIN_GOAL })}</li>
-                    <li>{t("gameplay_para4", { ns: SOCCER_PIN_GOAL })}</li>
-                    <li>{t("gameplay_para5", { ns: SOCCER_PIN_GOAL })}</li>
-                </ul>
-            </div>
-            <div className="table-container">
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th className="bold">{t("header_betoption", { ns: COMMON })}</th>
-                            <th className="bold">{t("title_win_condition", { ns: SOCCER_PIN_GOAL })}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{t("glossary_red", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{t("win_condition_para1", { ns: SOCCER_PIN_GOAL })}</td>
-                        </tr>
-                        <tr>
-                            <td>{t("glossary_blue", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{t("win_condition_para2", { ns: SOCCER_PIN_GOAL })}</td>
-                        </tr>
-                        <tr>
-                            <td>{t("glossary_draw", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{t("win_condition_para3", { ns: SOCCER_PIN_GOAL })}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul className="style-number-dot">
+                <li className="number-dot">
+                    <span className="title-text">{t("title_game_seup", { ns: SOCCER_PIN_GOAL })}</span>
+                    <div className="content">
+                        <ul className="desc">
+                            <li>{t("game_setup_para1", { game_name: t("game_name", { ns: SOCCER_PIN_GOAL }) })}</li>
+                            <li>{t("game_setup_para2", { ns: SOCCER_PIN_GOAL })}</li>
+                        </ul>
+                    </div>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text">{t("title_pregame_phase", { ns: SOCCER_PIN_GOAL })}</span>
+                    <div className="content">
+                        <ul className="desc">
+                            <li>{t("pregame_phase_para1", { ns: SOCCER_PIN_GOAL })}</li>
+                            <li>
+                                {t("pregame_phase_para2", {
+                                    glossary_red: t("glossary_red", { ns: SOCCER_PIN_GOAL }),
+                                    glossary_blue: t("glossary_blue", { ns: SOCCER_PIN_GOAL }),
+                                    glossary_draw: t("glossary_draw", { ns: SOCCER_PIN_GOAL }),
+                                })}
+                            </li>
+                            <li>{t("pregame_phase_para3", { maxbet: maxBet, ns: SOCCER_PIN_GOAL })}</li>
+                        </ul>
+                    </div>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text">{t("title_gameplay", { ns: SOCCER_PIN_GOAL })}</span>
+                    <div className="content">
+                        <ul className="desc">
+                            <li>{t("gameplay_para1", { ns: SOCCER_PIN_GOAL })}</li>
+                            <li>{t("gameplay_para2", { ns: SOCCER_PIN_GOAL })}</li>
+                            <li>{t("gameplay_para3", { ns: SOCCER_PIN_GOAL })}</li>
+                            <ul className="detail">
+                                <li>{t("gameplay_para4", { ns: SOCCER_PIN_GOAL })}</li>
+                                <li>{t("gameplay_para5", { ns: SOCCER_PIN_GOAL })}</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </li>
+                <li className="number-dot">
+                    <span className="title-text">{t("title_win_condition", { ns: SOCCER_PIN_GOAL })}</span>
+                    <div className="table-container">
+                        <table className="table text-center">
+                            <thead>
+                                <tr>
+                                    <th className="bold">{t("header_betoption", { ns: COMMON })}</th>
+                                    <th className="bold">{t("title_win_condition", { ns: SOCCER_PIN_GOAL })}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{t("glossary_red", { ns: SOCCER_PIN_GOAL })}</td>
+                                    <td>{t("win_condition_para1", { ns: SOCCER_PIN_GOAL })}</td>
+                                </tr>
+                                <tr>
+                                    <td>{t("glossary_blue", { ns: SOCCER_PIN_GOAL })}</td>
+                                    <td>{t("win_condition_para2", { ns: SOCCER_PIN_GOAL })}</td>
+                                </tr>
+                                <tr>
+                                    <td>{t("glossary_draw", { ns: SOCCER_PIN_GOAL })}</td>
+                                    <td>{t("win_condition_para3", { ns: SOCCER_PIN_GOAL })}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
         </li>
     );
 };
@@ -111,24 +124,23 @@ const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
 const SoccerPinGoalPayout = ({
     gameConfigs,
     userStakeLevel,
+    fractionalOddsFormat
 }: {
     gameConfigs: GameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
+    fractionalOddsFormat?: boolean;
 }) => {
     const { t } = useTranslate([SOCCER_PIN_GOAL, COMMON]);
-    const { odds, minBet, maxBet, maxBetPerChoices, maxWinPerRound } = gameConfigs;
+    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
-    const awayOdds = odds?.blue;
-    const homeOdds = odds?.red;
-    const drawOdds = odds?.draw;
+    const awayOdds = formatOdds(odds?.blue, fractionalOddsFormat);
+    const homeOdds = formatOdds(odds?.red, fractionalOddsFormat);
+    const drawOdds = formatOdds(odds?.draw, fractionalOddsFormat);
 
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red));
     const maxBetAway = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.blue));
     const maxBetDraw = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.draw));
-
-    const maxBetMain = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
-    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetMain);
 
     return (
         <li className={`guide-item`}>
@@ -138,7 +150,6 @@ const SoccerPinGoalPayout = ({
                     <li>{t("payouts_para_1", { ns: COMMON })}</li>
                     <li>{t("payouts_para_2", { ns: COMMON })}</li>
                     <li>{t("payouts_para_3", { ns: COMMON })}</li>
-                    <li>{t("payouts_para_4", { maxwin: maxWin, ns: COMMON })}</li>
                     <li>
                         {t("payouts_para5", {
                             glossary_red: t("glossary_red", { ns: SOCCER_PIN_GOAL }),
