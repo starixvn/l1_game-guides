@@ -52,42 +52,36 @@ const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
             <ul className="style-number-dot">
                 <li className="number-dot">
                     <span className="title-text">{t("title_game_seup", { ns: SOCCER_PIN_GOAL })}</span>
-                    <div className="content">
-                        <ul className="desc">
-                            <li>{t("game_setup_para1", { game_name: t("game_name", { ns: SOCCER_PIN_GOAL }) })}</li>
-                            <li>{t("game_setup_para2", { ns: SOCCER_PIN_GOAL })}</li>
-                        </ul>
-                    </div>
+                    <ul className="desc">
+                        <li>{t("game_setup_para1", { game_name: t("game_name", { ns: SOCCER_PIN_GOAL }) })}</li>
+                        <li>{t("game_setup_para2", { ns: SOCCER_PIN_GOAL })}</li>
+                    </ul>
                 </li>
                 <li className="number-dot">
                     <span className="title-text">{t("title_pregame_phase", { ns: SOCCER_PIN_GOAL })}</span>
-                    <div className="content">
-                        <ul className="desc">
-                            <li>{t("pregame_phase_para1", { ns: SOCCER_PIN_GOAL })}</li>
-                            <li>
-                                {t("pregame_phase_para2", {
-                                    glossary_red: t("glossary_red", { ns: SOCCER_PIN_GOAL }),
-                                    glossary_blue: t("glossary_blue", { ns: SOCCER_PIN_GOAL }),
-                                    glossary_draw: t("glossary_draw", { ns: SOCCER_PIN_GOAL }),
-                                })}
-                            </li>
-                            <li>{t("pregame_phase_para3", { maxbet: maxBet, ns: SOCCER_PIN_GOAL })}</li>
-                        </ul>
-                    </div>
+                    <ul className="desc">
+                        <li>{t("pregame_phase_para1", { ns: SOCCER_PIN_GOAL })}</li>
+                        <li>
+                            {t("pregame_phase_para2", {
+                                glossary_red: t("glossary_red", { ns: SOCCER_PIN_GOAL }),
+                                glossary_blue: t("glossary_blue", { ns: SOCCER_PIN_GOAL }),
+                                glossary_draw: t("glossary_draw", { ns: SOCCER_PIN_GOAL }),
+                            })}
+                        </li>
+                        <li>{t("pregame_phase_para3", { maxbet: maxBet, ns: SOCCER_PIN_GOAL })}</li>
+                    </ul>
                 </li>
                 <li className="number-dot">
                     <span className="title-text">{t("title_gameplay", { ns: SOCCER_PIN_GOAL })}</span>
-                    <div className="content">
-                        <ul className="desc">
-                            <li>{t("gameplay_para1", { ns: SOCCER_PIN_GOAL })}</li>
-                            <li>{t("gameplay_para2", { ns: SOCCER_PIN_GOAL })}</li>
-                            <li>{t("gameplay_para3", { ns: SOCCER_PIN_GOAL })}</li>
-                            <ul className="detail">
-                                <li>{t("gameplay_para4", { ns: SOCCER_PIN_GOAL })}</li>
-                                <li>{t("gameplay_para5", { ns: SOCCER_PIN_GOAL })}</li>
-                            </ul>
+                    <ul className="desc">
+                        <li>{t("gameplay_para1", { ns: SOCCER_PIN_GOAL })}</li>
+                        <li>{t("gameplay_para2", { ns: SOCCER_PIN_GOAL })}</li>
+                        <li>{t("gameplay_para3", { ns: SOCCER_PIN_GOAL })}</li>
+                        <ul className="detail">
+                            <li>{t("gameplay_para4", { ns: SOCCER_PIN_GOAL })}</li>
+                            <li>{t("gameplay_para5", { ns: SOCCER_PIN_GOAL })}</li>
                         </ul>
-                    </div>
+                    </ul>
                 </li>
                 <li className="number-dot">
                     <span className="title-text">{t("title_win_condition", { ns: SOCCER_PIN_GOAL })}</span>
