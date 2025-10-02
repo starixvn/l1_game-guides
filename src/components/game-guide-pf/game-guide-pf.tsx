@@ -20,6 +20,7 @@ import SeBallPFGuide from "./se-ball";
 import SpaceFlightPFGuide from "./space-flight";
 import SeDieMultiplayerPFGuide from "./sedie-multiplayer";
 import CrashXPFGuide from "./crash-x";
+import PlinkoPFGuide from "./plinko";
 
 class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
     renderOtherGuide = (gameId: number, gameGuideProps: any) => {
@@ -68,6 +69,8 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
                 return <CrashXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.SE_DIE_MULTIPLAYER:
                 return <SeDieMultiplayerPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES_PF.PLINKO:
+                return <PlinkoPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.renderOtherGuide(gameId, gameGuideProps);
         }

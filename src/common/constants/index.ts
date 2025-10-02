@@ -149,7 +149,8 @@ export const GAMES = {
     SOCCER_PIN_GOAL: 156,
     SE_DIE_MULTIPLAYER: 148,
     BACCARAT_MULTIPLAYER: 150,
-    CRASH_X: 144
+    CRASH_X: 144,
+    PLINKO: 145,
 };
 
 export const GAMES_MINI = {
@@ -184,6 +185,7 @@ export const GAMES_PF = {
     ROCKET_X: 113,
     CRASH_X: 144,
     SE_DIE_MULTIPLAYER: 148,
+    PLINKO: 145,
 };
 
 export const TolgeeConfig = {
