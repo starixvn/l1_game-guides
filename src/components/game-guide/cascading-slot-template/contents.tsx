@@ -10,6 +10,7 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import Styles from "./cascading-slot.module.scss";
 import OddDetailList from "./OddDetail";
 import { GameConfigProps } from "./type";
+import { useRouter } from "next/router";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -75,10 +76,12 @@ const renderPayouts = ({
                 <li>{t("Payout-line-2")}</li>
                 <li>
                     {t("Payout-line-3", { betLevel: level, coin: coin })}
-                    {renderPayoutsIconFirstLine(oddDetail, coin, level)}
-                    {renderPayoutsIconSecondLine(oddDetail, coin, level)}
-                    {renderPayoutsIconThirdLine(oddDetail, coin, level)}
-                    {isRemodeling && renderPayoutsIconFourthLine(freeSpin, oddDetail[9], coin, level)}
+                    <div className={Styles["wraper-gird"]}>
+                        {renderPayoutsIconFirstLine(oddDetail, coin, level)}
+                        {renderPayoutsIconSecondLine(oddDetail, coin, level)}
+                        {renderPayoutsIconThirdLine(oddDetail, coin, level)}
+                        {isRemodeling && renderPayoutsIconFourthLine(freeSpin, oddDetail[9], coin, level)}
+                    </div>
                     {renderExamplePayout(oddDetail[8], coin, level, t)}
                 </li>
                 <li>{t("Payout-line-4")}</li>
@@ -182,11 +185,9 @@ const renderIconContent = (
 const renderPayoutsIconFirstLine = (symbols: OddDetailList[], coin: number, level: number) => {
     return (
         <>
-            <div className={Styles["payout-row"]}>
-                {renderIconContent("symbol-8", false, false, symbols[8], coin, level)}
-                {renderIconContent("symbol-7", true, false, symbols[7], coin, level)}
-                {renderIconContent("symbol-6", true, false, symbols[6], coin, level)}
-            </div>
+            {renderIconContent("symbol-8", false, false, symbols[8], coin, level)}
+            {renderIconContent("symbol-7", true, false, symbols[7], coin, level)}
+            {renderIconContent("symbol-6", true, false, symbols[6], coin, level)}
         </>
     );
 };
@@ -194,11 +195,9 @@ const renderPayoutsIconFirstLine = (symbols: OddDetailList[], coin: number, leve
 const renderPayoutsIconSecondLine = (symbols: OddDetailList[], coin: number, level: number) => {
     return (
         <>
-            <div className={Styles["payout-row"]}>
-                {renderIconContent("symbol-5", true, false, symbols[5], coin, level)}
-                {renderIconContent("symbol-4", true, true, symbols[4], coin, level)}
-                {renderIconContent("symbol-3", true, true, symbols[3], coin, level)}
-            </div>
+            {renderIconContent("symbol-5", true, false, symbols[5], coin, level)}
+            {renderIconContent("symbol-4", true, true, symbols[4], coin, level)}
+            {renderIconContent("symbol-3", true, true, symbols[3], coin, level)}
         </>
     );
 };
@@ -206,11 +205,9 @@ const renderPayoutsIconSecondLine = (symbols: OddDetailList[], coin: number, lev
 const renderPayoutsIconThirdLine = (symbols: OddDetailList[], coin: number, level: number) => {
     return (
         <>
-            <div className={Styles["payout-row"]}>
-                {renderIconContent("symbol-2", true, true, symbols[2], coin, level)}
-                {renderIconContent("symbol-1", true, true, symbols[1], coin, level)}
-                {renderIconContent("symbol-0", false, false, symbols[0], coin, level)}
-            </div>
+            {renderIconContent("symbol-2", true, true, symbols[2], coin, level)}
+            {renderIconContent("symbol-1", true, true, symbols[1], coin, level)}
+            {renderIconContent("symbol-0", false, false, symbols[0], coin, level)}
         </>
     );
 };
@@ -218,33 +215,29 @@ const renderPayoutsIconThirdLine = (symbols: OddDetailList[], coin: number, leve
 const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any, coin: number, level: number) => {
     const itemName = "symbol-9";
     return (
-        <div className={Styles["payout-row"]}>
-            {
-                <div className={Styles["symbol-wrapper"]}>
-                    <div className="img-fluid">
-                        <img
-                            className={`${Styles[itemName]} ${Styles["customize"]}`}
-                            src={`${imgSrc}/${itemName}.png?v1`}
-                            alt={itemName}
-                        ></img>
-                    </div>
-                    <div>
-                        {freeSpin.InitialOdds.reverse().map((data: any, index: number) => {
-                            const odds = oddDetail.oddItem.reverse()[index].count;
-                            const value = +(odds * coin * level).toFixed(2);
-                            return (
-                                <div key={generateKey(data.Count)} className={Styles["icon-content"]}>
-                                    <span className={`${Styles[number]} ${Styles[numberFirst]}`}>
-                                        {index === 0 ? "≥" : ""}
-                                        {data.Count}
-                                    </span>
-                                    <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            }
+        <div className={Styles["symbol-wrapper"]}>
+            <div className="img-fluid">
+                <img
+                    className={`${Styles[itemName]} ${Styles["customize"]}`}
+                    src={`${imgSrc}/${itemName}.png?v1`}
+                    alt={itemName}
+                ></img>
+            </div>
+            <div>
+                {freeSpin.InitialOdds.reverse().map((data: any, index: number) => {
+                    const odds = oddDetail.oddItem.reverse()[index].count;
+                    const value = +(odds * coin * level).toFixed(2);
+                    return (
+                        <div key={generateKey(data.Count)} className={Styles["icon-content"]}>
+                            <span className={`${Styles[number]} ${Styles[numberFirst]}`}>
+                                {index === 0 ? "≥" : ""}
+                                {data.Count}
+                            </span>
+                            <span className={`${Styles[number]} ${Styles[numberSecond]}`}>{numberWithCommas(value)}</span>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };
@@ -456,7 +449,7 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>5</td>
                             <td>
                                 50 <br></br>
-                                {t("Win-amount-expression")}{" "}
+                                (10 * 5)
                             </td>
                         </tr>
                         <tr>
@@ -482,7 +475,7 @@ const renderExampleWinFreespin = (t: Function) => {
                             <td>8</td>
                             <td>
                                 56<br></br>
-                                {t("Win-amount-expression")}
+                                (7 * 8)
                             </td>
                         </tr>
                     </tbody>
@@ -730,9 +723,13 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const maxWinPerRound = gameConfigs.maxWinPerRound;
     const features = gameConfigs.features;
     const isBuyFreeSpinsSupported = features?.BuyFreeSpins?.enabled && buyFreeSpinSetting?.Multiplier > 0;
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
+
+
 
     return (
-        <ul className={`game-guide ${Styles["slot-guide"]}`}>
+        <ul className={`game-guide ${Styles["slot-guide"]} ${mode}`}>
             <li className="guide-item">
                 <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
                 <p className="content">{t("Introduction-content", { gameName: displayName })}</p>

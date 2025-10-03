@@ -163,7 +163,7 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
 
     return (
         <ImgVersionProvider value={{ imgVersion: buildVersion }}>
-            <div ref={wrapperRef} id="container-guide" className="container-guide">
+            <div ref={wrapperRef} id="container-guide" className={`container-guide`}>
                 {!isGetGameConfigs ? getTemplateFollowEnv() : gameConfigs && getTemplateFollowEnv()}
             </div>
         </ImgVersionProvider>
