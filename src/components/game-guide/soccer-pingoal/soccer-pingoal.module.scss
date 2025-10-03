@@ -1,0 +1,8 @@
+.example-list {
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    > li {
+        list-style-type: disc;
+        margin-left: 4rem;
+    }
+}

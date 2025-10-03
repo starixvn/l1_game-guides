@@ -1,9 +1,12 @@
 import { useTranslate } from "@tolgee/react";
+import { Markup } from "interweave";
+import { ReactNode } from "react";
 import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
 import { UserStakeLevelProps } from "../../../pages";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { COMMON, SOCCER_PIN_GOAL } from "./namespace-tolgee";
+import Styles from "./soccer-pingoal.module.scss";
 
 interface SoccerPinGoalContentProps {
     gameConfigs: GameConfigs;
@@ -43,6 +46,15 @@ const SoccerPinGoalIntroduction = () => {
     );
 };
 
+const generateChain = (start: number, end: number, t: (index: number) => ReactNode) => {
+    const chain = [];
+    for (let i = start; i <= end; i++) {
+        chain.push(t(i));
+    }
+
+    return chain;
+};
+
 const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
     const { t } = useTranslate([SOCCER_PIN_GOAL, COMMON]);
 
@@ -55,6 +67,16 @@ const SoccerPinGoalGameRules = ({ maxBet }: { maxBet: string }) => {
                     <ul className="desc">
                         <li>{t("game_setup_para1", { game_name: t("game_name", { ns: SOCCER_PIN_GOAL }) })}</li>
                         <li>{t("game_setup_para2", { ns: SOCCER_PIN_GOAL })}</li>
+                        <li>
+                            <Markup content={t("game_supported_para", { ns: SOCCER_PIN_GOAL })}></Markup>
+                        </li>
+                        <ul className={`${Styles["example-list"]}`}>
+                            {
+                                generateChain(1, 8, (index) => (
+                                    <li key={index}>{t(`game_supported_list${index}`, { ns: SOCCER_PIN_GOAL })}</li>
+                                ))
+                            }
+                        </ul>
                     </ul>
                 </li>
                 <li className="number-dot">
