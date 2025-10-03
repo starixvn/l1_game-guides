@@ -937,6 +937,9 @@
 
 .pf-summary-row-netprofit {
     background-color: #182130 !important;
+    min-height:36px!important;
+    padding-top: 7px!important;
+    padding-bottom: 7px!important;
 }
 
 .pf-summary-label {
@@ -944,6 +947,9 @@
     padding-left: 1rem !important;
     font-weight: 600;
     color: #fff !important;
+    min-height:36px!important;
+    padding-top: 7px!important;
+    padding-bottom: 7px!important;
 }
 
 .pf-summary-row td:not(.pf-summary-label) {
@@ -984,10 +990,10 @@
 
         tr {
             &:nth-child(odd) {
-                background-color: #1F2A3B;
+                background-color: #182130;
             }
             &:nth-child(even) {
-                background-color: #182130;
+                background-color: #1F2A3B;
             }
         }
     }
