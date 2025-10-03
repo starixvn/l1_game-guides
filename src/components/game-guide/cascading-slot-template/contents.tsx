@@ -707,6 +707,7 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
 
 enum AutoSettle24hGameIds {
     WuKong = 121,
+    Mahjongwins = 127,
 }
 
 const isAutoSettle = (gameId: number) => {
