@@ -701,6 +701,13 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
 enum AutoSettle24hGameIds {
     WuKong = 121,
     Mahjongwins = 127,
+    Olympub = 139,
+    VivaFiesta = 140,
+    StreetWarrior = 142,
+    WildWestMostWanted = 129,
+    AladdinsWishes = 130,
+    CandyLand = 66,
+    QueenOfBounty = 155,
 }
 
 const isAutoSettle = (gameId: number) => {
