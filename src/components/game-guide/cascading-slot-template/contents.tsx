@@ -704,10 +704,7 @@ enum AutoSettle24hGameIds {
     Olympub = 139,
     VivaFiesta = 140,
     StreetWarrior = 142,
-    WildWestMostWanted = 129,
     AladdinsWishes = 130,
-    CandyLand = 66,
-    QueenOfBounty = 155,
 }
 
 const isAutoSettle = (gameId: number) => {
