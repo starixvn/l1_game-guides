@@ -371,9 +371,9 @@ const renderVerifyDetailExample = (
                         <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
                             {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
                         </h3>
-                        <div className="flex items-center">5.6x</div>
+                        <div className="flex items-center">{t("title_multiplier", { ns: "Common" })}: 1x</div>
                     </div>
-                    <div className="flex gap-3 items-center justify-between">
+                    <div className="flex gap-3 mt-2 items-center justify-between">
                         <div style={{ marginBottom: "0" }}>
                             {<Markup content={t("mode", { ns: "Plinko" })} />}: {t("mode_low", { ns: "Plinko" })}
                         </div>
@@ -384,16 +384,53 @@ const renderVerifyDetailExample = (
                     <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                     <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
                     <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
-                    <p className="bold">4e ={">"} 78 mod 2 = 0</p>
-                    <p className="bold">b1 ={">"} 177 mod 2 = 1</p>
+                    <p className="bold">5f ={">"} 95 mod 2 = 1</p>
+                    <p className="bold">4b ={">"} 75 mod 2 = 1</p>
+                    <p className="bold">f8 ={">"} 248 mod 2 = 0</p>
+                    <p className="bold">bd ={">"} 189 mod 2 = 1</p>
+                    <p className="bold">4b ={">"} 75 mod 2 = 1</p>
+                    <p className="bold">29 ={">"} 41 mod 2 = 1</p>
+                    <p className="bold">c6 ={">"} 198 mod 2 = 0</p>
                     <p className="bold">ec ={">"} 236 mod 2 = 0</p>
-                    <p className="bold">45 ={">"} 69 mod 2 = 1</p>
-                    <p className="bold">8c ={">"} 140 mod 2 = 0</p>
-                    <p className="bold">60 ={">"} 96 mod 2 = 0</p>
-                    <p className="bold">01 ={">"} 1 mod 2 = 1</p>
-                    <p className="bold">e7 ={">"} 231 mod 2 = 1</p>
-
-                    
+                    <p>{t("slot_index", { ns: "Plinko" })}: 1 + 1 + 0 + 1 + 1 + 1 + 0 + 0 = <span>5</span></p>
+                    <div className="d-flex gap-5 items-center">
+                        <div className="flex flex-column">
+                            <p>0</p>
+                            <p>5.6</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>1</p>
+                            <p>2.1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>2</p>
+                            <p>1.1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>3</p>
+                            <p>1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>4</p>
+                            <p>0.5</p>
+                        </div>
+                        <div className={`${Styles["pf-text-highlight"]} flex flex-column`}>
+                            <p>5</p>
+                            <p>1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>6</p>
+                            <p>1.1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>7</p>
+                            <p>2.1</p>
+                        </div>
+                        <div className="flex flex-column">
+                            <p>8</p>
+                            <p>5.6</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -486,20 +523,20 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                     <div className={Styles["pf-verify-option"]}>
                         <div className={Styles["pf-verify-option-radio"]} style={{ color: "#fff" }}>
-                            <span className={Styles["pf-verify-icon"]}>{iconUnCheck}</span>
+                            <span className={Styles["pf-verify-icon"]}>{iconChecked}</span>
                             <span className={Styles["pf-verify-check-label"]}>{t("pf_random", { ns: "Common" })}</span>
                         </div>
 
                         <div
                             className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`}
-                            style={{ color: "#fff", background: "#182130", border: "none" }}
+                            style={{ background: "#182130" }}
                         >
                             {randomNumber}
                         </div>
                     </div>
                     <div className={Styles["pf-verify-option"]}>
                         <div className={Styles["pf-verify-option-radio"]}>
-                            <span className={Styles["pf-verify-icon"]}>{iconChecked}</span>
+                            <span className={Styles["pf-verify-icon"]}>{iconUnCheck}</span>
                             <span className={`${Styles["pf-verify-check-label"]} text-center`}>
                                 {t("pf_manual_input", { ns: "Common" })} <br /> (0 - 9999)
                             </span>
@@ -507,9 +544,8 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
 
                         <div
                             className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`}
-                            style={{ background: "#182130" }}
+                            style={{ color: "#fff", background: "#182130", border: "none" }}
                         >
-                            7842
                         </div>
                     </div>
                 </div>
@@ -533,16 +569,16 @@ const renderPlinkoVerifyPF = (
     imgVersion: string
 ) => {
     const iconPF = `<img src="/static/images/pf-snng/pf-guide.svg" alt="pf-verify" />`;
-    const serverSeedSHA256 = "295be5037f34988531577bc4b2f070681c99f1bcc7885018762521d4447c2485";
-    const randomNumber = "7842";
-    const serverSeed = "{&quot;random&quot;:&quot;37;1;72;71&quot;,&quot;secret&quot;:&quot;pYYVdOj7TaMqbJn0AZPE7mfO5Vi2TiUp;}";
+    const serverSeedSHA256 = "58cd2187b7e31612aecce94fbb254209e31b294eb41db6969176f04e71b50e2a";
+    const randomNumber = "1008";
+    const serverSeed = "i8G8SRghnLh5fn8duKRndDyQ2fcvBDyHjM3rBcEq";
     const mergeServerSeed = "{“random”:“37;1;72;71”,“secret”:pYYVdOj7TaMqbJn0AZPE7mfO5Vi2TiUp”";
     const combinedSHA512Hash =
-        "e33dd2a9c3921aa9ea9c93528a4cdb4e8a6e405aa9592c3ccfa3f4c31d67190108371f2c61f839d0aca4c0638c705dc592858770cb8f5b25a408a2ac6603eda4";
+        "5f4bf8bd4b29c6ec09ccc99ecddd2f643e36e4c7b4ec973ee57a909b373cb82ca3d66057802bec61a9cfaa99461f22342bc015d4d03b32ad406c498ce8a2ff91";
     const drawId = "1073";
     const combinedHashExample =
         "d662aefd7de9e24ae822d472d502798098ee0adaa91642dbd1efdd93987d464fb537fba22b002b5ec91d4f0a3fb98d404b78feac4650568fd6c279eb097d8cb9";
-    const mergeClientSeed = "604684676893831440990810328513133527842945619939";
+    const mergeClientSeed = "1008";
 
     return (
         <div className="guide-item">
@@ -558,9 +594,7 @@ const renderPlinkoVerifyPF = (
                             <T keyName={"pf_verifier_tool_para_2"} params={{ gamename: displayName }} ns="Common"></T>
                         </li>
                         <li>{t("pf_verifier_tool_para_3", { ns: "Plinko" })}</li>
-
-                        <li>{t("pf_verifier_tool_para_7", { ns: "SeDieMultiPlayer" })}</li>
-
+                     
                         <div
                             className={`${Styles["pf-block-highlight-text"]} ${
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
@@ -592,44 +626,9 @@ const renderPlinkoVerifyPF = (
                             {<Markup content={t("pf_header_combined_sha512_hash", { ns: "Common" })} />}
                         </div>
                         <div className={`flex ${Styles["pf-hash-example-container"]}`}>{combinedHashExample}</div>
-                        <div className={Styles["pf-convert-hash-sedie"]} style={{ marginTop: "80px", marginBottom: "80px" }}>
-                            <div className="bold text-white text-center" style={{ fontSize: "2rem" }}>
-                                <span className={Styles["color-ball-1"]}>d6</span>
-                                <span className={Styles["color-ball-2"]}>62</span>
-                                <span className={Styles["color-ball-3"]}>ae</span>
-                                <span className={Styles["color-ball-4"]}>fd</span>7de...
-                            </div>
-                            <div className={Styles["convert-hash-1"]}>
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "1" })} />}
-                                </div>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                            </div>
 
-                            <div className={Styles["convert-hash-2"]}>
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "2" })} />}
-                                </div>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                            </div>
-
-                            <div className={Styles["convert-hash-3"]}>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "3" })} />}
-                                </div>
-                            </div>
-
-                            <div className={Styles["convert-hash-4"]}>
-                                <img className={Styles["arrow"]} src="./static/images/pf-snng/arrow.svg" alt="arrow" />
-                                <div className={Styles["text"]}>
-                                    {<Markup content={t("pf_verifier_tool_para_17", { ns: "SeDieMultiPlayer", value: "4" })} />}
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>{<Markup content={t("pf_content_1_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
-                        <p>{<Markup content={t("pf_content_2_combined_sha512_hash", { ns: "SeDieMultiPlayer" })} />}</p>
+                        <p>{<Markup content={t("pf_content_1_combined_sha512_hash", { ns: "Plinko" })} />}</p>
+                        <p>{<Markup content={t("pf_content_2_combined_sha512_hash", { ns: "Plinko" })} />}</p>
 
                         <p className={`title-text ${Styles["pf-sub-title"]}`}>
                             {<Markup content={t("pf_bacball_verifier_tool_para_20", { ns: "BacBall" })} />}
