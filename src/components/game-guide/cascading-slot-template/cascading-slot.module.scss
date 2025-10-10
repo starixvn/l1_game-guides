@@ -467,12 +467,13 @@
             margin: 1rem 0rem 1rem 0rem;
 
             .symbols {
-                grid-template-columns: repeat(6, 10rem);
-                padding: 1rem;
+                grid-template-columns: repeat(6, 11rem);
+                padding: 3rem;
             }
 
             img {
                 width: 100%;
+                height: 100%;
             }
         }
 
