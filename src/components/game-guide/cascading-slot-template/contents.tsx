@@ -708,8 +708,7 @@ enum AutoSettle24hGameIds {
     AladdinsWishes = 130,
     CandyLand = 66,
     QueenOfBounty = 155,
-    Poseidon = 126,
-    HappyFarm = 131
+    Poseidon = 126
 }
 
 const isAutoSettle = (gameId: number) => {
