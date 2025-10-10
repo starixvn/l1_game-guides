@@ -24,12 +24,17 @@ const iconUnCheck = <img src="./static/images/pf-snng/pf-verify-icon-uncheck.svg
 const iconClose = <img src="./static/images/pf-snng/pf-verify-icon-close-sedie.svg" alt="pf-icon" />;
 const iconQuestion = <img src="./static/images/pf/sedie/pf-button-question.png" alt="icon-question" />;
 
-const renderContentPFBase = (t: TFnType<DefaultParamType, string, TranslationKey>, displayName: string, imgVersion: string) => {
+const renderContentPFBase = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    displayName: string,
+    imgVersion: string,
+    locale: string
+) => {
     return (
         <>
             {renderAdvertisePF(t, displayName || "", imgVersion)}
             {renderPFInfo(t)}
-            {renderHowPFWork(t, imgVersion)}
+            {renderHowPFWork(t, imgVersion, locale)}
         </>
     );
 };
@@ -69,7 +74,7 @@ const renderDiceImage = (imageName: string) => {
     );
 };
 
-const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <div className="guide-item">
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
@@ -77,9 +82,17 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
 
             <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
                 <span style={{ textAlign: "center" }}>
-                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem"}}>{t("pf_fair_result", { ns: "Common" })}</strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem"}}> = {t("pf_casino_contribution", { ns: "Common" })}</strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem"}}> + {t("pf_player_contribution", { ns: "Common" })}</strong>
+                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem" }}>
+                        {t("pf_fair_result", { ns: "Common" })}
+                    </strong>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem" }}>
+                        {" "}
+                        = {t("pf_casino_contribution", { ns: "Common" })}
+                    </strong>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem" }}>
+                        {" "}
+                        + {t("pf_player_contribution", { ns: "Common" })}
+                    </strong>
                 </span>
             </div>
 
@@ -90,48 +103,15 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
                 <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
-            {renderPFWorkExample(t, imgVersion)}
+            {renderPFWorkExample(t, imgVersion, locale, imgVersion)}
         </div>
     );
 };
 
-const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+const renderPFWorkExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string, verImg: string) => {
     return (
-        <div className={Styles["pf-work-example"]}>
-            <div className={Styles["pf-work-example-block-1"]}>
-                <div className={`${Styles["pf-work-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_server_Seed", { ns: "Common" })}
-                </div>
-                <div className={`${Styles["pf-work-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
-                    {t("pf_client_seed", { ns: "Common" })}
-                </div>
-                <div className={`${Styles["pf-work-example-text-3"]} ${Styles["pf-text-highlight"]}`}>
-                    {<Markup content={t("pf_bacball_nonce", { ns: "SabaNumber" })} />}
-                </div>
-                <div className="center-img">
-                    <img
-                        className={Styles["pf-work-example-img-background-full"]}
-                        src={`./static/images/pf-snng/pf-work-example-1.png?v=${imgVersion}`}
-                        alt="pf"
-                    ></img>
-                </div>
-
-                <div className={Styles["pf-work-example-img-text"]}>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 1</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })} 2</span>
-                    <span>{t("example_Player", { ns: "BandarQiuQiu" })}...</span>
-                </div>
-            </div>
-            <div className={Styles["pf-word-example-block-2"]}>
-                <div className={Styles["pf-text-highlight"]}>{t("pf_merge_seed", { ns: "Common" })}</div>
-                <div className={Styles["pf-text-highlight"]}>{t("pf_server_client_nonce", { ns: "Common" })}</div>
-                <img
-                    className={Styles["pf-merge-seed-img"]}
-                    src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
-                    alt="pf"
-                ></img>
-            </div>
-            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
+        <div className="center-img">
+            <img className="img img-border" src={`./static/images/chinese-blackjack/pf/chart_${locale}.png?v=${verImg}`} alt="chart"></img>
         </div>
     );
 };
@@ -148,9 +128,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                 }}
             >
                 {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
-                <div className={Styles["pf-verify-info-item"]}>
-                    {t("pf_result", { ns: "Common" })}: 5.6x
-                </div>
+                <div className={Styles["pf-verify-info-item"]}>{t("pf_result", { ns: "Common" })}: 5.6x</div>
             </div>
             <div
                 className="text-white"
@@ -162,9 +140,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                 }}
             >
                 {t("mode", { ns: "Plinko" })}: {t("mode_low", { ns: "Plinko" })}
-                <div className={Styles["pf-verify-info-item"]}>
-                    {t("row", { ns: "Plinko" })}: 8
-                </div>
+                <div className={Styles["pf-verify-info-item"]}>{t("row", { ns: "Plinko" })}: 8</div>
             </div>
         </div>
     );
@@ -193,10 +169,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </strong>
                 </div>
                 <div className={Styles["pf-verify-info-item"]}>
-                    {t("pf_result", { ns: "Common" })}:
-                    <div className={Styles["pf-result-dot-container"]}>
-                        5.6x
-                    </div>
+                    {t("pf_result", { ns: "Common" })}:<div className={Styles["pf-result-dot-container"]}>5.6x</div>
                 </div>
             </div>
 
@@ -215,7 +188,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>                   
+                    <tr>
                         <td>
                             <div className={Styles["pf-bet-choice-dots"]}>{t("mode_low", { ns: "Plinko" })}</div>
                         </td>
@@ -377,9 +350,7 @@ const renderVerifyDetailExample = (
                         <div style={{ marginBottom: "0" }}>
                             {<Markup content={t("mode", { ns: "Plinko" })} />}: {t("mode_low", { ns: "Plinko" })}
                         </div>
-                        <div className="flex items-center">
-                            {t("row", { ns: "Plinko" })}: 8
-                        </div>
+                        <div className="flex items-center">{t("row", { ns: "Plinko" })}: 8</div>
                     </div>
                     <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                     <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
@@ -392,7 +363,9 @@ const renderVerifyDetailExample = (
                     <p className="bold">29 ={">"} 41 mod 2 = 1</p>
                     <p className="bold">c6 ={">"} 198 mod 2 = 0</p>
                     <p className="bold">ec ={">"} 236 mod 2 = 0</p>
-                    <p>{t("slot_index", { ns: "Plinko" })}: 1 + 1 + 0 + 1 + 1 + 1 + 0 + 0 = <span>5</span></p>
+                    <p>
+                        {t("slot_index", { ns: "Plinko" })}: 1 + 1 + 0 + 1 + 1 + 1 + 0 + 0 = <span>5</span>
+                    </p>
                     <div className="d-flex gap-5 items-center">
                         <div className="flex flex-column">
                             <p>0</p>
@@ -490,7 +463,9 @@ const renderVerifyExample = (
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
-            <div className={Styles["pf-verify-button-green"]} style={{ fontSize: "1.4rem" }}>{t("pf_verify", { ns: "Spaceflight" })}</div>
+            <div className={Styles["pf-verify-button-green"]} style={{ fontSize: "1.4rem" }}>
+                {t("pf_verify", { ns: "Spaceflight" })}
+            </div>
             <div className="text-center" style={{ marginTop: "1rem", fontSize: "1.4rem" }}>
                 {t("pf_provably_fair_para_2", { ns: "Spaceflight" })}
             </div>
@@ -545,8 +520,7 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
                         <div
                             className={`${Styles["pf-verify-input-focus"]} ${Styles["pf-verify-input-fix-width"]}`}
                             style={{ color: "#fff", background: "#182130", border: "none" }}
-                        >
-                        </div>
+                        ></div>
                     </div>
                 </div>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
@@ -560,7 +534,6 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
         </div>
     );
 };
-
 
 const renderPlinkoVerifyPF = (
     t: TFnType<DefaultParamType, string, TranslationKey>,
@@ -594,13 +567,13 @@ const renderPlinkoVerifyPF = (
                             <T keyName={"pf_verifier_tool_para_2"} params={{ gamename: displayName }} ns="Common"></T>
                         </li>
                         <li>{t("pf_verifier_tool_para_3", { ns: "Plinko" })}</li>
-                     
+
                         <div
                             className={`${Styles["pf-block-highlight-text"]} ${
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div style={{ fontSize: "1.4rem"}}>
+                            <div style={{ fontSize: "1.4rem" }}>
                                 <strong>{t("pf_verifier_tool_para_4", { ns: "Plinko" })}</strong>
                             </div>
                         </div>
@@ -688,7 +661,7 @@ const PlinkoPFGuideContent: FC<PlinkoPFContentsProps> = ({ locale, displayName }
 
     return (
         <div className={`game-guide ${Styles["pf-guide-content"]}`}>
-            {renderContentPFBase(t, displayName ?? "", verImg)}
+            {renderContentPFBase(t, displayName ?? "", verImg, locale ?? "")}
             {renderPFAppliedInGame(t, displayName ?? "", verImg, false)}
             {renderPlinkoVerifyPF(t, locale, displayName ?? "", verImg)}
         </div>
