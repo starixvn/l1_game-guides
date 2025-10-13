@@ -710,7 +710,6 @@ enum AutoSettle24hGameIds {
     AztecPrincess = 128,
     LuckyNeko = 143,
     FruitSamurai = 132,
-    GodOfFortune = 117,
 }
 
 const isAutoSettle = (gameId: number) => {
