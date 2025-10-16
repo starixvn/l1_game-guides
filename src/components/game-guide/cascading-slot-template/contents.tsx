@@ -3,6 +3,7 @@ import { Markup } from "interweave";
 import { Trans } from "next-i18next";
 import React from "react";
 
+import { useRouter } from "next/router";
 import appSettings from "../../../common/app-settings";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { numberWithCommas, numberWithCommasAndSuffix } from "../../../helpers/number-helper";
@@ -10,7 +11,6 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import Styles from "./cascading-slot.module.scss";
 import OddDetailList from "./OddDetail";
 import { GameConfigProps } from "./type";
-import { useRouter } from "next/router";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -165,8 +165,9 @@ const renderIconContent = (
             </div>
 
             <div
-                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${isGem && Styles["gem-position"]
-                    }`}
+                className={`${Styles["icon-content-wrapper"]} ${isContentTop && Styles["icon-content-top"]} ${
+                    isGem && Styles["gem-position"]
+                }`}
             >
                 {oddItemList.map((data) => {
                     const value = data.count * coin * level;
@@ -217,11 +218,7 @@ const renderPayoutsIconFourthLine = (freeSpin: any, oddDetail: any, coin: number
     return (
         <div className={Styles["symbol-wrapper"]}>
             <div className="img-fluid">
-                <img
-                    className={`${Styles[itemName]} ${Styles["customize"]}`}
-                    src={`${imgSrc}/${itemName}.png?v1`}
-                    alt={itemName}
-                ></img>
+                <img className={`${Styles[itemName]} ${Styles["customize"]}`} src={`${imgSrc}/${itemName}.png?v1`} alt={itemName}></img>
             </div>
             <div>
                 {freeSpin.InitialOdds.reverse().map((data: any, index: number) => {
@@ -515,10 +512,10 @@ const renderFreeSpins = ({
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_1", {
-                                            numOfScatters: freeSpinLine1Data.countString,
-                                            numOfSpins: freeSpinLine1Data.count,
-                                            image: symbol9Src,
-                                        })}
+                                                numOfScatters: freeSpinLine1Data.countString,
+                                                numOfSpins: freeSpinLine1Data.count,
+                                                image: symbol9Src,
+                                            })}
                                             </li>`}
                                     />
                                 }
@@ -536,10 +533,10 @@ const renderFreeSpins = ({
                                     <Markup
                                         content={`<li>
                                             ${t("free_spin_line_2", {
-                                            numOfScatters: oddDetail[1].oddItem[0].countString,
-                                            numOfSpins: oddDetail[1].oddItem[0].count,
-                                            image: symbol9Src,
-                                        })}
+                                                numOfScatters: oddDetail[1].oddItem[0].countString,
+                                                numOfSpins: oddDetail[1].oddItem[0].count,
+                                                image: symbol9Src,
+                                            })}
                                             </li>`}
                                     />
                                 }
@@ -712,7 +709,8 @@ enum AutoSettle24hGameIds {
     HappyFarm = 131,
     AztecPrincess = 128,
     LuckyNeko = 143,
-    FruitSamurai = 132
+    FruitSamurai = 132,
+    GodOfFortune = 117,
 }
 
 const isAutoSettle = (gameId: number) => {
@@ -737,8 +735,6 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const isBuyFreeSpinsSupported = features?.BuyFreeSpins?.enabled && buyFreeSpinSetting?.Multiplier > 0;
     const router = useRouter();
     const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
-
-
 
     return (
         <ul className={`game-guide ${Styles["slot-guide"]} ${mode}`}>
