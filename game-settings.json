@@ -362,5 +362,9 @@
     "145": {
         "id": 145,
         "gameName": "Plinko"
+    },
+    "157": {
+        "id": 157,
+        "gameName": "Chicken Road"
     }
 }

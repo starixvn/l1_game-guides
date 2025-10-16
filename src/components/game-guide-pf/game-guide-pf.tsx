@@ -7,20 +7,21 @@ import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BacBallPFGuide from "./bac-ball";
 import BaccaratXPFGuide from "./baccarat-x";
+import ChickenRoadPFGuide from "./chicken-road";
 import ChineseBlackjackPFGuide from "./chinese-blackjack";
 import ChristmasXPFGuide from "./christmas-x";
 import CoinMiningPFGuide from "./coin-mining";
 import CoinTossPFGuide from "./coin-toss";
+import CrashXPFGuide from "./crash-x";
 import FootballCoinTossPFGuide from "./football-coin-toss";
 import FootballDicePFGuide from "./football-dice";
 import LuckyThreePFGuide from "./lucky-three";
 import NextBallPFGuide from "./next-ball";
+import PlinkoPFGuide from "./plinko";
 import RocketXPFGuide from "./rocket-x";
 import SeBallPFGuide from "./se-ball";
-import SpaceFlightPFGuide from "./space-flight";
 import SeDieMultiplayerPFGuide from "./sedie-multiplayer";
-import CrashXPFGuide from "./crash-x";
-import PlinkoPFGuide from "./plinko";
+import SpaceFlightPFGuide from "./space-flight";
 
 class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
     renderOtherGuide = (gameId: number, gameGuideProps: any) => {
@@ -28,6 +29,9 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
             return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
 
+        if (gameId === GAMES_PF.CHICKEN_ROAD) {
+            return <ChickenRoadPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
+        }
         return <></>;
     };
 
