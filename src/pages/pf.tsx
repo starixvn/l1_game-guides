@@ -17,6 +17,7 @@ export type ProvablyFair = {
     finalResult?: number;
     finalHash?: string;
     match?: any;
+    gameTypeId?: number;
 };
 const ProvablyFair = (props: any) => {
     const { setTheme } = useTheme();

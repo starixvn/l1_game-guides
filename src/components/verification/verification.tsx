@@ -5,16 +5,18 @@ import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
 import appSettings from "../../common/app-settings";
 import { AVAILABLE_LANGUAGES, GAMES_PF, TolgeeConfig } from "../../common/constants";
+import { isFixedStepsCrashGame } from "../../helpers/game-helper";
 import { PFProps } from "../type";
 import VerifyBase from "../verify-base";
+import ChickenRoadVerification from "./chicken-road";
 import ChristmasXVerification from "./christmas-x";
 import CoinMiningVerification from "./coin-mining";
 import CoinTossVerification from "./coin-toss";
+import CrashXVerification from "./crash-x";
 import FootballDiceVerification from "./football-dice";
 import FootballCoinTossVerification from "./footballl-coin-toss";
 import RocketXVerification from "./rocket-x";
 import SpaceFlightVerification from "./space-flight";
-import CrashXVerification from "./crash-x";
 
 const tolgee = Tolgee()
     .use(FormatIcu())
@@ -47,6 +49,9 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
     renderVerification = () => {
         const { gameId, name } = this.props;
         const pfProps = this.getPFProps();
+        if (!pfProps?.provablyFair?.gameTypeId) {
+            return <></>;
+        }
         switch (gameId) {
             case GAMES_PF.SPACE_FLIGHT:
                 return (
@@ -97,8 +102,22 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                     </TolgeeProvider>
                 );
             default:
-                return <></>;
+                return this.renderOtherVerification();
         }
+    };
+
+    renderOtherVerification = () => {
+        const pfProps = this.getPFProps();
+        
+        const { gameId } = this.props;
+        if (isFixedStepsCrashGame(pfProps.provablyFair.gameTypeId)) {
+            return (
+                <TolgeeProvider tolgee={tolgee} fallback="">
+                    <ChickenRoadVerification key={`game-${gameId}`} {...pfProps} />;
+                </TolgeeProvider>
+            );
+        }
+        return <></>;
     };
 }
 

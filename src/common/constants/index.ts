@@ -186,6 +186,7 @@ export const GAMES_PF = {
     CRASH_X: 144,
     SE_DIE_MULTIPLAYER: 148,
     PLINKO: 145,
+    CHICKEN_ROAD: 157,
 };
 
 export const TolgeeConfig = {
@@ -223,3 +224,8 @@ export const GAMES_CLASSIC_BACCARAT = [
 
 // type = 0
 export const GAMES_USE_THEME_SLOT = [GAMES.TAP_FORTUNE];
+
+export const GAMES_TYPES_IDS = {
+    CRASH_GAME: 5,
+    FIXED_STEPS_CRASH_GAME: 13,
+}
