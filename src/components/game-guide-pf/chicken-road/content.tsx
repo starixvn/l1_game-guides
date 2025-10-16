@@ -155,7 +155,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, crash
             >
                 {t("glossary_round_id", { ns: "SabaNumber" })}: {roundId}
                 <div className={Styles["pf-verify-info-item"]}>
-                    {t("glossary_crash_point", { ns: "Common" })}: {crashPoint}
+                    {t("pf_result", { ns: "Common" })}: {crashPoint}
                 </div>
             </div>
         </div>
@@ -188,7 +188,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     </strong>
                 </div>
                 <div className={Styles["pf-verify-info-item"]}>
-                    {t("glossary_crash_point", { ns: "Common" })}: {crashPoint}
+                    {t("pf_result", { ns: "Common" })}: {crashPoint}
                 </div>
             </div>
 
@@ -208,12 +208,6 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 </thead>
                 <tbody>
                     <tr>
-                        <td>12:33:39 PM</td>
-                        <td>1.29x</td>
-                        <td>10</td>
-                        <td className={Styles["pf-text-highlight"]}>12.9</td>
-                    </tr>
-                    <tr>
                         <td>12:33:47 PM</td>
                         <td>1.78x</td>
                         <td>10</td>
@@ -224,15 +218,15 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                     <tr className={PFStyles["pf-summary-row"]}>
                         <td className={Styles["pf-summary-label"]}>{t("pf_total", { ns: "Common" })}</td>
                         <td></td>
-                        <td className={Styles["pf-text-not-highlight"]}>20</td>
-                        <td className={Styles["pf-text-highlight"]}>30.7</td>
+                        <td className={Styles["pf-text-not-highlight"]}>10</td>
+                        <td className={Styles["pf-text-highlight"]}>17.8</td>
                     </tr>
 
                     <tr className={`${PFStyles["pf-summary-row"]} ${PFStyles["pf-summary-row-netprofit"]}`}>
                         <td className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
                         <td></td>
                         <td></td>
-                        <td className={Styles["pf-text-highlight"]}>10.7</td>
+                        <td className={Styles["pf-text-highlight"]}>7.8</td>
                     </tr>
                 </tfoot>
             </table>
@@ -251,7 +245,7 @@ const renderVerifyDetailExample = (
             {renderVerifyPFHeader(t)}
 
             <div>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
                 </div>
@@ -342,7 +336,8 @@ const renderVerifyPFHeader = (t: TFnType<DefaultParamType, string, TranslationKe
     return (
         <div className={`${Styles["pf-verify-header-sedie"]}`}>
             <span className={`${Styles["pf-verify-header-title"]} ${Styles["pf-verify-header-title-sedie"]}`}>
-                {t("pf_title_verification", { ns: "Common" })} (Round: <span className={`${PFStyles["pf-verify-header-round"]}`}>{roundId}</span>)
+                {t("pf_title_verification", { ns: "Common" })} (Round:{" "}
+                <span className={`${PFStyles["pf-verify-header-round"]}`}>{roundId}</span>)
             </span>
             <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-close-sedie"]}`}>{iconClose}</span>
         </div>
@@ -379,45 +374,6 @@ const renderVerifyExample = (
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
-
-                <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
-                    <thead>
-                        <tr>
-                            <th>{t("example_Player", { ns: "Common" })}</th>
-                            <th>{t("pf_nickname", { ns: "SabaNumber" })}</th>
-                            <th>{t("pf_seed", { ns: "SabaNumber" })}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>(A***255)</td>
-                            <td>8864</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>(B***857)</td>
-                            <td>7423</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>(I***080)</td>
-                            <td>0944</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>(R***247)</td>
-                            <td>4133</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>(T***322)</td>
-                            <td>3241</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
 
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1rem" }}>
                     <span className={`${Styles["pf-verify-input-text"]}`}>{mergeClientSeed}</span>
@@ -506,37 +462,38 @@ const renderChickenRoadVerifyPF = (
                                 </tbody>
                             </table>
                         </div>
+                    </ul>
+                </li>
+                <li className={`number-dot ${PFStyles["pf-number-dot"]}`}>
+                    <span className={`title-text ${PFStyles["pf-sub-title"]}`}>
+                        {<Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} />}
+                    </span>
 
-                        <p className={`title-text ${Styles["pf-sub-title"]}`}>
-                            {<Markup content={t("pf_verifier_tool_step_by_step", { ns: "Common" })} />}
-                        </p>
+                    <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
+                        <li className={Styles["pf-sub-desc-highlight"]}>
+                            {<Markup content={t("pf_verifier_tool_step_1_para_10", { ns: "ChickenRoad" })} />}
+                        </li>
 
-                        <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
-                            <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_step_1_para_10", { ns: "ChickenRoad" })} />}
-                            </li>
+                        {renderBetDetailsExample(t, crashPoint)}
 
-                            {renderBetDetailsExample(t, crashPoint)}
+                        <li className={Styles["pf-sub-desc-highlight"]}>
+                            {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
+                        </li>
 
-                            <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_step_2", { ns: "Common" })} />}
-                            </li>
+                        {renderVerifyExample(
+                            t,
+                            serverSeedSHA256,
+                            serverSeed,
+                            combinedSHA512Hash,
+                            mergeClientSeed,
+                            resultBlock(t, crashPoint),
+                            crashPoint
+                        )}
 
-                            {renderVerifyExample(
-                                t,
-                                serverSeedSHA256,
-                                serverSeed,
-                                combinedSHA512Hash,
-                                mergeClientSeed,
-                                resultBlock(t, crashPoint),
-                                crashPoint
-                            )}
-
-                            <li className={Styles["pf-sub-desc-highlight"]}>
-                                {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
-                            </li>
-                            {renderVerifyDetailExample(t, mergeClientSeed, serverSeed, combinedSHA512Hash)}
-                        </ul>
+                        <li className={Styles["pf-sub-desc-highlight"]}>
+                            {<Markup content={t("pf_verifier_tool_step_3", { ns: "Common" })} />}
+                        </li>
+                        {renderVerifyDetailExample(t, mergeClientSeed, serverSeed, combinedSHA512Hash)}
                     </ul>
                 </li>
                 <li className={`number-dot ${PFStyles["pf-number-dot"]}`}>

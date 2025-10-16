@@ -2,7 +2,7 @@ import { withTranslation } from "next-i18next";
 import { withRouter } from "next/router";
 
 import { GAMES_PF } from "../../common/constants";
-import { isClassicOrSpeedBaccarat, isLuckyBaccarat } from "../../helpers/game-helper";
+import { isClassicOrSpeedBaccarat, isFixedStepsCrashGame, isLuckyBaccarat } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
 import BacBallPFGuide from "./bac-ball";
@@ -29,7 +29,7 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
             return <BaccaratXPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
 
-        if (gameId === GAMES_PF.CHICKEN_ROAD) {
+        if (isFixedStepsCrashGame(gameGuideProps.gameSetting.Type)) {
             return <ChickenRoadPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
         }
         return <></>;
