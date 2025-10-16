@@ -712,6 +712,7 @@ enum AutoSettle24hGameIds {
     FruitSamurai = 132,
     BigBassFishing = 141,
     GodOfFortune = 117,
+    MahjongWins = 127,
 }
 
 const isAutoSettle = (gameId: number) => {
