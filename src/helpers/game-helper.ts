@@ -6,7 +6,7 @@ const isNewSlotGame = (type: number, gameId: number) => {
 };
 
 const isNewCascadingSlot = (type: number, gameId: number) => {
-    return type == 3 && gameId > 47;
+    return type == 3 && gameId >= 47;
 };
 
 const isCrashGame = (type: number) => type == 5;
