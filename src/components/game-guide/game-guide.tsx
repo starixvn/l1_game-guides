@@ -45,7 +45,6 @@ const BitCoinMasterGuide = dynamic(() => import("./bitcoin-master"));
 const CasinoHoldGuide = dynamic(() => import("./casino-hold-em"));
 const HiLoGuide = dynamic(() => import("./hi-lo"));
 const TexasHoldGuide = dynamic(() => import("./texas-hold-em"));
-const TreasureIslandGuide = dynamic(() => import("./treasure-island"));
 const MultiplayBigSmallGuide = dynamic(() => import("./multiplay-big-small"));
 const FruitSlotGuide = dynamic(() => import("./fruit-slot"));
 const FantanGuide = dynamic(() => import("./fantan/index"));
@@ -165,8 +164,6 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
                 return <BitCoinMasterGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.HILO:
                 return <HiLoGuide key={`game-${gameId}`} {...gameGuideProps} />;
-            case GAMES.TREASURE_ISLAND:
-                return <TreasureIslandGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.UNBALANCEDBIGSMALL1:
             case GAMES.UNBALANCEDBIGSMALL2:
             case GAMES.UNBALANCEDBIGSMALL3:
