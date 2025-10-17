@@ -74,4 +74,8 @@ export type GameConfigs = {
     multipliers?: any;
     betLevels?: number[];
     probabilities?: any;
+    fixedStepsMultiplierConfigs?: {
+        mode: number;
+        multiplierSteps: number[];
+    }[];
 };

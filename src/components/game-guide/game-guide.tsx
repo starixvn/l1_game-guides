@@ -3,12 +3,14 @@ import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
 
 import { GAMES } from "../../common/constants";
-import { isClassicOrSpeedBaccarat, isCrashGame, isLuckyBaccarat, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
+import { isClassicOrSpeedBaccarat, isCrashGame, isFixedStepsCrashGame, isLuckyBaccarat, isNewCascadingSlot, isNewSlotGame } from "../../helpers/game-helper";
 import GuideBase from "../guide-base";
 import { BaseProps } from "../type";
+import BaccaratMultiplayerGuide from "./baccarat-multiplayer";
 import BaccaratXGameGuide from "./baccarat-x";
 import BandarQiuQiuGameGuide from "./bandar-qiu-qiu";
 import CascadingSlotGuide from "./cascading-slot-template";
+import ChickenRoadGuide from "./chicken-road";
 import ChineseBlackjackGameGuide from "./chinese-blackjack";
 import ChristmasXGuide from "./christmas-x";
 import ColorGameGuide from "./color-game";
@@ -17,10 +19,9 @@ import FootballDiceGameGuide from "./football-dice";
 import FootballSlotGuide from "./football-slot";
 import MiniRouletteGuide from "./mini-roulette";
 import PontoonGuide from "./pontoon";
+import SeDieMultiplayerGuide from "./se-die-multiplayer";
 import SoccerPinGoalGameGuide from "./soccer-pingoal";
 import SpaceFlightGuide from "./space-flight";
-import SeDieMultiplayerGuide from "./se-die-multiplayer";
-import BaccaratMultiplayerGuide from "./baccarat-multiplayer";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -93,6 +94,10 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
 
         if (isLuckyBaccarat(gameId) || isClassicOrSpeedBaccarat(gameId)) {
             return <BaccaratXGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
+        }
+
+        if (isFixedStepsCrashGame(gameGuideProps.gameSetting.Type)) {
+            return <ChickenRoadGuide key={`game-${name}`} {...gameGuideProps} />;
         }
 
         return <></>;

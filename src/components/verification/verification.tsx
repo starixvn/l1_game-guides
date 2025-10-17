@@ -108,12 +108,12 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
 
     renderOtherVerification = () => {
         const pfProps = this.getPFProps();
-        
+
         const { gameId } = this.props;
         if (isFixedStepsCrashGame(pfProps.provablyFair.gameTypeId)) {
             return (
                 <TolgeeProvider tolgee={tolgee} fallback="">
-                    <ChickenRoadVerification key={`game-${gameId}`} {...pfProps} />;
+                    <ChickenRoadVerification key={`game-${gameId}`} {...pfProps} />
                 </TolgeeProvider>
             );
         }
