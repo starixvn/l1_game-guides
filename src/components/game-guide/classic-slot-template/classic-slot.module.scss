@@ -316,10 +316,14 @@
         }
         .symbol-content{
             gap: 1rem;
-            grid-template-columns: 2rem 14rem;
+            grid-template-columns: 2rem 16rem;
+            &.free-spin,
+            &.bonus{
+                font-size: 2rem !important;
+            }
         }
         .symbol-wrapper{
-            width: 31rem;
+            width: 33rem;
             height: 15rem;
             grid-template-columns: 14rem 1fr;
             img{
