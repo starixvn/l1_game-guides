@@ -319,7 +319,9 @@
             grid-template-columns: 2rem 16rem;
             &.free-spin,
             &.bonus{
-                font-size: 2rem !important;
+                span{
+                    font-size: 2rem !important;
+                }
             }
         }
         .symbol-wrapper{
