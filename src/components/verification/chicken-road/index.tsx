@@ -21,9 +21,9 @@ const ChickenRoadVerification = (props: VerificationBase) => {
         <div className={`${Styles["chicken-road-wrapper"]}`}>
             <div className={Styles["info-group"]}>
                 <div className={Styles["seed-key"]}>{t("pf_client_seed", { ns: "Common" })}</div>
-                    <div className={Styles["seed-value"]}>
-                        <span>{provablyFair?.clientSeed ?? "109310131004599"}</span>
-                    </div>
+                <div className={Styles["seed-value"]}>
+                    <span>{provablyFair?.clientSeed ?? "109310131004599"}</span>
+                </div>
             </div>
 
             <div className={Styles["info-group"]}>
@@ -75,7 +75,7 @@ const ChickenRoadVerification = (props: VerificationBase) => {
             </div>
         </div>
     );
-    return  renderLandscape;
+    return renderLandscape;
 };
 
 export default ChickenRoadVerification;
