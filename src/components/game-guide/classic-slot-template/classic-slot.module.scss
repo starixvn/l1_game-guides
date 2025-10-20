@@ -255,11 +255,13 @@
         
         
         .style-number-dot{
-            .title-text{
-                font-size: 2.4rem !important;
-                font-weight: bold !important;
-                &::before {
+            .number-dot{
+                .title-text{
+                    font-size: 2.4rem !important;
                     font-weight: bold !important;
+                    &::before {
+                        font-weight: bold !important;
+                    }
                 }
             }
         }
@@ -268,6 +270,7 @@
             display: flex;
             flex-wrap: wrap;
             grid-gap: 1.6rem;
+            justify-content: center;
         }
         .symbol-wrapper{
             &.large{
@@ -296,6 +299,7 @@
             img{
                 width: 100%;
                 max-width: 12.8rem !important;
+                height: 12.8rem !important;
             }
         }
         li{
@@ -339,6 +343,17 @@
         .symbol-small{
             width: 8rem;
             height: 8rem;
+        }
+        .number-second{
+            text-align: left !important;
+        }
+        li{
+            ul{
+                padding-left: 0 !important;
+            }
+            .style-number-rule{
+                padding-left: 0 !important;
+            }
         }
     }
 }
