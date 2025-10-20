@@ -9,6 +9,7 @@ import { useImgVersionContext } from "../../../contexts/img-version";
 import { JackpotConfigs } from "../type";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
+import { useRouter } from "next/router";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -563,10 +564,12 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { odds, name, displayName, jackpot, locale, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
 
     return (
         <>
-            <ul className={`game-guide ${Styles["slot-guide"]}`}>
+            <ul className={`game-guide ${Styles["slot-guide"]} ${mode}`}>
                 <li className="guide-item">
                     <h2 className={Styles["heading1"]}>{t("title_introduction", { ns: "Common" })}</h2>
                     <p className="content">{t("intro_para_1", { gameName: displayName })}</p>
