@@ -347,15 +347,14 @@
             .style-number-rule{
                 padding-left: 0 !important;
             }
-            ul{
-                li{
-                    .title-text{
-                        font-size: 3rem !important;
-                        font-weight: bold !important;
-                        &::before {
-                            font-weight: bold !important;
-                        }
-                    }
+            &.number-dot{
+                &::before {
+                    font-size: 3rem !important;
+                    font-weight: bold !important;
+                }
+                span{
+                    font-size: 3rem !important;
+                    font-weight: bold !important;
                 }
             }
         }
