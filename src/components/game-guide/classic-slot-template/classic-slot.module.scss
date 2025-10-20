@@ -224,4 +224,40 @@
     li {
         margin: 0 0 1rem!important;
     }
+    &.portrait {
+        li{
+            font-size: 2.4rem !important;
+        }
+        .heading1{
+            font-size: 3rem !important;
+            font-weight: bold !important;
+            &::before {
+                font-weight: bold !important;
+            }
+        }
+        .payline{
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        .list-symbols{
+            grid-template-columns: repeat(4, 12.8rem);
+            grid-gap: 1.6rem;
+            &.three-cols{
+                grid-template-columns: repeat(3, 12.8rem);
+                grid-gap: 1.6rem;
+            }
+        }
+        .content,.style-number-rule,.desc,.wrapper-wild-ex{
+            padding-left: 0 !important;
+        }
+        .title-text{
+            font-size: 2.4rem !important;
+            font-weight: bold !important;
+            &::before {
+                font-weight: bold !important;
+            }
+        }
+    }
 }
