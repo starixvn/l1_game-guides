@@ -493,6 +493,8 @@ const renderJackpot = (t: Function, locale: any, jackpotConfigs: JackpotConfigs)
         contributionValue = `${new Intl.NumberFormat("en-US", {style:"decimal", maximumFractionDigits: 2}).format(contribution * 100)}%`;
         jackpotWinningRatio = `${winningRatio * 100}%`;
     }
+    const router = useRouter();
+    const jackpotTitle = router?.query.mode === "portrait" ? Styles["portrait-jackpot-title"] : "";
 
     return (
         <li className="guide-item">
@@ -513,7 +515,7 @@ const renderJackpot = (t: Function, locale: any, jackpotConfigs: JackpotConfigs)
             </ul>
             <div className="center">{generateSymbolJackpot(10, locale, false)}</div>
             <ul className="style-number-dot">
-                <li className="number-dot">
+                <li className={`number-dot ${jackpotTitle}`}>
                     <span className="title-text">{t("title_jackpot_mini_game", { ns: "Common" })}</span>
                     <ul className="desc">
                         <li>{t("jackpot_mini_game_para_1")}</li>

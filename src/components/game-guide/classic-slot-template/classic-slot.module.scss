@@ -347,15 +347,15 @@
             .style-number-rule{
                 padding-left: 0 !important;
             }
-            &.number-dot{
-                &::before {
-                    font-size: 3rem !important;
-                    font-weight: bold !important;
-                }
-                span{
-                    font-size: 3rem !important;
-                    font-weight: bold !important;
-                }
+        }
+        .portrait-jackpot-title{
+            &::before {
+                font-size: 3rem !important;
+                font-weight: bold !important;
+            }
+            span{
+                font-size: 3rem !important;
+                font-weight: bold !important;
             }
         }
     }
