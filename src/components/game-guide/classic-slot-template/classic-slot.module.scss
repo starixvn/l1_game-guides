@@ -258,18 +258,6 @@
             }
         }
         
-        
-        .style-number-dot{
-            .number-dot{
-                .title-text{
-                    font-size: 2.4rem !important;
-                    font-weight: bold !important;
-                    &::before {
-                        font-weight: bold !important;
-                    }
-                }
-            }
-        }
         .free-spin-container,
         .bonus-container {
             display: flex;
@@ -358,6 +346,17 @@
             }
             .style-number-rule{
                 padding-left: 0 !important;
+            }
+            .style-number-dot{
+                .number-dot{
+                    .title-text{
+                        font-size: 3rem !important;
+                        font-weight: bold !important;
+                        &::before {
+                            font-weight: bold !important;
+                        }
+                    }
+                }
             }
         }
     }
