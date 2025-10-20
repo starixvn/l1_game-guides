@@ -1,7 +1,6 @@
 import { useTranslate } from "@tolgee/react";
 import { Trans } from "next-i18next";
 import React from "react";
-import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
 
 import appSettings from "../../../common/app-settings";
@@ -10,6 +9,7 @@ import { useImgVersionContext } from "../../../contexts/img-version";
 import { JackpotConfigs } from "../type";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
+import { useRouter } from "next/router";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -17,9 +17,6 @@ const numberSecond = "number-second";
 const freeSpinContentEX = "wrapper-symbols-content";
 let imgSrc = "",
     imgVer = "";
-const router = useRouter();
-const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
-console.log(router?.query);
 
 const renderGameRule = (t: Function, jackpot: boolean) => {
     return (
@@ -567,6 +564,10 @@ const Contents: React.FC<GameConfigProps> = (props) => {
     const { odds, name, displayName, jackpot, locale, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
+    console.log(router?.query);
+
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]} ${mode}`}>
