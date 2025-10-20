@@ -276,6 +276,9 @@
             img{
                 width: 100%;
             }
+            .number{
+                font-size: 2rem;
+            }
         }
         .wrapper-wild-ex{
             .wild-img{
@@ -313,6 +316,25 @@
                 width: 100%;
             }
         
+        }
+        .symbol-content{
+            gap: 1rem;
+        }
+        .symbol-wrapper{
+            width: 31rem;
+            height: 15rem;
+            grid-template-columns: 14rem 1fr;
+            img{
+                width: 100%;
+            }
+        }
+        .payout-row{
+            gap: 1.6rem;
+        }
+        .example{
+            .body,.header{
+                grid-template-columns: 35rem .1rem 3fr;
+            }
         }
     }
 }

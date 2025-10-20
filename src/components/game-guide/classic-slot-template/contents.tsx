@@ -177,10 +177,9 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
     }
 };
 const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
-    const router = useRouter();
-    const mode = router?.query.mode === "portrait";
-    const content = (
+    return (
         <>
+            <div className={Styles["payout-row"]}>
                 {renderPayoutTwoLastIcon(odds, jackpot, t, locale)}
                 {renderIconContent(
                     6,
@@ -206,16 +205,15 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                     jackpot,
                     locale
                 )}
+            </div>
         </>
     );
-    return mode ? content : <div className={Styles["payout-row"]}>{content}</div>;
 };
 
 const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
-    const router = useRouter();
-    const mode = router?.query.mode === "portrait";
-    const content = (
+    return (
         <>
+            <div className={Styles["payout-row"]}>
                 {renderIconContent(
                     4,
                     [
@@ -276,9 +274,9 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                     jackpot,
                     locale
                 )}
+            </div>
         </>
     );
-    return mode ? content : <div className={Styles["payout-row"]}>{content}</div>;
 };
 
 const renderIconContentLarge = (symbol: number, dataContent: number[][], textAfterNumber: string) => {
