@@ -49,9 +49,7 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
     renderVerification = () => {
         const { gameId, name } = this.props;
         const pfProps = this.getPFProps();
-        if (!pfProps?.provablyFair?.gameTypeId) {
-            return <></>;
-        }
+
         switch (gameId) {
             case GAMES_PF.SPACE_FLIGHT:
                 return (
@@ -108,6 +106,9 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
 
     renderOtherVerification = () => {
         const pfProps = this.getPFProps();
+        if (!pfProps?.provablyFair?.gameTypeId) {
+            return <></>;
+        }
 
         const { gameId } = this.props;
         if (isFixedStepsCrashGame(pfProps.provablyFair.gameTypeId)) {
@@ -117,6 +118,7 @@ class Verification<P extends PFProps> extends VerifyBase<P> {
                 </TolgeeProvider>
             );
         }
+
         return <></>;
     };
 }
