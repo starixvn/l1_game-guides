@@ -1,6 +1,7 @@
 import { useTranslate } from "@tolgee/react";
 import { Trans } from "next-i18next";
 import React from "react";
+import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
 
 import appSettings from "../../../common/app-settings";
@@ -9,7 +10,6 @@ import { useImgVersionContext } from "../../../contexts/img-version";
 import { JackpotConfigs } from "../type";
 import Styles from "./classic-slot.module.scss";
 import { GameConfigProps } from "./type";
-import { useRouter } from "next/router";
 
 const number = "number";
 const numberFirst = "number-first";
@@ -177,9 +177,10 @@ const renderPayoutTwoLastIcon = (odds: number[][], jackpot: boolean, t: Function
     }
 };
 const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
-    return (
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait";
+    const content = (
         <>
-            <div className={Styles["payout-row"]}>
                 {renderPayoutTwoLastIcon(odds, jackpot, t, locale)}
                 {renderIconContent(
                     6,
@@ -205,15 +206,16 @@ const renderPayoutsIconFirstLine = (odds: number[][], jackpot: boolean, t: Funct
                     jackpot,
                     locale
                 )}
-            </div>
         </>
     );
+    return mode ? content : <div className={Styles["payout-row"]}>{content}</div>;
 };
 
 const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Function, locale: any) => {
-    return (
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait";
+    const content = (
         <>
-            <div className={Styles["payout-row"]}>
                 {renderIconContent(
                     4,
                     [
@@ -274,9 +276,9 @@ const renderPayoutsIconSecondLine = (odds: number[][], jackpot: boolean, t: Func
                     jackpot,
                     locale
                 )}
-            </div>
         </>
     );
+    return mode ? content : <div className={Styles["payout-row"]}>{content}</div>;
 };
 
 const renderIconContentLarge = (symbol: number, dataContent: number[][], textAfterNumber: string) => {
@@ -561,13 +563,11 @@ const renderFirstRowIntoListIcon = (jackpot: boolean, locale: any) => {
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["Classicslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
+    const router = useRouter();
+    const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
     const { odds, name, displayName, jackpot, locale, gameConfigs } = props;
     imgSrc = appSettings.resourceUrl + name;
     imgVer = imgVersion ?? "";
-    const router = useRouter();
-    const mode = router?.query.mode === "portrait" ? Styles["portrait"] : "";
-    console.log(router?.query);
-
     return (
         <>
             <ul className={`game-guide ${Styles["slot-guide"]} ${mode}`}>
