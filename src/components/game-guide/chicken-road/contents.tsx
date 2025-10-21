@@ -61,10 +61,10 @@ const renderDifficultyTable = (t: Function, gameConfigs: GameConfigs) => {
         return config?.multiplierSteps[config?.multiplierSteps.length - 1];
     };
     const modes = [
-        { mode: t("difficulty_easy", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(1), maxWin: getMaxMultiplier(1) },
-        { mode: t("difficulty_medium", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(2), maxWin: getMaxMultiplier(2) },
-        { mode: t("difficulty_hard", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(3), maxWin: getMaxMultiplier(3) },
-        { mode: t("difficulty_hardcore", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(4), maxWin: getMaxMultiplier(4) },
+        { mode: t("difficulty_easy", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(1), maxMultiplier: getMaxMultiplier(1) },
+        { mode: t("difficulty_medium", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(2), maxMultiplier: getMaxMultiplier(2) },
+        { mode: t("difficulty_hard", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(3), maxMultiplier: getMaxMultiplier(3) },
+        { mode: t("difficulty_hardcore", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(4), maxMultiplier: getMaxMultiplier(4) },
     ];
 
     return (
@@ -74,15 +74,15 @@ const renderDifficultyTable = (t: Function, gameConfigs: GameConfigs) => {
                     <tr>
                         <th className="bold">{t("subtitle_difficulty", { ns: "ChickenRoad" })}</th>
                         <th className="bold">{t("header_lanes", { ns: "ChickenRoad" })}</th>
-                        <th className="bold">{t("max_multiplier", { ns: "Common" })}</th>
+                        <th className="bold">{t("crash_header_max_multiplier", { ns: "Common" })}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {modes.map(({ mode, noOfLand, maxWin }) => (
+                    {modes.map(({ mode, noOfLand, maxMultiplier }) => (
                         <tr key={mode}>
                             <td className="text-center">{mode}</td>
                             <td className="text-center">{noOfLand}</td>
-                            <td className="text-center">{maxWin}</td>
+                            <td className="text-center">{maxMultiplier}</td>
                         </tr>
                     ))}
                 </tbody>

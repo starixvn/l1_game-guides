@@ -476,7 +476,7 @@ const renderCrashXVerifyPF = (
 
                         <ul className="desc">
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_5", { ns: "Common" })} />} </li>
-                            <li>{<Markup content={t("pf_crash_verifier_tool_para_6", { ns: "Common" })} />} </li>
+                            <li>{<Markup content={t("crash_pf_verifier_tool_para_6", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_7", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_8", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_9", { ns: "Common" })} />} </li>
