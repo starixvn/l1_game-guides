@@ -318,7 +318,7 @@ const renderVerifyDetailExample = (
                         {t("pf_verification_para_4", { ns: "Common" })}
                     </div>
                     <div>
-                        4294967296 / (311409138 + 1) * (1- 0.03) = <span className={PFStyles["pf-text-green"]}>13.378278783012851</span>
+                        4294967296 / (311409138 + 1) * (1 - 0.03) = <span className={PFStyles["pf-text-green"]}>13.378278783012851</span>
                     </div>
                 </div>
             </div>

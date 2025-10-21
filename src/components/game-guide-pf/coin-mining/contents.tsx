@@ -161,7 +161,7 @@ const renderImageStep3 = (t: TFnType<DefaultParamType, string, TranslationKey>, 
                 <div>
                     <strong>{t("pf_verification_para_4", { ns: "Common" })} </strong>
                     <div className={Styles["color-second"]}>
-                        429467296 / ({convertToDecimal(digits ?? '')} + 1) * (1- 0.03) = 
+                        429467296 / ({convertToDecimal(digits ?? '')} + 1) * (1 - 0.03) = 
                         <span className={Styles["color-result"]}>{renderFinalResult(digits ?? '')}</span>
                     </div>
                 </div>
