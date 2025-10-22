@@ -486,12 +486,10 @@ const renderFreeSpins = ({
     odds,
     t,
     isRemodeling,
-    isAutoSettle,
 }: {
     odds: number[][];
     t: Function;
     isRemodeling: boolean;
-    isAutoSettle: boolean;
 }) => {
     const oddDetail = convertOddDetail(odds, true);
     const symbol9Src = `<img className={Styles["symbol-example"]}  src=${`${imgSrc}/symbol-9.png?v=${imgVer}`} width=40 height=40 alt="item9" />`;
@@ -552,7 +550,9 @@ const renderFreeSpins = ({
                         <div className="text-center">{t("Win-amount")}</div>
                         {renderExampleWinFreespin(t)}
                     </li>
-                    <li>{t(`${isAutoSettle ? "free_spin_line_5" : "FreeSpin-line-5"}`)} </li>
+                    <li>
+                        {t("free_spin_line_5")}
+                    </li>
                 </ul>
             </li>
         </>
@@ -695,31 +695,6 @@ const convertOddDetail = (odd: any, isFreeSpin: boolean) => {
     return oddList;
 };
 
-enum AutoSettle24hGameIds {
-    WuKong = 121,
-    Mahjongwins = 127,
-    Olympub = 139,
-    VivaFiesta = 140,
-    StreetWarrior = 142,
-    WildWestMostWanted = 129,
-    AladdinsWishes = 130,
-    CandyLand = 66,
-    QueenOfBounty = 155,
-    Poseidon = 126,
-    HappyFarm = 131,
-    AztecPrincess = 128,
-    LuckyNeko = 143,
-    FruitSamurai = 132,
-    GodOfFortune = 117,
-    BigBassFishing = 141,
-    TreasureIsland = 47,
-    OneDayInParadise = 125
-}
-
-const isAutoSettle = (gameId: number) => {
-    return Object.values(AutoSettle24hGameIds).includes(gameId);
-};
-
 const Contents: React.FC<GameConfigProps> = (props) => {
     const { t } = useTranslate(["cascadingslot", "Common"]);
     const { imgVersion } = useImgVersionContext();
@@ -765,7 +740,6 @@ const Contents: React.FC<GameConfigProps> = (props) => {
                 odds: cascadingSlotSetting.FreeSpins,
                 t,
                 isRemodeling,
-                isAutoSettle: isAutoSettle(gameSetting.GameId),
             })}
             {isBuyFreeSpinsSupported && renderBuyFreeSpin(t, buyFreeSpinSetting.Multiplier)}
             <TermsAndConditionsTolgee />
