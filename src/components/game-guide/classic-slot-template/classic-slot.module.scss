@@ -294,6 +294,15 @@
                 max-width: 12.8rem !important;
                 height: 12.8rem !important;
             }
+            ul{
+                li{
+                    img{
+                        width: 100%;
+                        max-width: 8rem !important;
+                        height: 8rem !important;
+                    }
+                }
+            }
         }
         li{
             .content,.style-number-rule,.desc,.wrapper-wild-ex{
