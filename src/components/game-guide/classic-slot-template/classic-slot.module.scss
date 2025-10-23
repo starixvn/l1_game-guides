@@ -346,7 +346,13 @@
         }
         .example{
             .body,.header{
-                grid-template-columns: 35rem .1rem 3fr;
+                grid-template-columns: 27rem .1rem 3fr;
+            }
+            .symbol-wrapper{
+                width: 25rem;
+                .symbol-content{
+                    grid-template-columns: 2rem 8rem;
+                }
             }
         }
         .symbol-small{
