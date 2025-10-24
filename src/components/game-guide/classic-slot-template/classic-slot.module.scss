@@ -372,8 +372,7 @@
         }
         .portrait-jackpot-title{
             &::before {
-                font-size: 3rem !important;
-                font-weight: bold !important;
+                display: none !important;
             }
             span{
                 font-size: 3rem !important;
