@@ -35,10 +35,11 @@ const ClassicSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, jackpot, jackpotConfigs, locale, gameConfigs } = props;
 
     useEffect(() => {
-        if (window?.location?.pathname) {
-            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
+        const targetLanguage = locale || window?.location?.pathname.replace("/", "");
+        if (targetLanguage) {
+            tolgee.changeLanguage(targetLanguage);
         }
-    }, []);
+    }, [locale]);
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">

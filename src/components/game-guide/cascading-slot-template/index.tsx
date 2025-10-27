@@ -33,7 +33,7 @@ if (!appSettings.useTolgeeStatic) {
 }
 
 const CascadingSlotGuide = (props: GameGuideBase) => {
-    const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs, locale } = props;
+    const { name, gameSetting, displayName, gameConfigs, project, dynamic, isGetGameConfigs } = props;
 
     const [configs, setConfigs] = useState<GameConfigProps>();
     const getLocalGameConfigs = () => {
@@ -48,14 +48,11 @@ const CascadingSlotGuide = (props: GameGuideBase) => {
 
     useEffect(() => {
         getLocalGameConfigs();
-    }, []);
 
-    useEffect(() => {
-        const targetLanguage = locale || window?.location?.pathname.replace("/", "");
-        if (targetLanguage) {
-            tolgee.changeLanguage(targetLanguage);
+        if (window?.location?.pathname) {
+            tolgee.changeLanguage(window?.location?.pathname.replace("/", ""));
         }
-    }, [locale]);
+    }, []);
 
     useEffect(() => {
         if (configs) {
