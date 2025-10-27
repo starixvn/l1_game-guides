@@ -1,7 +1,6 @@
 import { FormatIcu } from "@tolgee/format-icu";
 import { BackendFetch, Tolgee, TolgeeProvider } from "@tolgee/react";
 import { InContextTools } from "@tolgee/web/tools";
-import { useEffect } from "react";
 
 import appSettings from "../../../common/app-settings";
 import { AVAILABLE_LANGUAGES, TolgeeConfig } from "../../../common/constants";
@@ -31,14 +30,14 @@ if (!appSettings.useTolgeeStatic) {
     );
 }
 
+
+
 const ClassicSlotGuide = (props: GameGuideBase) => {
     const { name, gameSetting, displayName, jackpot, jackpotConfigs, locale, gameConfigs } = props;
     const targetLanguage = window?.location?.pathname;
-    useEffect(() => {
-        if (targetLanguage) {
-            tolgee.changeLanguage(targetLanguage.replace("/", ""));
-        }
-    }, [targetLanguage]);
+    if (targetLanguage) {
+        tolgee.changeLanguage(targetLanguage.replace("/", ""));
+    }
 
     return (
         <TolgeeProvider tolgee={tolgee} fallback="">
