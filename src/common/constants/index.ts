@@ -151,6 +151,7 @@ export const GAMES = {
     BACCARAT_MULTIPLAYER: 150,
     CRASH_X: 144,
     PLINKO: 145,
+    PLINKO_X: 159,
 };
 
 export const GAMES_MINI = {
@@ -187,6 +188,7 @@ export const GAMES_PF = {
     SE_DIE_MULTIPLAYER: 148,
     PLINKO: 145,
     CHICKEN_ROAD: 157,
+    PLINKO_X: 159,
 };
 
 export const TolgeeConfig = {

@@ -74,6 +74,7 @@ class GameGuidePF<P extends BaseProps> extends GuideBase<P> {
             case GAMES_PF.SE_DIE_MULTIPLAYER:
                 return <SeDieMultiplayerPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES_PF.PLINKO:
+            case GAMES_PF.PLINKO_X:
                 return <PlinkoPFGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.renderOtherGuide(gameId, gameGuideProps);

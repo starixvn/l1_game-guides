@@ -247,6 +247,7 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.CRASH_X:
                 return <CrashXGuide key={`game-${gameId}`} {...gameGuideProps} />;
             case GAMES.PLINKO:
+            case GAMES.PLINKO_X:
                 return <PlinkoGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
