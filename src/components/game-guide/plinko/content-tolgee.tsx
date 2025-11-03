@@ -53,15 +53,19 @@ const PlinkoPayout: FC<{
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
 }> = ({ t, gameConfigs, userStakeLevel, fractionalOddsFormat }) => {
-    const { odds, minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const { minBet, maxBet, maxWinPerRound } = gameConfigs;
+    const maxBetTmp = Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet);
+
+    const maxBetMain = numberWithCommas(maxBetTmp);
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
+    const maxWin = numberWithCommas((maxWinPerRound || 0) * maxBetTmp);
 
     return (
         <li className={`guide-item`}>
             <h2>{t("title_payouts", { ns: TogleeNamespace.Common })}</h2>
             <ul className="desc">
-                <li>{t("payout_para_1", { minbet: minBetMain, maxbet: maxBet, ns: TogleeNamespace.SpecificGame })}</li>
-                <li>{t("payout_para_2", { maxpayout: maxWinPerRound, ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("payout_para_1", { minbet: minBetMain, maxbet: maxBetMain, ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("payout_para_2", { maxpayout: maxWin, ns: TogleeNamespace.SpecificGame })}</li>
             </ul>
         </li>
     );

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { PlinkoPFContentsProps } from "./type";
 import Styles from "../snng-base/pf.module.scss";
-import { renderPFAppliedInGame } from "../snng-base";
+import { renderPFAppliedExample } from "../snng-base";
 import { Markup } from "interweave";
 
 const uppercaseToTitleCase = (str: string): string => {
@@ -62,18 +62,6 @@ const renderPFInfo = (t: TFnType<DefaultParamType, string, TranslationKey>) => {
     );
 };
 
-const renderDiceImage = (imageName: string) => {
-    return (
-        <div className="d-flex justify-content-center">
-            <img
-                style={{ width: "31px", height: "31px" }}
-                src={`/static/images/sedie-multiplayer/bet-detail-${imageName}.svg`}
-                alt={imageName}
-            />
-        </div>
-    );
-};
-
 const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string, locale: string) => {
     return (
         <div className="guide-item">
@@ -104,6 +92,28 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
             </ul>
             <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
             {renderPFWorkExample(t, imgVersion, locale, imgVersion)}
+        </div>
+    );
+};
+
+const renderPFAppliedInGame = (
+    t: TFnType<DefaultParamType, string, TranslationKey>,
+    displayName: string,
+    imgVersion: string,
+    isGameDRAW: boolean
+) => {
+    return (
+        <div className="guide-item">
+            <h2>{t("pf_title_how_is_pf_applied_in_game", { ns: "Common" })}</h2>
+            <ul className="desc">
+                <li>
+                    <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Common" />
+                </li>
+                <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
+                <li>{t("pf_how_is_pf_applied_in_game_para_3", { ns: "SeDieMultiPlayer" })}</li>
+                <li>{t("crash_pf_how_is_pf_applied_in_game_para_4", { ns: "Common" })}</li>
+            </ul>
+            {renderPFAppliedExample(t, imgVersion)}
         </div>
     );
 };
@@ -194,113 +204,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                         </td>
                         <td>8</td>
                         <td className={Styles["pf-text-highlight"]}>100</td>
-                        <td className={Styles["pf-text-highlight"]}>1000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    );
-};
-
-const renderClientSeedInfoExample = (
-    t: TFnType<DefaultParamType, string, TranslationKey>,
-    randomNumber: string,
-    mergeServerSeed: string
-) => {
-    return (
-        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
-            {renderPFHeader(t)}
-            {resultBlock(t, "1073")}
-
-            <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
-                <div className="flex justify-between items-center" style={{ marginBottom: "0.5rem" }}>
-                    <div className={Styles["pf-verify-section-title"]}>{t("pf_your_seed", { ns: "Common" })}</div>
-                    <div
-                        className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-fix-width"]}`}
-                        style={{ textAlign: "center", lineHeight: "3.4rem" }}
-                    >
-                        <span>{randomNumber}</span>
-                        <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
-                    </div>
-                </div>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
-                <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
-                    <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
-                    <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
-                </div>
-            </div>
-            <div className={Styles["pf-verify-section-title"]}>
-                {t("pf_total_players", { ns: "SabaNumber" })} <span className={Styles["pf-text-highlight-original-bold"]}>15</span>
-            </div>
-            <table className={`${Styles["pf-bet-details-table"]} ${Styles["pf-bet-details-table-sedie"]}`}>
-                <thead>
-                    <tr>
-                        <th>{t("example_Player", { ns: "BandarQiuQiu" })}</th>
-                        <th>{t("pf_nickname", { ns: "SabaNumber" })}</th>
-                        <th>{t("pf_seed", { ns: "SabaNumber" })}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>A***255</td>
-                        <td>4028</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>B***857</td>
-                        <td>7411</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>I***080</td>
-                        <td>1746</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>R***247</td>
-                        <td>6754</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>T***322</td>
-                        <td>4991</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>B***736</td>
-                        <td>9384</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>C***263</td>
-                        <td>1403</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>C***679</td>
-                        <td>2135</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>G***855</td>
-                        <td>4206</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>M***307</td>
-                        <td>4324</td>
-                    </tr>
-
-                    <tr>
-                        <td>11</td>
-                        <td>S***958</td>
-                        <td>4810</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td className={Styles["pf-text-highlight-green-sedie"]}>Dragon72864</td>
-                        <td className={Styles["pf-text-highlight-green-sedie"]}>7842</td>
+                        <td className={Styles["pf-text-highlight"]}>560</td>
                     </tr>
                 </tbody>
             </table>
