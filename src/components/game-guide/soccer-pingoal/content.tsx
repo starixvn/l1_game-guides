@@ -7,12 +7,35 @@ import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-con
 import { GameConfigs } from "../type";
 import { COMMON, SOCCER_PIN_GOAL } from "./namespace-tolgee";
 import Styles from "./soccer-pingoal.module.scss";
+import { RangeValue } from ".";
+
+const oddsRange = {
+    red: {
+        min: 2,
+        max: 2.23,
+    },
+    blue: {
+        min: 2,
+        max: 2.23,
+    },
+    draw: {
+        min: 7,
+        max: 11.5,
+    },
+}
 
 interface SoccerPinGoalContentProps {
     gameConfigs: GameConfigs;
     userStakeLevel: UserStakeLevelProps | undefined;
     fractionalOddsFormat?: boolean;
 }
+
+const formatOddRange = (range: RangeValue, fractionalOddsFormat = false) => {
+    if (range.value) {
+        return formatOdds(range.value, fractionalOddsFormat);
+    }
+    return `${formatOdds(range.min, fractionalOddsFormat)} - ${formatOdds(range.max, fractionalOddsFormat)}`;
+};
 
 const Content = (props: SoccerPinGoalContentProps) => {
     const { gameConfigs, userStakeLevel, fractionalOddsFormat } = props;
@@ -147,11 +170,11 @@ const SoccerPinGoalPayout = ({
     fractionalOddsFormat?: boolean;
 }) => {
     const { t } = useTranslate([SOCCER_PIN_GOAL, COMMON]);
-    const { odds, minBet, maxBet, maxBetPerChoices } = gameConfigs;
+    const { minBet, maxBet, maxBetPerChoices } = gameConfigs;
 
-    const awayOdds = formatOdds(odds?.blue, fractionalOddsFormat);
-    const homeOdds = formatOdds(odds?.red, fractionalOddsFormat);
-    const drawOdds = formatOdds(odds?.draw, fractionalOddsFormat);
+    const homeOddsRange = formatOddRange(oddsRange.red, fractionalOddsFormat);
+    const awayOddsRange = formatOddRange(oddsRange.blue, fractionalOddsFormat);
+    const drawOddsRange = formatOddRange(oddsRange.draw, fractionalOddsFormat);
 
     const minBetMain = numberWithCommas(Math.max(minBet, userStakeLevel?.minBet ?? 0));
     const maxBetHome = numberWithCommas(Math.min(userStakeLevel?.maxBet ?? maxBet, maxBet, maxBetPerChoices.red));
@@ -186,17 +209,17 @@ const SoccerPinGoalPayout = ({
                     <tbody>
                         <tr>
                             <td>{t("glossary_red", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{homeOdds}</td>
+                            <td>{homeOddsRange}</td>
                             <td>{`${minBetMain} - ${maxBetHome}`}</td>
                         </tr>
                         <tr>
                             <td>{t("glossary_blue", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{awayOdds}</td>
+                            <td>{awayOddsRange}</td>
                             <td>{`${minBetMain} - ${maxBetAway}`}</td>
                         </tr>
                         <tr>
                             <td>{t("glossary_draw", { ns: SOCCER_PIN_GOAL })}</td>
-                            <td>{drawOdds}</td>
+                            <td>{drawOddsRange}</td>
                             <td>{`${minBetMain} - ${maxBetDraw}`}</td>
                         </tr>
                     </tbody>
