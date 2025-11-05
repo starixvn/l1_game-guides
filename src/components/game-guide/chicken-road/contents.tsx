@@ -58,7 +58,8 @@ const renderDifficultyTable = (t: Function, gameConfigs: GameConfigs) => {
     };
     const getMaxMultiplier = (mode: number) => {
         const config = fixedStepsMultiplierConfigs?.find((config) => config.mode === mode);
-        return config?.multiplierSteps[config?.multiplierSteps.length - 1];
+        const value = config?.multiplierSteps[config?.multiplierSteps.length - 1];
+        return value !== undefined ? value.toFixed(2) : undefined;
     };
     const modes = [
         { mode: t("difficulty_easy", { ns: "ChickenRoad" }), noOfLand: getNoOfLand(1), maxMultiplier: getMaxMultiplier(1) },
@@ -68,7 +69,7 @@ const renderDifficultyTable = (t: Function, gameConfigs: GameConfigs) => {
     ];
 
     return (
-        <div className="table-container">
+        <div className="table-container" style={{ marginBottom: "20px" }}>
             <table className="table">
                 <thead className="text-center">
                     <tr>
@@ -112,6 +113,17 @@ const renderPayout = (t: Function, gameConfigs: GameConfigs, userStakeLevel: Use
     );
 };
 
+const renderAutoPlay = (t: Function) => {
+    return <li className="guide-item">
+        <h2>{t("subtitle_auto_play", { ns: "Common" })}</h2>
+        <ul className={`desc`}>
+            <li>{t(`autoplay_para_1`, { ns: "ChickenRoad" })}</li>
+            <li>{t(`autoplay_para_2`, { ns: "ChickenRoad" } )}</li>
+            <li>{t(`autoplay_para_3`, { ns: "ChickenRoad" })}</li>
+        </ul>
+    </li>
+};
+
 const ChickenRoadContents: React.FC<ChickenRoadContentsProps> = ({
     gameConfigs,
     locale,
@@ -135,6 +147,7 @@ const ChickenRoadContents: React.FC<ChickenRoadContentsProps> = ({
             {renderCashingOut(t)}
             {renderDifficulty(t)}
             {renderDifficultyTable(t, gameConfigs)}
+            {renderAutoPlay(t)}
             {renderPayout(t, gameConfigs, userStakeLevel)}
 
             <TermsAndConditionsTolgee extendDetails={[t("crash_terms_conditions_para_1")]} />
