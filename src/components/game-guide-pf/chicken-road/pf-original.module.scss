@@ -4,8 +4,8 @@
     --page-background: transparent;
     --scrollbar-background: rgba(0, 0, 0, 0.3);
     --scrollbar-thumb-background: rgba(77, 134, 202, 0.8);
-    --font-size: 14px;
-    --font-size-table: 14px;
+    --font-size: 16px;
+    --font-size-table: 16px;
     --title-font-size: 18px;
     --font-family: "Inter", -apple-system, arial, sans-serif;
     --font-number: "Inter", sans-serif;
@@ -115,4 +115,8 @@
 }
 .pf-verify-header-round{
     color:#06c5dc
+}
+
+.pf-sub-desc-styled-red strong {
+    color: #ff0000;
 }

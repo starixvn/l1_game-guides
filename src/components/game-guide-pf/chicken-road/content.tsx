@@ -216,15 +216,13 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 </tbody>
                 <tfoot>
                     <tr className={PFStyles["pf-summary-row"]}>
-                        <td className={Styles["pf-summary-label"]}>{t("pf_total", { ns: "Common" })}</td>
-                        <td></td>
+                        <td colSpan={2} className={Styles["pf-summary-label"]}>{t("pf_total", { ns: "Common" })}</td>
                         <td className={Styles["pf-text-not-highlight"]}>10</td>
                         <td className={Styles["pf-text-highlight"]}>17.8</td>
                     </tr>
 
                     <tr className={`${PFStyles["pf-summary-row"]} ${PFStyles["pf-summary-row-netprofit"]}`}>
-                        <td className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
-                        <td></td>
+                        <td colSpan={2} className={Styles["pf-summary-label"]}>{t("win_loss", { ns: "Common" })}</td>
                         <td></td>
                         <td className={Styles["pf-text-highlight"]}>7.8</td>
                     </tr>
@@ -431,7 +429,7 @@ const renderChickenRoadVerifyPF = (
                         </div>
 
                         <ul className="desc">
-                            <li>{<Markup content={t("crash_pf_verifier_tool_para_5", { ns: "Common" })} />} </li>
+                            <li className={PFStyles["pf-sub-desc-styled-red"]}>{<Markup content={t("crash_pf_verifier_tool_para_5", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_6", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_7", { ns: "Common" })} />} </li>
                             <li>{<Markup content={t("crash_pf_verifier_tool_para_8", { ns: "Common" })} />} </li>
@@ -448,16 +446,24 @@ const renderChickenRoadVerifyPF = (
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>2.225</td>
-                                        <td>2.23</td>
+                                        <td>1.0251</td>
+                                        <td>1.03</td>
                                     </tr>
                                     <tr>
-                                        <td>2.224</td>
-                                        <td>2.22</td>
+                                        <td>11.5001</td>
+                                        <td>11.50</td>
                                     </tr>
                                     <tr>
-                                        <td>2.224999</td>
-                                        <td>2.22</td>
+                                        <td>104.999</td>
+                                        <td>105.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>999.99499</td>
+                                        <td>999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>999.99534</td>
+                                        <td>1000.00</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -538,7 +544,7 @@ const renderPFAppliedInGame = (
                     <T keyName={"pf_how_is_pf_applied_in_game_para_1"} params={{ gamename: displayName }} ns="Common" />
                 </li>
                 <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
-                <li>{<Markup content={t("pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
+                <li>{<Markup content={t("original_pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
                 <li>{t("crash_pf_how_is_pf_applied_in_game_para_4", { ns: "Common" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}
