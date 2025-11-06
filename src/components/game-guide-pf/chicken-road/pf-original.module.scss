@@ -4,9 +4,10 @@
     --page-background: transparent;
     --scrollbar-background: rgba(0, 0, 0, 0.3);
     --scrollbar-thumb-background: rgba(77, 134, 202, 0.8);
-    --font-size: 16px;
-    --font-size-table: 16px;
+    --font-size: 18px;
+    --font-size-table: 18px;
     --title-font-size: 18px;
+    --big-title-font-size: 24px;
     --font-family: "Inter", -apple-system, arial, sans-serif;
     --font-number: "Inter", sans-serif;
     --table-background: #182130;
@@ -47,7 +48,7 @@
 
 .pf-main-title {
     color: var(--primary-color) !important;
-    font-size: var(--title-font-size) !important;
+    font-size: var(--big-title-font-size) !important;
 }
 
 .pf-bet-details-table {
@@ -119,4 +120,30 @@
 
 .pf-sub-desc-styled-red strong {
     color: #ff0000;
+}
+
+.pf-applied-example-img-text {
+    position: absolute;
+    width: 8rem;
+    text-align: center;
+    right: 3.3rem;
+    top: 9rem;
+    font-weight: bold;
+}
+
+%pf-applied-example-text {
+    position: absolute;
+    width: 10rem;
+    text-align: center;
+    top: 1rem;
+}
+
+.pf-applied-example-text-1 {
+    @extend %pf-applied-example-text;
+    left: 2rem;
+}
+
+.pf-applied-example-text-2 {
+    @extend %pf-applied-example-text;
+    right: 2.4rem;
 }

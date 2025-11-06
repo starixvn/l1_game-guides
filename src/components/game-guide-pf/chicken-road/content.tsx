@@ -2,7 +2,6 @@ import { DefaultParamType, T, TFnType, TranslationKey, useTranslate } from "@tol
 import { Markup } from "interweave";
 import { FC } from "react";
 import { useImgVersionContext } from "../../../contexts/img-version";
-import { renderPFAppliedExample } from "../snng-base";
 import Styles from "../snng-base/pf.module.scss";
 import PFStyles from "./pf-original.module.scss";
 import { ChickenRoadPFContentsProps } from "./type";
@@ -75,14 +74,14 @@ const renderHowPFWork = (t: TFnType<DefaultParamType, string, TranslationKey>, i
 
             <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
                 <span style={{ textAlign: "center" }}>
-                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.4rem" }}>
+                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.6rem" }}>
                         {t("pf_fair_result", { ns: "Common" })}
                     </strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem" }}>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
                         {" "}
                         = {t("pf_casino_contribution", { ns: "Common" })}
                     </strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.4rem" }}>
+                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
                         {" "}
                         + {t("pf_player_contribution", { ns: "Common" })}
                     </strong>
@@ -422,7 +421,7 @@ const renderChickenRoadVerifyPF = (
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div style={{ fontSize: "1.4rem" }}>
+                            <div style={{ fontSize: "1.6rem" }}>
                                 <strong>{t("pf_final_result", { ns: "Common" })}</strong> = 2 ^ 32 / (
                                 <span className={Styles["pf-text-highlight-red"]}>X</span> + 1) * (1 - 0.03)
                             </div>
@@ -548,6 +547,57 @@ const renderPFAppliedInGame = (
                 <li>{t("crash_pf_how_is_pf_applied_in_game_para_4", { ns: "Common" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}
+        </div>
+    );
+};
+
+const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, TranslationKey>, imgVersion: string) => {
+    return (
+        <div className={Styles["pf-applied-example"]}>
+            <div className={Styles["pf-applied-example-block-1"]}>
+                <div className={`${PFStyles["pf-applied-example-text-1"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_server_Seed", { ns: "Common" })}
+                </div>
+                <div className={`${PFStyles["pf-applied-example-text-2"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_client_seed", { ns: "Common" })}
+                </div>
+                <div className="center-img">
+                    <img
+                        className={Styles["pf-work-example-img-background-full"]}
+                        src={`./static/images/pf/chicken-road/pf-applied-ingame-example-1.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+                <div className={PFStyles["pf-applied-example-img-text"]}>
+                    <span>{t("example_Player", { ns: "Common" })}</span>
+                </div>
+            </div>
+            <div className={Styles["pf-applied-example-block-2"]}>
+                <div className={`text-center ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_combined_seed", { ns: "Common" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
+                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-merge-seed-img"]}
+                        src={`./static/images/pf-snng/pf-merge-seed.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={Styles["pf-combined-hash"]}>
+                <div className={`${Styles["pf-combined-hash-text"]} ${Styles["pf-text-highlight"]}`}>
+                    {t("pf_header_combined_sha512_hash", { ns: "Common" })}
+                </div>
+                <div className="center-img" style={{ paddingTop: "0" }}>
+                    <img
+                        className={Styles["pf-combined-hash-img"]}
+                        src={`./static/images/pf-snng/pf-combined-hash.png?v=${imgVersion}`}
+                        alt="pf"
+                    ></img>
+                </div>
+            </div>
+            <div className={`${Styles["pf-example-block-final"]}`}>{t("pf_final_result", { ns: "Common" })}</div>
         </div>
     );
 };
