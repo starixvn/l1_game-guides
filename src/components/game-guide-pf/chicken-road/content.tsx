@@ -575,7 +575,7 @@ const renderPFAppliedExample = (t: TFnType<DefaultParamType, string, Translation
             <div className={Styles["pf-applied-example-block-2"]}>
                 <div className={`text-center ${Styles["pf-text-highlight"]}`}>
                     {t("pf_combined_seed", { ns: "Common" })} <br />({t("pf_server_Seed", { ns: "Common" })} +{" "}
-                    {t("pf_ header_merge_client_seed", { ns: "Common" })})
+                    {t("pf_client_seed", { ns: "Common" })})
                 </div>
                 <div className="center-img" style={{ paddingTop: "0" }}>
                     <img
