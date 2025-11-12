@@ -105,7 +105,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                 <thead>
                     <tr>
                         <th>{t("mode", { ns: "Plinko" })}</th>
-                        <th>{t("pf_bet_choice", { ns: "SabaNumber" })}</th>
+                        <th>{t("row", { ns: "Plinko" })}</th>
                         <th>{t("bet_amount", { ns: "SeDieMultiPlayer" })}</th>
                         <th>{t("pf_win", { ns: "SabaNumber" })}</th>
                     </tr>
@@ -437,10 +437,6 @@ const renderPlinkoVerifyPF = (
                             {renderBetDetailsExample(t, drawId)}
                             <li className={Styles["pf-sub-desc-highlight"]}>
                                 {<Markup content={t("pf_bacball_verifier_tool_para_24", { ns: "BacBall" })} />}
-
-                                <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
-                                    <li>{<Markup content={t("pf_bacball_verifier_tool_para_25", { ns: "BacBall" })} />}</li>
-                                </ul>
                             </li>
                             {renderVerifyExample(
                                 t,
