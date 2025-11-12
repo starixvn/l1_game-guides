@@ -25,6 +25,7 @@
 .original-guides {
     font-family: "Inter", sans-serif;
     color: var(--text-color);
+    padding-top: 1rem;
 
     .guide-item h2 {
         display: inline-block;
@@ -133,17 +134,17 @@
 
 %pf-applied-example-text {
     position: absolute;
-    width: 10rem;
+    width: 12rem;
     text-align: center;
     top: 1rem;
 }
 
 .pf-applied-example-text-1 {
     @extend %pf-applied-example-text;
-    left: 2rem;
+    left: 1rem;
 }
 
 .pf-applied-example-text-2 {
     @extend %pf-applied-example-text;
-    right: 2.4rem;
+    right: 1.4rem;
 }

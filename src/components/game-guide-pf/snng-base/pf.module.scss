@@ -165,9 +165,10 @@
     .pf-work-example-text-1 {
         position: absolute;
         top: -1.3rem;
-        width: 6.5rem;
+        width: 7.5rem;
         text-align: center;
         line-height: 1.2;
+        left: -4px;
     }
 
     .pf-work-example-text-2 {
@@ -974,7 +975,7 @@
     th {
         background: var(--table-header-bg, #233046) !important;
         color: var(#ffffff) !important;
-        
+
     }
 
     tbody {
@@ -1000,14 +1001,14 @@
 
     tfoot {
         background-color: #0c192b;
-        
-        
+
+
         tr {
             &:nth-child {
                 background-color: #0c192b;
             }
 
-            
+
         }
 
         td {
@@ -1163,7 +1164,7 @@
     color: #00C950;
 }
 
-.pf-text-highlight-original { 
+.pf-text-highlight-original {
     font-weight: 400!important;
     color: #FFF600;
 }
