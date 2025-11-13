@@ -158,12 +158,12 @@ const renderVerifyDetailExample = (
 
                 <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "var(--font-size)", backgroundColor: "#101721" }}>
                     <div className="flex gap-3 items-center justify-between">
-                        <h3 className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
-                            {<Markup content={t("pf_bacball_final result", { ns: "BacBall" })} />}
-                        </h3>
+                        <div className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
+                            {t("pf_bacball_final result", { ns: "BacBall" })}
+                        </div>
                         <div className="flex items-center">{t("title_multiplier", { ns: "Common" })}: 1x</div>
                     </div>
-                    <div className="flex gap-3 mt-2 items-center justify-between">
+                    <div className="flex gap-3 mt-2 mb-2 items-center justify-between">
                         <div style={{ marginBottom: "0" }}>
                             {<Markup content={t("mode", { ns: "Plinko" })} />}: {t("mode_low", { ns: "Plinko" })}
                         </div>
@@ -183,7 +183,7 @@ const renderVerifyDetailExample = (
                     <p>
                         {t("slot_index", { ns: "Plinko" })}: 1 + 1 + 0 + 1 + 1 + 1 + 0 + 0 = <span>5</span>
                     </p>
-                    <div className="d-flex gap-5 items-center">
+                    <div className="d-flex gap-5 items-center overflow-x-auto">
                         <div className="flex flex-column">
                             <p>0</p>
                             <p>5.6</p>
