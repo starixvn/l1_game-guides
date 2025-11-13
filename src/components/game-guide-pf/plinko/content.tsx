@@ -116,8 +116,8 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                             <div className={Styles["pf-bet-choice-dots"]}>{t("mode_low", { ns: "Plinko" })}</div>
                         </td>
                         <td>8</td>
-                        <td className={Styles["pf-text-highlight"]}>100</td>
-                        <td className={Styles["pf-text-highlight"]}>560</td>
+                        <td className={Styles["pf-text-highlight-original-bold"]}>100</td>
+                        <td className={Styles["pf-text-highlight-original-bold"]}>560</td>
                     </tr>
                 </tbody>
             </table>
@@ -204,7 +204,7 @@ const renderVerifyDetailExample = (
                             <p>4</p>
                             <p>0.5</p>
                         </div>
-                        <div className={`${Styles["pf-text-highlight"]} flex flex-column`}>
+                        <div className={`${Styles["pf-text-highlight-original-bold"]} flex flex-column`}>
                             <p>5</p>
                             <p>1</p>
                         </div>
@@ -362,7 +362,6 @@ const renderPlinkoVerifyPF = (
     const serverSeedSHA256 = "58cd2187b7e31612aecce94fbb254209e31b294eb41db6969176f04e71b50e2a";
     const randomNumber = "1008";
     const serverSeed = "i8G8SRghnLh5fn8duKRndDyQ2fcvBDyHjM3rBcEq";
-    const mergeServerSeed = "{“random”:“37;1;72;71”,“secret”:pYYVdOj7TaMqbJn0AZPE7mfO5Vi2TiUp”";
     const combinedSHA512Hash =
         "5f4bf8bd4b29c6ec09ccc99ecddd2f643e36e4c7b4ec973ee57a909b373cb82ca3d66057802bec61a9cfaa99461f22342bc015d4d03b32ad406c498ce8a2ff91";
     const drawId = "1073";

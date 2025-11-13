@@ -306,7 +306,7 @@ const renderVerifyDetailExample = (
                     <p className="bold">a9 ={">"} 169</p>
 
                     <div>
-                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
+                        <span className={`${Styles["pf-text-highlight-original-bold"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 1</span>
                         <span>
                             {" "}
                             - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (37 + 227) mod 2 = 0 {"=>"}{" "}
@@ -314,7 +314,7 @@ const renderVerifyDetailExample = (
                         </span>
                     </div>
                     <div>
-                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
+                        <span className={`${Styles["pf-text-highlight-original-bold"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 2</span>
                         <span>
                             {" "}
                             - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (1 + 61) mod 2 = 0 {"=>"}{" "}
@@ -322,7 +322,7 @@ const renderVerifyDetailExample = (
                         </span>
                     </div>
                     <div>
-                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
+                        <span className={`${Styles["pf-text-highlight-original-bold"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 3</span>
                         <span>
                             {" "}
                             - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (72 + 210) mod 2 = 0 {"=>"}{" "}
@@ -330,7 +330,7 @@ const renderVerifyDetailExample = (
                         </span>
                     </div>
                     <div>
-                        <span className={`${Styles["pf-text-highlight"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
+                        <span className={`${Styles["pf-text-highlight-original-bold"]}`}>{t("glossary_dice", { ns: "SeDieMultiPlayer" })} 4</span>
                         <span>
                             {" "}
                             - {t("pf_final_result", { ns: "SeDieMultiPlayer" })} = (71 + 169) mod 2 = 0 {"=>"}{" "}
