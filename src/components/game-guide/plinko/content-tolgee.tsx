@@ -1,7 +1,6 @@
 import { T, useTranslate } from "@tolgee/react";
-import { Markup } from "interweave";
 import { FC, useMemo } from "react";
-import { formatOdds, numberWithCommas } from "../../../helpers/number-helper";
+import { numberWithCommas } from "../../../helpers/number-helper";
 import TermsAndConditionsTolgee from "../base/terms-and-conditions/terms-and-conditions-tolgee";
 import { GameConfigs } from "../type";
 import { PlinkoContentsProps } from "./type";
@@ -47,6 +46,63 @@ const PlinkoGameRules: FC<{
     );
 };
 
+const LightningTableExample: FC<{
+    t: Function;
+}> = ({ t }) => {
+    return (
+        <div className="table-container">
+            <table className={`table text-center`}>
+                <thead>
+                    <tr>
+                        <th>{t("payout_slot", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th>{t("total_multiplier", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th>{t("bet_amount", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th>{t("header_win", { ns: TogleeNamespace.Common })}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8x</td>
+                        <td>30x</td>
+                        <td>10</td>
+                        <td style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+                            <span style={{ color: "#fff600" }}>2400</span>
+                            <span>(8x * 30x * 10)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+const GameRulesLightning: FC<{
+    t: Function;
+}> = ({ t }) => {
+    return (
+        <li className={`guide-item`}>
+            <h2 className="font-bold">{t("title_lightning_mode", { ns: TogleeNamespace.SpecificGame })}</h2>
+            <ul className="desc">
+                <li>{t("game_rules_lightning_para_1", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("game_rules_lightning_para_2", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>{t("game_rules_lightning_para_3", { ns: TogleeNamespace.SpecificGame })}</li>
+                <li>
+                    {t("example", { ns: TogleeNamespace.Common })}
+                    <ul className="detail">
+                        <li>{t("game_rules_lightning_example_1", { ns: TogleeNamespace.SpecificGame })}</li>
+                        <li>{t("game_rules_lightning_example_2", { ns: TogleeNamespace.SpecificGame })}</li>
+                        <li>{t("game_rules_lightning_example_3", { ns: TogleeNamespace.SpecificGame })}</li>
+                        <li>
+                            {t("game_rules_lightning_example_4", { ns: TogleeNamespace.SpecificGame })}
+                            <LightningTableExample t={t} />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    );
+};
+
 const PlinkoPayout: FC<{
     t: Function;
     gameConfigs: GameConfigs;
@@ -87,6 +143,7 @@ const PlinkoGameGuideContent: React.FC<PlinkoContentsProps> = ({ gameConfigs, fr
             <ul className={`game-guide`}>
                 <PlinkoIntroduction t={t} displayName={displayName} />
                 <PlinkoGameRules t={t} />
+                <GameRulesLightning t={t} />
                 <PlinkoPayout t={t} gameConfigs={gameConfigs} userStakeLevel={userStakeLevel} fractionalOddsFormat={fractionalOddsFormat} />
                 <TermsAndConditionsTolgee />
             </ul>
