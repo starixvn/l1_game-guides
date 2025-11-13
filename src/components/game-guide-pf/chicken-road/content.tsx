@@ -437,7 +437,7 @@ const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType
 
 
 const ChickenRoadPFGuideContent: FC<ChickenRoadPFContentsProps> = ({ locale, displayName }) => {
-    const { t } = useTranslate(["Common", "SabaNumber"]);
+    const { t } = useTranslate(["Common", "SabaNumber", "Plinko"]);
     const { imgVersion } = useImgVersionContext();
     const verImg = imgVersion ?? "1";
 

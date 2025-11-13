@@ -103,29 +103,33 @@ export const renderHowPFWork = (t: TFnType<DefaultParamType, string, Translation
             <h2>{t("pf_title_how_provably_fair_work", { ns: "Common" })} </h2>
             <div className="content">{<Markup content={t("pf_how_pf_work_para_1", { ns: "Common" })} />}</div>
 
-            <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
-                <span style={{ textAlign: "center" }}>
-                    <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.6rem" }}>
-                        {t("pf_fair_result", { ns: "Common" })}
-                    </strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
-                        {" "}
-                        = {t("pf_casino_contribution", { ns: "Common" })}
-                    </strong>
-                    <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
-                        {" "}
-                        + {t("pf_player_contribution", { ns: "Common" })}
-                    </strong>
-                </span>
+            <div className="content">
+                <div className={`${Styles["pf-block-highlight-text"]} ${Styles["pf-block-highlight-text-sedie"]}`}>
+                    <span style={{ textAlign: "center" }}>
+                        <strong className={Styles["pf-text-highlight"]} style={{ fontSize: "1.6rem" }}>
+                            {t("pf_fair_result", { ns: "Common" })}
+                        </strong>
+                        <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
+                            {" "}
+                            = {t("pf_casino_contribution", { ns: "Common" })}
+                        </strong>
+                        <strong className={Styles["pf-text-content"]} style={{ fontSize: "1.6rem" }}>
+                            {" "}
+                            + {t("pf_player_contribution", { ns: "Common" })}
+                        </strong>
+                    </span>
+                </div>
             </div>
 
-            <div>{t("pf_how_pf_work_para_2", { ns: "Common" })}</div>
-            <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
-                <li>{<Markup content={t("pf_how_pf_work_para_3", { ns: "Common" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_work_para_4", { ns: "Common" })} />}</li>
-                <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
-            </ul>
-            <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
+            <div className="content">
+                <div>{t("pf_how_pf_work_para_2", { ns: "Common" })}</div>
+                <ul className={Styles["pf-sub-desc"]} style={{ paddingLeft: "0" }}>
+                    <li>{<Markup content={t("pf_how_pf_work_para_3", { ns: "Common" })} />}</li>
+                    <li>{<Markup content={t("pf_how_pf_work_para_4", { ns: "Common" })} />}</li>
+                    <li>{<Markup content={t("pf_how_pf_work_para_5", { ns: "Common" })} />}</li>
+                </ul>
+                <p>{t("pf_how_pf_work_para_6", { ns: "Common" })}</p>
+            </div>
             {renderPFWorkExample(t, imgVersion)}
         </div>
     );
