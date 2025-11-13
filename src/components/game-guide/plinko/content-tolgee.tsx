@@ -54,10 +54,10 @@ const LightningTableExample: FC<{
             <table className={`table text-center`}>
                 <thead>
                     <tr>
-                        <th>{t("payout_slot", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th>{t("total_multiplier", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th>{t("bet_amount", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th>{t("header_win", { ns: TogleeNamespace.Common })}</th>
+                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("payout_slot", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("total_multiplier", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("bet_amount", { ns: TogleeNamespace.SpecificGame })}</th>
+                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"auto"}}>{t("header_win", { ns: TogleeNamespace.Common })}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,11 +92,9 @@ const GameRulesLightning: FC<{
                         <li>{t("game_rules_lightning_example_1", { ns: TogleeNamespace.SpecificGame })}</li>
                         <li>{t("game_rules_lightning_example_2", { ns: TogleeNamespace.SpecificGame })}</li>
                         <li>{t("game_rules_lightning_example_3", { ns: TogleeNamespace.SpecificGame })}</li>
-                        <li>
-                            {t("game_rules_lightning_example_4", { ns: TogleeNamespace.SpecificGame })}
-                            <LightningTableExample t={t} />
-                        </li>
+                        <li>{t("game_rules_lightning_example_4", { ns: TogleeNamespace.SpecificGame })}</li>
                     </ul>
+                    <LightningTableExample t={t} />
                 </li>
             </ul>
         </li>
