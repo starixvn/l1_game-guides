@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ENVIRONMENT, ORIENTATION } from "../common/constants";
 import Verification from "../components/verification/verification";
 import { ImgVersionProvider } from "../contexts/img-version";
+import { checkIsInteger } from "../helpers/number-helper";
 
 export type ProvablyFair = {
     provablyFair: string;
@@ -49,10 +50,6 @@ const ProvablyFair = (props: any) => {
     };
 
     useEffect(() => {
-        const checkIsInteger = (number: string | number | object) => {
-            return Number.isInteger(+number) ? +number : 0;
-        };
-
         const bindEvent = (element: any, eventName: any, eventHandler: any) => {
             if (element.addEventListener) {
                 element.addEventListener(eventName, eventHandler, false);

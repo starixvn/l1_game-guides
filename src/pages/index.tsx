@@ -8,8 +8,7 @@ import appSettings from "../common/app-settings";
 import { ENVIRONMENT, ORIENTATION, buildVersion } from "../common/constants";
 import { ImgVersionProvider } from "../contexts/img-version";
 import { isNewCascadingSlot, isNewSlotGame, isUseThemeSlot } from "../helpers/game-helper";
-import { checkIsInteger } from "../helpers/number-helper";
-
+import { checkIsInteger, checkIsNumber } from "../helpers/number-helper";
 const GameGuideMini = dynamic(() => import("../components/game-guide-mini/game-guide-mini"));
 const GameGuide = dynamic(() => import("../components/game-guide/game-guide"));
 const GameGuidePF = dynamic(() => import("../components/game-guide-pf/game-guide-pf"));
@@ -30,7 +29,7 @@ export type GameConfigs = {
 
 const handleUserStakeLevel = (queryParams: object | any, setUserStakeLevel: Function) => {
     if (queryParams?.minBet && queryParams?.maxBet) {
-        setUserStakeLevel({ minBet: checkIsInteger(queryParams.minBet), maxBet: checkIsInteger(queryParams.maxBet) });
+        setUserStakeLevel({ minBet: checkIsNumber(queryParams.minBet), maxBet: checkIsNumber(queryParams.maxBet) });
     }
 };
 
@@ -116,10 +115,6 @@ const Home: React.FC<{ gameSetting: any }> = ({ gameSetting }) => {
     };
 
     useEffect(() => {
-        const checkIsInteger = (number: string | number | object) => {
-            return Number.isInteger(+number) ? +number : 0;
-        };
-
         const bindEvent = (element: any, eventName: any, eventHandler: any) => {
             if (element.addEventListener) {
                 element.addEventListener(eventName, eventHandler, false);

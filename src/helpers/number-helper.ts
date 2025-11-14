@@ -2,8 +2,6 @@ const numberWithCommas = (number: number, toFixed = 2) => {
     return number.toLocaleString("en-US", { maximumFractionDigits: toFixed });
 };
 
-
-
 const randomInteger = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -18,6 +16,10 @@ const formatOddsWithoutOne = (value: number | undefined, fractionFormat = false)
 
 const formatOddsNotTwoDot = (value: number | undefined, fractionFormat = false) => {
     return fractionFormat && value ? `${numberWithCommas(value - 1)}` : `${value}`;
+};
+
+const checkIsNumber = (number: string | number | object) => {
+    return !Number.isNaN(+number) ? +number : 0;
 };
 
 const checkIsInteger = (number: string | number | object) => {
@@ -44,6 +46,7 @@ const numberWithCommasAndSuffix = (number: number, toFixed = 1, noZeroSuffix = t
 
 export {
     checkIsInteger,
+    checkIsNumber,
     formatOdds,
     formatOddsNotTwoDot,
     formatOddsWithoutOne,
@@ -51,3 +54,4 @@ export {
     numberWithCommasAndSuffix,
     randomInteger
 };
+
