@@ -421,20 +421,6 @@ const renderChickenRoadVerifyPF = (
     );
 };
 
-const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType<DefaultParamType, string, TranslationKey>) => {
-    return (
-        <div className={` ${Styles["pf-setting-header-sedie"]}`}>
-            <div>
-                <span>{iconQuestion}</span>
-            </div>
-            <span className={Styles["pf-verify-header-title"]}>{uppercaseToTitleCase(t(headerTitleKey, { ns: nameSpace }))}</span>
-            <div>
-                <span className={`${Styles["pf-verify-icon"]} ${Styles["pf-verify-icon-back"]}`}>{iconClose}</span>
-            </div>
-        </div>
-    );
-};
-
 
 const ChickenRoadPFGuideContent: FC<ChickenRoadPFContentsProps> = ({ locale, displayName }) => {
     const { t } = useTranslate(["Common", "SabaNumber", "Plinko"]);

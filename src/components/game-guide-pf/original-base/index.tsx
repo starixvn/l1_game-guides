@@ -90,7 +90,7 @@ export const renderPFAppliedInGame = (
                 </li>
                 <li>{t("pf_how_is_pf_applied_in_game_para_2", { ns: "Common" })}</li>
                 <li>{<Markup content={t("original_pf_how_is_pf_applied_in_game_para_3", { ns: "Common" })} />}</li>
-                <li>{t("pf_how_is_pf_applied_in_game_para_4", { ns: "Plinko" })}</li>
+                <li>{t("original_pf_how_is_pf_applied_in_game_para_4", { ns: "Common" })}</li>
             </ul>
             {renderPFAppliedExample(t, imgVersion)}
         </div>
