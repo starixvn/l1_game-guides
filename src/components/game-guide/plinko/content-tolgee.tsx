@@ -126,16 +126,17 @@ const PlinkoPayout: FC<{
 };
 
 const GameNameMapping: Record<number, string> = {
-    150: "game_name",
+    159: "game_name_159",
+    145: "game_name_145",
 };
 
 const PlinkoGameGuideContent: React.FC<PlinkoContentsProps> = ({ gameConfigs, fractionalOddsFormat, userStakeLevel, id }) => {
     const { t } = useTranslate([TogleeNamespace.Common, TogleeNamespace.SpecificGame]);
 
     const displayName = useMemo(() => {
-        return t(GameNameMapping[id || 150], { ns: TogleeNamespace.SpecificGame });
+        return t(GameNameMapping[id || 145], { ns: TogleeNamespace.SpecificGame });
     }, [t]);
-
+    
     return (
         <div className={`sedie`}>
             <ul className={`game-guide`}>

@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useImgVersionContext } from "../../../contexts/img-version";
 import { PlinkoPFContentsProps } from "./type";
 import Styles from "../snng-base/pf.module.scss";
+import OriginalStyles from "../original-base/pf-original.module.scss";
 import { renderAdvertisePF, renderPFAppliedInGame, renderPFInfo, renderHowPFWork } from "../original-base";
 import { Markup } from "interweave";
 
@@ -51,7 +52,7 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
                 }}
             >
                 {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
-                <div className={Styles["pf-verify-info-item"]}>{t("pf_result", { ns: "Common" })}: 5.6x</div>
+                <div className={Styles["pf-verify-info-item"]}>{t("pf_result", { ns: "Common" })}: 1x</div>
             </div>
             <div
                 className="text-white"
@@ -71,7 +72,8 @@ const resultBlock = (t: TFnType<DefaultParamType, string, TranslationKey>, drawI
 
 const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, drawId: string) => {
     return (
-        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-3"]} ${Styles["pf-verify-example-sedie"]}`}>
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-3"]} ${OriginalStyles["pf-verify-example-sedie"]}`}
+        style={{background: "linear-gradient(180deg, #0854B2 0%, #05264D 38.5%, #060D15 100.04%)"}}>
             <div className={`${Styles["pf-verify-header-sedie"]}`}>
                 <span className={`${Styles["pf-verify-header-title"]} ${Styles["pf-verify-header-title-sedie"]}`}>
                     {t("pf_bet_details", { ns: "Common" })}
@@ -87,12 +89,12 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
 
             <div className={`${Styles["pf-verify-draw-info-sedie"]}`}>
                 <div className={Styles["pf-verify-info-item"]}>
-                    <strong>
+                    <div>
                         {t("glossary_round_id", { ns: "SabaNumber" })}: {drawId}
-                    </strong>
+                    </div>
                 </div>
                 <div className={Styles["pf-verify-info-item"]}>
-                    {t("pf_result", { ns: "Common" })}:<div className={Styles["pf-result-dot-container"]}>5.6x</div>
+                    {t("pf_result", { ns: "Common" })}:<div className={Styles["pf-result-dot-container"]}>1x</div>
                 </div>
             </div>
 
@@ -117,7 +119,7 @@ const renderBetDetailsExample = (t: TFnType<DefaultParamType, string, Translatio
                         </td>
                         <td>8</td>
                         <td className={Styles["pf-text-highlight-original-bold"]}>100</td>
-                        <td className={Styles["pf-text-highlight-original-bold"]}>560</td>
+                        <td className={Styles["pf-text-highlight-original-bold"]}>100</td>
                     </tr>
                 </tbody>
             </table>
@@ -132,7 +134,7 @@ const renderVerifyDetailExample = (
     combinedSHA512Hash: string
 ) => {
     return (
-        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${OriginalStyles["pf-verify-example-sedie"]}`}>
             {renderPFHeader(t)}
 
             <div>
@@ -248,7 +250,7 @@ const renderVerifyExample = (
     resultBlock: any
 ) => {
     return (
-        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${OriginalStyles["pf-verify-example-sedie"]}`}>
             {renderPFHeader(t)}
             {resultBlock}
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
@@ -306,10 +308,10 @@ const renderPopupHeader = (headerTitleKey: string, nameSpace: string, t: TFnType
 
 const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, TranslationKey>, randomNumber: string, serverSeedSHA256: string) => {
     return (
-        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${Styles["pf-verify-example-sedie"]}`}>
+        <div className={`${Styles["pf-verify-example"]} ${Styles["pf-verify-step-1"]} ${OriginalStyles["pf-verify-example-sedie"]}`}>
             {renderPopupHeader("pf_title_provably_fair_settings", "Common", t)}
             <div>
-                <p>{t("pf_setting_para_1", { ns: "SabaNumber" })}</p>
+                <p>{t("turn_based_pf_settings_para_1", { ns: "Common" })}</p>
                 <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
                 <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
