@@ -14,15 +14,7 @@ const PlinkoIntroduction: FC<{
     return (
         <li className={`guide-item `}>
             <h2>{t("title_introduction", { ns: TogleeNamespace.Common })}</h2>
-            <div className="content">
-                <T
-                    params={{
-                        gameName: displayName,
-                    }}
-                >
-                    {t("intro_para", { ns: TogleeNamespace.SpecificGame })}
-                </T>
-            </div>
+            <div className="content">{t("intro_para", { gameName: displayName, ns: TogleeNamespace.SpecificGame })}</div>
         </li>
     );
 };
@@ -54,10 +46,18 @@ const LightningTableExample: FC<{
             <table className={`table text-center`}>
                 <thead>
                     <tr>
-                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("payout_slot", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("total_multiplier", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"22%"}}>{t("bet_amount", { ns: TogleeNamespace.SpecificGame })}</th>
-                        <th style={{paddingLeft: "4px" , paddingRight: "4px", width:"auto"}}>{t("header_win", { ns: TogleeNamespace.Common })}</th>
+                        <th style={{ paddingLeft: "4px", paddingRight: "4px", width: "22%" }}>
+                            {t("payout_slot", { ns: TogleeNamespace.SpecificGame })}
+                        </th>
+                        <th style={{ paddingLeft: "4px", paddingRight: "4px", width: "22%" }}>
+                            {t("total_multiplier", { ns: TogleeNamespace.SpecificGame })}
+                        </th>
+                        <th style={{ paddingLeft: "4px", paddingRight: "4px", width: "22%" }}>
+                            {t("bet_amount", { ns: TogleeNamespace.SpecificGame })}
+                        </th>
+                        <th style={{ paddingLeft: "4px", paddingRight: "4px", width: "auto" }}>
+                            {t("header_win", { ns: TogleeNamespace.Common })}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
