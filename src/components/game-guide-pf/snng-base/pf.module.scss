@@ -360,6 +360,14 @@
         margin-bottom: 0.8rem;
     }
 
+    .original-pf-verify-section-title {
+        @extend .pf-verify-section-title;
+        @media (min-width: 768px) {
+            font-size: 1.6rem;
+        }
+    }
+
+
     .pf-verify-icon-info {
         position: absolute;
         right: 0.8rem;
@@ -392,6 +400,14 @@
         color: #fff;
         font-size: 1.2rem;
         font-weight: 700;
+    }
+
+    .original-pf-verify-button-green {
+        @extend .pf-verify-button-green;
+        font-size: 1.4rem;
+        @media (min-width: 768px) {
+            font-size: 1.6rem;
+        }
     }
 
     .icon-export {

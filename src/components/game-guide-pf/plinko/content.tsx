@@ -138,13 +138,13 @@ const renderVerifyDetailExample = (
             {renderPFHeader(t)}
 
             <div>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_ header_merge_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{mergeServerSeed}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconEdit}</span>
                 </div>
 
-                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                <div className={Styles["original-pf-verify-section-title"]} style={{ marginTop: "1rem" }}></div>
                     {t("pf_server_Seed", { ns: "Common" })}
                 </div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
@@ -152,7 +152,7 @@ const renderVerifyDetailExample = (
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
 
-                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                <div className={Styles["original-pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
                     {t("pf_header_combined_sha512_hash", { ns: "Common" })}
                 </div>
                 <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
@@ -160,7 +160,7 @@ const renderVerifyDetailExample = (
 
                 <div className={Styles["pf-verify-block-form"]} style={{ fontSize: "var(--font-size)", backgroundColor: "#101721" }}>
                     <div className="flex gap-3 items-center justify-between">
-                        <div className={Styles["pf-verify-section-title"]} style={{ marginBottom: "0" }}>
+                        <div className={Styles["original-pf-verify-section-title"]} style={{ marginBottom: "0" }}>
                             {t("pf_bacball_final result", { ns: "BacBall" })}
                         </div>
                         <div className="flex items-center">{t("title_multiplier", { ns: "Common" })}: 1x</div>
@@ -171,9 +171,9 @@ const renderVerifyDetailExample = (
                         </div>
                         <div className="flex items-center">{t("row", { ns: "Plinko" })}: 8</div>
                     </div>
-                    <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                    <div className={Styles["original-pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                     <p className={Styles["break-word"]}>{combinedSHA512Hash}</p>
-                    <div className={Styles["pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
+                    <div className={Styles["original-pf-verify-section-title"]}>{t("pf_verification_para_3", { ns: "SabaNumber" })}</div>
                     <p className="bold">5f ={">"} 95 mod 2 = 1</p>
                     <p className="bold">4b ={">"} 75 mod 2 = 1</p>
                     <p className="bold">f8 ={">"} 248 mod 2 = 0</p>
@@ -225,7 +225,6 @@ const renderVerifyDetailExample = (
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
@@ -254,12 +253,12 @@ const renderVerifyExample = (
             {renderPFHeader(t)}
             {resultBlock}
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
-                <div className={Styles["pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
+                <div className={Styles["original-pf-verify-section-title"]} style={{ marginTop: "1rem" }}>
                     {t("pf_server_Seed", { ns: "Common" })}
                 </div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
@@ -268,24 +267,24 @@ const renderVerifyExample = (
                 </div>
             </div>
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                     <span className={`${Styles["pf-verify-input-text"]}`}>{mergeClientSeed}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
             <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_header_combined_sha512_hash", { ns: "Common" })}</div>
                 <span className={Styles["pf-verify-icon-info"]}>{iconInfo}</span>
                 <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`} style={{ marginTop: "1.2rem" }}>
                     <span className={`${Styles["pf-verify-input-text"]} text-center`}>{combinedSHA512Hash}</span>
                     <span className={Styles["pf-verify-icon"]}>{iconCopy}</span>
                 </div>
             </div>
-            <div className={Styles["pf-verify-button-green"]} style={{ fontSize: "1.4rem" }}>
+            <div className={Styles["original-pf-verify-button-green"]}>
                 {t("pf_verify", { ns: "Spaceflight" })}
             </div>
-            <div className="text-center" style={{ marginTop: "1rem", fontSize: "1.4rem" }}>
+            <div className={`text-center  ${OriginalStyles["text-original"]}`} style={{ marginTop: "1rem" }}>
                 {t("pf_provably_fair_para_2", { ns: "Spaceflight" })}
             </div>
         </div>
@@ -313,7 +312,7 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
             <div>
                 <p>{t("turn_based_pf_settings_para_1", { ns: "Common" })}</p>
                 <p>{t("pf_settings_para_2", { ns: "Common" })}</p>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_client_seed", { ns: "Common" })}</div>
                 <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                     <div className={Styles["pf-verify-option"]}>
                         <div className={Styles["pf-verify-option-radio"]} style={{ color: "#fff" }}>
@@ -342,7 +341,7 @@ const renderPFSettingsExample = (t: TFnType<DefaultParamType, string, Translatio
                         ></div>
                     </div>
                 </div>
-                <div className={Styles["pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
+                <div className={Styles["original-pf-verify-section-title"]}>{t("pf_server_seed_sha256", { ns: "Spaceflight" })}</div>
                 <div className={`${Styles["pf-verify-block-form"]} ${Styles["pf-verify-block-form-sedie"]}`}>
                     <div className={`${Styles["pf-verify-input-normal"]} ${Styles["pf-verify-input-full"]}`}>
                         <span className={Styles["pf-verify-input-text"]}>{serverSeedSHA256}</span>
@@ -391,7 +390,7 @@ const renderPlinkoVerifyPF = (
                                 locale === "en" ? Styles["pf-block-highlight-text-en"] : ""
                             }`}
                         >
-                            <div style={{ fontSize: "1.4rem" }}>
+                            <div className={OriginalStyles["text-original"]}>
                                 <strong>{t("pf_verifier_tool_para_4", { ns: "Plinko" })}</strong>
                             </div>
                         </div>

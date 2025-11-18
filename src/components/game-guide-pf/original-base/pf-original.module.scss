@@ -149,3 +149,10 @@
     @extend %pf-applied-example-text;
     right: 1.4rem;
 }
+
+.text-original {
+    font-size: 1.4rem;
+    @media (min-width: 768px) {
+        font-size: 1.6rem;
+    }
+}
