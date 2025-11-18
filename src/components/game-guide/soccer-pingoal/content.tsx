@@ -11,16 +11,16 @@ import { RangeValue } from ".";
 
 const oddsRange = {
     red: {
-        min: 2,
-        max: 2.23,
+        min: 1.72,
+        max: 2.46,
     },
     blue: {
-        min: 2,
-        max: 2.23,
+        min: 1.72,
+        max: 2.46,
     },
     draw: {
-        min: 7,
-        max: 11.5,
+        min: 8.2,
+        max: 20,
     },
 }
 
