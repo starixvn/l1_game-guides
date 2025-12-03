@@ -22,6 +22,7 @@ import PontoonGuide from "./pontoon";
 import SeDieMultiplayerGuide from "./se-die-multiplayer";
 import SoccerPinGoalGameGuide from "./soccer-pingoal";
 import SpaceFlightGuide from "./space-flight";
+import LudoGuide from "./ludo";
 
 const BigSmallGuide = dynamic(() => import("./big-small"));
 const DragonTigerGuide = dynamic(() => import("./dragon-tiger"));
@@ -249,6 +250,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.PLINKO:
             case GAMES.PLINKO_X:
                 return <PlinkoGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.LUDO:
+                return <LudoGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
         }

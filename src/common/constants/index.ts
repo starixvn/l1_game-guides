@@ -152,6 +152,7 @@ export const GAMES = {
     CRASH_X: 144,
     PLINKO: 145,
     PLINKO_X: 159,
+    LUDO: 163,
 };
 
 export const GAMES_MINI = {
