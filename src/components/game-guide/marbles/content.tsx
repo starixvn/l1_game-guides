@@ -251,7 +251,7 @@ const MarblesPayout = ({ gameConfigs, userStakeLevel, fractionalOddsFormat }: Ma
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>{t("glossary_under", { ns: MARBLES_158 })}</td>
+                                                <td>{t("glossary_undergoal", { ns: MARBLES_158 })}</td>
                                                 <td>{underOddRange}</td>
                                                 <td className={Styles["nowrap"]}>
                                                     {minBetMain} - {maxBetUnder}
