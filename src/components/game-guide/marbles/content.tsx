@@ -147,7 +147,7 @@ const MarblesGameRules = ({ maxBet }: { maxBet: string }) => {
                                     <td>{t("win_condition_over", { ns: MARBLES_158 })}</td>
                                 </tr>
                                 <tr>
-                                    <td>{t("glossary_under", { ns: MARBLES_158 })}</td>
+                                    <td>{t("glossary_undergoal", { ns: MARBLES_158 })}</td>
                                     <td>{t("win_condition_under", { ns: MARBLES_158 })}</td>
                                 </tr>
                                 <tr>
