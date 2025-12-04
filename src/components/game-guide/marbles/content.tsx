@@ -214,9 +214,9 @@ const MarblesPayout = ({ gameConfigs, userStakeLevel, fractionalOddsFormat }: Ma
                                     <th className={`bold ${Styles[BET_OPTION_STYLE]}`}>
                                         {t("header_betoption", { ns: COMMON })}
                                     </th>
-                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: MARBLES_158 })}</th>
+                                    <th className={`bold ${Styles["nowrap"]}`}>{t("header_odds", { ns: COMMON })}</th>
                                     <th className={`bold ${Styles["nowrap"]}`}>
-                                        <Markup content={t("header_betlimit", { ns: MARBLES_158 })} />{" "}
+                                        <Markup content={t("header_betlimit", { ns: COMMON })} />{" "}
                                     </th>
                                 </tr>
                             </thead>
