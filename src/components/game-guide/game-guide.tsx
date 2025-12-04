@@ -69,6 +69,7 @@ const TapFortuneGuide = dynamic(() => import("./tap-fortune"));
 const CoinMiningGuide = dynamic(() => import("./coin-mining"));
 const RocketXGuide = dynamic(() => import("./rocket-x"));
 const MarbleFootball2GameGuide = dynamic(() => import("./marble-football2"));
+const MarblesGameGuide = dynamic(() => import("./marbles"));
 const CrashXGuide = dynamic(() => import("./crash-x"));
 const PlinkoGuide = dynamic(() => import("./plinko"));
 
@@ -249,6 +250,8 @@ class GameGuide<P extends BaseProps> extends GuideBase<P> {
             case GAMES.PLINKO:
             case GAMES.PLINKO_X:
                 return <PlinkoGuide key={`game-${gameId}`} {...gameGuideProps} />;
+            case GAMES.MARBLES_158:
+                return <MarblesGameGuide key={`game-${gameId}`} {...gameGuideProps} />;
             default:
                 return this.otherGuides(name, gameGuideProps, gameId);
         }

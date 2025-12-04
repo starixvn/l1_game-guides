@@ -151,6 +151,7 @@ export const GAMES = {
     BACCARAT_MULTIPLAYER: 150,
     CRASH_X: 144,
     PLINKO: 145,
+    MARBLES_158: 158,
     PLINKO_X: 159,
 };
 
