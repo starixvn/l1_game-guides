@@ -190,6 +190,8 @@ export const GAMES_PF = {
     PLINKO: 145,
     CHICKEN_ROAD: 157,
     PLINKO_X: 159,
+    CHICKEN_LOVE: 166,
+    CHICKEN_RACE: 167
 };
 
 export const TolgeeConfig = {

@@ -374,5 +374,13 @@
     "163": {
         "id": 163,
         "gameName": "Ludo"
+    },
+    "166": {
+        "id": 166,
+        "gameName": "Chicken Love"
+    },
+    "167": {
+        "id": 167,
+        "gameName": "Chicken Race"
     }
 }
